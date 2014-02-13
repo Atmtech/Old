@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+
+    <script type="text/javascript" src="/Javascript/Utilitaires.js"></script>
+    <link href='../css/Site.css' rel='stylesheet' />
+</head>
+<body>
+
+
+    <h1>Sexualité</h1>
+    <table>
+        <tr>
+            <td>
+                <div class='contenantBadge' style='background-color: rgb(181, 246, 164);'>
+                    <div class='mentionAccompli'>Accompli</div>
+                    <div class='titreBadge'>Hit n run</div>
+                    <div class='badge' style='background: gray;'>
+                        <div class='badgeInterieur' style='background: -webkit-linear-gradient(#FF99CC,gray);'>
+                            <img src='../images/Badge/kiss-48.png' class='imageBadge' />
+                        </div>
+                    </div>
+                    <div class='contenantMenuBadge'>
+                        <div style='display: inline-block;'>
+                            <img src='../images/Badge/rating-48.png' style='width: 16px; height: 16px;' />
+                            <input type='button' class='boutonBadge' id='ouvrirFenetre1' rel='#visualiserAccomplissement1' value='Voir' />
+                        </div>
+                    </div>
+                </div>
+                <script type='text/javascript'>$(document).ready(function () { $('#ouvrirFenetre1').overlay({ mask: { color: '#ebecff', loadSpeed: 200, opacity: 0.9 }, closeOnClick: false }); });</script>
+                <style>
+                    .modal1
+                    {
+                        background-color: #fff;
+                        display: none;
+                        width: 350px;
+                        padding: 10px 10px 10px 10px;
+                        text-align: left;
+                        border: 2px solid #333;
+                        opacity: 0.8;
+                        -moz-border-radius: 6px;
+                        -webkit-border-radius: 6px;
+                        -moz-box-shadow: 0 0 50px #ccc;
+                        -webkit-box-shadow: 0 0 50px #ccc;
+                    }
+                </style>
+                <div class='modal1' id='visualiserAccomplissement1'>
+                    <h2>Accomplissement</h2>
+                    <p>Avoir embrassé un étranger dans un endroit public</p>
+                   
+                        <button class='close'>Fermer</button>
+                   
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

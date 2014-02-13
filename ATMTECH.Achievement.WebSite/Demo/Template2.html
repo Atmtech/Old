@@ -1,0 +1,854 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <style>
+        html, body
+        {
+            height: 100%;
+            padding: 0px;
+            background: rgba(165,182,194,1);
+            background: -moz-linear-gradient(top, rgb(88, 113, 130) 0%, rgba(41,71,92,1) 100%);
+            margin: 0 auto;
+            font-family: Georgia, serif;
+        }
+
+        .button
+        {
+            border-top: 1px solid #96d1f8;
+            background: #65a9d7;
+            padding: 7.5px 15px;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+            text-shadow: rgba(0,0,0,.4) 0 1px 0;
+            color: white;
+            font-size: 16px;
+            font-family: Georgia, serif;
+            text-decoration: none;
+            vertical-align: middle;
+            border: none;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+            .button:hover
+            {
+                border-top-color: #28597a;
+                background: #28597a;
+                color: #ccc;
+            }
+
+        .bubbleLeft
+        {
+            position: relative;
+            width: auto;
+            height: auto;
+            padding: 0px;
+            background: #FFFFFF;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+        }
+
+            .bubbleLeft:after
+            {
+                content: '';
+                position: absolute;
+                border-style: solid;
+                border-width: 15px 15px 15px 0;
+                border-color: transparent #FFFFFF;
+                display: block;
+                width: 0;
+                z-index: 1;
+                margin-top: -15px;
+                left: -15px;
+                top: 40px;
+            }
+
+
+        .bubbleRight
+        {
+            position: relative;
+            width: auto;
+            height: auto;
+            padding: 0px;
+            background: #c2c2c2;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+        }
+
+            .bubbleRight:after
+            {
+                content: '';
+                position: absolute;
+                border-style: solid;
+                border-width: 15px 0 15px 15px;
+                border-color: transparent #c2c2c2;
+                display: block;
+                width: 0;
+                z-index: 1;
+                margin-top: -15px;
+                right: -15px;
+                top: 40px;
+            }
+
+
+
+        label
+        {
+            display: inline-block;
+            width: 5em;
+            background-color: gold;
+        }
+    </style>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+
+
+    <div style="padding-top: 10px; color: white; background-color: #4a7796">
+        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="width: 50%; padding-left: 20px; padding-bottom: 10px; font-weight: bold; font-variant: small-caps; font-size: 40px;">WHOIS-ME
+                </td>
+                <td style="width: 50%">
+                    <div style="float: right; padding-right: 10px;">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <img src="images/User/moose.jpg" style="width: 25px; height: 25px; border-radius: 20px; border: 3px solid rgb(52, 80, 116);" /></td>
+                                <td style="padding-left: 10px; font-size: 17px;">Vincent Rioux</td>
+                                <td style="padding-left: 13px;">
+
+                                    <img src="images/Badge/logout-48.png" style="width: 25px; height: 25px;" />
+
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <script>
+        $(function () {
+            $(document).tooltip({
+                content: function () {
+                    alert('test');
+                    return $(this).prop('title');
+                }
+            });
+        });
+    </script>
+
+
+    <div style="width: 100%; background-color: rgb(100, 158, 199); height: 70px; padding-top: 5px; overflow: auto; overflow-y: hidden;">
+        <table>
+            <tr>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" title="<div style='font-family:arial;font-size:12px;'><b>Lorem</b><br><br> ipsum dolor sit xxxxxxxxxxxxx xxxx  amet,<br>consectetur adipisicing elit</div>" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style='width: 50px; text-align: center;'>
+                        <div style='padding-left: 15px;'>
+                            <div style='width: 30px; height: 30px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: white; border: 5px gray solid;'>
+                                <div style='padding-top: 3px;'>
+                                    <img src='images/Badge/yin_yang-48.png' style="width: 25px; height: 25px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="background-color: rgb(191, 191, 191); font-size: 13px; font-weight: bold;">
+
+
+        <table cellpadding="0" cellspacing="0" style="width: 100%" border="0">
+            <tr>
+                <td>
+                    <button class="button" value="Proposer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="images/Badge/comments-48.png" width="20px" />
+                                </td>
+                                <td>Ajouter un accomplissement (1000)            
+                                </td>
+                            </tr>
+                        </table>
+                    </button>
+                    <button class="button" value="Proposer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="images/Badge/comments-48.png" width="20px" />
+                                </td>
+                                <td>Proposer un accomplissement             
+                                </td>
+                            </tr>
+                        </table>
+                    </button>
+                    <button class="button" value="Proposer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="images/Badge/comments-48.png" width="20px" />
+                                </td>
+                                <td>Amis (34)             
+                                </td>
+                            </tr>
+                        </table>
+                    </button>
+                    <button class="button" value="Proposer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="images/Badge/comments-48.png" width="20px" />
+                                </td>
+                                <td>Mon profil            
+                                </td>
+                            </tr>
+                        </table>
+                    </button>
+                    <button class="button" value="Proposer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="images/Badge/comments-48.png" width="20px" />
+                                </td>
+                                <td>Voter pour un accomplissement            
+                                </td>
+                            </tr>
+                        </table>
+                    </button>
+                </td>
+                <td>
+                    <div style="text-align: right; padding-right: 10px;">
+                        <input type="text" style="width: 300px; font-size: 12px; border-color: transparent;" value="" placeholder="Rechercher : amis, accomplissement" id="Text1">
+                        <img src="images/Badge/search-48.png" style="width: 15px; height: 15px;" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div style="padding: 10px 10px 10px 10px;">
+        <br />
+        <table style="padding-bottom: 10px;">
+            <tr>
+                <td style="vertical-align: top; padding-right: 10px;">
+                    <img src="images/User/moose.jpg" style="width: 50px; height: 50px; border-radius: 50px; border: 4px solid rgb(52, 80, 116);" />
+                </td>
+                <td style="vertical-align: top; padding-left: 10px;">
+                    <div class="bubbleLeft">
+                        <div style="padding: 15px 15px 15px 15px;">
+                            <div style="font-size: 15px; font-weight: bold;">Vincent Rioux a dit</div>
+                            <div style="font-size: 12px;">Il y a 1h ...</div>
+
+                            <div style="font-size: 12px; padding-bottom: 15px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer aliquam. Donec non est. Phasellus vitae felis. Maecenas eget turpis vel libero interdum rhoncus. Pellentesque volutpat tellus a risus. Proin sagittis cursus magna. Phasellus et neque fermentum sapien elementum vehicula. In ornare pede sit amet justo. Sed id est a lectus accumsan egestas. Vivamus hendrerit odio ut tortor. Sed ultrices sagittis metus. Cras diam ligula, consectetuer eu, placerat sed, rhoncus eget, sapien. Phasellus vel leo. Nullam blandit, ligula sit amet rhoncus vulputate, ligula nulla malesuada urna, a tincidunt quam nunc molestie nisl.</div>
+
+                            <div style="font-size: 10px; padding-bottom: 10px; font-weight: bold;">
+                                <table>
+                                    <tr>
+                                        <td><a href="#">
+                                            <img src="images/Badge/comments-48.png" style="width: 15px; height: 15px;" />
+                                            Commenter</a></td>
+                                        <td><a href="#">
+                                            <img src="images/Badge/like_outline-48.png" style="width: 15px; height: 15px;" />
+                                            J'aime</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="bubbleRight">
+                                            <div style="padding: 15px 15px 15px 15px;">
+                                                <div style="font-size: 15px; font-weight: bold;">Vincent Rioux</div>
+                                                <div style="font-size: 12px;">Il y a 1h ...</div>
+
+                                                <div style="font-size: 12px; padding-bottom: 10px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer aliquam. Donec non est. Phasellus vitae felis. Maecenas eget turpis vel libero interdum rhoncus. Pellentesque volutpat tellus a risus. Proin sagittis cursus magna. Phasellus et neque fermentum sapien elementum vehicula. In ornare pede sit amet justo. Sed id est a lectus accumsan egestas. Vivamus hendrerit odio ut tortor. Sed ultrices sagittis metus. Cras diam ligula, consectetuer eu, placerat sed, rhoncus eget, sapien. Phasellus vel leo. Nullam blandit, ligula sit amet rhoncus vulputate, ligula nulla malesuada urna, a tincidunt quam nunc molestie nisl.</div>
+                                                <div style="font-size: 10px; font-weight: bold;">
+                                                    <table>
+                                                        <tr>
+                                                            <td><a href="#">
+                                                                <img src="images/Badge/comments-48.png" style="width: 15px; height: 15px;" />
+                                                                Commenter</a></td>
+                                                            <td><a href="#">
+                                                                <img src="images/Badge/like_outline-48.png" style="width: 15px; height: 15px;" />
+                                                                J'aime</a></td>
+                                                        </tr>
+                                                    </table>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align: top; padding-left: 20px;">
+                                        <img src="images/User/moose.jpg" style="width: 50px; height: 50px; border-radius: 50px; border: 4px solid rgb(52, 80, 116);" />
+                                </tr>
+                            </table>
+
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="bubbleRight">
+                                            <div style="padding: 15px 15px 15px 15px;">
+                                                <div style="font-size: 15px; font-weight: bold;">Vincent Rioux</div>
+                                                <div style="font-size: 12px;">Il y a 1h ...</div>
+
+                                                <div style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer aliquam. Donec non est. Phasellus vitae felis. Maecenas eget turpis vel libero interdum rhoncus. Pellentesque volutpat tellus a risus. Proin sagittis cursus magna. Phasellus et neque fermentum sapien elementum vehicula. In ornare pede sit amet justo. Sed id est a lectus accumsan egestas. Vivamus hendrerit odio ut tortor. Sed ultrices sagittis metus. Cras diam ligula, consectetuer eu, placerat sed, rhoncus eget, sapien. Phasellus vel leo. Nullam blandit, ligula sit amet rhoncus vulputate, ligula nulla malesuada urna, a tincidunt quam nunc molestie nisl.</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align: top; padding-left: 20px;">
+                                        <img src="images/User/moose.jpg" style="width: 50px; height: 50px; border-radius: 50px; border: 4px solid rgb(52, 80, 116);" />
+                                </tr>
+                            </table>
+
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="bubbleRight">
+                                            <div style="padding: 15px 15px 15px 15px;">
+                                                <div style="font-size: 15px; font-weight: bold;">Vincent Rioux</div>
+                                                <div style="font-size: 12px;">Il y a 1h ...</div>
+
+                                                <div style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer aliquam. Donec non est. Phasellus vitae felis. Maecenas eget turpis vel libero interdum rhoncus. Pellentesque volutpat tellus a risus. Proin sagittis cursus magna. Phasellus et neque fermentum sapien elementum vehicula. In ornare pede sit amet justo. Sed id est a lectus accumsan egestas. Vivamus hendrerit odio ut tortor. Sed ultrices sagittis metus. Cras diam ligula, consectetuer eu, placerat sed, rhoncus eget, sapien. Phasellus vel leo. Nullam blandit, ligula sit amet rhoncus vulputate, ligula nulla malesuada urna, a tincidunt quam nunc molestie nisl.</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align: top; padding-left: 20px;">
+                                        <img src="images/User/moose.jpg" style="width: 50px; height: 50px; border-radius: 50px; border: 4px solid rgb(52, 80, 116);" />
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="bubbleRight">
+                                            <div style="padding: 15px 15px 15px 15px;">
+                                                <div style="font-size: 15px; font-weight: bold;">Vincent Rioux</div>
+                                                <div style="font-size: 12px;">Il y a 1h ...</div>
+
+                                                <div style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer aliquam. Donec non est. Phasellus vitae felis. Maecenas eget turpis vel libero interdum rhoncus. Pellentesque volutpat tellus a risus. Proin sagittis cursus magna. Phasellus et neque fermentum sapien elementum vehicula. In ornare pede sit amet justo. Sed id est a lectus accumsan egestas. Vivamus hendrerit odio ut tortor. Sed ultrices sagittis metus. Cras diam ligula, consectetuer eu, placerat sed, rhoncus eget, sapien. Phasellus vel leo. Nullam blandit, ligula sit amet rhoncus vulputate, ligula nulla malesuada urna, a tincidunt quam nunc molestie nisl.</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align: top; padding-left: 20px;">
+                                        <img src="images/User/moose.jpg" style="width: 50px; height: 50px; border-radius: 50px; border: 4px solid rgb(52, 80, 116);" />
+                                </tr>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table style="padding-bottom: 10px;">
+            <tr>
+                <td style="vertical-align: top; padding-right: 10px;">
+                    <img src="images/User/moose.jpg" style="width: 50px; height: 50px; border-radius: 50px; border: 4px solid rgb(52, 80, 116);" />
+                </td>
+                <td style="vertical-align: top; padding-left: 10px;">
+                    <div class="bubbleLeft">
+                        <div style="padding: 15px 15px 15px 15px;">
+                            <div style="font-size: 15px; font-weight: bold;">Vincent Rioux a dit</div>
+                            <div style="font-size: 12px;">Il y a 1h ...</div>
+
+                            <div style="font-size: 12px; padding-bottom: 15px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer aliquam. Donec non est. Phasellus vitae felis. Maecenas eget turpis vel libero interdum rhoncus. Pellentesque volutpat tellus a risus. Proin sagittis cursus magna. Phasellus et neque fermentum sapien elementum vehicula. In ornare pede sit amet justo. Sed id est a lectus accumsan egestas. Vivamus hendrerit odio ut tortor. Sed ultrices sagittis metus. Cras diam ligula, consectetuer eu, placerat sed, rhoncus eget, sapien. Phasellus vel leo. Nullam blandit, ligula sit amet rhoncus vulputate, ligula nulla malesuada urna, a tincidunt quam nunc molestie nisl.</div>
+
+                            <div style="font-size: 10px; padding-bottom: 10px; font-weight: bold;">
+                                <table>
+                                    <tr>
+                                        <td><a href="#">
+                                            <img src="images/Badge/comments-48.png" style="width: 15px; height: 15px;" />
+                                            Commenter</a></td>
+                                        <td><a href="#">
+                                            <img src="images/Badge/like_outline-48.png" style="width: 15px; height: 15px;" />
+                                            J'aime</a></td>
+                                    </tr>
+                                </table>
+
+
+                            </div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="bubbleRight">
+                                            <div style="padding: 15px 15px 15px 15px;">
+                                                <div style="font-size: 15px; font-weight: bold;">Vincent Rioux</div>
+                                                <div style="font-size: 12px;">Il y a 1h ...</div>
+
+                                                <div style="font-size: 12px; padding-bottom: 10px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer aliquam. Donec non est. Phasellus vitae felis. Maecenas eget turpis vel libero interdum rhoncus. Pellentesque volutpat tellus a risus. Proin sagittis cursus magna. Phasellus et neque fermentum sapien elementum vehicula. In ornare pede sit amet justo. Sed id est a lectus accumsan egestas. Vivamus hendrerit odio ut tortor. Sed ultrices sagittis metus. Cras diam ligula, consectetuer eu, placerat sed, rhoncus eget, sapien. Phasellus vel leo. Nullam blandit, ligula sit amet rhoncus vulputate, ligula nulla malesuada urna, a tincidunt quam nunc molestie nisl.</div>
+                                                <div style="font-size: 10px; font-weight: bold;">
+                                                    <table>
+                                                        <tr>
+                                                            <td><a href="#">
+                                                                <img src="images/Badge/comments-48.png" style="width: 15px; height: 15px;" />
+                                                                Commenter</a></td>
+                                                            <td><a href="#">
+                                                                <img src="images/Badge/like_outline-48.png" style="width: 15px; height: 15px;" />
+                                                                J'aime</a></td>
+                                                        </tr>
+                                                    </table>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align: top; padding-left: 20px;">
+                                        <img src="images/User/moose.jpg" style="width: 50px; height: 50px; border-radius: 50px; border: 4px solid rgb(52, 80, 116);" />
+                                </tr>
+                            </table>
+
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="bubbleRight">
+                                            <div style="padding: 15px 15px 15px 15px;">
+                                                <div style="font-size: 15px; font-weight: bold;">Vincent Rioux</div>
+                                                <div style="font-size: 12px;">Il y a 1h ...</div>
+
+                                                <div style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer aliquam. Donec non est. Phasellus vitae felis. Maecenas eget turpis vel libero interdum rhoncus. Pellentesque volutpat tellus a risus. Proin sagittis cursus magna. Phasellus et neque fermentum sapien elementum vehicula. In ornare pede sit amet justo. Sed id est a lectus accumsan egestas. Vivamus hendrerit odio ut tortor. Sed ultrices sagittis metus. Cras diam ligula, consectetuer eu, placerat sed, rhoncus eget, sapien. Phasellus vel leo. Nullam blandit, ligula sit amet rhoncus vulputate, ligula nulla malesuada urna, a tincidunt quam nunc molestie nisl.</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align: top; padding-left: 20px;">
+                                        <img src="images/User/moose.jpg" style="width: 50px; height: 50px; border-radius: 50px; border: 4px solid rgb(52, 80, 116);" />
+                                </tr>
+                            </table>
+
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="bubbleRight">
+                                            <div style="padding: 15px 15px 15px 15px;">
+                                                <div style="font-size: 15px; font-weight: bold;">Vincent Rioux</div>
+                                                <div style="font-size: 12px;">Il y a 1h ...</div>
+
+                                                <div style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer aliquam. Donec non est. Phasellus vitae felis. Maecenas eget turpis vel libero interdum rhoncus. Pellentesque volutpat tellus a risus. Proin sagittis cursus magna. Phasellus et neque fermentum sapien elementum vehicula. In ornare pede sit amet justo. Sed id est a lectus accumsan egestas. Vivamus hendrerit odio ut tortor. Sed ultrices sagittis metus. Cras diam ligula, consectetuer eu, placerat sed, rhoncus eget, sapien. Phasellus vel leo. Nullam blandit, ligula sit amet rhoncus vulputate, ligula nulla malesuada urna, a tincidunt quam nunc molestie nisl.</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align: top; padding-left: 20px;">
+                                        <img src="images/User/moose.jpg" style="width: 50px; height: 50px; border-radius: 50px; border: 4px solid rgb(52, 80, 116);" />
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="bubbleRight">
+                                            <div style="padding: 15px 15px 15px 15px;">
+                                                <div style="font-size: 15px; font-weight: bold;">Vincent Rioux</div>
+                                                <div style="font-size: 12px;">Il y a 1h ...</div>
+
+                                                <div style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer aliquam. Donec non est. Phasellus vitae felis. Maecenas eget turpis vel libero interdum rhoncus. Pellentesque volutpat tellus a risus. Proin sagittis cursus magna. Phasellus et neque fermentum sapien elementum vehicula. In ornare pede sit amet justo. Sed id est a lectus accumsan egestas. Vivamus hendrerit odio ut tortor. Sed ultrices sagittis metus. Cras diam ligula, consectetuer eu, placerat sed, rhoncus eget, sapien. Phasellus vel leo. Nullam blandit, ligula sit amet rhoncus vulputate, ligula nulla malesuada urna, a tincidunt quam nunc molestie nisl.</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align: top; padding-left: 20px;">
+                                        <img src="images/User/moose.jpg" style="width: 50px; height: 50px; border-radius: 50px; border: 4px solid rgb(52, 80, 116);" />
+                                </tr>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
+

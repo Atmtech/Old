@@ -1,0 +1,203 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ATMTECH.Vachier.WebSite.Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Va-Chier.Com</title>
+    <link href="Site.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.min.js") %>"></script>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery-ui.custom.min.js") %>"></script>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.jqprint.0.3.js") %>"></script>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.print-preview.js") %>"></script>
+
+    <%-- Envoyer true à la fonction GererExpiration pour l'affichage du temps restant en bas de page. --%>
+    <script type="text/javascript">
+        $(function () {
+            InitialiserExpiration(20, '<%=ResolveUrl("~/Errors/SessionTimeout.htm")%>', false);
+            $("#lnkImprimer").click(function () {
+                $('#impression').jqprint();
+                return false;
+            });
+        });
+    </script>
+
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
+            EnableScriptLocalization="true">
+        </asp:ScriptManager>
+        <div>
+            <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" BorderStyle="Solid" Visible="False">
+                <strong>
+                    <asp:Label runat="server" ID="lblError"></asp:Label></strong>
+            </asp:Panel>
+
+            <div style="width: 100%; text-align: center; background-image: url('images/BackgroundLogo.jpg'); background-repeat: repeat-x;">
+                <img src="Images/Logo.jpg" alt="Logo" />
+            </div>
+
+            <div style="padding-left: 10px; padding-right: 10px; padding-top: 5px;">
+                <style>
+                    .content .left
+                    {
+                        float: left;
+                        width: 300px;
+                        margin-right: 10px;
+                    }
+
+                    .content .right
+                    {
+                        /*margin-left: 100px;*/
+                    }
+                </style>
+                <div class="content">
+                    <div class="left">
+
+                        <div class="bienvenue">
+                            <h1>BIENVENUE
+                            </h1>
+                            <br />
+                            C'est l'heure de se mettre dans la marde 2.0. Voici le nouveau site merdifiez au
+                        cube, avec toujours plus de merde, de chiasse, de brun en fait de tout ce qui fait
+                        qu'on vit dans un beau monde de marde.
+                        <br />
+                            <br />
+                            Enjoy le nouveau brun et profite de cette merveilleuse fosse sceptique comptemporaine.
+                        En passant la mascotte de marde en haut s'appel yabba the poo. J'vous emmerde voilà.
+                        <br />
+                            <br />
+                            <i>La direction.</i>
+                        </div>
+                        <br />
+                        <div style="border: solid 1px #6f572d; font-size: 12px;">
+                            <div style="background-color: #6f572d; padding-left: 20px; color: white; font-weight: bold; padding-top: 5px; padding-bottom: 5px;">
+                                AJOUTE TA MARDE
+                            </div>
+                            <div style="padding: 10px 10px 10px 10px;">
+                                <table width="100%">
+                                    <tr>
+                                        <atmtech:TextBoxAvance runat="server" ID="txtAjouter" Width="200px" EstObligatoire="true"
+                                            Libelle="Merdeux:" ValidationGroup="Ajouter" MaxLength="300" />
+                                    </tr>
+                                    <tr>
+                                        <atmtech:ComboBoxAvance runat="server" ID="cboInsulte" EstObligatoire="true" Libelle="Insulte:"
+                                            Width="200px" ValidationGroup="Ajouter" />
+                                    </tr>
+                                </table>
+                                <asp:LinkButton ID="lnkAjouter" runat="server" ValidationGroup="Ajouter" OnClick="OnAjouter">Ajouter cette merde !</asp:LinkButton>
+                            </div>
+                        </div>
+                        <div style="border: solid 1px #6f572d; font-size: 12px;">
+                            <div style="background-color: #6f572d; padding-left: 20px; color: white; font-weight: bold; padding-top: 5px; padding-bottom: 5px;">
+                                FOUILLE DANS LA MERDE
+                            </div>
+                            <div style="padding: 10px 10px 10px 10px;">
+                                <atmtech:TextBoxAvance runat="server" ID="txtRecherche" TextMode="MultiLine" Width="98%"
+                                    ValidationGroup="chercher" />
+                                <br />
+                                <asp:LinkButton ID="lnkRecherche" runat="server" ValidationGroup="chercher" OnClick="OnChercher">Chercher dans la merde</asp:LinkButton>
+                                <asp:LinkButton ID="lnkAnnulerRecherche" runat="server" ValidationGroup="chercher"
+                                    OnClick="OnAnnulerChercher">Annuler recherche</asp:LinkButton>
+                            </div>
+                        </div>
+
+                        <div style="border: solid 1px #6f572d; font-size: 12px;">
+                            <div style="background-color: #6f572d; padding-left: 20px; color: white; font-weight: bold; padding-top: 5px; padding-bottom: 5px;">
+                                PROPOSE UNE MERDE CÉLÈBRE
+                            </div>
+                            <div style="padding: 10px 10px 10px 10px;">
+                                <atmtech:TextBoxAvance runat="server" ID="txtProposer" Width="98%" ValidationGroup="AjouterCelebre" EstObligatoire="True" />
+                                <asp:LinkButton ID="lnkAjouterCetteMerdeCelebre" runat="server" ValidationGroup="AjouterCelebre"
+                                    OnClick="OnAjouterCelebre">Ajouter cette merde célèbre !</asp:LinkButton>
+                                <br />
+                                <br />
+                                <atmtech:ComboBoxAvance runat="server" ID="cboCelebre" Width="100%" />
+                                <asp:LinkButton ID="lnkChier" runat="server" ValidationGroup="Chier" OnClick="OnChier"></asp:LinkButton>
+                            </div>
+                        </div>
+
+                        <div style="border: solid 1px #6f572d; font-size: 12px;">
+                            <div style="background-color: #6f572d; padding-left: 20px; color: white; font-weight: bold; padding-top: 5px; padding-bottom: 5px;">
+                                ACHÈTE TA MARDE
+                            </div>
+                            <div style="padding: 10px 10px 10px 10px;">
+                                Société mercantile de merde
+                            </div>
+                        </div>
+
+                        <div style="border: solid 1px #6f572d; font-size: 12px;">
+                            <div style="background-color: #6f572d; padding-left: 20px; color: white; font-weight: bold; padding-top: 5px; padding-bottom: 5px;">
+                                LISTE DES PAYS QUI CHIENT LE PLUS
+                            </div>
+                            <div style="padding: 10px 10px 10px 10px;">
+                                <asp:DataList runat="server" ID="dataListPays">
+                                    <ItemTemplate>
+                                        <div style="font-size: 12px; font-weight: bold;">
+
+                                            <table>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <asp:Label runat="server" ID="lblNumber" Text='<%#Container.ItemIndex + 1  %>' ForeColor="Maroon"></asp:Label>.</td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lblDescription" Text='<%#Eval("CountryName")%>'></asp:Label>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:DataList>
+                            </div>
+                        </div>
+                        
+                        <div style="border: solid 1px #6f572d; font-size: 12px;">
+                            <div style="background-color: #6f572d; padding-left: 20px; color: white; font-weight: bold; padding-top: 5px; padding-bottom: 5px;">
+                                LISTE DES VILLES QUI CHIENT LE PLUS
+                            </div>
+                            <div style="padding: 10px 10px 10px 10px;">
+                                <asp:DataList runat="server" ID="dataListVille">
+                                    <ItemTemplate>
+                                        <div style="font-size: 12px; font-weight: bold;">
+
+                                            <table>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <asp:Label runat="server" ID="lblNumber" Text='<%#Container.ItemIndex + 1  %>' ForeColor="Maroon"></asp:Label>.</td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lblDescription" Text='<%#Eval("City")%>'></asp:Label>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:DataList>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="right">
+
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <input type="hidden" id="EstFenetreModal" value="0" />
+            <input type="hidden" id="StatutExpiration" value="1" />
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,172 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ATMTECH.FishingAtWork.WebSite.Default" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <script src="Javascript/jquery.min.js" type="text/javascript"></script>
+    <%--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+    --%><script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery-ui.custom.min.js") %>"></script>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
+    <script type="text/javascript">
+        $(function () {
+            InitialiserExpiration(20, '<%=ResolveUrl("~/Errors/SessionTimeout.htm")%>', false);
+        });
+    </script>
+    <form id="Fishing" runat="server" style="height: 100%;">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
+        EnableScriptLocalization="true">
+    </asp:ScriptManager>
+    <div style="margin: 20px 20px 20px 20px; border: solid 1px gray;">
+        <table style="width: 100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="background-image: url('Images/Main/BackgroundTop.png'); background-repeat: repeat-x;
+                    height: 176px; text-align: right;">
+                    <div style="background-image: url('Images/Main/Top.png'); background-repeat: no-repeat;
+                        background-position: right top; width: 100%; height: 100%;">
+                        <asp:Panel runat="server" ID="pnlMenuLogged" Visible="False">
+                            <div style="width: 100%; color: rgb(231, 231, 231);position: relative; top: 118px;">
+                                <table cellspacing="0" cellpadding="0" style="width: 100%;">
+                                    <tr>
+                                        <td style="text-align: left; padding-left: 10px;">
+                                            <%--<asp:Label runat="server" ID="lblTitleNumberOfTripToCome" Text="Nombre de journée de pêche à venir: "></asp:Label>
+                                            <asp:Label runat="server" ID="lblNumberOfTripToCome" Text="0"></asp:Label>
+                                            |--%>
+                                            <asp:Label runat="server" ID="lblTitleMoney" Text="Solde: "></asp:Label>
+                                            <asp:Button runat="server" ID="btnMoney" Text="0" OnClick="PlayerInformationClick"
+                                                CssClass="menuGameName" CausesValidation="False"></asp:Button>
+                                            |
+                                            <asp:Label runat="server" ID="lblTitleLevel" Text="Niveau: "></asp:Label>
+                                            <asp:Button runat="server" ID="btnLevel" Text="0" OnClick="PlayerInformationClick"
+                                                CssClass="menuGameName" CausesValidation="False"></asp:Button>
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <asp:Label runat="server" ID="lblNumberOfMail" Text="0"></asp:Label>
+                                            <asp:Label runat="server" ID="lblTitleNumberOfMail" Text=" nouveau(x) message(s)"></asp:Label>
+                                            <asp:ImageButton runat="server" ID="btnMail" ImageUrl="~/Images/Main/mail.png" Width="16"
+                                                Height="16" Style="vertical-align: text-top;" />
+                                                |
+                                            <asp:Button runat="server" ID="btnContactUs2" Text="Contacter nous" CssClass="menuGame"
+                                                OnClick="ContactUsClick" CausesValidation="False"></asp:Button>
+                                                |
+                                            <asp:Button runat="server" ID="btnSignOut" Text="Fermer la session" CssClass="menuGame"
+                                                OnClick="SignOutClick" CausesValidation="False"></asp:Button>
+                                                |
+                                            <asp:Label runat="server" ID="lblWelcomeBack" Text="Bienvenue," CssClass="welcomeMessage"></asp:Label>
+                                            <asp:Button runat="server" ID="btnPlayerInformation" Text="Test" OnClick="PlayerInformationClick"
+                                                CssClass="menuGameName" CausesValidation="False"></asp:Button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </asp:Panel>
+                        <asp:Panel runat="server" ID="pnlMenuUnLogged" Visible="false">
+                            <div style="width: 100%; text-align: right; position: relative; top: 118px;">
+                                <asp:Button runat="server" ID="btnSignIn" Text="S'authentifier" CssClass="menuGame"
+                                    OnClick="LoginClick" CausesValidation="False"></asp:Button>
+                                |
+                                <asp:Button runat="server" ID="btnCreatePlayer" Text="M'inscrire" CssClass="menuGame"
+                                    OnClick="CreatePlayerClick" CausesValidation="False"></asp:Button>
+                                |
+                                <asp:Button runat="server" ID="btnContactUs" Text="Contacter nous" CssClass="menuGame"
+                                    OnClick="ContactUsClick" CausesValidation="False"></asp:Button>
+                            </div>
+                        </asp:Panel>
+                        <asp:Panel runat="server" ID="pnlMenuLoggedGame" Visible="False">
+                            <div style="width: 100%; color: white;text-align: left; position: relative; top: 122px;">
+                                <asp:Button runat="server" ID="btnHome" Text="Accueil" CssClass="menuGame" OnClick="HomeClick"
+                                    CausesValidation="False"></asp:Button>
+                                |
+                                <asp:Button runat="server" ID="btnCreateTrip" Text="Créer journée" CssClass="menuGame"
+                                    OnClick="NewTripClick" CausesValidation="False"></asp:Button>
+                                |
+                                <asp:Button runat="server" ID="btnOpenTrip" Text="Ouvrir journée" CssClass="menuGame"
+                                    OnClick="OpenTripClick" CausesValidation="False"></asp:Button>
+                                |
+                                <asp:Button runat="server" ID="btnShopping" Text="Acheter" CssClass="menuGame" OnClick="ShoppingClick"
+                                    CausesValidation="False"></asp:Button>
+                                |
+                                <asp:Button runat="server" ID="btnRanking" Text="Classement" CssClass="menuGame"
+                                    OnClick="RankingClick" CausesValidation="False"></asp:Button>
+                                |
+                                <asp:Button runat="server" ID="btnRecord" Text="Record" CssClass="menuGame" CausesValidation="False"
+                                    OnClick="RecordClick"></asp:Button>
+                                |
+                                <asp:Button runat="server" ID="btnWall" Text="Forum" CssClass="menuGame" OnClick="WallClick"
+                                    CausesValidation="False"></asp:Button>
+                                |
+                                <asp:Button runat="server" ID="btnSiteList" Text="Les sites" CssClass="menuGame"
+                                    OnClick="SiteListClick" CausesValidation="False"></asp:Button>
+                                |
+                                <asp:Button runat="server" ID="btnPlayerList" Text="Les joueurs" CssClass="menuGame"
+                                    OnClick="PlayerListClick" CausesValidation="False"></asp:Button>
+                            </div>
+                        </asp:Panel>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="padding: 20px 20px 20px 20px; background-color: white;">
+                        <asp:Panel runat="server" ID="pnlError" Visible="False" CssClass="error">
+                            <table>
+                                <td valign="top">
+                                    <img src="/Images/Main/Error.png" height="50" width="50" />
+                                </td>
+                                <td valign="top" style="padding-left: 20px;">
+                                    <asp:Label runat="server" ID="lblError" />
+                                </td>
+                            </table>
+                        </asp:Panel>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div style="width: 100%; background-image: url('/Images/Main/Bottom.png'); background-repeat: repeat-x;
+            background-color: white; height: 89px; text-align: right;">
+            <div style="margin: 10px 10px 10px 10px;">
+                <table style="width: 100%; height: 86px;">
+                    <tr>
+                        <td style="width: 300px;">
+                            <table>
+                                <tr>
+                                    <td style="text-align: left; width: 10px;">
+                                        <img src="/Images/Main/Clock-icon.png" height="16" width="16" />
+                                    </td>
+                                    <td style="text-align: left;">
+                                        <div id="tempsRestant">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <asp:Image runat="server" ID="imgServerStatusOnline" ImageUrl="~/Images/Main/online.png"
+                                            Visible="False" />
+                                        <asp:Image runat="server" ID="imgServerStatusOffline" ImageUrl="~/Images/Main/offline.png"
+                                            Visible="False" />
+                                        <asp:Label runat="server" ID="lblServerStatusOnline" Visible="False" Text="Le serveur est présentement en ligne"></asp:Label>
+                                        <asp:Label runat="server" ID="lblServerStatusOffline" Visible="False" Text="Le serveur est présentement hors ligne"></asp:Label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="border-left: solid 2px gray;">
+                            Copyright © FishingAtWork, 2013
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="EstFenetreModal" value="0" />
+    <input type="hidden" id="StatutExpiration" value="1" />
+    </form>
+</body>
+</html>

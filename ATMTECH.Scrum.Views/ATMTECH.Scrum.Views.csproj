@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B04E778-597A-4899-A462-D5E523B156D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ATMTECH.Scrum.Views</RootNamespace>
+    <AssemblyName>ATMTECH.Scrum.Views</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebFormsMvp">
+      <HintPath>..\Library\WebFormsMvp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BaseScrumPresenter.cs" />
+    <Compile Include="TaskPresenter.cs" />
+    <Compile Include="Interface\ITaskPresenter.cs" />
+    <Compile Include="SprintPresenter.cs" />
+    <Compile Include="Interface\ISprintPresenter.cs" />
+    <Compile Include="StoryPresenter.cs" />
+    <Compile Include="Interface\IStoryPresenter.cs" />
+    <Compile Include="ProductPresenter.cs" />
+    <Compile Include="DefaultMasterPresenter.cs" />
+    <Compile Include="DefaultPresenter.cs" />
+    <Compile Include="Interface\IProductPresenter.cs" />
+    <Compile Include="Interface\IDefaultMasterPresenter.cs" />
+    <Compile Include="Interface\IDefaultPresenter.cs" />
+    <Compile Include="Interface\ILoginPresenter.cs" />
+    <Compile Include="LoginPresenter.cs" />
+    <Compile Include="Pages\Pages.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
+      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
+      <Name>ATMTECH.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
+      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
+      <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Scrum.DAO\ATMTECH.Scrum.DAO.csproj">
+      <Project>{27F94F0D-F43D-4502-9BB8-6B7436BC9E7A}</Project>
+      <Name>ATMTECH.Scrum.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Scrum.Entities\ATMTECH.Scrum.Entities.csproj">
+      <Project>{5F18D3AF-5C02-41A9-9316-D208263A756A}</Project>
+      <Name>ATMTECH.Scrum.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Scrum.Services\ATMTECH.Scrum.Services.csproj">
+      <Project>{4379D299-4E17-47BF-804C-BA1402C6122C}</Project>
+      <Name>ATMTECH.Scrum.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
+      <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
+      <Name>ATMTECH.Views</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
+      <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
+      <Name>ATMTECH.Web.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

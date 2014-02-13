@@ -1,0 +1,230 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ATMTECH.BillardLoretteville.Website.Default" %>
+
+<html>
+<head id="Head1" runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="CMS/CSS/jquery.ad-gallery.css">
+    <link rel="stylesheet" type="text/css" href="CSS/jquery.ad-gallery.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.min.js") %>"></script>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery-ui.custom.min.js") %>"></script>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.jqprint.0.3.js") %>"></script>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
+    <%-- Envoyer true à la fonction GererExpiration pour l'affichage du temps restant en bas de page. --%>
+    <script type="text/javascript">
+        $(function () {
+            InitialiserExpiration(20, '<%=ResolveUrl("~/Errors/SessionTimeout.htm")%>', false);
+            $("#lnkImprimer").click(function () {
+                $('#impression').jqprint();
+                return false;
+            });
+        });
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-26936094-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
+        EnableScriptLocalization="true">
+    </asp:ScriptManager>
+    <br />
+    <center>
+       
+       <table id="Tableau_01" width="882" height="609" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+    <td colspan="7" style="text-align:right;font-size:8pt;text-decoration:none;color:white">
+      <a href="Default.aspx" style="font-size:8pt;text-decoration:none;color:white">Accueil</a> | <a href="http://maps.google.com/maps?f=q&hl=en&geocode=&time=&date=&ttype=&q=169+rue+Louis-IX,+Loretteville+G2B+1L1&sll=46.847307,-71.36075&sspn=0.012592,0.028796&ie=UTF8&ll=46.847307,-71.36075&spn=0.012592,0.028796&z=16&iwloc=addr&om=1" Target="_blank" style="font-size:8pt;text-decoration:none;color:white">Comment me rendre >></a>
+    </td>
+    </tr>
+	<tr>
+		<td colspan="2" rowspan="3" style="background-image: url('images/BillardLoretteville_01.jpg'); width: 684px; height:121px;">
+		  <br/><br/><br/><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;  <asp:Label runat="server" ID="lblTitre" Style="color: #3B6F1F; font-size: 18px; font-family: Arial;
+                                                font-weight: bold;"></asp:Label>
+                                                
+			</td>
+		<td colspan="6" style="background-image: url('images/BillardLoretteville_02.jpg'); width: 197px; height:81px;">
+			</td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="81" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/BillardLoretteville_03.jpg" width="37" height="1" alt=""></td>
+		<td rowspan="5">
+			<a href="tarifs.aspx"><img src="images/TarifOff.jpg" width="38" height="520" alt="" border="0"></a></td>
+		<td rowspan="5">
+			<a href="Tournois.aspx"><img src="images/TournoiOff.jpg" width="39" height="520" alt="" border="0"></a></td>
+		<td rowspan="5">
+			<a href="Poker.aspx"><img src="images/LiguePokerOff.jpg" width="36" height="520" alt="" border="0"></td>
+		<td rowspan="5">
+			<a href="Billard.aspx"><img src="images/LigueBillardOff.jpg" width="36" height="520" alt="" border="0"><a/></td>
+		<td rowspan="6">
+			<img src="images/BillardLoretteville_08.jpg" width="11" height="528" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="1" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="4">
+			<a href="Photos.aspx"><img src="images/PhotosOff.jpg" width="37" height="519" alt="" border="0"></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="39" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<img src="images/BillardLoretteville_10.jpg" width="684" height="3" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="3" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/BillardLoretteville_11.jpg" width="10" height="459" alt=""></td>
+		<td style="background-image: url('images/BillardLoretteville_12.jpg');width:674px;height:459px;" valign="top">
+            <div style="padding:10px 10px 10px 10px;overflow: auto; *overflow-x: display; *overflow-y: display;height:459px;width:670px;">
+             <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+                                                </asp:ContentPlaceHolder>
+             
+            </div>
+               
+			</td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="459" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="2">
+			<img src="images/BillardLoretteville_13.jpg" width="684" height="26" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="18" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="5">
+			<img src="images/BillardLoretteville_14.jpg" width="186" height="8" alt=""></td>
+		<td>
+			<img src="images/spacer.gif" width="1" height="8" alt=""></td>
+	</tr>
+</table>
+ 
+ 
+
+        <%--  <table cellpadding="0" cellspacing="0" width="840px">
+            <tr>
+                <td colspan="7" style="text-align: right;">
+                    <address style="font-size: 8pt; text-decoration: none; color: white">
+                        169 rue Louis IX, Loretteville G2B 1L1 Tél.: 418.842.2233</address>
+                    <a href="http://maps.google.com/maps?f=q&hl=en&geocode=&time=&date=&ttype=&q=169+rue+Louis-IX,+Loretteville+G2B+1L1&sll=46.847307,-71.36075&sspn=0.012592,0.028796&ie=UTF8&ll=46.847307,-71.36075&spn=0.012592,0.028796&z=16&iwloc=addr&om=1"
+                        target="_blank" style="font-size: 8pt; text-decoration: none; color: white; font-weight: bold;">
+                        Comment me rendre >></a>
+                </td>
+            </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td valign="top">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td style="background-image: url('Images/BillardLoretteville_01.jpg'); width: 669px;
+                                height: 121px; padding-top: 80px; padding-left: 15px;">
+                                <table width="100%" border="0">
+                                    <tr>
+                                        <td width="50%" style="padding-left: 5px;">
+                                            <asp:Label runat="server" ID="lblTitre" Style="color: #3B6F1F; font-size: 18px; font-family: Arial;
+                                                font-weight: bold;"></asp:Label>
+                                        </td>
+                                        <td width="50%" style="text-align: right; padding-right: 15px;">
+                                            <b><a href="Default.aspx">Accueil</a></b>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                        <td>
+                                            <img src="images/BillardLoretteville_11.jpg" width="10" height="459" alt="">
+                                        </td>
+                                        <td style="background-image: url('images/BillardLoretteville_12.jpg');
+                                            height: 459px;" valign="top">
+                                            <div style="padding-left: 10px; padding-top: 10px; overflow: auto; *overflow-x: display;
+                                                *overflow-y: display; height: 444px; width: 98%;">
+                                                <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+                                                </asp:ContentPlaceHolder>
+                                            </div>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="images/BillardLoretteville_13.jpg" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td valign="top">
+                    <img src="Images/BillardLoretteville_02.jpg" border="0" />
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td valign="top" style="padding-top: 1px;">
+                                <a href="photos.aspx">
+                                    <img src="Images/PhotosOff.jpg" border="0" /></a>
+                            </td>
+                            <td valign="top">
+                                <a href="tarifs.aspx">
+                                    <img src="Images/TarifOff.jpg" border="0" /></a>
+                            </td>
+                            <td valign="top">
+                                <a href="tournois.aspx">
+                                    <img src="Images/TournoiOff.jpg" border="0" /></a>
+                            </td>
+                            <td valign="top">
+                                <a href="Poker.aspx">
+                                    <img src="Images/LiguePokerOff.jpg" border="0" /></a>
+                            </td>
+                            <td valign="top">
+                                <a href="billard.aspx">
+                                    <img src="Images/LigueBillardOff.jpg" border="0" /></a>
+                            </td>
+                            <td valign="top">
+                                <img src="Images/BillardLoretteville_08.jpg" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>--%>
+        <a href="Default.aspx" style="color: white">Accueil</a> :: <a href="Photos.aspx"
+            style="color: white">Photos</a> :: <a href="Tarifs.aspx" style="color: white">Tarifs</a>
+        :: <a href="Tournois.aspx" style="color: white">Tournois</a> :: <a href="Poker.aspx"
+            style="color: white">Ligues de poker</a> :: <a href="Billard.aspx" style="color: white">
+                Ligues de billard</a> :: <a href="Contact.aspx" style="color: white">Contactez nous</a>
+        ::
+        <asp:LinkButton runat="server" ID="lnkIntranet" OnClick="IntranetClick" Text="Intranet"
+            ForeColor="white"></asp:LinkButton>
+        <asp:Panel ID="pnlIntranet" runat="server" Visible="False" Style="margin-top: 15px;
+            border-style: solid 1px black; width: 300px; background-color: White; padding: 10px 10px 10px 10px;">
+            <atmtech:Login runat="server" ID="Login" />
+        </asp:Panel>
+    </center>
+    <input type="hidden" id="EstFenetreModal" value="0" />
+    <input type="hidden" id="StatutExpiration" value="1" />
+    </form>
+</body>
+</html>

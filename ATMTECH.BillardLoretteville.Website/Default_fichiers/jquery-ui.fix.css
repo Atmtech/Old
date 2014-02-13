@@ -1,0 +1,36 @@
+.ui-widget {
+	FONT-SIZE: 1em
+}
+.ui-widget INPUT {
+	FONT-SIZE: 0.6em
+}
+.ui-widget SELECT {
+	FONT-SIZE: 0.6em
+}
+.ui-widget TEXTAREA {
+	FONT-SIZE: 0.6em
+}
+.ui-widget BUTTON {
+	FONT-SIZE: 0.6em
+}
+.ui-widget-content {
+	BACKGROUND-IMAGE: url(images/ui-bg_glass_75_ffffff_1x400.png)
+}
+.ui-widget-header {
+	FONT-SIZE: 0.6em
+}
+.ui-widget-overlay {
+	FILTER: Alpha(Opacity=70); BACKGROUND: black; opacity: .7
+}
+.ui-dialog .ui-dialog-titlebar {
+	PADDING-BOTTOM: 0.3em; PADDING-LEFT: 1em; PADDING-RIGHT: 1em; PADDING-TOP: 0.5em
+}
+.ui-dialog .ui-dialog-title {
+	MARGIN: 0.1em 16px 0.2em 0px
+}
+.ui-datepicker {
+	FONT-SIZE: 70%
+}
+.ui-datepicker .ui-datepicker-title {
+	LINE-HEIGHT: 1.5em; FONT-SIZE: 1.5em
+}

@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{88FA60AE-03A8-4C5F-85CA-7375EB2BD251}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ATMTECH.ShoppingCart.PubJL</RootNamespace>
+    <AssemblyName>ATMTECH.ShoppingCart.PubJL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Facebook">
+      <HintPath>..\packages\Facebook.6.4.2\lib\net40-client\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebFormsMvp">
+      <HintPath>..\Library\WebFormsMvp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddProductToBasket.aspx.cs">
+      <DependentUpon>AddProductToBasket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddProductToBasket.aspx.designer.cs">
+      <DependentUpon>AddProductToBasket.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Basket.aspx.cs">
+      <DependentUpon>Basket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Basket.aspx.designer.cs">
+      <DependentUpon>Basket.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Captcha.ashx.cs">
+      <DependentUpon>Captcha.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmCreate.aspx.cs">
+      <DependentUpon>ConfirmCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmCreate.aspx.designer.cs">
+      <DependentUpon>ConfirmCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateCustomer.aspx.cs">
+      <DependentUpon>CreateCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateCustomer.aspx.designer.cs">
+      <DependentUpon>CreateCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerInformation.aspx.cs">
+      <DependentUpon>CustomerInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerInformation.aspx.designer.cs">
+      <DependentUpon>CustomerInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.Master.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.Master.designer.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ExpressCheckoutPaypal.aspx.cs">
+      <DependentUpon>ExpressCheckoutPaypal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExpressCheckoutPaypal.aspx.designer.cs">
+      <DependentUpon>ExpressCheckoutPaypal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgetPassword.aspx.cs">
+      <DependentUpon>ForgetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgetPassword.aspx.designer.cs">
+      <DependentUpon>ForgetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageBaseShoppingCart.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductCatalog.aspx.cs">
+      <DependentUpon>ProductCatalog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductCatalog.aspx.designer.cs">
+      <DependentUpon>ProductCatalog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductSearch.aspx.cs">
+      <DependentUpon>ProductSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductSearch.aspx.designer.cs">
+      <DependentUpon>ProductSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThumbNail.aspx.cs">
+      <DependentUpon>ThumbNail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThumbNail.aspx.designer.cs">
+      <DependentUpon>ThumbNail.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddProductToBasket.aspx" />
+    <Content Include="App_Themes\Default\Default.css" />
+    <Content Include="App_Themes\Default\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_glass_75_ffffff_1x400.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="App_Themes\Default\images\ui-icons_222222_256x240.png" />
+    <Content Include="App_Themes\Default\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="App_Themes\Default\images\ui-icons_454545_256x240.png" />
+    <Content Include="App_Themes\Default\images\ui-icons_888888_256x240.png" />
+    <Content Include="App_Themes\Default\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="App_Themes\Default\jquery-ui.custom.css" />
+    <Content Include="Basket.aspx" />
+    <Content Include="ConfirmCreate.aspx" />
+    <Content Include="CreateCustomer.aspx" />
+    <Content Include="CustomerInformation.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Errors\SessionTimeout.htm" />
+    <Content Include="ExpressCheckoutPaypal.aspx" />
+    <Content Include="fonts\iconFont.svg" />
+    <Content Include="fonts\license.txt" />
+    <Content Include="ForgetPassword.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\Enterprise\BoutiqueCorporative.jpg" />
+    <Content Include="Images\Enterprise\Cima.png" />
+    <Content Include="Images\Enterprise\ursuline.png" />
+    <Content Include="Images\Product\CIM-101.jpg" />
+    <Content Include="Images\Product\CIM-101W.jpg" />
+    <Content Include="Images\Product\CIM-104.jpg" />
+    <Content Include="Images\Product\cim-105.jpg" />
+    <Content Include="Images\Product\CIM-106.jpg" />
+    <Content Include="Images\Product\CIM-106W.jpg" />
+    <Content Include="Images\Product\CIM-110.jpg" />
+    <Content Include="Images\Product\CIM-110W.jpg" />
+    <Content Include="Images\Product\CIM-113.jpg" />
+    <Content Include="Images\Product\CIM-113W.jpg" />
+    <Content Include="Images\Product\CIM-114.jpg" />
+    <Content Include="Images\Product\CIM-114W XX.jpg" />
+    <Content Include="Images\Product\CIM-114W.1.jpg" />
+    <Content Include="Images\Product\CIM-114W.2.jpg" />
+    <Content Include="Images\Product\CIM-114XX.jpg" />
+    <Content Include="Images\Product\cim-115.jpg" />
+    <Content Include="Images\Product\CIM-120.jpg" />
+    <Content Include="Images\Product\CIM-120W.jpg" />
+    <Content Include="Images\Product\CIM-121.jpg" />
+    <Content Include="Images\Product\CIM-121W.jpg" />
+    <Content Include="Images\Product\cim-122.jpg" />
+    <Content Include="Images\Product\CIM-123.jpg" />
+    <Content Include="Images\Product\CIM-123W.jpg" />
+    <Content Include="Images\Product\cim-124.jpg" />
+    <Content Include="Images\Product\CIM-125.1.jpg" />
+    <Content Include="Images\Product\CIM-125.2.jpg" />
+    <Content Include="Images\Product\CIM-125W.jpg" />
+    <Content Include="Images\Product\cim-126.jpg" />
+    <Content Include="Images\Product\CIM-127.jpg" />
+    <Content Include="Images\Product\CIM-200.jpg" />
+    <Content Include="Images\Product\CIM-201.jpg" />
+    <Content Include="Images\Product\CIM-202.jpg" />
+    <Content Include="Images\Product\CIM-203.jpg" />
+    <Content Include="Images\Product\CIM-204.jpg" />
+    <Content Include="Images\Product\CIM-205.jpg" />
+    <Content Include="Images\Product\CIM-206.jpg" />
+    <Content Include="Images\Product\CIM-207.jpg" />
+    <Content Include="Images\Product\CIM-208.jpg" />
+    <Content Include="Images\Product\CIM-212.jpg" />
+    <Content Include="Images\Product\CIM-213.jpg" />
+    <Content Include="Images\Product\CIM-214.jpg" />
+    <Content Include="Images\Product\CIM-215.jpg" />
+    <Content Include="Images\Product\CIM-216.jpg" />
+    <Content Include="Images\Product\CIM-217.jpg" />
+    <Content Include="Images\Product\CIM-218.jpg" />
+    <Content Include="Images\Product\CIM-300.jpg" />
+    <Content Include="Images\Product\CIM-301.jpg" />
+    <Content Include="Images\Product\CIM-304.jpg" />
+    <Content Include="Images\Product\CIM-305.jpg" />
+    <Content Include="Images\Product\CIM-306.jpg" />
+    <Content Include="Images\Product\CIM-307.jpg" />
+    <Content Include="Images\Product\CIM-308.jpg" />
+    <Content Include="Images\Product\CIM-400.jpg" />
+    <Content Include="Images\Product\CIM-401.jpg" />
+    <Content Include="Images\Product\CIM-402.jpg" />
+    <Content Include="Images\Product\CIM-403.jpg" />
+    <Content Include="Images\Product\CIM-404.jpg" />
+    <Content Include="Images\Product\CIM-405.jpg" />
+    <Content Include="Images\Product\CIM-406.jpg" />
+    <Content Include="Images\Product\CIM-407.jpg" />
+    <Content Include="Images\Product\CIM-408.jpg" />
+    <Content Include="Images\Product\CIM-409.jpg" />
+    <Content Include="Images\Product\CIM-500.jpg" />
+    <Content Include="Images\Product\CIM-503.jpg" />
+    <Content Include="Images\Product\CIM-504.jpg" />
+    <Content Include="Images\Product\CIM-505.jpg" />
+    <Content Include="Images\Product\CIM-506.jpg" />
+    <Content Include="Images\Product\CIM-507.jpg" />
+    <Content Include="Images\Product\CIM-508.jpg" />
+    <Content Include="Images\Product\CIM-600.jpg" />
+    <Content Include="Images\Product\NoImageForThisProduct.jpg" />
+    <Content Include="Images\WebSite\BackgroundMenuBas.jpg" />
+    <Content Include="Images\WebSite\BulletCart.png" />
+    <Content Include="Images\WebSite\error-icon.png" />
+    <Content Include="Images\WebSite\paypal-transparent-logo.png" />
+    <Content Include="Images\WebSite\Retirer.png" />
+    <Content Include="Images\WebSite\success-icon.png" />
+    <Content Include="Javascript\accordion.js" />
+    <Content Include="Javascript\buttonset.js" />
+    <Content Include="Javascript\calendar.js" />
+    <Content Include="Javascript\carousel.js" />
+    <Content Include="Javascript\CSS\images\icon-close.png" />
+    <Content Include="Javascript\CSS\images\icon-print.png" />
+    <Content Include="Javascript\CSS\print-preview.css" />
+    <Content Include="Javascript\dialog.js" />
+    <Content Include="Javascript\dropdown.js" />
+    <Content Include="Javascript\input-control.js" />
+    <Content Include="Javascript\jquery-combobox.js" />
+    <Content Include="Javascript\jquery-ui.custom.min.js" />
+    <Content Include="Javascript\jquery.jqprint.0.3.js" />
+    <Content Include="Javascript\jquery.min.js" />
+    <Content Include="Javascript\jquery.print-preview.js" />
+    <Content Include="Javascript\jquery.scrollTo-min.js" />
+    <Content Include="Javascript\pagecontrol.js" />
+    <Content Include="Javascript\PilotageEnum.js" />
+    <Content Include="Javascript\rating.js" />
+    <Content Include="Javascript\Redirection.js" />
+    <Content Include="Javascript\slider.js" />
+    <Content Include="Javascript\start-menu.js" />
+    <Content Include="Javascript\tile-drag.js" />
+    <Content Include="Javascript\tile-slider.js" />
+    <Content Include="Javascript\Utilitaires.js" />
+    <Content Include="Css\modern-responsive.css" />
+    <Content Include="Css\modern.css" />
+    <Content Include="Login.aspx" />
+    <Content Include="ProductCatalog.aspx" />
+    <Content Include="ProductSearch.aspx" />
+    <Content Include="Css\Site.css" />
+    <Content Include="Css\theme-dark.css" />
+    <Content Include="ThumbNail.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Default\Default.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
+      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
+      <Name>ATMTECH.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
+      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
+      <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.ShoppingCart.Entities\ATMTECH.ShoppingCart.Entities.csproj">
+      <Project>{F2B35967-8009-4AD0-9B21-78A2EE6C1E36}</Project>
+      <Name>ATMTECH.ShoppingCart.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.ShoppingCart.Views\ATMTECH.ShoppingCart.Views.csproj">
+      <Project>{43B7ED27-782C-4574-96F5-1E433403E3FF}</Project>
+      <Name>ATMTECH.ShoppingCart.Views</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Utils\ATMTECH.Utils.csproj">
+      <Project>{e39e16b8-ca93-4928-901d-42aedf82a538}</Project>
+      <Name>ATMTECH.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
+      <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
+      <Name>ATMTECH.Views</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Web.Controls\ATMTECH.Web.Controls.csproj">
+      <Project>{2D2B35D6-59B5-41B0-A23C-A3B4F6A0EE52}</Project>
+      <Name>ATMTECH.Web.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
+      <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
+      <Name>ATMTECH.Web.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Web\ATMTECH.Web.csproj">
+      <Project>{F4ED3261-CB00-4C89-B481-56806262BFCF}</Project>
+      <Name>ATMTECH.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Captcha.ashx" />
+    <None Include="fonts\iconFont.eot" />
+    <None Include="fonts\iconFont.ttf" />
+    <None Include="fonts\iconFont.woff" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Atmtech.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1538</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1536/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

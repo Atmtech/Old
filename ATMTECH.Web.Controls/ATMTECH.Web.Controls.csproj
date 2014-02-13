@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D2B35D6-59B5-41B0-A23C-A3B4F6A0EE52}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ATMTECH.Web.Controls</RootNamespace>
+    <AssemblyName>ATMTECH.Web.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(SolutionDir)\Build\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>$(SolutionDir)\SIQ.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(SolutionDir)\Build\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>$(SolutionDir)\SIQ.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CKEditor.NET">
+      <HintPath>..\Library\CKEditor.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.1">
+      <HintPath>..\Library\DevExpress.Data.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxEditors.v11.1">
+      <HintPath>..\Library\DevExpress.Web.ASPxEditors.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.v11.1">
+      <HintPath>..\Library\DevExpress.Web.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
+    <Reference Include="WebFormsMvp, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b3c3a026a2b7b66f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\WebFormsMvp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Affichage\ContenuLabelAvance.cs" />
+    <Compile Include="Affichage\GroupeBoite.cs" />
+    <Compile Include="Affichage\Section.cs" />
+    <Compile Include="Affichage\TitreLabelAvance.cs" />
+    <Compile Include="Base\ControleBase.cs" />
+    <Compile Include="Base\ContexteUtilisation.cs" />
+    <Compile Include="Base\PageBase`.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Base\IResolveurControle.cs" />
+    <Compile Include="Base\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Base\ATMTECHBaseControl.cs" />
+    <Compile Include="Base\ATMTECHControleHelper.cs" />
+    <Compile Include="Base\ATMTECHScriptPropertyAttribute.cs" />
+    <Compile Include="Base\ATMTECHScriptBaseControle.cs" />
+    <Compile Include="Base\ATMTECHClientScriptAttribute.cs" />
+    <Compile Include="Base\ModeAffichage.cs" />
+    <Compile Include="Edition\BarreNavigationWizard.cs" />
+    <Compile Include="Edition\Bouton.cs" />
+    <Compile Include="Edition\BoutonAnnuler.cs" />
+    <Compile Include="Edition\BoutonEnregistrer.cs" />
+    <Compile Include="Edition\BoutonReinitialiser.cs" />
+    <Compile Include="Edition\CheckBoxAvance.cs" />
+    <Compile Include="Edition\ComboBoxAvance.cs" />
+    <Compile Include="Edition\ComboBoxSimple.cs" />
+    <Compile Include="Edition\TextEditorAvance.cs" />
+    <Compile Include="Edition\VaseCommunicant.cs" />
+    <Compile Include="Edition\TelephoneTextBoxAvance.cs" />
+    <Compile Include="Edition\CourrielTextBoxAvance.cs" />
+    <Compile Include="Edition\EditionUtils.cs" />
+    <Compile Include="Edition\EnumTypeSequence.cs" />
+    <Compile Include="Edition\Etape.cs" />
+    <Compile Include="Edition\EtapeCollection.cs" />
+    <Compile Include="Edition\EtapePrecedenteEventArgs.cs" />
+    <Compile Include="Edition\EtapeSuivanteEventArgs.cs" />
+    <Compile Include="Edition\EtapeTermineEventArgs.cs" />
+    <Compile Include="Edition\EventArgsApprouverWorkflow.cs" />
+    <Compile Include="Edition\EventArgsRejeterWorkflow.cs" />
+    <Compile Include="Edition\ImageButtonAvance.cs" />
+    <Compile Include="Edition\RadioButtonAvance.cs" />
+    <Compile Include="Edition\TextBoxMultiligneAvance.cs" />
+    <Compile Include="Edition\VaseCommuniquantAvance.cs" />
+    <Compile Include="Edition\VaseCommuniquantAvanceEventArgs.cs" />
+    <Compile Include="Edition\Wizard.cs" />
+    <Compile Include="Edition\AlphaNumTextBoxAvance.cs" />
+    <Compile Include="Edition\DateTextBoxAvance.cs" />
+    <Compile Include="Edition\MonnaieTextBoxAvance.cs" />
+    <Compile Include="Edition\TextBoxAvance.cs" />
+    <Compile Include="Grille\ChampDecimal.cs" />
+    <Compile Include="Grille\ChampCrochet.cs" />
+    <Compile Include="Grille\ChampDonneeAvance.cs" />
+    <Compile Include="Grille\BoundFieldAvance.cs" />
+    <Compile Include="Grille\ChampSelection.cs" />
+    <Compile Include="Grille\ChampEditable.cs" />
+    <Compile Include="Grille\ChampCheckBox.cs" />
+    <Compile Include="Grille\ChampLieBase.cs" />
+    <Compile Include="Grille\EtatGrille.cs" />
+    <Compile Include="Grille\EnumBoutonRangee.cs" />
+    <Compile Include="Grille\GrilleAvance.Gestionnaires.cs" />
+    <Compile Include="Grille\DetailGrille.cs" />
+    <Compile Include="Grille\GrilleAvance.Evenements.cs" />
+    <Compile Include="Grille\TemplateBouton.cs" />
+    <Compile Include="Grille\GrilleAvance.cs" />
+    <Compile Include="Grille\TemplatePager.cs" />
+    <Compile Include="Interfaces\IControleAvecLibelle.cs" />
+    <Compile Include="Interfaces\IControleAvecModeAffichage.cs" />
+    <Compile Include="Interfaces\IViewIdentifiant.cs" />
+    <Compile Include="Utils\WebUtils.cs" />
+    <Compile Include="Edition\BoutonBase.cs" />
+    <Compile Include="Validation\EnumCategorieMessage.cs" />
+    <Compile Include="Validation\Message.cs" />
+    <Compile Include="Validation\MessageCollection.cs" />
+    <Compile Include="Affichage\OngletControlBuilder.cs" />
+    <Compile Include="Affichage\FenetreDialogue.cs" />
+    <Compile Include="Affichage\OngletElement.cs" />
+    <Compile Include="Affichage\OngletElementCollection.cs" />
+    <Compile Include="Affichage\Onglets.cs" />
+    <Compile Include="Base\ATMTECHUserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validation\ValidationSummaryAvance.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Affichage\FenetreDialogue.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Affichage\Onglets.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Validation\ValidationSummaryAvance.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Grille\asc.gif" />
+    <EmbeddedResource Include="Grille\desc.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Grille\ajouter.png" />
+    <EmbeddedResource Include="Grille\edition.png" />
+    <EmbeddedResource Include="Grille\supprimer.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Grille\consulter.png" />
+    <EmbeddedResource Include="Grille\GrilleAvance.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\TextBoxAvance.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\indicateurErreur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\calendrier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\bgTextBox.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Affichage\agrandir.png" />
+    <EmbeddedResource Include="Affichage\reduire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Affichage\Section.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Affichage\groupeBoite_bl.png" />
+    <EmbeddedResource Include="Affichage\groupeBoite_br.png" />
+    <EmbeddedResource Include="Affichage\groupeBoite_tl.png" />
+    <EmbeddedResource Include="Affichage\groupeBoite_tr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Grille\gridViewHeader.png" />
+    <EmbeddedResource Include="Grille\gridViewPager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\dropdown1.png" />
+    <EmbeddedResource Include="Edition\dropdown2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Base\Controles.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Validation\checkVert.png" />
+    <EmbeddedResource Include="Validation\indicateurErreur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\indicateurObligatoire.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\checkBoxCoche.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\checkBoxVide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\ChampsLike.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Base\Controles.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\RadioButtonAvance.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\wizard_background_selected.jpg" />
+    <EmbeddedResource Include="Edition\wizard_background_unselected.jpg" />
+    <EmbeddedResource Include="Edition\wizard_rightcorner_selected.jpg" />
+    <EmbeddedResource Include="Edition\wizard_rightcorner_selected_end.jpg" />
+    <EmbeddedResource Include="Edition\wizard_rightcorner_unselected_end.jpg" />
+    <EmbeddedResource Include="Edition\wizard_rightcorner_unselected_onselected.jpg" />
+    <EmbeddedResource Include="Edition\wizard_rightcorner_unselected_unselected.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\VaseCommuniquantAvance.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Edition\BarreNavigationWizard.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converteur\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
+      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
+      <Name>ATMTECH.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
+      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
+      <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Exception\ATMTECH.Exception.csproj">
+      <Project>{8FB02184-36DE-4C31-836F-B6712B7A22C8}</Project>
+      <Name>ATMTECH.Exception</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+  </PropertyGroup>
+</Project>

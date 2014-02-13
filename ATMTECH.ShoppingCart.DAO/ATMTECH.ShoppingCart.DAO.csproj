@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5879683-61B6-42D4-B62C-3904BECD62BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ATMTECH.ShoppingCart.DAO</RootNamespace>
+    <AssemblyName>ATMTECH.ShoppingCart.DAO</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAOEnterpriseAccess.cs" />
+    <Compile Include="DAOEnumOrderInformation.cs" />
+    <Compile Include="DAOProductPriceHistory.cs" />
+    <Compile Include="DAOStockLink.cs" />
+    <Compile Include="DAOStockTemplate.cs" />
+    <Compile Include="DAOEnterpriseEmail.cs" />
+    <Compile Include="DAOStockTransaction.cs" />
+    <Compile Include="DAOGroupProduct.cs" />
+    <Compile Include="DAOProductFile.cs" />
+    <Compile Include="DAOProductCategory.cs" />
+    <Compile Include="DAOSupplier.cs" />
+    <Compile Include="DAOOrderLine.cs" />
+    <Compile Include="DAOCountry.cs" />
+    <Compile Include="DAOCity.cs" />
+    <Compile Include="DAOTaxes.cs" />
+    <Compile Include="DAOAddress.cs" />
+    <Compile Include="DAOCustomer.cs" />
+    <Compile Include="DAOEnterprise.cs" />
+    <Compile Include="DAOEnterpriseAddress.cs" />
+    <Compile Include="DAOOrder.cs" />
+    <Compile Include="DAOProduct.cs" />
+    <Compile Include="DAOStock.cs" />
+    <Compile Include="Interface\IDAOEnterpriseAccess.cs" />
+    <Compile Include="Interface\IDAOEnumOrderInformation.cs" />
+    <Compile Include="Interface\IDAOProductPriceHistory.cs" />
+    <Compile Include="Interface\IDAOStockLink.cs" />
+    <Compile Include="Interface\IDAOStockTemplate.cs" />
+    <Compile Include="Interface\IDAOEnterpriseEmail.cs" />
+    <Compile Include="Interface\IDAOStockTransaction.cs" />
+    <Compile Include="Interface\IDAOGroupProduct.cs" />
+    <Compile Include="Interface\IDAOProductFile.cs" />
+    <Compile Include="Interface\IDAOProductCategory.cs" />
+    <Compile Include="Interface\IDAOSupplier.cs" />
+    <Compile Include="Interface\IDAOOrderLine.cs" />
+    <Compile Include="Interface\IDAOCountry.cs" />
+    <Compile Include="Interface\IDAOCity.cs" />
+    <Compile Include="Interface\IDAOTaxes.cs" />
+    <Compile Include="Interface\IDAOEnterpriseAddress.cs" />
+    <Compile Include="Interface\IDAOAddress.cs" />
+    <Compile Include="Interface\IDAOCustomer.cs" />
+    <Compile Include="Interface\IDAOEnterprise.cs" />
+    <Compile Include="Interface\IDAOOrder.cs" />
+    <Compile Include="Interface\IDAOProduct.cs" />
+    <Compile Include="Interface\IDAOStock.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
+      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
+      <Name>ATMTECH.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
+      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
+      <Name>ATMTECH.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
+      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
+      <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.ShoppingCart.Entities\ATMTECH.ShoppingCart.Entities.csproj">
+      <Project>{F2B35967-8009-4AD0-9B21-78A2EE6C1E36}</Project>
+      <Name>ATMTECH.ShoppingCart.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

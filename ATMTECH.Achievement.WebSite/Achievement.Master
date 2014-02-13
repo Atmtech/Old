@@ -1,0 +1,140 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Achievement.Master.cs" Inherits="ATMTECH.Achievement.WebSite.MasterAchievement" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/farbtastic.css" type="text/css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+</head>
+<body>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
+        <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery-te-1.4.0.min.js") %>"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            InitialiserExpiration(20, '<%=ResolveUrl("~/Errors/SessionTimeout.htm")%>', false);
+        });
+
+        $(function () {
+            $(document).tooltip({
+                content: function () {
+                    return $(this).prop('title');
+                }
+            });
+        });
+
+
+    </script>
+
+    <form id="form1" runat="server">
+
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
+            EnableScriptLocalization="true">
+        </asp:ScriptManager>
+
+
+
+        <div>
+            <div class="bandeauTitre">
+                <table style="width: 100%;" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="titre">WHOOZME
+                        </td>
+                        <td style="width: 50%">
+                            <asp:Panel runat="server" ID="pnlSignIn" Visible="False" CssClass="panneauUtilisateurAuthentifieTitre">
+                                <asp:Button runat="server" ID="btnSignin" Text="Identifiez-vous" CssClass="bouton" OnClick="btnSignInClick" />
+                            </asp:Panel>
+                            <asp:Panel runat="server" ID="pnlUtilisateurAuthentifie" Visible="false" CssClass="panneauUtilisateurAuthentifieTitre">
+                                <table cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <div class="panneauRecherche">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <asp:TextBox runat="server" ID="txtRecherche" placeholder="Rechercher : amis, accomplissement" CssClass="texteRecherche"></asp:TextBox></td>
+                                                        <td>
+                                                            <div class="panneauimageRecherche">
+                                                                <asp:ImageButton runat="server" ID="imgRecherche" ImageUrl="images/Badge/search-48.png" CssClass="imageRecherche" />
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="imageUtilisateurTitre">
+                                                <asp:Image runat="server" ID="imgUtilisateur" CssClass="imageUtilisateurTitre" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="nomUtilisateurTitre">
+                                                <asp:Label runat="server" ID="lblNomUtilisateurAuthentifie" Text="Inconnu"></asp:Label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="panneauimageLogout">
+                                                <asp:ImageButton runat="server" ID="btnLogout" ImageUrl="images/Badge/logout-48.png" CssClass="imageLogout" OnClick="btnLogoutClick" />
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </asp:Panel>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <asp:Panel runat="server" ID="pnlAccomplissementTitre" CssClass="panneauAccomplissementTitre" Visible="False">
+                <asp:PlaceHolder runat="server" ID="placeHolderAccomplissement"></asp:PlaceHolder>
+            </asp:Panel>
+
+            <asp:Panel runat="server" ID="pnlError" Visible="False">
+                <asp:Label runat="server" ID="lblError" ForeColor="red"></asp:Label>
+            </asp:Panel>
+
+            <div class="bandeauContenu">
+
+
+                <table style="border-spacing: 0px; border-collapse: separate; width: 100%;margin-top:15px;" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="menu" style="vertical-align: top;">
+                            <asp:Panel runat="server" ID="pnlMenu" CssClass="menu" Visible="False" Style="">
+                                <asp:Button runat="server" ID="Button1" Text="Accueil" CssClass="boutonMenu" OnClick="btnMurClick" />
+                                <asp:Button runat="server" ID="btnAccomplissement" Text="Les accomplissements" CssClass="boutonMenu" OnClick="btnAccomplissementClick" />
+                                <asp:Button runat="server" ID="btnProposerAccomplissement" CssClass="boutonMenu" Text="Proposer un accomplissement" OnClick="btnProposerClick" />
+                                <asp:Button runat="server" ID="btnVoterAccomplissement" CssClass="boutonMenu" Text="Voter pour un accomplissement" OnClick="btnVoterAccomplissementClick" />
+                                <asp:Button runat="server" ID="btnConsulterListeAmi" Text="Amis" CssClass="boutonMenu" />
+                                <asp:Button runat="server" ID="btnMonProfil" Text="Mon profil" CssClass="boutonMenu" />
+                            </asp:Panel>
+                        </td>
+                        <td>
+
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+
+                        </td>
+                    </tr>
+
+                </table>
+
+
+
+
+            </div>
+        </div>
+    </form>
+</body>
+</html>

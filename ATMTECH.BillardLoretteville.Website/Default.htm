@@ -1,0 +1,302 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0035)http://localhost:35999/Default.aspx -->
+<HTML><HEAD id=ctl00_Head1><TITLE></TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type><LINK 
+rel=stylesheet type=text/css href="Default_fichiers/StyleSheet.css"><LINK 
+rel=stylesheet type=text/css href="Default_fichiers/jquery.ad-gallery.css"><LINK 
+rel=stylesheet type=text/css href="CSS/jquery.ad-gallery.css"><LINK 
+rel=stylesheet type=text/css href="Default_fichiers/Default.css"><LINK 
+rel=stylesheet type=text/css href="Default_fichiers/jquery-ui.custom.css"><LINK 
+rel=stylesheet type=text/css href="Default_fichiers/jquery-ui.fix.css"><LINK 
+rel=stylesheet type=text/css href="Default_fichiers/WebResource.css">
+<STYLE type=text/css>.groupeBoitet DIV {
+	BACKGROUND: url(/WebResource.axd?d=XZySQPjUOm5f0DQUAgX7dzcgKn4jgPSoeksw_Ol72H8CPBeVSMViS9MZiT--Yb_-lEUSpYdMdvQ4B6yl83Oxj6_66-I5FuzAx6ho8gX2XEfaw0VHde6OoN6p1BxzEBJGq3UJI1SEEUm2-2g9TSI4lXfdEkRhJOfiHcSxM-c6gVE1&t=634680034413769542) no-repeat left top
+}
+.groupeBoitet {
+	BACKGROUND: url(/WebResource.axd?d=iwiDgFs0xr_SckME5SHL-WA6Hu89zBt6fRkYfkIimSbhS748riJQiTyy_jKsoDP3U-a6l7M7qCIANSe0Q2_JXbeE_5W3n0efIQHbmqn_2om9mikbFbPEdG_NnjuzAhV7F-uePTegF9gPlUTE2a5aJWdwZptxhcyXREsCe4b8Xa41&t=634680034413769542) no-repeat right top
+}
+.groupeBoiteb DIV {
+	BACKGROUND: url(/WebResource.axd?d=AW3QAY-cAr-nue8cqPjpdWeusFScnVIkUAwM2oMgOt4coCDYoIm5eegky3h4UbmBt-p-74HBzpVuNAbuLwml_pmBDSKEdsmASmkmH16Hdc9mdA36IWEApvoPZ-ZWWDQaiMHHk2EFqLPZldUpIFs64yFWEA5zLzODPzvDyP4PqmY1&t=634680034413769542) no-repeat left bottom
+}
+.groupeBoiteb {
+	BACKGROUND: url(/WebResource.axd?d=7FqxIJZFno17LCa0aT4yO5JLqQF1sOV5k1S_UWFOCQi33v__b43A8UIXk7gAf-bs3j5hBoXDMrjzEptSKJAAzzVMlMMxHPvB66fukDERl6bL65IDmjxJeRi-KAsZmpg-92pUjpJcG4E-FXiKD2KHjVtsv0t_PjfjWwXFBswnV0c1&t=634680034413769542) no-repeat right bottom
+}
+.val-summary-msg-erreur {
+	LIST-STYLE-IMAGE: url(/WebResource.axd?d=bLapi-k5cHXz2ZDlwY-RDDO2NJfJD9QArD6bRGdxCvb5PeBVPy5fpkf9TlHPHibKI5brrGoqdjQ70SgKBQMlrH8Sgngma6iSt1Rvsq64ByIxPFdQyIMduM_oz6aqze42DUHa7xq35aXoB9HD_xH1hvIXIXXNG74CdSzyCmnEX2HKyWJ6jszf0VTfRbmdW_iw0&t=634680034413769542)
+}
+.val-summary-msg-succes {
+	LIST-STYLE-IMAGE: url(/WebResource.axd?d=lf3RwQ8TWwpK-_IUJTsIkff6QdWQQH_i3c1M6S8LI1fwgQgUrUMuacSdR63WXrtYD1CYAjl-jlHyNKi-E48ELL_Hs4klQs9LXdHEeoYd8AUomalM-8Tf9tzbDL9xXUuirx-Bpew1hqHq9crguqPiZq8GH-F7JRXcCCzI9tGYfzY1&t=634680034413769542)
+}
+.debut-wiz {
+	BACKGROUND-IMAGE: url(/WebResource.axd?d=Em_c-1p_SB13WFT1tVoxhylQi0zAb6ZLx6yOUUQwt3dkI6gyr_tpGbaE21PA2B9AQq6qLZOcI4MYHqTkStGJjJiCbZMuTxDac4DDMfyCYSG5x1RnJoo1OtlHbIc7pxq8qP7kTATTlPP4-tUPA4lvQ2hopEKOMyi9ekZV6DZYbky6dhGW5jqO3Gd6JYSWitQ20&t=634680034413769542)
+}
+.selectionne .debut-wiz {
+	BACKGROUND-IMAGE: url(/WebResource.axd?d=2tTK3D7OY-CpGKJPQBTl4QKXVs2sFIkyHZX2-CLk8MhA_Ec9p2NVkQ_KUlIBAzQboAXrdMCywqBz6nS_ABpEpjsvuc8y8cNVrEUxxGrI-M2tiQ4L0D2-RvJwzPxJs0XsmUqtUh-nA4Z07OMw0riMwbOFl1jHKBjD0v816770e5Dbe9NiPn2I9Fmd84-cvD680&t=634680034413769542); COLOR: #ffffff
+}
+.fin-wiz {
+	BACKGROUND-IMAGE: url(/WebResource.axd?d=IV3krQF0pJpNoDUb_VYdH5aVR6bQQ2Djw9VfeDBQcLzaJFBqim48qYxUijaRxqQyrjE53jOxj73mnhrO56w7V1eQOt2k9LmOtJx3hYgwvI6nQdmz_K4khXYeYVudsvTcHeFWANJrnhv78BhxhTJNpu3u42lQAg08f9IxExhXNKwNkdpVlJmZPcGAHRasHsAqu3plzr0p1NEYRnlsFptH3g2&t=634680034413769542)
+}
+.precedent .fin-wiz {
+	BACKGROUND-IMAGE: url(/WebResource.axd?d=Z9p1xN3TIiU9uPWBN0CHvKt4OMW6wwsibrW1BQTl2mNHbnVkrF5oy5qHx6oblDc-tjES2T6AaqqEWCmJ0CdUM1bBL9ovwPBN7t0NJWLQky4x1X21xLJ6jLNuBRMjGBxnf5vhpFMuppuVY0_wvIA772odLp46Sr7vRktDTcqgpOdpVVdzlW0Xb4GLL5LZSN6G6-LQ8FdDatdHaypXVUlfCw2&t=634680034413769542)
+}
+.selectionne .fin-wiz {
+	BACKGROUND-IMAGE: url(/WebResource.axd?d=-fsefyS2PYGXhfS5arYG1GXJH8uX8AuJe3PAinx1e3PFsqT978qTebQbU4gx6JaZMG3UNN7h90QYn0Rt0G-8RaVqG-3mNseA0yqfpATlGELfN6TbWG3y-mrLwkpS7CEC8lmQrbGWZ4mSzwYjMlw5t-A0vlKrgypPhvOFKGprAZL2_VtVlljJDGHBWmZ9WbUC0&t=634680034413769542)
+}
+.dernier-onglet .fin-wiz {
+	BACKGROUND-IMAGE: url(/WebResource.axd?d=6t42EykEWKzgvkAnweKA7m6xB4aPmIlo7-QJ2TFbOppx08ekMp8bCz_durf5IUcotz621PNuXfnKjvmIy_LhnRFGouUWpiwxy-LqblKYtCiwWBoIYEmamfpXmPXvVaZ0TfC3H__KoYTaqhynyU58rrylOiTN6wcwmxgZqq0r0NtbyDjhW4e-JIsa_GA9J_ac4EYBC4XoquPdT3E3CRa6AA2&t=634680034413769542); WIDTH: 6px
+}
+.selectionne .fin-wiz {
+	BACKGROUND-IMAGE: url(/WebResource.axd?d=8PkLBL4oVWzVKPWJUevNfFENcN67nGhLPROrR257SO2jqrs-8Q_HFFcqQeBStRt5nv95mqz8cgBsqeWhksLBZ1a5WAkG-fo7zSwztykYyKr6ZO5gVp-rAIFRhRkWnb0bj_bWJzZ7vngXZ8ZtX87nwUh3GTr27IrlceffsxuV0SEozEgCfWFdYX-eikHRa_ti0&t=634680034413769542)
+}
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 8.00.7601.17744"></HEAD>
+<BODY leftMargin=0 topMargin=0 bgColor=#ffffff marginheight="0" marginwidth="0">
+<SCRIPT type=text/javascript src="Default_fichiers/jquery.min.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="Default_fichiers/jquery-ui.custom.min.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="Default_fichiers/jquery.jqprint.0.3.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="Default_fichiers/Utilitaires.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+        $(function () {
+            InitialiserExpiration(20, '/Errors/SessionTimeout.htm', false);
+            $("#lnkImprimer").click(function () {
+                $('#impression').jqprint();
+                return false;
+            });
+        });
+    </SCRIPT>
+
+<SCRIPT type=text/javascript>
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-26936094-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </SCRIPT>
+
+<FORM id=aspnetForm method=post name=aspnetForm action=Default.aspx>
+<DIV><INPUT id=__EVENTTARGET type=hidden name=__EVENTTARGET> <INPUT 
+id=__EVENTARGUMENT type=hidden name=__EVENTARGUMENT> <INPUT id=__VIEWSTATE 
+value=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 
+type=hidden name=__VIEWSTATE> </DIV>
+<SCRIPT type=text/javascript>
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</SCRIPT>
+
+<SCRIPT type=text/javascript src="Default_fichiers/WebResource.axd"></SCRIPT>
+
+<SCRIPT type=text/javascript src="Default_fichiers/WebResource(1).axd"></SCRIPT>
+
+<SCRIPT id=dxss_1775518736 type=text/javascript>
+<!--
+window.__aspxServerFormID = 'aspnetForm';
+window.__aspxEmptyImageUrl = '/DXR.axd?r=1_3';
+//-->
+</SCRIPT>
+
+<SCRIPT id=dxis_1590159349 type=text/javascript src=""></SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+var __cultureInfo = {"name":"fr-CA","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","IsReadOnly":true,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":" ","CurrencySymbol":"$","NaNSymbol":"Non Numérique","CurrencyNegativePattern":15,"NumberNegativePattern":1,"PercentPositivePattern":0,"PercentNegativePattern":0,"NegativeInfinitySymbol":"-Infini","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":",","NumberGroupSeparator":" ","CurrencyPositivePattern":3,"PositiveInfinitySymbol":"+Infini","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":",","PercentGroupSeparator":" ","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"","Calendar":{"MinSupportedDateTime":"\/Date(-62135578800000)\/","MaxSupportedDateTime":"\/Date(253402300799999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":true},"DateSeparator":"-","FirstDayOfWeek":0,"CalendarWeekRule":0,"FullDateTimePattern":"d MMMM yyyy HH:mm:ss","LongDatePattern":"d MMMM yyyy","LongTimePattern":"HH:mm:ss","MonthDayPattern":"d MMMM","PMDesignator":"","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"yyyy-MM-dd","ShortTimePattern":"HH:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM, yyyy","AbbreviatedDayNames":["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],"ShortestDayNames":["di","lu","ma","me","je","ve","sa"],"DayNames":["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],"AbbreviatedMonthNames":["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""],"MonthNames":["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""],"IsReadOnly":true,"NativeCalendarName":"calendrier grégorien","AbbreviatedMonthGenitiveNames":["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc.",""],"MonthGenitiveNames":["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre",""]},"eras":[1,"ap. J.-C.",null,0]};//]]>
+</SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="Default_fichiers/ScriptResourceCAB6D2YW.axd"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('Échec du chargement de l\u0027infrastructure ASP.NET Ajax côté client.');
+//]]>
+</SCRIPT>
+
+<SCRIPT type=text/javascript src="Default_fichiers/ScriptResource.axd"></SCRIPT>
+
+<DIV><INPUT id=__VIEWSTATEENCRYPTED type=hidden name=__VIEWSTATEENCRYPTED> 
+<INPUT id=__EVENTVALIDATION 
+value=HhU0TbQdDr94sEzfu7gWZUb4pXTMEef9SIJEWPzcmh3vIzE8HI1k9RCfVOc5PrIgVkEQ/jtkwvu7mq7o4oyw1xDDzvRh7w71udSzir2mjCg= 
+type=hidden name=__EVENTVALIDATION> </DIV>
+<SCRIPT type=text/javascript>
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', [], ['ctl00$ContentPlaceHolderMain$ContentDefault$FileUploadWindow$FileUpload1$grdFile$gridview$ctl05$btnConsulterRow','','ctl00$ContentPlaceHolderMain$ContentDefault$FileUploadWindow$FileUpload1$grdFile$gridview$ctl05$btnModifierRow',''], [], 90, 'ctl00');
+//]]>
+</SCRIPT>
+<BR>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width=840>
+  <TBODY>
+  <TR>
+    <TD style="TEXT-ALIGN: right" colSpan=7>
+      <ADDRESS style="COLOR: white; FONT-SIZE: 8pt; TEXT-DECORATION: none">169 
+      rue Louis IX, Loretteville G2B 1L1 Tél.: 418.842.2233</ADDRESS><A 
+      style="COLOR: white; FONT-SIZE: 8pt; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="http://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;time=&amp;date=&amp;ttype=&amp;q=169+rue+Louis-IX,+Loretteville+G2B+1L1&amp;sll=46.847307,-71.36075&amp;sspn=0.012592,0.028796&amp;ie=UTF8&amp;ll=46.847307,-71.36075&amp;spn=0.012592,0.028796&amp;z=16&amp;iwloc=addr&amp;om=1" 
+      target=_blank>Comment me rendre &gt;&gt;</A> </TD></TR></TBODY></TABLE>
+<TABLE border=0 cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE border=0 cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD 
+          style="BACKGROUND-IMAGE: url(Images/BillardLoretteville_01.jpg); PADDING-LEFT: 15px; WIDTH: 669px; HEIGHT: 121px; PADDING-TOP: 80px">
+            <TABLE border=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD style="PADDING-LEFT: 5px" width="50%"><SPAN 
+                  style="FONT-FAMILY: Arial; COLOR: #3b6f1f; FONT-SIZE: 18px; FONT-WEIGHT: bold" 
+                  id=ctl00_lblTitre>Bienvenue</SPAN> </TD>
+                <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 15px" 
+                  width="50%"><B><A 
+                  href="http://localhost:35999/Default.aspx">Accueil</A></B> 
+              </TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD>
+            <TABLE border=0 cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD><IMG alt="" 
+                  src="Default_fichiers/BillardLoretteville_11.jpg" width=10 
+                  height=459> </TD>
+                <TD 
+                style="BACKGROUND-IMAGE: url(images/BillardLoretteville_12.jpg); HEIGHT: 459px" 
+                vAlign=top>
+                  <DIV 
+                  style="PADDING-LEFT: 10px; WIDTH: 98%; HEIGHT: 444px; OVERFLOW: auto; PADDING-TOP: 10px"><SPAN 
+                  id=ctl00_ContentPlaceHolderMain_ContentDefault_lblValue><SPAN 
+                  style="FONT-SIZE: 11px">Vous adorez le <SPAN 
+                  style="COLOR: #0000ff"><B>billard</B></SPAN>, les 
+                  <B>quilles</B>, le <SPAN 
+                  style="COLOR: #0000ff"><B>poker</B></SPAN>, les 
+                  <B>fléchettes</B> ou tout simplement vous divertir en famille 
+                  ou entre amis ? Peu importe votre préférence, et que vous 
+                  soyez amateur ou professionnel, le <B>Salon de billard 
+                  Loretteville</B> a tout ce qu'il faut pour vous plaire 
+                  !<BR><BR><B>Venez nous voir et vous verrez que bientôt, chez 
+                  nous, ce sera chez vous!</B></SPAN><BR><BR>
+                  <TABLE width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD width="50%"><STRONG><SPAN 
+                        style="COLOR: #006400"><SPAN style="FONT-SIZE: 14px">En 
+                        vedette !</SPAN></SPAN></STRONG></TD>
+                      <TD width="50%"><STRONG><SPAN 
+                        style="COLOR: #006400"><SPAN 
+                        style="FONT-SIZE: 14px">Commodités</SPAN></SPAN></STRONG></TD></TR>
+                    <TR>
+                      <TD vAlign=top><BR><SPAN style="FONT-SIZE: 11px"><SPAN 
+                        style="COLOR: #0000ff"><SPAN 
+                        style="FONT-SIZE: 14px"><STRONG>Texas 
+                        Hold'em</STRONG></SPAN></SPAN><BR><BR>Mardi et jeudi, à 
+                        19 h 30<BR>Le dimanche, à 13 h, 14 h et 14 h 
+                        30<BR><B>Venez jouer chez nous et faites partie de la 
+                        famille! </B></SPAN></TD>
+                      <TD vAlign=top><BR><SPAN style="FONT-SIZE: 11px">Dans 
+                        une ambiance agréable et relaxante, laissez notre 
+                        personnel chaleureux et accueillant vous servir! Nous 
+                        avons à vous offrir :<BR><BR>14 tables de 
+                        <B>billard</B>; 2 tables de <B>valley</B>; Des tables de 
+                        <B>poker</B>; Des jeux de <B>loterie vidéo</B>; Un 
+                        <B>bar salon</B>; Des jeux de <B>fléchettes</B>; Et 
+                        aussi : musique d'ambiance, salle climatisée et beaucoup 
+                        de plaisir !</SPAN></TD></TR></TBODY></TABLE><BR><BR>
+                  <TABLE cellSpacing=10 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD width="33%"><STRONG><SPAN 
+                        style="COLOR: #006400"><SPAN 
+                        style="FONT-SIZE: 14px">Salle de 
+                        réception</SPAN></SPAN></STRONG></TD>
+                      <TD width="33%"><STRONG><SPAN 
+                        style="COLOR: #006400"><SPAN 
+                        style="FONT-SIZE: 14px">Nouvelles</SPAN></SPAN></STRONG></TD>
+                      <TD width="33%"><STRONG><SPAN 
+                        style="COLOR: #006400"><SPAN 
+                        style="FONT-SIZE: 14px">Promotions</SPAN></SPAN></STRONG></TD></TR>
+                    <TR>
+                      <TD style="VERTICAL-ALIGN: top"><SPAN 
+                        style="FONT-SIZE: 11px">Que ce soit pour une fête de 
+                        famille, un événement à souligner entre amis ou encore 
+                        un grand événement, pensez à notre <B>salle de 
+                        réception</B>. Elle peut accueillir entre <B>10 et 75 
+                        personnes</B>.</SPAN></TD>
+                      <TD style="VERTICAL-ALIGN: top"><SPAN 
+                        style="FONT-SIZE: 11px">Prenez des nouvelles du <B>Salon 
+                        de billard Loretteville</B> sur <SPAN 
+                        style="COLOR: #a52a2a"><STRONG>Facebook</STRONG></SPAN>. 
+                        <A 
+                        href="http://www.facebook.com/pages/Billard-Loretteville/245949442129936">Cliquez 
+                        ici !</A> Vous voulez être informés de nos activités, 
+                        inscrivez-nous à notre <B>liste d'envoi</B>. 
+                        Écrivez-nous !</SPAN></TD>
+                      <TD style="VERTICAL-ALIGN: top"><SPAN 
+                        style="FONT-SIZE: 11px"><SPAN 
+                        style="FONT-SIZE: 14px"><STRONG><SPAN 
+                        style="COLOR: #a52a2a">40% de rabais sur le 
+                        billard</SPAN></STRONG></SPAN><BR><BR>Tous les jours, de 
+                        9 h à 18 h Vendredi et samedi, de 23 h à 3 
+                    h</SPAN></TD></TR></TBODY></TABLE><BR><BR>
+                  <CENTER><SPAN style="FONT-SIZE: 11px"><A 
+                  href="http://localhost:35999/contact.aspx">Contacter nous, 
+                  nous aimerions recevoir vos commentaires 
+                  !</A></SPAN></CENTER></SPAN></DIV></TD>
+                <TD></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD><IMG src="Default_fichiers/BillardLoretteville_13.jpg"> 
+        </TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=top><IMG border=0 
+      src="Default_fichiers/BillardLoretteville_02.jpg"> 
+      <TABLE border=0 cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD style="PADDING-TOP: 1px" vAlign=top><A 
+            href="http://localhost:35999/photos.aspx"><IMG border=0 
+            src="Default_fichiers/PhotosOff.jpg"></A> </TD>
+          <TD vAlign=top><A href="http://localhost:35999/tarifs.aspx"><IMG 
+            border=0 src="Default_fichiers/TarifOff.jpg"></A> </TD>
+          <TD vAlign=top><A href="http://localhost:35999/tournois.aspx"><IMG 
+            border=0 src="Default_fichiers/TournoiOff.jpg"></A> </TD>
+          <TD vAlign=top><A href="http://localhost:35999/Poker.aspx"><IMG 
+            border=0 src="Default_fichiers/LiguePokerOff.jpg"></A> </TD>
+          <TD vAlign=top><A href="http://localhost:35999/billard.aspx"><IMG 
+            border=0 src="Default_fichiers/LigueBillardOff.jpg"></A> </TD>
+          <TD vAlign=top><IMG 
+            src="Default_fichiers/BillardLoretteville_08.jpg"> 
+      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><A style="COLOR: white" 
+href="http://localhost:35999/Default.aspx">Accueil</A> :: <A 
+style="COLOR: white" href="http://localhost:35999/Photos.aspx">Photos</A> :: <A 
+style="COLOR: white" href="http://localhost:35999/Tarifs.aspx">Tarifs</A> :: <A 
+style="COLOR: white" href="http://localhost:35999/Tournois.aspx">Tournois</A> :: 
+<A style="COLOR: white" href="http://localhost:35999/Poker.aspx">Ligues de 
+poker</A> :: <A style="COLOR: white" 
+href="http://localhost:35999/Billard.aspx">Ligues de billard</A> :: <A 
+style="COLOR: white" href="http://localhost:35999/Contact.aspx">Contactez 
+nous</A> :: <A style="COLOR: white" id=ctl00_lnkIntranet class=linkButton 
+href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$lnkIntranet", "", true, "", "", false, true))'>Intranet</A> 
+</CENTER><INPUT id=EstFenetreModal value=0 type=hidden> <INPUT 
+id=StatutExpiration value=1 type=hidden> </FORM></BODY></HTML>

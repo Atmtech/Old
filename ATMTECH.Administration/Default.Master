@@ -1,0 +1,174 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ATMTECH.Administration.Default" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+</head>
+<body>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.MultiFile.js") %>"></script>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery-combobox.js") %>"></script>
+    <%-- Envoyer true à la fonction GererExpiration pour l'affichage du temps restant en bas de page. --%>
+    <script type="text/javascript">
+        $(function () {
+            InitialiserExpiration(20, '<%=ResolveUrl("~/Errors/SessionTimeout.htm")%>', false);
+            $("#lnkImprimer").click(function () {
+                $('#impression').jqprint();
+                return false;
+            });
+        });
+    </script>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
+            EnableScriptLocalization="true">
+        </asp:ScriptManager>
+        <div>
+            <div style="margin: 10px 10px 10px 10px">
+                <div style="background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+                    <div style="float: left; font-weight: bold; font-size: 25px; width: 50%; padding-left: 10px; padding-top: 5px; padding-bottom: 5px; text-transform: uppercase;">
+                        Administration
+                    </div>
+                    <div style="float: right; padding-top: 5px; padding-bottom: 5px; padding-right: 10px;">
+                        <atmtech:Login ID="Login1" runat="server"></atmtech:Login>
+                    </div>
+                    <div style="clear: both;">
+                    </div>
+                </div>
+                <atmtech:TitreLabelAvance runat="server" ID="lblMessage" ForeColor="red" />
+                <asp:Panel runat="server" ID="pnlLogged" Visible="false">
+                    <table style="width: 100%; border-bottom: solid 1px gray;">
+                        <tr>
+                            <td style="width: 260px; border-right: solid 2px gray;" valign="top">
+                                <div class="title">
+                                    Menu
+                                </div>
+
+                                <asp:Panel runat="server" ID="pnlAchievement" Visible="False">
+                                    <div id="list4">
+                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
+                                            Entités
+                                        </div>
+                                        <ul>
+                                            <li><a href="DataEditor.aspx?Entity=Accomplissement&IsEnterpriseRuled=0">Les accomplissements</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=AccomplissementUtilisateur&IsEnterpriseRuled=0">Les accomplissements des utilisateurs</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=AccomplissementTrait&IsEnterpriseRuled=0">Les qualités d'un accomplissement</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Categorie&IsEnterpriseRuled=0">Les catégories</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Trait&IsEnterpriseRuled=0">Les qualités</a></li>
+                                        </ul>
+                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
+                                            Outils
+                                        </div>
+                                        <ul>
+                                            <li><a href="FileUpload.aspx">Gestions des fichiers</a> </li>
+                                            <li><a href="DataEditor.aspx?Entity=Task&IsEnterpriseRuled=0">Les demandes de développement</a></li>
+                                            <li><a href="ExecuteSql.aspx">Executer du script sql</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Parameter&IsEnterpriseRuled=0">Les paramètres</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Localization&IsEnterpriseRuled=0">Langue (Anglais
+                                        / Français)</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Message&IsEnterpriseRuled=0">Les messages d'applications</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=LogException&IsEnterpriseRuled=0">Log des erreurs</a></li>
+                                            <li>
+                                                <asp:LinkButton runat="server" ID="LinkButton1" Text="Générer les colonnes"
+                                                    OnClick="BtnGenerateColumns" /></li>
+                                            <li>
+                                                <asp:LinkButton runat="server" ID="LinkButton2" Text="Générer la base de données "
+                                                    OnClick="btnGenererDatabase" /></li>
+                                        </ul>
+                                    </div>
+
+                                </asp:Panel>
+
+                                <asp:Panel runat="server" ID="pnlShoppingCart" Visible="False">
+                                    <div id="list4">
+                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
+                                            Produit et commandes
+                                        </div>
+                                        <ul>
+                                            <li><a href="DataEditor.aspx?Entity=Product">Les produits</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=ProductCategory">Les catégories de produit</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Stock">Les inventaires</a> </li>
+                                            <li><a href="DataEditor.aspx?Entity=StockTransaction">Les transactions inventaires</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=StockLink">Les inventaires liés</a></li>
+                                            <li><a href="StockReport.aspx">Rapports des inventaires</a></li>
+                                            <li><a href="SalesReport.aspx">Rapports des commandes</a></li>
+                                            <li><a href="SalesByMonthReport.aspx">Rapports des ventes par mois</a></li>
+                                            <li><a href="SalesByOrderInformation.aspx">Rapports des ventes par imputation</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=ProductFile">Les images des produits</a> </li>
+                                            <li><a href="DataEditor.aspx?Entity=Order">Les commandes</a> </li>
+                                            <li><a href="DataEditor.aspx?Entity=Supplier">Les fournisseurs</a> </li>
+                                            <li><a href="DataEditor.aspx?Entity=ProductPriceHistory&IsEnterpriseRuled=0">Historique des prix modifiés</a> </li>
+                                        </ul>
+                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
+                                            Entreprise et autres
+                                        </div>
+                                        <ul>
+                                            <li><a href="DataEditor.aspx?Entity=Enterprise&IsEnterpriseRuled=0">Les entreprises</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=EnterpriseEmail">Personnes informés par courriel</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Address&IsEnterpriseRuled=0">Les adresses</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=EnterpriseAddress">Les adresses d'entreprise</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Customer">Les clients</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=User&IsEnterpriseRuled=0">Les utilisateurs</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=City&IsEnterpriseRuled=0">Les villes</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Taxes&IsEnterpriseRuled=0">Les taxes</a></li>
+                                        </ul>
+                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
+                                            La sécurité
+                                        </div>
+                                        <ul>
+                                            <li><a href="DataEditor.aspx?Entity=Group&IsEnterpriseRuled=0">Les groupes</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=GroupProduct&IsEnterpriseRuled=1">Les accès aux
+                                        produits</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=GroupUser&IsEnterpriseRuled=0">Les utiliseurs d'un
+                                        groupe</a></li>
+                                        </ul>
+                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
+                                            Outils
+                                        </div>
+                                        <ul>
+                                            <li><a href="FileUpload.aspx">Gestions des fichiers</a> </li>
+                                            <li><a href="DataEditor.aspx?Entity=Task&IsEnterpriseRuled=0">Les demandes de développement</a></li>
+                                            <li><a href="ExecuteSql.aspx">Executer du script sql</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=StockTemplate&IsEnterpriseRuled=0">Les modèles d'inventaires</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Parameter&IsEnterpriseRuled=0">Les paramètres</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Localization&IsEnterpriseRuled=0">Langue (Anglais
+                                        / Français)</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=Message&IsEnterpriseRuled=0">Les messages d'applications</a></li>
+                                            <li><a href="DataEditor.aspx?Entity=LogException&IsEnterpriseRuled=0">Log des erreurs</a></li>
+                                            <li>
+                                                <asp:LinkButton runat="server" ID="btnGenerateColumns" Text="Générer les colonnes"
+                                                    OnClick="BtnGenerateColumns" /></li>
+
+                                        </ul>
+                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
+                                            Liens rapides
+                                        </div>
+                                        <ul>
+                                            <li><a href="http://admin.boutiquecorpo.com">Administration</a></li>
+                                            <li><a href="http://ursulines.boutiquecorpo.com">Site ursulines</a></li>
+                                            <li><a href="http://cima.boutiquecorpo.com">Site cima</a></li>
+
+                                        </ul>
+                                    </div>
+                                </asp:Panel>
+                            </td>
+                            <td valign="top">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </div>
+        </div>
+        <input type="hidden" id="EstFenetreModal" value="0" />
+        <input type="hidden" id="StatutExpiration" value="1" />
+    </form>
+</body>
+</html>

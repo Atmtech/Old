@@ -1,0 +1,560 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+
+/*******************************************************************************************************
+    Faire un replace si on change le theme
+
+    Couleur de fond: #e67e22
+    Couleur bandeau accomplissement: #f39c12
+    Menu gauche: #e67e22
+    Tour des images discussion: #d35400
+    Bandeau titre: #d35400
+    bouton menu hover: #f1c40f
+
+*******************************************************************************************************/
+html, body
+{
+    height: 100%;
+    background-color: #e67e22;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.panneauAccomplissementTitre
+{
+    width: 100%;
+    background-color: #f39c12;
+    height: 50px;
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+.barreMenuDiscussion
+{
+    background-color: #e67e22;
+    text-align: left;
+}
+
+.menu
+{
+    background-color: #e67e22;
+    font-size: 13px;
+    font-weight: bold;
+    width: 200px;
+}
+
+.boutonDiscussion
+{
+    text-align: left;
+    background: #e67e22;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 13px;
+    border: none;
+    padding: 5px 5px 5px 5px;
+    font-weight: bold;
+}
+
+    .boutonDiscussion:hover
+    {
+        background: #f1c40f;
+        color: white;
+    }
+
+.boutonMenu
+{
+    width: 200px;
+    text-align: left;
+    background: #e67e22;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 11px;
+    border: none;
+    padding: 5px 5px 5px 5px;
+    font-weight: bold;
+}
+
+    .boutonMenu:hover
+    {
+        background: #f1c40f;
+    }
+
+.bouton
+{
+    text-align: left;
+    background: #e67e22;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 11px;
+    border: none;
+    margin: 0 0 0 0;
+    font-weight: bold;
+}
+
+    .bouton:hover
+    {
+        background: #f1c40f;
+    }
+
+.boutonBadge
+{
+    font-family: 'Roboto', sans-serif;
+    background: #e67e22;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 11px;
+    border: none;
+}
+
+    .boutonBadge:hover
+    {
+        background: #e67e22;
+        color: white;
+    }
+
+.nomUtilisateurTitre
+{
+    padding-left: 10px;
+    font-size: 17px;
+    color: white;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+}
+
+h1
+{
+    margin-top: 0;
+    font-size: 25px;
+    color: #e67e22;
+}
+
+h2
+{
+    margin-top: 0;
+    font-size: 13px;
+}
+
+h3
+{
+    margin-top: 0;
+    font-size: 10px;
+}
+
+h6
+{
+    margin-top: 0;
+    font-size: 9px;
+    color: gray;
+}
+
+
+
+.txtInput
+{
+    border: 1px solid gray;
+    height: 20px;
+    padding-left: 10px;
+    border-radius: 4px;
+}
+
+*:focus
+{
+    outline: 0;
+}
+
+.txtSignup
+{
+    border: none;
+    border-bottom: 2px solid silver;
+    height: 16px;
+    font-size: 16px;
+    width: 98%;
+    margin-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    margin-top: 15px;
+}
+
+
+.bandeauTitre
+{
+    margin: 0 0 0 0;
+    background-color: #d35400;
+    padding-top: 10px;
+    color: black;
+}
+
+.titre
+{
+    font-family: Pacifico, sans-serif;
+    width: 50%;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-variant: small-caps;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+}
+
+.bandeauContenu
+{
+    text-align: center;
+    vertical-align: top;
+    background-color: #e67e22;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.bordureEntourantIcone {
+    border-radius: 20px;
+    border: 3px solid rgb(67, 67, 67);
+}
+.imageUtilisateurTitre
+{
+    width: 25px;
+    height: 25px;
+    
+}
+
+.boiteBlancheArrondi300px
+{
+    display: inline-block;
+    border-radius: 40px;
+    background-color: white;
+    padding: 30px 30px 30px 30px;
+    width: 400px;
+    vertical-align: top;
+    text-align: left;
+    margin-right: 20px;
+}
+
+.boiteBlancheArrondi
+{
+    display: inline-block;
+    border-radius: 40px;
+    background-color: white;
+    padding: 30px 30px 30px 30px;
+    width: 500px;
+    vertical-align: top;
+    text-align: left;
+}
+
+.boiteBlancheArrondi700px
+{
+    display: inline-block;
+    border-radius: 40px;
+    background-color: white;
+    padding: 30px 30px 30px 30px;
+    width: 700px;
+    vertical-align: top;
+    text-align: left;
+}
+
+
+
+.panneauUtilisateurAuthentifieTitre
+{
+    float: right;
+    padding-right: 10px;
+}
+
+
+.panneauRecherche
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.panneauimageLogout
+{
+    margin-left: 10px;
+    width: 25px;
+    height: 25px;
+}
+
+.panneauimageRecherche
+{
+    width: 25px;
+    height: 25px;
+}
+
+.imageRecherche
+{
+    padding-top: 3px;
+    padding-right: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+.imageLogout
+{
+    padding-top: 3px;
+    padding-left: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+
+.texteRecherche
+{
+    width: 300px;
+    border: 1px solid gray;
+    height: 20px;
+    padding-left: 10px;
+    border-radius: 4px;
+}
+
+
+.listeCategorie
+{
+    font-size: 12px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 150px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.tooltipTitreAccomplissement
+{
+    margin-top: 0;
+    font-size: 25px;
+    color: #e67e22;
+    font-variant: small-caps;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.tooltipDescriptionAccomplissement
+{
+}
+
+.tooltipQualiteAccomplissement
+{
+    padding-top: 10px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+a
+{
+    font-size: 14px;
+    color: #e67e22;
+    text-decoration: none;
+}
+
+.mentionAccompli
+{
+    position: relative;
+    opacity: 0.25;
+    font-weight: bold;
+    font-size: 11px;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+}
+
+.contenantMenuBadge
+{
+    padding-top: 20px;
+    text-align: center;
+    margin: 0px auto;
+    padding-bottom: 5px;
+}
+
+.contenantBadge
+{
+    width: 200px;
+    border-radius: 20px;
+    text-align: left;
+    padding: 5px 5px 5px 5px;
+}
+
+.titreBadge
+{
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.imageBadge
+{
+    width: 35px;
+    height: 35px;
+    padding-top: 10px;
+}
+
+.badgeInterieur
+{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    border-radius: 100%;
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+}
+
+.badge
+{
+    margin-left: 75px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    text-align: center;
+    border-radius: 5px;
+}
+
+    .badge:before, .badge:after
+    {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: inherit;
+        border-radius: inherit;
+    }
+
+    .badge:before
+    {
+        -webkit-transform: rotate(30deg);
+        -moz-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        -o-transform: rotate(30deg);
+    }
+
+    .badge:after
+    {
+        -webkit-transform: rotate(60deg);
+        -moz-transform: rotate(60deg);
+        -ms-transform: rotate(60deg);
+        -o-transform: rotate(60deg);
+    }
+
+.vaseCommuniquantFleche
+{
+    background: #e67e22;
+    border-radius: 50px;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    vertical-align: middle;
+    border: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.listeImageProposerAccomplissement
+{
+    width: 20px;
+    height: 20px;
+    padding: 3px 3px 3px 3px;
+}
+
+.modal
+{
+    background-color: #fff;
+    display: none;
+    width: 350px;
+    padding: 15px;
+    text-align: left;
+    border: 2px solid #333;
+    opacity: 0.8;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-box-shadow: 0 0 50px #ccc;
+    -webkit-box-shadow: 0 0 50px #ccc;
+}
+
+.bubbleLeft
+{
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 0px;
+    background: #FFFFFF;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+    .bubbleLeft:after
+    {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 15px 15px 15px 0;
+        border-color: transparent #FFFFFF;
+        display: block;
+        width: 0;
+        z-index: 1;
+        margin-top: -15px;
+        left: -15px;
+        top: 40px;
+    }
+
+
+.bubbleRight
+{
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 0px;
+    background: #c2c2c2;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+    .bubbleRight:after
+    {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 15px 0 15px 15px;
+        border-color: transparent #c2c2c2;
+        display: block;
+        width: 0;
+        z-index: 1;
+        margin-top: -15px;
+        right: -15px;
+        top: 40px;
+    }
+
+.imageDiscussionMur
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 4px solid #d35400;
+}
+
+.titreUtilisateurDiscussionMur
+{
+    font-weight: bold;
+}
+
+.titreTempsPosteDiscussionMur
+{
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+
+.texteDiscussionMur
+{
+    padding-bottom: 15px;
+}

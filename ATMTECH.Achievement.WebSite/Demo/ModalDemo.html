@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <!-- include the Tools -->
+    <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+
+    <!-- standalone page styling (can be removed) -->
+    
+    
+    <style>
+        .modal
+        {
+            background-color: #fff;
+            display: none;
+            width: 350px;
+            padding: 15px;
+            text-align: left;
+            border: 2px solid #333;
+            opacity: 0.8;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            -moz-box-shadow: 0 0 50px #ccc;
+            -webkit-box-shadow: 0 0 50px #ccc;
+        }
+    </style>
+</head>
+<body>
+    <button class="modalInput" rel="#visualiserAccomplissement">Visualiser accomplissement</button>
+    <div class="modal" id="visualiserAccomplissement">
+        <h2>Accomplissement</h2>
+
+        <p>
+            Bla bla bla
+        </p>
+        <p>
+            <button class="close">Fermer</button>
+        </p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $(".modalInput").overlay({
+                mask: {
+                    color: '#ebecff',
+                    loadSpeed: 200,
+                    opacity: 0.9
+                },
+
+                closeOnClick: false
+            });
+        });
+    </script>
+</body>
+</html>

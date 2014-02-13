@@ -1,0 +1,73 @@
+﻿<Window x:Class="GeniteurInformationnel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Géniteur" Height="366" Width="1040" Loaded="Window_loaded" Background="#9BB4B2B2">
+
+    <Grid Margin="0,0,0,0" Height="Auto" VerticalAlignment="Stretch">
+
+        <Grid Margin="0,0,0,0" Name="grdEtapeParametreInitiaux" Height="Auto" VerticalAlignment="Stretch" Visibility="Visible">
+            <Label Content="Sélectionner vos paramètres initiaux" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="Base de données:" HorizontalAlignment="Left" Margin="22,83,0,0" VerticalAlignment="Top" />
+            <ComboBox HorizontalAlignment="Left" Margin="229,87,0,0" VerticalAlignment="Top" Width="338" Name="cbxBDSource" SelectionChanged="cbxBDSourceSelectionChanged"/>
+            <Label Content="Serveur:" HorizontalAlignment="Left" Margin="23,53,0,0" VerticalAlignment="Top" />
+            <ComboBox HorizontalAlignment="Left" Margin="229,57,0,0" VerticalAlignment="Top" Width="338" Name="cbxServeur" SelectionChanged="cbxServeurSelectionChanged"/>
+            <Label Content="Nom de table:" HorizontalAlignment="Left" Margin="23,114,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.471,2.654" />
+            <ComboBox HorizontalAlignment="Left" Margin="229,118,0,0" VerticalAlignment="Top" Width="338" x:Name="cbxNomTable" SelectionChanged="cbxNomTableSelectionChanged"/>
+            <Label Content="Nom procedure stocke conformité:" HorizontalAlignment="Left" Margin="23,145,0,0" VerticalAlignment="Top"/>
+            <Label Content="Nom procedure stocke distribution:" HorizontalAlignment="Left" Margin="23,176,0,0" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="229,147,0,0" Name="txtNomProcedureStockeConformite" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="338"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="229,178,0,0" Name="txtNomProcedureStockeDistribution" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="338"/>
+            <CheckBox Content="Génération pour une table de fait" HorizontalAlignment="Left" Margin="229,217,0,0" Name="chkEstTableFait" VerticalAlignment="Top" Width="262"/>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="605,69,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+            <TextBox HorizontalAlignment="Left" Height="132" Margin="606,101,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="356" Name="txtTest"/>
+        </Grid>
+
+        <Grid Margin="0,0,0,0" Name="grdEtapeSelectionColonne" Visibility="Hidden" Height="Auto" VerticalAlignment="Stretch">
+            <Label Content="Sélectionner les colonnes" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <DataGrid AutoGenerateColumns="False" Height="236"
+          HorizontalAlignment="Left" Margin="20,51,0,0"
+          Name="lstColonne" VerticalAlignment="Top" Width="1002" ColumnWidth="*">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="Black" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Background" Value="#363636" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                </DataGrid.Resources>
+                
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn x:Name="chkUtilise" Width="20" Binding="{Binding EstUtilise}"></DataGridCheckBoxColumn>
+                    <DataGridTextColumn Binding="{Binding NomColonne}" Header="Nom" Width="250"
+                      IsReadOnly="True" x:Name="txtNomColonne"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding NomTable}" Header="Table" Width="100"
+                      IsReadOnly="True" x:Name="txtNomTable"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Type}" Header="Type" Width="100"
+                      IsReadOnly="True" x:Name="txtType"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding NomSuggere}" Header="Colonne AS" Width="350"
+                      IsReadOnly="False" x:Name="txtNomSuggere"></DataGridTextColumn>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Margin="0,0,0,0" Name="grdEtapeSelectionCleRecherche" Visibility="Hidden" Height="Auto" VerticalAlignment="Stretch">
+            <Label Content="Sélectionner vos clés de recherches" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        </Grid>
+
+        <Grid Margin="0,0,0,0" Name="grdEtapefinale" Visibility="Hidden" Height="Auto" VerticalAlignment="Stretch">
+
+            <Label Content="Finalité" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <FlowDocumentReader Name="reader" Margin="0,0,0,0" ViewingMode="Scroll" BorderThickness="1" BorderBrush="#FF838383" IsPageViewEnabled="False" IsTwoPageViewEnabled="False" HorizontalAlignment="Left" Width="283" Height="157" VerticalAlignment="Top" Grid.RowSpan="1">
+                <FlowDocument Name="flowConformite" Background="Black">
+                    <Paragraph FontFamily="Segoe UI" FontSize="12" Name="paragrapheConformite" Background="Black"></Paragraph>
+                </FlowDocument>
+            </FlowDocumentReader>
+        </Grid>
+
+        <Button Content="Étape précédente" Margin="0,0,153,9" HorizontalAlignment="Right" Width="133" Height="33" VerticalAlignment="Bottom" Name ="btnEtapePrecedente" Click="btnEtapePrecedenteClick"/>
+        <Button Content="Étape suivante" Margin="0,0,10,9" HorizontalAlignment="Right" Width="135" Height="33" VerticalAlignment="Bottom" Name ="btnEtapeSuivante" Click="btnEtapeSuivanteClick"/>
+
+    </Grid>
+</Window>
