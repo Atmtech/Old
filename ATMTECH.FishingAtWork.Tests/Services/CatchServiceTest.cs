@@ -279,52 +279,7 @@ namespace ATMTECH.FishingAtWork.Tests.Services
             Assert.IsNull(speciesCatches[0].Player);
         }
 
-        [TestMethod]
-        public void Catch_EvaluerPourcentageChance()
-        {
-
-            IList<WaypointCoordinate> sitePlayerCoordinates = new List<WaypointCoordinate>();
-            sitePlayerCoordinates.Add(WaypointCoordinateBuilder.Create().WithX(2).WithY(2));
-            sitePlayerCoordinates.Add(WaypointCoordinateBuilder.Create().WithX(2).WithY(4));
-            sitePlayerCoordinates.Add(WaypointCoordinateBuilder.Create().WithX(4).WithY(2));
-            sitePlayerCoordinates.Add(WaypointCoordinateBuilder.Create().WithX(4).WithY(4));
-
-            Waypoint waypoint = WaypointBuilder.Create().WithPlayer(Vincent).WithSitePlayerCoordinate(sitePlayerCoordinates).WithDateStart(DateTime.Now.AddHours(-1)).WithDateEnd(DateTime.Now.AddHours(1));
-
-            Site site =
-                 SiteBuilder.Create().WithName("St-Laurent")
-                 .AddSiteSpecies(SiteSaumon)
-                 .AddSiteSpecies(SiteTruite)
-                  .AddWayPoint(waypoint)
-                  .EnabledTournament();
-
-            int nombreFoisCatchSuccess = 0;
-            RandomService randomService = new RandomService();
-
-            IList<SiteSpeciesCoordinate> siteSpeciesCoordinates = new List<SiteSpeciesCoordinate>();
-            siteSpeciesCoordinates.Add(SiteSpeciesCoordinateBuilder.Create().WithCoordinate(CoordinateBuilder.Create().WithX(1).WithY(1)));
-            siteSpeciesCoordinates.Add(SiteSpeciesCoordinateBuilder.Create().WithCoordinate(CoordinateBuilder.Create().WithX(1).WithY(4)));
-            siteSpeciesCoordinates.Add(SiteSpeciesCoordinateBuilder.Create().WithCoordinate(CoordinateBuilder.Create().WithX(5).WithY(1)));
-            siteSpeciesCoordinates.Add(SiteSpeciesCoordinateBuilder.Create().WithCoordinate(CoordinateBuilder.Create().WithX(5).WithY(4)));
-            SiteSpecies siteTruite = SiteSpeciesBuilder.CreateValid().WithArea(siteSpeciesCoordinates);
-            site.SiteSpecies.Clear();
-            site.SiteSpecies.Add(siteTruite);
-
-            for (int i = 0; i < 100; i++)
-            {
-                SetMockRandomServiceCoordinate(randomService.RandomCoordinate(1, 5, 1, 4));
-                IList<SpeciesCatch> speciesCatches = InstanceTest.Catch(site);
-                foreach (SpeciesCatch speciesCatch in speciesCatches)
-                {
-                    if (speciesCatch.IsSuccessArea)
-                    {
-                        nombreFoisCatchSuccess += 1;
-                    }
-                }
-            }
-            nombreFoisCatchSuccess.Should().BeGreaterThan(25);
-        }
-
+    
         private IList<WaypointCoordinate> SetSitePlayerCoordinate()
         {
             IList<WaypointCoordinate> sitePlayerCoordinates = new List<WaypointCoordinate>();
