@@ -74,7 +74,6 @@
     <Compile Include="PurolatorServiceTest.cs" />
     <Compile Include="SQLiteBulkInsertTest.cs" />
     <Compile Include="UtilityTest.cs" />
-    <Compile Include="WeatherServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
