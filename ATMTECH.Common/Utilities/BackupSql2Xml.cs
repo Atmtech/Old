@@ -86,10 +86,9 @@ namespace ATMTECH.Common.Utilities
                 myConnection.Close();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                throw;
+                
             }
 
             // Backup chaque ligne 
@@ -112,7 +111,7 @@ namespace ATMTECH.Common.Utilities
             // supprimer toute les fichiers restant
             foreach (DataRow item in dataTable.Rows)
             {
-                File.Delete(repertoire + "\\" + item.ItemArray[0].ToString() + ".xml");
+                File.Delete(repertoire + "\\" + item.ItemArray[0] + ".xml");
             }
         }
         public void RestoreAll(string connectionString, string backupPath, string date)
@@ -141,7 +140,7 @@ namespace ATMTECH.Common.Utilities
             // supprimer les fichiers 
             foreach (DataRow item in dataTable.Rows)
             {
-                File.Delete(repertoire + "\\" + item.ItemArray[0].ToString() + ".xml");
+                File.Delete(repertoire + "\\" + item.ItemArray[0] + ".xml");
             }
         }
         public string Restore(string tableName, string connectionString, string emplacementSauvegarde)

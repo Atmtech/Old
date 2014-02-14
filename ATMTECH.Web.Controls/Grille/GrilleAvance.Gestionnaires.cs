@@ -77,7 +77,7 @@ namespace ATMTECH.Web.Controls.Grille
             _grille.RowEditing += OnRowEditing;
             _grille.RowUpdated += OnRowUpdated;
             _grille.RowUpdating += OnRowUpdating;
-            _grille.SelectedIndexChanged += OnSelectedIndexChanged;
+            //_grille.SelectedIndexChanged += OnSelectedIndexChanged;
             _grille.Sorted += OnSorted;
             _grille.Sorting += OnSorting;
         }

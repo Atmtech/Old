@@ -57,9 +57,9 @@ namespace ATMTECH.Web
                     CallShowMessage(input.Target, exception);
                 }
             }
-            catch (BaseException exception)
+            catch
             {
-                //  throw exceptionLog;
+                
             }
 
             result.Exception = null;

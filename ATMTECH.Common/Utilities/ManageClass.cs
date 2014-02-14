@@ -285,7 +285,7 @@ namespace ATMTECH.Common.Utilities
 
                     }
                 }
-                catch (System.Exception ex)
+                catch 
                 {
 
                 }

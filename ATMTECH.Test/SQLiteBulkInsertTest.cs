@@ -138,7 +138,7 @@ namespace ATMTECH.Test
             {
                 string a = target.CommandText;
             }
-            catch (SQLiteException ex) { wasException = true; }
+            catch { wasException = true; }
 
             Assert.IsTrue(wasException);
         }
@@ -172,7 +172,7 @@ namespace ATMTECH.Test
             {
                 target.Insert(new object[] { "hello" }); //object.length must equal the number of parameters added
             }
-            catch (Exception ex) { didThrow = true; }
+            catch { didThrow = true; }
             Assert.IsTrue(didThrow);
 
             AddParameters(target);

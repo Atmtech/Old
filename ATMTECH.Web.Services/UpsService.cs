@@ -135,11 +135,11 @@ namespace ATMTECH.Web.Services
             }
             catch (ProtocolViolationException ex)
             {
-                MessageService.ThrowMessage(Common.ErrorCode.ADM_UPS_TIMEOUT_ERROR);
+                MessageService.ThrowMessage(Common.ErrorCode.ADM_UPS_TIMEOUT_ERROR, ex);
             }
             catch (WebException ex)
             {
-                MessageService.ThrowMessage(Common.ErrorCode.ADM_UPS_EMPTY_ERROR);
+                MessageService.ThrowMessage(Common.ErrorCode.ADM_UPS_EMPTY_ERROR, ex);
             }
             catch (System.Exception ex)
             {

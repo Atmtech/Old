@@ -78,7 +78,7 @@ namespace ATMTECH.Web.Services
                 return logVisit;
 
             }
-            catch (System.Exception ex)
+            catch
             {
             }
             return null;

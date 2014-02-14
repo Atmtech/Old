@@ -61,7 +61,7 @@ namespace ATMTECH.DAO.Database
                         }
                     }
                 }
-                catch (System.Exception ex)
+                catch
                 {
 
                 }

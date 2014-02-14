@@ -197,7 +197,7 @@ namespace ATMTECH.Web.Controls.Grille
 
         internal bool EstMaitreDetailLegacy
         {
-            get { return EstMaitreDetail && !string.IsNullOrEmpty(SelectionnerRangeeMethode); }
+            get { return EstMaitreDetail; }
         }
 
         /// <summary>
@@ -1790,7 +1790,7 @@ namespace ATMTECH.Web.Controls.Grille
 
         private void AppelerMethodeSelectionner()
         {
-            string methode = EstMaitreDetailLegacy ? SelectionnerRangeeMethode : ConsulterMethode;
+            string methode = ConsulterMethode;
             object entite = null;
             if (_grille.SelectedIndex >= 0)
             {

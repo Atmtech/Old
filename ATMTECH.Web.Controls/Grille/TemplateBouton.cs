@@ -139,7 +139,7 @@ namespace ATMTECH.Web.Controls.Grille
         {
             ImageButton imageButton = CreerBouton(NOM_BOUTON_CONSULTER, _grilleParent.EstBoutonConsulterAsynchrone,
                                                   _grilleParent.ToolTipBoutonConsulter, "Consulter", "consulter.png");
-            imageButton.CommandName = _grilleParent.EstMaitreDetailLegacy ? GrilleAvance.SELECTIONNER_BOUTON_COMMAND : GrilleAvance.CONSULTER_BOUTON_COMMAND;
+            imageButton.CommandName = GrilleAvance.CONSULTER_BOUTON_COMMAND;
             if (_grilleParent.EstRangeeCliquable || _grilleParent.EstMaitreDetail)
                 imageButton.CssClass = "gvBtnSelect " + imageButton.ID;
             return imageButton;
