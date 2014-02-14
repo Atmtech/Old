@@ -14,7 +14,7 @@ namespace ATMTECH.Mediator.Client
         [StructLayout(LayoutKind.Sequential)]
         private struct FLASHWINFO
         {
-            /// <summary>
+            /// <summa ry>
             /// The size of the structure in bytes.
             /// </summary>
             public uint cbSize;
