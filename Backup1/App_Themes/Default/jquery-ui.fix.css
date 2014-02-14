@@ -1,0 +1,12 @@
+.ui-widget { font-size: 1em; }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-size: 0.6em; }
+.ui-widget-content { background-image: url(images/ui-bg_glass_75_ffffff_1x400.png); }
+.ui-widget-header { font-size: 0.6em; }
+
+.ui-widget-overlay { background: black; opacity: .7; filter:Alpha(Opacity=70); }
+
+.ui-dialog .ui-dialog-titlebar { padding: .5em 1em .3em; }
+.ui-dialog .ui-dialog-title { margin: .1em 16px .2em 0; } 
+
+.ui-datepicker { font-size: 70%; }
+.ui-datepicker .ui-datepicker-title { line-height: 1.5em; font-size: 1.5em; }

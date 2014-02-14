@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ATMTECH.Views;
 using ATMTECH.Views.Interface;
 using WebFormsMvp.Web;
@@ -6,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web;
 using ATMTECH.Entities;
 using System.IO;
+using File = ATMTECH.Entities.File;
 
 namespace ATMTECH.BillardLoretteville.Website.CMS
 {
@@ -41,20 +43,34 @@ namespace ATMTECH.BillardLoretteville.Website.CMS
                         string serverPath = Server.MapPath("files\\" + filename);
                         file.ServerPath = serverPath;
 
-                        Entities.File fileInsert = Presenter.GetExistingFile(file);
-                        if (fileInsert != null)
-                        {
-                            Presenter.InsertFile(fileInsert);
-                        }
-                        else
-                        {
-                            Presenter.InsertFile(file);
-                        }
+                        //Entities.File fileInsert = Presenter.GetExistingFile(file);
+                        //if (fileInsert != null)
+                        //{
+                        //    Presenter.InsertFile(fileInsert);
+                        //}
+                        //else
+                        //{
+                        //    Presenter.InsertFile(file);
+                        //}
 
                         httpPostedFile.SaveAs(serverPath);
                     }
                 }
             }
         }
+
+        public void ShowMessage(Message message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveImageFile()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Category { get; set; }
+        public IList<File> AllFiles { set; private get; }
+        public string RootImagePath { get; private set; }
     }
 }

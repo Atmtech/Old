@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI.HtmlControls;
+using ATMTECH.Entities;
 using ATMTECH.Views;
 using ATMTECH.Views.Interface;
 using WebFormsMvp.Web;
-using System.IO;
+using File = System.IO.File;
 
 namespace ATMTECH.BillardLoretteville.Website.CMS
 {
@@ -91,6 +92,11 @@ namespace ATMTECH.BillardLoretteville.Website.CMS
 
 
             }
+        }
+
+        public void ShowMessage(Message message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

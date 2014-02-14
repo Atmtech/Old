@@ -9,7 +9,7 @@ namespace ATMTECH.BillardLoretteville.Views
         public BillardLorettevillePresenter(IBillardLorettevillePresenter view)
             : base(view)
         {
-            CurrentLanguage = LocalizationLanguage.FRENCH;
+            //CurrentLanguage = LocalizationLanguage.FRENCH;
         }
     }
 }

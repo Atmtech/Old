@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
+using ATMTECH.Entities;
 using ATMTECH.Views;
 using ATMTECH.Views.Interface;
 using OboutInc.SlideMenu;
@@ -92,6 +93,11 @@ namespace ATMTECH.BillardLoretteville.Website.CMS
                 Presenter.OnViewInitialized();
             }
             Presenter.OnViewLoaded();
+        }
+
+        public void ShowMessage(Message message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

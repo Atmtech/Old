@@ -132,5 +132,10 @@ namespace ATMTECH.BillardLoretteville.Website.CMS
         }
 
         #endregion
+
+        public void ShowMessage(Message message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

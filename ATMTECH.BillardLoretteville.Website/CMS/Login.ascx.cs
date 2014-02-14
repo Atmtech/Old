@@ -54,13 +54,13 @@ namespace ATMTECH.BillardLoretteville.Website.CMS
 
         protected void OnbtnLog(object sender, EventArgs e)
         {
-            Presenter.AuthenticateUser(txtUsername.Text, txtPassword.Text);
+          //  Presenter.AuthenticateUser(txtUsername.Text, txtPassword.Text);
             SetSecurity(Page.Controls);
         }
 
         protected void OnbtnUnLog(object sender, EventArgs e)
         {
-            Presenter.DeAuthenticateUser();
+            //Presenter.DeAuthenticateUser();
             SetSecurity(Page.Controls);
         }
 
@@ -84,5 +84,10 @@ namespace ATMTECH.BillardLoretteville.Website.CMS
         }
 
 
+        public string FullName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public bool IsLogged { set; private get; }
+        public bool IsAdministrator { set; private get; }
     }
 }

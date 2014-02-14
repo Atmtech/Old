@@ -1,6 +1,7 @@
 ﻿using System;
 using ATMTECH.BillardLoretteville.Views;
 using ATMTECH.BillardLoretteville.Views.Interface;
+using ATMTECH.Entities;
 using ATMTECH.Web.Controls.Base;
 using System.Web.UI.WebControls;
 
@@ -20,6 +21,11 @@ namespace ATMTECH.BillardLoretteville.Website
             Presenter.OnViewLoaded();
 
             ((Label)Master.FindControl("lblTitre")).Text = "Photos";
+        }
+
+        public void ShowMessage(Message message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

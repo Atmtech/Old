@@ -2,6 +2,7 @@
 using System.Web.UI;
 using ATMTECH.BillardLoretteville.Views;
 using ATMTECH.BillardLoretteville.Views.Interface;
+using ATMTECH.Entities;
 
 namespace ATMTECH.BillardLoretteville.Website
 {
@@ -21,6 +22,11 @@ namespace ATMTECH.BillardLoretteville.Website
         public bool ThrowExceptionIfNoPresenterBound
         {
             get { throw new NotImplementedException(); }
+        }
+
+        public void ShowMessage(Message message)
+        {
+            throw new NotImplementedException();
         }
 
         protected void IntranetClick(object sender, EventArgs e)
