@@ -13,14 +13,16 @@ namespace ATMTECH.Achievement.Tests.DAO
         [TestInitialize()]
         public void Initialize()
         {
-            Initialisation initialisation = new Initialisation();
-            initialisation.CreerDatabaseTest();
+           
         }
 
 
         [TestMethod]
         public void crevette()
         {
+            Initialisation initialisation = new Initialisation();
+            initialisation.CreerDatabaseTest();
+
             Trait trait = InstanceTest.ObtenirTrait(1);
             trait.Description.Should().Be("A l'écoute");
         }

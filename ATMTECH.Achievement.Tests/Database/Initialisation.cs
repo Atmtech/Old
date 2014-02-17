@@ -16,19 +16,17 @@ namespace ATMTECH.Achievement.Tests.Database
     {
         public void CreerDatabase()
         {
-            CreateDatabase("Accomplissement");
+            InitializeDatabase initializeDatabase = new InitializeDatabase();
+            initializeDatabase.InitializeDatabaseSqlite(@"C:\dev\Atmtech\ATMTECH.Achievement.Tests\Database\Accomplissement.db3", "ATMTECH.Achievement.Entities");
+            DatabaseSessionManager.ConnectionString = @"data source=C:\Dev\Atmtech\ATMTECH.Achievement.Tests\Database\Accomplissement.db3";
+            FillData();
         }
 
         public void CreerDatabaseTest()
         {
-            CreateDatabase("Test");
-        }
-
-        private void CreateDatabase(string database)
-        {
             InitializeDatabase initializeDatabase = new InitializeDatabase();
-            initializeDatabase.InitializeDatabaseSqlite(database + ".db3", "ATMTECH.Achievement.Entities");
-            DatabaseSessionManager.ConnectionString = @"data source=" + database + ".db3";
+            initializeDatabase.InitializeDatabaseSqliteEnMemoire("ATMTECH.Achievement.Entities");
+            DatabaseSessionManager.ConnectionString = @"data source=:memory:";
             FillData();
         }
 
