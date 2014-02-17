@@ -20,6 +20,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -114,7 +118,6 @@
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -128,7 +131,6 @@
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -138,7 +140,6 @@
     </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
@@ -152,14 +153,12 @@
     </Compile>
     <Compile Include="NewTrip.aspx.cs">
       <DependentUpon>NewTrip.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="NewTrip.aspx.designer.cs">
       <DependentUpon>NewTrip.aspx</DependentUpon>
     </Compile>
     <Compile Include="OpenTrip.aspx.cs">
       <DependentUpon>OpenTrip.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="OpenTrip.aspx.designer.cs">
       <DependentUpon>OpenTrip.aspx</DependentUpon>
@@ -199,14 +198,12 @@
     <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="Record.aspx.cs">
       <DependentUpon>Record.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Record.aspx.designer.cs">
       <DependentUpon>Record.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shopping.aspx.cs">
       <DependentUpon>Shopping.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Shopping.aspx.designer.cs">
       <DependentUpon>Shopping.aspx</DependentUpon>
@@ -629,6 +626,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Properties\PublishProfiles\Fishing.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx" />
@@ -662,10 +660,6 @@
     <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
       <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
       <Name>ATMTECH.Views</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Web.Controls\ATMTECH.Web.Controls.csproj">
-      <Project>{2D2B35D6-59B5-41B0-A23C-A3B4F6A0EE52}</Project>
-      <Name>ATMTECH.Web.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
