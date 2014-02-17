@@ -24,7 +24,7 @@ namespace ATMTECH.Achievement.Tests.Services
         public Mock<IDAOAccomplissementUtilisateur> MockDAOAccomplissementUtilisateur { get { return ObtenirMock<IDAOAccomplissementUtilisateur>(); } }
 
         [TestMethod]
-        public void ValidationAccomplissement_LancerErreur_SurTraitsVide()
+        public void AccomplissementServiceTest_ValidationAccomplissement_LancerErreurSurTraitsVide()
         {
             Accomplissement accomplissement = AutoFixture.Create<Accomplissement>();
             accomplissement.AccomplissementTraits = new List<AccomplissementTrait>();
@@ -35,7 +35,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void ValidationAccomplissement_LancerErreur_SurDescriptionVide()
+        public void AccomplissementServiceTest_ValidationAccomplissement_LancerErreurSurDescriptionVide()
         {
             Accomplissement accomplissement = AutoFixture.Create<Accomplissement>();
             AccomplissementTrait accomplissementTrait = AutoFixture.Create<AccomplissementTrait>();
@@ -51,7 +51,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void ValidationAccomplissement_LancerErreur_SurTitreVide()
+        public void AccomplissementServiceTest_ValidationAccomplissement_LancerErreurSurTitreVide()
         {
             Accomplissement accomplissement = AutoFixture.Create<Accomplissement>();
             AccomplissementTrait accomplissementTrait = AutoFixture.Create<AccomplissementTrait>();
@@ -67,7 +67,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void Creer_LancerValidation()
+        public void AccomplissementServiceTest_Creer_LancerValidation()
         {
             Accomplissement accomplissement = AutoFixture.Create<Accomplissement>();
             accomplissement.AccomplissementTraits = new List<AccomplissementTrait>();
@@ -78,7 +78,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void Creer_DoitLAncer_Enregistrer()
+        public void AccomplissementServiceTest_Creer_DoitLancerEnregistrer()
         {
             Accomplissement accomplissement = AutoFixture.Create<Accomplissement>();
             AccomplissementTrait accomplissementTrait = AutoFixture.Create<AccomplissementTrait>();
@@ -91,7 +91,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void Creer_DoitLAncer_EnregistrerPourChaqueTrait()
+        public void AccomplissementServiceTest_Creer_DoitLAncerEnregistrerPourChaqueTrait()
         {
             Accomplissement accomplissement = AutoFixture.Create<Accomplissement>();
             AccomplissementTrait accomplissementTrait1 = AutoFixture.Create<AccomplissementTrait>();
@@ -111,7 +111,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void VoterAccomplissement_Doit_IncrementDe1Vote()
+        public void AccomplissementServiceTest_VoterAccomplissement_DoitIncrementDe1Vote()
         {
             Accomplissement accomplissement = AutoFixture.Create<Accomplissement>();
             int voteinitial = accomplissement.NombreVote;
@@ -123,7 +123,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void ObtenirListeFichierBadge_Doit_SortirJusteFichierAvecCategorieBadge()
+        public void AccomplissementServiceTest_ObtenirListeFichierBadge_DoitSortirJusteFichierAvecCategorieBadge()
         {
             IList<File> files = AutoFixture.CreateMany<File>(10).ToList();
             files[0].Category = "badge";
@@ -134,7 +134,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void ObtenirListeAccomplissementAccompli_DoitSortirJusteLesAccomplis()
+        public void AccomplissementServiceTest_ObtenirListeAccomplissementAccompli_DoitSortirJusteLesAccomplis()
         {
 
             User user = AutoFixture.Create<User>();
@@ -152,7 +152,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void AjouterAccomplissementUtilisateur_SaveAvecValeurs()
+        public void AccomplissementServiceTest_AjouterAccomplissementUtilisateur_SaveAvecValeurs()
         {
 
             User user = AutoFixture.Create<User>();
@@ -167,7 +167,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void ObtenirCategorieActive_RempliNombreAccomplissement()
+        public void AccomplissementServiceTest_ObtenirCategorieActive_RempliNombreAccomplissement()
         {
             IList<Categorie> categories = AutoFixture.CreateMany<Categorie>(15).ToList();
             IList<Accomplissement> accomplissements = AutoFixture.CreateMany<Accomplissement>(15).ToList();

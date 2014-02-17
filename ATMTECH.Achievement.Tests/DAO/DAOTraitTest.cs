@@ -17,7 +17,7 @@ namespace ATMTECH.Achievement.Tests.DAO
         }
 
         [TestMethod]
-        public void crevette()
+        public void DAOTraitTest_ObtenirTraitParCode_DevraitToujoursMeRetournerLeCode()
         {
             Trait traitSauvegarde = AutoFixture.Create<Trait>();
             traitSauvegarde.Id = 0;

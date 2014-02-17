@@ -3,7 +3,6 @@ using System.IO;
 using ATMTECH.Achievement.Entities;
 using ATMTECH.Achievement.Services.ErrorCode;
 using ATMTECH.DAO;
-using ATMTECH.DAO.SessionManager;
 using ATMTECH.Entities;
 using ATMTECH.Test.Builder;
 using ATMTECH.Web.Services.Base;
@@ -26,8 +25,6 @@ namespace ATMTECH.Achievement.Tests.DAO
             fileType2.Id = daoFileType.Save(fileType2);
             fileType3.Id = daoFileType.Save(fileType3);
             fileType4.Id = daoFileType.Save(fileType4);
-
-
 
             BaseDao<Parameter, int> daoParameter = new BaseDao<Parameter, int>();
             Parameter parameter1 = new Parameter { Code = ParameterConstant.ADMIN_MAIL, Description = "test@test.com" };

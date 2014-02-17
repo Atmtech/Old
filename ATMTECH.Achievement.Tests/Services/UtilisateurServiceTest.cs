@@ -27,7 +27,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void Creer_SiObjetNEstPasNull_RetourneVrai()
+        public void UtilisateurServiceTest_Creer_SiObjetNEstPasNullRetourneVrai()
         {
             User user = AutoFixture.Create<User>();
             MockDAOUser.Setup(test => test.CreateUser(user)).Returns(0);
@@ -41,7 +41,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void Creer_SiSendMailREtourneFaux_Throw()
+        public void UtilisateurServiceTest_Creer_SiSendMailREtourneFauxThrow()
         {
             User user = AutoFixture.Create<User>();
             MockDAOUser.Setup(test => test.CreateUser(user)).Returns(0);
@@ -57,7 +57,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void Creer_SiCreerOk_EnvoiCourriel()
+        public void UtilisateurServiceTest_Creer_SiCreerOkEnvoiCourriel()
         {
             User user = AutoFixture.Create<User>();
             MockDAOUser.Setup(test => test.CreateUser(user)).Returns(0);
@@ -73,7 +73,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void ConfirmerCreation_SiIsActiveFalse_REtourneVrai()
+        public void UtilisateurServiceTest_ConfirmerCreation_SiIsActiveFalseRetourneVrai()
         {
             User user = AutoFixture.Create<User>();
             user.IsActive = false;
@@ -84,7 +84,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void ConfirmerCreation_SiIsActiveFalse_DoitFaireUneSauvegardeActive()
+        public void UtilisateurServiceTest_ConfirmerCreation_SiIsActiveFalseDoitFaireUneSauvegardeActive()
         {
             User user = AutoFixture.Create<User>();
             user.IsActive = false;
@@ -96,7 +96,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void ConfirmerCreation_SiIsActiveFalse_DoitSauthentifierAutomatiquement()
+        public void UtilisateurServiceTest_ConfirmerCreation_SiIsActiveFalseDoitSauthentifierAutomatiquement()
         {
             User user = AutoFixture.Create<User>();
             user.IsActive = false;
@@ -111,7 +111,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void ConfirmerCreation_SiUtilisateurNull_Throw()
+        public void UtilisateurServiceTest_ConfirmerCreation_SiUtilisateurNullThrow()
         {
             User user = null;
 
@@ -125,7 +125,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void DemandeAmitie_DoitCreerDemande_NonConfirme()
+        public void UtilisateurServiceTest_DemandeAmitie_DoitCreerDemandeNonConfirme()
         {
             User userMoi = AutoFixture.Create<User>();
             User userAmi = AutoFixture.Create<User>();
@@ -136,7 +136,7 @@ namespace ATMTECH.Achievement.Tests.Services
         }
 
         [TestMethod]
-        public void ConfirmerAmitie_DoitMettre_Confirme()
+        public void UtilisateurServiceTest_ConfirmerAmitie_DoitMettreConfirme()
         {
             User userMoi = AutoFixture.Create<User>();
             User userAmi = AutoFixture.Create<User>();
