@@ -27,8 +27,8 @@ namespace ATMTECH.Achievement.Tests.Database
         private void CreateDatabase(string database)
         {
             InitializeDatabase initializeDatabase = new InitializeDatabase();
-            initializeDatabase.InitializeDatabaseSqlite(@"C:\dev\Atmtech\ATMTECH.Achievement.Tests\Database\" + database + ".db3", "ATMTECH.Achievement.Entities");
-            DatabaseSessionManager.ConnectionString = @"data source=C:\Dev\Atmtech\ATMTECH.Achievement.Tests\Database\" + database + ".db3";
+            initializeDatabase.InitializeDatabaseSqlite(database + ".db3", "ATMTECH.Achievement.Entities");
+            DatabaseSessionManager.ConnectionString = @"data source=" + database + ".db3";
             FillData();
         }
 
