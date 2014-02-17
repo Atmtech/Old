@@ -1,9 +1,9 @@
 ﻿using ATMTECH.Achievement.DAO;
 using ATMTECH.Achievement.Entities;
-using ATMTECH.Achievement.Tests.Database;
 using ATMTECH.Shell.Tests;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Ploeh.AutoFixture;
 
 namespace ATMTECH.Achievement.Tests.DAO
 {
@@ -13,18 +13,17 @@ namespace ATMTECH.Achievement.Tests.DAO
         [TestInitialize()]
         public void Initialize()
         {
-           
+            CreerDatabaseTest("ATMTECH.Achievement.Entities");
         }
-
 
         [TestMethod]
         public void crevette()
         {
-            Initialisation initialisation = new Initialisation();
-            initialisation.CreerDatabaseTest();
-
-            Trait trait = InstanceTest.ObtenirTrait(1);
-            trait.Description.Should().Be("A l'écoute");
+            Trait traitSauvegarde = AutoFixture.Create<Trait>();
+            traitSauvegarde.Id = 0;
+            EnregistrerEntite(traitSauvegarde);
+            Trait trait = InstanceTest.ObtenirTraitParCode(traitSauvegarde.Code);
+            trait.Description.Should().Be(traitSauvegarde.Description);
         }
     }
 }

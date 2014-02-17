@@ -13,12 +13,10 @@ namespace ATMTECH.DAO
         public DatabaseBackup<TModel, TId> DatabaseBackup { get { return new DatabaseBackup<TModel, TId>(); } }
         public Model<TModel, TId> Model { get { return new Model<TModel, TId>(); } }
 
-
         public Criteria IsActive()
         {
             return new Criteria { Column = BaseEntity.IS_ACTIVE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = "1" };
         }
-
         public TModel GetById(TId id)
         {
             if (id.ToString() != "0")
@@ -46,12 +44,10 @@ namespace ATMTECH.DAO
                 return model2;
             }
         }
-
         public IList<TModel> GetBySql(string sql)
         {
             return Model.FillModelFromDataSet(DatabaseOperation.ReturnDataset(sql));
         }
-
         public IList<TModel> GetAll()
         {
             PagingOperation pagingOperation = new PagingOperation() { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
@@ -169,12 +165,33 @@ namespace ATMTECH.DAO
 
             return rtn;
         }
+        public void SetLanguage(IList<Criteria> criterias, string language)
+        {
+            Criteria criteriaLanguage = new Criteria()
+            {
+                Column = BaseEntity.LANGUAGE,
+                Operator = DatabaseOperator.OPERATOR_EQUAL,
+                Value = language
+            };
+            criterias.Add(criteriaLanguage);
+        }
+        public void ExecuteSql(string sql)
+        {
+            DatabaseOperation.ExecuteSql(sql);
+        }
+        public void BackupToXml(string zipFile, bool allTableFromDatabase)
+        {
+            DatabaseBackup.BackupToXml(zipFile, allTableFromDatabase);
+        }
+        public void RestoreFromXml(string zipFile)
+        {
+            DatabaseBackup.RestoreFromXml(zipFile);
+        }
 
         private void SetDateCreated(TModel model)
         {
             Model.SetValueProperty("DateCreated", DateTime.Now.ToString(), model);
         }
-
         private void SetDateModified(TModel model)
         {
             Model.SetValueProperty("DateModified", DateTime.Now.ToString(), model);
@@ -194,31 +211,6 @@ namespace ATMTECH.DAO
                 string comboboxDescriptionUpdate = HttpUtility.HtmlDecode(objcomboboxDescription.ToString());
                 Model.SetValueProperty("ComboboxDescription", comboboxDescriptionUpdate, model);
             }
-        }
-
-
-        public void SetLanguage(IList<Criteria> criterias, string language)
-        {
-            Criteria criteriaLanguage = new Criteria()
-            {
-                Column = BaseEntity.LANGUAGE,
-                Operator = DatabaseOperator.OPERATOR_EQUAL,
-                Value = language
-            };
-            criterias.Add(criteriaLanguage);
-        }
-
-        public void ExecuteSql(string sql)
-        {
-            DatabaseOperation.ExecuteSql(sql);
-        }
-        public void BackupToXml(string zipFile, bool allTableFromDatabase)
-        {
-            DatabaseBackup.BackupToXml(zipFile, allTableFromDatabase);
-        }
-        public void RestoreFromXml(string zipFile)
-        {
-            DatabaseBackup.RestoreFromXml(zipFile);
         }
     }
 

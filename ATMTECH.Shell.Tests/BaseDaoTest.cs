@@ -1,24 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using ATMTECH.DAO;
+using ATMTECH.DAO.Database;
+using ATMTECH.DAO.SessionManager;
+using ATMTECH.Entities;
 using ATMTECH.Web;
 using ATMTECH.Web.Session;
 using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Ploeh.AutoFixture;
 
 namespace ATMTECH.Shell.Tests
 {
     [TestClass]
     public abstract class BaseDaoTest<TTypeTeste> : IDisposable where TTypeTeste : class
     {
-     
+
         private MockRepository _mockRepository;
         private ContainerBuilder _containerBuilder;
         private IContainer _container;
         private readonly StateValueInjecteur _stateValueInjecteur = new StateValueInjecteur();
         private TTypeTeste _instanceTest;
 
-        
         [TestInitialize]
         public void BaseDaoTestInitialize()
         {
@@ -26,6 +30,8 @@ namespace ATMTECH.Shell.Tests
             ConfigurerAutofac();
             InitialiserDependences();
         }
+
+       
 
         public TTypeTeste InstanceTest
         {
@@ -35,10 +41,40 @@ namespace ATMTECH.Shell.Tests
             }
         }
 
+        public Fixture AutoFixture
+        {
+            get
+            {
+                Fixture fixture = (Fixture)new Fixture().Customize(new MultipleCustomization());
+                fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
+                fixture.Behaviors.Add(new OmitOnRecursionBehavior());
+                return fixture;
+            }
+        }
+
+    
+
         public virtual void InitialiserDependences()
         {
         }
-      
+
+
+        public void CreerDatabaseTest(string nameSpaceEntities)
+        {
+            InitializeDatabase initializeDatabase = new InitializeDatabase();
+            initializeDatabase.InitializeDatabaseSqliteEnMemoire(nameSpaceEntities);
+        }
+
+
+        public void EnregistrerEntite<T>(T entite) where T : BaseEntity
+        {
+            DatabaseSessionManager.ConnectionString = @"data source=:memory:";
+            BaseDao<T, int> daoSave = new BaseDao<T, int>();
+            daoSave.Save(entite);
+        }
+
+
+
         private void ConfigurerAutofac()
         {
             _containerBuilder = new ContainerBuilder();
@@ -78,7 +114,7 @@ namespace ATMTECH.Shell.Tests
             return ((IMocked<TMock>)_container.Resolve<TMock>()).Mock;
         }
 
-       
+
 
         public void Dispose()
         {

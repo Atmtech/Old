@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DAOTraitTest.cs" />
-    <Compile Include="Database\Initialisation.cs" />
+    <Compile Include="DAO\DatabaseData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccomplissementServiceTest.cs" />
     <Compile Include="Services\UtilisateurServiceTest.cs" />

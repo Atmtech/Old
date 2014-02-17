@@ -3,34 +3,19 @@ using System.IO;
 using ATMTECH.Achievement.Entities;
 using ATMTECH.Achievement.Services.ErrorCode;
 using ATMTECH.DAO;
-using ATMTECH.DAO.Database;
 using ATMTECH.DAO.SessionManager;
 using ATMTECH.Entities;
 using ATMTECH.Test.Builder;
 using ATMTECH.Web.Services.Base;
 using File = ATMTECH.Entities.File;
 
-namespace ATMTECH.Achievement.Tests.Database
+namespace ATMTECH.Achievement.Tests.DAO
 {
-    public class Initialisation
+    public class DatabaseData
     {
-        public void CreerDatabase()
-        {
-            InitializeDatabase initializeDatabase = new InitializeDatabase();
-            initializeDatabase.InitializeDatabaseSqlite(@"C:\dev\Atmtech\ATMTECH.Achievement.Tests\Database\Accomplissement.db3", "ATMTECH.Achievement.Entities");
-            DatabaseSessionManager.ConnectionString = @"data source=C:\Dev\Atmtech\ATMTECH.Achievement.Tests\Database\Accomplissement.db3";
-            FillData();
-        }
+        public string ConnectionString { get; set; }
 
-        public void CreerDatabaseTest()
-        {
-            InitializeDatabase initializeDatabase = new InitializeDatabase();
-            initializeDatabase.InitializeDatabaseSqliteEnMemoire("ATMTECH.Achievement.Entities");
-            DatabaseSessionManager.ConnectionString = @"data source=:memory:";
-            FillData();
-        }
-
-        private void FillData()
+        public void FillData()
         {
             BaseDao<FileType, int> daoFileType = new BaseDao<FileType, int>();
             FileType fileType1 = new FileType { Code = "jpg", Type = "jpg" };
@@ -121,8 +106,6 @@ namespace ATMTECH.Achievement.Tests.Database
             CreerAccomplissementUtilisateur("Un bâtisseur");
 
         }
-
-
         private void CreerDiscussion(User user, User repondant)
         {
             BaseDao<Discussion, int> daoDiscussion = new BaseDao<Discussion, int>();
@@ -687,5 +670,7 @@ namespace ATMTECH.Achievement.Tests.Database
 
 
         }
+
+
     }
 }
