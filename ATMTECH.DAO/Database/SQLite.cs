@@ -16,7 +16,20 @@ namespace ATMTECH.DAO.Database
         public SQLiteConnection CurrentDatabaseConnection { get { return (SQLiteConnection)DatabaseSessionManager.Session; } }
         public Model<TModel, TId> Model { get { return new Model<TModel, TId>(); } }
         public DatabaseOperation<TModel, TId> DatabaseOperation { get { return new DatabaseOperation<TModel, TId>(); } }
-        public User AuthenticateUser { get { return (User)HttpContext.Current.Session["Internal_LoggedUser"]; } }
+        public User AuthenticateUser
+        {
+            get
+            {
+                if (HttpContext.Current != null)
+                {
+                    if (HttpContext.Current.Session["Internal_LoggedUser"] != null)
+                    {
+                        return (User)HttpContext.Current.Session["Internal_LoggedUser"];
+                    }
+                }
+                return null;
+            }
+        }
 
         public const string DATE_MODIFIED_COLUMN = "DateModified";
         public const string DATE_CREATED_COLUMN = "DateCreated";

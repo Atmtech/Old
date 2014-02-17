@@ -76,6 +76,14 @@
     <Compile Include="BaseTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
+      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
+      <Name>ATMTECH.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
+      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
+      <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Exception\ATMTECH.Exception.csproj">
       <Project>{8FB02184-36DE-4C31-836F-B6712B7A22C8}</Project>
       <Name>ATMTECH.Exception</Name>

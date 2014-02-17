@@ -8,6 +8,7 @@ namespace ATMTECH.Achievement.DAO
 {
     public class DAOTrait : BaseDao<Trait, int>, IDAOTrait
     {
+      
         public Trait ObtenirTrait(int id)
         {
             return GetById(id);

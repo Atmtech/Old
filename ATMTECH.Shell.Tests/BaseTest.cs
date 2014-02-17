@@ -55,6 +55,7 @@ namespace ATMTECH.Shell.Tests
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-CA");
             Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-CA");
 
+         
             _instanceTest = default(TTypeTeste);
 
             ConfigurerAutofac();
@@ -70,16 +71,7 @@ namespace ATMTECH.Shell.Tests
         public virtual void InitialiserDependences()
         {
         }
-        public void AjouterDependence<TInterface>(TInterface instance) where TInterface : class
-        {
-            _container.ComponentRegistry.Register(
-                RegistrationBuilder.ForDelegate(((c, p) => instance)).
-                    InstancePerLifetimeScope().CreateRegistration());
-        }
-        public void AjouterService<TInterface>(TInterface instance) where TInterface : class
-        {
-            AjouterDependence(instance);
-        }
+        
         public Mock<TMock> ObtenirMock<TMock>() where TMock : class
         {
             return ((IMocked<TMock>)_container.Resolve<TMock>()).Mock;

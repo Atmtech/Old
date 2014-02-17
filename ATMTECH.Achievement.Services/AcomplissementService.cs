@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.Achievement.DAO.Interface;
 using ATMTECH.Achievement.Entities;
@@ -24,7 +23,6 @@ namespace ATMTECH.Achievement.Services
         public IDAOAccomplissementUtilisateur DAOAccomplissementUtilisateur { get; set; }
         public IDAOAccomplissementTrait DAOAccomplissementTrait { get; set; }
         public IDAOTrait DAOTrait { get; set; }
-
 
         public void ValidationAccomplissement(Accomplissement accomplissement)
         {
