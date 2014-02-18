@@ -1710,11 +1710,7 @@
     <Content Include="images\Badge\zombie-48.png" />
     <Content Include="images\Badge\zoom_in-48.png" />
     <Content Include="images\Badge\zoom_out-48.png" />
-    <Content Include="images\favicon.ico" />
-    <Content Include="images\marker.png" />
-    <Content Include="images\mask.png" />
     <Content Include="images\User\moose.jpg" />
-    <Content Include="images\wheel.png" />
     <Content Include="Javascript\Redirection.js" />
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="Login.aspx" />
