@@ -18,7 +18,7 @@ namespace ATMTECH.Atorp.WebSite
         {
             for (int i = 0; i < 1000000000; i++)
             {
-                string s = "";
+
             }
             lblCrevette.Text = "Crevette Tigré";
         }
