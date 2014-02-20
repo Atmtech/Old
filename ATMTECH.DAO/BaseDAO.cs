@@ -21,8 +21,8 @@ namespace ATMTECH.DAO
         {
             if (id.ToString() != "0")
             {
-                PagingOperation pagingOperation = new PagingOperation() { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
-                OrderOperation orderOperation = new OrderOperation() { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = OrderBy.Type.Ascending };
+                PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+                OrderOperation orderOperation = new OrderOperation { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = OrderBy.Type.Ascending };
 
                 DataSet data = DatabaseOperation.ReturnDataSet("[" + Model.GetIdKeyColumnFromModel() + "] = " + id, null, pagingOperation, orderOperation);
 
@@ -30,19 +30,11 @@ namespace ATMTECH.DAO
                 {
                     return Model.FillModel(data.Tables[0].Rows[0]);
                 }
-                else
-                {
-                    TModel model2 = default(TModel);
-                    return model2;
-                }
-
-
-            }
-            else
-            {
                 TModel model2 = default(TModel);
                 return model2;
             }
+            TModel model3 = default(TModel);
+            return model3;
         }
         public IList<TModel> GetBySql(string sql)
         {
@@ -50,8 +42,8 @@ namespace ATMTECH.DAO
         }
         public IList<TModel> GetAll()
         {
-            PagingOperation pagingOperation = new PagingOperation() { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
-            OrderOperation orderOperation = new OrderOperation() { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = OrderBy.Type.Ascending };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = OrderBy.Type.Ascending };
             return GetAll(pagingOperation, orderOperation);
         }
         public IList<TModel> GetAll(PagingOperation pagingOperation, OrderOperation orderOperation)
@@ -60,18 +52,18 @@ namespace ATMTECH.DAO
         }
         public IList<TModel> GetAllActive()
         {
-            PagingOperation pagingOperation = new PagingOperation() { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
-            OrderOperation orderOperation = new OrderOperation() { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = DAO.OrderBy.Type.Ascending };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = OrderBy.Type.Ascending };
             return GetAllActive(pagingOperation, orderOperation);
         }
         public IList<TModel> GetAllActive(OrderOperation orderOperation)
         {
-            PagingOperation pagingOperation = new PagingOperation() { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             return GetAllActive(pagingOperation, orderOperation);
         }
         public IList<TModel> GetAllActive(PagingOperation pagingOperation)
         {
-            OrderOperation orderOperation = new OrderOperation() { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = DAO.OrderBy.Type.Ascending };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = OrderBy.Type.Ascending };
             return GetAllActive(pagingOperation, orderOperation);
         }
         public IList<TModel> GetAllActive(PagingOperation pagingOperation, OrderOperation orderOperation)
@@ -81,22 +73,22 @@ namespace ATMTECH.DAO
         }
         public IList<TModel> GetAllOneCriteria(string columnName, string value)
         {
-            PagingOperation pagingOperation = new PagingOperation() { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
-            OrderOperation orderOperation = new OrderOperation() { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = OrderBy.Type.Ascending };
-            Criteria criteria = new Criteria() { Column = columnName, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = value };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = OrderBy.Type.Ascending };
+            Criteria criteria = new Criteria { Column = columnName, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = value };
 
             return GetAllOneCriteria(criteria, pagingOperation, orderOperation);
         }
         public IList<TModel> GetAllOneCriteria(string columnName, string value, OrderOperation orderOperation)
         {
-            PagingOperation pagingOperation = new PagingOperation() { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
-            Criteria criteria = new Criteria() { Column = columnName, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = value };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            Criteria criteria = new Criteria { Column = columnName, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = value };
             return GetAllOneCriteria(criteria, pagingOperation, orderOperation);
         }
         public IList<TModel> GetAllOneCriteria(string columnName, string value, PagingOperation pagingOperation)
         {
-            OrderOperation orderOperation = new OrderOperation() { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = DAO.OrderBy.Type.Ascending };
-            Criteria criteria = new Criteria() { Column = columnName, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = value };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = OrderBy.Type.Ascending };
+            Criteria criteria = new Criteria { Column = columnName, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = value };
             return GetAllOneCriteria(criteria, pagingOperation, orderOperation);
         }
         public IList<TModel> GetAllOneCriteria(Criteria criteria, PagingOperation pagingOperation, OrderOperation orderOperation)
@@ -107,8 +99,8 @@ namespace ATMTECH.DAO
         }
         public IList<TModel> GetByCriteria(IList<Criteria> criterias)
         {
-            OrderOperation orderOperation = new OrderOperation() { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = OrderBy.Type.Descending };
-            PagingOperation pagingOperation = new PagingOperation() { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Model.GetIdKeyColumnFromModel(), OrderByType = OrderBy.Type.Descending };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             return GetByCriteria(criterias, pagingOperation, orderOperation);
         }
         public IList<TModel> GetByCriteria(IList<Criteria> criterias, PagingOperation pagingOperation, OrderOperation orderOperation)
@@ -167,8 +159,8 @@ namespace ATMTECH.DAO
         }
         public void SetLanguage(IList<Criteria> criterias, string language)
         {
-            Criteria criteriaLanguage = new Criteria()
-            {
+            Criteria criteriaLanguage = new Criteria
+                {
                 Column = BaseEntity.LANGUAGE,
                 Operator = DatabaseOperator.OPERATOR_EQUAL,
                 Value = language

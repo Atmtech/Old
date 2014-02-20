@@ -34,6 +34,12 @@ namespace ATMTECH.DAO.Database
             dao.ExecuteSql(sql);
 
         }
+
+        public void InitializeDatabaseSqliteEnMemoire()
+        {
+            InitializeDatabaseSqliteEnMemoire("");
+        }
+
         public void InitializeDatabaseSqliteEnMemoire(string nameSpaceEntities)
         {
             DatabaseSessionManager.ConnectionString = @"data source=:memory:";
@@ -49,12 +55,16 @@ namespace ATMTECH.DAO.Database
                 sql += manageClass.GenerateCreateTableSqlFromClass(nameSpaceAtmtech, s);
             }
 
-            IList<string> list = manageClass.GetAllClassesFromNameSpace(nameSpaceEntities);
-            foreach (string s in list)
+            if (!string.IsNullOrEmpty(nameSpaceEntities))
             {
-                sqlDropTable += string.Format("DROP TABLE IF EXISTS [{0}];", s);
-                sql += manageClass.GenerateCreateTableSqlFromClass(nameSpaceEntities, s);
+                IList<string> list = manageClass.GetAllClassesFromNameSpace(nameSpaceEntities);
+                foreach (string s in list)
+                {
+                    sqlDropTable += string.Format("DROP TABLE IF EXISTS [{0}];", s);
+                    sql += manageClass.GenerateCreateTableSqlFromClass(nameSpaceEntities, s);
+                }
             }
+
 
             BaseDao<User, int> dao = new BaseDao<User, int>();
             dao.ExecuteSql(sqlDropTable);
