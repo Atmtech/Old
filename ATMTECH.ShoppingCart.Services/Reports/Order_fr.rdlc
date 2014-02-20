@@ -697,19 +697,6 @@
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Rectangle Name="Rectangle2">
-          <KeepTogether>true</KeepTogether>
-          <Top>0.25612cm</Top>
-          <Left>0.30903cm</Left>
-          <Height>0.87694cm</Height>
-          <Width>15.95753cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <BackgroundColor>LightGrey</BackgroundColor>
-          </Style>
-        </Rectangle>
         <Textbox Name="Textbox1">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -731,7 +718,6 @@
           <Left>0.28258cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -764,7 +750,7 @@
           <Left>2.95896cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>2</ZIndex>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -796,7 +782,7 @@
           <Left>5.63535cm</Left>
           <Height>0.6cm</Height>
           <Width>2.80868cm</Width>
-          <ZIndex>3</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -830,7 +816,7 @@
           <Left>8.54987cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -862,7 +848,7 @@
           <Left>0.28258cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>5</ZIndex>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -894,7 +880,7 @@
           <Left>8.54987cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -926,7 +912,7 @@
           <Left>11.44955cm</Left>
           <Height>0.6cm</Height>
           <Width>2.08771cm</Width>
-          <ZIndex>7</ZIndex>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -960,7 +946,7 @@
           <Left>13.6431cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -977,7 +963,7 @@
           <Left>0.30903cm</Left>
           <Height>0.2775cm</Height>
           <Width>15.93108cm</Width>
-          <ZIndex>9</ZIndex>
+          <ZIndex>8</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1004,7 +990,7 @@
           <Left>8.54987cm</Left>
           <Height>1.89646cm</Height>
           <Width>7.59323cm</Width>
-          <ZIndex>10</ZIndex>
+          <ZIndex>9</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1034,7 +1020,7 @@
           <Left>0.30903cm</Left>
           <Height>1.89646cm</Height>
           <Width>8.135cm</Width>
-          <ZIndex>11</ZIndex>
+          <ZIndex>10</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1063,14 +1049,15 @@
           </Paragraphs>
           <rd:DefaultName>EnterpriseName</rd:DefaultName>
           <Top>0.40337cm</Top>
-          <Left>0.60008cm</Left>
+          <Left>0.30903cm</Left>
           <Height>0.6cm</Height>
-          <Width>14.74927cm</Width>
-          <ZIndex>12</ZIndex>
+          <Width>15.83407cm</Width>
+          <ZIndex>11</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <BackgroundColor>LightGrey</BackgroundColor>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -1089,19 +1076,6 @@
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Rectangle Name="Rectangle3">
-          <KeepTogether>true</KeepTogether>
-          <Top>0.17639cm</Top>
-          <Left>0.30903cm</Left>
-          <Height>0.87694cm</Height>
-          <Width>15.95753cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <BackgroundColor>LightGrey</BackgroundColor>
-          </Style>
-        </Rectangle>
         <Textbox Name="EnterpriseName">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -1118,10 +1092,9 @@
           </Paragraphs>
           <rd:DefaultName>EnterpriseName</rd:DefaultName>
           <Top>0.3066cm</Top>
-          <Left>0.46778cm</Left>
+          <Left>0.28258cm</Left>
           <Height>0.6cm</Height>
-          <Width>15.72823cm</Width>
-          <ZIndex>1</ZIndex>
+          <Width>15.91343cm</Width>
           <Style>
             <Border>
               <Style>None</Style>

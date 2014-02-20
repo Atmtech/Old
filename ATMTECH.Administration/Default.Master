@@ -102,6 +102,7 @@
                                             <li><a href="SalesByOrderInformation.aspx">Rapports des ventes par imputation</a></li>
                                             <li><a href="DataEditor.aspx?Entity=ProductFile">Les images des produits</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=Order">Les commandes</a> </li>
+                                            <li><a href="DataEditor.aspx?Entity=OrderLine">Les ligne de commandes</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=Supplier">Les fournisseurs</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=ProductPriceHistory&IsEnterpriseRuled=0">Historique des prix modifiés</a> </li>
                                         </ul>

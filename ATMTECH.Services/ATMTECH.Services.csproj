@@ -31,19 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="cli_basetypes">
-      <HintPath>..\Library\cli_basetypes.dll</HintPath>
-    </Reference>
-    <Reference Include="cli_cppuhelper">
-      <HintPath>..\Library\cli_cppuhelper.dll</HintPath>
-    </Reference>
-    <Reference Include="cli_oootypes">
-      <HintPath>..\Library\cli_oootypes.dll</HintPath>
-    </Reference>
-    <Reference Include="cli_ure">
-      <HintPath>..\Library\cli_ure.dll</HintPath>
-    </Reference>
-    <Reference Include="cli_uretypes, Version=1.0.7.0, Culture=neutral, PublicKeyToken=ce2cb7e279207b9e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />

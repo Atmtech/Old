@@ -67,6 +67,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RapportCimaAncien.aspx.cs">
+      <DependentUpon>RapportCimaAncien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RapportCimaAncien.aspx.designer.cs">
+      <DependentUpon>RapportCimaAncien.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SalesByOrderInformation.aspx.cs">
       <DependentUpon>SalesByOrderInformation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -387,6 +394,7 @@
     <Content Include="ckeditor\skins\v2\skin.js" />
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
+    <Content Include="RapportCimaAncien.aspx" />
     <Content Include="SalesByOrderInformation.aspx" />
     <Content Include="ExecuteSql.aspx" />
     <Content Include="SalesByMonthReport.aspx" />

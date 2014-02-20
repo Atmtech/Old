@@ -65,7 +65,7 @@ namespace ATMTECH.Administration
             }
             catch (Exception ex)
             {
-
+                string m = ex.Message;
             }
         }
 

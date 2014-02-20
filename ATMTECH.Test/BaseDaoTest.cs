@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using ATMTECH.Common;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.DAO.SessionManager;
@@ -17,7 +16,6 @@ namespace ATMTECH.Test
     {
         private readonly BaseDao<EntityTest, int> _daoEntityTest = new BaseDao<EntityTest, int>();
         private readonly BaseDao<EntityTestSon, int> _daoEntityTestSon = new BaseDao<EntityTestSon, int>();
-        private readonly BaseDao<EntityEmpty, int> _daoEntityEmpty = new BaseDao<EntityEmpty, int>();
 
         private readonly Model<EntityTest, int> _model = new Model<EntityTest, int>();
         private readonly Model<EntityEmpty, int> _model2 = new Model<EntityEmpty, int>();
@@ -48,17 +46,16 @@ namespace ATMTECH.Test
         [TestMethod]
         public void ExecuteSqlInsertOneLineCount3()
         {
-            int result = 0;
             _databaseOperation.ExecuteSql("INSERT INTO EntityTest (Description) VALUES ('TEST')");
-            result = _daoEntityTest.GetAll().Count;
+            int result = _daoEntityTest.GetAll().Count;
             Assert.AreEqual(result, 3);
         }
 
         [TestMethod]
         public void GetDataOrderByAscendingWhenActive()
         {
-            IList<EntityTest> entities = _daoEntityTest.GetAllActive(new OrderOperation()
-                                            {
+            IList<EntityTest> entities = _daoEntityTest.GetAllActive(new OrderOperation
+                {
                                                 OrderByColumn = BaseEntity.DESCRIPTION,
                                                 OrderByType = OrderBy.Type.Ascending
                                             });
@@ -69,8 +66,8 @@ namespace ATMTECH.Test
         [TestMethod]
         public void GetDataOrderByDescendingWhenActive()
         {
-            IList<EntityTest> entities = _daoEntityTest.GetAllActive(new OrderOperation()
-            {
+            IList<EntityTest> entities = _daoEntityTest.GetAllActive(new OrderOperation
+                {
                 OrderByColumn = BaseEntity.DESCRIPTION,
                 OrderByType = OrderBy.Type.Descending
             });
@@ -81,9 +78,9 @@ namespace ATMTECH.Test
         [TestMethod]
         public void GetDataPagingWhenActive()
         {
-            IList<EntityTest> entitiesPageOne = _daoEntityTest.GetAllActive(new PagingOperation() { PageIndex = 0, PageSize = 1 });
+            IList<EntityTest> entitiesPageOne = _daoEntityTest.GetAllActive(new PagingOperation { PageIndex = 0, PageSize = 1 });
             string rtn1 = entitiesPageOne[0].Description;
-            IList<EntityTest> entitiesPageTwo = _daoEntityTest.GetAllActive(new PagingOperation() { PageIndex = 1, PageSize = 1 });
+            IList<EntityTest> entitiesPageTwo = _daoEntityTest.GetAllActive(new PagingOperation { PageIndex = 1, PageSize = 1 });
             string rtn2 = entitiesPageTwo[0].Description;
             Assert.AreEqual(rtn1, "Row1");
             Assert.AreEqual(rtn2, "Row2");
@@ -99,8 +96,8 @@ namespace ATMTECH.Test
         [TestMethod]
         public void GetAllDataFrom1CriteriaAndPaging()
         {
-            IList<EntityTest> entitiesPageOne = _daoEntityTest.GetAllOneCriteria(BaseEntity.IS_ACTIVE, "1", new PagingOperation() { PageIndex = 0, PageSize = 1 });
-            IList<EntityTest> entitiesPageTwo = _daoEntityTest.GetAllOneCriteria(BaseEntity.IS_ACTIVE, "1", new PagingOperation() { PageIndex = 1, PageSize = 1 });
+            IList<EntityTest> entitiesPageOne = _daoEntityTest.GetAllOneCriteria(BaseEntity.IS_ACTIVE, "1", new PagingOperation { PageIndex = 0, PageSize = 1 });
+            IList<EntityTest> entitiesPageTwo = _daoEntityTest.GetAllOneCriteria(BaseEntity.IS_ACTIVE, "1", new PagingOperation { PageIndex = 1, PageSize = 1 });
             Assert.AreEqual(entitiesPageOne[0].Description, "Row1");
             Assert.AreEqual(entitiesPageTwo[0].Description, "Row2");
         }
@@ -108,8 +105,8 @@ namespace ATMTECH.Test
         [TestMethod]
         public void GetAllDataFrom1CriteriaAndOrderAscending()
         {
-            IList<EntityTest> entities = _daoEntityTest.GetAllOneCriteria(BaseEntity.IS_ACTIVE, "1", new OrderOperation()
-            {
+            IList<EntityTest> entities = _daoEntityTest.GetAllOneCriteria(BaseEntity.IS_ACTIVE, "1", new OrderOperation
+                {
                 OrderByColumn = BaseEntity.DESCRIPTION,
                 OrderByType = OrderBy.Type.Ascending
             });
@@ -120,8 +117,8 @@ namespace ATMTECH.Test
         [TestMethod]
         public void GetAllDataFrom1CriteriaAndOrderDescending()
         {
-            IList<EntityTest> entities = _daoEntityTest.GetAllOneCriteria(BaseEntity.IS_ACTIVE, "1", new OrderOperation()
-            {
+            IList<EntityTest> entities = _daoEntityTest.GetAllOneCriteria(BaseEntity.IS_ACTIVE, "1", new OrderOperation
+                {
                 OrderByColumn = BaseEntity.DESCRIPTION,
                 OrderByType = OrderBy.Type.Descending
             });
@@ -225,12 +222,12 @@ namespace ATMTECH.Test
 
         private void FillDatabase()
         {
-            EntityTest rowOne = new EntityTest() { DateCreated = DateTime.Now, DateModified = Convert.ToDateTime("2000-01-01"), Description = "Row1", EntityTestSon = new EntityTestSon() { Id = 1 } };
+            EntityTest rowOne = new EntityTest { DateCreated = DateTime.Now, DateModified = Convert.ToDateTime("2000-01-01"), Description = "Row1", EntityTestSon = new EntityTestSon { Id = 1 } };
             EntityTest rowTwo = new EntityTest() { DateCreated = DateTime.Now, DateModified = Convert.ToDateTime("2000-01-01"), Description = "Row2", EntityTestSon = new EntityTestSon() { Id = 1 } };
             _daoEntityTest.Save(rowOne);
             _daoEntityTest.Save(rowTwo);
 
-            EntityTestSon rowOneSon = new EntityTestSon() { DateCreated = DateTime.Now, DateModified = Convert.ToDateTime("2000-01-01"), Description = "Row1Son" };
+            EntityTestSon rowOneSon = new EntityTestSon { DateCreated = DateTime.Now, DateModified = Convert.ToDateTime("2000-01-01"), Description = "Row1Son" };
             _daoEntityTestSon.Save(rowOneSon);
 
 
