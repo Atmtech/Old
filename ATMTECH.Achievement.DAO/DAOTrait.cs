@@ -19,6 +19,7 @@ namespace ATMTECH.Achievement.DAO
             return GetAllActive();
         }
 
+
         public Trait ObtenirTraitParCode(string code)
         {
             return GetAllOneCriteria(BaseEnumeration.CODE, code)[0];
