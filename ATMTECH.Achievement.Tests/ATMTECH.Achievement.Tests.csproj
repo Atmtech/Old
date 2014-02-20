@@ -46,6 +46,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\DAOAccomplissementTest.cs" />
     <Compile Include="DAO\DAOTraitTest.cs" />
     <Compile Include="DAO\DatabaseData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
