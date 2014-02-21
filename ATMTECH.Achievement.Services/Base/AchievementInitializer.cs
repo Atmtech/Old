@@ -1,3 +1,5 @@
+using ATMTECH.Achievement.DAO;
+using ATMTECH.Achievement.DAO.Interface;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Services;
@@ -31,8 +33,8 @@ namespace ATMTECH.Achievement.Services.Base
             AddDependency<IDAOLogException, DAOLogException>();
             AddDependency<IDAOParameter, DAOParameter>();
             AddDependency<IDAOUser, DAOUser>();
-            AddDependency<IDAOUser, DAOUser>();
             AddDependency<IDAOLogVisit, DAOLogVisit>();
+            AddDependency<IDAOCategorie, DAOCategorie>();
         }
     }
 }

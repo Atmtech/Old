@@ -37,7 +37,7 @@ namespace ATMTECH.Shell
 
             if (dataAccess != null)
             {
-                Container.RegisterAssemblyTypes(dataAccess) //.Where(t => t.Name.Contains("DAO"))
+                Container.RegisterAssemblyTypes(dataAccess).Where(t => t.Name.Contains("DAO"))
                    .AsImplementedInterfaces()
                    .PropertiesAutowired();
             }
@@ -68,15 +68,13 @@ namespace ATMTECH.Shell
             InitializeFramework();
             InitDao();
             InitService();
-
-
         }
 
         private Assembly VerificationEtForcerloadAssembly()
         {
             string assemblyName = (GetType().Assembly.GetName().Name).Replace(".Services", "") + ".DAO";
             return
-                AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().Name == assemblyName).FirstOrDefault() ??
+                AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == assemblyName) ??
                 ChercherAssemblyReferencer(assemblyName);
         }
 
