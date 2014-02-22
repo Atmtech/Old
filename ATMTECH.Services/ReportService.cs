@@ -7,7 +7,6 @@ using ATMTECH.Common.Context;
 using ATMTECH.Services.Interface;
 using ATMTECH.Utils.Web;
 using Microsoft.Reporting.WebForms;
-using System.Linq;
 
 namespace ATMTECH.Services
 {
