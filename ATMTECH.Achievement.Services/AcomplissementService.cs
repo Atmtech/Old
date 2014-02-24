@@ -51,7 +51,6 @@ namespace ATMTECH.Achievement.Services
                 DAOAccomplissementTrait.Enregistrer(accomplissementTrait);
             }
         }
-
         public void AjouterAccomplissementUtilisateur(Accomplissement accomplissement, bool estPublic, bool estPourAmi, bool estPrive)
         {
             AccomplissementUtilisateur accomplissementUtilisateur = new AccomplissementUtilisateur
@@ -64,18 +63,15 @@ namespace ATMTECH.Achievement.Services
                 };
             DAOAccomplissementUtilisateur.Enregistrer(accomplissementUtilisateur);
         }
-
         public void VoterAccomplissement(Accomplissement accomplissement)
         {
             accomplissement.NombreVote += 1;
             DAOAccomplissement.Enregistrer(accomplissement);
         }
-
         public IList<Trait> ObtenirTrait()
         {
             return DAOTrait.ObtenirTrait();
         }
-
         public Trait ObtenirTraitParCode(string code)
         {
             return DAOTrait.ObtenirTraitParCode(code);

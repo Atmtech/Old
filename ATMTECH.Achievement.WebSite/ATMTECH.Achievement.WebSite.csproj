@@ -85,6 +85,8 @@
     <Content Include="ForgottenPassword.aspx" />
     <Content Include="Friend.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="images\error-icon.png" />
+    <Content Include="images\success-icon.png" />
     <Content Include="images\User\moose.jpg" />
     <Content Include="Javascript\Redirection.js" />
     <Content Include="Javascript\Utilitaires.js" />

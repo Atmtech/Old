@@ -36,7 +36,7 @@ namespace ATMTECH.Achievement.Tests.DAO
             IList<AccomplissementTrait> accomplissementTraits =
                 AutoFixture.CreateMany<AccomplissementTrait>(10).ToList();
             Accomplissement accomplissement = AutoFixture.Create<Accomplissement>();
-          
+
             InsererEntite(accomplissement);
             MockDAOCategorie.Setup(x => x.ObtenirParId(It.IsAny<int>())).Returns(categorie);
             MockDAOFile.Setup(x => x.GetFile(It.IsAny<int>())).Returns(file);
@@ -51,13 +51,55 @@ namespace ATMTECH.Achievement.Tests.DAO
         }
 
         [TestMethod]
-        public void ObtenirAccomplissementActifParCategorie()
+        public void ObtenirAccomplissementActifParCategorie_SeulementActif()
         {
             Categorie categorie = AutoFixture.Create<Categorie>();
+            InsererEntite(categorie);
+            Accomplissement accomplissement = AutoFixture.Create<Accomplissement>();
+            accomplissement.Categorie = categorie;
+            InsererEntite(accomplissement);
+            Accomplissement accomplissement1 = InstanceTest.ObtenirTousActive()[0];
+            accomplissement1.IsActive = false;
+            EnregistrerEntite(accomplissement1);
 
-            IList<Accomplissement> accomplissements = AutoFixture.CreateMany<Accomplissement>(10).ToList()  ;
+            IList<Accomplissement> rtn = InstanceTest.ObtenirAccomplissementActifParCategorie(categorie.Id);
+            rtn.Count.Should().Be(0);
+        }
 
-            InstanceTest.ObtenirAccomplissementActifParCategorie(categorie.Id);
+        [TestMethod]
+        public void ObtenirAccomplissementActifParCategorie_SeulementPourCategorie()
+        {
+            Accomplissement accomplissement = AutoFixture.Create<Accomplissement>();
+            accomplissement.IsActive = true;
+            EnregistrerEntite(accomplissement);
+
+            IList<Accomplissement> rtn = InstanceTest.ObtenirAccomplissementActifParCategorie(1212);
+            rtn.Count.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void ObtenirAccomplissementActifParCategorie_RempliCategorieFileAccomplissementTraits()
+        {
+            Categorie categorie = AutoFixture.Create<Categorie>();
+            InsererEntite(categorie);
+            Accomplissement accomplissement = AutoFixture.Create<Accomplissement>();
+            accomplissement.IsActive = true;
+            accomplissement.Categorie = categorie;
+            InsererEntite(accomplissement);
+            File file = AutoFixture.Create<File>();
+            IList<AccomplissementTrait> accomplissementTraits =
+              AutoFixture.CreateMany<AccomplissementTrait>(10).ToList();
+
+            MockDAOCategorie.Setup(x => x.ObtenirParId(It.IsAny<int>())).Returns(categorie);
+            MockDAOFile.Setup(x => x.GetFile(It.IsAny<int>())).Returns(file);
+            MockDAOAccomplissementTrait.Setup(x => x.ObtenirTousActivePourAccomplissement(It.IsAny<int>()))
+                .Returns(accomplissementTraits);
+
+            IList<Accomplissement> rtn = InstanceTest.ObtenirAccomplissementActifParCategorie(categorie.Id);
+            rtn.Count.Should().Be(1);
+            rtn[0].Categorie.Description = categorie.Description;
+            rtn[0].Image.Description = file.Description;
+            rtn[0].AccomplissementTraits.Count.Should().Be(10);
         }
 
     }

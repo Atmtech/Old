@@ -16,31 +16,62 @@ namespace ATMTECH.Achievement.WebSite
             {
                 if (value != null)
                 {
-                    string html = string.Empty;
-                    foreach (Discussion discussion in value)
-                    {
-                        DiscussionAffichage discussionAffichage = new DiscussionAffichage { Discussion = discussion };
-                        html += discussionAffichage.CreerDiscussion();
-                    }
-                    Literal literal = new Literal() { Text = html };
-                    placeHolderDiscussion.Controls.Add(literal);
+                    datalistDiscussion.DataSource = value;
+                    datalistDiscussion.DataBind();
                 }
             }
         }
 
-        public string IdDiscussion { get { return Session["IdDiscussion"].ToString(); } set { Session["IdDiscussion"] = value; } }
-        public string Commentaire
+        protected void ItemDataBoundDataListDiscussion(object sender, DataListItemEventArgs e)
         {
-            get
+            if ((e.Item.ItemType == ListItemType.Item) || (e.Item.ItemType == ListItemType.AlternatingItem))
             {
-                return Request.Form["txtCommentaire" + IdDiscussion];
+                Discussion dataItem = (Discussion)e.Item.DataItem;
+                if (dataItem.ListeDiscussionReponse.Count > 0)
+                {
+                    DataList dataList = ((DataList)e.Item.FindControl("dataListDiscussionReponse"));
+                    dataList.DataSource = dataItem.ListeDiscussionReponse;
+                    dataList.DataBind();
+                }
             }
         }
 
-        protected void test(object sender, EventArgs e)
+        protected void ItemCommandDiscussionReponseClick(object source, DataListCommandEventArgs e)
         {
-            string  x = Request.Form["txtCommentaire1"];
-            string value = Request.Form["txtBox1"];
+            if (e.CommandName == "JaimeCommentaire")
+            {
+                Presenter.JaimeCommentaire(Convert.ToInt32(e.CommandArgument));
+            }
+        }
+
+        protected void ItemCommandDiscussionClick(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "OuvrirPanneauCommentaire")
+            {
+                Panel panel = e.Item.FindControl("pnlCommenter") as Panel;
+                if (panel != null)
+                    panel.Visible = true;
+            }
+            if (e.CommandName == "JaimeMessage")
+            {
+                Presenter.JaimeMessage(Convert.ToInt32(e.CommandArgument));
+            }
+            if (e.CommandName == "PublierCommentaire")
+            {
+                TextBox txtCommentaire = e.Item.FindControl("txtCommentaire") as TextBox;
+                if (txtCommentaire != null)
+                    Presenter.PublierCommentaire(Convert.ToInt32(e.CommandArgument), txtCommentaire.Text);
+            }
+        }
+
+        protected void btnPublierMessageSurLeMurClick(object sender, EventArgs e)
+        {
+            Presenter.PublierMessageSurLeMur(txtMessageMur.Text);
+        }
+
+        protected void btnEcrireMessageSurLeMurClick(object sender, EventArgs e)
+        {
+            pnlCommentaire.Visible = true;
         }
     }
 }

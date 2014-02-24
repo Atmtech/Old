@@ -41,6 +41,14 @@ namespace ATMTECH.Achievement.Tests.DAO
             BaseDao<Message, int> dao = new BaseDao<Message, int>();
             Message message1 = new Message { InnerId = ErrorCode.ACH_AUCUNE_QUALITE_ASSOCIE_ACCOMPLISSEMENT, Language = "fr", Description = "Aucune qualité associé" };
             dao.Save(message1);
+            Message message2 = new Message { InnerId = ErrorCode.ACH_DESCRIPTION_OBLIGATOIRE_CREATION_ACCOMPLISSEMENT, Language = "fr", Description = "Description obligatoire pour accomplissement" };
+            dao.Save(message2);
+            Message message3 = new Message { InnerId = ErrorCode.ACH_MESSAGE_OBLIGATOIRE, Language = "fr", Description = "Message obligatoire pour publier" };
+            dao.Save(message3);
+            Message message4 = new Message { InnerId = ErrorCode.ACH_TITRE_OBLIGATOIRE_CREATION_ACCOMPLISSEMENT, Language = "fr", Description = "titre obligatoire pour accomplissement" };
+            dao.Save(message4);
+            Message message5 = new Message { InnerId = ErrorCode.ACH_COMMENTAIRE_OBLIGATOIRE, Language = "fr", Description = "Commentaire obligatoire pour publier" };
+            dao.Save(message5);
 
             BaseDao<User, int> daoUser = new BaseDao<User, int>();
             User user1 = UserBuilder.Create().WithId(0).WithFirstName("Vincent").WithLastName("Rioux").WithLogin("sagaan@hotmail.com").WithPassword("test").WithIsAdministrator(true).WithEmail("sagaan@hotmail.com");

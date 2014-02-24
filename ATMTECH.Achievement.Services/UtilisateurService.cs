@@ -1,5 +1,4 @@
-﻿using System;
-using ATMTECH.Achievement.DAO.Interface;
+﻿using ATMTECH.Achievement.DAO.Interface;
 using ATMTECH.Achievement.Entities;
 using ATMTECH.Achievement.Services.Interface;
 using ATMTECH.DAO.Interface;
@@ -73,5 +72,6 @@ namespace ATMTECH.Achievement.Services
             amitie.EstConfirme = true;
             DAOAmitie.Update(amitie);
         }
+
     }
 }

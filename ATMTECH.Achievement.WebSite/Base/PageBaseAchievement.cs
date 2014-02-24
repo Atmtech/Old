@@ -27,15 +27,20 @@ namespace ATMTECH.Achievement.WebSite.Base
 
         public void ShowMessage(Message message)
         {
-            //FenetreDialogue window = (FenetreDialogue)Master.FindControl("windowMessage");
-            //TitreLabelAvance titreLabelAvance = (Label)window.FindControl("lblError");
-
-            //window.Titre = message.Title;
-            //titreLabelAvance.Text = message.Description;
-            //window.OuvrirFenetre();
-
-            Label lblError = (Label)Master.FindControl("lblError");
-            lblError.Text = message.Description;
+            if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
+            {
+                Panel panel = (Panel)Master.FindControl("pnlSuccess");
+                Label literal = (Label)Master.FindControl("lblSuccess");
+                literal.Text = message.Description;
+                panel.Visible = true;
+            }
+            else
+            {
+                Panel panel = (Panel)Master.FindControl("pnlError");
+                Label literal = (Label)Master.FindControl("lblError");
+                literal.Text = message.Description;
+                panel.Visible = true;
+            }
         }
 
     }

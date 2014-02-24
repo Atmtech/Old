@@ -18,5 +18,10 @@ namespace ATMTECH.Achievement.DAO
             }
             return discussionReponses;
         }
+
+        public int Enregistrer(DiscussionReponse discussionReponse)
+        {
+            return Save(discussionReponse);
+        }
     }
 }

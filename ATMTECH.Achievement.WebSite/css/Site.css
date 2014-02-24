@@ -21,6 +21,37 @@ html, body
     font-family: 'Roboto', sans-serif;
 }
 
+textarea
+{
+    font-family: 'Roboto', sans-serif;
+    border-color: rgb(169, 169, 169);
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+}
+
+.panneauErreur
+{
+    padding: 10px 10px 10px 10px;
+    border: solid 1px gray;
+    background-color: whitesmoke;
+    color: red;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 10px;
+    width: 98%;
+}
+
+.panneauSucces
+{
+    padding: 10px 10px 10px 10px;
+    border: solid 1px gray;
+    background-color: whitesmoke;
+    color: green;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 .panneauAccomplissementTitre
 {
     width: 100%;
@@ -211,15 +242,16 @@ h6
     padding-bottom: 0px;
 }
 
-.bordureEntourantIcone {
+.bordureEntourantIcone
+{
     border-radius: 20px;
     border: 3px solid rgb(67, 67, 67);
 }
+
 .imageUtilisateurTitre
 {
     width: 25px;
     height: 25px;
-    
 }
 
 .boiteBlancheArrondi300px

@@ -32,6 +32,10 @@ namespace ATMTECH.Achievement.Views
                 View.ImageUtilisateur = file != null ? file.FileName : "/images/badge/contacts-48.png";
                 GenererListeBadge();
             }
+            else
+            {
+                NavigationService.Redirect(Pages.Pages.DEFAULT);
+            }
         }
 
         public void Redirect(string page)

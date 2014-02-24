@@ -27,7 +27,7 @@ namespace ATMTECH.Achievement.WebSite
         public bool ThrowExceptionIfNoPresenterBound { get; private set; }
         public void ShowMessage(Message message)
         {
-
+            string test = message.Description;
         }
 
         public bool IsAuthenticated

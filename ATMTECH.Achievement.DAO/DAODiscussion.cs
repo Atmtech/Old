@@ -23,6 +23,11 @@ namespace ATMTECH.Achievement.DAO
             return discussions;
         }
 
+        public Discussion ObtenirDiscussion(int id)
+        {
+            return GetById(id);
+        }
+
         public int Creer(Discussion discussion)
         {
             return Save(discussion);

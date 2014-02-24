@@ -14,19 +14,32 @@ namespace ATMTECH.Achievement.Views
             : base(view)
         {
         }
-
-        public override void OnViewLoaded()
+        public override void OnViewInitialized()
         {
-            base.OnViewLoaded();
-            string id = NavigationService.GetQueryStringValue(Pages.PagesId.ID_DISCUSSION);
-            if (id != null)
-            {
-                View.IdDiscussion = id;
-                string test = View.Commentaire;
-            }
+            base.OnViewInitialized();
+            View.Discussions = DiscussionService.ObtenirListeDiscussion(AuthenticationService.AuthenticateUser.Id);
+        }
 
+        public void PublierCommentaire(int id, string commentaire)
+        {
+            DiscussionService.AjouterCommentaire(id, commentaire);
+            NavigationService.Refresh();
+        }
 
-            View.Discussions = DiscussionService.ObtenirDiscussion(AuthenticationService.AuthenticateUser.Id);
+        public void JaimeMessage(int id)
+        {
+
+        }
+
+        public void JaimeCommentaire(int id)
+        {
+
+        }
+
+        public void PublierMessageSurLeMur(string message)
+        {
+            DiscussionService.Creer(message);
+            NavigationService.Refresh();
         }
     }
 }

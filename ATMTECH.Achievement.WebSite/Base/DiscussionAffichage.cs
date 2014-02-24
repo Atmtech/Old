@@ -9,8 +9,10 @@ namespace ATMTECH.Achievement.WebSite.Base
         public string CreerDiscussion()
         {
             string html = string.Empty;
-            //html += "<script type='text/javascript'>";
-
+            html += "<script type='text/javascript'>";
+            html += "function testing(id){";
+            html += "alert(id);";
+            html += "}";
             //html += "$('#tamere').click(function() {";
             //html += "alert(this.id);";
             //html += "});";
@@ -19,9 +21,14 @@ namespace ATMTECH.Achievement.WebSite.Base
             ////html += "alert($(this).val());";
             ////html += "var posting = $.post('Wall.aspx');";
             ////html += "});";
-            //html += "</script>";
-
             html += "</script>";
+
+            //        <div class="barreMenuDiscussion" style="text-align: right; padding-right: 15px;">
+            //    <asp:Button runat="server" CssClass="boutonDiscussion" Text="Publier commentaire" />
+            //</div>
+
+
+
             html += "<div style='padding:10px 10px 10px 10px;'>";
             html += "       <table style='width: 100%;'>";
             html += "           <tr>";
@@ -37,7 +44,7 @@ namespace ATMTECH.Achievement.WebSite.Base
             html += "                           </div>";
             html += "                           <a href=''><img src='images/badge/comments-48.png' style='height:16px;width:16px;'></a><img src='images/badge/like-48.png' style='height:16px;width:16px;'>";
             html += "<textarea name='Text1' cols='40' rows='5' class='txtInput'></textarea>";
-            //html += "<input class='bouton' value='Commenter' type='button' Id='tamere'>";
+            html += "<input class='bouton' value='Commenter' type='button' Id='tamere' onclick='testing(1)'>";
             foreach (DiscussionReponse discussionReponse in Discussion.ListeDiscussionReponse)
             {
                 html += "                           <table style='width: 100%'>";

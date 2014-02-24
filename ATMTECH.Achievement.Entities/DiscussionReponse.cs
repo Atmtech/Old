@@ -1,4 +1,5 @@
-﻿using ATMTECH.Entities;
+﻿using System.Collections.Generic;
+using ATMTECH.Entities;
 
 namespace ATMTECH.Achievement.Entities
 {
@@ -8,5 +9,6 @@ namespace ATMTECH.Achievement.Entities
 
         public Discussion Discussion { get; set; }
         public User Utilisateur { get; set; }
+        public IList<Jaime> ListeJaime { get; set; }
     }
 }

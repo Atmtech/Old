@@ -41,6 +41,7 @@
     <Compile Include="AccomplissementUtilisateur.cs" />
     <Compile Include="AccomplissementAppuyerPar.cs" />
     <Compile Include="Amitie.cs" />
+    <Compile Include="Jaime.cs" />
     <Compile Include="Discussion.cs" />
     <Compile Include="DiscussionReponse.cs" />
     <Compile Include="Trait.cs" />

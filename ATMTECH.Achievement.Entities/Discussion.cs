@@ -9,6 +9,8 @@ namespace ATMTECH.Achievement.Entities
 
         public User Utilisateur { get; set; }
         public IList<DiscussionReponse> ListeDiscussionReponse { get; set; }
+
+        public IList<Jaime> ListeJaime { get; set; }
     }
 
 }
