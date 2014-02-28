@@ -28,6 +28,7 @@ namespace ATMTECH.ShoppingCart.Views.Pages
         public const string SUCCESSFULLY_ADDED = "SuccessfullyAdded";
         public const string ORDER_ID = "OrderId";
         public const string CONTENT_ID = "ContentId";
+        public const string PRODUCT_CATEGORY = "ProductCategoryId";
 
     }
 

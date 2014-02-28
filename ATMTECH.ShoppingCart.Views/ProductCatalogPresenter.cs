@@ -25,17 +25,32 @@ namespace ATMTECH.ShoppingCart.Views
         {
         }
 
-        public override void OnViewInitialized()
+        private void FindProductCategories()
         {
-            base.OnViewInitialized();
+            IList<ProductCategory> productCategories = new List<ProductCategory>();
             if (CustomerService.AuthenticateCustomer != null)
             {
-                View.ProductCategories = ProductService.GetProductCategory(CustomerService.AuthenticateCustomer.Enterprise.Id).OrderBy(x=>x.OrderId).ToList();
+                productCategories = ProductService.GetProductCategory(CustomerService.AuthenticateCustomer.Enterprise.Id).OrderBy(x => x.OrderId).ToList();
             }
             else
             {
-                View.ProductCategories = ProductService.GetProductCategory(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED))).OrderBy(x => x.OrderId).ToList();
+                productCategories = ProductService.GetProductCategory(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED))).OrderBy(x => x.OrderId).ToList();
             }
+
+            string idProductCategory = NavigationService.GetQueryStringValue(Pages.PagesId.PRODUCT_CATEGORY);
+
+            if (!string.IsNullOrEmpty(idProductCategory))
+            {
+                productCategories = productCategories.Where(x => x.Id == Convert.ToInt32(idProductCategory)).ToList();
+            }
+
+            View.ProductCategories = productCategories;
+        }
+        public override void OnViewInitialized()
+        {
+            base.OnViewInitialized();
+
+            FindProductCategories();
 
         }
         public IList<Product> GetProductCategory(int idProductCategory)
