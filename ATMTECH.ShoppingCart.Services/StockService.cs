@@ -21,6 +21,7 @@ namespace ATMTECH.ShoppingCart.Services
         public IDAOStockTransaction DAOStockTransaction { get; set; }
         public IDAOStockTemplate DAOStockTemplate { get; set; }
         public IDAOStockLink DAOStockLink { get; set; }
+        public IProductService ProductService { get; set; }
 
         public IList<Stock> GetProductStock(int idProduct)
         {
@@ -28,7 +29,9 @@ namespace ATMTECH.ShoppingCart.Services
         }
         public Stock GetStock(int idStock)
         {
-            return DAOStock.GetStock(idStock);
+            Stock stock = DAOStock.GetStock(idStock);
+            stock.Product = ProductService.GetProduct(stock.Product.Id);
+            return stock;
         }
         public int GetCurrentStockStatus(Stock stock, DateTime dateStart, DateTime dateEnd)
         {

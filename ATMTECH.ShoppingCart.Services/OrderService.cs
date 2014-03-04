@@ -29,6 +29,8 @@ namespace ATMTECH.ShoppingCart.Services
         public IMessageService MessageService { get; set; }
         public IDAOOrder DAOOrder { get; set; }
         public IDAOTaxes DAOTaxes { get; set; }
+
+        public IDAOOrderLine DAOOrderLine { get; set; }
         public IDAOProductPriceHistory DAOProductPriceHistory { get; set; }
         public IProductService ProductService { get; set; }
         public IParameterService ParameterService { get; set; }
@@ -188,6 +190,13 @@ namespace ATMTECH.ShoppingCart.Services
         public decimal GetShippingTotal(Order order, ShippingParameter shippingParameter)
         {
             return order.Enterprise.IsShippingManaged ? ShippingService.GetShippingTotal(order, shippingParameter) : 0;
+        }
+
+        public void UpdateOrderLine(OrderLine orderLine)
+        {
+            Stock stock = StockService.GetStock(orderLine.Stock.Id);
+            orderLine.Stock = stock;
+            DAOOrderLine.Update(orderLine);
         }
 
         public Stream ReturnOrderReport(Order order)

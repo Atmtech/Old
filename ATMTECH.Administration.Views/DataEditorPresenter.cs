@@ -118,7 +118,8 @@ namespace ATMTECH.Administration.Views
                     productFiles = productFiles.Where(x => x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
                     return productFiles;
                 case "order":
-                    IList<Order> orders = OrderService.GetOrder(Convert.ToInt32(View.Enterprise), pageIndex);
+                    IList<Order> orders = OrderService.GetOrder(Convert.ToInt32(View.Enterprise), pageIndex).OrderByDescending(x => x.FinalizedDate).ToList();
+                    orders.Where(x => x.OrderStatus != 1).ToList();
                     return orders.Where(x => x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
                 case "groupproduct":
                     return DAOGroupProduct.GetGroupProduct();
@@ -178,6 +179,14 @@ namespace ATMTECH.Administration.Views
                 Product product = (Product)entite;
                 int id = ProductService.Save(product);
                 UpdateProductPriceHistory(id, product.UnitPrice);
+                return;
+            }
+
+            if (Entity == "OrderLine")
+            {
+                OrderLine orderLine = (OrderLine)entite;
+                OrderService.UpdateOrderLine(orderLine);
+                RefreshData();
                 return;
             }
 

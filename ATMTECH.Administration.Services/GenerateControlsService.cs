@@ -329,27 +329,6 @@ namespace ATMTECH.Administration.Services
                         }
 
                         return textBoxAvance;
-                        //AlphaNumTextBoxAvance alphaNumTextBoxAvance = new AlphaNumTextBoxAvance
-                        //    {
-                        //        ID = propertyInfo.Name,
-                        //        Text = value,
-                        //        Width = Unit.Percentage(80),
-                        //        TypeSaisie =
-                        //            AlphaNumTextBoxAvance.TypeDeChamp.
-                        //            Decimal,
-                        //        NombreDecimaux = 2,
-                        //        NombreEntiers = 15,
-                        //        EstObligatoire = IsRequired(propertyInfo.Name, entity),
-                        //        Enabled = isEnabled
-
-                        //    };
-
-                        //    if (DataEditorService.IsSystemColumn(propertyInfo.Name))
-                        //    {
-                        //        alphaNumTextBoxAvance.Enabled = false;
-                        //    }
-
-                        //    return alphaNumTextBoxAvance;
                     }
                 case "Int32":
                     {
@@ -392,21 +371,7 @@ namespace ATMTECH.Administration.Services
                             ckEditor.Enabled = false;
                         }
                         return ckEditor;
-                        //TextBoxAvance textBoxAvance = new TextBoxAvance
-                        //{
-                        //    ID = propertyInfo.Name,
-                        //    Text = value,
-                        //    Width = Unit.Percentage(98),
-                        //    TextMode = TextBoxMode.MultiLine,
-                        //    EstObligatoire = IsRequired(propertyInfo.Name, entity),
-                        //    Enabled = isEnabled
-                        //};
-                        //if (DataEditorService.IsSystemColumn(propertyInfo.Name))
-                        //{
-                        //    textBoxAvance.Enabled = false;
-                        //}
-
-                        //return textBoxAvance;
+                      
                     }
             }
         }

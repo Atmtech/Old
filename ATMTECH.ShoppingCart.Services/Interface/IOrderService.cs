@@ -38,5 +38,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface
 
         IList<EnumOrderInformation> GetOrderInformation(Enterprise enterprise, string group);
         IList<SalesByOrderInformationReportLine> GetSalesByOrderInformationReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd);
+        void UpdateOrderLine(OrderLine orderLine);
     }
 }

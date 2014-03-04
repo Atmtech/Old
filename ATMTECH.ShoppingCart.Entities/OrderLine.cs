@@ -16,7 +16,7 @@ namespace ATMTECH.ShoppingCart.Entities
 
         public string SearchUpdate
         {
-            get { return Stock.Product.Name + "-" + Stock.Feature; }
+            get { return Order.Id + "-" + Stock.Product.Name + "-" + Stock.Feature; }
         }
 
         public string ComboboxDescriptionUpdate

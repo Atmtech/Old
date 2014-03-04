@@ -325,6 +325,13 @@ namespace ATMTECH.Administration
                 {
                     manageClass.AssignValue(type, entity, textBoxAvance.Text, textBoxAvance.ID);
                 }
+
+                var alphaNumTextBoxAvance = control as AlphaNumTextBoxAvance;
+                if (alphaNumTextBoxAvance != null)
+                {
+                    manageClass.AssignValue(type, entity, alphaNumTextBoxAvance.ValeurDecimale.ToString(), alphaNumTextBoxAvance.ID);
+                }
+
                 var dateTextBoxAvance = control as DateTextBoxAvance;
                 if (dateTextBoxAvance != null)
                 {
