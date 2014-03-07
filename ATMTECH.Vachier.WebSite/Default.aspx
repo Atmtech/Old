@@ -21,7 +21,13 @@
         <tr>
             <td style="width: 50%">
                 <div style="background-color: #6f572d; padding-left: 20px; color: white;">
-                    LES GROSSES MERDES
+                    <table style="width: 100%;">
+                        <tr>
+                            <td> LES GROSSES MERDES </td>
+                            <td style="text-align: right;font-size: 12px;">( <asp:Label runat="server" ID="lblTotalMarde" Font-Bold="True"></asp:Label> grosses merdes )</td>
+                        </tr>
+                    </table>
+                   
                 </div>
                 <div style="border: solid 1px #6f572d; padding: 10px 10px 10px 10px; background-color: #e1d9d0">
                     Consulter la page:

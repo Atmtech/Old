@@ -12,5 +12,6 @@ namespace ATMTECH.Vachier.DAO.Interface
         Entities.Vachier ObtenirVachier(int id);
         IList<Entities.Vachier> ObtenirListeVachierTopListe();
         Entities.Vachier ObtenirMerdeDuJour();
+        int ObtenirNombreTotal();
     }
 }

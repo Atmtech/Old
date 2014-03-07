@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Xml;
-using ATMTECH.Vachier.Entities;
 using ATMTECH.Vachier.Views;
 using ATMTECH.Vachier.Views.Interface;
 
@@ -24,6 +22,8 @@ namespace ATMTECH.Vachier.WebSite
                 datalistTop.DataBind();
             }
         }
+
+        public string TotalMarde { set { lblTotalMarde.Text = value; } }
 
         public Entities.Vachier MerdeDuJour
         {
@@ -64,7 +64,7 @@ namespace ATMTECH.Vachier.WebSite
             }
         }
 
-      
+
         protected void selectedIndexChanged(object sender, EventArgs e)
         {
             int page = Convert.ToInt32(ddlListePage.SelectedValue);

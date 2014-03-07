@@ -26,12 +26,14 @@ namespace ATMTECH.Vachier.Views
             View.CompteTotal = DAOVachier.ObtenirCompte();
             View.MerdeDuJour = DAOVachier.ObtenirMerdeDuJour();
             View.ListeTop = DAOVachier.ObtenirListeVachierTopListe();
+            View.TotalMarde = DAOVachier.ObtenirNombreTotal().ToString();
         }
 
         public override void OnViewLoaded()
         {
             base.OnViewLoaded();
             View.ListeTop = DAOVachier.ObtenirListeVachierTopListe();
+
         }
 
         public IList<Entities.Vachier> ObtenirListe(int indexDebut, int nombreSortie)

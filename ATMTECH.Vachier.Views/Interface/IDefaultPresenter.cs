@@ -10,6 +10,7 @@ namespace ATMTECH.Vachier.Views.Interface
         IList<Entities.Vachier> ListeTop { set; }
         Entities.Vachier MerdeDuJour { set; }
         int CompteTotal { set; }
+        string TotalMarde { set; }
        
     }
 }

@@ -26,15 +26,11 @@ namespace ATMTECH.Vachier.DAO
             Entities.Vachier vachier = ObtenirVachier(leVachierAuHasard);
             vachier.Insulte = DAOInsulte.ObtenirInsulte(vachier.Insulte.Id);
             return vachier;
+        }
 
-            //IList<Entities.Vachier> vachiers = GetAllActive();
-            //vachiers = vachiers.Where(x => x.Description != null).ToList();
-            //vachiers = vachiers.Where(x => x.Description.Length > 50).ToList();
-
-            //int toSkip = rand.Next(0, vachiers.Count);
-            //Entities.Vachier vachier = vachiers.Skip(toSkip).Take(1).First();
-            //vachier.Insulte = DAOInsulte.ObtenirInsulte(vachier.Insulte.Id);
-            //return vachier;
+        public int ObtenirNombreTotal()
+        {
+            return GetCount();
         }
 
         public IList<Entities.Vachier> ObtenirListeVachierTopListe()
