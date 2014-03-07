@@ -29,8 +29,8 @@
         <asp:ListItem Value="E:\cima.boutiquecorpo.com\Images">cima.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="E:\tanguay.boutiquecorpo.com\Images">tanguay.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="E:\ursulines.boutiquecorpo.com\Images">ursuline.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="E:\glv.boutiquecorpo.com\Images">glv.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="C:\dev\Atmtech\ATMTECH.ShoppingCart.PubJL\Images">localhost</asp:ListItem>
-
     </asp:DropDownList>
     <hr />
     <div>

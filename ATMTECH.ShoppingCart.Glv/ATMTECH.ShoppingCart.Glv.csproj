@@ -271,6 +271,15 @@
     <Content Include="Images\WebSite\BackgroundMenuBas.jpg" />
     <Content Include="Images\WebSite\BulletCart.png" />
     <Content Include="Images\WebSite\error-icon.png" />
+    <Content Include="Images\WebSite\GLV_articles_promo.png" />
+    <Content Include="Images\WebSite\GLV_clothing.png" />
+    <Content Include="Images\WebSite\GLV_commander.png" />
+    <Content Include="Images\WebSite\GLV_customer.png" />
+    <Content Include="Images\WebSite\GLV_faq.png" />
+    <Content Include="Images\WebSite\GLV_ordering.png" />
+    <Content Include="Images\WebSite\GLV_promo_article.png" />
+    <Content Include="Images\WebSite\GLV_service.png" />
+    <Content Include="Images\WebSite\GLV_vetements.png" />
     <Content Include="Images\WebSite\paypal-transparent-logo.png" />
     <Content Include="Images\WebSite\Retirer.png" />
     <Content Include="Images\WebSite\success-icon.png" />

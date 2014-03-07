@@ -98,63 +98,27 @@
                 </asp:ContentPlaceHolder>
                 <asp:Panel runat="server" ID="pnlMenuBottom" Visible="True">
                     <asp:Label runat="server" ID="lblProductCount" Visible="False"></asp:Label>
-                    <a href="ProductCatalog.aspx?ProductCategoryId=1200">
-                        <div style="background-color: #006585; width: 230px; height: 150px; margin-right: 10px; float: left;">
-                            Liste des vêtements
+                    <a href="ProductCatalog.aspx?ProductCategoryId=31">
+                        <div style="width: 230px; height: 150px; margin-right: 10px; float: left;">
+                            <asp:Image runat="server" ID="imgVetement" ImageUrl="Images/WebSite/GLV_vetements.png"  />
                         </div>
                     </a>
-                    <a href="ProductCatalog.aspx?ProductCategoryId=1200">
-                        <div style="background-color: #543672; width: 230px; height: 150px; margin-right: 10px; float: left;">
-                            Liste des articles
+                    <a href="ProductCatalog.aspx?ProductCategoryId=27">
+                        <div style="width: 230px; height: 150px; margin-right: 10px; float: left;">
+                            <asp:Image runat="server" ID="imgArticlePromotionnel" ImageUrl="Images/WebSite/GLV_articles_promo.png" />
                         </div>
                     </a>
-                    <%-- <a href="ProductCatalog.aspx">
-                        <div class="tile triple icon bg-color-button-product outline-color-white">
-                            <div class="tile-content">
-                                <i class="icon-tag" style="height: 200px;"></i>
-                            </div>
-                            <div class="brand">
-                                <div class="badge">
-                                    <asp:Label runat="server" ID="lblProductCount"></asp:Label>
-                                </div>
-                                <div class="name">
-                                    <asp:Label runat="server" ID="lblProductList"></asp:Label>
-                                </div>
-                            </div>
-                        </div>
-                    </a>--%>
                     <a href="Default.aspx?ContentId=ContentInformations">
-                        <div class="tile icon bg-color-button-instruction outline-color-white">
-                            <div class="tile-content">
-                                <i class=" icon-comments-2" style="height: 200px;"></i>
-                            </div>
-                            <div class="brand">
-                                <div class="name">
-                                    <asp:Label runat="server" ID="lblInstruction"></asp:Label>
-                                </div>
-                            </div>
+                        <div style="width: 140px; height: 150px; margin-right: 10px; float: left;">
+                            <asp:Image runat="server" ID="imgModeEmploi" ImageUrl="Images/WebSite/GLV_faq.png" />
                         </div>
                     </a><a href="Default.aspx?ContentId=ContentStep">
-                        <div class="tile icon bg-color-button-steptoorder outline-color-white">
-                            <div class="tile-content">
-                                <i class="icon-list" style="height: 200px;"></i>
-                            </div>
-                            <div class="brand">
-                                <div class="name">
-                                    <asp:Label runat="server" ID="lblStepToOrder"></asp:Label>
-                                </div>
-                            </div>
+                        <div style="width: 140px; height: 150px; margin-left: 10px; float: left;">
+                            <asp:Image runat="server" ID="imgEtapeCommande" ImageUrl="Images/WebSite/GLV_commander.png" />
                         </div>
                     </a><a href="Default.aspx?ContentId=ContentPublicRelation">
-                        <div class="tile icon bg-color-button-customercare outline-color-white">
-                            <div class="tile-content">
-                                <i class="icon-user-3" style="height: 200px;"></i>
-                            </div>
-                            <div class="brand">
-                                <div class="name">
-                                    <asp:Label runat="server" ID="lblCustomerCare"></asp:Label>
-                                </div>
-                            </div>
+                       <div style="width: 140px; height: 150px; margin-left: 20px; float: left;">
+                            <asp:Image runat="server" ID="imgServiceClientele" ImageUrl="Images/WebSite/GLV_service.png" />
                         </div>
                     </a>
                 </asp:Panel>

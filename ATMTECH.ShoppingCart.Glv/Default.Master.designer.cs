@@ -220,31 +220,49 @@ namespace ATMTECH.ShoppingCart.Glv {
         protected global::System.Web.UI.WebControls.Label lblProductCount;
         
         /// <summary>
-        /// Contrôle lblInstruction.
+        /// Contrôle imgVetement.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInstruction;
+        protected global::System.Web.UI.WebControls.Image imgVetement;
         
         /// <summary>
-        /// Contrôle lblStepToOrder.
+        /// Contrôle imgArticlePromotionnel.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStepToOrder;
+        protected global::System.Web.UI.WebControls.Image imgArticlePromotionnel;
         
         /// <summary>
-        /// Contrôle lblCustomerCare.
+        /// Contrôle imgModeEmploi.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerCare;
+        protected global::System.Web.UI.WebControls.Image imgModeEmploi;
+        
+        /// <summary>
+        /// Contrôle imgEtapeCommande.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgEtapeCommande;
+        
+        /// <summary>
+        /// Contrôle imgServiceClientele.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgServiceClientele;
         
         /// <summary>
         /// Contrôle lblContact.
