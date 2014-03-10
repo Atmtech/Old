@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Reflection;
+using System.Runtime.Remoting;
 using System.Web;
 using ATMTECH.DAO.Database;
 using ATMTECH.Entities;
@@ -141,7 +143,8 @@ namespace ATMTECH.DAO
         }
         public int Save(TModel model)
         {
-            SetDefaultValueComboboxAndSearch(model);
+            SetSearchValue(model);
+            SetComboboxValue(model);
             int rtn;
             if (Convert.ToInt64(Model.GetValueProperty(Model.GetIdKeyColumnFromModel(), model)) != 0)
             {
@@ -161,10 +164,10 @@ namespace ATMTECH.DAO
         {
             Criteria criteriaLanguage = new Criteria
                 {
-                Column = BaseEntity.LANGUAGE,
-                Operator = DatabaseOperator.OPERATOR_EQUAL,
-                Value = language
-            };
+                    Column = BaseEntity.LANGUAGE,
+                    Operator = DatabaseOperator.OPERATOR_EQUAL,
+                    Value = language
+                };
             criterias.Add(criteriaLanguage);
         }
         public void ExecuteSql(string sql)
@@ -188,16 +191,74 @@ namespace ATMTECH.DAO
         {
             Model.SetValueProperty("DateModified", DateTime.Now.ToString(), model);
         }
-        private void SetDefaultValueComboboxAndSearch(TModel model)
-        {
-            Object objSearch = Model.GetValueProperty("SearchUpdate", model);
-            Object objcomboboxDescription = Model.GetValueProperty("ComboboxDescriptionUpdate", model);
 
-            if (objSearch != null)
+        private bool ExclusionSearch(PropertyInfo propertyInfo)
+        {
+            if (propertyInfo.PropertyType.FullName == "ATMTECH.ShoppingCart.Entities.Enterprise" && typeof(TModel).FullName == "ATMTECH.ShoppingCart.Entities.Order")
             {
-                string searchUpdate = HttpUtility.HtmlDecode(objSearch.ToString());
-                Model.SetValueProperty("Search", searchUpdate, model);
+                return false;
             }
+            return true;
+        }
+        private void SetSearchValue(TModel model)
+        {
+            Type type = model.GetType();
+            PropertyInfo[] properties = type.GetProperties();
+            string search = string.Empty;
+            foreach (var propertyInfo in properties)
+            {
+                if (propertyInfo.Name == BaseEntity.SEARCH) continue;
+                if (propertyInfo.PropertyType.Name == "Boolean") continue;
+                search += "|";
+
+                if (propertyInfo.PropertyType.Namespace == "System")
+                {
+                    if (propertyInfo.GetValue(model, null) != null)
+                    {
+                        search += HttpUtility.HtmlDecode(propertyInfo.GetValue(model, null).ToString());
+                    }
+                }
+                else
+                {
+                    if (propertyInfo.PropertyType.Name.ToLower() != "ilist`1")
+                    {
+
+                        ObjectHandle myobj = Activator.CreateInstance(propertyInfo.PropertyType.Namespace, propertyInfo.PropertyType.FullName);
+                        Object unwrapped = myobj.Unwrap();
+                        unwrapped = propertyInfo.GetValue(model, null);
+                        if (unwrapped != null)
+                        {
+                            Type typeUnwrap = unwrapped.GetType();
+                            PropertyInfo[] propertiesChild = typeUnwrap.GetProperties();
+                            foreach (PropertyInfo propertyInfoChild in propertiesChild)
+                            {
+                                if (ExclusionSearch(propertyInfo))
+                                {
+                                    if (propertyInfoChild.Name == BaseEntity.SEARCH) continue;
+                                    if (propertyInfoChild.PropertyType.Name == "Boolean") continue;
+                                    if (propertyInfoChild.PropertyType.Namespace == "System")
+                                    {
+                                        if (propertyInfoChild.GetValue(unwrapped, null) != null)
+                                        {
+                                            search +=
+                                                HttpUtility.HtmlDecode(
+                                                    propertyInfoChild.GetValue(unwrapped, null).ToString());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+            }
+
+            Model.SetValueProperty("Search", search, model);
+        }
+        private void SetComboboxValue(TModel model)
+        {
+            Object objcomboboxDescription = Model.GetValueProperty("ComboboxDescriptionUpdate", model);
             if (objcomboboxDescription != null)
             {
                 string comboboxDescriptionUpdate = HttpUtility.HtmlDecode(objcomboboxDescription.ToString());

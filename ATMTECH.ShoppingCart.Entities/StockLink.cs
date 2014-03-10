@@ -9,7 +9,6 @@ namespace ATMTECH.ShoppingCart.Entities
         public const string PRODUCT = "Product";
         public Stock Stock { get; set; }
         public Stock StockLinked { get; set; }
-
-        public  string SearchUpdate { get { return Stock.Feature + " " + StockLinked.Feature; } }
+     
     }
 }

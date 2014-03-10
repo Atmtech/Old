@@ -38,7 +38,6 @@ namespace ATMTECH.ShoppingCart.Entities
         public bool IsPayPal { get; set; }
         public bool IsMailConfirmingOrderSent { get; set; }
 
-        public string SearchUpdate { get { return (Id) + " "  + (Customer == null ? "" : Customer.User == null ? "" : Customer.User.FirstNameLastName) + " " + (Enterprise == null ? "" : Enterprise.Name) + " " + (Project ?? "") + " " + (TrackingNumber ?? ""); } }
         public string ComboboxDescriptionUpdate
         {
             get

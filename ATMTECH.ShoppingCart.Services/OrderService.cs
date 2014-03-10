@@ -62,6 +62,12 @@ namespace ATMTECH.ShoppingCart.Services
             }
             return order;
         }
+
+        public int Save(Order order)
+        {
+            return DAOOrder.Save(order);
+        }
+
         public int UpdateOrder(Order order, ShippingParameter shippingParameter)
         {
             ValidateOrderService.IsValidOrder(order);
@@ -197,6 +203,11 @@ namespace ATMTECH.ShoppingCart.Services
             Stock stock = StockService.GetStock(orderLine.Stock.Id);
             orderLine.Stock = stock;
             DAOOrderLine.Update(orderLine);
+        }
+
+        public IList<Order> GetAll()
+        {
+            return DAOOrder.GetAll();
         }
 
         public Stream ReturnOrderReport(Order order)
@@ -366,6 +377,16 @@ namespace ATMTECH.ShoppingCart.Services
             return salesReportLines.OrderBy(x => x.OrderInformation).ThenBy(x => x.ProductId).ToList();
         }
 
+
+        public IList<OrderLine> GetAllOrderLine()
+        {
+            return DAOOrderLine.GetAll();
+        }
+
+        public int SaveOrderLine(OrderLine orderLine)
+        {
+            return DAOOrderLine.Update(orderLine);
+        }
 
         public IList<ProductPriceHistoryReportLine> GetProductPriceHistoryReportLine(Enterprise enterprise,
                                                                                      DateTime dateStart,

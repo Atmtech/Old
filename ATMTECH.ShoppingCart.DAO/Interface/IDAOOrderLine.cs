@@ -7,5 +7,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
    {
        IList<OrderLine> GetOrderLine(int id);
        int Update(OrderLine orderLine);
+       IList<OrderLine> GetAll();
    }
 }

@@ -9,7 +9,6 @@ namespace ATMTECH.ShoppingCart.Entities
         public const string ENTERPRISE = "Enterprise";
         public Enterprise Enterprise { get; set; }
 
-        public string SearchUpdate { get { return Description + " " + Code; } }
         public string ComboboxDescriptionUpdate { get { return Description; } }
 
     }

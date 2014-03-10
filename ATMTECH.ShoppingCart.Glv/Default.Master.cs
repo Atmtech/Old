@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI;
+using ATMTECH.Common.Constant;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views;
@@ -61,7 +62,7 @@ namespace ATMTECH.ShoppingCart.Glv
             {
                 if (System.IO.File.Exists(Server.MapPath("Images/Enterprise/" + value)))
                 {
-                    imageCorporative.ImageUrl = "Images/Enterprise/" + value;    
+                    imageCorporative.ImageUrl = "Images/Enterprise/" + value;
                 }
                 else
                 {
@@ -93,7 +94,11 @@ namespace ATMTECH.ShoppingCart.Glv
 
         public string Language
         {
-            set { lnkLanguage.Text = value; }
+            set
+            {
+                SetImageFromLanguage();
+                lnkLanguage.Text = value;
+            }
         }
 
         public Enterprise Enterprise
@@ -170,6 +175,26 @@ namespace ATMTECH.ShoppingCart.Glv
         protected void OpenSession(object sender, EventArgs e)
         {
             Presenter.Redirect(Pages.LOGIN);
+        }
+
+        public void SetImageFromLanguage()
+        {
+            if (Presenter.ReturnLanguage() == LocalizationLanguage.FRENCH)
+            {
+                imgVetement.ImageUrl = "Images/WebSite/GLV_vetements.png";
+                imgArticlePromotionnel.ImageUrl = "Images/WebSite/GLV_articles_promo.png";
+                imgModeEmploi.ImageUrl = "Images/WebSite/GLV_faq.png";
+                imgEtapeCommande.ImageUrl = "Images/WebSite/GLV_commander.png";
+                imgServiceClientele.ImageUrl = "Images/WebSite/GLV_service.png";
+            }
+            else
+            {
+                imgVetement.ImageUrl = "Images/WebSite/GLV_clothing.png";
+                imgArticlePromotionnel.ImageUrl = "Images/WebSite/GLV_promo_article.png";
+                imgModeEmploi.ImageUrl = "Images/WebSite/GLV_faq.png";
+                imgEtapeCommande.ImageUrl = "Images/WebSite/GLV_ordering.png";
+                imgServiceClientele.ImageUrl = "Images/WebSite/GLV_customer.png";
+            }
         }
     }
 }

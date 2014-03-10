@@ -19,7 +19,6 @@ namespace ATMTECH.ShoppingCart.Entities
         public IList<StockTransaction> Transactions { get; set; }
         public bool IsWithoutStock { get; set; }
 
-        public  string SearchUpdate { get { return Product.Name + " " + Feature + " " + Product.Ident; } }
-        public string ComboboxDescriptionUpdate { get { return Product.Name + " " + Feature + " " + Product.Ident; } }
+        public string ComboboxDescriptionUpdate { get { return Product == null ? "" : Product.Name + " " + Feature + " " + Product.Ident; } }
     }
 }

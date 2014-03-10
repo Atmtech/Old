@@ -16,7 +16,6 @@ namespace ATMTECH.ShoppingCart.Entities
         public Enterprise Enterprise { get; set; }
         public string AddressType { get; set; }
 
-        public string SearchUpdate { get { return Address.DisplayAddress; } }
         public string ComboboxDescriptionUpdate { get { return Address.DisplayAddress; } }
 
     }

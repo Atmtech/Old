@@ -14,14 +14,9 @@ namespace ATMTECH.ShoppingCart.Entities
         public decimal UnitPrice { get; set; }
         public int Quantity { get; set; }
 
-        public string SearchUpdate
-        {
-            get { return Order.Id + "-" + Stock.Product.Name + "-" + Stock.Feature; }
-        }
-
         public string ComboboxDescriptionUpdate
         {
-            get { return Stock.Product.Name + "-" + Stock.Feature; }
+            get { return Stock == null ? "" : Stock.Product == null ? "" : Stock.Product.Name + "-" + Stock.Feature; }
         }
     }
 }

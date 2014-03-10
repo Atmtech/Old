@@ -14,7 +14,6 @@ namespace ATMTECH.ShoppingCart.Entities
         public bool IsPrincipal { get; set; }
         public Product ProductLinked { get; set; }
 
-        public string SearchUpdate { get { return File == null ? "" : File.FileName; } }
         public string ComboboxDescriptionUpdate { get { return File == null ? "" : File.FileName; } }
     }
 }

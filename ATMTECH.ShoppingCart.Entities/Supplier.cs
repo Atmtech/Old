@@ -7,8 +7,7 @@ namespace ATMTECH.ShoppingCart.Entities
     public class Supplier : BaseEntity
     {
         public string Name { get; set; }
-
-        public string SearchUpdate { get { return Description + " " + Name; } }
+        
         public string ComboboxDescriptionUpdate { get { return Name; } }
     }
 }

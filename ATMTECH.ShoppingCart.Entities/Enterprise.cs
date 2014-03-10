@@ -36,7 +36,6 @@ namespace ATMTECH.ShoppingCart.Entities
         public string FrenchStep { get; set; }
         public string EnglishStep { get; set; }
 
-        public string SearchUpdate { get { return Description + " " + Name + " "; } }
         public string ComboboxDescriptionUpdate { get { return Name; } }
 
         public bool IsCreateCustomerPossible { get; set; }

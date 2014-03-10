@@ -39,6 +39,13 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return DAOCustomer.GetCustomerByEnterprise(idEnterprise);
         }
+
+        public IList<Customer> GetAll()
+        {
+            return DAOCustomer.GetAll();
+
+        }
+
         public Customer GetCustomer(int idUser)
         {
             Customer customer = DAOCustomer.GetCustomerFromUser(idUser);

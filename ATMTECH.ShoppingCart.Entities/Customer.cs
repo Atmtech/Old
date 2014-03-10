@@ -21,10 +21,7 @@ namespace ATMTECH.ShoppingCart.Entities
         public Taxes Taxes { get; set; }
         public Address BillingAddress { get; set; }
         public Address ShippingAddress { get; set; }
-
-
-        public string SearchUpdate { get { return Description + " " + CustomerNumber + " " + User.FirstNameLastName + " " + (Enterprise != null ? Enterprise.Name : ""); } }
-        public string ComboboxDescriptionUpdate { get { return User.FirstNameLastName; } }
+        public string ComboboxDescriptionUpdate { get { return  User == null ? "" : User.FirstNameLastName; } }
 
     }
 }

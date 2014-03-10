@@ -10,5 +10,7 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         IList<Enterprise> GetEnterprise();
         IList<Enterprise> GetEnterpriseByAccess(User user);
         void CreateEnterpriseFromAnother(int idEnterprise, string newName, User user);
+        IList<Enterprise> GetAll();
+        int Save(Enterprise enterprise);
     }
 }

@@ -23,7 +23,6 @@ namespace ATMTECH.Entities
 
         public IList<Group> Groups { get; set; }
 
-        public string SearchUpdate { get { return FirstNameLastName + " " + Login + " " + Email; } }
         public string ComboboxDescriptionUpdate { get { return FirstNameLastName; } }
 
     }

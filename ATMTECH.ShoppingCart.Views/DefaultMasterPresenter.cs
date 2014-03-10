@@ -40,6 +40,11 @@ namespace ATMTECH.ShoppingCart.Views
             }
         }
 
+        public string ReturnLanguage()
+        {
+            return LocalizationService.CurrentLanguage;
+        }
+
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();

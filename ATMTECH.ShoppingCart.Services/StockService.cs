@@ -23,6 +23,11 @@ namespace ATMTECH.ShoppingCart.Services
         public IDAOStockLink DAOStockLink { get; set; }
         public IProductService ProductService { get; set; }
 
+        public int Save(Stock stock)
+        {
+            return DAOStock.Save(stock);
+        }
+
         public IList<Stock> GetProductStock(int idProduct)
         {
             return DAOStock.GetProductStock(idProduct);

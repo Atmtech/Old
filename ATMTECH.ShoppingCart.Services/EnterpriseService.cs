@@ -19,6 +19,16 @@ namespace ATMTECH.ShoppingCart.Services
         public IDAOEnumOrderInformation DAOEnumOrderInformation { get; set; }
         public IDAOProduct DAOProduct { get; set; }
 
+        public IList<Enterprise> GetAll()
+        {
+            return DAOEnterprise.GetAll();
+        }
+
+        public int Save(Enterprise enterprise)
+        {
+            return DAOEnterprise.SaveEnterprise(enterprise);
+        }
+
         public Enterprise GetEnterprise(int id)
         {
             Enterprise enterprise = DAOEnterprise.GetEnterprise(id);

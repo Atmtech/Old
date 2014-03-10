@@ -88,5 +88,19 @@ namespace ATMTECH.Test
             users.Count.Should().Be(1);
         }
 
+        [TestMethod]
+        public void Search_EstTourjoursRempliAvecLeModele()
+        {
+            _daoUser.ExecuteSql("DELETE FROM User");
+            
+            User user = AutoFixture.Create<User>();
+            user.Id = 0;
+            _daoUser.Save(user);
+            IList<User> users =  _daoUser.GetAll();
+            users[0].Search.Should().NotBeNull();
+            
+            //rtn.Search.Should().NotBeNullOrEmpty();
+        }
+
     }
 }

@@ -8,5 +8,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
         Enterprise GetEnterprise(int idEntreprise);
         IList<Enterprise> GetEnterprise();
         int SaveEnterprise(Enterprise enterprise);
+        IList<Enterprise> GetAll();
     }
 }

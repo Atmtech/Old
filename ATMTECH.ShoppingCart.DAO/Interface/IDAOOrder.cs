@@ -13,5 +13,7 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
        IList<Order> GetAllFinalized(Enterprise enterprise, DateTime dateStart, DateTime dateEnd);
        IList<OrderLine> GetAllOrderLine(Enterprise enterprise);
        IList<Order> GetOrder(int idEnterprise, int pageIndex);
+       IList<Order> GetAll();
+       int Save(Order id);
    }
 }

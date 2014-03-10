@@ -38,7 +38,6 @@ namespace ATMTECH.ShoppingCart.Entities
             }
         }
 
-        public string SearchUpdate { get { return DisplayAddress; } }
         public string ComboboxDescriptionUpdate { get { return DisplayAddress; } }
 
     }

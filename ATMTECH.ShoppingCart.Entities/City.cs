@@ -7,7 +7,6 @@ namespace ATMTECH.ShoppingCart.Entities
     public class City : BaseEnumeration
     {
         public Country Country { get; set; }
-        public string SearchUpdate { get { return Description + " " + Code; } }
         public string ComboboxDescriptionUpdate { get { return Code + "-" + Description; } }
     }
 }

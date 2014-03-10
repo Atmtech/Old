@@ -28,7 +28,7 @@ namespace ATMTECH.Administration
                     pnlAchievement.Visible = true;
                     break;
             }
-         
+
 
         }
 
@@ -59,6 +59,13 @@ namespace ATMTECH.Administration
         protected void btnGenererDatabase(object sender, EventArgs e)
         {
             Presenter.GenerateDatabaseAchievement();
+        }
+
+        protected void btnInitialiserColonneRechercheClick(object sender, EventArgs e)
+        {
+            lblResultat.Text = "";
+
+            lblResultat.Text += Presenter.InitialiserColonneRecherche();
         }
     }
 }

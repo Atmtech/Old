@@ -11,6 +11,7 @@ namespace ATMTECH.ShoppingCart.Services.Interface
     {
         int CreateOrder(Order order, ShippingParameter shippingParameter);
         Order GetOrder(int idOrder);
+        int Save(Order order);
         int UpdateOrder(Order order, ShippingParameter shippingParameter);
         Order GetWishListFromCustomer(Customer customer);
         IList<Order> GetOrdersFromCustomer(Customer customer, int orderStatus);
@@ -28,7 +29,8 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         IList<ProductBySale> GetProductBySale(Enterprise enterprise);
         IList<Order> GetOrder(int idEnterprise, int pageIndex);
         string GetOrderWithFormat(int idOrder);
-
+        IList<OrderLine> GetAllOrderLine();
+        int SaveOrderLine(OrderLine orderLine);
         IList<ProductPriceHistoryReportLine> GetProductPriceHistoryReportLine(Enterprise enterprise,
                                                                               DateTime dateStart,
                                                                               DateTime dateEnd);
@@ -39,5 +41,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         IList<EnumOrderInformation> GetOrderInformation(Enterprise enterprise, string group);
         IList<SalesByOrderInformationReportLine> GetSalesByOrderInformationReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd);
         void UpdateOrderLine(OrderLine orderLine);
+        IList<Order> GetAll();
     }
 }

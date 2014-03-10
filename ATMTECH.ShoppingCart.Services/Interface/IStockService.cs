@@ -7,6 +7,7 @@ namespace ATMTECH.ShoppingCart.Services.Interface
 {
     public interface IStockService
     {
+        int Save(Stock stock);
         IList<Stock> GetProductStock(int idProduct);
         Stock GetStock(int idStock);
         void StockTransaction(int idStock, int quantity, Order order, StockService.TransactionType transactionType);

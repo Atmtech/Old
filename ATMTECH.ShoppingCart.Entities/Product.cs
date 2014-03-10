@@ -24,7 +24,6 @@ namespace ATMTECH.ShoppingCart.Entities
         public ProductCategory ProductCategory { get; set; }
         public string InternalIdent { get; set; }
 
-        public string SearchUpdate { get { return Description + " " + Name + " " + Ident; } }
         public string ComboboxDescriptionUpdate { get { return Ident + " " + Name; } }
         public string PrincipalFileUrl
         {

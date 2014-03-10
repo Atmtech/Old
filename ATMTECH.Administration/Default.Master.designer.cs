@@ -112,6 +112,24 @@ namespace ATMTECH.Administration {
         protected global::System.Web.UI.WebControls.LinkButton btnGenerateColumns;
         
         /// <summary>
+        /// Contrôle btnInitialiserColonneRecherche.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnInitialiserColonneRecherche;
+        
+        /// <summary>
+        /// Contrôle lblResultat.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultat;
+        
+        /// <summary>
         /// Contrôle ContentPlaceHolder1.
         /// </summary>
         /// <remarks>
