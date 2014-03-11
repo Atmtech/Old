@@ -88,6 +88,12 @@
                                 <asp:Panel runat="server" ID="pnlShoppingCart" Visible="False">
                                     <div id="list4">
                                         <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
+                                            Comment faire ? 
+                                        </div>
+                                        <ul>
+                                            <li><a href="Videos/AjouterImageProduit.mp4">Ajouter une image au produit</a></li>
+                                        </ul>   
+                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
                                             Produit et commandes
                                         </div>
                                         <ul>

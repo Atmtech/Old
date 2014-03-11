@@ -421,6 +421,7 @@
     <Content Include="Javascript\supprimer.gif" />
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="Site.css" />
+    <Content Include="Videos\AjouterImageProduit.mp4" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.Master" />
