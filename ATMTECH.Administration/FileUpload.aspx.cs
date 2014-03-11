@@ -139,6 +139,8 @@ namespace ATMTECH.Administration
                 if (e.CommandName == "Supprimer")
                 {
                     Presenter.DeleteFile(id);
+
+
                 }
             }
             catch (Exception)

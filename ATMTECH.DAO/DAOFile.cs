@@ -8,7 +8,7 @@ namespace ATMTECH.DAO
     {
         public IList<File> GetFileByFileType(FileType fileType)
         {
-           return GetAllOneCriteria(File.FILE_TYPE, fileType.Id.ToString());
+            return GetAllOneCriteria(File.FILE_TYPE, fileType.Id.ToString());
         }
         public File GetFile(int id)
         {
@@ -34,8 +34,8 @@ namespace ATMTECH.DAO
 
         public void DeleteFile(File file)
         {
-            file.IsActive = false;
-            Save(file);
+            ExecuteSql("DELETE FROM File WHERE Id = " + file.Id.ToString());
+            ExecuteSql("DELETE FROM ProductFile Where File = " + file.Id.ToString());
         }
 
         public int UpdateFile(File file)

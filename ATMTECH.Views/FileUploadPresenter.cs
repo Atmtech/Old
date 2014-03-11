@@ -62,6 +62,7 @@ namespace ATMTECH.Views
         public void DeleteFile(int id)
         {
             FileService.DeleteFile(FileService.GetFile(id));
+            View.AllFiles = FileService.GetAllFile(View.RootImagePath);
         }
 
         public void Refresh()
