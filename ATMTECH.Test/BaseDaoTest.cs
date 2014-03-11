@@ -98,7 +98,8 @@ namespace ATMTECH.Test
             _daoUser.Save(user);
             IList<User> users =  _daoUser.GetAll();
             users[0].Search.Should().NotBeNull();
-            
+            users[0].Search.Should().Contain(user.FirstName);
+            users[0].Search.Should().Contain(user.Image.Description);
             //rtn.Search.Should().NotBeNullOrEmpty();
         }
 

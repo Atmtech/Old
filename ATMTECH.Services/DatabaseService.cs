@@ -54,7 +54,11 @@ namespace ATMTECH.Services
             {
                 using (SQLiteCommand commandCreate = new SQLiteCommand(sql, (SQLiteConnection)DatabaseSessionManager.Session))
                 {
-                    html = commandCreate.ExecuteScalar().ToString();
+                    object retour = commandCreate.ExecuteScalar();
+                    if (retour != null)
+                    {
+                        html = retour.ToString();
+                    }
                 }
             }
             return html;
