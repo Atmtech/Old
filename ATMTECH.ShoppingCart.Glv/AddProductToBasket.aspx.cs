@@ -129,6 +129,11 @@ namespace ATMTECH.ShoppingCart.Glv
             }
         }
 
+        public bool IsOrderLocked
+        {
+            set { btnAddAllToBasket.Enabled = false; }
+        }
+
         protected void StockAddCommand(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName == "Add")

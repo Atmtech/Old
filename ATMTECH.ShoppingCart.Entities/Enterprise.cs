@@ -49,5 +49,7 @@ namespace ATMTECH.ShoppingCart.Entities
 
         public string SubDomainName { get; set; }
 
+        public bool IsShippingQuotationRequired { get; set; }
+
     }
 }

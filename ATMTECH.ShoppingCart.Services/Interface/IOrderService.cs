@@ -42,5 +42,7 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         IList<SalesByOrderInformationReportLine> GetSalesByOrderInformationReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd);
         void UpdateOrderLine(OrderLine orderLine);
         IList<Order> GetAll();
+
+        void AskForShipping(Order order);
     }
 }

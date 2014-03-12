@@ -52,15 +52,23 @@ namespace ATMTECH.ShoppingCart.Views
 
                 if (View.CurrentOrder != null)
                 {
+                   
                     if (View.CurrentOrder.OrderLines.Count(x => x.IsActive) > 0)
                     {
                         RecalculateBasket();
                     }
+
+                    
+                    View.IsPaypalRequired = View.CurrentOrder.Enterprise.IsPaypalRequired;
+                    View.IsAskShipping = View.CurrentOrder.IsAskShipping;
                 }
+
+               
+
             }
 
 
-            View.IsPaypalRequired = View.CurrentOrder.Enterprise.IsPaypalRequired;
+            
         }
 
 
@@ -245,5 +253,10 @@ namespace ATMTECH.ShoppingCart.Views
             // return View.CurrentOrder.ShippingAddress.Country.Code == "CAN" ? GetShippingParameterPurolator() : GetShippingParameterUps();
         }
 
+        public void AskForShipping()
+        {
+           OrderService.AskForShipping(View.CurrentOrder);
+           
+        }
     }
 }

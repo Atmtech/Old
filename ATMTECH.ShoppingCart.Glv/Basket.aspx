@@ -215,6 +215,7 @@
                 ValidationGroup="FinalizeOrder" />
             <asp:Button runat="server" ID="btnFinalizeOrderPaypal" Text="Finaliser la commande avec Paypal"
                 OnClick="FinalizeOrderPaypal" ValidationGroup="FinalizeOrder" />
+            <asp:Button runat="server" ID="btnAskShipping" Text="Demande de quotation pour envoi" OnClick="btnAskShippingClick" Visible="False"/>
         </asp:Panel>
         <asp:Panel runat="server" ID="pnlBasketEmpty" Visible="False">
             <asp:Label runat="server" ID="lblBasketIsEmpty" Text="Votre panier est vide"></asp:Label>
@@ -224,7 +225,6 @@
             <hr />
             <asp:Button runat="server" ID="btnPrintOrder" Text="Imprimer le détail de votre commande"
                 OnClick="PrintOrderClick" />
-
         </asp:Panel>
     </div>
 </asp:Content>

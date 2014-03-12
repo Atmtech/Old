@@ -87,6 +87,38 @@ namespace ATMTECH.ShoppingCart.PubJL
             }
         }
 
+        public bool IsAskShipping
+        {
+            set
+            {
+                if (value)
+                {
+                    btnFinalizeOrder.Visible = false;
+                    btnFinalizeOrderPaypal.Visible = false;
+                    btnAskShipping.Visible = true;
+                }
+            }
+        }
+
+        public bool IsOrderLocked
+        {
+            set
+            {
+                if (value)
+                {
+                    btnAskShipping.Visible = false;
+                    btnCancelModifiedBillingAddress.Visible = false;
+                    btnCancelModifiedShippingAddress.Visible = false;
+                    btnFinalizeOrder.Visible = false;
+                    btnPrintOrder.Visible = false;
+                    btnFinalizeOrderPaypal.Visible = false;
+                    btnRecalculateBasket.Visible = false;
+                    btnModifyBillingAddress.Visible = false;
+                    btnModifyShippingAddress.Visible = false;
+                }
+            }
+        }
+
         public string ModifyShippingAddressWay
         {
             get { return txtModifyShippingWay.Text; }
@@ -382,6 +414,11 @@ namespace ATMTECH.ShoppingCart.PubJL
             ddlShipping.Visible = true;
             btnModifyShippingAddress.Visible = true;
             pnlModifyShippingAddress.Visible = false;
+        }
+
+        protected void btnAskShippingClick(object sender, EventArgs e)
+        {
+            Presenter.AskForShipping();
         }
     }
 }

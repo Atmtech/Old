@@ -17,6 +17,9 @@
         public const string MAIL_SUBJECT_ORDER_CONFIRMED = "MailSubjectOrderConfirmed";
         public const string MAIL_BODY_ORDER_CONFIRMED = "MailBodyOrderConfirmed";
 
+        public const string MAIL_ASK_QUOTE_SHIPPING_SUBJECT = "MailAskQuoteShippingSubject";
+        public const string MAIL_ASK_QUOTE_SHIPPING_BODY = "MailAskQuoteShippingBody";
+
         public const string TRACKING_PUROLATOR = "TrackingPurolator";
         public const string TRACKING_UPS = "TrackingUps";
 

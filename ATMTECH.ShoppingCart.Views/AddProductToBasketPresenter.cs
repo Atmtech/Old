@@ -73,6 +73,12 @@ namespace ATMTECH.ShoppingCart.Views
         public void RefreshInformation()
         {
             GetProductInformation();
+            Order order = OrderService.GetOrder(GetCurrentOrderWishList());
+            if (order != null)
+            {
+                View.IsOrderLocked = order.IsOrderLocked;
+            }
+
             View.IsSuccesfullyAdded = Convert.ToInt32(QueryString.GetQueryStringValue(PagesId.SUCCESSFULLY_ADDED));
         }
 

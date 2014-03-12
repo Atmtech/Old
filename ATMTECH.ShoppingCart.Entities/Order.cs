@@ -37,6 +37,8 @@ namespace ATMTECH.ShoppingCart.Entities
         public Decimal TotalWeight { get; set; }
         public bool IsPayPal { get; set; }
         public bool IsMailConfirmingOrderSent { get; set; }
+        public bool IsAskShipping { get; set; }
+        public bool IsOrderLocked { get; set; }
 
         public string ComboboxDescriptionUpdate
         {

@@ -151,6 +151,11 @@ namespace ATMTECH.ShoppingCart.Services
         {
             ValidateOrderService.IsValidOrder(order);
 
+            if (order.Enterprise.IsShippingQuotationRequired)
+            {
+                order.IsAskShipping = true;
+            }
+
             if (order.Id == 0)
             {
                 order = CalculateTotal(order, DAOTaxes.GetTaxes(order.Customer.Taxes.Id).Type, shippingParameter);
@@ -208,6 +213,18 @@ namespace ATMTECH.ShoppingCart.Services
         public IList<Order> GetAll()
         {
             return DAOOrder.GetAll();
+        }
+
+        public void AskForShipping(Order order)
+        {
+            order.IsOrderLocked = true;
+
+            MailService.SendEmail(ParameterService.GetValue(Constant.ADMIN_MAIL), order.Customer.User.Email,
+                                 string.Format(ParameterService.GetValue(Constant.MAIL_ASK_QUOTE_SHIPPING_SUBJECT), order.Id),
+                                 string.Format(ParameterService.GetValue(Constant.MAIL_ASK_QUOTE_SHIPPING_BODY), order.Id, order.Customer.User.Email));
+            Save(order);
+
+            MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ASK_SHIPPING_QUOTATION);
         }
 
         public Stream ReturnOrderReport(Order order)

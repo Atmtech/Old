@@ -24,6 +24,8 @@ namespace ATMTECH.ShoppingCart.Views.Interface
 
         bool IsPanelModifyShippingAddressOpen { get; set; }
         bool IsPanelModifyBillingAddressOpen { get; set; }
+        bool IsAskShipping { set; }
+        bool IsOrderLocked { set; }
 
         string ModifyShippingAddressWay { get; set; }
         int ModifyShippingCountry { get; set; }

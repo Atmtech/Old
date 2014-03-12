@@ -10,5 +10,6 @@ namespace ATMTECH.ShoppingCart.Views.Interface
         bool IsOrderable { set; }
         int IsSuccesfullyAdded { set; }
         bool IsOrderableAgainstSecurity { get; set; }
+        bool IsOrderLocked { set; }
     }
 }
