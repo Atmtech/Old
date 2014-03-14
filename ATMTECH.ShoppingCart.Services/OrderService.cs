@@ -62,12 +62,10 @@ namespace ATMTECH.ShoppingCart.Services
             }
             return order;
         }
-
         public int Save(Order order)
         {
             return DAOOrder.Save(order);
         }
-
         public int UpdateOrder(Order order, ShippingParameter shippingParameter)
         {
             ValidateOrderService.IsValidOrder(order);
@@ -158,7 +156,8 @@ namespace ATMTECH.ShoppingCart.Services
 
             if (order.Id == 0)
             {
-                order = CalculateTotal(order, DAOTaxes.GetTaxes(order.Customer.Taxes.Id).Type, shippingParameter);
+                string type = DAOTaxes.GetTaxes(order.Customer.Taxes.Id).Type;
+                order = CalculateTotal(order, type, shippingParameter);
                 return DAOOrder.CreateOrder(order);
             }
             MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ORDER_CREATE_NOT_ZERO);
@@ -202,19 +201,16 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return order.Enterprise.IsShippingManaged ? ShippingService.GetShippingTotal(order, shippingParameter) : 0;
         }
-
         public void UpdateOrderLine(OrderLine orderLine)
         {
             Stock stock = StockService.GetStock(orderLine.Stock.Id);
             orderLine.Stock = stock;
             DAOOrderLine.Update(orderLine);
         }
-
         public IList<Order> GetAll()
         {
             return DAOOrder.GetAll();
         }
-
         public void AskForShipping(Order order)
         {
             order.IsOrderLocked = true;
@@ -224,7 +220,6 @@ namespace ATMTECH.ShoppingCart.Services
             Save(order);
 
         }
-
         public Stream ReturnOrderReport(Order order)
         {
             Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
@@ -620,7 +615,7 @@ namespace ATMTECH.ShoppingCart.Services
             }
             return stockWithActualStates;
         }
-        private Order CalculateTotal(Order order, string taxType, ShippingParameter shippingParameter)
+        public Order CalculateTotal(Order order, string taxType, ShippingParameter shippingParameter)
         {
             decimal total = 0;
             order.TotalWeight = 0;
