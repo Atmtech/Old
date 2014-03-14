@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ATMTECH.Services;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services;
+using ATMTECH.ShoppingCart.Services.ErrorCode;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface;
@@ -30,6 +31,9 @@ namespace ATMTECH.ShoppingCart.Views
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
+
+            View.AskShippingLabel = MessageService.GetMessage(ErrorCode.SC_ASK_SHIPPING_QUOTATION).Description;
+
             if (NavigationService.GetQueryStringValue(PagesId.IS_ORDER_FINALIZED) == "1")
             {
                 View.IsOrderFinalized = true;
@@ -52,7 +56,7 @@ namespace ATMTECH.ShoppingCart.Views
 
                 if (View.CurrentOrder != null)
                 {
-                   
+
                     if (View.CurrentOrder.OrderLines.Count(x => x.IsActive) > 0)
                     {
                         RecalculateBasket();
@@ -61,14 +65,16 @@ namespace ATMTECH.ShoppingCart.Views
                     
                     View.IsPaypalRequired = View.CurrentOrder.Enterprise.IsPaypalRequired;
                     View.IsAskShipping = View.CurrentOrder.IsAskShipping;
+                    View.IsOrderLocked = View.CurrentOrder.IsOrderLocked;
+                    
                 }
 
-               
+
 
             }
 
 
-            
+
         }
 
 
@@ -255,8 +261,8 @@ namespace ATMTECH.ShoppingCart.Views
 
         public void AskForShipping()
         {
-           OrderService.AskForShipping(View.CurrentOrder);
-           
+            OrderService.AskForShipping(View.CurrentOrder);
+
         }
     }
 }

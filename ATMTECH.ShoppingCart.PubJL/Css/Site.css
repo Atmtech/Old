@@ -140,3 +140,13 @@ input[type="text"], input[type="password"], img
 {
     background-color: #1d1d1d !important;
 }
+
+.askShippingBox
+{
+    color: rgb(33, 0, 255);
+    width: 100%;
+    border: solid 2px gray;
+    background-color: rgb(231, 231, 187);
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 10px;
+}

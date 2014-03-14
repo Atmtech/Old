@@ -1,6 +1,6 @@
 ﻿body
 {
-    background-color:  #192A48;
+    background-color: #192A48;
     color: white;
 }
 
@@ -128,15 +128,25 @@ input[type="text"], input[type="password"], img
 
 .metrouicss .bg-color-button-steptoorder
 {
-    background-color:  #B5262D !important;
+    background-color: #B5262D !important;
 }
 
 .metrouicss .bg-color-button-customercare
 {
-    background-color:  #00A99D !important;
+    background-color: #00A99D !important;
 }
 
 .metrouicss .bg-color-button-contact
 {
     background-color: #1d1d1d !important;
+}
+
+.askShippingBox
+{
+    color: rgb(33, 0, 255);
+    width: 100%;
+    border: solid 2px gray;
+    background-color: rgb(231, 231, 187);
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 10px;
 }

@@ -18,11 +18,11 @@ namespace ATMTECH.ShoppingCart.Glv
             set
             {
                 ListItem listItem = new ListItem
-                    {
-                        Value = value.Id.ToString(),
-                        Text = value.DisplayAddress,
-                        Selected = true
-                    };
+                {
+                    Value = value.Id.ToString(),
+                    Text = value.DisplayAddress,
+                    Selected = true
+                };
                 ddlBilling.Items.Add(listItem);
             }
         }
@@ -87,7 +87,6 @@ namespace ATMTECH.ShoppingCart.Glv
             }
         }
 
-
         public bool IsAskShipping
         {
             set
@@ -100,6 +99,8 @@ namespace ATMTECH.ShoppingCart.Glv
                 }
             }
         }
+
+        public string AskShippingLabel { set { lblAskShipping.Text = value; } }
 
         public bool IsOrderLocked
         {
@@ -116,6 +117,10 @@ namespace ATMTECH.ShoppingCart.Glv
                     btnRecalculateBasket.Visible = false;
                     btnModifyBillingAddress.Visible = false;
                     btnModifyShippingAddress.Visible = false;
+                    btnAskShipping.Visible = false;
+                    grvBasket.Enabled = false;
+                    lblAskShipping.Visible = true;
+                    pnlAskShipping.Visible = true;
                 }
             }
         }

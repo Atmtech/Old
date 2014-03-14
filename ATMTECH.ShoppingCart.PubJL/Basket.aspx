@@ -1,10 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
-    CodeBehind="Basket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Glv.Basket" %>
+    CodeBehind="Basket.aspx.cs" Inherits="ATMTECH.ShoppingCart.PubJL.Basket" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
+        <asp:Panel runat="server" ID="pnlAskShipping" Visible="False" CssClass="askShippingBox">
+            <asp:Label runat="server" ID="lblAskShipping" Font-Bold="True"></asp:Label>
+        </asp:Panel>
+
         <div class="title">
             <strong>
                 <asp:Label runat="server" ID="lblTitleBasket" Text="Votre panier" Visible="True"></asp:Label></strong>
@@ -128,18 +132,18 @@
                     </div>
                     <asp:DropDownList runat="server" ID="ddlOrderInformation1" Width="100%" />
                 </asp:Panel>
-                <br/>
+                <br />
             </div>
-            <div style="margin-left:10px;float: left; width: 49%;">
+            <div style="margin-left: 10px; float: left; width: 49%;">
                 <asp:Panel runat="server" ID="pnlOrderInformation2" Visible="False">
                     <div class="title">
                         <strong>
                             <asp:Label runat="server" ID="lblOrderInformation2" Text="Information 2" />
                         </strong>
                     </div>
-                    <asp:DropDownList runat="server" ID="ddlOrderInformation2" Width="100%"/>
+                    <asp:DropDownList runat="server" ID="ddlOrderInformation2" Width="100%" />
                 </asp:Panel>
-                <br/>
+                <br />
             </div>
 
             <div style="clear: both;">
@@ -215,7 +219,7 @@
                 ValidationGroup="FinalizeOrder" />
             <asp:Button runat="server" ID="btnFinalizeOrderPaypal" Text="Finaliser la commande avec Paypal"
                 OnClick="FinalizeOrderPaypal" ValidationGroup="FinalizeOrder" />
-            <asp:Button runat="server" ID="btnAskShipping" Text="Demande de quotation pour envoi" OnClick="btnAskShippingClick" Visible="False"/>
+            <asp:Button runat="server" ID="btnAskShipping" Text="Demande de quotation pour envoi" OnClick="btnAskShippingClick" Visible="False" />
         </asp:Panel>
         <asp:Panel runat="server" ID="pnlBasketEmpty" Visible="False">
             <asp:Label runat="server" ID="lblBasketIsEmpty" Text="Votre panier est vide"></asp:Label>

@@ -218,13 +218,11 @@ namespace ATMTECH.ShoppingCart.Services
         public void AskForShipping(Order order)
         {
             order.IsOrderLocked = true;
-
             MailService.SendEmail(ParameterService.GetValue(Constant.ADMIN_MAIL), order.Customer.User.Email,
                                  string.Format(ParameterService.GetValue(Constant.MAIL_ASK_QUOTE_SHIPPING_SUBJECT), order.Id),
                                  string.Format(ParameterService.GetValue(Constant.MAIL_ASK_QUOTE_SHIPPING_BODY), order.Id, order.Customer.User.Email));
             Save(order);
 
-            MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ASK_SHIPPING_QUOTATION);
         }
 
         public Stream ReturnOrderReport(Order order)

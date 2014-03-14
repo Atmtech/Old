@@ -4,6 +4,6 @@ namespace ATMTECH.DAO.Interface
 {
     public interface IDAOMessage
     {
-        Message GetMessage(string innerId);
+        Message GetMessage(string innerId, string language);
     }
 }

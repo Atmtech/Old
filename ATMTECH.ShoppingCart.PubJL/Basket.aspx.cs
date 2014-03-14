@@ -43,6 +43,8 @@ namespace ATMTECH.ShoppingCart.PubJL
             }
         }
 
+        public string AskShippingLabel { set { lblAskShipping.Text = value; } }
+
         public IList<EnumOrderInformation> EnumOrderInformation1
         {
             set
@@ -115,6 +117,10 @@ namespace ATMTECH.ShoppingCart.PubJL
                     btnRecalculateBasket.Visible = false;
                     btnModifyBillingAddress.Visible = false;
                     btnModifyShippingAddress.Visible = false;
+                    btnAskShipping.Visible = false;
+                    grvBasket.Enabled = false;
+                    lblAskShipping.Visible = true;
+                    pnlAskShipping.Visible = true;
                 }
             }
         }

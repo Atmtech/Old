@@ -19,6 +19,8 @@ namespace ATMTECH.ShoppingCart.Views.Interface
 
         IList<Country> Countrys { set; }
 
+        string AskShippingLabel { set; }
+
         IList<EnumOrderInformation> EnumOrderInformation1 { set; }
         IList<EnumOrderInformation> EnumOrderInformation2 { set; }
 
