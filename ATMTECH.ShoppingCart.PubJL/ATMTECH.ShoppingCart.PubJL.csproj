@@ -364,7 +364,7 @@
     <None Include="fonts\iconFont.ttf" />
     <None Include="fonts\iconFont.woff" />
     <Content Include="packages.config" />
-    <None Include="Properties\PublishProfiles\Atmtech.pubxml" />
+    <None Include="Properties\PublishProfiles\Atmtech PUBJL.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

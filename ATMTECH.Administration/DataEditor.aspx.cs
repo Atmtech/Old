@@ -440,6 +440,8 @@ namespace ATMTECH.Administration
 
                     if (!string.IsNullOrEmpty(decodedText))
                     {
+                        decodedText = Pages.RemoveHtmlTag(decodedText);
+
                         if (decodedText.Length > 100)
                         {
                             e.Row.Cells[i].Text = decodedText.Substring(0, 100) + "...";

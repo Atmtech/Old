@@ -17,7 +17,6 @@ namespace ATMTECH.ShoppingCart.Views
         public IOrderService OrderService { get; set; }
         public IAuthenticationService AuthenticationService { get; set; }
         public IEnterpriseService EnterpriseService { get; set; }
-        public IParameterService ParameterService { get; set; }
         public IProductService ProductService { get; set; }
 
         public DefaultMasterPresenter(IDefaultMasterPresenter view)
@@ -28,6 +27,14 @@ namespace ATMTECH.ShoppingCart.Views
         public override void OnViewLoaded()
         {
 
+            string isOffline = ParameterService.GetValue("IsOffline");
+            if (!string.IsNullOrEmpty(isOffline))
+            {
+                if (isOffline == "1")
+                {
+                    NavigationService.Redirect("/Errors/Maintenance.html");
+                }
+            }
 
             Customer customer = CustomerService.AuthenticateCustomer;
             if (customer != null)
