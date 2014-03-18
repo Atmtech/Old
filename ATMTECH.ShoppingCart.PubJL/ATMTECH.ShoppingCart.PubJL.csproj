@@ -188,6 +188,7 @@
     <Content Include="CreateCustomer.aspx" />
     <Content Include="CustomerInformation.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Errors\Maintenance.html" />
     <Content Include="Errors\SessionTimeout.htm" />
     <Content Include="ExpressCheckoutPaypal.aspx" />
     <Content Include="fonts\iconFont.svg" />

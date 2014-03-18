@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
-    CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Glv.AddProductToBasket" %>
+    CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.PubJL.AddProductToBasket" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
