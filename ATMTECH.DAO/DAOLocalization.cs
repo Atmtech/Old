@@ -22,7 +22,7 @@ namespace ATMTECH.DAO
                     }
                     else
                     {
-                        var localizationsSansPage = GetLocalizationWithoutPage(objectId, criterias);
+                        var localizationsSansPage = GetLocalizationWithoutPage(objectId);
                         return localizationsSansPage.Count > 0 ? localizationsSansPage[0] : null;
                     }
                 }
@@ -30,7 +30,7 @@ namespace ATMTECH.DAO
             return null;
         }
 
-        private IList<Localization> GetLocalizationWithoutPage(string objectId, IList<Criteria> criterias)
+        private IList<Localization> GetLocalizationWithoutPage(string objectId)
         {
             IList<Criteria> criteriasSansPage = new List<Criteria>();
             Criteria criteriaObjectIdSansPage = new Criteria()

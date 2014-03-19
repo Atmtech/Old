@@ -58,11 +58,18 @@ namespace ATMTECH.ShoppingCart.Views
                     {
                         View.IsOrderable = false;
                     }
+
+                    if (product.IsNotOrderable)
+                    {
+                        View.IsOrderable = false;
+                    }
                 }
                 else
                 {
                     MessageService.ThrowMessage(ErrorCode.SC_THIS_PRODUCT_NUMBER_DONT_EXIST);
                 }
+
+
             }
 
         }
@@ -115,6 +122,11 @@ namespace ATMTECH.ShoppingCart.Views
             NavigationService.Redirect(page, queryStrings);
         }
 
+        public string LocalizeStock(string controlId)
+        {
+            return Localize(controlId);
+        }
+
         private OrderLine CreateOrderLine(int idStock, int quantity)
         {
             OrderLine orderLine = new OrderLine { Stock = StockService.GetStock(idStock), Quantity = quantity };
@@ -151,8 +163,12 @@ namespace ATMTECH.ShoppingCart.Views
         }
         private int GetCurrentOrderWishList()
         {
-            Order order = OrderService.GetWishListFromCustomer(CustomerService.AuthenticateCustomer);
-            return order != null ? order.Id : 0;
+            if (CustomerService.AuthenticateCustomer != null)
+            {
+                Order order = OrderService.GetWishListFromCustomer(CustomerService.AuthenticateCustomer);
+                return order != null ? order.Id : 0;    
+            }
+            return 0;
         }
 
     }

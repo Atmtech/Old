@@ -2,7 +2,6 @@
 using System.IO;
 using System.Net;
 using System.Net.Mail;
-using ATMTECH.Common;
 using ATMTECH.DAO;
 using ATMTECH.Entities;
 using ATMTECH.Web.Services.Base;

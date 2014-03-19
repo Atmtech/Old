@@ -150,3 +150,7 @@ input[type="text"], input[type="password"], img
     margin-bottom: 10px;
     padding: 10px 10px 10px 10px;
 }
+
+.addToBasket {
+    font-size: 11px;
+}

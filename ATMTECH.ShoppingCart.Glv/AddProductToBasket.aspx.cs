@@ -51,7 +51,10 @@ namespace ATMTECH.ShoppingCart.Glv
                 lblIdent.Text = product.Ident;
                 lblName.Text = product.Name;
                 lblUnitPrice.Text = product.UnitPrice.ToString("C");
-                lblProductCategoryDescription.Text = product.ProductCategory.Description;
+                if (product.ProductCategory != null)
+                {
+                    lblProductCategoryDescription.Text = product.ProductCategory.Description;
+                }
                 lblWeight.Text = product.Weight.ToString();
                 lblDescription.Text = product.Description;
 
@@ -131,7 +134,13 @@ namespace ATMTECH.ShoppingCart.Glv
 
         public bool IsOrderLocked
         {
-            set { btnAddAllToBasket.Enabled = false; }
+            set
+            {
+                if (value)
+                {
+                    btnAddAllToBasket.Enabled = false;
+                }
+            }
         }
 
         protected void StockAddCommand(object source, DataListCommandEventArgs e)
@@ -181,6 +190,7 @@ namespace ATMTECH.ShoppingCart.Glv
                             }
                             else
                             {
+                                lblStock.Text = Presenter.LocalizeStock("lblStock");
                                 lblStockQuantity.Text += Presenter.GetActualStockState(dataItem);
                             }
                         }

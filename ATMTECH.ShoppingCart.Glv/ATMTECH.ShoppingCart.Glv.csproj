@@ -206,7 +206,8 @@
     <Content Include="Images\WebSite\GLV_clothing.png" />
     <Content Include="Images\WebSite\GLV_commander.png" />
     <Content Include="Images\WebSite\GLV_customer.png" />
-    <Content Include="Images\WebSite\GLV_faq.png" />
+    <Content Include="Images\WebSite\GLV_faq_en.png" />
+    <Content Include="Images\WebSite\GLV_faq_fr.png" />
     <Content Include="Images\WebSite\GLV_ordering.png" />
     <Content Include="Images\WebSite\GLV_promo_article.png" />
     <Content Include="Images\WebSite\GLV_service.png" />

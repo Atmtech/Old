@@ -144,6 +144,9 @@ namespace ATMTECH.ShoppingCart.Services
         }
         public Order GetOrder(int idOrder)
         {
+            if (idOrder == 0)
+                return null;
+
             return GetAddressOrder(DAOOrder.GetOrder(idOrder));
         }
         public int CreateOrder(Order order, ShippingParameter shippingParameter)
@@ -632,9 +635,9 @@ namespace ATMTECH.ShoppingCart.Services
 
             if (orderLine.Order != null)
             {
-                orderLine.Order = GetOrder(orderLine.Order.Id);    
+                orderLine.Order = GetOrder(orderLine.Order.Id);
             }
-            
+
             if (orderLine.Stock == null)
             {
                 StockControlReportLine stockControlReportLine = new StockControlReportLine()
@@ -652,7 +655,7 @@ namespace ATMTECH.ShoppingCart.Services
                 orderLine.Stock = StockService.GetStock(orderLine.Stock.Id);
                 StockControlReportLine stockControlReportLine = new StockControlReportLine()
                 {
-                    Order = HttpUtility.HtmlDecode( orderLine.Order.ComboboxDescription),
+                    Order = HttpUtility.HtmlDecode(orderLine.Order.ComboboxDescription),
                     Stock = HttpUtility.HtmlDecode(orderLine.Stock.ComboboxDescription),
                     OrderLineQuantity = orderLine.Quantity.ToString(),
                     StockTransactionQuantity = stockTransactionQuantity,

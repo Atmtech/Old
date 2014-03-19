@@ -183,7 +183,7 @@ namespace ATMTECH.ShoppingCart.Glv
             {
                 imgVetement.ImageUrl = "Images/WebSite/GLV_vetements.png";
                 imgArticlePromotionnel.ImageUrl = "Images/WebSite/GLV_articles_promo.png";
-                imgModeEmploi.ImageUrl = "Images/WebSite/GLV_faq.png";
+                imgModeEmploi.ImageUrl = "Images/WebSite/GLV_faq_fr.png";
                 imgEtapeCommande.ImageUrl = "Images/WebSite/GLV_commander.png";
                 imgServiceClientele.ImageUrl = "Images/WebSite/GLV_service.png";
             }
@@ -191,7 +191,7 @@ namespace ATMTECH.ShoppingCart.Glv
             {
                 imgVetement.ImageUrl = "Images/WebSite/GLV_clothing.png";
                 imgArticlePromotionnel.ImageUrl = "Images/WebSite/GLV_promo_article.png";
-                imgModeEmploi.ImageUrl = "Images/WebSite/GLV_faq.png";
+                imgModeEmploi.ImageUrl = "Images/WebSite/GLV_faq_en.png";
                 imgEtapeCommande.ImageUrl = "Images/WebSite/GLV_ordering.png";
                 imgServiceClientele.ImageUrl = "Images/WebSite/GLV_customer.png";
             }

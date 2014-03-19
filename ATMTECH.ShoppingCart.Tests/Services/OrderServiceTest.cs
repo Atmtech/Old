@@ -173,7 +173,9 @@ namespace ATMTECH.ShoppingCart.Tests.Services
         public void GetStockControlReport_QuandNexistePasDansStockTransaction_Erreur()
         {
             StockOrderLineOrderStock stockOrderLineOrderStock = GetHappyPathControlReportline();
-            stockOrderLineOrderStock.OrderLines.Add(AutoFixture.Create<OrderLine>());
+            OrderLine orderLine = AutoFixture.Create<OrderLine>();
+            orderLine.IsActive = true;
+            stockOrderLineOrderStock.OrderLines.Add(orderLine);
 
             MockStockService.Setup(test => test.GetStockTransaction()).Returns(stockOrderLineOrderStock.StockTransactions);
             MockDAOOrderLine.Setup(test => test.GetAll()).Returns(stockOrderLineOrderStock.OrderLines);
@@ -224,6 +226,8 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             OrderLine orderLine = AutoFixture.Create<OrderLine>();
             orderLine.Quantity = 10;
             orderLine.Stock.AdjustPrice = 10;
+            orderLine.IsActive = true;
+            order.IsActive = true;
             order.OrderLines.Clear();
             order.OrderLines.Add(orderLine);
             MockProductService.Setup(test => test.GetProduct(It.IsAny<int>())).Returns(product);
@@ -237,6 +241,8 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             StockTransaction stockTransaction = AutoFixture.Create<StockTransaction>();
             OrderLine orderLine = AutoFixture.Create<OrderLine>();
             Order order = AutoFixture.Create<Order>();
+            order.IsActive = true;
+            orderLine.IsActive = true;
             Stock stock = AutoFixture.Create<Stock>();
             stock.Id = 1;
             order.Id = 1;

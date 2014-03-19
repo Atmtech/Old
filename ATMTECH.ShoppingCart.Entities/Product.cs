@@ -23,6 +23,7 @@ namespace ATMTECH.ShoppingCart.Entities
         public Supplier Supplier { get; set; }
         public ProductCategory ProductCategory { get; set; }
         public string InternalIdent { get; set; }
+        public bool IsNotOrderable { get; set; }
 
         public string ComboboxDescriptionUpdate { get { return Ident + " " + Name; } }
         public string PrincipalFileUrl

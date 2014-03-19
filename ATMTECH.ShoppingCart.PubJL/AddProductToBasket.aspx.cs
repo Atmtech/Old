@@ -131,7 +131,13 @@ namespace ATMTECH.ShoppingCart.PubJL
 
         public bool IsOrderLocked
         {
-            set { btnAddAllToBasket.Enabled = false; }
+            set
+            {
+                if (value)
+                {
+                    btnAddAllToBasket.Enabled = false;
+                }
+            }
         }
 
         protected void StockAddCommand(object source, DataListCommandEventArgs e)
@@ -181,6 +187,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                             }
                             else
                             {
+                                lblStock.Text = Presenter.LocalizeStock("lblStock");
                                 lblStockQuantity.Text += Presenter.GetActualStockState(dataItem);
                             }
                         }

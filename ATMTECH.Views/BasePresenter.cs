@@ -49,6 +49,11 @@ namespace ATMTECH.Views
             LocalizationService.Localize(Controls, LocalizationService.CurrentLanguage);
         }
 
+        public string Localize(string control)
+        {
+            return LocalizationService.Localize(control, LocalizationService.CurrentLanguage);
+        }
+
         public string ShowMessage(Message message)
         {
             return message.Description + "(" + message.Id.ToString() + ")";

@@ -35,7 +35,14 @@ namespace ATMTECH.Web.Services
             }
         }
 
-
+        public string Localize(string controlId, string currentLanguage)
+        {
+            string page = Utils.Web.Pages.GetCurrentPage();
+            Localization localization =
+                          DAOLocalization.GetLocalization(controlId, page);
+            string localizeString = FindLocalizeString(currentLanguage, localization);
+            return localizeString;
+        }
         public void Localize(IList<Control> Controls, string currentLanguage)
         {
             Parameter parameter = DAOParameter.GetParameter(ENABLED_LOCALIZATION);

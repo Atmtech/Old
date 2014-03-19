@@ -36,25 +36,25 @@
             <asp:DataList runat="server" ID="DataListStockNotOrderable" OnItemDataBound="StockDataBound"
                 Visible="false" OnItemCommand="StockAddCommand">
                 <ItemTemplate>
-                    <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
-
+                    <div style="font-size: 12px;">
+                        <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
+                    </div>
                 </ItemTemplate>
             </asp:DataList>
             <asp:DataList runat="server" ID="DataListStockOrderable" OnItemDataBound="StockDataBound"
                 Visible="false" OnItemCommand="StockAddCommand">
                 <ItemTemplate>
-                    <asp:Label runat="server" ID="lblStockId" Visible="False"></asp:Label>
-                    <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="lblQuantityDisplay"></asp:Label>
+                    <div style="font-size: 12px;">
                         <atmtech:AlphaNumTextBoxAvance runat="server" ID="txtQuantity" ValidationGroup="AddBasket"
                             TypeSaisie="Numerique" EstObligatoire="true" Width="50px" StyleTextBox="color:black;"></atmtech:AlphaNumTextBoxAvance>
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="lblStock" Text="Quantité en inventaire:"></asp:Label>
-                        <asp:Label runat="server" ID="lblStockQuantity" Text=""></asp:Label>
-                    </td>
+                        <asp:Label runat="server" ID="lblStockId" Visible="False"></asp:Label>
+                        <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
+                        <asp:Label runat="server" ID="lblQuantityDisplay"></asp:Label>
+                        <td>
+                            <asp:Label runat="server" ID="lblStock"></asp:Label>
+                            <asp:Label runat="server" ID="lblStockQuantity" Text=""></asp:Label>
+                        </td>
+                    </div>
                 </ItemTemplate>
             </asp:DataList>
             <asp:Label runat="server" ID="lblStockNotPresent" Visible="False"></asp:Label>

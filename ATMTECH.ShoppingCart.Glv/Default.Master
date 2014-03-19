@@ -110,7 +110,7 @@
                     </a>
                     <a href="Default.aspx?ContentId=ContentInformations">
                         <div style="width: 140px; height: 150px; margin-right: 10px; float: left;">
-                            <asp:Image runat="server" ID="imgModeEmploi" ImageUrl="Images/WebSite/GLV_faq.png" />
+                            <asp:Image runat="server" ID="imgModeEmploi" ImageUrl="Images/WebSite/GLV_faq_fr.png" />
                         </div>
                     </a><a href="Default.aspx?ContentId=ContentStep">
                         <div style="width: 140px; height: 150px; margin-left: 10px; float: left;">
