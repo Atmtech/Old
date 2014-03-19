@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using ATMTECH.Common.Constant;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface;
-using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.ShoppingCart.Views
 {
@@ -14,8 +12,6 @@ namespace ATMTECH.ShoppingCart.Views
     {
         public IEnterpriseService EnterpriseService { get; set; }
         public ICustomerService CustomerService { get; set; }
-        public IParameterService ParameterService { get; set; }
-
         public IOrderService OrderService { get; set; }
 
 

@@ -3,7 +3,6 @@ using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
-using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 using ILoginPresenter = ATMTECH.ShoppingCart.Views.Interface.ILoginPresenter;
 
@@ -13,8 +12,6 @@ namespace ATMTECH.ShoppingCart.Views
     {
         public IAuthenticationService AuthenticationService { get; set; }
         public IEnterpriseService EnterpriseService { get; set; }
-        public IParameterService ParameterService { get; set; }
-
 
         public LoginPresenter(ILoginPresenter view)
             : base(view)

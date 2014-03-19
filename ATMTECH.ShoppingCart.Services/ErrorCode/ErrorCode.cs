@@ -3,6 +3,11 @@
     public static class ErrorCode
     {
 
+        public const string MESSAGE_CONTROL_STOCK_ORDERLINE_NO_MATCH = "Aucune correspondance dans les transactions de stock";
+        public const string MESSAGE_CONTROL_STOCK_ORDERLINE_ORDERLINE_QUANTITY_VS_TRANSACTION_NOT_EQUAL = "La quantité commandé n'est pas la même que dans la transaction de stock";
+        public const string MESSAGE_CONTROL_STOCK_ORDERLINE_TRANSACTION_NOT_EXISTS_IN_ORDERLINE = "La transaction sur la commande n'existe pas dans les lignes de commandes";
+
+
         public const string SC_ENTERPRISE_CANT_ORDER = "SC0001";
         public const string SC_ENTERPRISE_NULL_ORDER = "SC0002";
         public const string SC_ORDERSTATUS_UNKNOWN = "SC0003";

@@ -67,5 +67,10 @@ namespace ATMTECH.Administration
 
             lblResultat.Text += Presenter.InitialiserColonneRecherche();
         }
+
+        protected void btnGenererRapportControlStockClick(object sender, EventArgs e)
+        {
+            Presenter.GenerateStockControlReport();
+        }
     }
 }

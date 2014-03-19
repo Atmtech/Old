@@ -41,6 +41,7 @@ namespace ATMTECH.ShoppingCart.Services
         public IDAOEnterpriseEmail DAOEnterpriseEmail { get; set; }
         public IDAOEnumOrderInformation DAOEnumOrderInformation { get; set; }
 
+
         public Order AddOrderLine(OrderLine orderLine, Order order)
         {
             bool orderLineExist = false;
@@ -572,7 +573,6 @@ namespace ATMTECH.ShoppingCart.Services
 
             return enumOrderInformations.OrderBy(x => x.Code).ToList();
         }
-
         public IList<Order> GetOrder(int idEnterprise, int pageIndex)
         {
             return GetAddressOrder(DAOOrder.GetOrder(idEnterprise, pageIndex));
@@ -594,6 +594,74 @@ namespace ATMTECH.ShoppingCart.Services
             html += "</table>";
 
             return html;
+        }
+
+        public IList<StockControlReportLine> GetStockControlReport()
+        {
+            IList<StockTransaction> stockTransactions = StockService.GetStockTransaction();
+            IList<OrderLine> orderLines = GetAllOrderLine().Where(x => x.IsActive).ToList();
+            IList<StockControlReportLine> stockControlReportLines = new List<StockControlReportLine>();
+
+            foreach (OrderLine orderLine in orderLines)
+            {
+
+                if (stockTransactions.Count(x => x.Stock.Id == orderLine.Stock.Id) == 0)
+                {
+                    stockControlReportLines.Add(AddStockControlReportLine(orderLine, @"N\A", ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_NO_MATCH));
+                }
+
+                int transactionTotal = stockTransactions.Where(x => x.Stock.Id == orderLine.Stock.Id).Sum(x => x.Transaction);
+                if (transactionTotal != orderLine.Quantity * -1)
+                {
+                    stockControlReportLines.Add(AddStockControlReportLine(orderLine, transactionTotal.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_ORDERLINE_QUANTITY_VS_TRANSACTION_NOT_EQUAL));
+                }
+            }
+
+            foreach (StockTransaction stockTransaction in stockTransactions)
+            {
+                if (orderLines.Count(x => x.Stock.Id == stockTransaction.Stock.Id) == 0)
+                {
+                    stockControlReportLines.Add(AddStockControlReportLine(new OrderLine() { Order = new Order() { Id = stockTransaction.Order.Id } }, stockTransaction.Transaction.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_TRANSACTION_NOT_EXISTS_IN_ORDERLINE));
+                }
+            }
+            return stockControlReportLines.OrderBy(x => x.Order).ToList();
+        }
+
+        private StockControlReportLine AddStockControlReportLine(OrderLine orderLine, string stockTransactionQuantity, string message)
+        {
+
+            if (orderLine.Order != null)
+            {
+                orderLine.Order = GetOrder(orderLine.Order.Id);    
+            }
+            
+            if (orderLine.Stock == null)
+            {
+                StockControlReportLine stockControlReportLine = new StockControlReportLine()
+                {
+                    Order = @"Commande: " + orderLine.Order.Id,
+                    Stock = @"N\A",
+                    OrderLineQuantity = @"N\A",
+                    StockTransactionQuantity = stockTransactionQuantity,
+                    Problem = message
+                };
+                return stockControlReportLine;
+            }
+            else
+            {
+                orderLine.Stock = StockService.GetStock(orderLine.Stock.Id);
+                StockControlReportLine stockControlReportLine = new StockControlReportLine()
+                {
+                    Order = HttpUtility.HtmlDecode( orderLine.Order.ComboboxDescription),
+                    Stock = HttpUtility.HtmlDecode(orderLine.Stock.ComboboxDescription),
+                    OrderLineQuantity = orderLine.Quantity.ToString(),
+                    StockTransactionQuantity = stockTransactionQuantity,
+                    Problem = message
+                };
+                return stockControlReportLine;
+            }
+
+
         }
         private IList<SalesReportLine> RemoveLinkedStock(IList<SalesReportLine> salesReportLines)
         {

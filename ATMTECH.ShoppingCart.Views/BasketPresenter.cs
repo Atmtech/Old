@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using ATMTECH.Services;
+﻿using System.Collections.Generic;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.ErrorCode;
@@ -20,7 +18,7 @@ namespace ATMTECH.ShoppingCart.Views
         public ICustomerService CustomerService { get; set; }
         public IOrderService OrderService { get; set; }
         public IAddressService AddressService { get; set; }
-        public IParameterService ParameterService { get; set; }
+        
         public ATMTECH.Services.Interface.IReportService ReportService { get; set; }
 
         public BasketPresenter(IBasketPresenter view)
@@ -172,11 +170,9 @@ namespace ATMTECH.ShoppingCart.Views
 
                 return AddressService.SaveAddress(address);
             }
-            else
-            {
-                return AddressService.GetAddress(View.ShippingAddressSelected);
-            }
+            return AddressService.GetAddress(View.ShippingAddressSelected);
         }
+
         private Address SetModifyBillingAddress()
         {
             if (View.IsPanelModifyBillingAddressOpen)
@@ -191,11 +187,9 @@ namespace ATMTECH.ShoppingCart.Views
 
                 return AddressService.SaveAddress(address);
             }
-            else
-            {
-                return AddressService.GetAddress(View.BillingAddressSelected);
-            }
+            return AddressService.GetAddress(View.BillingAddressSelected);
         }
+
         private void FillAddress()
         {
             if (View.CurrentOrder.ShippingAddress == null)

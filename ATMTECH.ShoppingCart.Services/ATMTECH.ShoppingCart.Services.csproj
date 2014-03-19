@@ -54,6 +54,7 @@
     <Compile Include="Reports\DTO\ProductPriceHistoryReportLine.cs" />
     <Compile Include="Reports\DTO\SalesByMonthReportLine.cs" />
     <Compile Include="Reports\DTO\SalesReportLine.cs" />
+    <Compile Include="Reports\DTO\StockControlReportLine.cs" />
     <Compile Include="Reports\DTO\StockWithActualState.cs" />
     <Compile Include="ValidateCustomerService.cs" />
     <Compile Include="EnterpriseService.cs" />
@@ -128,6 +129,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\StockControl.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalesByOrderInformation.rdlc" />
     <EmbeddedResource Include="Reports\SalesByMonth.rdlc" />
     <EmbeddedResource Include="Reports\Stock.rdlc" />
@@ -145,6 +149,7 @@
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.DTO.SalesByMonthReportLine.datasource" />
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.DTO.SalesByOrderInformationReportLine.datasource" />
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.DTO.SalesReportLine.datasource" />
+    <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.DTO.StockControlReportLine.datasource" />
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.SalesReportLine.datasource" />
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.StockReportLine.datasource" />
   </ItemGroup>

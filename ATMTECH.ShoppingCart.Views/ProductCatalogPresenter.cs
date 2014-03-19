@@ -8,7 +8,6 @@ using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.Web;
-using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.ShoppingCart.Views
 {
@@ -17,8 +16,6 @@ namespace ATMTECH.ShoppingCart.Views
 
         public ICustomerService CustomerService { get; set; }
         public IProductService ProductService { get; set; }
-        public IParameterService ParameterService { get; set; }
-
 
         public ProductCatalogPresenter(IProductCatalogPresenter view)
             : base(view)
@@ -27,15 +24,10 @@ namespace ATMTECH.ShoppingCart.Views
 
         private void FindProductCategories()
         {
-            IList<ProductCategory> productCategories = new List<ProductCategory>();
-            if (CustomerService.AuthenticateCustomer != null)
-            {
-                productCategories = ProductService.GetProductCategory(CustomerService.AuthenticateCustomer.Enterprise.Id).OrderBy(x => x.OrderId).ToList();
-            }
-            else
-            {
-                productCategories = ProductService.GetProductCategory(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED))).OrderBy(x => x.OrderId).ToList();
-            }
+            IList<ProductCategory> productCategories;
+            productCategories = CustomerService.AuthenticateCustomer != null ? 
+                ProductService.GetProductCategory(CustomerService.AuthenticateCustomer.Enterprise.Id).OrderBy(x => x.OrderId).ToList() : 
+                ProductService.GetProductCategory(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED))).OrderBy(x => x.OrderId).ToList();
 
             string idProductCategory = NavigationService.GetQueryStringValue(Pages.PagesId.PRODUCT_CATEGORY);
 

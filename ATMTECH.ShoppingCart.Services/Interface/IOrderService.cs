@@ -44,5 +44,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         IList<Order> GetAll();
 
         void AskForShipping(Order order);
+        IList<StockControlReportLine> GetStockControlReport();
     }
 }

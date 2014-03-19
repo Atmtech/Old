@@ -105,12 +105,14 @@
                                             <li><a href="StockReport.aspx">Rapports des inventaires</a></li>
                                             <li><a href="SalesReport.aspx">Rapports des commandes</a></li>
                                             <li><a href="SalesByMonthReport.aspx">Rapports des ventes par mois</a></li>
+                                            <li><asp:LinkButton runat="server" ID="btnGenererRapportControlStock" OnClick="btnGenererRapportControlStockClick" Text="Rapport de controle inventaire"></asp:LinkButton> </li>
                                             <li><a href="SalesByOrderInformation.aspx">Rapports des ventes par imputation</a></li>
                                             <li><a href="DataEditor.aspx?Entity=ProductFile">Les images des produits</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=Order">Les commandes</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=OrderLine">Les ligne de commandes</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=Supplier">Les fournisseurs</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=ProductPriceHistory&IsEnterpriseRuled=0">Historique des prix modifiés</a> </li>
+
                                         </ul>
                                         <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
                                             Entreprise et autres

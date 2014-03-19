@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ATMTECH.Shell.Tests;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.ErrorCode;
 using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Reports.DTO;
 using ATMTECH.ShoppingCart.Tests.Builder;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,10 +21,14 @@ namespace ATMTECH.ShoppingCart.Tests.Services
         public Mock<IDAOEnumOrderInformation> MockDAOEnumOrderInformation { get { return ObtenirMock<IDAOEnumOrderInformation>(); } }
         public Mock<IDAOTaxes> MockDAOTaxes { get { return ObtenirMock<IDAOTaxes>(); } }
         public Mock<IDAOOrder> MockDAOOrder { get { return ObtenirMock<IDAOOrder>(); } }
+        public Mock<IDAOOrderLine> MockDAOOrderLine { get { return ObtenirMock<IDAOOrderLine>(); } }
         public Mock<IShippingService> MockShippingService { get { return ObtenirMock<IShippingService>(); } }
         public Mock<IProductService> MockProductService { get { return ObtenirMock<IProductService>(); } }
         public Mock<IValidateOrderService> MockValidateOrderService { get { return ObtenirMock<IValidateOrderService>(); } }
         public Mock<ITaxesService> MockTaxesService { get { return ObtenirMock<ITaxesService>(); } }
+        public Mock<IStockService> MockStockService { get { return ObtenirMock<IStockService>(); } }
+        public Mock<IAddressService> MockAddressService { get { return ObtenirMock<IAddressService>(); } }
+
 
         [TestMethod]
         public void GetOrderInformationDoitRetournerUneListeAvecUnBlancEnPremier()
@@ -153,7 +159,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services
         {
             OrderTaxesShippingParameterTest orderTaxesShippingParameterTest = CalculateTotalBasic();
 
-            
+
             MockTaxesService.Setup(test => test.GetCountryTaxes(It.IsAny<decimal>(), It.IsAny<string>())).Returns(11);
             MockTaxesService.Setup(test => test.GetRegionTaxes(It.IsAny<decimal>(), It.IsAny<string>())).Returns(12);
 
@@ -164,9 +170,47 @@ namespace ATMTECH.ShoppingCart.Tests.Services
         }
 
         [TestMethod]
-        public void Test()
+        public void GetStockControlReport_QuandNexistePasDansStockTransaction_Erreur()
         {
-            //AddOrderLine
+            StockOrderLineOrderStock stockOrderLineOrderStock = GetHappyPathControlReportline();
+            stockOrderLineOrderStock.OrderLines.Add(AutoFixture.Create<OrderLine>());
+
+            MockStockService.Setup(test => test.GetStockTransaction()).Returns(stockOrderLineOrderStock.StockTransactions);
+            MockDAOOrderLine.Setup(test => test.GetAll()).Returns(stockOrderLineOrderStock.OrderLines);
+
+            IList<StockControlReportLine> rtn = InstanceTest.GetStockControlReport();
+            rtn.Count.Should().Be(2);
+            rtn[0].Problem.Should().Be(ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_NO_MATCH);
+        }
+
+        [TestMethod]
+        public void GetStockControlReport_QuandQuantiteOrderLineEstDifferentDeStockTransaction_Erreur()
+        {
+            StockOrderLineOrderStock stockOrderLineOrderStock = GetHappyPathControlReportline();
+            stockOrderLineOrderStock.OrderLines[0].Quantity = 11;
+
+            MockStockService.Setup(test => test.GetStockTransaction()).Returns(stockOrderLineOrderStock.StockTransactions);
+            MockDAOOrderLine.Setup(test => test.GetAll()).Returns(stockOrderLineOrderStock.OrderLines);
+            IList<StockControlReportLine> rtn = InstanceTest.GetStockControlReport();
+            rtn.Count.Should().Be(1);
+            rtn[0].Problem.Should().Be(ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_ORDERLINE_QUANTITY_VS_TRANSACTION_NOT_EQUAL);
+            rtn[0].StockTransactionQuantity.Should().Be("-1");
+            rtn[0].OrderLineQuantity.Should().Be("11");
+        }
+
+        [TestMethod]
+        public void GetStockControlReport_QuandQuantiteTransactionNexistePasDansOrderLine_Erreur()
+        {
+            StockOrderLineOrderStock stockOrderLineOrderStock = GetHappyPathControlReportline();
+            stockOrderLineOrderStock.OrderLines.Clear();
+
+            MockStockService.Setup(test => test.GetStockTransaction()).Returns(stockOrderLineOrderStock.StockTransactions);
+            MockDAOOrderLine.Setup(test => test.GetAll()).Returns(stockOrderLineOrderStock.OrderLines);
+            IList<StockControlReportLine> rtn = InstanceTest.GetStockControlReport();
+            rtn.Count.Should().Be(1);
+            rtn[0].Problem.Should().Be(ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_TRANSACTION_NOT_EXISTS_IN_ORDERLINE);
+            rtn[0].StockTransactionQuantity.Should().Be("-1");
+            rtn[0].OrderLineQuantity.Should().Be(@"N\A");
         }
 
         private OrderTaxesShippingParameterTest CalculateTotalBasic()
@@ -187,6 +231,39 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             return new OrderTaxesShippingParameterTest() { Order = order, ShippingParameter = shippingParameter, Taxes = taxes };
         }
 
+        private StockOrderLineOrderStock GetHappyPathControlReportline()
+        {
+            Address address = AutoFixture.Create<Address>();
+            StockTransaction stockTransaction = AutoFixture.Create<StockTransaction>();
+            OrderLine orderLine = AutoFixture.Create<OrderLine>();
+            Order order = AutoFixture.Create<Order>();
+            Stock stock = AutoFixture.Create<Stock>();
+            stock.Id = 1;
+            order.Id = 1;
+            orderLine.Order = order;
+            orderLine.Stock = stock;
+            orderLine.Quantity = 1;
+
+            stockTransaction.Transaction = -1;
+            stockTransaction.Order = order;
+            stockTransaction.Stock = stock;
+
+            MockDAOOrder.Setup(test => test.GetOrder(It.IsAny<int>())).Returns(order);
+            MockStockService.Setup(test => test.GetStock(It.IsAny<int>())).Returns(stock);
+            MockAddressService.Setup(test => test.GetAddress(It.IsAny<int>())).Returns(address);
+
+            IList<StockTransaction> stockTransactions = new List<StockTransaction>();
+            stockTransactions.Add(stockTransaction);
+            IList<OrderLine> orderLines = new List<OrderLine>();
+            orderLines.Add(orderLine);
+
+            return new StockOrderLineOrderStock { OrderLines = orderLines, StockTransactions = stockTransactions };
+        }
+        public class StockOrderLineOrderStock
+        {
+            public IList<StockTransaction> StockTransactions { get; set; }
+            public IList<OrderLine> OrderLines { get; set; }
+        }
 
         public class OrderTaxesShippingParameterTest
         {

@@ -20,7 +20,6 @@ namespace ATMTECH.ShoppingCart.Views
         public IAddressService AddressService { get; set; }
         public ICustomerService CustomerService { get; set; }
         public IOrderService OrderService { get; set; }
-        public IParameterService ParameterService { get; set; }
         public ATMTECH.Services.Interface.IReportService ReportService { get; set; }
 
         public CustomerInformationPresenter(ICustomerInformationPresenter view)

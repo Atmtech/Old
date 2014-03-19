@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface;
-using ATMTECH.Web;
-using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.ShoppingCart.Views
 {
@@ -15,8 +11,7 @@ namespace ATMTECH.ShoppingCart.Views
 
         public ICustomerService CustomerService { get; set; }
         public IProductService ProductService { get; set; }
-        public IParameterService ParameterService { get; set; }
-
+        
         public ProductSearchPresenter(IProductSearchPresenter view)
             : base(view)
         {

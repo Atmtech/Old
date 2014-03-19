@@ -1,17 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ATMTECH.Administration.Services.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
 using ATMTECH.DAO;
 using ATMTECH.Entities;
+using ATMTECH.Services;
+using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Reports.DTO;
 
 namespace ATMTECH.Administration.Views
 {
     public class DefaultMasterPresenter : BaseAdministrationPresenter<IDefaultMasterPresenter>
     {
         public IGenerateDataEditorService GenerateDataEditorService { get; set; }
+        public IReportService ReportService { get; set; }
 
         public DefaultMasterPresenter(IDefaultMasterPresenter view)
             : base(view)
@@ -92,29 +97,48 @@ namespace ATMTECH.Administration.Views
         public string InitialiserColonneRecherche()
         {
             string rtn = string.Empty;
-            //rtn += Save<Country>();
-            //rtn += Save<City>();
-            //rtn += Save<User>();
-            //rtn += Save<Customer>();
-            //rtn += Save<CustomerType>();
-            //rtn += Save<Enterprise>();
-            //rtn += Save<EnterpriseAddress>();
-            //rtn += Save<EnterpriseEmail>();
-            //rtn += Save<EnumOrderInformation>();
-            //rtn += Save<GroupProduct>();
+            rtn += Save<Country>();
+            rtn += Save<City>();
+            rtn += Save<User>();
+            rtn += Save<Customer>();
+            rtn += Save<CustomerType>();
+            rtn += Save<Enterprise>();
+            rtn += Save<EnterpriseAddress>();
+            rtn += Save<EnterpriseEmail>();
+            rtn += Save<EnumOrderInformation>();
+            rtn += Save<GroupProduct>();
             rtn += Save<Order>();
-            //rtn += Save<OrderLine>();
-            //rtn += Save<Product>();
-            //rtn += Save<ProductCategory>();
-            //rtn += Save<ProductFile>();
-            //rtn += Save<File>();
-            //rtn += Save<ProductPriceHistory>();
-            //rtn += Save<Stock>();
-            //rtn += Save<StockLink>();
-            //rtn += Save<StockTemplate>();
-            //rtn += Save<Supplier>();
-            //rtn += Save<Taxes>();
+            rtn += Save<OrderLine>();
+            rtn += Save<Product>();
+            rtn += Save<ProductCategory>();
+            rtn += Save<ProductFile>();
+            rtn += Save<File>();
+            rtn += Save<ProductPriceHistory>();
+            rtn += Save<Stock>();
+            rtn += Save<StockLink>();
+            rtn += Save<StockTemplate>();
+            rtn += Save<Supplier>();
+            rtn += Save<Taxes>();
             return rtn;
+        }
+
+        public void GenerateStockControlReport()
+        {
+
+            Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
+            ReportParameter reportParameter = new ReportParameter
+            {
+                Assembly = "ATMTECH.ShoppingCart.Services",
+                PathToReportAssembly = "ATMTECH.ShoppingCart.Services.Reports.StockControl.rdlc",
+                ReportFormat = ReportFormat.PDF,
+                Parameters = dictionnaire
+            };
+
+         
+            IList<StockControlReportLine> stockControlReportLines = OrderService.GetStockControlReport();
+
+            reportParameter.AddDatasource("dsStockControl", stockControlReportLines);
+            ReportService.SaveReport("StockControl.pdf", ReportService.GetReport(reportParameter));
         }
     }
 }

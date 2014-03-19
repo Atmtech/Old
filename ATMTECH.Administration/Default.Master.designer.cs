@@ -103,6 +103,15 @@ namespace ATMTECH.Administration {
         protected global::System.Web.UI.WebControls.Panel pnlShoppingCart;
         
         /// <summary>
+        /// Contrôle btnGenererRapportControlStock.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnGenererRapportControlStock;
+        
+        /// <summary>
         /// Contrôle btnGenerateColumns.
         /// </summary>
         /// <remarks>
