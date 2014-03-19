@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
     <div class="tile triple-vertical triple bg-color-darken">
         <div class="tile-content">
             <div style="float: left; text-align: center; padding-left: 20px; padding-top: 20px;">
