@@ -41,18 +41,15 @@ namespace ATMTECH.Web.Services
                 {
                     _authenticateUser = value;
                 }
-
             }
         }
 
 
-        public LogVisit LogVisit()
+        public void LogVisit()
         {
             try
             {
                 LogVisit logVisit = new LogVisit();
-
-
 
                 if (AuthenticateUser != null)
                 {
@@ -63,25 +60,28 @@ namespace ATMTECH.Web.Services
                 logVisit.Ip = ContextSessionManager.Context.Request.UserHostName;
                 logVisit.Page = Utils.Web.Pages.GetCurrentPage();
                 logVisit.DateCreated = DateTime.Now;
+                logVisit.Url = ContextSessionManager.Context.Request.Url.AbsoluteUri;
 
                 if (logVisit.Ip != "127.0.0.1" && logVisit.Ip != "::1")
                 {
-                    String url = " http://freegeoip.net/xml/142.213.15.22";
+                    String url = " http://freegeoip.net/xml/" + logVisit.Ip;
                     XmlDocument doc = new XmlDocument();
                     doc.Load(url);
                     logVisit.CountryName = doc.GetElementsByTagName("CountryName")[0].InnerText;
                     logVisit.CountryCode = doc.GetElementsByTagName("CountryCode")[0].InnerText;
                     logVisit.RegionName = doc.GetElementsByTagName("RegionName")[0].InnerText;
-                    logVisit.RegionName = doc.GetElementsByTagName("CityName")[0].InnerText;
+                    logVisit.CityName = doc.GetElementsByTagName("City")[0].InnerText;
+                    logVisit.Latitude = doc.GetElementsByTagName("Latitude")[0].InnerText;
+                    logVisit.Longitude = doc.GetElementsByTagName("Longitude")[0].InnerText;
                 }
 
-                return logVisit;
+                DAOLogVisit.UpdateLogVisit(logVisit);
 
             }
-            catch
+            catch (System.Exception exception)
             {
+                LogException(new Message() { Description = "Erreur fatale dans LogVisit: ", InnerId = "ADM0001" }, exception);
             }
-            return null;
         }
 
         public void LogException(Message message, System.Exception ex)

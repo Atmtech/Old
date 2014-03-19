@@ -24,7 +24,6 @@ namespace ATMTECH.ShoppingCart.Glv
                 GetControlList(Page.Controls, allControls);
                 Presenter.Controls = allControls;
                 Presenter.Localize();
-                Presenter.Log();
                 Presenter.OnViewInitialized();
             }
             Presenter.OnViewLoaded();

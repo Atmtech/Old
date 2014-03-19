@@ -33,17 +33,13 @@ namespace ATMTECH.Views
 
         public virtual void OnViewInitialized()
         {
-
+            LogService.LogVisit();
         }
 
         public virtual void OnViewLoaded()
         {
         }
 
-        public void Log()
-        {
-            LogService.LogVisit();
-        }
         public void Localize()
         {
             LocalizationService.Localize(Controls, LocalizationService.CurrentLanguage);
