@@ -301,7 +301,6 @@ namespace ATMTECH.Administration
                 TableCell tableCellLabel = new TableCell { Width = new Unit(175, UnitType.Pixel) };
                 TableCell tableCellControl = new TableCell();
 
-
                 tableCellLabel.Controls.Add(controlWithLabel.Label);
                 tableCellControl.Controls.Add(controlWithLabel.Control);
 

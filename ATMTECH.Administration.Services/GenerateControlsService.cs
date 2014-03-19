@@ -198,7 +198,7 @@ namespace ATMTECH.Administration.Services
                     }
                 case "user":
                 case "file":
-                    if (propertyInfo.Name == "Image" && entity == "Enterprise")
+                    if ((propertyInfo.Name == "Image" && entity == "Enterprise"))
                     {
                         Criteria criteria = new Criteria
                         {
@@ -209,17 +209,18 @@ namespace ATMTECH.Administration.Services
 
                         return DataEditorService.GetByCriteria("ATMTECH.Entities", propertyInfo.PropertyType.Name, 5000, 0, "", criteria);
                     }
+
+                    if (propertyInfo.Name == "File" && entity == "ProductFile")
+                    {
+                        return ProductService.GetProductFile(idEnterprise);
+                    }
                     return DataEditorService.GetByCriteria("ATMTECH.Entities", propertyInfo.PropertyType.Name, 5000, 0, "");
 
                 default:
                     return DataEditorService.GetByCriteria(propertyInfo.PropertyType.Namespace != nameSpace ? propertyInfo.PropertyType.Namespace : nameSpace, propertyInfo.PropertyType.Name, 5000, 0, "");
             }
         }
-        private int GetCountFromDataSource(object dataSource)
-        {
-            return ((IEnumerable)dataSource).Cast<object>().Count();
-        }
-
+   
         private Control GenerateEditingControl(PropertyInfo propertyInfo, string value, int idEnterprise, string nameSpace, string entity, bool isInserting)
         {
             if (propertyInfo.PropertyType.Namespace == "System")
@@ -250,7 +251,6 @@ namespace ATMTECH.Administration.Services
                 DataValueField = BaseEntity.ID,
                 DataTextField = BaseEntity.COMBOBOX_DESCRIPTION,
                 DataSource = dataSource,
-                Width = Unit.Percentage(80),
                 EstObligatoire = IsRequired(propertyInfo.Name, entity)
             };
             comboBoxSimple.DataBind();
