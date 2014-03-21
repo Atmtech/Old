@@ -210,10 +210,6 @@ namespace ATMTECH.Administration.Services
                         return DataEditorService.GetByCriteria("ATMTECH.Entities", propertyInfo.PropertyType.Name, 5000, 0, "", criteria);
                     }
 
-                    if (propertyInfo.Name == "File" && entity == "ProductFile")
-                    {
-                        return ProductService.GetProductFile(idEnterprise);
-                    }
                     return DataEditorService.GetByCriteria("ATMTECH.Entities", propertyInfo.PropertyType.Name, 5000, 0, "");
 
                 default:
