@@ -14,9 +14,9 @@ namespace ATMTECH.DAO
             criterias.Add(criteriaEnterprise);
             criterias.Add(IsActive());
             SetLanguage(criterias, language);
-            return GetByCriteria(criterias)[0];
 
-            //return GetAllOneCriteria(Message.INNERID, innerId)[0];
+            IList<Message> byCriteria = GetByCriteria(criterias);
+            return byCriteria == null ? null : byCriteria[0];
         }
     }
 }
