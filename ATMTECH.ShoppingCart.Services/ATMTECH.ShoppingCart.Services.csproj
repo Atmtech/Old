@@ -145,6 +145,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Entities.Order.datasource" />
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.DTO.ProductPriceHistoryReportLine.datasource" />
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.DTO.SalesByMonthReportLine.datasource" />
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.DTO.SalesByOrderInformationReportLine.datasource" />
@@ -152,6 +153,7 @@
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.DTO.StockControlReportLine.datasource" />
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.SalesReportLine.datasource" />
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.StockReportLine.datasource" />
+    <None Include="Properties\DataSources\OrderService.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

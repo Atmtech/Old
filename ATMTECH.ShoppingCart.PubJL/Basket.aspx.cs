@@ -400,6 +400,7 @@ namespace ATMTECH.ShoppingCart.PubJL
 
         protected void FinalizeOrderPaypal(object sender, EventArgs eventArgs)
         {
+            btnFinalizeOrderPaypal.Enabled = false;
             Presenter.FinalizeOrder(true);
         }
 

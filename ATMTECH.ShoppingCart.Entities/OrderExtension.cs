@@ -11,6 +11,11 @@
             get { return ShippingAddress != null ? ShippingAddress.DisplayAddress : ""; }
         }
 
+        public string CustomerFullName
+        {
+            get { return Customer.User != null ? Customer.User.FirstNameLastName : ""; }
+        }
+
         public string EnterpriseName
         {
             get { return Enterprise != null ? Enterprise.Name : ""; }

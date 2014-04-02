@@ -986,9 +986,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>BillingAddressDescription</rd:DefaultName>
-          <Top>3.16153cm</Top>
+          <Top>3.8759cm</Top>
           <Left>8.54987cm</Left>
-          <Height>1.89646cm</Height>
+          <Height>1.18209cm</Height>
           <Width>7.59323cm</Width>
           <ZIndex>9</ZIndex>
           <Style>
@@ -1016,9 +1016,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ShippingAddressDescription</rd:DefaultName>
-          <Top>3.16153cm</Top>
+          <Top>3.8759cm</Top>
           <Left>0.30903cm</Left>
-          <Height>1.89646cm</Height>
+          <Height>1.18209cm</Height>
           <Width>8.135cm</Width>
           <ZIndex>10</ZIndex>
           <Style>
@@ -1058,6 +1058,66 @@
               <Style>None</Style>
             </Border>
             <BackgroundColor>LightGrey</BackgroundColor>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="CustomerFullName">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!CustomerFullName.Value, "dsOrder")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>CustomerFullName</rd:DefaultName>
+          <Top>3.13479cm</Top>
+          <Left>0.28258cm</Left>
+          <Height>0.6cm</Height>
+          <Width>8.0909cm</Width>
+          <ZIndex>12</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="CustomerFullName2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!CustomerFullName.Value, "dsOrder")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>CustomerFullName</rd:DefaultName>
+          <Top>3.13479cm</Top>
+          <Left>8.54987cm</Left>
+          <Height>0.6cm</Height>
+          <Width>7.59323cm</Width>
+          <ZIndex>13</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -1130,143 +1190,15 @@
       </ConnectionProperties>
       <rd:DataSourceID>49dc4df1-f083-49de-952b-695db98fc5ae</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="ATMTECHShoppingCartEntities">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>473dfd54-95e3-42c4-8202-0a0ae681b9e8</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsOrder">
-      <Query>
-        <DataSourceName>ATMTECHShoppingCartServices</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Enterprise">
-          <DataField>Enterprise</DataField>
-          <rd:TypeName>ATMTECH.ShoppingCart.Entities.Enterprise</rd:TypeName>
-        </Field>
-        <Field Name="GrandTotal">
-          <DataField>GrandTotal</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="SubTotal">
-          <DataField>SubTotal</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="ShippingTotal">
-          <DataField>ShippingTotal</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="CountryTax">
-          <DataField>CountryTax</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="RegionalTax">
-          <DataField>RegionalTax</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Customer">
-          <DataField>Customer</DataField>
-          <rd:TypeName>ATMTECH.ShoppingCart.Entities.Customer</rd:TypeName>
-        </Field>
-        <Field Name="OrderLines">
-          <DataField>OrderLines</DataField>
-          <rd:TypeName>System.Collections.Generic.IList`1[[ATMTECH.ShoppingCart.Entities.OrderLine, ATMTECH.ShoppingCart.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]</rd:TypeName>
-        </Field>
-        <Field Name="OrderStatus">
-          <DataField>OrderStatus</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="ShippingDate">
-          <DataField>ShippingDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="ShippingAddress">
-          <DataField>ShippingAddress</DataField>
-          <rd:TypeName>ATMTECH.ShoppingCart.Entities.Address</rd:TypeName>
-        </Field>
-        <Field Name="BillingAddress">
-          <DataField>BillingAddress</DataField>
-          <rd:TypeName>ATMTECH.ShoppingCart.Entities.Address</rd:TypeName>
-        </Field>
-        <Field Name="ShippingAttention">
-          <DataField>ShippingAttention</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TrackingNumber">
-          <DataField>TrackingNumber</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Project">
-          <DataField>Project</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ToAttention">
-          <DataField>ToAttention</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EnterpriseAttention">
-          <DataField>EnterpriseAttention</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ModifiedAddress">
-          <DataField>ModifiedAddress</DataField>
-          <rd:TypeName>ATMTECH.ShoppingCart.Entities.Address</rd:TypeName>
-        </Field>
-        <Field Name="TotalWeight">
-          <DataField>TotalWeight</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="BillingAddressDescription">
-          <DataField>BillingAddressDescription</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ShippingAddressDescription">
-          <DataField>ShippingAddressDescription</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EnterpriseName">
-          <DataField>EnterpriseName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TotalItemOrderLine">
-          <DataField>TotalItemOrderLine</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Id">
-          <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IsActive">
-          <DataField>IsActive</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="DateModified">
-          <DataField>DateModified</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="DateCreated">
-          <DataField>DateCreated</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Language">
-          <DataField>Language</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="OrderId">
-          <DataField>OrderId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>ATMTECH.ShoppingCart.Services</rd:DataSetName>
-        <rd:TableName>OrderService</rd:TableName>
-        <rd:ObjectDataSourceSelectMethod>GetOrderToReport</rd:ObjectDataSourceSelectMethod>
-        <rd:ObjectDataSourceSelectMethodSignature>System.Collections.Generic.IList`1[ATMTECH.ShoppingCart.Entities.Order] GetOrderToReport(Int32)</rd:ObjectDataSourceSelectMethodSignature>
-        <rd:ObjectDataSourceType>ATMTECH.ShoppingCart.Services.OrderService, ATMTECH.ShoppingCart.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
-      </rd:DataSetInfo>
-    </DataSet>
     <DataSet Name="dsOrderLine">
       <Query>
         <DataSourceName>ATMTECHShoppingCartServices</DataSourceName>
@@ -1332,6 +1264,175 @@
         <rd:ObjectDataSourceSelectMethod>GetOrderLineToReport</rd:ObjectDataSourceSelectMethod>
         <rd:ObjectDataSourceSelectMethodSignature>System.Collections.Generic.IList`1[ATMTECH.ShoppingCart.Entities.OrderLine] GetOrderLineToReport(Int32)</rd:ObjectDataSourceSelectMethodSignature>
         <rd:ObjectDataSourceType>ATMTECH.ShoppingCart.Services.OrderService, ATMTECH.ShoppingCart.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="dsOrder">
+      <Query>
+        <DataSourceName>ATMTECHShoppingCartEntities</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="BillingAddress">
+          <DataField>BillingAddress</DataField>
+          <rd:TypeName>ATMTECH.ShoppingCart.Entities.Address</rd:TypeName>
+        </Field>
+        <Field Name="BillingAddressDescription">
+          <DataField>BillingAddressDescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ComboboxDescription">
+          <DataField>ComboboxDescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ComboboxDescriptionUpdate">
+          <DataField>ComboboxDescriptionUpdate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CountryTax">
+          <DataField>CountryTax</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Customer">
+          <DataField>Customer</DataField>
+          <rd:TypeName>ATMTECH.ShoppingCart.Entities.Customer</rd:TypeName>
+        </Field>
+        <Field Name="CustomerFullName">
+          <DataField>CustomerFullName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DateCreated">
+          <DataField>DateCreated</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DateModified">
+          <DataField>DateModified</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Enterprise">
+          <DataField>Enterprise</DataField>
+          <rd:TypeName>ATMTECH.ShoppingCart.Entities.Enterprise</rd:TypeName>
+        </Field>
+        <Field Name="EnterpriseAttention">
+          <DataField>EnterpriseAttention</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EnterpriseName">
+          <DataField>EnterpriseName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FinalizedDate">
+          <DataField>FinalizedDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="GrandTotal">
+          <DataField>GrandTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="IsActive">
+          <DataField>IsActive</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsAskShipping">
+          <DataField>IsAskShipping</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsMailConfirmingOrderSent">
+          <DataField>IsMailConfirmingOrderSent</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsOrderLocked">
+          <DataField>IsOrderLocked</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsPayPal">
+          <DataField>IsPayPal</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Language">
+          <DataField>Language</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OrderId">
+          <DataField>OrderId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="OrderInformation1">
+          <DataField>OrderInformation1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OrderInformation2">
+          <DataField>OrderInformation2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OrderStatus">
+          <DataField>OrderStatus</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Project">
+          <DataField>Project</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RegionalTax">
+          <DataField>RegionalTax</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Search">
+          <DataField>Search</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShippingAddress">
+          <DataField>ShippingAddress</DataField>
+          <rd:TypeName>ATMTECH.ShoppingCart.Entities.Address</rd:TypeName>
+        </Field>
+        <Field Name="ShippingAddressDescription">
+          <DataField>ShippingAddressDescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShippingAttention">
+          <DataField>ShippingAttention</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShippingDate">
+          <DataField>ShippingDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ShippingTotal">
+          <DataField>ShippingTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SubTotal">
+          <DataField>SubTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ToAttention">
+          <DataField>ToAttention</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalItemOrderLine">
+          <DataField>TotalItemOrderLine</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TotalWeight">
+          <DataField>TotalWeight</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TrackingNumber">
+          <DataField>TrackingNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ATMTECH.ShoppingCart.Entities</rd:DataSetName>
+        <rd:TableName>Order</rd:TableName>
+        <rd:ObjectDataSourceType>ATMTECH.ShoppingCart.Entities.Order, ATMTECH.ShoppingCart.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
