@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
+using ATMTECH.DAO.SessionManager;
 using ATMTECH.Entities;
 
 namespace ATMTECH.DAO.Database
@@ -297,6 +298,8 @@ namespace ATMTECH.DAO.Database
 
         public DataSet ReturnDataSet(string where, IList<Criteria> criterias, PagingOperation pagingOperation, OrderOperation orderOperation)
         {
+            DatabaseSessionManager.DatabaseTransactionCount += 1;
+
             switch (CurrentDatabaseVendor)
             {
                 case DatabaseVendor.DatabaseVendorType.Sqlite:

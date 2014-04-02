@@ -12,6 +12,8 @@ namespace ATMTECH.DAO.SessionManager
     {
         public static string ConnectionString { get; set; }
 
+        public static int DatabaseTransactionCount { get; set; }
+
         private static DbConnection _session;
         public static DbConnection Session
         {
@@ -36,9 +38,9 @@ namespace ATMTECH.DAO.SessionManager
                         {
                             if (_session.ConnectionString != "")
                             {
-                                _session.Open();    
+                                _session.Open();
                             }
-                            
+
                         }
                         break;
                     case DatabaseVendor.DatabaseVendorType.MsSql:
@@ -60,7 +62,7 @@ namespace ATMTECH.DAO.SessionManager
                         }
                         break;
                     case DatabaseVendor.DatabaseVendorType.MySql:
-                         if (_session == null)
+                        if (_session == null)
                         {
                             MySqlConnection sqlConnection = new MySqlConnection(ConnectionString);
                             _session = sqlConnection;

@@ -195,6 +195,8 @@ namespace ATMTECH.DAO.Database
                     // Show sql debug
                     Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
                                            diffResult.Milliseconds.ToString() + "ms) :: " + sql);
+
+                   //DatabaseSessionManager.
                 }
             }
             return dataSet;
