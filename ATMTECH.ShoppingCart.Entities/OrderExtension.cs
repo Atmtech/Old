@@ -13,7 +13,14 @@
 
         public string CustomerFullName
         {
-            get { return Customer.User != null ? Customer.User.FirstNameLastName : ""; }
+            get
+            {
+                if (Customer != null)
+                {
+                    return Customer.User != null ? Customer.User.FirstNameLastName : "";
+                }
+                return "";
+            }
         }
 
         public string EnterpriseName
