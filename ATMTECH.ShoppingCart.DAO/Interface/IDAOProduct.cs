@@ -5,6 +5,7 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
 {
     public interface IDAOProduct
     {
+
         Product GetProduct(int id);
         IList<Product> GetProducts(int idEnterprise, int idUser, string search);
         IList<Product> GetProducts(int idEnterprise, int idProductCategory, int idUser);

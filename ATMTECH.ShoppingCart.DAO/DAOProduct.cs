@@ -43,6 +43,8 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             return GetById(id);
         }
+    
+
         public IList<Product> GetProductsWithoutLanguage(int idEnterprise)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -66,6 +68,8 @@ namespace ATMTECH.ShoppingCart.DAO
             }
             return products;
         }
+
+
         public IList<Product> GetProducts(int idEnterprise)
         {
             IList<Criteria> criterias = new List<Criteria>();
