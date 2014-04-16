@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ATMTECH.Services, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\ATMTECH.Services.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="obout_FileUpload">
       <HintPath>..\Library\obout_FileUpload.dll</HintPath>
@@ -74,6 +78,13 @@
     </Compile>
     <Compile Include="CsharpEditor.aspx.designer.cs">
       <DependentUpon>CsharpEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel.aspx.cs">
+      <DependentUpon>ImportExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImportExcel.aspx.designer.cs">
+      <DependentUpon>ImportExcel.aspx</DependentUpon>
     </Compile>
     <Compile Include="RapportCimaAncien.aspx.cs">
       <DependentUpon>RapportCimaAncien.aspx</DependentUpon>
@@ -164,6 +175,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
+    <Folder Include="Files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Default\Default.css" />
@@ -403,6 +415,7 @@
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
     <Content Include="CsharpEditor.aspx" />
+    <Content Include="ImportExcel.aspx" />
     <Content Include="RapportCimaAncien.aspx" />
     <Content Include="SalesByOrderInformation.aspx" />
     <Content Include="ExecuteSql.aspx" />

@@ -156,6 +156,7 @@
                                              <li>
                                                 <asp:LinkButton runat="server" ID="btnInitialiserColonneRecherche" Text="Générer de recherche"
                                                     OnClick="btnInitialiserColonneRechercheClick" /></li>
+                                            <li><a href="ImportExcel.aspx">Importer des données</a> </li>
                                         </ul>
                                         <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
                                             Liens rapides

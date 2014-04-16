@@ -14,5 +14,6 @@ namespace ATMTECH.Services.Interface
         int SaveFile(HttpPostedFile httpPostedFile, string type, string rootImagePath);
         File GetFile(int id);
         IList<File> GetAllFile(string rootImagePath);
+        void SaveFileWithoutDatabase(HttpPostedFile httpPostedFile, string root);
     }
 }

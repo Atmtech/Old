@@ -18,7 +18,7 @@ namespace ATMTECH.Services
     public class FileService : IFileService
     {
         public IDAOFile DAOFile { get; set; }
-        
+
         public File GetFile(int id)
         {
             return DAOFile.GetFile(id);
@@ -79,7 +79,7 @@ namespace ATMTECH.Services
             file.IsActive = true;
             return DAOFile.UpdateFile(file);
         }
-        public int SaveFile(HttpPostedFile httpPostedFile, string type, string rootImagePath )
+        public int SaveFile(HttpPostedFile httpPostedFile, string type, string rootImagePath)
         {
             File file = new File { Size = httpPostedFile.ContentLength, DateModified = DateTime.Now };
 
@@ -99,6 +99,14 @@ namespace ATMTECH.Services
             return rtn;
         }
 
+        public void SaveFileWithoutDatabase(HttpPostedFile httpPostedFile, string root)
+        {
+            string filename = Path.GetFileName(httpPostedFile.FileName);
+            string serverPath = string.Format(@"{0}\{1}\{2}", root, filename);
+            httpPostedFile.SaveAs(serverPath);
+        }
+
+      
         private FileType GetFileType(File file)
         {
             string fileName = file.ServerPath == null ? file.FileName.ToLower() : file.ServerPath.ToLower();
