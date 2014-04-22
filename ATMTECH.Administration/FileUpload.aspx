@@ -26,7 +26,8 @@
     
     <asp:DropDownList runat="server" ID="ddlSiteList" AutoPostBack="True">
         <asp:ListItem Value="E:\dev.boutiquecorpo.com\Images">dev.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="E:\cima.boutiquecorpo.com\Images">cima.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="E:\cima-directeur.boutiquecorpo.com\Images">cima-directeur.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="E:\cima-employe.boutiquecorpo.com\Images">cima-employe.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="E:\tanguay.boutiquecorpo.com\Images">tanguay.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="E:\ursulines.boutiquecorpo.com\Images">ursuline.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="E:\glv.boutiquecorpo.com\Images">glv.boutiquecorpo.com</asp:ListItem>
