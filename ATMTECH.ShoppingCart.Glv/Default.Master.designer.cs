@@ -220,6 +220,15 @@ namespace ATMTECH.ShoppingCart.Glv {
         protected global::System.Web.UI.WebControls.Label lblProductCount;
         
         /// <summary>
+        /// Contrôle lnkVEtement.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkVEtement;
+        
+        /// <summary>
         /// Contrôle imgVetement.
         /// </summary>
         /// <remarks>
@@ -227,6 +236,15 @@ namespace ATMTECH.ShoppingCart.Glv {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgVetement;
+        
+        /// <summary>
+        /// Contrôle lnkArticlePromotionnel.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkArticlePromotionnel;
         
         /// <summary>
         /// Contrôle imgArticlePromotionnel.

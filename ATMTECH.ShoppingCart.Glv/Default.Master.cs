@@ -96,7 +96,7 @@ namespace ATMTECH.ShoppingCart.Glv
         {
             set
             {
-                SetImageFromLanguage();
+                SetObjectFromLanguage();
                 lnkLanguage.Text = value;
             }
         }
@@ -177,7 +177,7 @@ namespace ATMTECH.ShoppingCart.Glv
             Presenter.Redirect(Pages.LOGIN);
         }
 
-        public void SetImageFromLanguage()
+        public void SetObjectFromLanguage()
         {
             if (Presenter.ReturnLanguage() == LocalizationLanguage.FRENCH)
             {
@@ -186,6 +186,8 @@ namespace ATMTECH.ShoppingCart.Glv
                 imgModeEmploi.ImageUrl = "Images/WebSite/GLV_faq_fr.png";
                 imgEtapeCommande.ImageUrl = "Images/WebSite/GLV_commander.png";
                 imgServiceClientele.ImageUrl = "Images/WebSite/GLV_service.png";
+                lnkArticlePromotionnel.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=33";
+                lnkVEtement.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=34";
             }
             else
             {
@@ -194,6 +196,8 @@ namespace ATMTECH.ShoppingCart.Glv
                 imgModeEmploi.ImageUrl = "Images/WebSite/GLV_faq_en.png";
                 imgEtapeCommande.ImageUrl = "Images/WebSite/GLV_ordering.png";
                 imgServiceClientele.ImageUrl = "Images/WebSite/GLV_customer.png";
+                lnkArticlePromotionnel.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=81";
+                lnkVEtement.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=80";
             }
         }
     }

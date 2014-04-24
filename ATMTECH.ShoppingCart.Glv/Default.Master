@@ -98,16 +98,16 @@
                 </asp:ContentPlaceHolder>
                 <asp:Panel runat="server" ID="pnlMenuBottom" Visible="True">
                     <asp:Label runat="server" ID="lblProductCount" Visible="False"></asp:Label>
-                    <a href="ProductCatalog.aspx?ProductCategoryId=34">
+                    <asp:HyperLink runat="server" ID="lnkVEtement" NavigateUrl="ProductCatalog.aspx?ProductCategoryId=34">
                         <div style="width: 230px; height: 150px; margin-right: 10px; float: left;">
                             <asp:Image runat="server" ID="imgVetement" ImageUrl="Images/WebSite/GLV_vetements.png"  />
                         </div>
-                    </a>
-                    <a href="ProductCatalog.aspx?ProductCategoryId=33">
+                    </asp:HyperLink>
+                    <asp:HyperLink runat="server" ID="lnkArticlePromotionnel" NavigateUrl="ProductCatalog.aspx?ProductCategoryId=33">
                         <div style="width: 230px; height: 150px; margin-right: 10px; float: left;">
                             <asp:Image runat="server" ID="imgArticlePromotionnel" ImageUrl="Images/WebSite/GLV_articles_promo.png" />
                         </div>
-                    </a>
+                    </asp:HyperLink>
                     <a href="Default.aspx?ContentId=ContentInformations">
                         <div style="width: 140px; height: 150px; margin-right: 10px; float: left;">
                             <asp:Image runat="server" ID="imgModeEmploi" ImageUrl="Images/WebSite/GLV_faq_fr.png" />

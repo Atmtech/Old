@@ -28,7 +28,7 @@
             </h4>
             <br />
             <h4>
-                <asp:Label runat="server" ID="lblUnitPrice"></asp:Label></h4>
+                <asp:Label runat="server" ID="lblUnitPrice"></asp:Label> CDN</h4>
             <br />
             <asp:Label runat="server" ID="lblDescription"></asp:Label>
             <asp:Label runat="server" ID="lblAddToBasketSucessfull" Visible="false" Text="Ajouté avec succès..."></asp:Label>
