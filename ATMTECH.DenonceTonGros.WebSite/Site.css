@@ -1,0 +1,36 @@
+﻿body
+{
+    font-family: 'Segoe UI' , 'Verdana';
+    background-color: #2c3754;
+    margin: 0px 0px 0px 0px;
+}
+
+h1
+{
+    text-transform: capitalize;
+    font-size: 13px;
+    margin-bottom: 3px;
+    color: #cfcfcf;
+}
+.bienvenue
+{
+    padding: 10px 10px 10px 10px;
+    font-size: 10px;
+    background-color: White;
+    border: solid 1px gray;
+}
+
+.cssPager span
+{
+    background-color: #4f6b72;
+    font-size: 18px;
+}
+
+.cssPager td
+{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.gridView { width: 100%;}
+.grille { width: 100%;}
