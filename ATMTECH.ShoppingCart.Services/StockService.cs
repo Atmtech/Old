@@ -84,7 +84,8 @@ namespace ATMTECH.ShoppingCart.Services
                 DAOStock.CreateStock(new Stock
                 {
                     AdjustPrice = 0,
-                    Feature = stockTemplate.Description,
+                    FeatureFrench = stockTemplate.Description,
+                    FeatureEnglish = stockTemplate.Description,
                     Product = product,
                     InitialState = quantity,
                     Language = stockTemplate.Language,

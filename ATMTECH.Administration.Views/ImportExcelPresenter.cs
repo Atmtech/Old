@@ -74,7 +74,8 @@ namespace ATMTECH.Administration.Views
             product.CostPrice = Convert.ToDecimal(row["CostPrice"].ToString());
             product.Enterprise = enterprise;
             product.Weight = Convert.ToDecimal(row["Weight"].ToString());
-            product.ProductCategory = productCategory;
+            product.ProductCategoryFrench = productCategory;
+            product.ProductCategoryEnglish = productCategory;
             ProductService.Save(product);
         }
 

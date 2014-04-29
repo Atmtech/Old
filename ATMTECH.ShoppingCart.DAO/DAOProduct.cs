@@ -32,7 +32,8 @@ namespace ATMTECH.ShoppingCart.DAO
             {
                 product.Enterprise = DAOEnterprise.GetEnterprise(product.Enterprise.Id);
                 product.Supplier = DAOSupplier.GetSupplier(product.Supplier.Id);
-                product.ProductCategory = DAOProductCategory.GetProductCategory(product.ProductCategory.Id);
+                product.ProductCategoryEnglish = DAOProductCategory.GetProductCategory(product.ProductCategoryEnglish.Id);
+                product.ProductCategoryFrench = DAOProductCategory.GetProductCategory(product.ProductCategoryFrench.Id);
                 product.ProductFiles = DAOProductFile.GetProductFile(product.Id);
                 product.Stocks = DAOStock.GetProductStock(product.Id);    
             }
@@ -53,7 +54,7 @@ namespace ATMTECH.ShoppingCart.DAO
             criterias.Add(criteriaEnterprise);
             criterias.Add(IsActive());
 
-            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY, OrderByType = OrderBy.Type.Descending };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
             foreach (Product product in products)
@@ -80,7 +81,7 @@ namespace ATMTECH.ShoppingCart.DAO
 
             SetLanguage(criterias, CurrentLanguage);
 
-            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY, OrderByType = OrderBy.Type.Descending };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
             foreach (Product product in products)
@@ -107,7 +108,7 @@ namespace ATMTECH.ShoppingCart.DAO
 
             SetLanguage(criterias, CurrentLanguage);
 
-            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY, OrderByType = OrderBy.Type.Descending };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
             foreach (Product product in products)
@@ -120,7 +121,7 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             IList<Criteria> criterias = new List<Criteria>();
             Criteria criteriaEnterprise = new Criteria { Column = Product.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idEnterprise.ToString() };
-            Criteria criteriaProductCategory = new Criteria { Column = Product.PRODUCT_CATEGORY, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() };
+            Criteria criteriaProductCategory = new Criteria { Column = Product.PRODUCT_CATEGORY_FRENCH, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() };
 
             criterias.Add(criteriaProductCategory);
             criterias.Add(criteriaEnterprise);
@@ -128,7 +129,7 @@ namespace ATMTECH.ShoppingCart.DAO
 
             SetLanguage(criterias, CurrentLanguage);
 
-            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY, OrderByType = OrderBy.Type.Descending };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
             foreach (Product product in products)
@@ -166,7 +167,7 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             IList<Criteria> criterias = new List<Criteria>();
             Criteria criteriaEnterprise = new Criteria { Column = Product.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idEnterprise.ToString() };
-            Criteria criteriaProductCategory = new Criteria { Column = Product.PRODUCT_CATEGORY, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() };
+            Criteria criteriaProductCategory = new Criteria { Column = Product.PRODUCT_CATEGORY_FRENCH, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() };
 
             criterias.Add(criteriaEnterprise);
             criterias.Add(criteriaProductCategory);
@@ -174,7 +175,7 @@ namespace ATMTECH.ShoppingCart.DAO
 
             SetLanguage(criterias, CurrentLanguage);
 
-            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY, OrderByType = OrderBy.Type.Descending };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
 
             IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
@@ -193,7 +194,7 @@ namespace ATMTECH.ShoppingCart.DAO
             criterias.Add(criteriaEnterprise);
             criterias.Add(IsActive());
 
-            SetLanguage(criterias, CurrentLanguage);
+           // SetLanguage(criterias, CurrentLanguage);
 
             IList<Product> products = GetByCriteria(criterias);
             return products.Count;

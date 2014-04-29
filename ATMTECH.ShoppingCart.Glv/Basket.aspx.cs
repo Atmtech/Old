@@ -301,7 +301,13 @@ namespace ATMTECH.ShoppingCart.Glv
         {
             get { return Convert.ToInt32(ddlBilling.SelectedValue); }
         }
-
+        public bool IsPaypal
+        {
+            set
+            {
+                btnFinalizeOrderPaypal.Visible = value;
+            }
+        }
         public bool IsPaypalRequired
         {
             set

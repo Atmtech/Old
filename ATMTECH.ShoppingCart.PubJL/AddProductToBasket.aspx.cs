@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ATMTECH.Common.Constant;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Interface;
@@ -51,9 +52,19 @@ namespace ATMTECH.ShoppingCart.PubJL
                 lblIdent.Text = product.Ident;
                 lblName.Text = product.Name;
                 lblUnitPrice.Text = product.UnitPrice.ToString("C");
-                lblProductCategoryDescription.Text = product.ProductCategory.Description;
+
                 lblWeight.Text = product.Weight.ToString();
-                lblDescription.Text = product.Description;
+                switch (Presenter.CurrentLanguage)
+                {
+                    case LocalizationLanguage.FRENCH:
+                        lblProductCategoryDescription.Text = product.ProductCategoryFrench.Description;
+                        lblDescription.Text = product.DescriptionFrench;
+                        break;
+                    case LocalizationLanguage.ENGLISH:
+                        lblProductCategoryDescription.Text = product.ProductCategoryEnglish.Description;
+                        lblDescription.Text = product.DescriptionEnglish;
+                        break;
+                }
 
                 imgProductPrincipal.ImageUrl = product.PrincipalFileUrl;
                 var firstOrDefault = product.ProductFiles.FirstOrDefault(x => x.IsPrincipal);
@@ -157,7 +168,19 @@ namespace ATMTECH.ShoppingCart.PubJL
                     {
                         Stock dataItem = (Stock)e.Item.DataItem;
                         string id = dataItem.Id.ToString();
-                        string feature = dataItem.Feature;
+                        string feature = string.Empty;
+                        switch (Presenter.CurrentLanguage)
+                        {
+                            case LocalizationLanguage.FRENCH:
+                                feature = dataItem.FeatureFrench;
+                                break;
+                            case LocalizationLanguage.ENGLISH:
+                                feature = dataItem.FeatureEnglish;
+                                break;
+                        }
+
+
+                        
                         if (dataItem.AdjustPrice != 0)
                         {
                             feature += " (+" + dataItem.AdjustPrice.ToString("c") + ")";

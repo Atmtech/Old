@@ -13,7 +13,7 @@ namespace ATMTECH.ShoppingCart.Views.Interface
 
         IList<Address> ShippingAddress { set; }
         IList<Address> BillingAddress { set; }
-
+        bool IsPaypal { set; }
         Address PersonnalShippingAddress { set; }
         Address PersonnalBillingAddress { set; }
 

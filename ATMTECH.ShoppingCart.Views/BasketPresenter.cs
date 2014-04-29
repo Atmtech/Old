@@ -60,7 +60,7 @@ namespace ATMTECH.ShoppingCart.Views
                         RecalculateBasket();
                     }
 
-                    
+                    View.IsPaypal = View.CurrentOrder.Enterprise.IsPaypal;
                     View.IsPaypalRequired = View.CurrentOrder.Enterprise.IsPaypalRequired;
                     View.IsAskShipping = View.CurrentOrder.IsAskShipping;
                     View.IsOrderLocked = View.CurrentOrder.IsOrderLocked;

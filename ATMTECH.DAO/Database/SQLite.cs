@@ -297,7 +297,9 @@ namespace ATMTECH.DAO.Database
                 }
                 command.ExecuteScalar();
                 SendToTransactionLog(command);
+                command.Dispose();
             }
+            
         }
         public void BackupToXml(string zipFile, bool allTableFromDatabase)
         {

@@ -12,6 +12,6 @@ namespace ATMTECH.ShoppingCart.Entities
         public Order Order { get; set; }
         public int Transaction { get; set; }
 
-        public string ComboboxDescriptionUpdate { get { return Stock.Feature == null ? "" : Stock.Feature + " " + Order.Id + " " + Stock.Product.Name + " " + Stock.Product.Ident; } }
+        public string ComboboxDescriptionUpdate { get { return Stock.FeatureFrench == null ? "" : Stock.FeatureFrench + " " + Order.Id + " " + Stock.Product.Name + " " + Stock.Product.Ident; } }
     }
 }

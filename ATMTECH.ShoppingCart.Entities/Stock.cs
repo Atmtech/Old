@@ -14,11 +14,12 @@ namespace ATMTECH.ShoppingCart.Entities
         public int InitialState { get; set; }
         public int MinimumAccept { get; set; }
         public bool IsWarningOnLow { get; set; }
-        public string Feature { get; set; }
+        public string FeatureFrench { get; set; }
+        public string FeatureEnglish { get; set; }
         public decimal AdjustPrice { get; set; }
         public IList<StockTransaction> Transactions { get; set; }
         public bool IsWithoutStock { get; set; }
 
-        public string ComboboxDescriptionUpdate { get { return Product == null ? "" : Product.Name + " " + Feature + " " + Product.Ident; } }
+        public string ComboboxDescriptionUpdate { get { return Product == null ? "" : Product.Name + " " + FeatureFrench + " " + Product.Ident; } }
     }
 }

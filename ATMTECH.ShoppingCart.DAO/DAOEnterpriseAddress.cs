@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ATMTECH.Common.Context;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.ShoppingCart.DAO.Interface;
@@ -10,6 +11,13 @@ namespace ATMTECH.ShoppingCart.DAO
     public class DAOEnterpriseAddress : BaseDao<EnterpriseAddress, int>, IDAOEnterpriseAddress
     {
         public IDAOAddress DAOAddress { get; set; }
+        public string CurrentLanguage
+        {
+            get
+            {
+                return ContextSessionManager.Session["currentLanguage"] == null ? "fr" : ContextSessionManager.Session["currentLanguage"].ToString();
+            }
+        }
 
         public IList<Address> GetBillingAddress(Enterprise enterprise)
         {
@@ -18,6 +26,7 @@ namespace ATMTECH.ShoppingCart.DAO
             Criteria criteria2 = new Criteria() { Column = EnterpriseAddress.ADDRESS_TYPE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = EnterpriseAddress.CODE_ADRESS_TYPE_BILLING };
             criterias.Add(criteria1);
             criterias.Add(criteria2);
+            SetLanguage(criterias, CurrentLanguage);
             criterias.Add(IsActive());
 
             IList<Address> addresses = GetByCriteria(criterias).Select(enterpriseAddress => enterpriseAddress.Address).ToList();
@@ -32,6 +41,7 @@ namespace ATMTECH.ShoppingCart.DAO
             Criteria criteria2 = new Criteria() { Column = EnterpriseAddress.ADDRESS_TYPE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = EnterpriseAddress.CODE_ADRESS_TYPE_SHIPPING };
             criterias.Add(criteria1);
             criterias.Add(criteria2);
+            SetLanguage(criterias, CurrentLanguage);
             criterias.Add(IsActive());
 
             IList<Address> addresses = daoAddress.GetByCriteria(criterias).Select(enterpriseAddress => enterpriseAddress.Address).ToList();

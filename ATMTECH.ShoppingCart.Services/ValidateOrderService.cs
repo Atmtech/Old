@@ -47,7 +47,7 @@ namespace ATMTECH.ShoppingCart.Services
 
                     string productDescription = string.Format("{0} :: {1}",
                                                               ProductService.GetProduct(orderLine.Stock.Product.Id).ComboboxDescription,
-                                                              orderLine.Stock.Feature);
+                                                              orderLine.Stock.FeatureFrench + "<br>" + orderLine.Stock.FeatureEnglish);
 
                     string parameter = string.Format("{0} - {1}", productDescription,
                                                      DAOStockTransaction.GetCurrentStockStatus(orderLine.Stock));

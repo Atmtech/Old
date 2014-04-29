@@ -47,6 +47,8 @@ namespace ATMTECH.ShoppingCart.Views
             }
         }
 
+
+
         public string ReturnLanguage()
         {
             return LocalizationService.CurrentLanguage;
@@ -86,7 +88,7 @@ namespace ATMTECH.ShoppingCart.Views
 
             View.Enterprise = enterprise;
 
-            switch (LocalizationService.CurrentLanguage)
+            switch (CurrentLanguage)
             {
                 case LocalizationLanguage.FRENCH:
                     View.Welcome = enterprise.FrenchWelcome;

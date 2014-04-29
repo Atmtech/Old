@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Importer SQLITE vers mssql", "Importer SQLITE vers mssql.dtproj", "{5B338C13-8256-424F-8EEA-7F09C0800FD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B338C13-8256-424F-8EEA-7F09C0800FD4}.Development|Default.ActiveCfg = Development
+		{5B338C13-8256-424F-8EEA-7F09C0800FD4}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

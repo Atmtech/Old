@@ -7,7 +7,7 @@ namespace ATMTECH.ShoppingCart.Entities
     [Serializable]
     public class Product : BaseEntity
     {
-        public const string PRODUCT_CATEGORY = "ProductCategory";
+        public const string PRODUCT_CATEGORY_FRENCH = "ProductCategoryFrench";
         public const string ENTERPRISE = "Enterprise";
         public const string IDENT = "Ident";
         public const string NAME = "Name";
@@ -21,9 +21,16 @@ namespace ATMTECH.ShoppingCart.Entities
         public IList<ProductFile> ProductFiles { get; set; }
         public decimal Weight { get; set; }
         public Supplier Supplier { get; set; }
-        public ProductCategory ProductCategory { get; set; }
+       
         public string InternalIdent { get; set; }
         public bool IsNotOrderable { get; set; }
+
+        public string DescriptionEnglish { get; set; }
+        public string DescriptionFrench { get; set; }
+
+        public ProductCategory ProductCategoryEnglish { get; set; }
+        public ProductCategory ProductCategoryFrench { get; set; }
+
 
         public string ComboboxDescriptionUpdate { get { return Ident + " " + Name; } }
         public string PrincipalFileUrl

@@ -67,24 +67,6 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builder\CityBuilder.cs" />
-    <Compile Include="Builder\ShippingParameterBuilder.cs" />
-    <Compile Include="Builder\CountryBuilder.cs" />
-    <Compile Include="Builder\EnterpriseAddressBuilder.cs" />
-    <Compile Include="Builder\ProductFileBuilder.cs" />
-    <Compile Include="Builder\StockTransactionBuilder.cs" />
-    <Compile Include="Builder\AddressBuilder.cs" />
-    <Compile Include="Builder\CustomerBuilder.cs" />
-    <Compile Include="Builder\CustomerTypeBuilder.cs" />
-    <Compile Include="Builder\EnterpriseBuilder.cs" />
-    <Compile Include="Builder\OrderBuilder.cs" />
-    <Compile Include="Builder\OrderLineBuilder.cs" />
-    <Compile Include="Builder\ProductBuilder.cs" />
-    <Compile Include="Builder\ProductCategoryBuilder.cs" />
-    <Compile Include="Builder\StockBuilder.cs" />
-    <Compile Include="Builder\SupplierBuilder.cs" />
-    <Compile Include="Builder\TaxesBuilder.cs" />
-    <Compile Include="Builder\UserBuilder.cs" />
     <Compile Include="Services\ValidateCustomerServiceTest.cs" />
     <Compile Include="Services\CustomerServiceTest.cs" />
     <Compile Include="Base\Init.cs" />
@@ -158,6 +140,7 @@
     <None Include="Database\ShoppingCart.db3" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Builder\" />
     <Folder Include="Dao\" />
     <Folder Include="Presenters\" />
   </ItemGroup>

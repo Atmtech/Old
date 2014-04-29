@@ -322,7 +322,7 @@ namespace ATMTECH.ShoppingCart.Services
                                     ClientName = HttpUtility.HtmlDecode(orderLine.Order.Customer.User.FirstNameLastName),
                                     Enterprise = enterprise.Name,
                                     ProductId = orderLine.Stock.Product.Id,
-                                    Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.Name + " " + orderLine.Stock.Feature),
+                                    Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.Name + " " + orderLine.Stock.FeatureFrench),
                                     StockActualState = StockService.GetCurrentStockStatus(orderLine.Stock, dateStart, dateEnd),
                                     StockInitialState = orderLine.Stock.InitialState,
                                     UnitPrice = orderLine.Stock.Product.UnitPrice,
@@ -373,7 +373,7 @@ namespace ATMTECH.ShoppingCart.Services
                                     ClientName = HttpUtility.HtmlDecode(orderLine.Order.Customer.User.FirstNameLastName),
                                     Enterprise = enterprise.Name,
                                     ProductId = orderLine.Stock.Product.Id,
-                                    Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.Name + " " + orderLine.Stock.Feature),
+                                    Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.Name + " " + orderLine.Stock.FeatureFrench),
                                     UnitPriceOrderLine = orderLine.UnitPrice,
                                     FinalizedDate = orderLine.Order.FinalizedDate,
                                     DateStart = dateStart,
@@ -499,7 +499,7 @@ namespace ATMTECH.ShoppingCart.Services
                                 decemberSales += orderLine.Quantity;
                                 break;
                         }
-                        product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.Name + " " + orderLine.Stock.Feature);
+                        product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.Name + " " + orderLine.Stock.FeatureFrench);
                         unitPrice = orderLine.Stock.Product.UnitPrice;
                     }
 
@@ -535,7 +535,7 @@ namespace ATMTECH.ShoppingCart.Services
                 {
                     SalesByMonthReportLine salesByMonthReportLine = new SalesByMonthReportLine
                     {
-                        Product = stock.Product.Ident + " " + stock.Product.Name + " " + stock.Feature,
+                        Product = stock.Product.Ident + " " + stock.Product.Name + " " + stock.FeatureFrench,
                         Enterprise = enterprise.Name,
                         DateStart = dateStart,
                         DateEnd = dateEnd,
