@@ -4,6 +4,7 @@ using ATMTECH.Administration.Services.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
 using ATMTECH.DAO;
+using ATMTECH.DAO.Database;
 using ATMTECH.Entities;
 using ATMTECH.Services;
 using ATMTECH.Services.Interface;
@@ -139,6 +140,11 @@ namespace ATMTECH.Administration.Views
 
             reportParameter.AddDatasource("dsStockControl", stockControlReportLines);
             ReportService.SaveReport("StockControl.pdf", ReportService.GetReport(reportParameter));
+        }
+
+        public void Export()
+        {
+          
         }
     }
 }

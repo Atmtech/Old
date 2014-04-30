@@ -72,5 +72,10 @@ namespace ATMTECH.Administration
         {
             Presenter.GenerateStockControlReport();
         }
+
+        protected void lnkExportClick(object sender, EventArgs e)
+        {
+            Presenter.Export();
+        }
     }
 }
