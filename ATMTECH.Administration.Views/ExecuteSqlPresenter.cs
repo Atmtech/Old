@@ -17,7 +17,7 @@ namespace ATMTECH.Administration.Views
 
         public void ExecuteSql(string sql)
         {
-            View.ReturnExecuteSql = DatabaseService.ExecuteSql(sql);
+            View.ReturnExecuteSql = DatabaseService.ExecuteSql(sql, EnumDatabaseVendor.Mssql);
         }
     }
 
