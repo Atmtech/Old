@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SQLite;
+using System.Data.SqlClient;
 using ATMTECH.DAO.Interface;
 using ATMTECH.DAO.SessionManager;
 using ATMTECH.Services.Interface;
@@ -10,13 +11,15 @@ namespace ATMTECH.Services
     public class DatabaseService : IDatabaseService
     {
         public IDAOMessage DAOMessage { get; set; }
-        public string ExecuteSql(string sql)
+
+
+        public string ExecuteSql(string sql, EnumDatabaseVendor enumDatabaseVendor)
         {
             string html = string.Empty;
 
             if (sql.ToLower().IndexOf("select") >= 0)
             {
-                DataSet dataSet = ReturnDataSet(sql);
+                DataSet dataSet = ReturnDataSet(sql, enumDatabaseVendor);
 
                 if (dataSet.Tables[0].Rows.Count > 0)
                 {
@@ -36,13 +39,13 @@ namespace ATMTECH.Services
                         {
                             if (row.ItemArray[i].ToString().Length > 150)
                             {
-                                html += "<td>" + row.ItemArray[i].ToString().Substring(1,149) + "</td>";
+                                html += "<td>" + row.ItemArray[i].ToString().Substring(1, 149) + "</td>";
                             }
                             else
                             {
-                                html += "<td>" + row.ItemArray[i] + "</td>";    
+                                html += "<td>" + row.ItemArray[i] + "</td>";
                             }
-                            
+
                         }
                         html += "</tr>";
                     }
@@ -52,42 +55,88 @@ namespace ATMTECH.Services
             }
             else
             {
-                using (SQLiteCommand commandCreate = new SQLiteCommand(sql, (SQLiteConnection)DatabaseSessionManager.Session))
+                switch (enumDatabaseVendor)
                 {
-                    object retour = commandCreate.ExecuteScalar();
-                    if (retour != null)
-                    {
-                        html = retour.ToString();
-                    }
+                    case EnumDatabaseVendor.Sqlite:
+                        using (SQLiteCommand commandCreate = new SQLiteCommand(sql, (SQLiteConnection)DatabaseSessionManager.Session))
+                        {
+                            object retour = commandCreate.ExecuteScalar();
+                            if (retour != null)
+                            {
+                                html = retour.ToString();
+                            }
+                        }
+                        break;
+                    case EnumDatabaseVendor.Mssql:
+                        using (SqlCommand commandCreate = new SqlCommand(sql, (SqlConnection)DatabaseSessionManager.Session))
+                        {
+                            object retour = commandCreate.ExecuteScalar();
+                            if (retour != null)
+                            {
+                                html = retour.ToString();
+                            }
+                        }
+                        break;
                 }
             }
             return html;
         }
 
-        private DataSet ReturnDataSet(string sql)
+        private DataSet ReturnDataSet(string sql, EnumDatabaseVendor enumDatabaseVendor)
         {
             DataSet dataSet = new DataSet();
-            using (SQLiteDataAdapter sqlDataAdapter = new SQLiteDataAdapter())
+
+            switch (enumDatabaseVendor)
             {
-                using (SQLiteCommand sqlCommand = new SQLiteCommand(sql, (SQLiteConnection)DatabaseSessionManager.Session))
-                {
-                    DateTime startDate = DateTime.Now;
-                    string start = DateTime.Now + " " + DateTime.Now.Millisecond;
+                case EnumDatabaseVendor.Sqlite:
+                    using (SQLiteDataAdapter sqlDataAdapter = new SQLiteDataAdapter())
+                    {
+                        using (SQLiteCommand sqlCommand = new SQLiteCommand(sql, (SQLiteConnection)DatabaseSessionManager.Session))
+                        {
+                            DateTime startDate = DateTime.Now;
+                            string start = DateTime.Now + " " + DateTime.Now.Millisecond;
 
-                    sqlCommand.CommandType = CommandType.Text;
-                    sqlDataAdapter.SelectCommand = sqlCommand;
+                            sqlCommand.CommandType = CommandType.Text;
+                            sqlDataAdapter.SelectCommand = sqlCommand;
 
-                    sqlDataAdapter.Fill(dataSet);
+                            sqlDataAdapter.Fill(dataSet);
 
-                    DateTime endDate = DateTime.Now;
-                    string end = DateTime.Now + " " + DateTime.Now.Millisecond;
-                    TimeSpan diffResult = endDate - startDate;
+                            DateTime endDate = DateTime.Now;
+                            string end = DateTime.Now + " " + DateTime.Now.Millisecond;
+                            TimeSpan diffResult = endDate - startDate;
 
-                    // Show sql debug
-                    Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
-                                           diffResult.Milliseconds.ToString() + "ms) :: " + sql);
-                }
+                            // Show sql debug
+                            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
+                                                   diffResult.Milliseconds.ToString() + "ms) :: " + sql);
+                        }
+                    }
+                    break;
+                case EnumDatabaseVendor.Mssql:
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                    {
+                        using (SqlCommand sqlCommand = new SqlCommand(sql, (SqlConnection)DatabaseSessionManager.Session))
+                        {
+                            DateTime startDate = DateTime.Now;
+                            string start = DateTime.Now + " " + DateTime.Now.Millisecond;
+
+                            sqlCommand.CommandType = CommandType.Text;
+                            sqlDataAdapter.SelectCommand = sqlCommand;
+
+                            sqlDataAdapter.Fill(dataSet);
+
+                            DateTime endDate = DateTime.Now;
+                            string end = DateTime.Now + " " + DateTime.Now.Millisecond;
+                            TimeSpan diffResult = endDate - startDate;
+
+                            // Show sql debug
+                            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
+                                                   diffResult.Milliseconds.ToString() + "ms) :: " + sql);
+                        }
+                    }
+                   
+                    break;
             }
+
             return dataSet;
         }
 
