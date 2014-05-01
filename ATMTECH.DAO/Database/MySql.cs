@@ -38,6 +38,12 @@ namespace ATMTECH.DAO.Database
             sqlDataAdapter.Fill(dataSet);
             return dataSet.Tables[0].Columns;
         }
+
+        public DataSet ReturnDataSet(string sql)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataSet ReturnDataSet(PagingOperation pagingOperation, OrderOperation orderOperation)
         {
             return ReturnDataSet("", null, pagingOperation, orderOperation);
@@ -69,6 +75,11 @@ namespace ATMTECH.DAO.Database
             // Show sql debug
             Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " + diffResult.Milliseconds.ToString() + "ms) :: " + sql);
             return dataSet;
+        }
+
+        public DataSet ReturnDataSetCount()
+        {
+            throw new NotImplementedException();
         }
 
         public DataSet ReturnDataSet(string where, IList<Criteria> criterias, PagingOperation pagingOperation, OrderOperation orderOperation)

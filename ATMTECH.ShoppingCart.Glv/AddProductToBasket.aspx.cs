@@ -50,7 +50,11 @@ namespace ATMTECH.ShoppingCart.Glv
                 Product product = (Product)Session["Product"];
                 lblCostPrice.Text = product.CostPrice.ToString();
                 lblIdent.Text = product.Ident;
-                lblName.Text = product.Name;
+                string name = Session["currentLanguage"].ToString().Equals("fr")
+                                    ? product.NameFrench
+                                    : product.NameEnglish;
+
+                lblName.Text = name;
                 lblUnitPrice.Text = product.UnitPrice.ToString("C");
                 
                 lblWeight.Text = product.Weight.ToString();

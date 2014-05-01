@@ -13,7 +13,8 @@ namespace ATMTECH.ShoppingCart.Entities
         public const string NAME = "Name";
 
         public string Ident { get; set; }
-        public string Name { get; set; }
+        public string NameFrench { get; set; }
+        public string NameEnglish { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal CostPrice { get; set; }
         public Enterprise Enterprise { get; set; }
@@ -32,7 +33,7 @@ namespace ATMTECH.ShoppingCart.Entities
         public ProductCategory ProductCategoryFrench { get; set; }
 
 
-        public string ComboboxDescriptionUpdate { get { return Ident + " " + Name; } }
+        public string ComboboxDescriptionUpdate { get { return Ident + " " + NameFrench; } }
         public string PrincipalFileUrl
         {
             get

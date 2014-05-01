@@ -43,7 +43,10 @@ namespace ATMTECH.ShoppingCart.PubJL
                         {
                             string header = "<a href='AddProductToBasket.aspx?" + PagesId.PRODUCT_ID + "=" + product.Id + "'><div class='tile double-vertical double image outline-color-white'>";
                             string image = "<div class='tile-content'><img src='" + product.PrincipalFileUrl + "'></div>";
-                            string productDisplay = product.Ident + " " + product.Name + " " + product.UnitPrice.ToString("C");
+                            string name = Session["currentLanguage"].ToString().Equals("fr")
+                                     ? product.NameFrench
+                                     : product.NameEnglish;
+                            string productDisplay = product.Ident + " " + name + " " + product.UnitPrice.ToString("C");
                             string brand = "<div class='brand bg-color-button-product' style='height:45px;width:500px;'><div style='font-size:12px;padding: 3px 3px 3px 3px;font-weight:bold;'>" + Utils.Web.Pages.RemoveHtmlTag(productDisplay) + "</div></div>";
                             string footer = "</div></a>";
                             Literal literal = new Literal { Text = header + image + brand + footer };

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Web;
 using ATMTECH.DAO.SessionManager;
+using ATMTECH.Entities;
 
 namespace ATMTECH.DAO.Database
 {
@@ -14,6 +17,20 @@ namespace ATMTECH.DAO.Database
         public SqlConnection CurrentDatabaseConnection { get { return (SqlConnection)DatabaseSessionManager.Session; } }
         public Model<TModel, TId> Model { get { return new Model<TModel, TId>(); } }
         public DatabaseOperation<TModel, TId> DatabaseOperation { get { return new DatabaseOperation<TModel, TId>(); } }
+        public User AuthenticateUser
+        {
+            get
+            {
+                if (HttpContext.Current != null)
+                {
+                    if (HttpContext.Current.Session["Internal_LoggedUser"] != null)
+                    {
+                        return (User)HttpContext.Current.Session["Internal_LoggedUser"];
+                    }
+                }
+                return null;
+            }
+        }
 
         public const string DATE_MODIFIED_COLUMN = "DateModified";
         public const string DATE_CREATED_COLUMN = "DateCreated";
@@ -24,32 +41,92 @@ namespace ATMTECH.DAO.Database
         public const string SQL_UPDATE = "UPDATE [{0}] SET {1} WHERE {3} = {2} ";
         public const string SQL_PAGING = "LIMIT {0},{1}";
         public const string SQL_ORDER_BY = "ORDER BY [{0}] {1} ";
-        public const string SQL_RETURN_COLUMN = "SELECT top 1 * FROM {0}";
+        public const string SQL_RETURN_COLUMN = "SELECT top 1 * FROM [{0}]";
         public const string SQL_MAX = "SELECT MAX({0}) FROM [{1}]";
-        public const string SQL_COUNT = "SELECT COUNT() as counts FROM {0}";
+        public const string SQL_COUNT = "SELECT COUNT() as counts FROM [{0}]";
 
         public DataColumnCollection ReturnAllColumnNameFromTable(string table)
         {
             string sql = string.Format(SQL_RETURN_COLUMN, table);
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection);
-            sqlCommand.CommandType = CommandType.Text;
-            sqlDataAdapter.SelectCommand = sqlCommand;
             DataSet dataSet = new DataSet();
-            sqlDataAdapter.Fill(dataSet);
+            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+            {
+                SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection)
+                    {
+                        Connection = CurrentDatabaseConnection,
+                        CommandType = CommandType.Text
+                    };
+
+                sqlDataAdapter.SelectCommand = sqlCommand;
+
+                sqlDataAdapter.Fill(dataSet);
+            }
             return dataSet.Tables[0].Columns;
+        }
+        public DataSet ReturnDataSet(string sql)
+        {
+            DataSet dataSet = new DataSet();
+            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+            {
+                using (SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection))
+                {
+                    DateTime startDate = DateTime.Now;
+                    string start = DateTime.Now + " " + DateTime.Now.Millisecond;
+
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlDataAdapter.SelectCommand = sqlCommand;
+
+                    sqlDataAdapter.Fill(dataSet);
+
+                    DateTime endDate = DateTime.Now;
+                    string end = DateTime.Now + " " + DateTime.Now.Millisecond;
+                    TimeSpan diffResult = endDate - startDate;
+
+                    // Show sql debug
+                    Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
+                                           diffResult.Milliseconds.ToString() + "ms) :: " + sql);
+                }
+            }
+            return dataSet;
         }
         public DataSet ReturnDataSet(PagingOperation pagingOperation, OrderOperation orderOperation)
         {
             return ReturnDataSet("", null, pagingOperation, orderOperation);
+        }
+        public DataSet ReturnDataSetMax(string columnName)
+        {
+            // Check each property if exist against Datarow
+            TModel model = (TModel)Activator.CreateInstance(typeof(TModel), null);
+            Type type = model.GetType();
+            string tableName = DatabaseOperation.ReturnTableName(type);
+            string sql = string.Format(SQL_COUNT, tableName);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection);
+
+
+            DateTime startDate = DateTime.Now;
+            string start = DateTime.Now + " " + DateTime.Now.Millisecond;
+
+            sqlCommand.CommandType = CommandType.Text;
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            DataSet dataSet = new DataSet();
+            sqlDataAdapter.Fill(dataSet);
+
+            DateTime endDate = DateTime.Now;
+            string end = DateTime.Now + " " + DateTime.Now.Millisecond;
+            TimeSpan diffResult = endDate - startDate;
+
+            // Show sql debug
+            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " + diffResult.Milliseconds.ToString() + "ms) :: " + sql);
+            return dataSet;
         }
         public DataSet ReturnDataSetCount()
         {
             // Check each property if exist against Datarow
             TModel model = (TModel)Activator.CreateInstance(typeof(TModel), null);
             Type type = model.GetType();
-
-            string sql = string.Format(SQL_COUNT, DatabaseOperation.ReturnTableName(type));
+            string tableName = DatabaseOperation.ReturnTableName(type);
+            string sql = string.Format(SQL_COUNT, tableName);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection);
 
@@ -68,37 +145,6 @@ namespace ATMTECH.DAO.Database
 
             // Show sql debug
             Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " + diffResult.Milliseconds.ToString() + "ms) :: " + sql);
-
-            return dataSet;
-        }
-
-
-        public DataSet ReturnDataSetMax(string columnName)
-        {
-            // Check each property if exist against Datarow
-            TModel model = (TModel)Activator.CreateInstance(typeof(TModel), null);
-            Type type = model.GetType();
-
-            string sql = string.Format(SQL_MAX, columnName, DatabaseOperation.ReturnTableName(type));
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection);
-
-
-            DateTime startDate = DateTime.Now;
-            string start = DateTime.Now + " " + DateTime.Now.Millisecond;
-
-            sqlCommand.CommandType = CommandType.Text;
-            sqlDataAdapter.SelectCommand = sqlCommand;
-            DataSet dataSet = new DataSet();
-            sqlDataAdapter.Fill(dataSet);
-
-            DateTime endDate = DateTime.Now;
-            string end = DateTime.Now + " " + DateTime.Now.Millisecond;
-            TimeSpan diffResult = endDate - startDate;
-
-            // Show sql debug
-            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " + diffResult.Milliseconds.ToString() + "ms) :: " + sql);
-
             return dataSet;
         }
         public DataSet ReturnDataSet(string where, IList<Criteria> criterias, PagingOperation pagingOperation, OrderOperation orderOperation)
@@ -107,36 +153,55 @@ namespace ATMTECH.DAO.Database
             Type type = model.GetType();
 
             var sql = DatabaseOperation.ConstructSqlFromModel(@where, pagingOperation, orderOperation, type);
-
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection);
-
-
-            if (criterias != null && criterias.Count > 0)
-            {
-                foreach (Criteria criteria in criterias)
-                {
-                    sqlCommand.Parameters.Add(criteria.Operator == DatabaseOperator.OPERATOR_LIKE
-                                                 ? new SqlParameter(criteria.Column, "%" + criteria.Value + "%")
-                                                 : new SqlParameter(criteria.Column, criteria.Value));
-                }
-
-            }
-
-            DateTime startDate = DateTime.Now;
-            string start = DateTime.Now + " " + DateTime.Now.Millisecond;
-
-            sqlCommand.CommandType = CommandType.Text;
-            sqlDataAdapter.SelectCommand = sqlCommand;
             DataSet dataSet = new DataSet();
-            sqlDataAdapter.Fill(dataSet);
+            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+            {
+                using (SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection))
+                {
+                    if (criterias != null && criterias.Count > 0)
+                    {
+                        foreach (Criteria criteria in criterias)
+                        {
+                            if (criteria.ClearText)
+                            {
+                                sqlCommand.Parameters.Add(new SqlParameter(criteria.Column, "'" + criteria.Value + "'"));
+                            }
+                            else if (criteria.Operator == DatabaseOperator.OPERATOR_LIKE)
+                            {
+                                sqlCommand.Parameters.Add(new SqlParameter(criteria.Column,
+                                                                              "%" + criteria.Value + "%"));
+                            }
+                            //else if (criteria.DbType == DbType.DateTime)
+                            //{
+                            //    sqlCommand.Parameters.Add(new SqlParameter(criteria.Column, criteria.SqlDbType, 1,criteria.Value));
+                            //}
+                            else
+                            {
+                                sqlCommand.Parameters.Add(new SqlParameter(criteria.Column, criteria.Value));
+                            }
+                        }
 
-            DateTime endDate = DateTime.Now;
-            string end = DateTime.Now + " " + DateTime.Now.Millisecond;
-            TimeSpan diffResult = endDate - startDate;
+                    }
 
-            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " + diffResult.Milliseconds.ToString() + "ms) :: " + sql);
+                    DateTime startDate = DateTime.Now;
+                    string start = DateTime.Now + " " + DateTime.Now.Millisecond;
 
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlDataAdapter.SelectCommand = sqlCommand;
+
+                    sqlDataAdapter.Fill(dataSet);
+
+                    DateTime endDate = DateTime.Now;
+                    string end = DateTime.Now + " " + DateTime.Now.Millisecond;
+                    TimeSpan diffResult = endDate - startDate;
+
+                    // Show sql debug
+                    Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
+                                           diffResult.Milliseconds.ToString() + "ms) :: " + sql);
+
+                    //DatabaseSessionManager.
+                }
+            }
             return dataSet;
         }
         public int InsertSql(TModel model)
@@ -144,57 +209,77 @@ namespace ATMTECH.DAO.Database
             int rtn = 0;
             Type type = model.GetType();
             string tableName = DatabaseOperation.ReturnTableName(type);
+
             string sql = string.Format(SQL_INSERT, tableName, DatabaseOperation.ReturnColumnInsert(model), DatabaseOperation.ReturnValueInsert(model));
+
             using (SqlCommand command = new SqlCommand(sql, CurrentDatabaseConnection))
             {
                 PropertyInfo[] properties = type.GetProperties();
                 foreach (var propertyInfo in properties)
                 {
-                    if (propertyInfo.Name == IS_ACTIVE)
+                    if (sql.IndexOf(propertyInfo.Name) >= 0)
                     {
-                        // Active = true;
-                        command.Parameters.Add(new SqlParameter(propertyInfo.Name, "1"));
-                    }
-                    else
-                    {
-
-                        //Detect DateModified columns
-                        if (propertyInfo.Name == DATE_CREATED_COLUMN)
+                        if (propertyInfo.Name == IS_ACTIVE)
                         {
-                            command.Parameters.Add(new SqlParameter(propertyInfo.Name, DateTime.Now.ToString()));
+                            // Active = true;
+                            command.Parameters.Add(new SqlParameter(propertyInfo.Name, "1"));
                         }
                         else
                         {
+
+
                             if (propertyInfo.PropertyType.Namespace == "System")
                             {
-                                //SqlDateTime test = DateTime.Now;
                                 object value = propertyInfo.GetValue(model, null);
-                                if (value != null)
+                                command.Parameters.Add(value == null
+                                                           ? new SqlParameter(propertyInfo.Name, DBNull.Value)
+                                                           : new SqlParameter(propertyInfo.Name, value));
+                            }
+                            else
+                            {
+                                if (propertyInfo.PropertyType.Name.ToLower() != "ilist`1")
                                 {
-                                    command.Parameters.Add(new SqlParameter(propertyInfo.Name, value.ToString()));
-                                }
 
+                                    object value = Model.ExtractValuePropertyPath(model, propertyInfo.Name +
+                                                                                         "." +
+                                                                                         Model.GetIdKeyColumnFromModel());
+
+                                    command.Parameters.Add(value == null
+                                                               ? new SqlParameter(propertyInfo.Name, DBNull.Value)
+                                                               : new SqlParameter(propertyInfo.Name, value));
+                                }
                             }
                         }
                     }
+
                 }
-
+                SendToTransactionLog(command);
                 command.ExecuteNonQuery();
-
-
                 command.CommandText = "SELECT IDENT_CURRENT('" + tableName + "')";
                 rtn = Convert.ToInt32(command.ExecuteScalar());
-
             }
+
 
             return rtn;
         }
         public void ExecuteSql(string sql)
         {
+
+            DateTime startDate = DateTime.Now;
+            string start = DateTime.Now + " " + DateTime.Now.Millisecond;
+
             using (SqlCommand command = new SqlCommand(sql, CurrentDatabaseConnection))
             {
                 command.ExecuteScalar();
             }
+
+            DateTime endDate = DateTime.Now;
+            string end = DateTime.Now + " " + DateTime.Now.Millisecond;
+            TimeSpan diffResult = endDate - startDate;
+
+            // Show sql debug
+            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
+                                   diffResult.Milliseconds.ToString() + "ms) :: " + sql);
         }
         public void UpdateSql(TModel model, string id)
         {
@@ -206,33 +291,35 @@ namespace ATMTECH.DAO.Database
                 PropertyInfo[] properties = type.GetProperties();
                 foreach (var propertyInfo in properties)
                 {
-                    //Detect DateModified columns
-                    if (propertyInfo.Name == DATE_MODIFIED_COLUMN)
-                    {
-                        command.Parameters.Add(new SqlParameter(propertyInfo.Name, DateTime.Now.ToString()));
-                    }
-                    else
+                    if (sql.IndexOf(propertyInfo.Name) >= 0)
                     {
                         if (propertyInfo.PropertyType.Namespace == "System")
                         {
-                            command.Parameters.Add(propertyInfo.GetValue(model, null) == null
-                                                       ? new SqlParameter(propertyInfo.Name, "")
-                                                       : new SqlParameter(propertyInfo.Name,
-                                                                          propertyInfo.GetValue(model, null)));
+                            object value = propertyInfo.GetValue(model, null);
+                            command.Parameters.Add(value == null
+                                                       ? new SqlParameter(propertyInfo.Name, DBNull.Value)
+                                                       : new SqlParameter(propertyInfo.Name, value));
                         }
                         else
                         {
                             if (propertyInfo.PropertyType.Name.ToLower() != "ilist`1")
                             {
-                                command.Parameters.Add(new SqlParameter(propertyInfo.Name, Model.ExtractValuePropertyPath(model, propertyInfo.Name + "." + id)));
+                                object value = Model.ExtractValuePropertyPath(model, propertyInfo.Name +
+                                                                                         "." +
+                                                                                         Model.GetIdKeyColumnFromModel());
+
+                                command.Parameters.Add(value == null
+                                                           ? new SqlParameter(propertyInfo.Name, DBNull.Value)
+                                                           : new SqlParameter(propertyInfo.Name, value));
                             }
                         }
                     }
                 }
                 command.ExecuteScalar();
+                SendToTransactionLog(command);
+                command.Dispose();
             }
         }
-
         public void BackupToXml(string zipFile, bool allTableFromDatabase)
         {
             string path = Path.GetDirectoryName(zipFile);
@@ -276,15 +363,44 @@ namespace ATMTECH.DAO.Database
 
         }
 
+        private void SendToTransactionLog(SqlCommand commandInit)
+        {
+            if (AuthenticateUser != null)
+            {
+                using (SqlCommand command = new SqlCommand("IF  NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TransactionLog]') AND type in (N'U')) create table TransactionLog (Sql varchar(8000),Parameter varchar(8000), [User] int, DateExecute datetime)", CurrentDatabaseConnection))
+                {
+                    command.ExecuteScalar();
+                }
+
+
+                string parameter = string.Empty;
+                if (commandInit.Parameters != null)
+                {
+                    foreach (SqlParameter sqLiteParameter in commandInit.Parameters)
+                    {
+                        if (sqLiteParameter.Value != null)
+                        { parameter += sqLiteParameter.ParameterName + "=" + sqLiteParameter.Value.ToString().Replace("'", "_") + Environment.NewLine; }
+
+                    }
+                }
+                string sqlInsert = string.Format("INSERT INTO TransactionLog (Sql,Parameter, [User], DateExecute) VALUES ('{0}','" + parameter + "'," + AuthenticateUser.Id + ",getdate())", commandInit.CommandText);
+                using (SqlCommand command = new SqlCommand(sqlInsert, CurrentDatabaseConnection))
+                {
+                    command.ExecuteScalar();
+                }
+            }
+        }
         private IList<string> GetAllTable()
         {
             IList<string> tables = new List<string>();
             DataSet datasetReturn = new DataSet();
-            SqlDataAdapter dataAdapterListBackup = new SqlDataAdapter("Select name from sys.sysobjects where xtype = 'U'", CurrentDatabaseConnection);
-            dataAdapterListBackup.Fill(datasetReturn, "BackupXML");
-            foreach (DataRow dataRow in datasetReturn.Tables[0].Rows)
+            using (SqlDataAdapter dataAdapterListBackup = new SqlDataAdapter("Select name from sys.sysobjects where xtype = 'U'", CurrentDatabaseConnection))
             {
-                tables.Add(dataRow.ItemArray[0].ToString());
+                dataAdapterListBackup.Fill(datasetReturn, "BackupXML");
+                foreach (DataRow dataRow in datasetReturn.Tables[0].Rows)
+                {
+                    tables.Add(dataRow.ItemArray[0].ToString());
+                }
             }
             return tables;
         }

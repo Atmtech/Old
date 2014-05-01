@@ -73,10 +73,8 @@ namespace ATMTECH.Web.Services
                     logVisit.CityName = doc.GetElementsByTagName("City")[0].InnerText;
                     logVisit.Latitude = doc.GetElementsByTagName("Latitude")[0].InnerText;
                     logVisit.Longitude = doc.GetElementsByTagName("Longitude")[0].InnerText;
+                    DAOLogVisit.UpdateLogVisit(logVisit);
                 }
-
-                DAOLogVisit.UpdateLogVisit(logVisit);
-
             }
             catch (System.Exception exception)
             {

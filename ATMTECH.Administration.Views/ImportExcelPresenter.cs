@@ -69,7 +69,8 @@ namespace ATMTECH.Administration.Views
             product.DateModified = DateTime.Now;
             product.Language = row["Language"].ToString();
             product.Ident = row["Ident"].ToString();
-            product.Name = row["Name"].ToString();
+            product.NameFrench = row["NameFrench"].ToString();
+            product.NameEnglish = row["NameEnglish"].ToString();
             product.UnitPrice = Convert.ToDecimal(row["UnitPrice"].ToString());
             product.CostPrice = Convert.ToDecimal(row["CostPrice"].ToString());
             product.Enterprise = enterprise;

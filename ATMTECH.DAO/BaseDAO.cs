@@ -273,6 +273,7 @@ namespace ATMTECH.DAO
         public string Operator { get; set; }
         public string Value { get; set; }
         public DbType DbType { get; set; }
+        public SqlDbType SqlDbType { get; set; }
         public bool ClearText { get; set; }
     }
     public static class OrderBy

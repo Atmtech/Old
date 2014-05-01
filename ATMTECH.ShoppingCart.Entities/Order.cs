@@ -25,8 +25,12 @@ namespace ATMTECH.ShoppingCart.Entities
         public Customer Customer { get; set; }
         public IList<OrderLine> OrderLines { get; set; }
         public int OrderStatus { get; set; }
-        public DateTime ShippingDate { get; set; }
-        public DateTime FinalizedDate { get; set; }
+
+
+
+        public DateTime? ShippingDate { get; set; }
+        
+        public DateTime? FinalizedDate { get; set; }
         public Address ShippingAddress { get; set; }
         public Address BillingAddress { get; set; }
         public string ShippingAttention { get; set; }

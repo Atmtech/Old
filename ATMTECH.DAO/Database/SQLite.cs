@@ -50,10 +50,12 @@ namespace ATMTECH.DAO.Database
             DataSet dataSet = new DataSet();
             using (SQLiteDataAdapter sqlDataAdapter = new SQLiteDataAdapter())
             {
-                SQLiteCommand sqlCommand = new SQLiteCommand(sql, CurrentDatabaseConnection);
+                SQLiteCommand sqlCommand = new SQLiteCommand(sql, CurrentDatabaseConnection)
+                    {
+                        Connection = CurrentDatabaseConnection,
+                        CommandType = CommandType.Text
+                    };
 
-                sqlCommand.Connection = CurrentDatabaseConnection;
-                sqlCommand.CommandType = CommandType.Text;
                 sqlDataAdapter.SelectCommand = sqlCommand;
 
                 sqlDataAdapter.Fill(dataSet);
@@ -299,7 +301,6 @@ namespace ATMTECH.DAO.Database
                 SendToTransactionLog(command);
                 command.Dispose();
             }
-            
         }
         public void BackupToXml(string zipFile, bool allTableFromDatabase)
         {

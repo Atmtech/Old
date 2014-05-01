@@ -26,12 +26,38 @@ namespace ATMTECH.Entities
         public const string DATE_CREATED = "DateCreated";
         public const string DATE_MODIFIED = "DateModified";
 
+        private DateTime? dateCreated = null;
+        private DateTime? dateModified = null;
+
         [Category("UniqueKey")]
         public int Id { get; set; }
         public string Description { get; set; }
         public bool IsActive { get; set; }
-        public DateTime DateModified { get; set; }
-        public DateTime DateCreated { get; set; }
+
+        public DateTime DateModified
+        {
+            get
+            {
+                return dateModified.HasValue
+                   ? dateModified.Value
+                   : DateTime.Now;
+            }
+
+            set { dateModified = value; }
+        }
+        public DateTime DateCreated
+        {
+            get
+            {
+                return dateCreated.HasValue
+                   ? dateCreated.Value
+                   : DateTime.Now;
+            }
+
+            set { dateCreated = value; }
+        }
+
+        
         public string Language { get; set; }
         public int OrderId { get; set; }
         public string Search { get; set; }

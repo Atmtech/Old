@@ -16,7 +16,7 @@ namespace ATMTECH.ShoppingCart.Entities
 
         public string ComboboxDescriptionUpdate
         {
-            get { return Stock == null ? "" : Stock.Product == null ? "" : Stock.Product.Name + "-" + Stock.FeatureFrench; }
+            get { return Stock == null ? "" : Stock.Product == null ? "" : Stock.Product.NameFrench + "-" + Stock.FeatureFrench; }
         }
     }
 }

@@ -30,10 +30,10 @@
                             <div style="float: left; padding-left: 10px;">
                                 <asp:Label runat="server" ID="lblIdent" Text='<%#Eval("Stock.Product.Ident")%>'></asp:Label>
                                 <br />
-                                <asp:Label runat="server" ID="lblProductName" Text='<%#Eval("Stock.Product.Name")%>'
+                                <asp:Label runat="server" ID="lblProductName" Text='<%# Session["currentLanguage"].ToString().Equals("fr") ?  Eval("Stock.Product.NameFrench") : Eval("Stock.Product.NameEnglish")%>'
                                     CssClass="basketProductName"></asp:Label>
                                 <br />
-                                <asp:Label runat="server" ID="lblStockFeature" Text='<%# Eval("Stock.Feature")  %>'></asp:Label>
+                                <asp:Label runat="server" ID="lblStockFeature" Text='<%# Session["currentLanguage"].ToString().Equals("fr") ?  Eval("Stock.FeatureFrench") : Eval("Stock.FeatureEnglish")  %>'></asp:Label>
 
                                 <asp:Label runat="server" ID="lblAdjustPrice" Text='<%# "( +" + Eval("Stock.AdjustPrice","{0:c}") + ")"  %>' Visible='<%#  Convert.ToDecimal(Eval("Stock.AdjustPrice")) > 0 %>'></asp:Label>
                             </div>

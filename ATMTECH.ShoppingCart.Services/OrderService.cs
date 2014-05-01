@@ -314,24 +314,27 @@ namespace ATMTECH.ShoppingCart.Services
 
             foreach (OrderLine orderLine in orderLines)
             {
-                SalesReportLine salesReportLine = new SalesReportLine
-                                {
-                                    OrderId = orderLine.Order.Id,
-                                    Quantity = orderLine.Quantity,
-                                    Total = orderLine.SubTotal,
-                                    ClientName = HttpUtility.HtmlDecode(orderLine.Order.Customer.User.FirstNameLastName),
-                                    Enterprise = enterprise.Name,
-                                    ProductId = orderLine.Stock.Product.Id,
-                                    Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.Name + " " + orderLine.Stock.FeatureFrench),
-                                    StockActualState = StockService.GetCurrentStockStatus(orderLine.Stock, dateStart, dateEnd),
-                                    StockInitialState = orderLine.Stock.InitialState,
-                                    UnitPrice = orderLine.Stock.Product.UnitPrice,
-                                    UnitPriceOrderLine = orderLine.UnitPrice,
-                                    FinalizedDate = orderLine.Order.FinalizedDate,
-                                    DateStart = dateStart,
-                                    DateEnd = dateEnd
-                                };
-                salesReportLines.Add(salesReportLine);
+                if (orderLine.Order.FinalizedDate != null)
+                {
+                    SalesReportLine salesReportLine = new SalesReportLine
+                        {
+                            OrderId = orderLine.Order.Id,
+                            Quantity = orderLine.Quantity,
+                            Total = orderLine.SubTotal,
+                            ClientName = HttpUtility.HtmlDecode(orderLine.Order.Customer.User.FirstNameLastName),
+                            Enterprise = enterprise.Name,
+                            ProductId = orderLine.Stock.Product.Id,
+                            Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.NameFrench + " " + orderLine.Stock.FeatureFrench),
+                            StockActualState = StockService.GetCurrentStockStatus(orderLine.Stock, dateStart, dateEnd),
+                            StockInitialState = orderLine.Stock.InitialState,
+                            UnitPrice = orderLine.Stock.Product.UnitPrice,
+                            UnitPriceOrderLine = orderLine.UnitPrice,
+                            FinalizedDate = (DateTime) orderLine.Order.FinalizedDate,
+                            DateStart = dateStart,
+                            DateEnd = dateEnd
+                        };
+                    salesReportLines.Add(salesReportLine);
+                }
             }
 
             salesReportLines = RemoveLinkedStock(salesReportLines);
@@ -365,22 +368,25 @@ namespace ATMTECH.ShoppingCart.Services
                         {
                             if (orderLine.Stock.Id == stock.Id)
                             {
-                                SalesByOrderInformationReportLine salesByOrderInformationReportLine = new SalesByOrderInformationReportLine
+                                if (orderLine.Order.FinalizedDate != null)
                                 {
-                                    OrderId = orderLine.Order.Id,
-                                    Quantity = orderLine.Quantity,
-                                    SubTotal = orderLine.SubTotal,
-                                    ClientName = HttpUtility.HtmlDecode(orderLine.Order.Customer.User.FirstNameLastName),
-                                    Enterprise = enterprise.Name,
-                                    ProductId = orderLine.Stock.Product.Id,
-                                    Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.Name + " " + orderLine.Stock.FeatureFrench),
-                                    UnitPriceOrderLine = orderLine.UnitPrice,
-                                    FinalizedDate = orderLine.Order.FinalizedDate,
-                                    DateStart = dateStart,
-                                    DateEnd = dateEnd,
-                                    OrderInformation = enumOrderInformations.FirstOrDefault(x => x.Code == orderLine.Order.OrderInformation1).Description + " - " + enumOrderInformations.FirstOrDefault(x => x.Code == orderLine.Order.OrderInformation2).Description
-                                };
-                                salesReportLines.Add(salesByOrderInformationReportLine);
+                                    SalesByOrderInformationReportLine salesByOrderInformationReportLine = new SalesByOrderInformationReportLine
+                                        {
+                                            OrderId = orderLine.Order.Id,
+                                            Quantity = orderLine.Quantity,
+                                            SubTotal = orderLine.SubTotal,
+                                            ClientName = HttpUtility.HtmlDecode(orderLine.Order.Customer.User.FirstNameLastName),
+                                            Enterprise = enterprise.Name,
+                                            ProductId = orderLine.Stock.Product.Id,
+                                            Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.NameFrench + " " + orderLine.Stock.FeatureFrench),
+                                            UnitPriceOrderLine = orderLine.UnitPrice,
+                                            FinalizedDate = (DateTime) orderLine.Order.FinalizedDate,
+                                            DateStart = dateStart,
+                                            DateEnd = dateEnd,
+                                            OrderInformation = enumOrderInformations.FirstOrDefault(x => x.Code == orderLine.Order.OrderInformation1).Description + " - " + enumOrderInformations.FirstOrDefault(x => x.Code == orderLine.Order.OrderInformation2).Description
+                                        };
+                                    salesReportLines.Add(salesByOrderInformationReportLine);
+                                }
                             }
                         }
                     }
@@ -411,13 +417,14 @@ namespace ATMTECH.ShoppingCart.Services
                 enterprise, dateStart, dateEnd);
             foreach (ProductPriceHistory productPriceHistory in productPriceHistories)
             {
-                productPriceHistoryReportLines.Add(new ProductPriceHistoryReportLine
-                {
-                    DateChanged = productPriceHistory.DateChanged,
-                    PriceAfter = productPriceHistory.PriceAfter,
-                    PriceBefore = productPriceHistory.PriceBefore,
-                    Product = HttpUtility.HtmlDecode(productPriceHistory.Product.Ident + " " + productPriceHistory.Product.Name)
-                });
+                if (productPriceHistory.DateChanged != null)
+                    productPriceHistoryReportLines.Add(new ProductPriceHistoryReportLine
+                        {
+                            DateChanged = (DateTime) productPriceHistory.DateChanged,
+                            PriceAfter = productPriceHistory.PriceAfter,
+                            PriceBefore = productPriceHistory.PriceBefore,
+                            Product = HttpUtility.HtmlDecode(productPriceHistory.Product.Ident + " " + productPriceHistory.Product.NameFrench)
+                        });
             }
 
             return productPriceHistoryReportLines;
@@ -460,46 +467,47 @@ namespace ATMTECH.ShoppingCart.Services
                     {
                         grandTotalSales += orderLine.SubTotal;
 
-                        switch (orderLine.Order.FinalizedDate.Month)
-                        {
-                            case 1:
-                                januarySales += orderLine.Quantity;
-                                break;
-                            case 2:
-                                februarySales += orderLine.Quantity;
-                                break;
-                            case 3:
-                                marchSales += orderLine.Quantity;
-                                break;
-                            case 4:
-                                aprilSales += orderLine.Quantity;
-                                break;
-                            case 5:
-                                maySales += orderLine.Quantity;
-                                break;
-                            case 6:
-                                juneSales += orderLine.Quantity;
-                                break;
-                            case 7:
-                                julySales += orderLine.Quantity;
-                                break;
-                            case 8:
-                                augustSales += orderLine.Quantity;
-                                break;
-                            case 9:
-                                septemberSales += orderLine.Quantity;
-                                break;
-                            case 10:
-                                octoberSales += orderLine.Quantity;
-                                break;
-                            case 11:
-                                novemberSales += orderLine.Quantity;
-                                break;
-                            case 12:
-                                decemberSales += orderLine.Quantity;
-                                break;
-                        }
-                        product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.Name + " " + orderLine.Stock.FeatureFrench);
+                        if (orderLine.Order.FinalizedDate != null)
+                            switch (((DateTime)(orderLine.Order.FinalizedDate)).Month)
+                            {
+                                case 1:
+                                    januarySales += orderLine.Quantity;
+                                    break;
+                                case 2:
+                                    februarySales += orderLine.Quantity;
+                                    break;
+                                case 3:
+                                    marchSales += orderLine.Quantity;
+                                    break;
+                                case 4:
+                                    aprilSales += orderLine.Quantity;
+                                    break;
+                                case 5:
+                                    maySales += orderLine.Quantity;
+                                    break;
+                                case 6:
+                                    juneSales += orderLine.Quantity;
+                                    break;
+                                case 7:
+                                    julySales += orderLine.Quantity;
+                                    break;
+                                case 8:
+                                    augustSales += orderLine.Quantity;
+                                    break;
+                                case 9:
+                                    septemberSales += orderLine.Quantity;
+                                    break;
+                                case 10:
+                                    octoberSales += orderLine.Quantity;
+                                    break;
+                                case 11:
+                                    novemberSales += orderLine.Quantity;
+                                    break;
+                                case 12:
+                                    decemberSales += orderLine.Quantity;
+                                    break;
+                            }
+                        product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.NameFrench + " " + orderLine.Stock.FeatureFrench);
                         unitPrice = orderLine.Stock.Product.UnitPrice;
                     }
 
@@ -535,7 +543,7 @@ namespace ATMTECH.ShoppingCart.Services
                 {
                     SalesByMonthReportLine salesByMonthReportLine = new SalesByMonthReportLine
                     {
-                        Product = stock.Product.Ident + " " + stock.Product.Name + " " + stock.FeatureFrench,
+                        Product = stock.Product.Ident + " " + stock.Product.NameFrench + " " + stock.FeatureFrench,
                         Enterprise = enterprise.Name,
                         DateStart = dateStart,
                         DateEnd = dateEnd,

@@ -39,8 +39,8 @@ namespace ATMTECH.ShoppingCart.Services
                 if (product.Stocks.Count == 0)
                 {
                     MailService.SendEmail(ParameterService.GetValue(Constant.ADMIN_MAIL), ParameterService.GetValue(Constant.ADMIN_MAIL),
-                                     string.Format("Produit sans inventaire: {0}-{1}-{2}", Utils.Web.Pages.RemoveHtmlTag(product.Ident), Utils.Web.Pages.RemoveHtmlTag(product.Name), Utils.Web.Pages.RemoveHtmlTag(product.Enterprise.Name)),
-                                     string.Format(ParameterService.GetValue(Constant.NO_STOCK_AVAILABLE), product.Ident, product.Name, product.Enterprise.Name));
+                                     string.Format("Produit sans inventaire: {0}-{1}-{2}", Utils.Web.Pages.RemoveHtmlTag(product.Ident), Utils.Web.Pages.RemoveHtmlTag(product.NameFrench), Utils.Web.Pages.RemoveHtmlTag(product.Enterprise.Name)),
+                                     string.Format(ParameterService.GetValue(Constant.NO_STOCK_AVAILABLE), product.Ident, product.NameFrench, product.Enterprise.Name));
                 }
             }
 

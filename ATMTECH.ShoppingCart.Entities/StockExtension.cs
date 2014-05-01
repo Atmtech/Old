@@ -6,7 +6,7 @@ namespace ATMTECH.ShoppingCart.Entities
     {
         public string ProductDescription
         {
-            get { return Product != null ? Product.Ident + " " + Product.Name + " " + FeatureFrench : ""; }
+            get { return Product != null ? Product.Ident + " " + Product.NameFrench + " " + FeatureFrench : ""; }
         }
 
         public decimal StockPrice

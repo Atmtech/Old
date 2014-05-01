@@ -14,6 +14,6 @@ namespace ATMTECH.ShoppingCart.Entities
         public bool IsRead { get; set; }
         public bool IsOrderable { get; set; }
 
-        public string ComboboxDescriptionUpdate { get { return Product.Name + "-" + Group.Name; } }
+        public string ComboboxDescriptionUpdate { get { return Product.NameFrench + "-" + Group.Name; } }
     }
 }
