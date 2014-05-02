@@ -85,6 +85,10 @@ namespace ATMTECH.Utils.Web
       
         public static string RemoveHtmlTag(string html)
         {
+            if (!string.IsNullOrEmpty(html))
+            {
+                
+            
             char[] array = new char[html.Length];
             int arrayIndex = 0;
             bool inside = false;
@@ -108,7 +112,10 @@ namespace ATMTECH.Utils.Web
                     arrayIndex++;
                 }
             }
+
             return new string(array, 0, arrayIndex);
+            }
+            return html;
         }
     }
 }

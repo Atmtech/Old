@@ -148,6 +148,7 @@ namespace ATMTECH.Administration.Services
         }
         private Control CreateComboboxLanguage(PropertyInfo propertyInfo, string value)
         {
+            return null;
             ComboBoxAvance comboBoxAvance = new ComboBoxAvance
             {
                 ID = propertyInfo.Name,
@@ -276,6 +277,7 @@ namespace ATMTECH.Administration.Services
         }
         private Control CreateTextBox(PropertyInfo propertyInfo, string value, bool isInserting, string entity)
         {
+           
             bool isEnabled = true;
             if (propertyInfo.Name == "InitialState")
             {
@@ -358,7 +360,7 @@ namespace ATMTECH.Administration.Services
                                                            Width = Unit.Percentage(80),
                                                            Enabled = isEnabled,
                                                            Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
-                                                           Height = Unit.Pixel(100)
+                                                           Height = Unit.Pixel(50)
 
                                                        };
 

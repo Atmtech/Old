@@ -11,13 +11,13 @@ namespace ATMTECH.Administration.DAO
         public IDAOEntityProperty DAOEntityProperty { get; set; }
         public int SaveEntity(EntityInformation entityInformation)
         {
-            entityInformation.Description = entityInformation.PageTitle;
+            entityInformation.Entity = entityInformation.PageTitle;
             return Save(entityInformation);
         }
 
         public int GetEntityInformationId(string className)
         {
-            return GetAllOneCriteria(BaseEntity.DESCRIPTION, className)[0].Id;
+            return GetAllOneCriteria(EntityInformation.ENTITY, className)[0].Id;
         }
 
         public IList<EntityInformation> GetAllEntityInformation()

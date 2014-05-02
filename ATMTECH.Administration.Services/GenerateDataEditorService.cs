@@ -66,7 +66,7 @@ namespace ATMTECH.Administration.Services
                                                                  NameSpace = nameSpace,
                                                                  PageAspx = entity,
                                                                  PageTitle = entity,
-                                                                 Description = entity
+                                                                 Entity = entity
                                                              };
                 SaveEntityInformation(entityInformationNew);
                 CreateNonExistingProperty(nameSpace);
