@@ -94,6 +94,8 @@ namespace ATMTECH.Administration.Services
         private string TrouverLibelle(string propertyName, string entity)
         {
             int id = DAOEntityInformation.GetEntityInformationId(entity);
+            if (id == 0)
+                return "Inconnu";
             return DAOEntityProperty.GetEntityPropertyLabel(id, propertyName);
         }
         private IOrderedEnumerable<PropertyInfo> GetPropertiesToDisplay(string nameSpace, string entity)

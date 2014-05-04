@@ -17,7 +17,12 @@ namespace ATMTECH.Administration.DAO
 
         public int GetEntityInformationId(string className)
         {
-            return GetAllOneCriteria(EntityInformation.ENTITY, className)[0].Id;
+            IList<EntityInformation> entityInformations =  GetAllOneCriteria(EntityInformation.ENTITY, className);
+            if (entityInformations.Count  > 0 )
+                {
+                    return entityInformations[0].Id;
+                }
+            return 0;
         }
 
         public IList<EntityInformation> GetAllEntityInformation()
