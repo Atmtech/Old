@@ -8,6 +8,7 @@ namespace ATMTECH.ShoppingCart.Entities
     public class Product : BaseEntity
     {
         public const string PRODUCT_CATEGORY_FRENCH = "ProductCategoryFrench";
+        public const string PRODUCT_CATEGORY_ENGLISH = "ProductCategoryEnglish";
         public const string ENTERPRISE = "Enterprise";
         public const string IDENT = "Ident";
         public const string NAME = "Name";

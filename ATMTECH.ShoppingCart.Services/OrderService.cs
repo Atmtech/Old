@@ -40,7 +40,7 @@ namespace ATMTECH.ShoppingCart.Services
         public ILocalizationService LocalizationService { get; set; }
         public IDAOEnterpriseEmail DAOEnterpriseEmail { get; set; }
         public IDAOEnumOrderInformation DAOEnumOrderInformation { get; set; }
-
+        public IDAOProductFile DAOProductFile { get; set; }
 
         public Order AddOrderLine(OrderLine orderLine, Order order)
         {
@@ -271,7 +271,7 @@ namespace ATMTECH.ShoppingCart.Services
         }
         public IList<ProductBySale> GetProductBySale(Enterprise enterprise)
         {
-            IList<Product> products = ProductService.GetProducts(enterprise.Id);
+            IList<Product> products = ProductService.GetProductsSimple(enterprise.Id);
             IList<OrderLine> orderLines = DAOOrder.GetAllOrderLine(enterprise);
             IList<ProductBySale> productBySales = new List<ProductBySale>();
 
@@ -295,15 +295,18 @@ namespace ATMTECH.ShoppingCart.Services
         }
         public IList<Product> GetFavoriteProductFromOrder(Enterprise enterprise, int take)
         {
-            IList<ProductBySale> productBySales = GetProductBySale(enterprise);
-            IList<ProductBySale> productBySalesTake = productBySales.OrderBy(x => x.NumberTotalSale).Take(take).ToList();
-            IList<Product> products = new List<Product>();
-            foreach (ProductBySale productBySale in productBySalesTake)
+            
+            IList<Product> products = ProductService.GetProductsSimple(enterprise.Id);
+            
+            Random r = new Random();
+            IList<Product> productses = products.OrderBy(x => r.Next()).Take(take).ToList();
+            foreach (Product productse in productses)
             {
-                products.Add(productBySale.Product);
+                productse.ProductFiles = DAOProductFile.GetProductFile(productse.Id);
             }
-            return products;
+            return productses;
         }
+
         public IList<SalesReportLine> GetSalesReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
             IList<SalesReportLine> salesReportLines = new List<SalesReportLine>();

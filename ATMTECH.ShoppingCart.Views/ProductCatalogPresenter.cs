@@ -47,7 +47,9 @@ namespace ATMTECH.ShoppingCart.Views
         }
         public IList<Product> GetProductCategory(int idProductCategory)
         {
-            return CustomerService.AuthenticateCustomer != null ? ProductService.GetProducts(CustomerService.AuthenticateCustomer.Enterprise.Id, idProductCategory, CustomerService.AuthenticateCustomer.User.Id) : ProductService.GetProducts(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)), idProductCategory);
+            return CustomerService.AuthenticateCustomer != null ? 
+                ProductService.GetProducts(CustomerService.AuthenticateCustomer.Enterprise.Id, idProductCategory, CustomerService.AuthenticateCustomer.User.Id) : 
+                ProductService.GetProducts(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)), idProductCategory);
         }
 
         public void OpenProduct(string idProduct)

@@ -132,8 +132,7 @@ namespace ATMTECH.ShoppingCart.Views
                     break;
             }
        
-            NavigationService.Refresh();
-            //NavigationService.Redirect(Pages.Pages.DEFAULT);
+            NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
     }
 }

@@ -21,5 +21,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         bool GetProductAccessOrderable(Product product, int idUser);
         void SaveProductFile(ProductFile productFile);
         int Save(Product product);
+        IList<Product> GetProductsSimple(int idEnterprise);
     }
 }

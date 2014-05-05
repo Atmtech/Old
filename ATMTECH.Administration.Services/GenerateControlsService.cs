@@ -359,7 +359,7 @@ namespace ATMTECH.Administration.Services
                                                        {
                                                            ID = propertyInfo.Name,
                                                            Text = value,
-                                                           Width = Unit.Percentage(80),
+                                                           Width = Unit.Percentage(90),
                                                            Enabled = isEnabled,
                                                            Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
                                                            Height = Unit.Pixel(50)

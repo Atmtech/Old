@@ -42,25 +42,35 @@ namespace ATMTECH.DAO.Database
                     throw new ArgumentOutOfRangeException();
             }
         }
-        public string ConstructSqlPaging(PagingOperation pagingOperation)
+        public string ConstructSqlPaging(PagingOperation pagingOperation, string sql)
         {
-            string sql = string.Empty;
+            string rtn = string.Empty;
             if (pagingOperation.PageSize != 0)
             {
                 switch (CurrentDatabaseVendor)
                 {
                     case DatabaseVendor.DatabaseVendorType.Sqlite:
-                        sql = string.Format(SQLite<TModel, TId>.SQL_PAGING, pagingOperation.PageIndex, pagingOperation.PageSize);
+                        rtn = sql + string.Format(SQLite<TModel, TId>.SQL_PAGING, pagingOperation.PageIndex, pagingOperation.PageSize);
                         break;
                     case DatabaseVendor.DatabaseVendorType.MsSql:
-                        sql = string.Format(MsSql<TModel, TId>.SQL_PAGING, pagingOperation.PageIndex, pagingOperation.PageSize);
+
+                        //                        DECLARE @RowsPerPage INT = 10, @PageNumber INT = 1 SELECT * FROM (SELECT *,ROW_NUMBER() OVER (ORDER BY Id) AS RowNum FROM Product ) AS SOD WHERE SOD.RowNum BETWEEN ((@PageNumber-1)*@RowsPerPage)+1 AND @RowsPerPage*(@PageNumber)
+                        int pagingIndex = pagingOperation.PageIndex;
+                        if (pagingIndex == 0)
+                        {
+                            pagingIndex = 1;
+                        }
+                        string from = sql.Substring(sql.IndexOf("FROM [") + 5, sql.Length - sql.IndexOf("FROM [") - 5);
+                        from = from.Substring(0, from.IndexOf("ORDER BY"));
+                        string colonne = sql.Substring(6, sql.IndexOf("FROM [") - 6);
+                        rtn = string.Format(MsSql<TModel, TId>.SQL_PAGING, pagingOperation.PageSize, pagingIndex, colonne, from);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
 
             }
-            return sql;
+            return rtn;
         }
         public string ExtractColumnsFromDatabase(Type type)
         {
@@ -165,9 +175,12 @@ namespace ATMTECH.DAO.Database
         public string ConstructSqlFromModel(string @where, PagingOperation pagingOperation, OrderOperation orderOperation, Type type)
         {
             string columns = ExtractColumnsFromDatabase(type);
-            string sql = ConstructSqlWhere(@where, type, columns);
-            sql += ConstructSqlOrderBy(orderOperation);
-            sql += ConstructSqlPaging(pagingOperation);
+            string sql = ConstructSqlWhere(@where, type, columns) + ConstructSqlOrderBy(orderOperation);
+            string paging = ConstructSqlPaging(pagingOperation, sql);
+            if (!string.IsNullOrEmpty(paging))
+            {
+                sql = paging;
+            }
             return sql;
         }
         public string ReturnSetClauseUpdate(TModel model, string id)

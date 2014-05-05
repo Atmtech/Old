@@ -54,6 +54,10 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return idEnterprise != 0 ? DAOProduct.GetProducts(idEnterprise) : null;
         }
+        public IList<Product> GetProductsSimple(int idEnterprise)
+        {
+            return idEnterprise != 0 ? DAOProduct.GetProductsSimple(idEnterprise) : null;
+        }
         public IList<Product> GetProductsWithoutStock(int idEnterprise)
         {
             IList<Product> products = DAOProduct.GetProducts(idEnterprise);

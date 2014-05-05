@@ -33,7 +33,9 @@ namespace ATMTECH.ShoppingCart.Glv
                         Label label = new Label
                                           {
                                               ID = "lblNoProductForThisCategory",
-                                              Text = "Aucun produit pour cette catégorie<br>"
+                                              Text = Session["currentLanguage"].ToString().Equals("fr") 
+                                                                                ? "Aucun produit pour cette catégorie<br>"
+                                                                                : "No product for this category<br>"
                                           };
                         placeHolderProduct.Controls.Add(label);
                     }
@@ -47,7 +49,7 @@ namespace ATMTECH.ShoppingCart.Glv
                                     ? product.NameFrench
                                     : product.NameEnglish;
                             string productDisplay = product.Ident + " " + name + " " + product.UnitPrice.ToString("C") + " CDN";
-                            
+
                             string brand = "<div class='brand bg-color-button-product'><div style='font-size:12px;padding: 3px 3px 3px 3px;font-weight:bold;'>" + Utils.Web.Pages.RemoveHtmlTag(productDisplay) + "</div></div>";
                             string footer = "</div></a>";
                             Literal literal = new Literal { Text = header + image + brand + footer };

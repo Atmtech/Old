@@ -33,7 +33,9 @@ namespace ATMTECH.ShoppingCart.PubJL
                         Label label = new Label
                                           {
                                               ID = "lblNoProductForThisCategory",
-                                              Text = "Aucun produit pour cette catégorie<br>"
+                                              Text = Session["currentLanguage"].ToString().Equals("fr")
+                                                                               ? "Aucun produit pour cette catégorie<br>"
+                                                                               : "No product for this category<br>"
                                           };
                         placeHolderProduct.Controls.Add(label);
                     }

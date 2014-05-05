@@ -25,6 +25,8 @@ namespace ATMTECH.ShoppingCart.DAO
                 return ContextSessionManager.Session["currentLanguage"] == null ? "fr" : ContextSessionManager.Session["currentLanguage"].ToString();
             }
         }
+
+     
         public Product GetProduct(int id)
         {
             Product product = GetById(id);
@@ -70,8 +72,7 @@ namespace ATMTECH.ShoppingCart.DAO
             return products;
         }
 
-
-        public IList<Product> GetProducts(int idEnterprise)
+        public IList<Product> GetProductsSimple(int idEnterprise)
         {
             IList<Criteria> criterias = new List<Criteria>();
             Criteria criteriaEnterprise = new Criteria { Column = Product.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idEnterprise.ToString() };
@@ -79,7 +80,19 @@ namespace ATMTECH.ShoppingCart.DAO
             criterias.Add(criteriaEnterprise);
             criterias.Add(IsActive());
 
-            SetLanguage(criterias, CurrentLanguage);
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            return GetByCriteria(criterias, pagingOperation, orderOperation);
+        }
+
+     
+        public IList<Product> GetProducts(int idEnterprise)
+        {
+            IList<Criteria> criterias = new List<Criteria>();
+            Criteria criteriaEnterprise = new Criteria { Column = Product.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idEnterprise.ToString() };
+
+            criterias.Add(criteriaEnterprise);
+            criterias.Add(IsActive());
 
             OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
@@ -106,8 +119,6 @@ namespace ATMTECH.ShoppingCart.DAO
             criterias.Add(criteriaProductSearch);
             criterias.Add(IsActive());
 
-            SetLanguage(criterias, CurrentLanguage);
-
             OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
@@ -121,13 +132,13 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             IList<Criteria> criterias = new List<Criteria>();
             Criteria criteriaEnterprise = new Criteria { Column = Product.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idEnterprise.ToString() };
-            Criteria criteriaProductCategory = new Criteria { Column = Product.PRODUCT_CATEGORY_FRENCH, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() };
+
+            Criteria criteriaProductCategory = CurrentLanguage == "fr" ? new Criteria { Column = Product.PRODUCT_CATEGORY_FRENCH, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() } : new Criteria { Column = Product.PRODUCT_CATEGORY_ENGLISH, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() };
+            
 
             criterias.Add(criteriaProductCategory);
             criterias.Add(criteriaEnterprise);
             criterias.Add(IsActive());
-
-            SetLanguage(criterias, CurrentLanguage);
 
             OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
@@ -140,15 +151,9 @@ namespace ATMTECH.ShoppingCart.DAO
         }
         public bool GetProductAccessOrderable(Product product, int idUser)
         {
-            if (product.Enterprise.IsSecure)
-            {
-                return DAOGroupProduct.GetProductAccess(product, idUser).IsOrderable;
-            }
-            else
-            {
-                return true;
-            }
+            return !product.Enterprise.IsSecure || DAOGroupProduct.GetProductAccess(product, idUser).IsOrderable;
         }
+
         public int SaveProduct(Product product)
         {
             return Save(product);
@@ -167,13 +172,11 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             IList<Criteria> criterias = new List<Criteria>();
             Criteria criteriaEnterprise = new Criteria { Column = Product.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idEnterprise.ToString() };
-            Criteria criteriaProductCategory = new Criteria { Column = Product.PRODUCT_CATEGORY_FRENCH, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() };
+            Criteria criteriaProductCategory = CurrentLanguage == "fr" ? new Criteria { Column = Product.PRODUCT_CATEGORY_FRENCH, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() } : new Criteria { Column = Product.PRODUCT_CATEGORY_ENGLISH, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() };
 
             criterias.Add(criteriaEnterprise);
             criterias.Add(criteriaProductCategory);
             criterias.Add(IsActive());
-
-            SetLanguage(criterias, CurrentLanguage);
 
             OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };

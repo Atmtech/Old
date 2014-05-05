@@ -204,13 +204,18 @@ namespace ATMTECH.Administration
 
                 if (propertyWithLabel.PropertyInfo.PropertyType.Namespace == "System")
                 {
-                    BoundField field = new BoundField
-                                           {
-                                               DataField = propertyWithLabel.PropertyInfo.Name,
-                                               HeaderText = propertyWithLabel.Label
+                    if (propertyWithLabel.PropertyInfo.Name != "Language")
+                    {
 
-                                           };
-                    gridView.Columns.Add(field);
+
+                        BoundField field = new BoundField
+                                               {
+                                                   DataField = propertyWithLabel.PropertyInfo.Name,
+                                                   HeaderText = propertyWithLabel.Label
+
+                                               };
+                        gridView.Columns.Add(field);
+                    }
                 }
                 else
                 {
@@ -233,11 +238,9 @@ namespace ATMTECH.Administration
         private void Search()
         {
             FindGridViewField(grdData, NameSpace, Entity);
-            sectionDetail.EstOuvert = false;
             grdData.DataSource = Presenter.RechercheInformation(txtSearch.Text, 0);
             grdData.DataBind();
             pnlSaveDone.Visible = false;
-            btnSave.Visible = false;
             IsInserting = false;
         }
         protected void SearchClick(object sender, EventArgs e)
@@ -248,10 +251,9 @@ namespace ATMTECH.Administration
         {
             if (id != null)
             {
+                windowEditData.OuvrirFenetre("Édition");
                 IsInserting = false;
                 GenererControles((int)id);
-                sectionDetail.EstOuvert = true;
-                btnSave.Visible = true;
             }
 
         }
@@ -309,7 +311,6 @@ namespace ATMTECH.Administration
                 table.Rows.Add(tableRow);
             }
             pnlControl.Controls.Add(table);
-            sectionDetail.EstOuvert = false;
         }
         private void Save()
         {
@@ -367,25 +368,24 @@ namespace ATMTECH.Administration
             Search();
             GenererControles(Convert.ToInt32(Session["IdSelectionner"]));
             pnlSaveDone.Visible = true;
-            sectionDetail.EstOuvert = false;
-            btnSave.Visible = true;
+
             IsInserting = false;
         }
         protected void SaveClick(object sender, EventArgs e)
         {
             Save();
+            windowEditData.FermerFenetre();
         }
         protected void AddClick(object sender, EventArgs e)
         {
+            windowEditData.OuvrirFenetre("Ajouter une donnée");
             IsInserting = true;
-            sectionDetail.EstOuvert = true;
             GenererControles(0);
-            sectionDetail.EstOuvert = true;
-            btnSave.Visible = true;
         }
         protected void CancelClick(object sender, EventArgs e)
         {
             GenererControles((int)Session["IdSelectionner"]);
+            windowEditData.FermerFenetre();
         }
         protected void PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

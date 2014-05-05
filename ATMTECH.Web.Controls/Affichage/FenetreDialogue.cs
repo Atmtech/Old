@@ -1,8 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Web.UI;
-using ATMTECH.Web.Controls.Base;
+﻿using ATMTECH.Web.Controls.Base;
+
 
 namespace ATMTECH.Web.Controls.Affichage
 {
@@ -96,7 +97,7 @@ namespace ATMTECH.Web.Controls.Affichage
         public bool EstDeplacable
         {
             get { return (bool)(ViewState["EstDeplacable"] ?? true); }
-            set { ViewState["EstDeplacable"] = value; } 
+            set { ViewState["EstDeplacable"] = value; }
         }
 
         /// <summary>
@@ -121,7 +122,7 @@ namespace ATMTECH.Web.Controls.Affichage
         [ATMTECHScriptProperty("estOuverte")]
         public bool EstOuverte
         {
-            get { return (bool) (ViewState["EstOuverte"] ?? false); }
+            get { return (bool)(ViewState["EstOuverte"] ?? false); }
             private set { ViewState["EstOuverte"] = value; }
         }
 
@@ -140,7 +141,7 @@ namespace ATMTECH.Web.Controls.Affichage
         {
             EstOuverte = true;
             ScriptManager scriptMan = ScriptManager.GetCurrent(Page);
-            if(!string.IsNullOrEmpty(title))
+            if (!string.IsNullOrEmpty(title))
                 Titre = title;
             if (scriptMan != null && scriptMan.IsInAsyncPostBack)
             {
@@ -180,9 +181,9 @@ namespace ATMTECH.Web.Controls.Affichage
              ),
          DefaultValue("")]
         [ATMTECHScriptProperty("titre")]
-        public string Titre 
+        public string Titre
         {
-            get { return (string) (ViewState["Titre"] ?? string.Empty); }
+            get { return (string)(ViewState["Titre"] ?? string.Empty); }
             set { ViewState["Titre"] = value; }
         }
 
@@ -198,7 +199,7 @@ namespace ATMTECH.Web.Controls.Affichage
         public bool EstRedimentionnable
         {
             get { return (bool)(ViewState["EstRedimentionnable"] ?? false); }
-            set { ViewState["EstRedimentionnable"] = value; } 
+            set { ViewState["EstRedimentionnable"] = value; }
         }
 
         #endregion
@@ -290,7 +291,7 @@ namespace ATMTECH.Web.Controls.Affichage
         /// <param name="sender">The sender.</param>
         public static void FermerDialogueParent(object sender)
         {
-            Control ctlOrigine = (Control) sender;
+            Control ctlOrigine = (Control)sender;
             Control ctlCourant = ctlOrigine;
             while (ctlCourant.GetType() != typeof(FenetreDialogue))
             {
@@ -302,7 +303,7 @@ namespace ATMTECH.Web.Controls.Affichage
                     throw new ArgumentException(msg);
                 }
             }
-            ((FenetreDialogue) ctlCourant).FermerFenetre();
+            ((FenetreDialogue)ctlCourant).FermerFenetre();
         }
     }
 }

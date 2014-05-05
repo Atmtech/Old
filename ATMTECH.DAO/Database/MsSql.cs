@@ -39,7 +39,7 @@ namespace ATMTECH.DAO.Database
         public const string SQL_SELECT = "SELECT {0} FROM [{1}] ";
         public const string SQL_INSERT = "INSERT INTO [{0}] ({1}) VALUES ({2})";
         public const string SQL_UPDATE = "UPDATE [{0}] SET {1} WHERE {3} = {2} ";
-        public const string SQL_PAGING = "LIMIT {0},{1}";
+        public const string SQL_PAGING = "DECLARE @RowsPerPage INT = {0}, @PageNumber INT = {1} SELECT * FROM (SELECT {2},ROW_NUMBER() OVER (ORDER BY Id) AS RowNum FROM {3} ) AS SOD WHERE SOD.RowNum BETWEEN ((@PageNumber-1)*@RowsPerPage)+1 AND @RowsPerPage*(@PageNumber)";
         public const string SQL_ORDER_BY = "ORDER BY [{0}] {1} ";
         public const string SQL_RETURN_COLUMN = "SELECT top 1 * FROM [{0}]";
         public const string SQL_MAX = "SELECT MAX({0}) FROM [{1}]";
