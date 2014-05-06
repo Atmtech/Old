@@ -37,11 +37,15 @@ namespace ATMTECH.Vachier.Views
 
             CountryIp countryIp = NavigationService.GetInformationIpInfoDb();
 
-            vachier.CountryName = countryIp.CountryName;
-            vachier.Ip = countryIp.Ip;
-            vachier.City = countryIp.City;
-            vachier.Region = countryIp.Region;
-            vachier.PostalCode = countryIp.PostalCode;
+            if (countryIp != null)
+            {
+                vachier.CountryName = countryIp.CountryName;
+                vachier.Ip = countryIp.Ip;
+                vachier.City = countryIp.City;
+                vachier.Region = countryIp.Region;
+                vachier.PostalCode = countryIp.PostalCode;
+            }
+           
 
             vachier.JaimeTaMerde = 0;
             vachier.Insulte = insulte;

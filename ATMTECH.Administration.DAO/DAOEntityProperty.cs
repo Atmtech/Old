@@ -27,6 +27,11 @@ namespace ATMTECH.Administration.DAO
             return string.Empty;
         }
 
+        public IList<EntityProperty> GEtAllEntityProperty()
+        {
+            return GetAllActive();
+        }
+
         public IList<EntityProperty> GetEntityProperty(int idEntityInformation)
         {
             return GetAllOneCriteria(EntityProperty.ENTITY_INFORMATION, idEntityInformation.ToString());

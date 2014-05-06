@@ -9,5 +9,6 @@ namespace ATMTECH.Administration.DAO.Interface
         EntityInformation GetEntity(string nameSpace);
         IList<EntityInformation> GetAllEntityInformation();
         int GetEntityInformationId(string className);
+        IList<EntityInformation> GetAllEntityInformationSimple();
     }
 }

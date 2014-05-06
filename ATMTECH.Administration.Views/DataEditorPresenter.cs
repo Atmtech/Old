@@ -50,6 +50,7 @@ namespace ATMTECH.Administration.Views
             base.OnViewInitialized();
             RefreshData();
 
+            
             User user = AuthenticationService.AuthenticateUser;
             if (user == null) return;
             if (!user.IsAdministrator)
@@ -60,9 +61,18 @@ namespace ATMTECH.Administration.Views
             View.StockTemplate = StockService.GetStockTemplate();
 
         }
+
+      
         public DataEditorPresenter(IDataEditorPresenter view)
             : base(view)
         {
+        }
+
+       
+        private void SetEntityInformationAndProperty()
+        {
+            View.EntityInformations = DAOEntityInformation.GetAllEntityInformationSimple();
+            View.EntityProperties = DAOEntityProperty.GEtAllEntityProperty();
         }
 
         public void CreateEnterpriseFromAnother(int id, string newName)
@@ -195,15 +205,28 @@ namespace ATMTECH.Administration.Views
         }
         private EntityInformation FindEntityInformation()
         {
+            SetEntityInformationAndProperty();
             ManageClass manageClass = new ManageClass();
             EntityInformation entityInformation = null;
             if (manageClass.IsExistInNameSpace("ATMTECH.ShoppingCart.Entities", Entity))
             {
-                entityInformation = DAOEntityInformation.GetEntity("ATMTECH.ShoppingCart.Entities." + Entity);
+                //entityInformation = DAOEntityInformation.GetEntity("ATMTECH.ShoppingCart.Entities." + Entity);
+                entityInformation =
+                    View.EntityInformations.Where(x => x.NameSpace == "ATMTECH.ShoppingCart.Entities." + Entity)
+                        .ToList()[0];
+                entityInformation.EntityProperties =
+                    View.EntityProperties.Where(x => x.EntityInformation.Id == entityInformation.Id).ToList();
             }
             if (manageClass.IsExistInNameSpace("ATMTECH.Entities", Entity))
             {
-                entityInformation = DAOEntityInformation.GetEntity("ATMTECH.Entities." + Entity);
+              //  entityInformation = DAOEntityInformation.GetEntity("ATMTECH.Entities." + Entity);
+
+                entityInformation =
+                  View.EntityInformations.Where(x => x.NameSpace == "ATMTECH.Entities." + Entity)
+                      .ToList()[0];
+                entityInformation.EntityProperties =
+                    View.EntityProperties.Where(x => x.EntityInformation.Id == entityInformation.Id).ToList();
+
             }
             return entityInformation;
         }
@@ -275,12 +298,12 @@ namespace ATMTECH.Administration.Views
         }
         public IList<PropertyWithLabel> ListeProprieteSansCelleSysteme(string nameSpace, string entity)
         {
-            return GenerateControlsService.ListeProprieteSansCelleSysteme(nameSpace, entity);
+            return GenerateControlsService.ListeProprieteSansCelleSysteme(nameSpace, entity, View.EntityInformations, View.EntityProperties);
         }
         public IList<ControlWithLabel> CreateControls(string nameSpace, string entity, bool isInserting, int id,
                                                int idEnterprise)
         {
-            return GenerateControlsService.CreateControls(nameSpace, entity, isInserting, id, idEnterprise);
+            return GenerateControlsService.CreateControls(nameSpace, entity, isInserting, id, idEnterprise, View.EntityInformations, View.EntityProperties);
         }
         public void ApplyStockTemplate(string productId, string templateGroup, int quantity, bool isWithoutStock)
         {

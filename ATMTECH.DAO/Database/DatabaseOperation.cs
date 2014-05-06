@@ -303,7 +303,7 @@ namespace ATMTECH.DAO.Database
                 case DatabaseVendor.DatabaseVendorType.Sqlite:
                     return SqLite.ReturnDataSet(sql);
                 case DatabaseVendor.DatabaseVendorType.MsSql:
-                    throw new AccessViolationException("Le retour par SQL non supporté encore pour MSSQL");
+                    return MsSql.ReturnDataSet(sql);
                 default:
                     throw new ArgumentOutOfRangeException();
             }

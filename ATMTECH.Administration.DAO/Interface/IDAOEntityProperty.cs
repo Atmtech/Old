@@ -8,5 +8,6 @@ namespace ATMTECH.Administration.DAO.Interface
         IList<EntityProperty> GetEntityProperty(int idEntityInformation);
         int SaveEntityProperty(EntityProperty entityProperty);
         string GetEntityPropertyLabel(int idEntityInformation, string propertyName);
+        IList<EntityProperty> GEtAllEntityProperty();
     }
 }

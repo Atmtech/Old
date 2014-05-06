@@ -20,6 +20,25 @@ namespace ATMTECH.Administration
     {
         public DataEditorPresenter Presenter { get; set; }
 
+        public IList<EntityInformation> EntityInformations
+        {
+            get { return (IList<EntityInformation>)Session["EntityInformations"]; }
+            set
+            {
+                if (Session["EntityInformations"] == null)
+                    Session["EntityInformations"] = value;
+            }
+        }
+        public IList<EntityProperty> EntityProperties
+        {
+            get { return (IList<EntityProperty>)Session["EntityProperties"]; }
+            set
+            {
+                if (Session["EntityProperties"] == null)
+                    Session["EntityProperties"] = value;
+            }
+        }
+
         public string Entity
         {
             get

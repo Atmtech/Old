@@ -1,0 +1,148 @@
+----Copy d''entreprise total
+
+--INSERT INTO PRODUCT (
+--	[Description],
+--	[IsActive],
+--	[DateCreated],
+--	[DateModified],
+--	[Language],
+--	[OrderId],
+--	[Search],
+--	[ComboboxDescription],
+--	[Ident],
+--	[UnitPrice],
+--	[CostPrice],
+--	[Enterprise],
+--	[Weight],
+--	[Supplier],
+--	[InternalIdent],
+--	[DescriptionFrench],
+--	[DescriptionEnglish],
+--	[ProductCategoryFrench],
+--	[ProductCategoryEnglish],
+--	[NameFrench],
+--	[NameEnglish]) select 
+--	[Description],
+--	[IsActive],
+--	[DateCreated],
+--	[DateModified],
+--	[Language],
+--	[OrderId],
+--	[Search],
+--	[ComboboxDescription],
+--	[Ident],
+--	[UnitPrice],
+--	[CostPrice],
+--	10 as [Enterprise],
+--	[Weight],
+--	[Supplier],
+--	[InternalIdent],
+--	[DescriptionFrench],
+--	[DescriptionEnglish],
+--	[ProductCategoryFrench],
+--	[ProductCategoryEnglish],
+--	[NameFrench],
+--	[NameEnglish] from Product where Enterprise = 7
+
+--INSERT INTO STOCK (
+--	[Description],
+--	[IsActive],
+--	[DateCreated],
+--	[DateModified],
+--	[Language],
+--	[OrderId],
+--	[Search],
+--	[ComboboxDescription],
+--	[Product],
+--	[InitialState],
+--	[MinimumAccept],
+--	[IsWarningOnLow],
+--	[FeatureFrench],
+--	[AdjustPrice],
+--	[IsWithoutStock],
+--	[FeatureEnglish])
+--select 
+--	Stock.[Description],
+--	Stock.[IsActive],
+--	Stock.[DateCreated],
+--	Stock.[DateModified],
+--	Stock.[Language],
+--	Stock.[OrderId],
+--	Stock.[Search],
+--	Stock.[ComboboxDescription],
+--	Product = (SELECT Id FROM Product z WHERE z.Ident = p.Ident and z.Enterprise = 10) ,
+--	Stock.[InitialState],
+--	Stock.[MinimumAccept],
+--	Stock.[IsWarningOnLow],
+--	Stock.[FeatureFrench],
+--	Stock.[AdjustPrice],
+--	Stock.[IsWithoutStock],
+--	Stock.[FeatureEnglish]
+--from Stock 
+--INNER JOIN Product p ON p.Id = Stock.Product
+--where Product in (SELECT id FROM Product where Enterprise = 7)
+
+--INSERT INTO [File] ([Description],
+--	[IsActive],
+--	[DateCreated],
+--	[DateModified],
+--	[Language],
+--	[OrderId],
+--	[Search],
+--	[ComboboxDescription],[Size],
+--	[Title],
+--	[FileType],
+--	[IsInUse],
+--	[ServerPath],
+--	[FileName],
+--	[Category],
+--	[RootImagePath])
+--select [Description],
+--	[IsActive],
+--	[DateCreated],
+--	[DateModified],
+--	[Language],
+--	[OrderId],
+--	[Search],
+--	[ComboboxDescription],[Size],
+--	[Title],
+--	[FileType],
+--	[IsInUse],
+--	[ServerPath],
+--	[FileName],
+--	[Category],
+--	[RootImagePath]  = 'E:\glv-usa.boutiquecorpo.com\Images'
+--from [File] WHERE RootImagePath = 'E:\glv.boutiquecorpo.com\Images'
+
+
+--INSERT INTO ProductFile ([Description],
+--	[IsActive],
+--	[DateCreated],
+--	[DateModified],
+--	[Language],
+--	[OrderId],
+--	[Search],
+--	[ComboboxDescription],
+--	[Product],
+--	[File],
+--	[IsPrincipal],
+--	[ProductLinked])
+--select 
+--	ProductFile.[Description],
+--	ProductFile.[IsActive],
+--	ProductFile.[DateCreated],
+--	ProductFile.[DateModified],
+--	ProductFile.[Language],
+--	ProductFile.[OrderId],
+--	ProductFile.[Search],
+--	ProductFile.[ComboboxDescription],
+--	[Product] = (SELECT Id FROM Product z WHERE z.Ident = p.Ident and z.Enterprise = 10) ,
+--	[File]  = (SELECT Id FROM [File] z WHERE z.FileName = f.FileName and z.RootImagePath = 'E:\glv-usa.boutiquecorpo.com\Images') ,
+--	[IsPrincipal],
+--	[ProductLinked] from ProductFile 
+--	INNER JOIN Product p ON p.Id = ProductFile.Product
+--	INNER JOIN [File] f ON f.Id = ProductFile.[File]
+--	where Product in (SELECT Id From Product WHERE Enterprise = 7)
+
+	
+	

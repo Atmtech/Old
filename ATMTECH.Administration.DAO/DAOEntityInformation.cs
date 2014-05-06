@@ -35,6 +35,11 @@ namespace ATMTECH.Administration.DAO
             return entityInformations;
         }
 
+        public IList<EntityInformation> GetAllEntityInformationSimple()
+        {
+            return GetAllActive();
+        }
+
         public EntityInformation GetEntity(string nameSpace)
         {
             if (!string.IsNullOrEmpty(nameSpace))

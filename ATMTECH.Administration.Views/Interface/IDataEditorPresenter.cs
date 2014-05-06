@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.Views.Interface;
 
@@ -18,5 +19,10 @@ namespace ATMTECH.Administration.Views.Interface
 
         IList<Product> ProductWithoutStock { set; }
         IList<StockTemplate> StockTemplate { set; }
+
+        IList<EntityInformation> EntityInformations { get; set; }
+        IList<EntityProperty> EntityProperties { get; set; }
+
+
     }
 }

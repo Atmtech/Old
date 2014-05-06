@@ -43,7 +43,7 @@ namespace ATMTECH.DAO.Database
         public const string SQL_ORDER_BY = "ORDER BY [{0}] {1} ";
         public const string SQL_RETURN_COLUMN = "SELECT top 1 * FROM [{0}]";
         public const string SQL_MAX = "SELECT MAX({0}) FROM [{1}]";
-        public const string SQL_COUNT = "SELECT COUNT() as counts FROM [{0}]";
+        public const string SQL_COUNT = "SELECT COUNT(1) as counts FROM [{0}]";
 
         public DataColumnCollection ReturnAllColumnNameFromTable(string table)
         {
