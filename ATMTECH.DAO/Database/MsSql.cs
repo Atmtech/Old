@@ -162,25 +162,22 @@ namespace ATMTECH.DAO.Database
                     {
                         foreach (Criteria criteria in criterias)
                         {
+                            if (criteria.Operator == DatabaseOperator.OPERATOR_IS_NOT_NULL) continue;
                             if (criteria.ClearText)
                             {
-                                sqlCommand.Parameters.Add(new SqlParameter(criteria.Column, "'" + criteria.Value + "'"));
+                                sqlCommand.Parameters.Add(new SqlParameter(criteria.Column,
+                                                                           "'" + criteria.Value + "'"));
                             }
                             else if (criteria.Operator == DatabaseOperator.OPERATOR_LIKE)
                             {
                                 sqlCommand.Parameters.Add(new SqlParameter(criteria.Column,
-                                                                              "%" + criteria.Value + "%"));
+                                                                           "%" + criteria.Value + "%"));
                             }
-                            //else if (criteria.DbType == DbType.DateTime)
-                            //{
-                            //    sqlCommand.Parameters.Add(new SqlParameter(criteria.Column, criteria.SqlDbType, 1,criteria.Value));
-                            //}
                             else
                             {
                                 sqlCommand.Parameters.Add(new SqlParameter(criteria.Column, criteria.Value));
                             }
                         }
-
                     }
 
                     DateTime startDate = DateTime.Now;

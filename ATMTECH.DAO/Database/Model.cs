@@ -37,13 +37,22 @@ namespace ATMTECH.DAO.Database
                         }
                         else
                         {
-                            pi.SetValue(instance, Convert.ChangeType(propertyValue, pi.PropertyType), null);
+                            if (pi.PropertyType == typeof(DateTime) || pi.PropertyType == typeof(DateTime?))
+                            {
+                                DateTime dateTime = Convert.ToDateTime(propertyValue);
+                                pi.SetValue(instance, dateTime, null);    
+                            }
+                            else
+                            {
+                                pi.SetValue(instance, Convert.ChangeType(propertyValue, pi.PropertyType), null);    
+                            }
+                            
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-
+                    throw new Exception("AssignValue to Model: " + ex.Message);
                 }
 
             }

@@ -118,7 +118,14 @@ namespace ATMTECH.DAO
                 }
                 else
                 {
-                    where += "[" + criteria.Column + "]" + criteria.Operator + "@" + criteria.Column + " and ";
+                    if (criteria.Operator != DatabaseOperator.OPERATOR_IS_NOT_NULL)
+                    {
+                        where += "[" + criteria.Column + "]" + criteria.Operator + "@" + criteria.Column + " and ";    
+                    }
+                    else
+                    {
+                         where += " " + criteria.Column + " " + DatabaseOperator.OPERATOR_IS_NOT_NULL + " and ";
+                    }
                 }
             }
 

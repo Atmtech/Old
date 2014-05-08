@@ -18,7 +18,7 @@ namespace ATMTECH.Entities
         public string Phone { get; set; }
         public bool IsAdministrator { get; set; }
         public bool IsSuperUser { get; set; }
-        public DateTime LastLogin { get; set; }
+        public DateTime? LastLogin { get; set; }
         public File Image { get; set; }
 
         public IList<Group> Groups { get; set; }

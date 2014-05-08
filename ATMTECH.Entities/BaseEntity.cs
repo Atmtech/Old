@@ -26,8 +26,8 @@ namespace ATMTECH.Entities
         public const string DATE_CREATED = "DateCreated";
         public const string DATE_MODIFIED = "DateModified";
 
-        private DateTime? dateCreated = null;
-        private DateTime? dateModified = null;
+        private DateTime? _dateCreated = null;
+        private DateTime? _dateModified = null;
 
         [Category("UniqueKey")]
         public int Id { get; set; }
@@ -38,23 +38,23 @@ namespace ATMTECH.Entities
         {
             get
             {
-                return dateModified.HasValue
-                   ? dateModified.Value
+                return _dateModified.HasValue
+                   ? _dateModified.Value
                    : DateTime.Now;
             }
 
-            set { dateModified = value; }
+            set { _dateModified = value; }
         }
         public DateTime DateCreated
         {
             get
             {
-                return dateCreated.HasValue
-                   ? dateCreated.Value
+                return _dateCreated.HasValue
+                   ? _dateCreated.Value
                    : DateTime.Now;
             }
 
-            set { dateCreated = value; }
+            set { _dateCreated = value; }
         }
 
         

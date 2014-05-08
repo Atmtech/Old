@@ -375,5 +375,6 @@ namespace ATMTECH.DAO.Database
         public const string OPERATOR_GREATER_EQUAL_THAN = ">=";
         public const string OPERATOR_LOWER_THAN = "<";
         public const string OPERATOR_LOWER_EQUAL_THAN = "<=";
+        public const string OPERATOR_IS_NOT_NULL = "is not null";
     }
 }

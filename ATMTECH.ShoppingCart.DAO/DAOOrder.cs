@@ -107,7 +107,9 @@ namespace ATMTECH.ShoppingCart.DAO
         public IList<Order> GetAllFinalized(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
             Criteria criteriaEnterprise = new Criteria { Column = Order.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = enterprise.Id.ToString() };
+            Criteria criteriaDateFinalizedNotNull = new Criteria { Column = Order.FINALIZED_DATE, Operator = DatabaseOperator.OPERATOR_IS_NOT_NULL};
             IList<Criteria> criterias = new List<Criteria>();
+            criterias.Add(criteriaDateFinalizedNotNull);
             criterias.Add(criteriaEnterprise);
             criterias.Add(IsActive());
             IList<Order> orders = GetByCriteria(criterias);

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using ATMTECH.Common.Context;
 using ATMTECH.Services.Interface;
@@ -92,16 +93,6 @@ namespace ATMTECH.Services
 
         public void AddDatasource(string nom, IEnumerable valeur)
         {
-            int i = 0;
-            foreach (var t in valeur)
-            {
-                i += 1;
-            }
-            if (i == 0)
-            {
-                throw new Exception("Aucune donnée pour les critères demandés.");
-            }
-            
             ReportInnerDataSource sourcesDonnees = new ReportInnerDataSource {Nom = nom, Valeurs = valeur};
             if (this.DataSources == null)
                 this.DataSources = new List<ReportInnerDataSource>();

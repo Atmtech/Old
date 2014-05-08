@@ -430,6 +430,10 @@ namespace ATMTECH.ShoppingCart.Services
                         });
             }
 
+            if (productPriceHistoryReportLines.Count == 0)
+            {
+                productPriceHistoryReportLines.Add( new ProductPriceHistoryReportLine() {Product = "Aucun changement de prix pour la période"});
+            }
             return productPriceHistoryReportLines;
         }
 
