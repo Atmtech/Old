@@ -73,10 +73,6 @@ namespace ATMTECH.Web.Services
                 }
                 else
                 {
-                    if (control.ID == "lblWelcomeMessageHome")
-                    {
-                        
-                    }
                     Localization localization = DAOLocalization.GetLocalization(control.ID, page);
                     if (localization != null)
                     {

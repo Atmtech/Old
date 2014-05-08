@@ -45,7 +45,14 @@ namespace ATMTECH.ShoppingCart.Entities
                     {
                         if (productFile.IsPrincipal)
                         {
-                            return "images/product/" + productFile.File.FileName;
+                            if (productFile.File != null)
+                            {
+                                return "images/product/" + productFile.File.FileName;
+                            }
+                            else
+                            {
+                                return "images/product/NoImageForThisProduct.jpg";
+                            }
                         }
                     }
                 }
