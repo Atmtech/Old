@@ -20,7 +20,7 @@ namespace ATMTECH.Administration
             }
             Presenter.OnViewLoaded();
 
-            ddlTable.Items.Add(new ListItem("Product"));
+        
         }
 
         protected void btnImportClick(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace ATMTECH.Administration
                     HttpPostedFile httpPostedFile = hfc[i];
                     if (httpPostedFile.ContentLength > 0)
                     {
-                        Presenter.ImportFile(httpPostedFile, ddlTable.Text);
+                        Presenter.ImportFile(httpPostedFile);
                         lblFileImported.Visible = true;
                     }
                 }

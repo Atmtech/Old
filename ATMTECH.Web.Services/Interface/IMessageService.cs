@@ -8,5 +8,6 @@ namespace ATMTECH.Web.Services.Interface
         void ThrowMessage(string innerId, string parameter);
         void ThrowMessage(string innerId, System.Exception ex);
         Message GetMessage(string innerId);
+        void ThrowMessage(System.Exception ex);
     }
 }

@@ -17,13 +17,14 @@ namespace ATMTECH.Administration.Views
         public IAuthenticationService AuthenticationService { get; set; }
         public IFileService FileService { get; set; }
         public IProductService ProductService { get; set; }
+        public IStockService StockService { get; set; }
 
         public ImportExcelPresenter(IImportExcelPresenter view)
             : base(view)
         {
         }
 
-        public void ImportFile(HttpPostedFile httpPostedFile, string table)
+        public void ImportFile(HttpPostedFile httpPostedFile)
         {
             string filename = Path.GetFileName(httpPostedFile.FileName);
             string serverPath = Server.MapPath(string.Format(@"{0}\{1}", "Files", filename));
@@ -43,9 +44,17 @@ namespace ATMTECH.Administration.Views
                                    ("data source=" + file + "; " + "Extended Properties=Excel 8.0;"))))
             {
                 conn.Open();
-                // Select the data from Sheet1 of the workbook.
-                OleDbDataAdapter ada = new OleDbDataAdapter("select * from [Feuil1$]", conn);
-                DataSet ds = new DataSet();
+                ImportWorkSheetProduct(conn);
+                ImportWorkSheetStock(conn);
+            }
+        }
+
+        private void ImportWorkSheetProduct(OleDbConnection conn)
+        {
+            OleDbDataAdapter ada = new OleDbDataAdapter("select * from [Product$]", conn);
+            DataSet ds = new DataSet();
+            try
+            {
                 ada.Fill(ds, "result_name");
                 DataTable dt = ds.Tables["result_name"];
                 foreach (DataRow row in dt.Rows)
@@ -53,30 +62,77 @@ namespace ATMTECH.Administration.Views
                     ImportExcelToProduct(row);
                 }
             }
+            catch (Exception ex)
+            {
+                MessageService.ThrowMessage(ex);
+
+            }
+
         }
+
+        private void ImportWorkSheetStock(OleDbConnection conn)
+        {
+            OleDbDataAdapter ada = new OleDbDataAdapter("select * from [Stock$]", conn);
+            DataSet ds = new DataSet();
+            try
+            {
+                ada.Fill(ds, "result_name");
+                DataTable dt = ds.Tables["result_name"];
+                foreach (DataRow row in dt.Rows)
+                {
+                    ImportExcelToStock(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageService.ThrowMessage(ex);
+
+            }
+        }
+
+        private void ImportExcelToStock(DataRow row)
+        {
+            Stock stock = new Stock
+                {
+                    IsActive = true,
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+
+                    Product = new Product { Id = Convert.ToInt32(row["Product"]) },
+                    InitialState = Convert.ToInt32(row["InitialState"]),
+                    MinimumAccept = Convert.ToInt32(row["MinimumAccept"]),
+                    IsWarningOnLow = Convert.ToInt32(row["IsWarningOnLow"]) == 1,
+                    FeatureFrench = row["FeatureFrench"].ToString(),
+                    FeatureEnglish = row["FeatureEnglish"].ToString(),
+                    AdjustPrice = Convert.ToDecimal(row["AdjustPrice"]),
+                    IsWithoutStock = Convert.ToInt32(row["IsWithoutStock"]) == 1
+                };
+
+            StockService.Save(stock);
+        }
+
 
         private void ImportExcelToProduct(DataRow row)
         {
-            Enterprise enterprise = new Enterprise();
-            enterprise.Id = Convert.ToInt32(row["Enterprise"].ToString());
-            ProductCategory productCategory = new ProductCategory();
-            productCategory.Id = Convert.ToInt32(row["ProductCategory"].ToString());
 
-            Product product = new Product();
-            product.Description = row["Description"].ToString();
-            product.IsActive = true;
-            product.DateCreated = DateTime.Now;
-            product.DateModified = DateTime.Now;
-            product.Language = row["Language"].ToString();
-            product.Ident = row["Ident"].ToString();
-            product.NameFrench = row["NameFrench"].ToString();
-            product.NameEnglish = row["NameEnglish"].ToString();
-            product.UnitPrice = Convert.ToDecimal(row["UnitPrice"].ToString());
-            product.CostPrice = Convert.ToDecimal(row["CostPrice"].ToString());
-            product.Enterprise = enterprise;
-            product.Weight = Convert.ToDecimal(row["Weight"].ToString());
-            product.ProductCategoryFrench = productCategory;
-            product.ProductCategoryEnglish = productCategory;
+            Product product = new Product
+                {
+                    DescriptionEnglish = row["DescriptionEnglish"].ToString(),
+                    DescriptionFrench = row["DescriptionFrench"].ToString(),
+                    IsActive = true,
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    Ident = row["Ident"].ToString(),
+                    NameFrench = row["NameFrench"].ToString(),
+                    NameEnglish = row["NameEnglish"].ToString(),
+                    UnitPrice = Convert.ToDecimal(row["UnitPrice"].ToString()),
+                    CostPrice = Convert.ToDecimal(row["CostPrice"].ToString()),
+                    Enterprise = new Enterprise() { Id = Convert.ToInt32(Convert.ToInt32(row["Enterprise"])) },
+                    Weight = Convert.ToDecimal(row["Weight"].ToString()),
+                    ProductCategoryFrench = new ProductCategory() { Id = Convert.ToInt32(row["ProductCategoryFrench"]) },
+                    ProductCategoryEnglish = new ProductCategory() { Id = Convert.ToInt32(row["ProductCategoryEnglish"]) }
+                };
+
             ProductService.Save(product);
         }
 

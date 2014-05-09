@@ -41,6 +41,13 @@ namespace ATMTECH.Web.Services
             throw new BaseException(message);
         }
 
+        public void ThrowMessage(System.Exception ex)
+        {
+            Message message = new Message() { Description = ex.Message };
+            LogService.LogException(message, ex);
+            throw new BaseException(message);
+        }
+
 
     }
 }
