@@ -98,28 +98,28 @@ namespace ATMTECH.Administration.Views
         public string InitialiserColonneRecherche()
         {
             string rtn = string.Empty;
-            rtn += Save<Country>();
-            rtn += Save<City>();
-            rtn += Save<User>();
-            rtn += Save<Customer>();
-            rtn += Save<CustomerType>();
-            rtn += Save<Enterprise>();
-            rtn += Save<EnterpriseAddress>();
-            rtn += Save<EnterpriseEmail>();
-            rtn += Save<EnumOrderInformation>();
-            rtn += Save<GroupProduct>();
-            rtn += Save<Order>();
-            rtn += Save<OrderLine>();
-            rtn += Save<Product>();
-            rtn += Save<ProductCategory>();
-            rtn += Save<ProductFile>();
-            rtn += Save<File>();
-            rtn += Save<ProductPriceHistory>();
+            //rtn += Save<Country>();
+            //rtn += Save<City>();
+            //rtn += Save<User>();
+            //rtn += Save<Customer>();
+            //rtn += Save<CustomerType>();
+            //rtn += Save<Enterprise>();
+            //rtn += Save<EnterpriseAddress>();
+            //rtn += Save<EnterpriseEmail>();
+            //rtn += Save<EnumOrderInformation>();
+            //rtn += Save<GroupProduct>();
+            //rtn += Save<Order>();
+            //rtn += Save<OrderLine>();
+            //rtn += Save<Product>();
+            //rtn += Save<ProductCategory>();
+            //rtn += Save<ProductFile>();
+            //rtn += Save<File>();
+            //rtn += Save<ProductPriceHistory>();
             rtn += Save<Stock>();
-            rtn += Save<StockLink>();
-            rtn += Save<StockTemplate>();
-            rtn += Save<Supplier>();
-            rtn += Save<Taxes>();
+            //rtn += Save<StockLink>();
+            //rtn += Save<StockTemplate>();
+            //rtn += Save<Supplier>();
+            //rtn += Save<Taxes>();
             return rtn;
         }
 
