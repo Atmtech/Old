@@ -109,6 +109,36 @@ namespace ATMTECH.ShoppingCart.Glv
                 {
                     pnlMenuBottom.Visible = false;
                 }
+
+                if (value.Id == 10)
+                {
+                    if (Presenter.CurrentLanguage == "fr")
+                    {
+                        lnkVEtement.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=83";
+                        lnkArticlePromotionnel.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=82";    
+                    }
+                    else
+                    {
+                        lnkVEtement.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=84";
+                        lnkArticlePromotionnel.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=85";
+                    }
+                    
+                }
+                else
+                {
+                    if (Presenter.CurrentLanguage == "fr")
+                    {
+                        lnkVEtement.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=34";
+                        lnkArticlePromotionnel.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=33";
+                    }
+                    else
+                    {
+                        lnkVEtement.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=80";
+                        lnkArticlePromotionnel.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=81";
+                    }
+
+                
+                }
             }
         }
 
@@ -186,8 +216,6 @@ namespace ATMTECH.ShoppingCart.Glv
                 imgModeEmploi.ImageUrl = "Images/WebSite/GLV_faq_fr.png";
                 imgEtapeCommande.ImageUrl = "Images/WebSite/GLV_commander.png";
                 imgServiceClientele.ImageUrl = "Images/WebSite/GLV_service.png";
-                lnkArticlePromotionnel.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=33";
-                lnkVEtement.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=34";
             }
             else
             {
@@ -196,8 +224,6 @@ namespace ATMTECH.ShoppingCart.Glv
                 imgModeEmploi.ImageUrl = "Images/WebSite/GLV_faq_en.png";
                 imgEtapeCommande.ImageUrl = "Images/WebSite/GLV_ordering.png";
                 imgServiceClientele.ImageUrl = "Images/WebSite/GLV_customer.png";
-                lnkArticlePromotionnel.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=81";
-                lnkVEtement.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=80";
             }
         }
     }

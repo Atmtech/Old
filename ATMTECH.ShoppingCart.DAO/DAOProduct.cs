@@ -22,11 +22,19 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             get
             {
-                return ContextSessionManager.Session["currentLanguage"] == null ? "fr" : ContextSessionManager.Session["currentLanguage"].ToString();
+                return ContextSessionManager.Session["currentLanguage"] == null
+                           ? "fr"
+                           : ContextSessionManager.Session["currentLanguage"].ToString();
             }
         }
 
-     
+        public IList<Product> GetProductsWithoutStock(int id)
+        {
+            return
+                GetBySql(
+            "select Product.Id,Product.Description,Product.IsActive,Product.DateCreated,Product.DateModified,Product.Language,Product.OrderId,Product.Search,Product.ComboboxDescription,Product.Ident,Product.UnitPrice,Product.CostPrice,Product.Enterprise,Product.Weight,Product.Supplier,Product.InternalIdent,Product.DescriptionFrench,Product.DescriptionEnglish,Product.ProductCategoryFrench,Product.ProductCategoryEnglish,Product.NameFrench,Product.NameEnglish from Product Where Id not in (SELECT Product From Stock) and Enterprise = " + id);
+        }
+
         public Product GetProduct(int id)
         {
             Product product = GetById(id);

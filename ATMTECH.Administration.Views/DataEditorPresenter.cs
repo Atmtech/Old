@@ -106,19 +106,15 @@ namespace ATMTECH.Administration.Views
 
                     return rtn.Where(x => x.Search != null && x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
                 case "stock":
-                    IList<Stock> stocks = StockService.GetAllStock(15000, pageIndex);
-                    stocks = stocks.Where(x => x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                    IList<Stock> stocks = StockService.GetAllStockByEnterprise(Convert.ToInt32(View.Enterprise)).Where(x => x.Product != null).ToList();
+                    stocks = stocks.Where(x => x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList().Take(10).Skip(pageIndex).ToList();
+                    
                     foreach (Stock stock in stocks)
                     {
                         stock.Product = ProductService.GetProductSimple(stock.Product.Id);
                     }
 
-                    stocks = stocks.Where(x => x.Product != null).ToList();
-
-                    stocks = stocks.Where(x => x.Product.Enterprise.Id == Convert.ToInt32(View.Enterprise)).ToList();
-
                     View.ProductWithoutStock = ProductService.GetProductsWithoutStock(Convert.ToInt32(View.Enterprise));
-
 
                     return stocks;
                 case "stocklink":

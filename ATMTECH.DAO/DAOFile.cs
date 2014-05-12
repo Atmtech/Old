@@ -21,7 +21,7 @@ namespace ATMTECH.DAO
             }
             set
             {
-                if (ContextSessionManager.Context.Session["File"] == null)
+                if (ContextSessionManager.Context.Session["File"] == null || value == null)
                     ContextSessionManager.Context.Session["File"] = value;
             }
         }
@@ -60,8 +60,8 @@ namespace ATMTECH.DAO
         public void DeleteFile(File file)
         {
             Files = null;
-            ExecuteSql("DELETE FROM File WHERE Id = " + file.Id.ToString());
-            ExecuteSql("DELETE FROM ProductFile Where File = " + file.Id.ToString());
+            ExecuteSql("DELETE FROM [File] WHERE Id = " + file.Id.ToString());
+            ExecuteSql("DELETE FROM ProductFile Where [File] = " + file.Id.ToString());
         }
 
         public int UpdateFile(File file)

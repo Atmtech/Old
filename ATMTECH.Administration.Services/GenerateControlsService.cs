@@ -173,7 +173,7 @@ namespace ATMTECH.Administration.Services
             {
 
                 case "product":
-                    return ProductService.GetProductsWithoutLanguage(idEnterprise);
+                    return ProductService.GetProductsSimple(idEnterprise);
                 case "enterprise":
                     return EnterpriseService.GetEnterpriseByAccess(AuthenticationService.AuthenticateUser);
                 case "stock":

@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="tile triple-vertical triple bg-color-grayDark">
-        <div class="tile-content">
+        <div class="tile-content" style="overflow: auto; overflow-x: hidden;">
             <h4>
                 <asp:Label runat="server" ID="lblIdent" Visible="True"></asp:Label>
                 <asp:Label runat="server" ID="lblName"></asp:Label>

@@ -60,10 +60,9 @@ namespace ATMTECH.ShoppingCart.Services
         }
         public IList<Product> GetProductsWithoutStock(int idEnterprise)
         {
-            IList<Product> products = DAOProduct.GetProducts(idEnterprise);
-            products = products.Where(x => x.Stocks.Count == 0).ToList();
-            return products;
+            return DAOProduct.GetProductsWithoutStock(idEnterprise);
         }
+        
         public IList<Product> GetProducts(int idEnterprise, int idUser, string search)
         {
             return idEnterprise != 0 ? DAOProduct.GetProducts(idEnterprise, idUser, search) : null;

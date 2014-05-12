@@ -14,8 +14,10 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             return
                 GetBySql(
-                    "SELECT STOCK.Id as Id, STOCK.[Description], STOCK.[IsActive], STOCK.[DateCreated], STOCK.[DateModified],STOCK.[Language],STOCK.[OrderId],STOCK.[Search],STOCK.[ComboboxDescription],[Product],[InitialState],[MinimumAccept],[IsWarningOnLow],[Feature],[AdjustPrice],[IsWithoutStock] FROM STOCK INNER JOIN PRODUCT ON STOCK.Product = Product.Id  INNER JOIN ENTERPRISE ON Product.[Enterprise] = ENTERPRISE.ID ");
+                    "SELECT STOCK.Id as Id, STOCK.[Description], STOCK.[IsActive], STOCK.[DateCreated], STOCK.[DateModified],STOCK.[Language],STOCK.[OrderId],STOCK.[Search],STOCK.[ComboboxDescription],[Product],[InitialState],[MinimumAccept],[IsWarningOnLow],[FeatureFrench],[FeatureEnglish],[AdjustPrice],[IsWithoutStock] FROM STOCK INNER JOIN PRODUCT ON STOCK.Product = Product.Id and Product.Enterprise = " + idEnterprise + "  INNER JOIN ENTERPRISE ON Product.[Enterprise] = ENTERPRISE.ID");
         }
+
+        
 
         public IList<Stock> GetProductStock(int idProduct)
         {
@@ -34,6 +36,9 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             Save(stock);
         }
+
+
+  
 
         public IList<Stock> GetAllStock(int pageSize, int pageIndex)
         {

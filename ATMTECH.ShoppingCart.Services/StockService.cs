@@ -50,6 +50,7 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return DAOStock.GetStockByEnterprise(idEnterprise);
         }
+       
         public IList<StockLink> GetStockLink(int idEnterprise)
         {
             return DAOStockLink.GetStockLinked(idEnterprise);
