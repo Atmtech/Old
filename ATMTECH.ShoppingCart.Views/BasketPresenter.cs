@@ -26,9 +26,9 @@ namespace ATMTECH.ShoppingCart.Views
         {
         }
 
-        public override void OnViewLoaded()
+        public override void OnViewInitialized()
         {
-            base.OnViewLoaded();
+            base.OnViewInitialized();
 
             View.AskShippingLabel = MessageService.GetMessage(ErrorCode.SC_ASK_SHIPPING_QUOTATION).Description;
 

@@ -65,7 +65,7 @@ namespace ATMTECH.ShoppingCart.Glv
         }
 
         public string OrderInformation1Value { get { return ddlOrderInformation1.SelectedValue.ToString(); } }
-        public string OrderInformation2Value { get { return ddlOrderInformation2.SelectedValue.ToString(); } }
+        public string OrderInformation2Value { get { return ddlOrderInformation2.SelectedValue; } }
 
         public bool IsPanelModifyShippingAddressOpen
         {

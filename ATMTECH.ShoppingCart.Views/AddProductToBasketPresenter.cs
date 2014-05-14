@@ -148,8 +148,23 @@ namespace ATMTECH.ShoppingCart.Views
             {
                 if (CustomerService.AuthenticateCustomer.Enterprise.BillingAddress.Count > 0)
                     order.BillingAddress = CustomerService.AuthenticateCustomer.Enterprise.BillingAddress[0];
+                else
+                {
+                    if (CustomerService.AuthenticateCustomer.BillingAddress.ComboboxDescription != null)
+                    {
+                        order.BillingAddress = CustomerService.AuthenticateCustomer.BillingAddress;
+                    }
+                }
+                
                 if (CustomerService.AuthenticateCustomer.Enterprise.ShippingAddress.Count > 0)
                     order.ShippingAddress = CustomerService.AuthenticateCustomer.Enterprise.ShippingAddress[0];
+                else
+                {
+                    if (CustomerService.AuthenticateCustomer.ShippingAddress.ComboboxDescription != null)
+                    {
+                        order.ShippingAddress = CustomerService.AuthenticateCustomer.ShippingAddress;
+                    }
+                }
             }
 
             order = OrderService.AddOrderLine(CreateOrderLine(idStock, quantity), order);

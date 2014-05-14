@@ -64,7 +64,7 @@ namespace ATMTECH.Web.Services
 
                 if (logVisit.Ip != "127.0.0.1" && logVisit.Ip != "::1")
                 {
-                    String url = " http://freegeoip.net/xml/" + logVisit.Ip;
+                    String url = "http://freegeoip.net/xml/" + logVisit.Ip;
                     XmlDocument doc = new XmlDocument();
                     doc.Load(url);
                     logVisit.CountryName = doc.GetElementsByTagName("CountryName")[0].InnerText;
