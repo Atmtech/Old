@@ -41,6 +41,7 @@ namespace ATMTECH.ShoppingCart.Services
         public IDAOEnterpriseEmail DAOEnterpriseEmail { get; set; }
         public IDAOEnumOrderInformation DAOEnumOrderInformation { get; set; }
         public IDAOProductFile DAOProductFile { get; set; }
+        public INavigationService NavigationService { get; set; }
 
         public Order AddOrderLine(OrderLine orderLine, Order order)
         {
@@ -65,6 +66,16 @@ namespace ATMTECH.ShoppingCart.Services
         }
         public int Save(Order order)
         {
+            if (order.Customer.BillingAddress.ComboboxDescription == null)
+            {
+                order.Customer.BillingAddress = order.BillingAddress;
+                CustomerService.SaveCustomer(order.Customer);
+            }
+            if (order.Customer.ShippingAddress.ComboboxDescription == null)
+            {
+                order.Customer.ShippingAddress = order.ShippingAddress;
+                CustomerService.SaveCustomer(order.Customer);
+            }
             return DAOOrder.Save(order);
         }
         public int UpdateOrder(Order order, ShippingParameter shippingParameter)
@@ -222,7 +233,7 @@ namespace ATMTECH.ShoppingCart.Services
                                  string.Format(ParameterService.GetValue(Constant.MAIL_ASK_QUOTE_SHIPPING_SUBJECT), order.Id),
                                  string.Format(ParameterService.GetValue(Constant.MAIL_ASK_QUOTE_SHIPPING_BODY), order.Id, order.Customer.User.Email));
             Save(order);
-
+            NavigationService.Refresh();
         }
         public Stream ReturnOrderReport(Order order)
         {
@@ -295,9 +306,9 @@ namespace ATMTECH.ShoppingCart.Services
         }
         public IList<Product> GetFavoriteProductFromOrder(Enterprise enterprise, int take)
         {
-            
+
             IList<Product> products = ProductService.GetProductsSimple(enterprise.Id);
-            
+
             Random r = new Random();
             IList<Product> productses = products.OrderBy(x => r.Next()).Take(take).ToList();
             foreach (Product productse in productses)
@@ -332,7 +343,7 @@ namespace ATMTECH.ShoppingCart.Services
                             StockInitialState = orderLine.Stock.InitialState,
                             UnitPrice = orderLine.Stock.Product.UnitPrice,
                             UnitPriceOrderLine = orderLine.UnitPrice,
-                            FinalizedDate = (DateTime) orderLine.Order.FinalizedDate,
+                            FinalizedDate = (DateTime)orderLine.Order.FinalizedDate,
                             DateStart = dateStart,
                             DateEnd = dateEnd
                         };
@@ -383,7 +394,7 @@ namespace ATMTECH.ShoppingCart.Services
                                             ProductId = orderLine.Stock.Product.Id,
                                             Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.NameFrench + " " + orderLine.Stock.FeatureFrench),
                                             UnitPriceOrderLine = orderLine.UnitPrice,
-                                            FinalizedDate = (DateTime) orderLine.Order.FinalizedDate,
+                                            FinalizedDate = (DateTime)orderLine.Order.FinalizedDate,
                                             DateStart = dateStart,
                                             DateEnd = dateEnd,
                                             OrderInformation = enumOrderInformations.FirstOrDefault(x => x.Code == orderLine.Order.OrderInformation1).Description + " - " + enumOrderInformations.FirstOrDefault(x => x.Code == orderLine.Order.OrderInformation2).Description
@@ -423,7 +434,7 @@ namespace ATMTECH.ShoppingCart.Services
                 if (productPriceHistory.DateChanged != null)
                     productPriceHistoryReportLines.Add(new ProductPriceHistoryReportLine
                         {
-                            DateChanged = (DateTime) productPriceHistory.DateChanged,
+                            DateChanged = (DateTime)productPriceHistory.DateChanged,
                             PriceAfter = productPriceHistory.PriceAfter,
                             PriceBefore = productPriceHistory.PriceBefore,
                             Product = HttpUtility.HtmlDecode(productPriceHistory.Product.Ident + " " + productPriceHistory.Product.NameFrench)
@@ -432,7 +443,7 @@ namespace ATMTECH.ShoppingCart.Services
 
             if (productPriceHistoryReportLines.Count == 0)
             {
-                productPriceHistoryReportLines.Add( new ProductPriceHistoryReportLine() {Product = "Aucun changement de prix pour la période"});
+                productPriceHistoryReportLines.Add(new ProductPriceHistoryReportLine() { Product = "Aucun changement de prix pour la période" });
             }
             return productPriceHistoryReportLines;
         }
@@ -717,11 +728,12 @@ namespace ATMTECH.ShoppingCart.Services
                     order.TotalWeight += (product.Weight * orderLine.Quantity);
                 }
             }
-
-            order.ShippingTotal = GetShippingTotal(order, shippingParameter);
-
+            if (!order.Enterprise.IsShippingQuotationRequired)
+            {
+                order.ShippingTotal = GetShippingTotal(order, shippingParameter);
+            }
             decimal shippingCost = 0;
-            if (order.Enterprise.IsShippingIncluded)
+            if (order.Enterprise.IsShippingIncluded || order.Enterprise.IsShippingQuotationRequired)
             {
                 shippingCost = order.ShippingTotal;
             }

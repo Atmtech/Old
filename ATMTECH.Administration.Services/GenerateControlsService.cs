@@ -414,7 +414,7 @@ namespace ATMTECH.Administration.Services
             if (manageClass.IsExistInNameSpace("ATMTECH.Entities", entity))
             {
                 entityInformation =
-                    entityInformations.Where(x => x.NameSpace == "ATMTECH..Entities." + entity)
+                    entityInformations.Where(x => x.NameSpace == "ATMTECH.Entities." + entity)
                         .ToList()[0];
                 entityInformation.EntityProperties =
                     entityProperties.Where(x => x.EntityInformation.Id == entityInformation.Id).ToList();

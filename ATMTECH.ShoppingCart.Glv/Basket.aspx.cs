@@ -72,8 +72,16 @@ namespace ATMTECH.ShoppingCart.Glv
             get { return pnlModifyShippingAddress.Visible; }
             set
             {
-                ddlShipping.Visible = false;
-                pnlModifyShippingAddress.Visible = value;
+                if (value)
+                {
+                    ddlShipping.Visible = false;
+                    pnlModifyShippingAddress.Visible = true;
+                }
+                else
+                {
+                    ddlShipping.Visible = true;
+                    pnlModifyShippingAddress.Visible = false;
+                }
             }
         }
 
@@ -82,8 +90,16 @@ namespace ATMTECH.ShoppingCart.Glv
             get { return pnlModifyBillingAddress.Visible; }
             set
             {
-                ddlBilling.Visible = false;
-                pnlModifyBillingAddress.Visible = value;
+                if (value)
+                {
+                    ddlBilling.Visible = false;
+                    pnlModifyBillingAddress.Visible = true;
+                }
+                else
+                {
+                    ddlBilling.Visible = true;
+                    pnlModifyBillingAddress.Visible = false;
+                }
             }
         }
 
@@ -238,6 +254,7 @@ namespace ATMTECH.ShoppingCart.Glv
                 lblSubTotalTaxesCountry.Text = value.CountryTax.ToString("c");
                 lblSubTotalTaxesRegion.Text = value.RegionalTax.ToString("c");
                 lblShippingTotal.Text = value.ShippingTotal.ToString("c");
+
             }
         }
 

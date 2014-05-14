@@ -29,6 +29,7 @@ namespace ATMTECH.ShoppingCart.DAO
             {
                 productPriceHistory.Product = DAOProduct.GetProduct(productPriceHistory.Product.Id);
             }
+            productPriceHistories = productPriceHistories.Where(x => x.Product != null).ToList();
             return productPriceHistories.Where(x=>x.Product.Enterprise.Id == enterprise.Id).ToList();
         }
     }

@@ -18,7 +18,7 @@ namespace ATMTECH.ShoppingCart.Views
         public ICustomerService CustomerService { get; set; }
         public IOrderService OrderService { get; set; }
         public IAddressService AddressService { get; set; }
-        
+
         public ATMTECH.Services.Interface.IReportService ReportService { get; set; }
 
         public BasketPresenter(IBasketPresenter view)
@@ -26,9 +26,9 @@ namespace ATMTECH.ShoppingCart.Views
         {
         }
 
-        public override void OnViewInitialized()
+        public override void OnViewLoaded()
         {
-            base.OnViewInitialized();
+            base.OnViewLoaded();
 
             View.AskShippingLabel = MessageService.GetMessage(ErrorCode.SC_ASK_SHIPPING_QUOTATION).Description;
 
@@ -64,7 +64,7 @@ namespace ATMTECH.ShoppingCart.Views
                     View.IsPaypalRequired = View.CurrentOrder.Enterprise.IsPaypalRequired;
                     View.IsAskShipping = View.CurrentOrder.IsAskShipping;
                     View.IsOrderLocked = View.CurrentOrder.IsOrderLocked;
-                    
+
                 }
 
 
@@ -194,8 +194,11 @@ namespace ATMTECH.ShoppingCart.Views
         {
             if (View.CurrentOrder.ShippingAddress == null)
             {
-                View.IsPanelModifyBillingAddressOpen = true;
                 View.IsPanelModifyShippingAddressOpen = true;
+            }
+            if (View.CurrentOrder.BillingAddress == null)
+            {
+                View.IsPanelModifyBillingAddressOpen = true;
             }
 
             View.BillingAddress = AddressService.GetBillingAddress(CustomerService.AuthenticateCustomer);
@@ -255,6 +258,19 @@ namespace ATMTECH.ShoppingCart.Views
 
         public void AskForShipping()
         {
+            Address addressBilling = SetModifyBillingAddress();
+            Address addressShipping = SetModifyShippingAddress();
+
+            if (addressBilling != null)
+            {
+                View.CurrentOrder.BillingAddress = addressBilling;
+            }
+
+            if (addressShipping != null)
+            {
+                View.CurrentOrder.ShippingAddress = addressShipping;
+            }
+
             OrderService.AskForShipping(View.CurrentOrder);
 
         }
