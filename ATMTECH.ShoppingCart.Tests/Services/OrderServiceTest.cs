@@ -125,7 +125,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services
         public void CalculateTotal_SiShippingManagedOnRempliShippingTotal()
         {
             OrderTaxesShippingParameterTest orderTaxesShippingParameterTest = CalculateTotalBasic();
-
+            orderTaxesShippingParameterTest.Order.ShippingTotal = 123;
             orderTaxesShippingParameterTest.Order.Enterprise.IsShippingManaged = true;
             MockShippingService.Setup(test => test.GetShippingTotal(It.IsAny<Order>(), It.IsAny<ShippingParameter>()))
                                .Returns(123);
@@ -143,6 +143,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services
 
             orderTaxesShippingParameterTest.Order.Enterprise.IsShippingManaged = true;
             orderTaxesShippingParameterTest.Order.Enterprise.IsShippingIncluded = true;
+            orderTaxesShippingParameterTest.Order.Enterprise.IsShippingQuotationRequired = false;
             MockShippingService.Setup(test => test.GetShippingTotal(It.IsAny<Order>(), It.IsAny<ShippingParameter>()))
                                .Returns(123);
 
