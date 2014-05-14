@@ -216,6 +216,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services
         private OrderTaxesShippingParameterTest CalculateTotalBasic()
         {
             Order order = AutoFixture.Create<Order>();
+            order.ShippingTotal = 0;
             ShippingParameter shippingParameter = AutoFixture.Create<ShippingParameter>();
             Taxes taxes = AutoFixture.Create<Taxes>();
             Product product = AutoFixture.Create<Product>();
