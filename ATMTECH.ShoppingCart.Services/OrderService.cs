@@ -239,6 +239,10 @@ namespace ATMTECH.ShoppingCart.Services
             }
 
             Save(order);
+
+            MailService.SendEmail(order.Customer.User.Email, ParameterService.GetValue(Constant.ADMIN_MAIL), ParameterService.GetValue(Constant.MAIL_ASK_QUOTE_SHIPPING_SUBJECT_CUSTOMER),
+                                    ParameterService.GetValue(Constant.MAIL_ASK_QUOTE_SHIPPING_BODY_CUSTOMER));
+
             NavigationService.Refresh();
         }
         public Stream ReturnOrderReport(Order order)
@@ -323,7 +327,6 @@ namespace ATMTECH.ShoppingCart.Services
             }
             return productses;
         }
-
         public IList<SalesReportLine> GetSalesReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
             IList<SalesReportLine> salesReportLines = new List<SalesReportLine>();
@@ -368,7 +371,6 @@ namespace ATMTECH.ShoppingCart.Services
 
             return salesReportLines.OrderBy(x => x.OrderId).Where(x => x.OrderId != 0).ToList();
         }
-
         public IList<SalesByOrderInformationReportLine> GetSalesByOrderInformationReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
             IList<SalesByOrderInformationReportLine> salesReportLines = new List<SalesByOrderInformationReportLine>();
@@ -416,18 +418,14 @@ namespace ATMTECH.ShoppingCart.Services
 
             return salesReportLines.OrderBy(x => x.OrderInformation).ThenBy(x => x.ProductId).ToList();
         }
-
-
         public IList<OrderLine> GetAllOrderLine()
         {
             return DAOOrderLine.GetAll();
         }
-
         public int SaveOrderLine(OrderLine orderLine)
         {
             return DAOOrderLine.Update(orderLine);
         }
-
         public IList<ProductPriceHistoryReportLine> GetProductPriceHistoryReportLine(Enterprise enterprise,
                                                                                      DateTime dateStart,
                                                                                      DateTime dateEnd)

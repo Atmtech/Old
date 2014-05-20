@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ATMTECH.Common.Context;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
@@ -87,6 +88,8 @@ namespace ATMTECH.ShoppingCart.Services
 
         public Address SaveAddress(Address address)
         {
+
+            ContextSessionManager.Context.Session["Cities"] = null;
 
             City cityFind = FindCity(address.City.Description);
             if (cityFind != null)

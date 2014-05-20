@@ -220,6 +220,7 @@
             <asp:Button runat="server" ID="btnFinalizeOrderPaypal" Text="Finaliser la commande avec Paypal"
                 OnClick="FinalizeOrderPaypal" ValidationGroup="FinalizeOrder" />
             <asp:Button runat="server" ID="btnAskShipping" Text="Demande de quotation pour envoi" OnClick="btnAskShippingClick" Visible="False" />
+            <asp:Label runat="server" ID="lblAskShippingInformation" Text="Assurez-vous que votre commande est complète puisque vous ne pourrez pas commander d'articles supplémentaires lorsqu'une demande de soumission de frais de livraison est en cours." Visible="False"></asp:Label><br />
         </asp:Panel>
         <asp:Panel runat="server" ID="pnlBasketEmpty" Visible="False">
             <asp:Label runat="server" ID="lblBasketIsEmpty" Text="Votre panier est vide"></asp:Label>

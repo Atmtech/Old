@@ -115,6 +115,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                     btnFinalizeOrder.Visible = false;
                     btnFinalizeOrderPaypal.Visible = false;
                     btnAskShipping.Visible = true;
+                    lblAskShippingInformation.Visible = true;
                 }
             }
         }
@@ -125,7 +126,7 @@ namespace ATMTECH.ShoppingCart.PubJL
             {
                 if (value)
                 {
-                    btnAskShipping.Visible = false;
+                    
                     btnCancelModifiedBillingAddress.Visible = false;
                     btnCancelModifiedShippingAddress.Visible = false;
                     btnFinalizeOrder.Visible = false;
@@ -135,6 +136,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                     btnModifyBillingAddress.Visible = false;
                     btnModifyShippingAddress.Visible = false;
                     btnAskShipping.Visible = false;
+                    lblAskShippingInformation.Visible = false;
                     grvBasket.Enabled = false;
                     lblAskShipping.Visible = true;
                     pnlAskShipping.Visible = true;
