@@ -83,6 +83,12 @@ namespace ATMTECH.Administration.Views
         {
             switch (Entity.ToLower())
             {
+                case "orderline":
+                    IList<Order> orderlast = OrderService.GetOrder(Convert.ToInt32(View.Enterprise), pageIndex)
+                        .OrderByDescending(x => x.FinalizedDate).ToList()
+                        .Where(x => x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                    
+                    return OrderService.GetAllOrderLine().Where(orderLine => orderlast.Count(x => x.Id == orderLine.Order.Id) > 0).ToList();
                 case "customer":
                     IList<Customer> customers = CustomerService.GetCustomerByEnterprise(Convert.ToInt32(View.Enterprise));
                     if (!string.IsNullOrEmpty(recherche))

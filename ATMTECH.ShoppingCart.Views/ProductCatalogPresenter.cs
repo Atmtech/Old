@@ -24,8 +24,7 @@ namespace ATMTECH.ShoppingCart.Views
 
         private void FindProductCategories()
         {
-            IList<ProductCategory> productCategories;
-            productCategories = CustomerService.AuthenticateCustomer != null ? 
+            IList<ProductCategory> productCategories = CustomerService.AuthenticateCustomer != null ? 
                 ProductService.GetProductCategory(CustomerService.AuthenticateCustomer.Enterprise.Id).OrderBy(x => x.OrderId).ToList() : 
                 ProductService.GetProductCategory(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED))).OrderBy(x => x.OrderId).ToList();
 

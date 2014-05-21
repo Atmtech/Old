@@ -99,12 +99,12 @@ namespace ATMTECH.Administration.Views
         {
             string rtn = string.Empty;
             //rtn += Save<Country>();
-            //rtn += Save<City>();
+            rtn += Save<City>();
             //rtn += Save<User>();
             //rtn += Save<Customer>();
             //rtn += Save<CustomerType>();
-            //rtn += Save<Enterprise>();
-            //rtn += Save<EnterpriseAddress>();
+            rtn += Save<Enterprise>();
+            rtn += Save<EnterpriseAddress>();
             //rtn += Save<EnterpriseEmail>();
             //rtn += Save<EnumOrderInformation>();
             //rtn += Save<GroupProduct>();

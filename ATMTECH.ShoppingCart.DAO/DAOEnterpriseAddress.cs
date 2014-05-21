@@ -26,7 +26,6 @@ namespace ATMTECH.ShoppingCart.DAO
             Criteria criteria2 = new Criteria() { Column = EnterpriseAddress.ADDRESS_TYPE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = EnterpriseAddress.CODE_ADRESS_TYPE_BILLING };
             criterias.Add(criteria1);
             criterias.Add(criteria2);
-            SetLanguage(criterias, CurrentLanguage);
             criterias.Add(IsActive());
 
             IList<Address> addresses = GetByCriteria(criterias).Select(enterpriseAddress => enterpriseAddress.Address).ToList();
@@ -41,7 +40,6 @@ namespace ATMTECH.ShoppingCart.DAO
             Criteria criteria2 = new Criteria() { Column = EnterpriseAddress.ADDRESS_TYPE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = EnterpriseAddress.CODE_ADRESS_TYPE_SHIPPING };
             criterias.Add(criteria1);
             criterias.Add(criteria2);
-            SetLanguage(criterias, CurrentLanguage);
             criterias.Add(IsActive());
 
             IList<Address> addresses = daoAddress.GetByCriteria(criterias).Select(enterpriseAddress => enterpriseAddress.Address).ToList();

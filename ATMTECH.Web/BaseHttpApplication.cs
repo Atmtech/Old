@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Web;
 using ATMTECH.Common;
 using ATMTECH.DAO;
@@ -9,6 +10,7 @@ using Autofac.Configuration;
 using Autofac.Integration.Web;
 using WebFormsMvp.Binder;
 using Autofac.Integration.Wcf;
+using File = ATMTECH.Entities.File;
 
 namespace ATMTECH.Web
 {
@@ -32,25 +34,8 @@ namespace ATMTECH.Web
 
         public void DisplayFatalError(System.Exception exception)
         {
-            DAOLogException daoLogException = new DAOLogException();
-            LogException logException = new LogException
-                {
-                    InnerId = "INTERNAL",
-                    Page = Utils.Web.Pages.GetCurrentUrl() + Utils.Web.Pages.GetCurrentPage(),
-                    Description = exception.Message + " => BaseHttpApplication",
-                    StackTrace = exception.StackTrace
-                };
-
-            // Lorsque l'on a une erreur de session probablement que le httpModuleSessionManager n'est pas loadé correctement. Il faut mettre iis express
-            if (Session["Internal_LoggedUser"] != null)
-            {
-                User user = (User)Session["Internal_LoggedUser"];
-                logException.User = user;
-            }
-
-            daoLogException.CreateLog(logException);
-
             Server.ClearError();
+
             if (exception is HttpException)
             {
                 HttpException httpException = (HttpException)exception;
@@ -61,8 +46,50 @@ namespace ATMTECH.Web
                 }
             }
 
+            logExceptionDatabase(exception);
+
 
             Response.Redirect(@"~/Errors/Error.htm");
+        }
+
+        public void LogFile(System.Exception exception)
+        {
+            StreamWriter log = !System.IO.File.Exists(Server.MapPath("Errorlogfile.log")) ? new StreamWriter(Server.MapPath("Errorlogfile.log")) : System.IO.File.AppendText(Server.MapPath("Errorlogfile.log"));
+            log.WriteLine("==============================================================================");
+            log.WriteLine("Heure:" + DateTime.Now);
+            log.WriteLine("Exception:" + exception.Message);
+            log.WriteLine("Stack:" + exception.StackTrace);
+            log.WriteLine("==============================================================================");
+            log.Close();
+        }
+
+        private void logExceptionDatabase(System.Exception exception)
+        {
+            try
+            {
+                DAOLogException daoLogException = new DAOLogException();
+                LogException logException = new LogException
+                {
+                    InnerId = "INTERNAL",
+                    Page = Utils.Web.Pages.GetCurrentUrl() + Utils.Web.Pages.GetCurrentPage(),
+                    Description = exception.Message + " => BaseHttpApplication",
+                    StackTrace = exception.StackTrace
+                };
+
+                // Lorsque l'on a une erreur de session probablement que le httpModuleSessionManager n'est pas loadé correctement. Il faut mettre iis express
+                if (Session["Internal_LoggedUser"] != null)
+                {
+                    User user = (User)Session["Internal_LoggedUser"];
+                    logException.User = user;
+                }
+
+                daoLogException.CreateLog(logException);
+            }
+            catch (System.Exception ex)
+            {
+                LogFile(ex);
+            }
+          
         }
 
         private void ConfigureAutofac()
@@ -100,6 +127,7 @@ namespace ATMTECH.Web
             Utils.Debug.WriteDebug("Session-End: " + end);
             Utils.Debug.WriteDebug("Difference: " + diffResult.Milliseconds.ToString() + "ms");
             Utils.Debug.WriteDebug("DatabaseTransactionCount: " + DatabaseSessionManager.DatabaseTransactionCount);
+            Utils.Debug.WriteDebug("ConnectionString: " + DatabaseSessionManager.ConnectionString);
             Utils.Debug.WriteDebug("********************************************************************************************************");
         }
 

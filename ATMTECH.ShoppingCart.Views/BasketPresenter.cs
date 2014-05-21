@@ -192,17 +192,23 @@ namespace ATMTECH.ShoppingCart.Views
 
         private void FillAddress()
         {
-            if (View.CurrentOrder.ShippingAddress == null)
+
+
+            IList<Address> addressesBilling = AddressService.GetBillingAddress(CustomerService.AuthenticateCustomer);
+            View.BillingAddress = addressesBilling;
+            IList<Address> addressesShipping = AddressService.GetShippingAddress(CustomerService.AuthenticateCustomer);
+            View.ShippingAddress = addressesShipping;
+
+            if (addressesBilling == null)
             {
                 View.IsPanelModifyShippingAddressOpen = true;
             }
-            if (View.CurrentOrder.BillingAddress == null)
+            if (addressesShipping == null)
             {
                 View.IsPanelModifyBillingAddressOpen = true;
             }
 
-            View.BillingAddress = AddressService.GetBillingAddress(CustomerService.AuthenticateCustomer);
-            View.ShippingAddress = AddressService.GetShippingAddress(CustomerService.AuthenticateCustomer);
+
             View.IsBillingAddressFixed = CustomerService.AuthenticateCustomer.Enterprise.IsBillingAddressFixed;
             View.IsShippingAddressFixed = CustomerService.AuthenticateCustomer.Enterprise.IsShippingAddressFixed;
         }
