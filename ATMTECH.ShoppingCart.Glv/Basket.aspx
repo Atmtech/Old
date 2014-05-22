@@ -155,30 +155,9 @@
                 </strong>
             </div>
             <atmtech:ComboBoxAvance runat="server" ID="ddlShipping" />
-            <asp:Button runat="server" ID="btnModifyShippingAddress" OnClick="ShowModifyShippingAddress"
+            <asp:Button runat="server" ID="btnModifyShippingAddress" OnClick="btnModifyShippingAddressClick"
                 Text="Modifier" />
-            <asp:Panel runat="server" ID="pnlModifyShippingAddress" Visible="False">
-                <table style="width: 100%;">
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyShippingWay" Libelle="Rue" EstObligatoire="True"
-                            ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:ComboBoxAvance runat="server" ID="ddlModifyShippingCountry" Libelle="Pays"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyShippingCity" Libelle="Ville"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyShippingPostalCode" Libelle="Code postal"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                </table>
-                <asp:Button runat="server" ID="btnCancelModifiedShippingAddress" Text="Annuler la modification"
-                    OnClick="CancelModifiedShippingAddressClick" CausesValidation="False" />
-            </asp:Panel>
+            <asp:Label runat="server" ID="lblNoShippingAddress"  Visible="False" ForeColor="red"></asp:Label>
             <br />
             <br />
             <div class="title">
@@ -187,30 +166,10 @@
                 </strong>
             </div>
             <atmtech:ComboBoxAvance runat="server" ID="ddlBilling" />
-            <asp:Button runat="server" ID="btnModifyBillingAddress" OnClick="ShowModifyBillingAddress"
+            <asp:Button runat="server" ID="btnModifyBillingAddress" OnClick="btnModifyBillingAddressClick"
                 Text="Modifier" />
-            <asp:Panel runat="server" ID="pnlModifyBillingAddress" Visible="False">
-                <table>
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyBillingWay" Libelle="Rue" EstObligatoire="True"
-                            ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:ComboBoxAvance runat="server" ID="ddlModifyBillingCountry" Libelle="Pays"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyBillingCity" Libelle="Ville" EstObligatoire="True"
-                            ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyBillingPostalCode" Libelle="Code postal"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                </table>
-                <asp:Button runat="server" ID="btnCancelModifiedBillingAddress" Text="Annuler la modification"
-                    CausesValidation="False" OnClick="CancelModifiedBillingAddressClick" />
-            </asp:Panel>
+            <asp:Label runat="server" ID="lblNoBillingAddress" Visible="False" ForeColor="red"></asp:Label>
+
             <hr />
             <asp:Button runat="server" ID="btnContinueShopping" Text="Continuer le magasinage"
                 OnClick="ContinueShoppingClick" CausesValidation="False" />

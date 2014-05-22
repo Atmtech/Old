@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Web;
 using ATMTECH.Common;
@@ -67,13 +68,20 @@ namespace ATMTECH.Web
         {
             try
             {
+                // Get stack trace for the exception with source file information
+                var st = new StackTrace(exception, true);
+                // Get the top stack frame
+                var frame = st.GetFrame(0);
+                // Get the line number from the stack frame
+                var line = frame.GetFileLineNumber();
+
                 DAOLogException daoLogException = new DAOLogException();
                 LogException logException = new LogException
                 {
                     InnerId = "INTERNAL",
                     Page = Utils.Web.Pages.GetCurrentUrl() + Utils.Web.Pages.GetCurrentPage(),
                     Description = exception.Message + " => BaseHttpApplication",
-                    StackTrace = exception.StackTrace
+                    StackTrace = "Line number: " + line + "            " + exception.StackTrace
                 };
 
                 // Lorsque l'on a une erreur de session probablement que le httpModuleSessionManager n'est pas loadé correctement. Il faut mettre iis express

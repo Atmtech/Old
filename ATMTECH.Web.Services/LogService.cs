@@ -65,14 +65,24 @@ namespace ATMTECH.Web.Services
                 if (logVisit.Ip != "127.0.0.1" && logVisit.Ip != "::1")
                 {
                     String url = "http://freegeoip.net/xml/" + logVisit.Ip;
-                    XmlDocument doc = new XmlDocument();
-                    doc.Load(url);
-                    logVisit.CountryName = doc.GetElementsByTagName("CountryName")[0].InnerText;
-                    logVisit.CountryCode = doc.GetElementsByTagName("CountryCode")[0].InnerText;
-                    logVisit.RegionName = doc.GetElementsByTagName("RegionName")[0].InnerText;
-                    logVisit.CityName = doc.GetElementsByTagName("City")[0].InnerText;
-                    logVisit.Latitude = doc.GetElementsByTagName("Latitude")[0].InnerText;
-                    logVisit.Longitude = doc.GetElementsByTagName("Longitude")[0].InnerText;
+                    try
+                    {
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load(url);
+                        logVisit.CountryName = doc.GetElementsByTagName("CountryName")[0].InnerText;
+                        logVisit.CountryCode = doc.GetElementsByTagName("CountryCode")[0].InnerText;
+                        logVisit.RegionName = doc.GetElementsByTagName("RegionName")[0].InnerText;
+                        logVisit.CityName = doc.GetElementsByTagName("City")[0].InnerText;
+                        logVisit.Latitude = doc.GetElementsByTagName("Latitude")[0].InnerText;
+                        logVisit.Longitude = doc.GetElementsByTagName("Longitude")[0].InnerText;
+                    }
+                    catch (System.Exception)
+                    {
+
+                        logVisit.Description = "Erreur log: " + url;
+                    }
+
+
                     DAOLogVisit.UpdateLogVisit(logVisit);
                 }
             }

@@ -13,38 +13,6 @@ namespace ATMTECH.ShoppingCart.PubJL
 {
     public partial class Basket : PageBaseShoppingCart<BasketPresenter, IBasketPresenter>, IBasketPresenter
     {
-        public Address PersonnalBillingAddress
-        {
-            set
-            {
-                ListItem listItem = new ListItem
-                    {
-                        Value = value.Id.ToString(),
-                        Text = value.DisplayAddress,
-                        Selected = true
-                    };
-                ddlBilling.Items.Add(listItem);
-            }
-        }
-
-        public IList<Country> Countrys
-        {
-            set
-            {
-                ddlModifyBillingCountry.DataSource = value;
-                ddlModifyBillingCountry.DataTextField = BaseEntity.DESCRIPTION;
-                ddlModifyBillingCountry.DataValueField = BaseEntity.ID;
-                ddlModifyBillingCountry.DataBind();
-
-                ddlModifyShippingCountry.DataSource = value;
-                ddlModifyShippingCountry.DataTextField = BaseEntity.DESCRIPTION;
-                ddlModifyShippingCountry.DataValueField = BaseEntity.ID;
-                ddlModifyShippingCountry.DataBind();
-            }
-        }
-
-        public string AskShippingLabel { set { lblAskShipping.Text = value; } }
-
         public IList<EnumOrderInformation> EnumOrderInformation1
         {
             set
@@ -65,47 +33,16 @@ namespace ATMTECH.ShoppingCart.PubJL
                 ddlOrderInformation2.DataBind();
             }
         }
-
         public string OrderInformation1Value { get { return ddlOrderInformation1.SelectedValue.ToString(); } }
-        public string OrderInformation2Value { get { return ddlOrderInformation2.SelectedValue.ToString(); } }
-
-        public bool IsPanelModifyShippingAddressOpen
+        public string OrderInformation2Value { get { return ddlOrderInformation2.SelectedValue; } }
+        public string NoAddressFound
         {
-            get { return pnlModifyShippingAddress.Visible; }
             set
             {
-                if (value)
-                {
-                    ddlShipping.Visible = false;
-                    pnlModifyShippingAddress.Visible = true;
-                }
-                else
-                {
-                    ddlShipping.Visible = true;
-                    pnlModifyShippingAddress.Visible = false;
-                }
+                lblNoBillingAddress.Text = value;
+                lblNoShippingAddress.Text = value;
             }
         }
-
-        public bool IsPanelModifyBillingAddressOpen
-        {
-            get { return pnlModifyBillingAddress.Visible; }
-            set
-            {
-                if (value)
-                {
-                    ddlBilling.Visible = false;
-                    pnlModifyBillingAddress.Visible = true;
-                }
-                else
-                {
-                    ddlBilling.Visible = true;
-                    pnlModifyBillingAddress.Visible = false;
-                }
-            }
-        }
-
-
         public bool IsAskShipping
         {
             set
@@ -119,16 +56,13 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
-
+        public string AskShippingLabel { set { lblAskShipping.Text = value; } }
         public bool IsOrderLocked
         {
             set
             {
                 if (value)
                 {
-                    
-                    btnCancelModifiedBillingAddress.Visible = false;
-                    btnCancelModifiedShippingAddress.Visible = false;
                     btnFinalizeOrder.Visible = false;
                     btnPrintOrder.Visible = false;
                     btnFinalizeOrderPaypal.Visible = false;
@@ -143,67 +77,15 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
-
-        public string ModifyShippingAddressWay
-        {
-            get { return txtModifyShippingWay.Text; }
-            set { txtModifyShippingWay.Text = value; }
-        }
-
-        public int ModifyShippingCountry
-        {
-            get { return Convert.ToInt32(ddlModifyShippingCountry.SelectedValue); }
-            set { ddlModifyShippingCountry.SelectedValue = value.ToString(); }
-        }
-
-        public string ModifyShippingCity
-        {
-            get { return txtModifyShippingCity.Text; }
-            set { txtModifyShippingCity.Text = value; }
-        }
-
-        public string ModifyShippingPostalCode
-        {
-            get { return txtModifyShippingPostalCode.Text; }
-            set { txtModifyShippingPostalCode.Text = value; }
-        }
-
-        public string ModifyBillingAddressWay
-        {
-            get { return txtModifyBillingWay.Text; }
-            set { txtModifyBillingWay.Text = value; }
-        }
-
-        public int ModifyBillingCountry
-        {
-            get { return Convert.ToInt32(ddlModifyBillingCountry.SelectedValue); }
-            set { ddlModifyBillingCountry.SelectedValue = value.ToString(); }
-        }
-
-        public string ModifyBillingCity
-        {
-            get { return txtModifyBillingCity.Text; }
-            set { txtModifyBillingCity.Text = value; }
-        }
-
-        public string ModifyBillingPostalCode
-        {
-            get { return txtModifyBillingPostalCode.Text; }
-            set { txtModifyBillingPostalCode.Text = value; }
-        }
-
         public string Project
         {
             get { return txtProject.Text; }
             set { txtProject.Text = value; }
         }
-
         public decimal ShippingWeight
         { set { lblShippingWeight.Text = string.Format("({0} lbs)", value.ToString()); } }
-
         public decimal ShippingTotal
         { set { lblShippingTotal.Text = value.ToString("c"); } }
-
         public Order CurrentOrder
         {
             get
@@ -233,7 +115,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
-
         public void RefreshOrderDisplay(Order value)
         {
             if (value.OrderLines.Count == 0)
@@ -257,9 +138,9 @@ namespace ATMTECH.ShoppingCart.PubJL
                 lblSubTotalTaxesCountry.Text = value.CountryTax.ToString("c");
                 lblSubTotalTaxesRegion.Text = value.RegionalTax.ToString("c");
                 lblShippingTotal.Text = value.ShippingTotal.ToString("c");
+
             }
         }
-
         public bool IsBillingAddressFixed
         {
             set
@@ -283,7 +164,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
-
         public bool IsOrderFinalized
         {
             set
@@ -295,12 +175,10 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
-
         public bool IsShippingNotIncluded
         {
             set { lblShippingNotIncluded.Visible = value; }
         }
-
         public bool IsShippingManaged
         {
             set
@@ -310,19 +188,18 @@ namespace ATMTECH.ShoppingCart.PubJL
                 lblShippingTotal.Visible = value;
             }
         }
-
         public int ShippingAddressSelected
         {
             get { return Convert.ToInt32(ddlShipping.SelectedValue); }
         }
-
         public int BillingAddressSelected
         {
             get { return Convert.ToInt32(ddlBilling.SelectedValue); }
         }
         public bool IsPaypal
         {
-            set {
+            set
+            {
                 btnFinalizeOrderPaypal.Visible = value;
             }
         }
@@ -338,10 +215,8 @@ namespace ATMTECH.ShoppingCart.PubJL
 
             }
         }
-
         public bool IsManageOrderInformation1 { set { pnlOrderInformation1.Visible = value; } }
         public bool IsManageOrderInformation2 { set { pnlOrderInformation2.Visible = value; } }
-
         public IList<Address> ShippingAddress
         {
             set
@@ -350,9 +225,22 @@ namespace ATMTECH.ShoppingCart.PubJL
                 ddlShipping.DataTextField = Address.DISPLAY_ADDRESS;
                 ddlShipping.DataValueField = BaseEntity.ID;
                 ddlShipping.DataBind();
+
+                if (ddlShipping.Items.Count == 1)
+                {
+                    ddlShipping.Enabled = false;
+                    if (value[0].Country == null)
+                    {
+                        btnAskShipping.Enabled = false;
+                        btnFinalizeOrder.Enabled = false;
+                        btnFinalizeOrderPaypal.Enabled = false;
+                        lblNoShippingAddress.Visible = true;
+                        ddlShipping.Visible = false;
+                    }
+                }
+
             }
         }
-
         public IList<Address> BillingAddress
         {
             set
@@ -361,18 +249,19 @@ namespace ATMTECH.ShoppingCart.PubJL
                 ddlBilling.DataTextField = Address.DISPLAY_ADDRESS;
                 ddlBilling.DataValueField = BaseEntity.ID;
                 ddlBilling.DataBind();
-            }
-        }
 
-        public Address PersonnalShippingAddress
-        {
-            set
-            {
-                ListItem listItem = new ListItem();
-                listItem.Value = value.Id.ToString();
-                listItem.Text = value.DisplayAddress;
-                listItem.Selected = true;
-                ddlShipping.Items.Add(listItem);
+                if (ddlBilling.Items.Count == 1)
+                {
+                    ddlBilling.Enabled = false;
+                    if (value[0].Country == null)
+                    {
+                        btnAskShipping.Enabled = false;
+                        btnFinalizeOrder.Enabled = false;
+                        btnFinalizeOrderPaypal.Enabled = false;
+                        lblNoBillingAddress.Visible = true;
+                        ddlBilling.Visible = false;
+                    }
+                }
             }
         }
 
@@ -380,7 +269,6 @@ namespace ATMTECH.ShoppingCart.PubJL
         {
             Presenter.FinalizeOrder(false);
         }
-
         protected void RecalculerClick(object sender, EventArgs e)
         {
             int i = 0;
@@ -394,7 +282,6 @@ namespace ATMTECH.ShoppingCart.PubJL
 
             ((Default)Master).RefreshTotal();
         }
-
         protected void GrvBasketCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "DeleteOrderLine")
@@ -402,54 +289,29 @@ namespace ATMTECH.ShoppingCart.PubJL
                 Presenter.RemoveOrderLine(Convert.ToInt32(e.CommandArgument));
             }
         }
-
         protected void PrintOrderClick(object sender, EventArgs e)
         {
             Presenter.PrintOrder();
         }
-
-        protected void ShowModifyShippingAddress(object sender, EventArgs e)
-        {
-            ddlShipping.Visible = false;
-            btnModifyShippingAddress.Visible = false;
-            pnlModifyShippingAddress.Visible = true;
-        }
-
-        protected void ShowModifyBillingAddress(object sender, EventArgs e)
-        {
-            ddlBilling.Visible = false;
-            btnModifyBillingAddress.Visible = false;
-            pnlModifyBillingAddress.Visible = true;
-        }
-
         protected void FinalizeOrderPaypal(object sender, EventArgs eventArgs)
         {
-            btnFinalizeOrderPaypal.Enabled = false;
             Presenter.FinalizeOrder(true);
         }
-
         protected void ContinueShoppingClick(object sender, EventArgs e)
         {
             Presenter.Redirect(Pages.PRODUCT_CATALOG);
         }
-
-        protected void CancelModifiedBillingAddressClick(object sender, EventArgs e)
-        {
-            ddlBilling.Visible = true;
-            btnModifyBillingAddress.Visible = true;
-            pnlModifyBillingAddress.Visible = false;
-        }
-
-        protected void CancelModifiedShippingAddressClick(object sender, EventArgs e)
-        {
-            ddlShipping.Visible = true;
-            btnModifyShippingAddress.Visible = true;
-            pnlModifyShippingAddress.Visible = false;
-        }
-
         protected void btnAskShippingClick(object sender, EventArgs e)
         {
             Presenter.AskForShipping();
+        }
+        protected void btnModifyShippingAddressClick(object sender, EventArgs e)
+        {
+            Presenter.GotoAccount();
+        }
+        protected void btnModifyBillingAddressClick(object sender, EventArgs e)
+        {
+            Presenter.GotoAccount();
         }
     }
 }

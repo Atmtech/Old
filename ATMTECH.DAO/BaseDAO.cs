@@ -222,7 +222,7 @@ namespace ATMTECH.DAO
                 {
                     if (propertyInfo.GetValue(model, null) != null)
                     {
-                        search += HttpUtility.HtmlDecode(propertyInfo.GetValue(model, null).ToString());
+                        search += HttpUtility.HtmlDecode(propertyInfo.GetValue(model, null).ToString()) + "|";
                     }
                 }
                 else
@@ -249,7 +249,7 @@ namespace ATMTECH.DAO
                                         {
                                             search +=
                                                 HttpUtility.HtmlDecode(
-                                                    propertyInfoChild.GetValue(unwrapped, null).ToString());
+                                                    propertyInfoChild.GetValue(unwrapped, null).ToString()) + "|";
                                         }
                                     }
                                 }

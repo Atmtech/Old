@@ -36,5 +36,6 @@
         public const string SC_WEIGHT_EQUAL_ZERO_CANNOT_EVALUATE_SHIPPING_COST = "SC0026";
         public const string SC_IF_ORDER_INFORMATION_MANAGED_CANT_BE_EMPTY = "SC0027";
         public const string SC_ASK_SHIPPING_QUOTATION = "SC0028";
+        public const string SC_NO_ADRESSE = "SC0029";
     }
 }

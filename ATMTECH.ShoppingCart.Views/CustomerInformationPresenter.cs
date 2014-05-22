@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ATMTECH.Entities;
 using ATMTECH.Services;
+using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.ErrorCode;
@@ -20,6 +21,8 @@ namespace ATMTECH.ShoppingCart.Views
         public IAddressService AddressService { get; set; }
         public ICustomerService CustomerService { get; set; }
         public IOrderService OrderService { get; set; }
+        public IDAOCity DAOCity { get; set; }
+
         public ATMTECH.Services.Interface.IReportService ReportService { get; set; }
 
         public CustomerInformationPresenter(ICustomerInformationPresenter view)
@@ -44,7 +47,7 @@ namespace ATMTECH.ShoppingCart.Views
                 View.Email = customer.User.Email;
                 View.Countrys = AddressService.GetAllCountries();
                 View.IsSuperUser = customer.User.IsSuperUser;
-
+                View.IsDontAddPersonnalAddress = customer.Enterprise.IsDontAddPersonnalAddress;
                 if (customer.BillingAddress.Id != 0)
                 {
                     View.BillingCity = customer.BillingAddress.City.Description;
@@ -113,31 +116,67 @@ namespace ATMTECH.ShoppingCart.Views
                 PostalCode = postalCode
             };
 
-            return AddressService.SaveAddress(address);
+            return AddressService.SaveNewAddress(address);
         }
 
         public void SaveAddress()
         {
             if (!CustomerService.AuthenticateCustomer.Enterprise.IsBillingAddressFixed)
             {
-                if (!String.IsNullOrEmpty(View.BillingPostalCode))
+
+                if (CustomerService.AuthenticateCustomer.BillingAddress.Country != null)
+                {
+                    Address address = CustomerService.AuthenticateCustomer.BillingAddress;
+                    address.Country.Id = Convert.ToInt32(View.BillingCountry);
+
+                    City city = DAOCity.FindCity(View.BillingCity);
+                    if (city == null)
+                    {
+                        address.City = new City { Code = View.BillingCity, Description = View.BillingCity };
+                    }
+
+                    address.PostalCode = View.BillingPostalCode;
+                    address.Way = View.BillingWay;
+                    AddressService.SaveAddress(address);
+                }
+                else
                 {
                     Address address = SaveAddress(View.BillingCountry, View.BillingCity, View.BillingPostalCode, View.BillingWay);
                     Customer customer = CustomerService.AuthenticateCustomer;
                     customer.BillingAddress = address;
                     CustomerService.SaveCustomer(customer);
                 }
+
             }
             if (!CustomerService.AuthenticateCustomer.Enterprise.IsShippingAddressFixed)
             {
-                if (!String.IsNullOrEmpty(View.ShippingPostalCode))
+
+                if (CustomerService.AuthenticateCustomer.ShippingAddress.Country != null)
+                {
+                    Address address = CustomerService.AuthenticateCustomer.ShippingAddress;
+                    address.Country.Id = Convert.ToInt32(View.ShippingCountry);
+
+                    City city = DAOCity.FindCity(View.ShippingCity);
+                    if (city == null)
+                    {
+                        address.City = new City { Code = View.ShippingCity, Description = View.ShippingCity };
+                    }
+
+                    address.PostalCode = View.ShippingPostalCode;
+                    address.Way = View.ShippingWay;
+                    AddressService.SaveAddress(address);
+                }
+                else
                 {
                     Address address = SaveAddress(View.ShippingCountry, View.ShippingCity, View.ShippingPostalCode,
-                                                  View.ShippingWay);
+                                                   View.ShippingWay);
                     Customer customer = CustomerService.AuthenticateCustomer;
                     customer.ShippingAddress = address;
                     CustomerService.SaveCustomer(customer);
                 }
+
+
+
             }
 
             MessageService.ThrowMessage(Common.ErrorCode.ADM_SAVE_IS_CORRECT);
@@ -166,7 +205,7 @@ namespace ATMTECH.ShoppingCart.Views
 
         public void GenerateSalesByOrderInformationReport()
         {
-               Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
+            Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
             ReportParameter reportParameter = new ReportParameter
             {
                 Assembly = "ATMTECH.ShoppingCart.Services",

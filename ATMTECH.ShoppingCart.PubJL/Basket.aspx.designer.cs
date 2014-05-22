@@ -301,58 +301,13 @@ namespace ATMTECH.ShoppingCart.PubJL {
         protected global::System.Web.UI.WebControls.Button btnModifyShippingAddress;
         
         /// <summary>
-        /// Contrôle pnlModifyShippingAddress.
+        /// Contrôle lblNoShippingAddress.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlModifyShippingAddress;
-        
-        /// <summary>
-        /// Contrôle txtModifyShippingWay.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyShippingWay;
-        
-        /// <summary>
-        /// Contrôle ddlModifyShippingCountry.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.ComboBoxAvance ddlModifyShippingCountry;
-        
-        /// <summary>
-        /// Contrôle txtModifyShippingCity.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyShippingCity;
-        
-        /// <summary>
-        /// Contrôle txtModifyShippingPostalCode.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyShippingPostalCode;
-        
-        /// <summary>
-        /// Contrôle btnCancelModifiedShippingAddress.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelModifiedShippingAddress;
+        protected global::System.Web.UI.WebControls.Label lblNoShippingAddress;
         
         /// <summary>
         /// Contrôle lblBillingLabel.
@@ -382,58 +337,13 @@ namespace ATMTECH.ShoppingCart.PubJL {
         protected global::System.Web.UI.WebControls.Button btnModifyBillingAddress;
         
         /// <summary>
-        /// Contrôle pnlModifyBillingAddress.
+        /// Contrôle lblNoBillingAddress.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlModifyBillingAddress;
-        
-        /// <summary>
-        /// Contrôle txtModifyBillingWay.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyBillingWay;
-        
-        /// <summary>
-        /// Contrôle ddlModifyBillingCountry.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.ComboBoxAvance ddlModifyBillingCountry;
-        
-        /// <summary>
-        /// Contrôle txtModifyBillingCity.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyBillingCity;
-        
-        /// <summary>
-        /// Contrôle txtModifyBillingPostalCode.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyBillingPostalCode;
-        
-        /// <summary>
-        /// Contrôle btnCancelModifiedBillingAddress.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelModifiedBillingAddress;
+        protected global::System.Web.UI.WebControls.Label lblNoBillingAddress;
         
         /// <summary>
         /// Contrôle btnContinueShopping.

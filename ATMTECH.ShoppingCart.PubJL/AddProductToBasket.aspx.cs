@@ -20,9 +20,18 @@ namespace ATMTECH.ShoppingCart.PubJL
             if ((e.Item.ItemType == ListItemType.Item) || (e.Item.ItemType == ListItemType.AlternatingItem))
             {
                 ProductFile dataItem = (ProductFile)e.Item.DataItem;
-                ((ImageButton)e.Item.FindControl("imgProductFile")).ImageUrl = "../images/product/" + dataItem.File.FileName;
+                if (dataItem.File != null)
+                {
+                    ((ImageButton)e.Item.FindControl("imgProductFile")).ImageUrl = "../images/product/" + dataItem.File.FileName;
+                    ((ImageButton)e.Item.FindControl("imgProductFile")).Attributes.Add("onmouseover", "changeImage('../images/product/" + dataItem.File.FileName + "')");
+                }
+                else
+                {
+                    ((ImageButton)e.Item.FindControl("imgProductFile")).ImageUrl = "../images/product/NoImageForThisProduct.jpg";
+                }
+                
                 ((ImageButton)e.Item.FindControl("imgProductFile")).CommandArgument = dataItem.Id.ToString();
-                ((ImageButton)e.Item.FindControl("imgProductFile")).Attributes.Add("onmouseover", "changeImage('../images/product/" + dataItem.File.FileName + "')");
+                
             }
         }
 

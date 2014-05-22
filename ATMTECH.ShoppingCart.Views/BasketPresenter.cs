@@ -64,24 +64,15 @@ namespace ATMTECH.ShoppingCart.Views
                     View.IsPaypalRequired = View.CurrentOrder.Enterprise.IsPaypalRequired;
                     View.IsAskShipping = View.CurrentOrder.IsAskShipping;
                     View.IsOrderLocked = View.CurrentOrder.IsOrderLocked;
-
                 }
-
-
-
             }
-
-
-
         }
 
 
         public void DisplayShipping()
         {
             View.IsShippingNotIncluded = !View.CurrentOrder.Enterprise.IsShippingIncluded;
-
             View.IsShippingManaged = View.CurrentOrder.Enterprise.IsShippingManaged;
-
             View.ShippingWeight = View.CurrentOrder.TotalWeight;
             View.ShippingTotal = View.CurrentOrder.ShippingTotal;
         }
@@ -90,7 +81,6 @@ namespace ATMTECH.ShoppingCart.Views
             if (View.CurrentOrder != null)
             {
                 FillAddress();
-                View.Countrys = AddressService.GetAllCountries();
                 OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
                 View.RefreshOrderDisplay(View.CurrentOrder);
                 DisplayShipping();
@@ -98,9 +88,6 @@ namespace ATMTECH.ShoppingCart.Views
         }
         public void FinalizeOrder(bool isPaypal)
         {
-            Address addressBilling = SetModifyBillingAddress();
-            Address addressShipping = SetModifyShippingAddress();
-
             View.CurrentOrder.Project = View.Project;
             View.CurrentOrder.OrderInformation1 = View.OrderInformation1Value;
             View.CurrentOrder.OrderInformation2 = View.OrderInformation2Value;
@@ -108,17 +95,6 @@ namespace ATMTECH.ShoppingCart.Views
             if (isPaypal)
             {
                 View.CurrentOrder.IsPayPal = true;
-            }
-
-
-            if (addressBilling != null)
-            {
-                View.CurrentOrder.BillingAddress = addressBilling;
-            }
-
-            if (addressShipping != null)
-            {
-                View.CurrentOrder.ShippingAddress = addressShipping;
             }
 
             if (!isPaypal)
@@ -155,62 +131,22 @@ namespace ATMTECH.ShoppingCart.Views
         {
             NavigationService.Redirect(page);
         }
-
-        private Address SetModifyShippingAddress()
+        public void AskForShipping()
         {
-            if (View.IsPanelModifyShippingAddressOpen)
-            {
-                Address address = new Address
-                {
-                    City = new City { Code = View.ModifyShippingCity, Description = View.ModifyShippingCity },
-                    PostalCode = View.ModifyShippingPostalCode,
-                    Way = View.ModifyShippingAddressWay,
-                    Country = AddressService.GetCountry(View.ModifyShippingCountry)
-                };
-
-                return AddressService.SaveAddress(address);
-            }
-            return AddressService.GetAddress(View.ShippingAddressSelected);
+            OrderService.AskForShipping(View.CurrentOrder);
         }
 
-        private Address SetModifyBillingAddress()
-        {
-            if (View.IsPanelModifyBillingAddressOpen)
-            {
-                Address address = new Address
-                {
-                    City = new City { Code = View.ModifyBillingCity, Description = View.ModifyBillingCity },
-                    PostalCode = View.ModifyBillingPostalCode,
-                    Way = View.ModifyBillingAddressWay,
-                    Country = AddressService.GetCountry(View.ModifyBillingCountry)
-                };
-
-                return AddressService.SaveAddress(address);
-            }
-            return AddressService.GetAddress(View.BillingAddressSelected);
-        }
 
         private void FillAddress()
         {
-
-
             IList<Address> addressesBilling = AddressService.GetBillingAddress(CustomerService.AuthenticateCustomer);
-            View.BillingAddress = addressesBilling;
             IList<Address> addressesShipping = AddressService.GetShippingAddress(CustomerService.AuthenticateCustomer);
+            View.BillingAddress = addressesBilling;
             View.ShippingAddress = addressesShipping;
-
-            if (addressesBilling == null)
-            {
-                View.IsPanelModifyShippingAddressOpen = true;
-            }
-            if (addressesShipping == null)
-            {
-                View.IsPanelModifyBillingAddressOpen = true;
-            }
-
-
             View.IsBillingAddressFixed = CustomerService.AuthenticateCustomer.Enterprise.IsBillingAddressFixed;
             View.IsShippingAddressFixed = CustomerService.AuthenticateCustomer.Enterprise.IsShippingAddressFixed;
+
+            View.NoAddressFound = MessageService.GetMessage(ErrorCode.SC_NO_ADRESSE).Description;
         }
         private ShippingParameter GetShippingParameterUps()
         {
@@ -262,23 +198,10 @@ namespace ATMTECH.ShoppingCart.Views
             // return View.CurrentOrder.ShippingAddress.Country.Code == "CAN" ? GetShippingParameterPurolator() : GetShippingParameterUps();
         }
 
-        public void AskForShipping()
+
+        public void GotoAccount()
         {
-            Address addressBilling = SetModifyBillingAddress();
-            Address addressShipping = SetModifyShippingAddress();
-
-            if (addressBilling != null)
-            {
-                View.CurrentOrder.BillingAddress = addressBilling;
-            }
-
-            if (addressShipping != null)
-            {
-                View.CurrentOrder.ShippingAddress = addressShipping;
-            }
-
-            OrderService.AskForShipping(View.CurrentOrder);
-
+            NavigationService.Redirect(Pages.Pages.CUSTOMER_INFORMATION);
         }
     }
 }

@@ -8,6 +8,8 @@ namespace ATMTECH.ShoppingCart.DAO
 {
     public class DAOEnterpriseAccess : BaseDao<EnterpriseAccess, int>, IDAOEnterpriseAccess
     {
+      
+
         public IList<EnterpriseAccess> GetEnterpriseAccess(User user)
         {
             return GetAllActive();

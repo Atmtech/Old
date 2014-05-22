@@ -10,6 +10,8 @@ namespace ATMTECH.ShoppingCart.DAO
 {
     public class DAOEnterpriseAddress : BaseDao<EnterpriseAddress, int>, IDAOEnterpriseAddress
     {
+       
+
         public IDAOAddress DAOAddress { get; set; }
         public string CurrentLanguage
         {
@@ -21,6 +23,8 @@ namespace ATMTECH.ShoppingCart.DAO
 
         public IList<Address> GetBillingAddress(Enterprise enterprise)
         {
+
+
             IList<Criteria> criterias = new List<Criteria>();
             Criteria criteria1 = new Criteria() { Column = EnterpriseAddress.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = enterprise.Id.ToString() };
             Criteria criteria2 = new Criteria() { Column = EnterpriseAddress.ADDRESS_TYPE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = EnterpriseAddress.CODE_ADRESS_TYPE_BILLING };

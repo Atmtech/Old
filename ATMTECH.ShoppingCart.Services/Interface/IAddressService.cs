@@ -14,5 +14,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         Address FindAddress(Address address);
         IList<Address> GetShippingAddress(Customer customer);
         IList<Address> GetBillingAddress(Customer customer);
+        Address SaveNewAddress(Address address);
     }
 }

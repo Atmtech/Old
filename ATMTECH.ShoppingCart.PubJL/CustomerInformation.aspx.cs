@@ -29,6 +29,8 @@ namespace ATMTECH.ShoppingCart.PubJL
             get { return txtDateEndSalesByOrderInformationReport.ValeurDateTime; }
         }
 
+        public bool IsDontAddPersonnalAddress { set { if (value) pnlModifyAddress.Visible = false; } }
+
         public IList<Country> Countrys
         {
             set

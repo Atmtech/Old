@@ -69,9 +69,12 @@ namespace ATMTECH.ShoppingCart.Services
         public IList<Address> GetShippingAddress(Customer customer)
         {
             IList<Address> addresses = customer.Enterprise.ShippingAddress;
-            if (customer.ShippingAddress != null)
+            if (!customer.Enterprise.IsDontAddPersonnalAddress)
             {
-                addresses.Add(customer.ShippingAddress);
+                if (customer.ShippingAddress != null)
+                {
+                    addresses.Add(customer.ShippingAddress);
+                }
             }
             return addresses;
         }
@@ -79,13 +82,38 @@ namespace ATMTECH.ShoppingCart.Services
         public IList<Address> GetBillingAddress(Customer customer)
         {
             IList<Address> addresses = customer.Enterprise.BillingAddress;
-            if (customer.BillingAddress != null)
+            if (!customer.Enterprise.IsDontAddPersonnalAddress)
             {
-                addresses.Add(customer.BillingAddress);
+                if (customer.BillingAddress != null)
+                {
+                    addresses.Add(customer.BillingAddress);
+                }
             }
             return addresses;
         }
 
+        public Address SaveNewAddress(Address address)
+        {
+            ContextSessionManager.Context.Session["Cities"] = null;
+
+            City cityFind = FindCity(address.City.Description);
+            if (cityFind != null)
+            {
+                address.City = cityFind;
+            }
+            else
+            {
+                City cityCreate = new City { Code = address.City.Description, Description = address.City.Description };
+                int id = CreateCity(cityCreate);
+                address.City = new City { Id = id };
+            }
+
+            address.PostalCode = address.PostalCode;
+            address.Way = address.Way;
+
+
+            return GetAddress(DAOAddress.SaveAdress(address)); 
+        }
         public Address SaveAddress(Address address)
         {
 
@@ -106,7 +134,10 @@ namespace ATMTECH.ShoppingCart.Services
             address.PostalCode = address.PostalCode;
             address.Way = address.Way;
 
-
+            if (address.Id != 0)
+            {
+                return GetAddress(DAOAddress.SaveAdress(address));
+            }
             return GetAddress(DAOAddress.SaveAdress(FindAddress(address) ?? address));
         }
     }

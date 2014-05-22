@@ -70,6 +70,8 @@ namespace ATMTECH.ShoppingCart.Glv{
             }
         }
 
+        public bool IsDontAddPersonnalAddress { set { if (value) pnlModifyAddress.Visible = false; } }
+
 
         public string BillingWay { get { return txtModifyBillingWay.Text; } set { txtModifyBillingWay.Text = value; } }
         public string BillingCountry { get { return ddlModifyBillingCountry.SelectedValue; } set { ddlModifyBillingCountry.SelectedValue = value; } }
@@ -77,7 +79,7 @@ namespace ATMTECH.ShoppingCart.Glv{
         public string BillingPostalCode { get { return txtModifyBillingPostalCode.Text; } set { txtModifyBillingPostalCode.Text = value; } }
 
 
-        public string ShippingWay { get { return txtModifyBillingWay.Text; } set { txtModifyShippingWay.Text = value; } }
+        public string ShippingWay { get { return txtModifyShippingWay.Text; } set { txtModifyShippingWay.Text = value; } }
         public string ShippingCountry { get { return ddlModifyShippingCountry.SelectedValue; } set { ddlModifyShippingCountry.SelectedValue = value; } }
         public string ShippingCity { get { return txtModifyShippingCity.Text; } set { txtModifyShippingCity.Text = value; } }
         public string ShippingPostalCode { get { return txtModifyShippingPostalCode.Text; } set { txtModifyShippingPostalCode.Text = value; } }

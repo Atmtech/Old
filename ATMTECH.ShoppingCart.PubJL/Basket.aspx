@@ -4,7 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
+ <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
+
         <asp:Panel runat="server" ID="pnlAskShipping" Visible="False" CssClass="askShippingBox">
             <asp:Label runat="server" ID="lblAskShipping" Font-Bold="True"></asp:Label>
         </asp:Panel>
@@ -16,8 +17,6 @@
         <asp:Panel runat="server" ID="pnlBasketNotEmpty" Visible="True">
             <asp:Label runat="server" ID="lblOrderNumber" Text="Numéro de commande:" Visible="False"></asp:Label>
             <asp:Label runat="server" ID="lblOrderId" Visible="False"></asp:Label>
-
-
             <asp:GridView runat="server" ID="grvBasket" AutoGenerateColumns="false" CssClass="basketGrid"
                 ShowHeader="True" ShowFooter="False" OnRowCommand="GrvBasketCommand">
                 <HeaderStyle CssClass="basketGridHeader" />
@@ -156,30 +155,9 @@
                 </strong>
             </div>
             <atmtech:ComboBoxAvance runat="server" ID="ddlShipping" />
-            <asp:Button runat="server" ID="btnModifyShippingAddress" OnClick="ShowModifyShippingAddress"
+            <asp:Button runat="server" ID="btnModifyShippingAddress" OnClick="btnModifyShippingAddressClick"
                 Text="Modifier" />
-            <asp:Panel runat="server" ID="pnlModifyShippingAddress" Visible="False">
-                <table style="width: 100%;">
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyShippingWay" Libelle="Rue" EstObligatoire="True"
-                            ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:ComboBoxAvance runat="server" ID="ddlModifyShippingCountry" Libelle="Pays"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyShippingCity" Libelle="Ville"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyShippingPostalCode" Libelle="Code postal"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                </table>
-                <asp:Button runat="server" ID="btnCancelModifiedShippingAddress" Text="Annuler la modification"
-                    OnClick="CancelModifiedShippingAddressClick" CausesValidation="False" />
-            </asp:Panel>
+            <asp:Label runat="server" ID="lblNoShippingAddress"  Visible="False" ForeColor="red"></asp:Label>
             <br />
             <br />
             <div class="title">
@@ -188,30 +166,10 @@
                 </strong>
             </div>
             <atmtech:ComboBoxAvance runat="server" ID="ddlBilling" />
-            <asp:Button runat="server" ID="btnModifyBillingAddress" OnClick="ShowModifyBillingAddress"
+            <asp:Button runat="server" ID="btnModifyBillingAddress" OnClick="btnModifyBillingAddressClick"
                 Text="Modifier" />
-            <asp:Panel runat="server" ID="pnlModifyBillingAddress" Visible="False">
-                <table>
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyBillingWay" Libelle="Rue" EstObligatoire="True"
-                            ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:ComboBoxAvance runat="server" ID="ddlModifyBillingCountry" Libelle="Pays"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyBillingCity" Libelle="Ville" EstObligatoire="True"
-                            ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                    <tr>
-                        <atmtech:TextBoxAvance runat="server" ID="txtModifyBillingPostalCode" Libelle="Code postal"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
-                    </tr>
-                </table>
-                <asp:Button runat="server" ID="btnCancelModifiedBillingAddress" Text="Annuler la modification"
-                    CausesValidation="False" OnClick="CancelModifiedBillingAddressClick" />
-            </asp:Panel>
+            <asp:Label runat="server" ID="lblNoBillingAddress" Visible="False" ForeColor="red"></asp:Label>
+
             <hr />
             <asp:Button runat="server" ID="btnContinueShopping" Text="Continuer le magasinage"
                 OnClick="ContinueShoppingClick" CausesValidation="False" />
