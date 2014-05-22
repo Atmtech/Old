@@ -123,59 +123,66 @@ namespace ATMTECH.ShoppingCart.Views
         {
             if (!CustomerService.AuthenticateCustomer.Enterprise.IsBillingAddressFixed)
             {
-
-                if (CustomerService.AuthenticateCustomer.BillingAddress.Country != null)
+                if (!String.IsNullOrEmpty(View.BillingWay))
                 {
-                    Address address = CustomerService.AuthenticateCustomer.BillingAddress;
-                    address.Country.Id = Convert.ToInt32(View.BillingCountry);
 
-                    City city = DAOCity.FindCity(View.BillingCity);
-                    if (city == null)
+                    if (CustomerService.AuthenticateCustomer.BillingAddress.Country != null)
                     {
-                        address.City = new City { Code = View.BillingCity, Description = View.BillingCity };
-                    }
+                        Address address = CustomerService.AuthenticateCustomer.BillingAddress;
+                        address.Country.Id = Convert.ToInt32(View.BillingCountry);
 
-                    address.PostalCode = View.BillingPostalCode;
-                    address.Way = View.BillingWay;
-                    AddressService.SaveAddress(address);
-                }
-                else
-                {
-                    Address address = SaveAddress(View.BillingCountry, View.BillingCity, View.BillingPostalCode, View.BillingWay);
-                    Customer customer = CustomerService.AuthenticateCustomer;
-                    customer.BillingAddress = address;
-                    CustomerService.SaveCustomer(customer);
+                        City city = DAOCity.FindCity(View.BillingCity);
+                        if (city == null)
+                        {
+                            address.City = new City { Code = View.BillingCity, Description = View.BillingCity };
+                        }
+
+                        address.PostalCode = View.BillingPostalCode;
+                        address.Way = View.BillingWay;
+                        AddressService.SaveAddress(address);
+                    }
+                    else
+                    {
+                        Address address = SaveAddress(View.BillingCountry, View.BillingCity, View.BillingPostalCode,
+                                                      View.BillingWay);
+                        Customer customer = CustomerService.AuthenticateCustomer;
+                        customer.BillingAddress = address;
+                        CustomerService.SaveCustomer(customer);
+                    }
                 }
 
             }
             if (!CustomerService.AuthenticateCustomer.Enterprise.IsShippingAddressFixed)
             {
-
-                if (CustomerService.AuthenticateCustomer.ShippingAddress.Country != null)
+                if (!String.IsNullOrEmpty(View.ShippingWay))
                 {
-                    Address address = CustomerService.AuthenticateCustomer.ShippingAddress;
-                    address.Country.Id = Convert.ToInt32(View.ShippingCountry);
 
-                    City city = DAOCity.FindCity(View.ShippingCity);
-                    if (city == null)
+
+                    if (CustomerService.AuthenticateCustomer.ShippingAddress.Country != null)
                     {
-                        address.City = new City { Code = View.ShippingCity, Description = View.ShippingCity };
+                        Address address = CustomerService.AuthenticateCustomer.ShippingAddress;
+                        address.Country.Id = Convert.ToInt32(View.ShippingCountry);
+
+                        City city = DAOCity.FindCity(View.ShippingCity);
+                        if (city == null)
+                        {
+                            address.City = new City { Code = View.ShippingCity, Description = View.ShippingCity };
+                        }
+
+                        address.PostalCode = View.ShippingPostalCode;
+                        address.Way = View.ShippingWay;
+                        AddressService.SaveAddress(address);
+                    }
+                    else
+                    {
+                        Address address = SaveAddress(View.ShippingCountry, View.ShippingCity, View.ShippingPostalCode,
+                                                       View.ShippingWay);
+                        Customer customer = CustomerService.AuthenticateCustomer;
+                        customer.ShippingAddress = address;
+                        CustomerService.SaveCustomer(customer);
                     }
 
-                    address.PostalCode = View.ShippingPostalCode;
-                    address.Way = View.ShippingWay;
-                    AddressService.SaveAddress(address);
                 }
-                else
-                {
-                    Address address = SaveAddress(View.ShippingCountry, View.ShippingCity, View.ShippingPostalCode,
-                                                   View.ShippingWay);
-                    Customer customer = CustomerService.AuthenticateCustomer;
-                    customer.ShippingAddress = address;
-                    CustomerService.SaveCustomer(customer);
-                }
-
-
 
             }
 

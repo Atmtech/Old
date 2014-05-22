@@ -20,29 +20,34 @@ namespace ATMTECH.ShoppingCart.Services
             if (id != 0)
             {
                 Address address = DAOAddress.GetAddress(id);
-                address.Country = GetCountry(address.Country.Id);
-                address.City = DAOCity.GetCity(address.City.Id);
-                return address;
+                if (address != null)
+                {
+                    if (address.Country != null)
+                    {
+                        address.Country = GetCountry(address.Country.Id);    
+                    }
+                    if (address.City != null)
+                    {
+                        address.City = DAOCity.GetCity(address.City.Id);
+                    }
+                    
+                    return address;
+                }
             }
             return null;
         }
-
-
         public City FindCity(string cityName)
         {
             return DAOCity.FindCity(cityName);
         }
-
         public Country GetCountry(int id)
         {
             return DAOCountry.GetCountry(id);
         }
-
         public int CreateCity(City city)
         {
             return DAOCity.CreateCity(city);
         }
-
         public IList<Country> GetAllCountries()
         {
             IList<Country> countries = DAOCountry.GetAllCountries();
@@ -59,13 +64,10 @@ namespace ATMTECH.ShoppingCart.Services
             countries.Insert(0, country);
             return countries;
         }
-
         public Address FindAddress(Address address)
         {
             return DAOAddress.FindAddress(address);
         }
-
-
         public IList<Address> GetShippingAddress(Customer customer)
         {
             IList<Address> addresses = customer.Enterprise.ShippingAddress;
@@ -78,7 +80,6 @@ namespace ATMTECH.ShoppingCart.Services
             }
             return addresses;
         }
-
         public IList<Address> GetBillingAddress(Customer customer)
         {
             IList<Address> addresses = customer.Enterprise.BillingAddress;
@@ -91,7 +92,6 @@ namespace ATMTECH.ShoppingCart.Services
             }
             return addresses;
         }
-
         public Address SaveNewAddress(Address address)
         {
             ContextSessionManager.Context.Session["Cities"] = null;
@@ -112,7 +112,7 @@ namespace ATMTECH.ShoppingCart.Services
             address.Way = address.Way;
 
 
-            return GetAddress(DAOAddress.SaveAdress(address)); 
+            return GetAddress(DAOAddress.SaveAdress(address));
         }
         public Address SaveAddress(Address address)
         {

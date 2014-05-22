@@ -104,24 +104,24 @@
                 <table>
                     <tr>
                         <atmtech:TextBoxAvance runat="server" ID="txtModifyBillingWay" Libelle="Rue" EstObligatoire="True"
-                            ValidationGroup="FinalizeOrder" Width="350px" />
+                            ValidationGroup="ModifyBilling" Width="350px" />
                     </tr>
                     <tr>
                         <atmtech:ComboBoxAvance runat="server" ID="ddlModifyBillingCountry" Libelle="Pays"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
+                            EstObligatoire="True" ValidationGroup="ModifyBilling" Width="350px" />
                     </tr>
                     <tr>
                         <atmtech:TextBoxAvance runat="server" ID="txtModifyBillingCity" Libelle="Ville" EstObligatoire="True"
-                            ValidationGroup="FinalizeOrder" Width="350px" />
+                            ValidationGroup="ModifyBilling" Width="350px" />
                     </tr>
                     <tr>
                         <atmtech:TextBoxAvance runat="server" ID="txtModifyBillingPostalCode" Libelle="Code postal"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
+                            EstObligatoire="True" ValidationGroup="ModifyBilling" Width="350px" />
                     </tr>
                 </table>
                 <div>
-                    <asp:Button runat="server" ID="btnSaveAddressBilling" OnClick="SaveAddressBillingClick" Text="Enregistrer" />
-                    <asp:Button runat="server" ID="btnCopyAddressBillingToShipping" OnClick="CopyAddressBillingToShippingClick" Text="Enregistrer" />
+                    <asp:Button runat="server" ID="btnSaveAddressBilling" OnClick="SaveAddressBillingClick" Text="Enregistrer" ValidationGroup="ModifyBilling" />
+                    <asp:Button runat="server" ID="btnCopyAddressBillingToShipping" OnClick="CopyAddressBillingToShippingClick" Text="Enregistrer" ValidationGroup="ModifyBilling" />
                 </div>
             </asp:Panel>
             <asp:Panel runat="server" Visible="True" ID="pnlChangeAddressShipping">
@@ -131,23 +131,23 @@
                 <table style="width: 100%;">
                     <tr>
                         <atmtech:TextBoxAvance runat="server" ID="txtModifyShippingWay" Libelle="Rue" EstObligatoire="True"
-                            ValidationGroup="FinalizeOrder" Width="350px" />
+                            ValidationGroup="ModifyShipping" Width="350px" />
                     </tr>
                     <tr>
                         <atmtech:ComboBoxAvance runat="server" ID="ddlModifyShippingCountry" Libelle="Pays"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
+                            EstObligatoire="True" ValidationGroup="ModifyShipping" Width="350px" />
                     </tr>
                     <tr>
                         <atmtech:TextBoxAvance runat="server" ID="txtModifyShippingCity" Libelle="Ville"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
+                            EstObligatoire="True" ValidationGroup="ModifyShipping" Width="350px" />
                     </tr>
                     <tr>
                         <atmtech:TextBoxAvance runat="server" ID="txtModifyShippingPostalCode" Libelle="Code postal"
-                            EstObligatoire="True" ValidationGroup="FinalizeOrder" Width="350px" />
+                            EstObligatoire="True" ValidationGroup="ModifyShipping" Width="350px" />
                     </tr>
                 </table>
                 <div>
-                    <asp:Button runat="server" ID="btnSaveAddressShipping" OnClick="SaveAddressShippingClick" Text="Enregistrer" />
+                    <asp:Button runat="server" ID="btnSaveAddressShipping" OnClick="SaveAddressShippingClick" Text="Enregistrer" ValidationGroup="ModifyShipping" />
                 </div>
 
             </asp:Panel>
