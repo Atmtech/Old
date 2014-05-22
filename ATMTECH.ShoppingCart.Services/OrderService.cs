@@ -117,6 +117,8 @@ namespace ATMTECH.ShoppingCart.Services
             ValidateOrderService.IsValidOrder(order);
             ValidateOrderService.IsValidIfOrderInformationIsEnabled(order);
 
+
+
             order.ShippingTotal = GetShippingTotal(order, shippingParameter);
 
             bool retUser = SendMailToUser(order);

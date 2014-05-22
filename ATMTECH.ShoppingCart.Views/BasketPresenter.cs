@@ -30,6 +30,7 @@ namespace ATMTECH.ShoppingCart.Views
         {
             base.OnViewInitialized();
 
+
             View.AskShippingLabel = MessageService.GetMessage(ErrorCode.SC_ASK_SHIPPING_QUOTATION).Description;
 
             if (NavigationService.GetQueryStringValue(PagesId.IS_ORDER_FINALIZED) == "1")
@@ -91,6 +92,8 @@ namespace ATMTECH.ShoppingCart.Views
             View.CurrentOrder.Project = View.Project;
             View.CurrentOrder.OrderInformation1 = View.OrderInformation1Value;
             View.CurrentOrder.OrderInformation2 = View.OrderInformation2Value;
+            View.CurrentOrder.BillingAddress.Id = View.BillingAddressSelected;
+            View.CurrentOrder.ShippingAddress.Id = View.ShippingAddressSelected;
 
             if (isPaypal)
             {

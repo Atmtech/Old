@@ -47,9 +47,7 @@ namespace ATMTECH.Web
                 }
             }
 
-            logExceptionDatabase(exception);
-
-
+            
             Response.Redirect(@"~/Errors/Error.htm");
         }
 

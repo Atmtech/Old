@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Reflection;
+using System.Web;
+using ATMTECH.Common.Context;
 using ATMTECH.DAO;
 using ATMTECH.Entities;
 using ATMTECH.Exception;
@@ -39,6 +43,13 @@ namespace ATMTECH.Web
                 }
                 else
                 {
+                    // Get stack trace for the exception with source file information
+                    var st = new StackTrace(result.Exception, true);
+                    // Get the top stack frame
+                    var frame = st.GetFrame(0);
+                    // Get the line number from the stack frame
+                    var line = frame.GetFileLineNumber();
+
                     string message = result.Exception.Message;
                     Message messageEx = new Message() { Description = message };
                     BaseException exception = new BaseException(messageEx);
@@ -51,18 +62,38 @@ namespace ATMTECH.Web
                                                             Utils.Web.Pages.GetCurrentPage(),
                                                         StackTrace = result.Exception.StackTrace
                                                     };
+
+                    if (ContextSessionManager.Session["Internal_LoggedUser"] != null)
+                    {
+                        User user = (User)ContextSessionManager.Session["Internal_LoggedUser"];
+                        logException.User = user;
+                    }
+
                     DAOLogException daoLogException = new DAOLogException();
                     daoLogException.Save(logException);
 
                     CallShowMessage(input.Target, exception);
                 }
             }
-            catch
+            catch (System.Exception ex)
             {
-                
+                LogFile(ex);
             }
 
             result.Exception = null;
+        }
+
+        public void LogFile(System.Exception exception)
+        {
+            //HttpApplication server = new HttpApplication();
+            
+            //StreamWriter log = !System.IO.File.Exists(server.Server.MapPath("Errorlogfile.log")) ? new StreamWriter(server.Server.MapPath("Errorlogfile.log")) : System.IO.File.AppendText(server.Server.MapPath("Errorlogfile.log"));
+            //log.WriteLine("==============================================================================");
+            //log.WriteLine("Heure:" + DateTime.Now);
+            //log.WriteLine("Exception:" + exception.Message);
+            //log.WriteLine("Stack:" + exception.StackTrace);
+            //log.WriteLine("==============================================================================");
+            //log.Close();
         }
 
 
