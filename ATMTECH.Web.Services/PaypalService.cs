@@ -63,16 +63,16 @@ namespace ATMTECH.Web.Services
             }
             else
             {
-                if (ParameterService.GetValue("Environment") != "PROD")
-                {
-                    ContextSessionManager.Context.Response.Redirect(string.Format("{0}?cmd=_express-checkout&token={1}",
-                      "https://www.sandbox.paypal.com/cgi-bin/webscr", resp.Token));
-                }
-                else
-                {
+                //if (ParameterService.GetValue("Environment") != "PROD")
+                //{
+                //    ContextSessionManager.Context.Response.Redirect(string.Format("{0}?cmd=_express-checkout&token={1}",
+                //      "https://www.sandbox.paypal.com/cgi-bin/webscr", resp.Token));
+                //}
+                //else
+                //{
                     ContextSessionManager.Context.Response.Redirect(string.Format("{0}?cmd=_express-checkout&token={1}",
                       "https://www.paypal.com/cgi-bin/webscr", resp.Token));
-                }
+                //}
             }
         }
         public PaypalReturn GetReplyFromPaypal()

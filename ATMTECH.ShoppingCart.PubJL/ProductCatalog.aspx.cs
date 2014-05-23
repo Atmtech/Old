@@ -45,8 +45,9 @@ namespace ATMTECH.ShoppingCart.PubJL
                     {
                         foreach (Product product in products)
                         {
+                            string principalFileUrl = product.PrincipalFileUrl ?? "";
                             string header = "<a href='AddProductToBasket.aspx?" + PagesId.PRODUCT_ID + "=" + product.Id + "'><div class='tile double-vertical double image outline-color-white'>";
-                            string image = "<div class='tile-content'><img src='" + product.PrincipalFileUrl != null ? product.PrincipalFileUrl : "" + "'></div>";
+                            string image = "<div class='tile-content'><img src='" + principalFileUrl + "'></div>";
                             string name = Session["currentLanguage"].ToString().Equals("fr")
                                               ? product.NameFrench
                                               : product.NameEnglish;

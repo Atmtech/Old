@@ -43,6 +43,7 @@ namespace ATMTECH.ShoppingCart.Views
                 if (OrderService.FinalizeOrder(order, null) != -1)
                 {
                     View.IsOrderFinalized = true;
+                    return;
                 }
             }
 

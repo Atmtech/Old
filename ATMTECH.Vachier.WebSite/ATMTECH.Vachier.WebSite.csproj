@@ -76,6 +76,7 @@
     <Content Include="App_Themes\Default\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="App_Themes\Default\jquery-ui.custom.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Default2.aspx" />
     <Content Include="Errors\SessionTimeout.htm" />
     <Content Include="Global.asax" />
     <Content Include="Images\ajouter.png" />
@@ -111,6 +112,7 @@
     <Content Include="Javascript\Redirection.js" />
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="Site.css" />
+    <Content Include="Test.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -132,6 +134,13 @@
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Default2.aspx.cs">
+      <DependentUpon>Default2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default2.aspx.designer.cs">
+      <DependentUpon>Default2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
