@@ -88,7 +88,7 @@ namespace ATMTECH.Web.Services
             }
             catch (System.Exception exception)
             {
-                LogException(new Message() { Description = "Erreur fatale dans LogVisit: ", InnerId = "ADM0001" }, exception);
+                //LogException(new Message() { Description = "Erreur fatale dans LogVisit: ", InnerId = "ADM0001" }, exception);
             }
         }
 

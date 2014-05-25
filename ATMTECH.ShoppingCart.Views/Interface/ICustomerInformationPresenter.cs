@@ -22,7 +22,8 @@ namespace ATMTECH.ShoppingCart.Views.Interface
 
         bool IsChangeAddressShippingPossible { set; }
         bool IsChangeAddressBillingPossible { set; }
-        bool IsDontAddPersonnalAddress { set; }
+        bool IsDontAddPersonnalAddressShipping { set; }
+        bool IsDontAddPersonnalAddressBilling { set; }
         
         string BillingWay { get; set; }
         string BillingCountry { get; set; }

@@ -13,6 +13,10 @@ namespace ATMTECH.ShoppingCart.Glv
 {
     public partial class Basket : PageBaseShoppingCart<BasketPresenter, IBasketPresenter>, IBasketPresenter
     {
+        public bool IsDontAddPersonnalAddressShipping { set { if (value) btnModifyShippingAddress.Visible = false; } }
+        public bool IsDontAddPersonnalAddressBilling { set { if (value) btnModifyBillingAddress.Visible = false; } }
+
+
         public IList<EnumOrderInformation> EnumOrderInformation1
         {
             set

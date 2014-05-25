@@ -93,7 +93,7 @@
         </asp:Panel>
 
 
-        <asp:Panel runat="server" ID="pnlModifyAddress" Visible="True">
+        
             <div class="title">
                 <strong>
                     <asp:Label runat="server" ID="lblModificationAdresse" Text="Mdoification d'adresses"></asp:Label></strong>
@@ -124,6 +124,7 @@
                     <asp:Button runat="server" ID="btnCopyAddressBillingToShipping" OnClick="CopyAddressBillingToShippingClick" Text="Enregistrer" ValidationGroup="ModifyBilling" />
                 </div>
             </asp:Panel>
+
             <asp:Panel runat="server" Visible="True" ID="pnlChangeAddressShipping">
                 <strong>
                     <asp:Label runat="server" ID="lblShippingLabel" Text="Adresse d'envoi" /></strong>

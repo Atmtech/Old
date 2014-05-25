@@ -71,7 +71,7 @@ namespace ATMTECH.ShoppingCart.Services
         public IList<Address> GetShippingAddress(Customer customer)
         {
             IList<Address> addresses = customer.Enterprise.ShippingAddress;
-            if (!customer.Enterprise.IsDontAddPersonnalAddress)
+            if (!customer.Enterprise.IsDontAddPersonnalAddressShipping)
             {
                 if (customer.ShippingAddress != null)
                 {
@@ -83,7 +83,7 @@ namespace ATMTECH.ShoppingCart.Services
         public IList<Address> GetBillingAddress(Customer customer)
         {
             IList<Address> addresses = customer.Enterprise.BillingAddress;
-            if (!customer.Enterprise.IsDontAddPersonnalAddress)
+            if (!customer.Enterprise.IsDontAddPersonnalAddressBilling)
             {
                 if (customer.BillingAddress != null)
                 {

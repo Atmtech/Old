@@ -70,8 +70,8 @@ namespace ATMTECH.ShoppingCart.Glv{
             }
         }
 
-        public bool IsDontAddPersonnalAddress { set { if (value) pnlModifyAddress.Visible = false; } }
-
+        public bool IsDontAddPersonnalAddressShipping { set { if (value) pnlChangeAddressShipping.Visible = false; } }
+        public bool IsDontAddPersonnalAddressBilling { set { if (value) pnlChangeAddressBilling.Visible = false; } }
 
         public string BillingWay { get { return txtModifyBillingWay.Text; } set { txtModifyBillingWay.Text = value; } }
         public string BillingCountry { get { return ddlModifyBillingCountry.SelectedValue; } set { ddlModifyBillingCountry.SelectedValue = value; } }

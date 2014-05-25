@@ -43,7 +43,8 @@ namespace ATMTECH.ShoppingCart.Entities
         public bool IsDisplayChangeLanguage { get; set; }
         public bool IsShippingManaged { get; set; }
         public bool IsSecure { get; set; }
-        public bool IsDontAddPersonnalAddress { get; set; }
+        public bool IsDontAddPersonnalAddressBilling { get; set; }
+        public bool IsDontAddPersonnalAddressShipping { get; set; }
 
         public bool IsManageOrderInformation1 { get; set; }
         public bool IsManageOrderInformation2 { get; set; }

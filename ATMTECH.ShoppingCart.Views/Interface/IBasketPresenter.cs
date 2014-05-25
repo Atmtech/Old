@@ -32,6 +32,9 @@ namespace ATMTECH.ShoppingCart.Views.Interface
         string OrderInformation1Value { get; }
         string OrderInformation2Value { get; }
 
+        bool IsDontAddPersonnalAddressShipping { set; }
+        bool IsDontAddPersonnalAddressBilling { set; }
+
         string NoAddressFound { set; }
     }
 }

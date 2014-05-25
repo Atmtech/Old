@@ -33,6 +33,10 @@ namespace ATMTECH.ShoppingCart.PubJL
                 ddlOrderInformation2.DataBind();
             }
         }
+
+        public bool IsDontAddPersonnalAddressShipping { set { if (value) btnModifyShippingAddress.Visible = false; } }
+        public bool IsDontAddPersonnalAddressBilling { set { if (value) btnModifyBillingAddress.Visible = false; } }
+
         public string OrderInformation1Value { get { return ddlOrderInformation1.SelectedValue.ToString(); } }
         public string OrderInformation2Value { get { return ddlOrderInformation2.SelectedValue; } }
         public string NoAddressFound

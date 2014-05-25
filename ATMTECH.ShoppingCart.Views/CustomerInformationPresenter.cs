@@ -47,7 +47,9 @@ namespace ATMTECH.ShoppingCart.Views
                 View.Email = customer.User.Email;
                 View.Countrys = AddressService.GetAllCountries();
                 View.IsSuperUser = customer.User.IsSuperUser;
-                View.IsDontAddPersonnalAddress = customer.Enterprise.IsDontAddPersonnalAddress;
+                View.IsDontAddPersonnalAddressShipping = customer.Enterprise.IsDontAddPersonnalAddressShipping;
+                View.IsDontAddPersonnalAddressBilling = customer.Enterprise.IsDontAddPersonnalAddressBilling;
+
                 if (customer.BillingAddress.Id != 0)
                 {
                     View.BillingCity = customer.BillingAddress.City.Description;
