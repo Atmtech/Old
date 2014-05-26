@@ -217,17 +217,18 @@
                     <asp:Label runat="server" ID="lblCustomerInformationShippedList" Text="Historique des commandes envoyées:"></asp:Label>
                 </strong>
             </div>
-            <asp:GridView runat="server" ID="grvShipped" AutoGenerateColumns="false" CssClass="orderGrid"
+            <asp:GridView runat="server" ID="grvShipped" AutoGenerateColumns="false"
                 EmptyDataText="Aucune commande en envoi" ShowHeader="True" OnRowCommand="OnRowCommandOrdered">
                 <HeaderStyle CssClass="orderGridHeader" />
                 <FooterStyle CssClass="orderGridFooter" />
+               
                 <Columns>
-                    <asp:TemplateField HeaderText="No.">
+                    <asp:TemplateField HeaderText="No." >
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblId" Text='<%#Eval("Id")%>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Date de commande">
+                    <asp:TemplateField HeaderText="Date de commande" >
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblOrderedDate" Text='<%#Eval("DateModified")%>'></asp:Label>
                         </ItemTemplate>

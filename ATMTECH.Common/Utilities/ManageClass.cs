@@ -278,16 +278,24 @@ namespace ATMTECH.Common.Utilities
                         }
                         else
                         {
-                            pi.SetValue(instance, Convert.ChangeType(HtmlDecode(propertyValue), pi.PropertyType), null);
+                            if (pi.PropertyType.FullName.IndexOf("System.DateTime") > 0)
+                            {
+                                pi.SetValue(instance, Convert.ChangeType(HtmlDecode(propertyValue), TypeCode.DateTime), null);
+                            }
+                            else
+                            {
+                                pi.SetValue(instance, Convert.ChangeType(HtmlDecode(propertyValue), pi.PropertyType), null);    
+                            }
+                            
                         }
 
 
 
                     }
                 }
-                catch 
+                catch  (Exception ex)
                 {
-
+                    string s = ex.Message;
                 }
             }
         }

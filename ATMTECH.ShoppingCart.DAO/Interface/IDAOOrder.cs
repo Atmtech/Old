@@ -10,6 +10,7 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
        int CreateOrder(Order order);
        int UpdateOrder(Order order);
        IList<Order> GetOrderFromCustomer(Customer customer);
+       IList<Order> GetOrderFromCustomer(Customer customer, int orderStatus);
        IList<Order> GetAllFinalized(Enterprise enterprise, DateTime dateStart, DateTime dateEnd);
        IList<OrderLine> GetAllOrderLine(Enterprise enterprise);
        IList<Order> GetOrder(int idEnterprise, int pageIndex);

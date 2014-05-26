@@ -194,9 +194,7 @@ namespace ATMTECH.ShoppingCart.Services
         {
             if (customer != null)
             {
-                IList<Order> orders = DAOOrder.GetOrderFromCustomer(customer);
-                orders = orders.Where(order => order.OrderStatus == orderStatus).OrderByDescending(x => x.FinalizedDate).ToList();
-                return GetAddressOrder(orders);
+                return DAOOrder.GetOrderFromCustomer(customer, orderStatus);
             }
 
             MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_NO_USER_AUTHENTICATED);

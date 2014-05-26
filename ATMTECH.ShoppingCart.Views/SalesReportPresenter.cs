@@ -17,20 +17,6 @@ namespace ATMTECH.ShoppingCart.Views
         {
         }
 
-        public void LaunchReport()
-        {
-            Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
-            ReportParameter reportParameter = new ReportParameter
-            {
-                Assembly = "ATMTECH.ShoppingCart.Services",
-                PathToReportAssembly = "ATMTECH.ShoppingCart.Services.Reports.Sales.rdlc",
-                ReportFormat = ReportFormat.PDF,
-                Parameters = dictionnaire
-            };
-
-            reportParameter.AddDatasource("dsOrderServiceGetSalesReport", OrderService.GetOrdersFromCustomer(new Customer() { Id = 1 }, OrderStatus.IsOrdered));
-            ReportService.SaveReport("Sales.pdf", ReportService.GetReport(reportParameter));
-
-        }
+       
     }
 }

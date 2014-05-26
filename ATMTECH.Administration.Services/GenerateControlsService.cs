@@ -96,7 +96,13 @@ namespace ATMTECH.Administration.Services
             if (id == 0)
                 return "Inconnu";
             //return DAOEntityProperty.GetEntityPropertyLabel(id, propertyName);
-            return entityProperties.FirstOrDefault(x => x.EntityInformation.Id == id && x.PropertyName == propertyName).Label;
+            EntityProperty firstOrDefault = entityProperties.FirstOrDefault(x => x.EntityInformation.Id == id && x.PropertyName == propertyName);
+            if (firstOrDefault != null)
+            {
+                return firstOrDefault.Label;    
+            }
+            return propertyName;
+
         }
         private IOrderedEnumerable<PropertyInfo> GetPropertiesToDisplay(string nameSpace, string entity)
         {
@@ -310,9 +316,9 @@ namespace ATMTECH.Administration.Services
                 return comboBoxAvance;
             }
 
-            switch (propertyInfo.PropertyType.Name)
+            switch (propertyInfo.PropertyType.FullName)
             {
-                case "Decimal":
+                case "System.Decimal":
                     {
                         TextBoxAvance textBoxAvance = new TextBoxAvance
                         {
@@ -330,7 +336,7 @@ namespace ATMTECH.Administration.Services
 
                         return textBoxAvance;
                     }
-                case "Int32":
+                case "System.Int32":
                     {
                         AlphaNumTextBoxAvance alphaNumTextBoxAvance = new AlphaNumTextBoxAvance
                         {
@@ -352,25 +358,66 @@ namespace ATMTECH.Administration.Services
 
                         return alphaNumTextBoxAvance;
                     }
+                case "System.DateTime":
+                    {
+                        TextBoxAvance textBoxAvance = new TextBoxAvance
+                        {
+                            ID = propertyInfo.Name,
+                            Text = value,
+                            Width = Unit.Pixel(150),
+                            TextMode = TextBoxMode.SingleLine,
+                            EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess),
+                            Enabled = isEnabled
+                        };
+                        if (DataEditorService.IsSystemColumn(propertyInfo.Name))
+                        {
+                            textBoxAvance.Enabled = false;
+                        }
+
+                        return textBoxAvance;
+                    }
 
                 default:
                     {
-                        TextEditorAvance ckEditor = new TextEditorAvance
-                                                       {
-                                                           ID = propertyInfo.Name,
-                                                           Text = value,
-                                                           Width = Unit.Percentage(90),
-                                                           Enabled = isEnabled,
-                                                           Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
-                                                           Height = Unit.Pixel(50)
-
-                                                       };
-
-                        if (DataEditorService.IsSystemColumn(propertyInfo.Name))
+                        if (propertyInfo.PropertyType.FullName.IndexOf("System.DateTime") > 0)
                         {
-                            ckEditor.Enabled = false;
+                            TextBoxAvance textBoxAvance = new TextBoxAvance
+                            {
+                                ID = propertyInfo.Name,
+                                Text = value,
+                                Width = Unit.Pixel(150),
+                                TextMode = TextBoxMode.SingleLine,
+                                EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess),
+                                Enabled = isEnabled
+                            };
+                            if (DataEditorService.IsSystemColumn(propertyInfo.Name))
+                            {
+                                textBoxAvance.Enabled = false;
+                            }
+
+                            return textBoxAvance;
                         }
-                        return ckEditor;
+                        else
+                        {
+                            TextEditorAvance ckEditor = new TextEditorAvance
+                            {
+                                ID = propertyInfo.Name,
+                                Text = value,
+                                Width = Unit.Percentage(90),
+                                Enabled = isEnabled,
+                                Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
+                                Height = Unit.Pixel(50)
+
+                            };
+
+                            if (DataEditorService.IsSystemColumn(propertyInfo.Name))
+                            {
+                                ckEditor.Enabled = false;
+                            }
+                            return ckEditor;
+
+                        }
+                       
 
                     }
             }

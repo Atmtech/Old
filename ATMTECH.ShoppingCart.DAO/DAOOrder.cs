@@ -19,6 +19,16 @@ namespace ATMTECH.ShoppingCart.DAO
         public IDAOProduct DAOProduct { get; set; }
         public IDAOOrderLine DAOOrderLine { get; set; }
 
+        public IList<Order> GetOrderFromCustomer(Customer customer, int orderStatus)
+        {
+            Criteria criteriaCustomer = new Criteria { Column = Order.CUSTOMER, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = customer.Id.ToString() };
+            Criteria criteriaStatus = new Criteria { Column = Order.ORDER_STATUS, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = orderStatus.ToString() };
+            IList<Criteria> criterias = new List<Criteria>();
+            criterias.Add(criteriaCustomer);
+            criterias.Add(criteriaStatus);
+            criterias.Add(IsActive());
+            return GetByCriteria(criterias);
+        }
 
         public IList<Order> GetOrderFromCustomer(Customer customer)
         {
@@ -107,7 +117,7 @@ namespace ATMTECH.ShoppingCart.DAO
         public IList<Order> GetAllFinalized(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
             Criteria criteriaEnterprise = new Criteria { Column = Order.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = enterprise.Id.ToString() };
-            Criteria criteriaDateFinalizedNotNull = new Criteria { Column = Order.FINALIZED_DATE, Operator = DatabaseOperator.OPERATOR_IS_NOT_NULL};
+            Criteria criteriaDateFinalizedNotNull = new Criteria { Column = Order.FINALIZED_DATE, Operator = DatabaseOperator.OPERATOR_IS_NOT_NULL };
             IList<Criteria> criterias = new List<Criteria>();
             criterias.Add(criteriaDateFinalizedNotNull);
             criterias.Add(criteriaEnterprise);

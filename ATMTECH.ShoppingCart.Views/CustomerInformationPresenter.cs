@@ -34,9 +34,10 @@ namespace ATMTECH.ShoppingCart.Views
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
-            if (CustomerService.AuthenticateCustomer != null)
+            Customer customer = CustomerService.AuthenticateCustomer;
+            if (customer != null)
             {
-                Customer customer = CustomerService.AuthenticateCustomer;
+               
 
                 View.Name = customer.User.FirstNameLastName;
                 View.FirstName = customer.User.FirstName;

@@ -378,6 +378,8 @@ namespace ATMTECH.Administration
                 {
                     manageClass.AssignValue(type, entity, textEditorAvance.Text, textEditorAvance.ID);
                 }
+
+
             }
 
 
