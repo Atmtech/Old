@@ -30,6 +30,29 @@ namespace ATMTECH.ShoppingCart.DAO
             return GetByCriteria(criterias);
         }
 
+        public decimal GetGrandTotalFromOrderWishList(Customer customer)
+        {
+            Criteria criteriaCustomer = new Criteria { Column = Order.CUSTOMER, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = customer.Id.ToString() };
+            Criteria criteriaStatus = new Criteria { Column = Order.ORDER_STATUS, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = OrderStatus.IsWishList.ToString() };
+            IList<Criteria> criterias = new List<Criteria>();
+            criterias.Add(criteriaCustomer);
+            criterias.Add(criteriaStatus);
+            criterias.Add(IsActive());
+            IList<Order> orders = GetByCriteria(criterias);
+            return orders[0].GrandTotal;
+        }
+
+        public int GetCountNumberOfItemInBasket(Customer customer)
+        {
+            Criteria criteriaCustomer = new Criteria { Column = Order.CUSTOMER, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = customer.Id.ToString() };
+            Criteria criteriaStatus = new Criteria { Column = Order.ORDER_STATUS, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = OrderStatus.IsWishList.ToString() };
+            IList<Criteria> criterias = new List<Criteria>();
+            criterias.Add(criteriaCustomer);
+            criterias.Add(criteriaStatus);
+            criterias.Add(IsActive());
+            return GetByCriteria(criterias).Count;
+        }
+
         public IList<Order> GetOrderFromCustomer(Customer customer)
         {
             Criteria criteriaCustomer = new Criteria { Column = Order.CUSTOMER, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = customer.Id.ToString() };

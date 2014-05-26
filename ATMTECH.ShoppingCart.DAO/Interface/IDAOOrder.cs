@@ -16,5 +16,7 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
        IList<Order> GetOrder(int idEnterprise, int pageIndex);
        IList<Order> GetAll();
        int Save(Order id);
+       int GetCountNumberOfItemInBasket(Customer customer);
+       decimal GetGrandTotalFromOrderWishList(Customer customer);
    }
 }

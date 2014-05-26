@@ -190,6 +190,16 @@ namespace ATMTECH.ShoppingCart.Services
             MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_NO_USER_AUTHENTICATED);
             return null;
         }
+
+        public int GetCountNumberOfItemInBasket(Customer customer)
+        {
+            return DAOOrder.GetCountNumberOfItemInBasket(customer);
+        }
+        public decimal GetGrandTotalFromOrderWishList(Customer customer)
+        {
+            return DAOOrder.GetGrandTotalFromOrderWishList(customer);
+        }
+
         public IList<Order> GetOrdersFromCustomer(Customer customer, int orderStatus)
         {
             if (customer != null)

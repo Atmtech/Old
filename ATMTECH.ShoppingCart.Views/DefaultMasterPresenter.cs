@@ -41,10 +41,11 @@ namespace ATMTECH.ShoppingCart.Views
             {
                 View.IsLogged = true;
                 View.Name = customer.User.FirstNameLastName;
-                Order order = OrderService.GetWishListFromCustomer(CustomerService.AuthenticateCustomer);
-                View.NumberOfItemInBasket = order != null ? order.OrderLines.Count : 0;
-                View.TotalPrice = order != null ? order.GrandTotal : 0;
-                
+
+                decimal grandTotal = OrderService.GetGrandTotalFromOrderWishList(CustomerService.AuthenticateCustomer);
+                View.TotalPrice = grandTotal;
+                View.NumberOfItemInBasket = grandTotal == 0 ? 0 : OrderService.GetCountNumberOfItemInBasket(CustomerService.AuthenticateCustomer);
+
             }
         }
 
@@ -132,7 +133,7 @@ namespace ATMTECH.ShoppingCart.Views
                     View.Language = "English";
                     break;
             }
-       
+
             NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
     }

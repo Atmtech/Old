@@ -31,6 +31,8 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         string GetOrderWithFormat(int idOrder);
         IList<OrderLine> GetAllOrderLine();
         int SaveOrderLine(OrderLine orderLine);
+        int GetCountNumberOfItemInBasket(Customer customer);
+        decimal GetGrandTotalFromOrderWishList(Customer customer);
         IList<ProductPriceHistoryReportLine> GetProductPriceHistoryReportLine(Enterprise enterprise,
                                                                               DateTime dateStart,
                                                                               DateTime dateEnd);

@@ -30,10 +30,11 @@ namespace ATMTECH.ShoppingCart.Views
         {
             base.OnViewInitialized();
 
+            Enterprise enterprise = CustomerService.AuthenticateCustomer.Enterprise;
 
             View.AskShippingLabel = MessageService.GetMessage(ErrorCode.SC_ASK_SHIPPING_QUOTATION).Description;
-            View.IsDontAddPersonnalAddressBilling = CustomerService.AuthenticateCustomer.Enterprise.IsDontAddPersonnalAddressBilling;
-            View.IsDontAddPersonnalAddressShipping = CustomerService.AuthenticateCustomer.Enterprise.IsDontAddPersonnalAddressShipping;
+            View.IsDontAddPersonnalAddressBilling = enterprise.IsDontAddPersonnalAddressBilling;
+            View.IsDontAddPersonnalAddressShipping = enterprise.IsDontAddPersonnalAddressShipping;
 
             if (NavigationService.GetQueryStringValue(PagesId.IS_ORDER_FINALIZED) == "1")
             {
@@ -43,13 +44,13 @@ namespace ATMTECH.ShoppingCart.Views
             {
                 View.CurrentOrder = OrderService.GetWishListFromCustomer(CustomerService.AuthenticateCustomer);
 
-                if (CustomerService.AuthenticateCustomer.Enterprise.IsManageOrderInformation1)
+                if (enterprise.IsManageOrderInformation1)
                 {
                     View.EnumOrderInformation1 = OrderService.GetOrderInformation(CustomerService.AuthenticateCustomer.Enterprise, "INFO1");
                     View.IsManageOrderInformation1 = true;
                 }
 
-                if (CustomerService.AuthenticateCustomer.Enterprise.IsManageOrderInformation2)
+                if (enterprise.IsManageOrderInformation2)
                 {
                     View.EnumOrderInformation2 = OrderService.GetOrderInformation(CustomerService.AuthenticateCustomer.Enterprise, "INFO2");
                     View.IsManageOrderInformation2 = true;
