@@ -26,6 +26,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                 {
                     pnlAcceptPaypalPayment.Visible = false;
                     pnlOrderFinalized.Visible = true;
+                    ((Default)Master).RefreshTotal();
                 }
             }
         }

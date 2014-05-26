@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using ATMTECH.Common.Context;
 using ATMTECH.Services;
 using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface;
@@ -117,28 +118,25 @@ namespace ATMTECH.ShoppingCart.Services
             ValidateOrderService.IsValidOrder(order);
             ValidateOrderService.IsValidIfOrderInformationIsEnabled(order);
 
-
-
             order.ShippingTotal = GetShippingTotal(order, shippingParameter);
 
-            bool retUser = SendMailToUser(order);
-            bool retAdmin = SendMailToAdmin(order);
+            SendMailToUser(order);
+            SendMailToAdmin(order);
             SendMailToEnterprise(order);
 
-            if (retUser && retAdmin)
+            order.OrderStatus = OrderStatus.IsOrdered;
+            order.FinalizedDate = DateTime.Now;
+
+            foreach (OrderLine orderLine in order.OrderLines.Where(orderLine => !orderLine.Stock.IsWithoutStock))
             {
-                order.OrderStatus = OrderStatus.IsOrdered;
-                order.FinalizedDate = DateTime.Now;
-
-                foreach (OrderLine orderLine in order.OrderLines.Where(orderLine => !orderLine.Stock.IsWithoutStock))
-                {
-                    StockService.StockTransaction(orderLine.Stock.Id, orderLine.Quantity, order, Services.StockService.TransactionType.Remove);
-                    SendWarningOnLowStock(orderLine.Stock, order);
-                }
-
-                return UpdateOrder(order, shippingParameter);
+                StockService.StockTransaction(orderLine.Stock.Id, orderLine.Quantity, order, Services.StockService.TransactionType.Remove);
+                SendWarningOnLowStock(orderLine.Stock, order);
             }
-            return -1;
+
+            ContextSessionManager.Context.Session["CurrentOrder"] = null;
+
+            return UpdateOrder(order, shippingParameter);
+
         }
         public void SendWarningOnLowStock(Stock stock, Order order)
         {

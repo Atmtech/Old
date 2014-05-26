@@ -136,8 +136,8 @@ namespace ATMTECH.Web
             Utils.Debug.WriteDebug("ConnectionString: " + DatabaseSessionManager.ConnectionString);
             Utils.Debug.WriteDebug("********************************************************************************************************");
 
-            if (DatabaseSessionManager.Session.State == System.Data.ConnectionState.Open)
-                DatabaseSessionManager.Session.Close();
+            //if (DatabaseSessionManager.Session.State == System.Data.ConnectionState.Open)
+            //    DatabaseSessionManager.Session.Close();
         }
 
     }

@@ -43,13 +43,15 @@ namespace ATMTECH.Web.Services
                     MessageService.ThrowMessage(Common.ErrorCode.ADM_NO_EMAIL_TO);
                     return false;
                 }
-                
+
                 SmtpClient client = new SmtpClient(ParameterService.GetValue("SmtpServer"),
                                                    Convert.ToInt32(ParameterService.GetValue("SmtpServerPort"))) { EnableSsl = true };
                 MailAddress fromx = new MailAddress(from, "");
                 MailAddress tox = new MailAddress(to, "");
+                
                 string subjectFormat = Utils.Web.Pages.RemoveHtmlTag(subject);
                 MailMessage message = new MailMessage(fromx, tox) { IsBodyHtml = true, Body = body, Subject = subjectFormat };
+                
                 NetworkCredential myCreds = new NetworkCredential(ParameterService.GetValue("SmtpServerLogin"), ParameterService.GetValue("SmtpServerPassword"), "");
                 client.Credentials = myCreds;
 

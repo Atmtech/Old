@@ -15,11 +15,14 @@ namespace ATMTECH.ShoppingCart.DAO
         public Enterprise GetEnterprise(int idEntreprise)
         {
             Enterprise enterprise = GetById(idEntreprise);
-    
-            enterprise.BillingAddress = DAOEnterpriseAddress.GetBillingAddress(enterprise);
-            enterprise.ShippingAddress = DAOEnterpriseAddress.GetShippingAddress(enterprise);
-            enterprise.Image = DAOFile.GetFile(enterprise.Image.Id);
-            return enterprise;
+            if (enterprise != null)
+            {
+                enterprise.BillingAddress = DAOEnterpriseAddress.GetBillingAddress(enterprise);
+                enterprise.ShippingAddress = DAOEnterpriseAddress.GetShippingAddress(enterprise);
+                enterprise.Image = DAOFile.GetFile(enterprise.Image.Id);
+                return enterprise;
+            }
+            return null;
         }
 
         public IList<Enterprise> GetEnterprise()

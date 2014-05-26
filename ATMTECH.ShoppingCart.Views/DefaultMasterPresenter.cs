@@ -44,6 +44,7 @@ namespace ATMTECH.ShoppingCart.Views
                 Order order = OrderService.GetWishListFromCustomer(CustomerService.AuthenticateCustomer);
                 View.NumberOfItemInBasket = order != null ? order.OrderLines.Count : 0;
                 View.TotalPrice = order != null ? order.GrandTotal : 0;
+                
             }
         }
 

@@ -32,7 +32,7 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             return
                 GetBySql(
-            "select Product.Id,Product.Description,Product.IsActive,Product.DateCreated,Product.DateModified,Product.Language,Product.OrderId,Product.Search,Product.ComboboxDescription,Product.Ident,Product.UnitPrice,Product.CostPrice,Product.Enterprise,Product.Weight,Product.Supplier,Product.InternalIdent,Product.DescriptionFrench,Product.DescriptionEnglish,Product.ProductCategoryFrench,Product.ProductCategoryEnglish,Product.NameFrench,Product.NameEnglish from Product Where Id not in (SELECT Product From Stock) and Enterprise = " + id);
+            "select Product.Id,Product.Description,Product.IsActive,Product.DateCreated,Product.DateModified,Product.Language,Product.OrderId,Product.Search,Product.ComboboxDescription,Product.Ident,Product.UnitPrice,Product.CostPrice,Product.Enterprise,Product.Weight,Product.Supplier,Product.InternalIdent,Product.DescriptionFrench,Product.DescriptionEnglish,Product.ProductCategoryFrench,Product.ProductCategoryEnglish,Product.NameFrench,Product.NameEnglish,Product.IsNotOrderable from Product Where Id not in (SELECT Product From Stock) and Enterprise = " + id);
         }
 
         public Product GetProduct(int id)

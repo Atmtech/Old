@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Data.SQLite;
@@ -10,7 +11,9 @@ namespace ATMTECH.DAO.SessionManager
 {
     public class DatabaseSessionManager
     {
+
         public static string ConnectionString { get; set; }
+      
 
         public static int DatabaseTransactionCount { get; set; }
 

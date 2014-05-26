@@ -34,7 +34,7 @@ namespace ATMTECH.Web
         {
             if (IsPageAspx(sender))
             {
-                if (DatabaseSessionManager.Session.State == System.Data.ConnectionState.Open)
+                //if (DatabaseSessionManager.Session.State == System.Data.ConnectionState.Open)
                     DatabaseSessionManager.Session.Close();
             }
         }

@@ -32,6 +32,8 @@ namespace ATMTECH.ShoppingCart.Views
 
 
             View.AskShippingLabel = MessageService.GetMessage(ErrorCode.SC_ASK_SHIPPING_QUOTATION).Description;
+            View.IsDontAddPersonnalAddressBilling = CustomerService.AuthenticateCustomer.Enterprise.IsDontAddPersonnalAddressBilling;
+            View.IsDontAddPersonnalAddressShipping = CustomerService.AuthenticateCustomer.Enterprise.IsDontAddPersonnalAddressShipping;
 
             if (NavigationService.GetQueryStringValue(PagesId.IS_ORDER_FINALIZED) == "1")
             {
