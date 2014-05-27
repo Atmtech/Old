@@ -69,7 +69,7 @@ namespace ATMTECH.ShoppingCart.Views
 
             if (customer != null)
             {
-                enterprise = EnterpriseService.GetEnterprise(customer.Enterprise.Id);
+                enterprise = CustomerService.AuthenticateCustomer.Enterprise;
                 if (enterprise.Image != null)
                 {
                     View.ImageCorp = enterprise.Image.FileName;
