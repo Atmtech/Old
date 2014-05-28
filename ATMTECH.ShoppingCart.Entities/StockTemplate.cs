@@ -9,5 +9,6 @@ namespace ATMTECH.ShoppingCart.Entities
         public const string GROUP = "Group";
 
         public string Group { get; set; }
+        
     }
 }

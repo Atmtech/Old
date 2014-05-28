@@ -164,6 +164,13 @@
     <Compile Include="StockReport.aspx.designer.cs">
       <DependentUpon>StockReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tools.aspx.cs">
+      <DependentUpon>Tools.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tools.aspx.designer.cs">
+      <DependentUpon>Tools.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Login.ascx.cs">
       <DependentUpon>Login.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -415,6 +422,8 @@
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
     <Content Include="CsharpEditor.aspx" />
+    <Content Include="Images\WebSite\error-icon.png" />
+    <Content Include="Images\WebSite\success-icon.png" />
     <Content Include="ImportExcel.aspx" />
     <Content Include="RapportCimaAncien.aspx" />
     <Content Include="SalesByOrderInformation.aspx" />
@@ -443,6 +452,7 @@
     <Content Include="Javascript\supprimer.gif" />
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="Site.css" />
+    <Content Include="Tools.aspx" />
     <Content Include="Videos\AjouterImageProduit.mp4" />
   </ItemGroup>
   <ItemGroup>

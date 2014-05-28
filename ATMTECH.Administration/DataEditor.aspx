@@ -67,68 +67,6 @@
                 CssClass="button" />
             <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" OnClick="CancelClick" CausesValidation="False"
                 CssClass="button" />
-
-            <asp:Button runat="server" ID="btnConfirm" OnClick="ConfirmOrderClick" Text="Confirmer la commande au consommateur"
-                CausesValidation="False" CssClass="button" Visible="False" />
-            <asp:Panel runat="server" ID="pnlOrder" Visible="False">
-                <asp:Button runat="server" ID="btnDisplayOrder" OnClick="DisplayOrderClick" Text="Afficher la facture" CausesValidation="False" CssClass="button" />
-            </asp:Panel>
-            <asp:Panel runat="server" ID="pnlAssociate" Visible="False">
-                <table>
-                    <tr>
-                        <td>Enterprise:
-                        </td>
-                        <td>
-                            <atmtech:ComboBoxAvance runat="server" ID="cboEnterprise2" />
-                        </td>
-                        <td>
-                            <asp:Button runat="server" ID="btnAssociateWithCustomer" OnClick="AssociateUserOpenWindowClick"
-                                Text="Associer cet utilisateur à cette entreprise" CausesValidation="False" CssClass="button" />
-                        </td>
-                    </tr>
-                </table>
-            </asp:Panel>
-            <asp:Panel runat="server" ID="pnlCreateEnterpriseFrom" Visible="false">
-                <table>
-                    <tr>
-                        <td>Enterprise:
-                        </td>
-                        <td>
-                            <atmtech:ComboBoxAvance runat="server" ID="cboEnterprise3" />
-                        </td>
-                        <td>Nouveau nom:<asp:TextBox runat="server" ID="txtNewName"></asp:TextBox></td>
-                        <td>
-                            <asp:Button runat="server" ID="btnCreateEnterpriseFrom" OnClick="btnCreateEnterpriseFromClick"
-                                Text="Créer une entreprise avec celle sélectionnée" CausesValidation="False" CssClass="button" />
-                        </td>
-                    </tr>
-                </table>
-            </asp:Panel>
-            <asp:Panel runat="server" ID="pnlStockTemplate" Visible="False">
-                <table>
-                    <tr>
-                        <td>Modèle:</td>
-                        <td>
-                            <atmtech:ComboBoxAvance runat="server" ID="cboStockTemplate" />
-                        </td>
-                        <td>Produits sans stock:</td>
-                        <td>
-                            <atmtech:ComboBoxAvance runat="server" ID="cboProductWithoutStock" />
-                        </td>
-
-                        <td>Ne possède pas d'inventaire:
-                        </td>
-                        <td>
-                            <asp:CheckBox runat="server" ID="chkIsWithoutStock" />
-                        </td>
-                        <td>
-                            <asp:TextBox runat="server" ID="txtQuantityStockTemplate" Text="0" Visible="False"></asp:TextBox>
-                            <asp:Button runat="server" ID="btnApplyStockTemplate" OnClick="ApplyStockTemplateClick" CausesValidation="False" CssClass="button" Text="Appliquer le modèle" />
-                        </td>
-                    </tr>
-
-                </table>
-            </asp:Panel>
         </div>
 
     </atmtech:FenetreDialogue>

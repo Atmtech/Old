@@ -41,7 +41,16 @@
                     <div style="clear: both;">
                     </div>
                 </div>
-                <atmtech:TitreLabelAvance runat="server" ID="lblMessage" ForeColor="red" />
+                <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" BorderStyle="Solid" Visible="False">
+                    <img src="Images/WebSite/error-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
+                    <strong>
+                        <asp:Label runat="server" ID="lblError"></asp:Label></strong>
+                </asp:Panel>
+                <asp:Panel runat="server" ID="pnlSuccess" CssClass="successMessage" BorderStyle="Solid" Visible="False">
+                    <img src="Images/WebSite/success-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
+                    <strong>
+                        <asp:Label runat="server" ID="lblSuccess"></asp:Label></strong>
+                </asp:Panel>
                 <asp:Panel runat="server" ID="pnlLogged" Visible="false">
                     <table style="width: 100%; border-bottom: solid 1px gray;">
                         <tr>
@@ -93,7 +102,7 @@
                                         <ul>
                                             <li><a href="Videos/AjouterImageProduit.mp4">Ajouter une image au produit</a></li>
                                             <li><a href="Videos/ProcessusCommandeQuotation.mp4">Processus de commande avec quotation</a></li>
-                                        </ul>   
+                                        </ul>
                                         <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
                                             Produit et commandes
                                         </div>
@@ -102,16 +111,16 @@
                                             <li><a href="DataEditor.aspx?Entity=ProductCategory">Les catégories de produit</a></li>
                                             <li><a href="DataEditor.aspx?Entity=Stock">Les inventaires</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=StockTransaction">Les transactions inventaires</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=StockLink">Les inventaires liés</a></li>
                                             <li><a href="StockReport.aspx">Rapports des inventaires</a></li>
                                             <li><a href="SalesReport.aspx">Rapports des commandes</a></li>
                                             <li><a href="SalesByMonthReport.aspx">Rapports des ventes par mois</a></li>
-                                            <li><asp:LinkButton runat="server" ID="btnGenererRapportControlStock" OnClick="btnGenererRapportControlStockClick" Text="Rapport de controle inventaire"></asp:LinkButton> </li>
+                                            <li>
+                                                <asp:LinkButton runat="server" ID="btnGenererRapportControlStock" OnClick="btnGenererRapportControlStockClick" Text="Rapport de controle inventaire"></asp:LinkButton>
+                                            </li>
                                             <li><a href="SalesByOrderInformation.aspx">Rapports des ventes par imputation</a></li>
                                             <li><a href="DataEditor.aspx?Entity=ProductFile">Les images des produits</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=Order">Les commandes</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=OrderLine">Les ligne de commandes</a> </li>
-                                            <li><a href="DataEditor.aspx?Entity=Supplier">Les fournisseurs</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=ProductPriceHistory&IsEnterpriseRuled=0">Historique des prix modifiés</a> </li>
 
                                         </ul>
@@ -128,7 +137,7 @@
                                             <li><a href="DataEditor.aspx?Entity=City&IsEnterpriseRuled=0">Les villes</a></li>
                                             <li><a href="DataEditor.aspx?Entity=Taxes&IsEnterpriseRuled=0">Les taxes</a></li>
                                         </ul>
-                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
+                                        <%-- <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
                                             La sécurité
                                         </div>
                                         <ul>
@@ -137,11 +146,12 @@
                                         produits</a></li>
                                             <li><a href="DataEditor.aspx?Entity=GroupUser&IsEnterpriseRuled=0">Les utiliseurs d'un
                                         groupe</a></li>
-                                        </ul>
+                                        </ul>--%>
                                         <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
                                             Outils
                                         </div>
                                         <ul>
+                                            <li><a href="Tools.aspx">Divers (Clients, inventaires etc) </a></li>
                                             <li><a href="FileUpload.aspx">Gestions des fichiers</a> </li>
                                             <li><a href="DataEditor.aspx?Entity=Task&IsEnterpriseRuled=0">Les demandes de développement</a></li>
                                             <li><a href="ExecuteSql.aspx">Executer du script sql</a></li>
@@ -154,13 +164,15 @@
                                             <li>
                                                 <asp:LinkButton runat="server" ID="btnGenerateColumns" Text="Générer les colonnes inconnues"
                                                     OnClick="BtnGenerateColumns" /></li>
-                                             <li>
+                                            <li>
                                                 <asp:LinkButton runat="server" ID="btnInitialiserColonneRecherche" Text="Générer de recherche"
                                                     OnClick="btnInitialiserColonneRechercheClick" /></li>
                                             <li><a href="ImportExcel.aspx">Importer des données</a> </li>
-                                            <li> <asp:LinkButton runat="server" ID="lnkExport" Text="Exporter données" OnClick="lnkExportClick"></asp:LinkButton> </li>
+                                            <li>
+                                                <asp:LinkButton runat="server" ID="lnkExport" Text="Exporter données" OnClick="lnkExportClick"></asp:LinkButton>
+                                            </li>
                                         </ul>
-                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
+                                        <%--<div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
                                             Liens rapides
                                         </div>
                                         <ul>
@@ -168,7 +180,7 @@
                                             <li><a href="http://ursulines.boutiquecorpo.com">Site ursulines</a></li>
                                             
 
-                                        </ul>
+                                        </ul>--%>
                                     </div>
                                 </asp:Panel>
                             </td>

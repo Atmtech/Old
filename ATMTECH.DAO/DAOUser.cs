@@ -84,5 +84,10 @@ namespace ATMTECH.DAO
         {
             return Save(user);
         }
+
+        public IList<User> GetAllUser()
+        {
+            return GetAll();
+        }
     }
 }

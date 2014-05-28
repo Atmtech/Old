@@ -58,8 +58,6 @@ namespace ATMTECH.Administration.Views
                 NavigationService.Redirect("default.aspx");
             }
 
-            View.StockTemplate = StockService.GetStockTemplate();
-
         }
 
       
@@ -75,10 +73,7 @@ namespace ATMTECH.Administration.Views
             View.EntityProperties = DAOEntityProperty.GEtAllEntityProperty();
         }
 
-        public void CreateEnterpriseFromAnother(int id, string newName)
-        {
-            EnterpriseService.CreateEnterpriseFromAnother(id, newName, AuthenticationService.AuthenticateUser);
-        }
+      
         public Object RechercheInformation(string recherche, int pageIndex)
         {
             switch (Entity.ToLower())
@@ -120,7 +115,7 @@ namespace ATMTECH.Administration.Views
                         stock.Product = ProductService.GetProductSimple(stock.Product.Id);
                     }
 
-                    View.ProductWithoutStock = ProductService.GetProductsWithoutStock(Convert.ToInt32(View.Enterprise));
+                    
 
                     return stocks;
                 case "stocklink":
@@ -269,35 +264,8 @@ namespace ATMTECH.Administration.Views
             }
             View.IdCopy = DataEditorService.Save(NameSpace, Entity, entity);
         }
-        public void ConfirmOrder(int idOrder)
-        {
-            OrderService.ConfirmOrder(idOrder);
-        }
-        public void AssociateUser(int idUser, int idEnterprise)
-        {
-            User user = AuthenticationService.GetUser(idUser);
-            if (user != null)
-            {
-                Customer customer = CustomerService.GetCustomer(user.Id);
-                if (customer == null)
-                {
-                    customer = new Customer
-                                   {
-                                       IsActive = true,
-                                       Enterprise = new Enterprise { Id = idEnterprise },
-                                       User = new User
-                                                  {
-                                                      Id = idUser
-                                                  }
-
-                                   };
-
-                    DataEditorService.Save("ATMTECH.ShoppingCart.Entities", "Customer", customer);
-
-                }
-
-            }
-        }
+      
+      
         public IList<PropertyWithLabel> ListeProprieteSansCelleSysteme(string nameSpace, string entity)
         {
             return GenerateControlsService.ListeProprieteSansCelleSysteme(nameSpace, entity, View.EntityInformations, View.EntityProperties);
@@ -307,19 +275,8 @@ namespace ATMTECH.Administration.Views
         {
             return GenerateControlsService.CreateControls(nameSpace, entity, isInserting, id, idEnterprise, View.EntityInformations, View.EntityProperties);
         }
-        public void ApplyStockTemplate(string productId, string templateGroup, int quantity, bool isWithoutStock)
-        {
-            Product product = ProductService.GetProduct(Convert.ToInt32(productId));
-            StockService.CreateStockWithTemplate(product, templateGroup, quantity, isWithoutStock);
-
-            View.ProductWithoutStock = ProductService.GetProductsWithoutStock(Convert.ToInt32(View.Enterprise));
-            View.StockTemplate = StockService.GetStockTemplate();
-        }
-        public void DisplayOrder(int id)
-        {
-            Order order = OrderService.GetOrder(id);
-            OrderService.PrintOrder(order);
-        }
+       
+       
     }
 
 

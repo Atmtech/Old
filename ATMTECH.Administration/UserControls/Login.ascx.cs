@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.UI.WebControls;
 using ATMTECH.Administration.Views.Pages;
 using ATMTECH.Entities;
 using ATMTECH.Views;
@@ -89,8 +90,20 @@ namespace ATMTECH.Administration.UserControls
             Default masterPage = (Default)Page.Master;
             if (masterPage != null)
             {
-                TitreLabelAvance titreLabelAvance = (TitreLabelAvance)masterPage.FindControl("lblMessage");
-                titreLabelAvance.Text = message.Description;
+                if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
+                {
+                    Panel panel = (Panel)masterPage.FindControl("pnlSuccess");
+                    Label literal = (Label)masterPage.FindControl("lblSuccess");
+                    literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
+                    panel.Visible = true;
+                }
+                else
+                {
+                    Panel panel = (Panel)masterPage.FindControl("pnlError");
+                    Label literal = (Label)masterPage.FindControl("lblError");
+                    literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
+                    panel.Visible = true;
+                }
             }
         }
     }

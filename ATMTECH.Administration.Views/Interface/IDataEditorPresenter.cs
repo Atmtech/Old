@@ -17,8 +17,7 @@ namespace ATMTECH.Administration.Views.Interface
         bool IsInserting { get; set; }
         int? IdCopy { set; }
 
-        IList<Product> ProductWithoutStock { set; }
-        IList<StockTemplate> StockTemplate { set; }
+        
 
         IList<EntityInformation> EntityInformations { get; set; }
         IList<EntityProperty> EntityProperties { get; set; }

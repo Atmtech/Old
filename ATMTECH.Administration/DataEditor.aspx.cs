@@ -88,17 +88,6 @@ namespace ATMTECH.Administration
                 cboSelectionEntreprise.DataTextField = BaseEntity.COMBOBOX_DESCRIPTION;
                 cboSelectionEntreprise.DataValueField = BaseEntity.ID;
                 cboSelectionEntreprise.DataBind();
-
-                cboEnterprise2.DataSource = value;
-                cboEnterprise2.DataTextField = BaseEntity.COMBOBOX_DESCRIPTION;
-                cboEnterprise2.DataValueField = BaseEntity.ID;
-                cboEnterprise2.DataBind();
-
-                cboEnterprise3.DataSource = value;
-                cboEnterprise3.DataTextField = BaseEntity.COMBOBOX_DESCRIPTION;
-                cboEnterprise3.DataValueField = BaseEntity.ID;
-                cboEnterprise3.DataBind();
-
             }
         }
         public string Enterprise
@@ -123,41 +112,8 @@ namespace ATMTECH.Administration
                 EditData(value);
             }
         }
-        public IList<Product> ProductWithoutStock
-        {
-            set
-            {
-                if (value.Count > 0)
-                {
-                    pnlStockTemplate.Visible = true;
-                }
-
-                cboProductWithoutStock.DataSource = value;
-                cboProductWithoutStock.DataTextField = BaseEntity.COMBOBOX_DESCRIPTION;
-                cboProductWithoutStock.DataValueField = BaseEntity.ID;
-                cboProductWithoutStock.DataBind();
-            }
-        }
-        public IList<StockTemplate> StockTemplate
-        {
-            set
-            {
-                IList<StockTemplate> stockTemplates = new List<StockTemplate>();
-
-                foreach (StockTemplate stockTemplate in value)
-                {
-                    if (stockTemplates.Count(x => x.Group == stockTemplate.Group) == 0)
-                    {
-                        stockTemplates.Add(stockTemplate);
-                    }
-                }
-
-                cboStockTemplate.DataSource = stockTemplates;
-                cboStockTemplate.DataValueField = ShoppingCart.Entities.StockTemplate.GROUP;
-                cboStockTemplate.DataTextField = ShoppingCart.Entities.StockTemplate.GROUP;
-                cboStockTemplate.DataBind();
-            }
-        }
+       
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -172,24 +128,6 @@ namespace ATMTECH.Administration
                 pnlEnterprise.Visible = false;
             }
 
-            if (Entity == "Enterprise")
-            {
-                pnlCreateEnterpriseFrom.Visible = true;
-            }
-            if (Entity == "Order")
-            {
-                btnConfirm.Visible = true;
-            }
-
-            if (Entity == "User")
-            {
-                pnlAssociate.Visible = true;
-            }
-
-            if (Entity == "Order")
-            {
-                pnlOrder.Visible = true;
-            }
 
             GenererControles(Convert.ToInt32(Session["IdSelectionner"]));
 
@@ -414,37 +352,8 @@ namespace ATMTECH.Administration
             grdData.DataBind();
             Search();
         }
-        protected void ConfirmOrderClick(object sender, EventArgs e)
-        {
-            Save();
-            Presenter.ConfirmOrder(Convert.ToInt32(Session["IdSelectionner"]));
-        }
-        protected void AssociateUserOpenWindowClick(object sender, EventArgs e)
-        {
-            TextBoxAvance textBoxAvance = Pages.FindControlRecursive(pnlControl, "Id") as TextBoxAvance;
-            if (textBoxAvance != null)
-            {
-                Presenter.AssociateUser(Convert.ToInt32(textBoxAvance.Text),
-                                        Convert.ToInt32(cboEnterprise2.SelectedValue));
-            }
-
-            pnlSaveDone.Visible = true;
-
-        }
-        protected void ApplyStockTemplateClick(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtQuantityStockTemplate.Text))
-            {
-                txtQuantityStockTemplate.Text = "0";
-            }
-            Presenter.ApplyStockTemplate(cboProductWithoutStock.SelectedValue, cboStockTemplate.SelectedValue, Convert.ToInt32(txtQuantityStockTemplate.Text), Convert.ToBoolean(chkIsWithoutStock.Checked));
-            Search();
-        }
-        protected void DisplayOrderClick(object sender, EventArgs e)
-        {
-            TextBoxAvance textBoxAvance = Pages.FindControlRecursive(pnlControl, "Id") as TextBoxAvance;
-            Presenter.DisplayOrder(Convert.ToInt32(textBoxAvance.Text));
-        }
+      
+      
         protected void RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -477,9 +386,5 @@ namespace ATMTECH.Administration
             }
         }
 
-        protected void btnCreateEnterpriseFromClick(object sender, EventArgs e)
-        {
-            Presenter.CreateEnterpriseFromAnother(Convert.ToInt32(cboEnterprise3.SelectedValue), txtNewName.Text);
-        }
     }
 }

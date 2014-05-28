@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using ATMTECH.Administration.Views;
 using ATMTECH.Administration.Views.Interface;
 using ATMTECH.Entities;
@@ -39,7 +40,20 @@ namespace ATMTECH.Administration
 
         public void ShowMessage(Message message)
         {
-            lblMessage.Text = message.Description;
+            if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
+            {
+                Panel panel = (Panel)Master.FindControl("pnlSuccess");
+                Label literal = (Label)Master.FindControl("lblSuccess");
+                literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
+                panel.Visible = true;
+            }
+            else
+            {
+                Panel panel = (Panel)Master.FindControl("pnlError");
+                Label literal = (Label)Master.FindControl("lblError");
+                literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
+                panel.Visible = true;
+            }
         }
 
 

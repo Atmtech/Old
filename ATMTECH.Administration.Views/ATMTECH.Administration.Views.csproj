@@ -50,7 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseAdministrationPresenter.cs" />
+    <Compile Include="ToolsPresenter.cs" />
     <Compile Include="ImportExcelPresenter.cs" />
+    <Compile Include="Interface\IToolsPresenter.cs" />
     <Compile Include="Interface\IImportExcelPresenter.cs" />
     <Compile Include="SalesByOrderInformationPresenter.cs" />
     <Compile Include="ExecuteSqlPresenter.cs" />

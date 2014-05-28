@@ -1,4 +1,5 @@
-﻿using ATMTECH.Entities;
+﻿using System.Collections.Generic;
+using ATMTECH.Entities;
 
 namespace ATMTECH.DAO.Interface
 {
@@ -10,5 +11,6 @@ namespace ATMTECH.DAO.Interface
         int CreateUser(User user);
         User GetUser(string login);
         User GetUserByEmail(string email);
+        IList<User> GetAllUser();
     }
 }

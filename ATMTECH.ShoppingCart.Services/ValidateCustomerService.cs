@@ -37,10 +37,14 @@ namespace ATMTECH.ShoppingCart.Services
         {
             const string matchEmailPattern =
                 @"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@(([0-9a-zA-Z])+([-\w]*[0-9a-zA-Z])*\.)+[a-zA-Z]{2,9})$";
-
-            if (!Regex.IsMatch(email, matchEmailPattern))
+            if (email != null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_INVALID_EMAIL);
+
+
+                if (!Regex.IsMatch(email, matchEmailPattern))
+                {
+                    MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_INVALID_EMAIL);
+                }
             }
         }
     }
