@@ -106,6 +106,12 @@
 
 
         </table>
-
+        
+        
+        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+            Rebalancer les inventaires avec les commandes
+        </div>
+         <asp:Button runat="server" ID="btnBalanceStock" OnClick="btnBalanceStockClick" CausesValidation="False" CssClass="button" Text="Balancer" />
+        <asp:Label runat="server" ID="lblResultBalance"></asp:Label>
     </div>
 </asp:Content>

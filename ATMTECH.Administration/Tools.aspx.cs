@@ -117,5 +117,10 @@ namespace ATMTECH.Administration
             Presenter.AssociateUser(Convert.ToInt32(cboUser.SelectedValue),
                                     Convert.ToInt32(cboEnterprise1.SelectedValue));
         }
+
+        protected void btnBalanceStockClick(object sender, EventArgs e)
+        {
+            lblResultBalance.Text = Presenter.BalanceStock();
+        }
     }
 }

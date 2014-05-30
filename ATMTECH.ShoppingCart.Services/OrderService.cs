@@ -468,7 +468,6 @@ namespace ATMTECH.ShoppingCart.Services
             IList<Order> orders = DAOOrder.GetAllFinalized(enterprise, dateStart, dateEnd);
             IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).ToList();
             IList<Stock> stocks = products.SelectMany(product => product.Stocks).Where(x => x.IsActive).Distinct().ToList();
-
             foreach (Stock stock in stocks)
             {
                 int januarySales = 0;

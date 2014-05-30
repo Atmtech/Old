@@ -16,6 +16,13 @@ namespace ATMTECH.ShoppingCart.DAO
             StockTransaction stockTransaction = new StockTransaction { Stock = stock, Transaction = quantity, Order = order };
             Save(stockTransaction);
         }
+
+        public void StockTransaction(Stock stock, int quantity, Order order, DateTime dateCreated)
+        {
+            StockTransaction stockTransaction = new StockTransaction { Stock = stock, Transaction = quantity, Order = order, DateCreated = dateCreated};
+            Save(stockTransaction);
+        }
+
         public int GetCurrentStockStatus(Stock stock)
         {
 
@@ -48,6 +55,11 @@ namespace ATMTECH.ShoppingCart.DAO
                          select s.Transaction).Sum();
 
             return stock.InitialState + total;
+        }
+
+        public IList<StockTransaction> GetAllStockTransaction()
+        {
+            return GetAll();
         }
 
 

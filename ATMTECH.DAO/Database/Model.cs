@@ -11,7 +11,7 @@ namespace ATMTECH.DAO.Database
     public class Model<TModel, TId>
     {
         private const string IDENT_UNIQUE_KEY = "UniqueKey";
-        
+
         public DatabaseOperation<TModel, TId> DatabaseOperation { get { return new DatabaseOperation<TModel, TId>(); } }
 
         public void AssignValueToProperty(PropertyInfo pi, string propertyValue, TModel instance)
@@ -40,13 +40,13 @@ namespace ATMTECH.DAO.Database
                             if (pi.PropertyType == typeof(DateTime) || pi.PropertyType == typeof(DateTime?))
                             {
                                 DateTime dateTime = Convert.ToDateTime(propertyValue);
-                                pi.SetValue(instance, dateTime, null);    
+                                pi.SetValue(instance, dateTime, null);
                             }
                             else
                             {
-                                pi.SetValue(instance, Convert.ChangeType(propertyValue, pi.PropertyType), null);    
+                                pi.SetValue(instance, Convert.ChangeType(propertyValue, pi.PropertyType), null);
                             }
-                            
+
                         }
                     }
                 }
@@ -87,7 +87,10 @@ namespace ATMTECH.DAO.Database
         {
             Type type = model.GetType();
             var propert = type.GetProperty(property);
-            AssignValueToProperty(propert, value, model);
+            if (GetValueProperty(propert.Name, model) == null)
+            {
+                AssignValueToProperty(propert, value, model);
+            }
         }
 
         public TModel FillModel(DataRow dataRow)

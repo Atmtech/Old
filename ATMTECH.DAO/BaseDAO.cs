@@ -190,9 +190,19 @@ namespace ATMTECH.DAO
             DatabaseBackup.RestoreFromXml(zipFile);
         }
 
+        public Object GetValueProperty(string property, TModel model)
+        {
+            Type type = model.GetType();
+            var propert = type.GetProperty(property);
+            return propert == null ? null : propert.GetValue(model, null);
+        }
+
         private void SetDateCreated(TModel model)
         {
-            Model.SetValueProperty("DateCreated", DateTime.Now.ToString(), model);
+            if (GetValueProperty("DateCreated", model) == null)
+            {
+                Model.SetValueProperty("DateCreated", DateTime.Now.ToString(), model);
+            }
         }
         private void SetDateModified(TModel model)
         {

@@ -21,5 +21,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         IList<StockTemplate> GetStockTemplate();
         IList<Stock> GetAllStockByEnterprise(int idEnterprise);
         IList<StockLink> GetStockLink(int idEnterprise);
+        IList<StockTransaction> GetAllStockTransaction();
     }
 }

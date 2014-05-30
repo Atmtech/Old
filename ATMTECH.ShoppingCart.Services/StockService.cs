@@ -50,7 +50,7 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return DAOStock.GetStockByEnterprise(idEnterprise);
         }
-       
+
         public IList<StockLink> GetStockLink(int idEnterprise)
         {
             return DAOStockLink.GetStockLinked(idEnterprise);
@@ -102,7 +102,7 @@ namespace ATMTECH.ShoppingCart.Services
         {
             IList<StockLink> stockLinks = DAOStockLink.GetAllStockLinked();
 
-            IList<Stock> stocks = (from stockLink in stockLinks where stockLink.Stock.Id == idStock select new Stock {Id = stockLink.StockLinked.Id}).ToList();
+            IList<Stock> stocks = (from stockLink in stockLinks where stockLink.Stock.Id == idStock select new Stock { Id = stockLink.StockLinked.Id }).ToList();
             foreach (StockLink stockLink in stockLinks.Where(stockLink => stockLink.StockLinked != null).Where(stockLink => stockLink.StockLinked.Id == idStock))
             {
                 stocks.Add(new Stock { Id = stockLink.Stock.Id });
@@ -133,6 +133,10 @@ namespace ATMTECH.ShoppingCart.Services
                 DAOStockTransaction.StockTransaction(stock1, quantity, order);
             }
         }
-
+        public IList<StockTransaction> GetAllStockTransaction()
+        {
+            return DAOStockTransaction.GetAllStockTransaction();
+            
+        }
     }
 }

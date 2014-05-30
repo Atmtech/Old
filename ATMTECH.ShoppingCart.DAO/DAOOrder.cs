@@ -39,7 +39,8 @@ namespace ATMTECH.ShoppingCart.DAO
             criterias.Add(criteriaStatus);
             criterias.Add(IsActive());
             IList<Order> orders = GetByCriteria(criterias);
-            return orders[0].GrandTotal;
+            return orders.Count > 0 ? orders[0].GrandTotal : 0;
+            
         }
 
         public int GetCountNumberOfItemInBasket(Customer customer)
