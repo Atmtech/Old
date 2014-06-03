@@ -10,34 +10,142 @@
 namespace ATMTECH.Vachier.WebSite {
     
     
-    public partial class Default1 {
+    public partial class Default {
         
         /// <summary>
-        /// Contrôle lblMerdeDuJour.
+        /// Contrôle form1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMerdeDuJour;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle imgBtnLikeMerdeDujour.
+        /// Contrôle btnAjouter.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgBtnLikeMerdeDujour;
+        protected global::System.Web.UI.WebControls.Button btnAjouter;
         
         /// <summary>
-        /// Contrôle lblTotalMarde.
+        /// Contrôle btnCherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalMarde;
+        protected global::System.Web.UI.WebControls.Button btnCherche;
+        
+        /// <summary>
+        /// Contrôle pnlAjouter.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAjouter;
+        
+        /// <summary>
+        /// Contrôle txtMerdeux.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMerdeux;
+        
+        /// <summary>
+        /// Contrôle ddlInsulte.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlInsulte;
+        
+        /// <summary>
+        /// Contrôle btnEmmerder.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEmmerder;
+        
+        /// <summary>
+        /// Contrôle pnlCherche.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCherche;
+        
+        /// <summary>
+        /// Contrôle txtChercher.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtChercher;
+        
+        /// <summary>
+        /// Contrôle btnChercher.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChercher;
+        
+        /// <summary>
+        /// Contrôle lblMerdeDuMoment.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMerdeDuMoment;
+        
+        /// <summary>
+        /// Contrôle lblMerdeDuMomentDate.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMerdeDuMomentDate;
+        
+        /// <summary>
+        /// Contrôle datalistTop.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList datalistTop;
+        
+        /// <summary>
+        /// Contrôle dataListPays.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dataListPays;
+        
+        /// <summary>
+        /// Contrôle dataListVille.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dataListVille;
         
         /// <summary>
         /// Contrôle ddlListePage.
@@ -49,21 +157,30 @@ namespace ATMTECH.Vachier.WebSite {
         protected global::System.Web.UI.WebControls.DropDownList ddlListePage;
         
         /// <summary>
-        /// Contrôle datalist.
+        /// Contrôle ddlNombreParPage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList datalist;
+        protected global::System.Web.UI.WebControls.DropDownList ddlNombreParPage;
         
         /// <summary>
-        /// Contrôle datalistTop.
+        /// Contrôle lblTotalMarde.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList datalistTop;
+        protected global::System.Web.UI.WebControls.Label lblTotalMarde;
+        
+        /// <summary>
+        /// Contrôle datalistMerde.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater datalistMerde;
     }
 }

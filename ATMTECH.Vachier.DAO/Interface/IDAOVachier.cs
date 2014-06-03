@@ -4,7 +4,7 @@ namespace ATMTECH.Vachier.DAO.Interface
 {
     public interface IDAOVachier
     {
-        IList<Entities.Vachier> ObtenirListeVachier(string recherche, string parametreTrie, int nbEnreg,
+        IList<Entities.Vachier> ObtenirListeVachier(string recherche, int nbEnreg,
                                                     int indexDebutRangee);
 
         int ObtenirCompte();

@@ -20,34 +20,11 @@ namespace ATMTECH.Vachier.WebSite
             base.OnLoad(e);
             if (!IsPostBack)
             {
-                List<Control> allControls = new List<Control>();
-                GetControlList(Page.Controls, allControls);
-                Presenter.Controls = allControls;
-                Presenter.Localize();
                 Presenter.OnViewInitialized();
             }
             Presenter.OnViewLoaded();
-
-            ResetErrorMessage();
         }
 
-        private void ResetErrorMessage()
-        {
-            Panel panel = (Panel)Master.FindControl("pnlError");
-            panel.Visible = false;
-        }
-
-        private void GetControlList<T>(ControlCollection controlCollection, List<T> resultCollection) where T : Control
-        {
-            foreach (Control control in controlCollection)
-            {
-                if (control is T)
-                    resultCollection.Add((T)control);
-
-                if (control.HasControls())
-                    GetControlList(control.Controls, resultCollection);
-            }
-        }
 
         public void ShowMessage(Message message)
         {

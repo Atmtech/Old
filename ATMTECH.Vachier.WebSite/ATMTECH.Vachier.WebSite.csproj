@@ -76,13 +76,9 @@
     <Content Include="App_Themes\Default\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="App_Themes\Default\jquery-ui.custom.css" />
     <Content Include="Default.aspx" />
-    <Content Include="Default2.aspx" />
     <Content Include="Errors\SessionTimeout.htm" />
     <Content Include="Global.asax" />
-    <Content Include="Images\ajouter.png" />
-    <Content Include="Images\AjouterMerde.jpg" />
-    <Content Include="Images\BackgroundLogo.jpg" />
-    <Content Include="Images\consulter.png" />
+    <Content Include="Images\bullet.png" />
     <Content Include="Images\Dev\AjouterMerde.jpg" />
     <Content Include="Images\Dev\DialogLeft.jpg" />
     <Content Include="Images\Dev\DialogMiddle.jpg" />
@@ -93,15 +89,8 @@
     <Content Include="Images\Dev\MerdeRecherche.jpg" />
     <Content Include="Images\Dev\ProposerMerde.jpg" />
     <Content Include="Images\Dev\Vachier.html" />
-    <Content Include="Images\DialogLeft.jpg" />
-    <Content Include="Images\DialogMiddle.jpg" />
-    <Content Include="Images\DialogRight.jpg" />
-    <Content Include="Images\edition.png" />
     <Content Include="Images\like.png" />
-    <Content Include="Images\Logo.jpg" />
-    <Content Include="Images\MerdeRecherche.jpg" />
-    <Content Include="Images\ProposerMerde.jpg" />
-    <Content Include="Images\supprimer.gif" />
+    <Content Include="Images\logo.png" />
     <Content Include="Javascript\jquery-combobox.js" />
     <Content Include="Javascript\jquery-ui.custom.min.js" />
     <Content Include="Javascript\jquery.jqprint.0.3.js" />
@@ -128,20 +117,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.Master.cs">
-      <DependentUpon>Default.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.Master.designer.cs">
-      <DependentUpon>Default.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Default2.aspx.cs">
-      <DependentUpon>Default2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default2.aspx.designer.cs">
-      <DependentUpon>Default2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,7 +126,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.Master" />
     <Content Include="Captcha.ashx" />
     <Content Include="App_Themes\Default\Default.skin" />
     <Content Include="Images\Dev\Vachier.psd" />

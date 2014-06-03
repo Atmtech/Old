@@ -11,7 +11,7 @@ namespace ATMTECH.Vachier.Views
         public IDAOVachier DAOVachier { get; set; }
         
 
-        public int NombreInsulte { get { return 20; } }
+        public int NombreInsulte { get { return 10; } }
 
         public DefaultPresenter(IDefaultPresenter view)
             : base(view)

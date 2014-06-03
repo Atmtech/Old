@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.DAO;
@@ -17,7 +16,6 @@ namespace ATMTECH.Vachier.DAO
         {
             return GetById(id);
         }
-
         public Entities.Vachier ObtenirMerdeDuJour()
         {
             Random rand = new Random();
@@ -27,12 +25,10 @@ namespace ATMTECH.Vachier.DAO
             vachier.Insulte = DAOInsulte.ObtenirInsulte(vachier.Insulte.Id);
             return vachier;
         }
-
         public int ObtenirNombreTotal()
         {
             return GetCount();
         }
-
         public IList<Entities.Vachier> ObtenirListeVachierTopListe()
         {
             IList<Insulte> insultes = DAOInsulte.ObtenirListeInsulte();
@@ -41,7 +37,7 @@ namespace ATMTECH.Vachier.DAO
             criterias.Add(criteria);
             IList<Entities.Vachier> vachiers = GetByCriteria(criterias);
             vachiers = vachiers.OrderByDescending(x => x.JaimeTaMerde).ToList();
-            vachiers = vachiers.Take(20).ToList();
+            vachiers = vachiers.Take(10).ToList();
             foreach (Entities.Vachier vachier in vachiers)
             {
                 vachier.Insulte = insultes.FirstOrDefault(x => x.Id == vachier.Insulte.Id);
@@ -49,7 +45,7 @@ namespace ATMTECH.Vachier.DAO
             return vachiers;
 
         }
-        public IList<Entities.Vachier> ObtenirListeVachier(string recherche, string parametreTrie, int nbEnreg, int indexDebutRangee)
+        public IList<Entities.Vachier> ObtenirListeVachier(string recherche, int nbEnreg, int indexDebutRangee)
         {
             IList<Insulte> insultes = DAOInsulte.ObtenirListeInsulte();
 
@@ -87,13 +83,10 @@ namespace ATMTECH.Vachier.DAO
         {
             return GetCount();
         }
-
         public void EnregistrerMerde(Entities.Vachier vachier)
         {
             Save(vachier);
         }
-
-
     }
 
 

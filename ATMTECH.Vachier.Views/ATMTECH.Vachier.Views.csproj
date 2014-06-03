@@ -44,10 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseVachierPresenter.cs" />
-    <Compile Include="DefaultMasterPresenter.cs" />
-    <Compile Include="DefaultPresenter.cs" />
+    <Compile Include="Default2Presenter.cs" />
+    <Compile Include="Interface\IDefault2Presenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Interface\IDefaultMasterPresenter.cs" />
-    <Compile Include="Interface\IDefaultPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,36 +1,118 @@
-﻿body
-{
-    font-family: 'Segoe UI' , 'Verdana';
-    background-color: #e7e2dd;
-    margin: 0px 0px 0px 0px;
-}
+﻿  body
+    {
+        margin: 0 0 0 0;
+        background-color: rgb(174, 164, 146);
+        font-family: Segoe UI;
+    }
+    .listeMerdeux {
+        font-weight: bold; font-size: 12px; color: rgb(49, 46, 43)
+    }
+    .titre
+    {
+        width: 100%;
+        background-color: rgb(105, 92, 71);
+        height: 100px;
+        font-size: 45px;
+        color: white;
+        text-align: center;
+        font-family: 'Indie Flower', cursive;
+    }
 
-h1
-{
-    text-transform: capitalize;
-    font-size: 13px;
-    margin-bottom: 3px;
-    color: #704a18;
-}
-.bienvenue
-{
-    padding: 10px 10px 10px 10px;
-    font-size: 10px;
-    background-color: White;
-    border: solid 1px gray;
-}
 
-.cssPager span
-{
-    background-color: #4f6b72;
-    font-size: 18px;
-}
+    .menu
+    {
+        width: 100%;
+        background-color: rgb(169, 152, 125);
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+       
+    }
 
-.cssPager td
-{
-    padding-left: 4px;
-    padding-right: 4px;
-}
+    .merdeDuMoment
+    {
+        width: 100%;
+        background-color: rgb(130, 126, 119);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: white;
+        text-align: center;
+    }
 
-.gridView { width: 100%;}
-.grille { width: 100%;}
+    .panneauMenu
+    {
+        padding-top: 10px;
+        padding-bottom: 5px;
+        width: 100%;
+        background-color: rgb(51, 40, 23);
+        height: 100px;
+        text-align: center;
+        color: white;
+        font-family: 'Indie Flower', cursive;
+    }
+
+    h1
+    {
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-bottom: 3px;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .liste
+    {
+        float: left;
+        background-color: rgb(141, 126, 102);
+        width: 25%;
+        color: rgb(49, 46, 43)
+    }
+
+    .vachier
+    {
+        float: left;
+        background-color: rgb(174, 164, 146);
+        width: 75%;
+    }
+
+    .button
+    {
+        border-radius: 39px;
+        -moz-border-radius: 39px;
+        -webkit-border-radius: 39px;
+        border: 2px solid #494432;
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        font-weight: bold;
+        color: #4c4836;
+        background-color: rgb(203, 192, 175);
+        font-family: Segoe UI;
+    }
+
+        .button:hover
+        {
+            background: #7b7765;
+            color: white;
+        }
+
+    .datePoste
+    {
+        font-size: 10px;
+        color: rgb(61, 55, 40);
+    }
+
+    .compteEmmerdeur
+    {
+        color: rgb(194, 189, 177);
+    }
+
+    .top20
+    {
+        font-size: 11px;
+        font-weight: bold;
+        padding: 3px 3px 3px 3px;
+        padding-bottom: 3px;
+    }

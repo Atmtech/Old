@@ -10,42 +10,60 @@
 namespace ATMTECH.Vachier.WebSite {
     
     
-    public partial class Default2 {
+    public partial class Default1 {
         
         /// <summary>
-        /// Contrôle form1.
+        /// Contrôle lblMerdeDuJour.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblMerdeDuJour;
         
         /// <summary>
-        /// Contrôle btnAjouter.
+        /// Contrôle imgBtnLikeMerdeDujour.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjouter;
+        protected global::System.Web.UI.WebControls.ImageButton imgBtnLikeMerdeDujour;
         
         /// <summary>
-        /// Contrôle btnCherche.
+        /// Contrôle lblTotalMarde.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCherche;
+        protected global::System.Web.UI.WebControls.Label lblTotalMarde;
         
         /// <summary>
-        /// Contrôle btnAjouterCelebre.
+        /// Contrôle ddlListePage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjouterCelebre;
+        protected global::System.Web.UI.WebControls.DropDownList ddlListePage;
+        
+        /// <summary>
+        /// Contrôle datalist.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList datalist;
+        
+        /// <summary>
+        /// Contrôle datalistTop.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList datalistTop;
     }
 }
