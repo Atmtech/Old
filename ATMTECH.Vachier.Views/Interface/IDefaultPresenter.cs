@@ -24,6 +24,7 @@ namespace ATMTECH.Vachier.Views.Interface
         string RechercheMerde { get; set; }
         string RechercheQueryString { set; }
         
+        
        
     }
 }

@@ -59,6 +59,10 @@
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Utils\ATMTECH.Utils.csproj">
+      <Project>{e39e16b8-ca93-4928-901d-42aedf82a538}</Project>
+      <Name>ATMTECH.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Vachier.DAO\ATMTECH.Vachier.DAO.csproj">
       <Project>{FBC27EF0-F4DB-40A2-BBE9-2E0D585E4757}</Project>
       <Name>ATMTECH.Vachier.DAO</Name>

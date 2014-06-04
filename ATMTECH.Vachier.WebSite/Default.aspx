@@ -41,6 +41,7 @@
             <div style="padding: 10px 10px 10px 10px; font-weight: bold; color: white; font-size: 12px; text-transform: uppercase;">
                 <asp:Button runat="server" ID="btnAjouter" Text="Ajouter votre merde" CssClass="button" OnClick="btnAjouterClick" />
                 <asp:Button runat="server" ID="btnCherche" Text="Cherche dans la merde" CssClass="button" OnClick="btnChercheClick" />
+                <a href="http:\\www.denoncetongros.com"><img src="Images/bulletDenonceTonGros.png" /> </a>
                 <%--<asp:Button runat="server" ID="btnAjouterCelebre" Text="Ajoute ta merde célèbre" CssClass="button" OnClick="btnAjouterCelebreClick"/>--%>
             </div>
         </div>

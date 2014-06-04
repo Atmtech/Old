@@ -17,7 +17,7 @@ namespace ATMTECH.Vachier.Views
         public IDAOMerdeux DAOMerdeux { get; set; }
         public IDAOCountryIp DAOCountryIp { get; set; }
 
-     
+
         public DefaultPresenter(IDefaultPresenter view)
             : base(view)
         {
@@ -28,7 +28,7 @@ namespace ATMTECH.Vachier.Views
             base.OnViewInitialized();
             int total = DAOVachier.ObtenirCompte();
             List<Entities.Vachier> vachiers = ObtenirListe(total / View.NombreParPage, View.NombreParPage).ToList();
-            
+
             View.Liste = vachiers.OrderByDescending(x => x.Id).ToList();
             View.CompteTotal = total;
 
@@ -52,9 +52,9 @@ namespace ATMTECH.Vachier.Views
         {
             if (!string.IsNullOrEmpty(QueryString.GetQueryStringValue("r")))
             {
-                View.RechercheQueryString = QueryString.GetQueryStringValue("r");    
+                View.RechercheQueryString = QueryString.GetQueryStringValue("r");
             }
-            
+
             return DAOVachier.ObtenirListeVachier(QueryString.GetQueryStringValue("r"), nombreSortie, indexDebut);
         }
 
@@ -70,7 +70,7 @@ namespace ATMTECH.Vachier.Views
         public void AjouterMerde()
         {
             Entities.Vachier vachier = new Entities.Vachier();
-            Insulte insulte = new Insulte {Id = Convert.ToInt32(View.Insulte)};
+            Insulte insulte = new Insulte { Id = Convert.ToInt32(View.Insulte) };
 
             CountryIp countryIp = NavigationService.GetInformationIpInfoDb();
 
@@ -96,10 +96,12 @@ namespace ATMTECH.Vachier.Views
         }
         public void RechercherMerde()
         {
+            //string page = Utils.Web.Pages.GetCurrentPage();
             NavigationService.Redirect("default.aspx?r=" + View.RechercheMerde);
         }
         public void AnnulerRecherche()
         {
+            //string page = Utils.Web.Pages.GetCurrentPage();
             NavigationService.Redirect("default.aspx?r=");
         }
         public void AjouterMerdeCelebre()
