@@ -13,6 +13,15 @@ namespace ATMTECH.Vachier.WebSite {
     public partial class Default {
         
         /// <summary>
+        /// Contrôle Head1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        
+        /// <summary>
         /// Contrôle form1.
         /// </summary>
         /// <remarks>
@@ -173,6 +182,33 @@ namespace ATMTECH.Vachier.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalMarde;
+        
+        /// <summary>
+        /// Contrôle pnlRecherche.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlRecherche;
+        
+        /// <summary>
+        /// Contrôle lblRecherche.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRecherche;
+        
+        /// <summary>
+        /// Contrôle btnAnnulerRecherche.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAnnulerRecherche;
         
         /// <summary>
         /// Contrôle datalistMerde.

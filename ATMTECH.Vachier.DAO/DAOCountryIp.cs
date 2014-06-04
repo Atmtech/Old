@@ -13,7 +13,7 @@ namespace ATMTECH.Vachier.DAO
         }
         public IList<CountryIp> ObtenirListeVille()
         {
-            return GetBySql("SELECT TOP 10 '' as Ip, '' as CountryCode, '' as CountryName, City, '' as PostalCode, '' as Region, Count(id) as Compte FROM Vachier WHERE City is not null and City <> '' GROUP BY City order by Count(id) desc");
+            return GetBySql("SELECT TOP 10 '' as Ip, '' as CountryCode, '' as CountryName, City, '' as PostalCode, '' as Region, Count(id) as Compte FROM Vachier WHERE City is not null and City <> '' and City <> '-' GROUP BY City order by Count(id) desc");
         }
     }
 

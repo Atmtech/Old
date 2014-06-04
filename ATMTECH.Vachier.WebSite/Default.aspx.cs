@@ -10,7 +10,7 @@ using ATMTECH.Web.Services.DTO;
 
 namespace ATMTECH.Vachier.WebSite
 {
-    public partial class Default : PageBaseVachier<Default2Presenter, IDefault2Presenter>, IDefault2Presenter
+    public partial class Default : PageBaseVachier<DefaultPresenter, IDefaultPresenter>, IDefaultPresenter
     {
         protected void btnChercherClick(object sender, EventArgs e)
         {
@@ -98,8 +98,24 @@ namespace ATMTECH.Vachier.WebSite
             set { ddlInsulte.SelectedValue = value; }
         }
 
-        public string RechercheMerde { get { return txtChercher.Text; } set { txtChercher.Text = value; } }
+        public string RechercheMerde { get
+        {
+            
+            return txtChercher.Text;
+        } set
+        {
+            
+            txtChercher.Text = value;
+        } }
 
+        public string RechercheQueryString
+        {
+            set
+            {
+                pnlRecherche.Visible = true;
+                lblRecherche.Text = value;
+            }
+        }
 
         public int CompteTotal
         {
@@ -169,5 +185,9 @@ namespace ATMTECH.Vachier.WebSite
         }
 
 
+        protected void btnAnnulerRechercheClick(object sender, EventArgs e)
+        {
+            Presenter.AnnulerRecherche();
+        }
     }
 }

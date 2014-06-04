@@ -21,6 +21,8 @@ namespace ATMTECH.Vachier.DAO
             Random rand = new Random();
             int nombre = GetCount();
             int leVachierAuHasard = rand.Next(0, nombre) - 4;
+            if (leVachierAuHasard < 0)
+                leVachierAuHasard = 1;
             Entities.Vachier vachier = ObtenirVachier(leVachierAuHasard);
             vachier.Insulte = DAOInsulte.ObtenirInsulte(vachier.Insulte.Id);
             return vachier;
@@ -51,10 +53,11 @@ namespace ATMTECH.Vachier.DAO
 
             if (!string.IsNullOrEmpty(recherche))
             {
+                IList<Criteria> criterias = new List<Criteria>();
+
                 Criteria criteria = new Criteria { Column = BaseEntity.DESCRIPTION, Operator = DatabaseOperator.OPERATOR_LIKE, Value = recherche };
-                OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ID, OrderByType = OrderBy.Type.Descending };
-                PagingOperation pagingOperation = new PagingOperation { PageIndex = indexDebutRangee, PageSize = nbEnreg };
-                IList<Entities.Vachier> vachiers = GetAllOneCriteria(criteria, pagingOperation, orderOperation);
+                criterias.Add(criteria);
+                IList<Entities.Vachier> vachiers = GetByCriteria(criterias);
 
                 foreach (Entities.Vachier vachier in vachiers)
                 {
@@ -69,14 +72,17 @@ namespace ATMTECH.Vachier.DAO
                 OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ID, OrderByType = OrderBy.Type.Descending };
                 PagingOperation pagingOperation = new PagingOperation { PageIndex = indexDebutRangee, PageSize = nbEnreg };
 
-                IList<Entities.Vachier> vachiers = GetAllOneCriteria(criteria, pagingOperation, orderOperation);
-
-                foreach (Entities.Vachier vachier in vachiers)
+                // obtenir la liste de l'autre page si yen reste
+                List<Entities.Vachier> vachiers1 = GetAllOneCriteria(criteria, pagingOperation, orderOperation).ToList();
+                pagingOperation.PageIndex += 1;
+                List<Entities.Vachier> vachiers2 = GetAllOneCriteria(criteria, pagingOperation, orderOperation).ToList(); 
+                vachiers1.AddRange(vachiers2);
+                foreach (Entities.Vachier vachier in vachiers1)
                 {
                     vachier.Insulte = insultes.FirstOrDefault(x => x.Id == vachier.Insulte.Id);
                 }
 
-                return vachiers;
+                return vachiers1;
             }
         }
         public int ObtenirCompte()

@@ -2,7 +2,7 @@
     {
         margin: 0 0 0 0;
         background-color: rgb(174, 164, 146);
-        font-family: Segoe UI;
+        font-family: 'Open Sans', cursive;
     }
     .listeMerdeux {
         font-weight: bold; font-size: 12px; color: rgb(49, 46, 43)
@@ -65,7 +65,7 @@
         float: left;
         background-color: rgb(141, 126, 102);
         width: 25%;
-        color: rgb(49, 46, 43)
+        color: rgb(49, 46, 43);
     }
 
     .vachier
@@ -89,7 +89,6 @@
         font-weight: bold;
         color: #4c4836;
         background-color: rgb(203, 192, 175);
-        font-family: Segoe UI;
     }
 
         .button:hover
@@ -101,7 +100,7 @@
     .datePoste
     {
         font-size: 10px;
-        color: rgb(61, 55, 40);
+        color: rgb(117, 10, 12);
     }
 
     .compteEmmerdeur
@@ -115,4 +114,7 @@
         font-weight: bold;
         padding: 3px 3px 3px 3px;
         padding-bottom: 3px;
+    }
+    .libelleRecherche {
+        color:#646156;
     }

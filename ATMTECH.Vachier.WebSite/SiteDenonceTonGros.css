@@ -1,0 +1,125 @@
+﻿/*
+   rgb(186, 186, 186)
+    rgb(83, 83, 83)
+    
+    */  
+body
+    {
+        margin: 0 0 0 0;
+        background-color: rgb(186, 186, 186);
+        font-family: 'Open Sans', cursive;
+    }
+    .listeMerdeux {
+        font-weight: bold; font-size: 12px; color: rgb(83, 83, 83)
+    }
+    .titre
+    {
+        width: 100%;
+        background-color: rgb(83, 83, 83);
+        height: 100px;
+        font-size: 45px;
+        color: white;
+        text-align: center;
+        font-family: 'Indie Flower', cursive;
+    }
+
+
+    .menu
+    {
+        width: 100%;
+        background-color:rgb(186, 186, 186);
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+       
+    }
+
+    .merdeDuMoment
+    {
+        width: 100%;
+        background-color:rgb(120, 134, 135);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: white;
+        text-align: center;
+    }
+
+    .panneauMenu
+    {
+        padding-top: 10px;
+        padding-bottom: 5px;
+        width: 100%;
+        background-color: rgb(83, 83, 83);
+        height: 100px;
+        text-align: center;
+        color: white;
+        font-family: 'Indie Flower', cursive;
+    }
+
+    h1
+    {
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-bottom: 3px;
+        letter-spacing: 2px;
+        color: white;
+    }
+
+    .liste
+    {
+        float: left;
+        background-color: rgb(83, 83, 83);
+        width: 25%;
+        color: rgb(186, 186, 186);
+    }
+
+    .vachier
+    {
+        float: left;
+        background-color:rgb(186, 186, 186);
+        width: 75%;
+    }
+
+    .button
+    {
+        border-radius: 39px;
+        -moz-border-radius: 39px;
+        -webkit-border-radius: 39px;
+        border: 2px solid rgb(83, 83, 83);
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        font-weight: bold;
+        color: #4c4836;
+        background-color:rgb(186, 186, 186);
+    }
+
+        .button:hover
+        {
+            background: rgb(83, 83, 83);
+            color: white;
+        }
+
+    .datePoste
+    {
+        font-size: 10px;
+        color: rgb(117, 10, 12);
+    }
+
+    .compteEmmerdeur
+    {
+        color:rgb(186, 186, 186);
+    }
+
+    .top20
+    {
+        font-size: 11px;
+        font-weight: bold;
+        padding: 3px 3px 3px 3px;
+        padding-bottom: 3px;
+    }
+    .libelleRecherche {
+        color:rgb(83, 83, 83);
+    }

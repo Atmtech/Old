@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href="Site.css" rel="stylesheet" />
 </head>
 
@@ -29,8 +30,11 @@
     </script>
     <form id="form1" runat="server">
         <div class="titre">
-            <img src="Images/logo.png" style="width: 100px; height: 80px; vertical-align: central;" />
-            À tout ceux qui le mérite... Allez donc chier
+
+
+            <img src="Images/logo.png" style="width: 500px; height: 90px;" />
+
+
         </div>
 
         <div class="menu">
@@ -68,10 +72,24 @@
                     <asp:DataList runat="server" ID="datalistTop" OnItemCommand="datalistTopItemCommandClick">
                         <ItemTemplate>
                             <div class="top20">
-                                <asp:Label runat="server" ID="lblNumber" Text='<%#Container.ItemIndex + 1  %>' ForeColor="Maroon"></asp:Label>.
-                            <asp:Label runat="server" ID="lblDescription" Text='<%#Eval("Description")%>'></asp:Label>
-                                <asp:Label runat="server" ID="lblInsulte" Text='<%#Eval("Insulte.Description")%>'></asp:Label>
-                                <asp:Label runat="server" ID="lblJaime" Text='<%#"(" + Eval("JaimeTaMerde") + ")"%>' CssClass="compteEmmerdeur"></asp:Label>
+                                <table>
+                                    <tr>
+                                        <td style="width: 10px;vertical-align: top;">
+                                            <asp:Label runat="server" ID="lblNumber" Text='<%#Container.ItemIndex + 1  %>' ForeColor="Maroon"></asp:Label>.
+                                        </td>
+                                        <td style="width: 300px;">
+                                            <asp:Label runat="server" ID="lblDescription" Text='<%#Eval("Description")%>'></asp:Label>
+                                            <asp:Label runat="server" ID="lblInsulte" Text='<%#Eval("Insulte.Description")%>'></asp:Label>
+                                        </td>
+                                        <td style="width: 30px;vertical-align: top;">
+                                            <asp:Label runat="server" ID="lblJaime" Text='<%#"(" + Eval("JaimeTaMerde") + ")"%>' CssClass="compteEmmerdeur"></asp:Label>
+
+                                        </td>
+
+                                    </tr>
+                                </table>
+
+
                             </div>
                         </ItemTemplate>
                         <%-- <AlternatingItemTemplate>
@@ -129,7 +147,7 @@
                     </asp:DropDownList>
 
                     <asp:DropDownList runat="server" ID="ddlNombreParPage" AutoPostBack="True" Visible="False">
-                        <asp:ListItem>15</asp:ListItem>
+                        <asp:ListItem>20</asp:ListItem>
                     </asp:DropDownList>
 
                     <div style="float: left; width: 30%;">
@@ -145,6 +163,11 @@
 
                     <div class="listeMerdeux">
 
+                        <asp:Panel runat="server" ID="pnlRecherche" Visible="False">
+                            Vous avez recherché cette merde:
+                            <asp:Label runat="server" ID="lblRecherche" CssClass="libelleRecherche"></asp:Label>
+                            <asp:Button runat="server" ID="btnAnnulerRecherche" CssClass="button" Text="Annuler recherche de merde" OnClick="btnAnnulerRechercheClick" />
+                        </asp:Panel>
 
                         <asp:Repeater runat="server" ID="datalistMerde" OnItemCommand="datalistMerdeItemCommandClick">
                             <HeaderTemplate>
@@ -155,18 +178,22 @@
                                     <td>
                                         <img src="Images/bullet.png" /></td>
                                     <td>
-                                        <asp:Label runat="server" ID="lblDescription" Text='<%#Eval("Description")%>'></asp:Label>
-                                        <asp:Label runat="server" ID="lblInsulte" Text='<%#Eval("Insulte.Description")%>'></asp:Label>
-                                        <div class="datePoste">
-                                            Posté le
-                                            <asp:Label runat="server" ID="lblDate" Text='<%#Eval("DateCreated", "{0:yyyy-MM-dd}")%>'></asp:Label>
+                                        <div style="margin-right: 10px;">
+                                            <asp:Label runat="server" ID="lblDescription" Text='<%#Eval("Description")%>'></asp:Label>
+                                            <asp:Label runat="server" ID="lblInsulte" Text='<%#Eval("Insulte.Description")%>'></asp:Label>
+                                            <div class="datePoste">
+                                                Posté le
+                                            <asp:Label runat="server" ID="lblDate" Text='<%#Eval("DateCreated")%>'></asp:Label>
+                                                (<asp:Label runat="server" ID="lblCity" Text='<%#Eval("City")%>'></asp:Label>,
+                                                <asp:Label runat="server" ID="Label2" Text='<%#Eval("Region")%>'></asp:Label>
+                                                <asp:Label runat="server" ID="Label1" Text='<%#Eval("CountryName")%>'></asp:Label>)
+                                            </div>
                                         </div>
                                     </td>
-                                    <td>
+                                    <td style="width: 100px; padding-bottom: 10px;">
                                         <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="Images/like.png" Width="20px" Height="20px" CommandName="JaimeTaMerde" CommandArgument='<%#Eval("Id")%>' AlternateText="J'aime ta merde" />
                                         <asp:Label runat="server" ID="lblJaimeTaMerde" Text='<%#Eval("JaimeTaMerde")%>'></asp:Label>
-                                        emmerdeurs
-                                        <br/><br/>
+                                        Merde(s)
                                     </td>
 
                                 </tr>
