@@ -102,8 +102,7 @@ namespace ATMTECH.ShoppingCart.Services
             string productName = HttpUtility.HtmlDecode(order.OrderLines.Aggregate(string.Empty, (current, line) => current + (line.ProductDescription + " (" + line.Quantity + ") , ")));
             PaypalDto paypalDto = new PaypalDto
                                       {
-                                          OrderDescription =
-                                              string.Format(ParameterService.GetValue("OrderMessagePaypal"), order.DateModified.ToString(), order.Enterprise.Name),
+                                          OrderDescription = string.Format(ParameterService.GetValue("OrderMessagePaypal"), order.DateModified.ToString(), order.Enterprise.Name),
                                           Price = (double)order.GrandTotal,
                                           Quantity = 1,
                                           OrderId = order.Id.ToString(),
@@ -661,7 +660,7 @@ namespace ATMTECH.ShoppingCart.Services
             {
                 if (orderLines.Count(x => x.Stock.Id == stockTransaction.Stock.Id) == 0)
                 {
-                    stockControlReportLines.Add(AddStockControlReportLine(new OrderLine() { Order = new Order() { Id = stockTransaction.Order.Id } }, stockTransaction.Transaction.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_TRANSACTION_NOT_EXISTS_IN_ORDERLINE));
+                    stockControlReportLines.Add(AddStockControlReportLine(new OrderLine { Order = new Order { Id = stockTransaction.Order.Id } }, stockTransaction.Transaction.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_TRANSACTION_NOT_EXISTS_IN_ORDERLINE));
                 }
             }
             return stockControlReportLines.OrderBy(x => x.Order).ToList();

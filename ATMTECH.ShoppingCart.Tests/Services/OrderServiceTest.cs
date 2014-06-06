@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ATMTECH.Shell.Tests;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
@@ -6,6 +7,8 @@ using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.ErrorCode;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Reports.DTO;
+using ATMTECH.Web.Services;
+using ATMTECH.Web.Services.Interface;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -26,14 +29,16 @@ namespace ATMTECH.ShoppingCart.Tests.Services
         public Mock<ITaxesService> MockTaxesService { get { return ObtenirMock<ITaxesService>(); } }
         public Mock<IStockService> MockStockService { get { return ObtenirMock<IStockService>(); } }
         public Mock<IAddressService> MockAddressService { get { return ObtenirMock<IAddressService>(); } }
+        public Mock<ICustomerService> MockCustomerService { get { return ObtenirMock<ICustomerService>(); } }
+        public Mock<IPaypalService> MockPaypalService { get { return ObtenirMock<IPaypalService>(); } }
 
 
         [TestMethod]
         public void GetOrderInformationDoitRetournerUneListeAvecUnBlancEnPremier()
         {
             IList<EnumOrderInformation> enumOrderInformations = new List<EnumOrderInformation>();
-            enumOrderInformations.Add(new EnumOrderInformation() { Code = "A" });
-            enumOrderInformations.Add(new EnumOrderInformation() { Code = "B" });
+            enumOrderInformations.Add(new EnumOrderInformation { Code = "A" });
+            enumOrderInformations.Add(new EnumOrderInformation { Code = "B" });
 
             MockDAOEnumOrderInformation.Setup(
                 test => test.GetOrderInformation(It.IsAny<Enterprise>(), It.IsAny<string>()))
@@ -46,26 +51,6 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             rtn[1].Code.Should().Be("A");
             rtn[2].Code.Should().Be("B");
         }
-
-        //[TestMethod]
-        //public void UpdateOrder_DEvraitSauvegarderBonneAffaire()
-        //{
-        //    Taxes taxes = TaxesBuilder.CreateValid();
-        //    Order order = OrderBuilder.CreateValid();
-        //    order.Enterprise.IsShippingManaged = true;
-        //    order.Enterprise.IsShippingIncluded = true;
-
-        //    ShippingParameter shippingParameter = ShippingParameterBuilder.Create();
-        //    MockDAOTaxes.Setup(test => test.GetTaxes(It.IsAny<int>())).Returns(taxes);
-        //    MockShippingService.Setup(test => test.GetShippingTotal(It.IsAny<Order>(), It.IsAny<ShippingParameter>()))
-        //                       .Returns(200);
-
-        //    InstanceTest.UpdateOrder(order, shippingParameter);
-
-        //    MockDAOOrder.Verify(v => v.UpdateOrder(
-        //            It.Is<Order>(test => test.GrandTotal == 200)));
-
-        //}
 
         [TestMethod]
         public void CreateOrder_SiOnLanceCreateOrderAvecUnIdPas0_ThrowEtRetourne0()
@@ -85,7 +70,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             Order order = AutoFixture.Create<Order>();
             ShippingParameter shippingParameter = AutoFixture.Create<ShippingParameter>();
 
-            int rtn = InstanceTest.CreateOrder(order, shippingParameter);
+            InstanceTest.CreateOrder(order, shippingParameter);
 
             MockValidateOrderService.Verify(test => test.IsValidOrder(order), Times.Once());
         }
@@ -102,7 +87,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             MockProductService.Setup(test => test.GetProduct(It.IsAny<int>())).Returns(product);
             MockDAOTaxes.Setup(test => test.GetTaxes(order.Customer.Taxes.Id)).Returns(taxes);
 
-            int rtn = InstanceTest.CreateOrder(order, shippingParameter);
+            InstanceTest.CreateOrder(order, shippingParameter);
 
             MockValidateOrderService.Verify(test => test.IsValidOrder(order), Times.Once());
             MockDAOOrder.Verify(test => test.CreateOrder(order));
@@ -214,6 +199,154 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             rtn[0].OrderLineQuantity.Should().Be(@"N\A");
         }
 
+        [TestMethod]
+        public void AddOrderLine_SiLALigneNexistePasOnAjoute()
+        {
+            Order order = AutoFixture.Create<Order>();
+            OrderLine orderLine = AutoFixture.Create<OrderLine>();
+            order.OrderLines = null;
+            Order rtn = InstanceTest.AddOrderLine(orderLine, order);
+            rtn.OrderLines.Count.Should().Be(1);
+            rtn.OrderLines[0].IsActive.Should().Be(true);
+        }
+
+        [TestMethod]
+        public void AddOrderLine_SiLALigneExisteOnAjouteQuantite()
+        {
+            Order order = AutoFixture.Create<Order>();
+            OrderLine orderLine1 = AutoFixture.Create<OrderLine>();
+            OrderLine orderLine2 = AutoFixture.Create<OrderLine>();
+            orderLine1.Quantity = 5;
+            orderLine2.Quantity = 5;
+            order.OrderLines.Clear();
+            order.OrderLines.Add(orderLine1);
+            orderLine2.Stock.Id = orderLine1.Stock.Id;
+            Order rtn = InstanceTest.AddOrderLine(orderLine2, order);
+            rtn.OrderLines.Count.Should().Be(1);
+            rtn.OrderLines[0].Quantity.Should().Be(10);
+        }
+
+        [TestMethod]
+        public void Save_SiAucunAdresseFacturationAuClientOnMetCelleChoisiDAnsCommande()
+        {
+            Order order = AutoFixture.Create<Order>();
+            order.Customer.BillingAddress.ComboboxDescription = null;
+            InstanceTest.Save(order);
+
+            MockCustomerService.Verify(test => test.SaveCustomer(It.Is<Customer>(a => a.BillingAddress.Id == order.BillingAddress.Id)), Times.Once());
+
+        }
+
+        [TestMethod]
+        public void Save_SiAucunAdresseLivraisonAuClientOnMetCelleChoisiDAnsCommande()
+        {
+            Order order = AutoFixture.Create<Order>();
+            order.Customer.ShippingAddress.ComboboxDescription = null;
+            InstanceTest.Save(order);
+
+            MockCustomerService.Verify(test => test.SaveCustomer(It.Is<Customer>(a => a.ShippingAddress.Id == order.ShippingAddress.Id)), Times.Once());
+        }
+
+        [TestMethod]
+        public void FinalizeOrderPaypal_DevraitRemplirLesVariablesCorrectement()
+        {
+            Order order = AutoFixture.Create<Order>();
+            ShippingParameter shippingParameter = AutoFixture.Create<ShippingParameter>();
+            Taxes taxes = AutoFixture.Create<Taxes>();
+            Product product = AutoFixture.Create<Product>();
+
+            MockDAOTaxes.Setup(test => test.GetTaxes(It.IsAny<int>())).Returns(taxes);
+            MockProductService.Setup(test => test.GetProduct(It.IsAny<int>())).Returns(product);
+            MockParameterService.Setup(test => test.GetValue(It.IsAny<string>())).Returns("Ohé");
+            InstanceTest.FinalizeOrderPaypal(order, shippingParameter);
+
+            string productName = order.OrderLines.Aggregate(string.Empty, (current, line) => current + (line.ProductDescription + " (" + line.Quantity + ") , "));
+
+
+            MockPaypalService.Verify(test => test.SendPaypalRequest(It.Is<PaypalDto>(a => a.Price == (double)order.GrandTotal)));
+            MockPaypalService.Verify(test => test.SendPaypalRequest(It.Is<PaypalDto>(a => a.OrderId == order.Id.ToString())));
+            MockPaypalService.Verify(test => test.SendPaypalRequest(It.Is<PaypalDto>(a => a.ProductName == productName.ToString())));
+        }
+        [TestMethod]
+        public void UpdateOrder_DEvraitValiderLaCommande()
+        {
+            Order order = AutoFixture.Create<Order>();
+            ShippingParameter shippingParameter = AutoFixture.Create<ShippingParameter>();
+            Taxes taxes = AutoFixture.Create<Taxes>();
+            Product product = AutoFixture.Create<Product>();
+
+            MockDAOTaxes.Setup(test => test.GetTaxes(It.IsAny<int>())).Returns(taxes);
+            MockProductService.Setup(test => test.GetProduct(It.IsAny<int>())).Returns(product);
+
+            InstanceTest.UpdateOrder(order, shippingParameter);
+
+            MockValidateOrderService.Verify(test => test.IsValidOrder(It.Is<Order>(a => a.Id == order.Id)));
+        }
+
+        [TestMethod]
+        public void CalculateTotal_QuandLeShippingEstInclus()
+        {
+            Order order = AutoFixture.Create<Order>();
+            ShippingParameter shippingParameter = AutoFixture.Create<ShippingParameter>();
+            
+            Product product = AutoFixture.Create<Product>();
+            OrderLine orderLine = AutoFixture.Create<OrderLine>();
+
+            orderLine.IsActive = true;
+            orderLine.Quantity = 1;
+            product.UnitPrice = 10;
+            
+            
+            orderLine.Stock.AdjustPrice = 1;
+            order.OrderLines.Clear();
+            order.OrderLines.Add(orderLine);
+
+            MockTaxesService.Setup(test => test.GetCountryTaxes(It.IsAny<decimal>(),"CAN")).Returns(1);
+            MockTaxesService.Setup(test => test.GetRegionTaxes(It.IsAny<decimal>(), "QBC")).Returns(1);
+            MockProductService.Setup(test => test.GetProduct(It.IsAny<int>())).Returns(product);
+            MockShippingService.Setup(test => test.GetShippingTotal(It.IsAny<Order>(), It.IsAny<ShippingParameter>()))
+                               .Returns(10);
+            order.Enterprise.IsShippingManaged = true;
+            order.Enterprise.IsShippingIncluded = true;
+            order.Enterprise.IsShippingQuotationRequired = false;
+
+            Order rtn = InstanceTest.CalculateTotal(order, "CAN", shippingParameter);
+
+            rtn.GrandTotal.Should().Be(22);
+        }
+
+        [TestMethod]
+        public void CalculateTotal_QuandLeShippingNEstPasInclus()
+        {
+            Order order = AutoFixture.Create<Order>();
+            ShippingParameter shippingParameter = AutoFixture.Create<ShippingParameter>();
+
+            Product product = AutoFixture.Create<Product>();
+            OrderLine orderLine = AutoFixture.Create<OrderLine>();
+
+            orderLine.IsActive = true;
+            orderLine.Quantity = 1;
+            product.UnitPrice = 10;
+
+            order.ShippingTotal = 10;
+            orderLine.Stock.AdjustPrice = 1;
+            order.OrderLines.Clear();
+            order.OrderLines.Add(orderLine);
+
+            MockTaxesService.Setup(test => test.GetCountryTaxes(It.IsAny<decimal>(), "CAN")).Returns(1);
+            MockTaxesService.Setup(test => test.GetRegionTaxes(It.IsAny<decimal>(), "QBC")).Returns(1);
+            MockProductService.Setup(test => test.GetProduct(It.IsAny<int>())).Returns(product);
+
+            order.Enterprise.IsShippingIncluded = false;
+            order.Enterprise.IsShippingQuotationRequired = false;
+
+            Order rtn = InstanceTest.CalculateTotal(order, "CAN", shippingParameter);
+
+            rtn.GrandTotal.Should().Be(12);
+        }
+
+
+
         private OrderTaxesShippingParameterTest CalculateTotalBasic()
         {
             Order order = AutoFixture.Create<Order>();
@@ -232,9 +365,8 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             order.OrderLines.Add(orderLine);
             MockProductService.Setup(test => test.GetProduct(It.IsAny<int>())).Returns(product);
 
-            return new OrderTaxesShippingParameterTest() { Order = order, ShippingParameter = shippingParameter, Taxes = taxes };
+            return new OrderTaxesShippingParameterTest { Order = order, ShippingParameter = shippingParameter, Taxes = taxes };
         }
-
         private StockOrderLineOrderStock GetHappyPathControlReportline()
         {
             Address address = AutoFixture.Create<Address>();
@@ -270,7 +402,6 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             public IList<StockTransaction> StockTransactions { get; set; }
             public IList<OrderLine> OrderLines { get; set; }
         }
-
         public class OrderTaxesShippingParameterTest
         {
             public Order Order { get; set; }
