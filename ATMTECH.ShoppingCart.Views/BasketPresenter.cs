@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.ErrorCode;
@@ -92,6 +93,7 @@ namespace ATMTECH.ShoppingCart.Views
         }
         public void FinalizeOrder(bool isPaypal)
         {
+            Order order = View.CurrentOrder;
             View.CurrentOrder.Project = View.Project;
             View.CurrentOrder.OrderInformation1 = View.OrderInformation1Value;
             View.CurrentOrder.OrderInformation2 = View.OrderInformation2Value;
@@ -114,6 +116,7 @@ namespace ATMTECH.ShoppingCart.Views
 
             IList<QueryString> queryStrings = new List<QueryString>();
             queryStrings.Add(new QueryString(PagesId.IS_ORDER_FINALIZED, "1"));
+            queryStrings.Add(new QueryString(PagesId.ORDER_ID, order.Id.ToString()));
             NavigationService.Refresh(queryStrings);
         }
         public void RemoveOrderLine(int idOrderLine)
@@ -131,7 +134,8 @@ namespace ATMTECH.ShoppingCart.Views
         }
         public void PrintOrder()
         {
-            OrderService.PrintOrder(View.CurrentOrder);
+            Order order = OrderService.GetOrder(Convert.ToInt32(NavigationService.GetQueryStringValue(PagesId.ORDER_ID)));
+            OrderService.PrintOrder(order);
         }
         public void Redirect(string page)
         {

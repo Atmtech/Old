@@ -4,8 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    TEST
-
     <div>
         <div class="tile triple-vertical triple">
             <div class="tile-content" style="overflow: auto; overflow-x: hidden;">

@@ -87,25 +87,25 @@ namespace ATMTECH.Administration
 
         protected void btnTelechargerClick(object sender, EventArgs e)
         {
-            Response.ContentType = "application/x-sqlite3";
-            Response.AppendHeader("Content-Disposition", "attachment; filename=ShoppingCart.db3");
-            Response.TransmitFile(Server.MapPath("~/data/ShoppingCart.db3"));
-            Response.End();
+            //Response.ContentType = "application/x-sqlite3";
+            //Response.AppendHeader("Content-Disposition", "attachment; filename=ShoppingCart.db3");
+            //Response.TransmitFile(Server.MapPath("~/data/ShoppingCart.db3"));
+            //Response.End();
         }
 
         protected void btnTeleverserClick(object sender, EventArgs e)
         {
-            HttpFileCollection hfc = Request.Files;
-            for (int i = 0; i < hfc.Count; i++)
-            {
-                HttpPostedFile httpPostedFile = hfc[i];
-                if (httpPostedFile.ContentLength > 0)
-                {
-                    string serverPath = string.Format(@"{0}\ShoppingCart.db3", Server.MapPath("~/data"));
+            //HttpFileCollection hfc = Request.Files;
+            //for (int i = 0; i < hfc.Count; i++)
+            //{
+            //    HttpPostedFile httpPostedFile = hfc[i];
+            //    if (httpPostedFile.ContentLength > 0)
+            //    {
+            //        string serverPath = string.Format(@"{0}\ShoppingCart.db3", Server.MapPath("~/data"));
 
-                    httpPostedFile.SaveAs(serverPath);
-                }
-            }
+            //        httpPostedFile.SaveAs(serverPath);
+            //    }
+            //}
         }
 
         protected void btnResizeClick(object sender, EventArgs e)

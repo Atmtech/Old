@@ -100,6 +100,7 @@ namespace ATMTECH.ShoppingCart.PubJL
         {
             set
             {
+                lblEnterprise.Text = value.Name;
                 if (value.Id == 1)
                 {
                     pnlMenuBottom.Visible = false;
