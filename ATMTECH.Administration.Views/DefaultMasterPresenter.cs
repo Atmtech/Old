@@ -100,8 +100,8 @@ namespace ATMTECH.Administration.Views
             string rtn = string.Empty;
             //rtn += Save<Country>();
             rtn += Save<City>();
-            //rtn += Save<User>();
-            //rtn += Save<Customer>();
+            rtn += Save<User>();
+            rtn += Save<Customer>();
             //rtn += Save<CustomerType>();
             rtn += Save<Enterprise>();
             rtn += Save<EnterpriseAddress>();
@@ -115,7 +115,7 @@ namespace ATMTECH.Administration.Views
             //rtn += Save<ProductFile>();
             //rtn += Save<File>();
             //rtn += Save<ProductPriceHistory>();
-            rtn += Save<Stock>();
+            //rtn += Save<Stock>();
             //rtn += Save<StockLink>();
             //rtn += Save<StockTemplate>();
             //rtn += Save<Supplier>();

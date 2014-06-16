@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
-    CodeBehind="SalesReport.aspx.cs" Inherits="ATMTECH.Administration.SalesReport" %>
+    CodeBehind="SalesReport.aspx.cs" Inherits="ATMTECH.Administration.ShowOrder" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

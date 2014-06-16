@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
+using ATMTECH.DAO;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface;
@@ -15,10 +17,10 @@ namespace ATMTECH.Administration.Views
     public class ToolsPresenter : BaseAdministrationPresenter<IToolsPresenter>
     {
         public IOrderService OrderService { get; set; }
-        public IStockService StockServices { get; set; }
         public IEnterpriseService EnterpriseService { get; set; }
         public IProductService ProductService { get; set; }
         public IDAOStockTransaction DAOStockTransaction { get; set; }
+        public IStockService StockService { get; set; }
 
         public ICustomerService CustomerService { get; set; }
         public IDAOUser DAOUser { get; set; }
@@ -31,7 +33,7 @@ namespace ATMTECH.Administration.Views
         {
             base.OnViewLoaded();
             View.ProductWithoutStock = ProductService.GetProductsWithoutStock(View.EnterpriseSelect);
-            View.StockTemplate = StockServices.GetStockTemplate();
+            View.StockTemplate = StockService.GetStockTemplate();
             IList<Customer> customers = CustomerService.GetAll();
             IList<User> user = DAOUser.GetAllUser();
             View.Users = user.Where(user1 => customers.Count(x => x.User.Id == user1.Id) == 0).ToList();
@@ -45,7 +47,7 @@ namespace ATMTECH.Administration.Views
         public void ApplyStockTemplate(string productId, string templateGroup, int quantity, bool isWithoutStock)
         {
             Product product = ProductService.GetProductSimple(Convert.ToInt32(productId));
-            StockServices.CreateStockWithTemplate(product, templateGroup, quantity, isWithoutStock);
+            StockService.CreateStockWithTemplate(product, templateGroup, quantity, isWithoutStock);
             MessageService.ThrowMessage(Common.ErrorCode.ADM_SAVE_IS_CORRECT);
         }
         public void ConfirmOrder(string id)
@@ -94,8 +96,8 @@ namespace ATMTECH.Administration.Views
             string result = "Résultat des lignes de commande sans transaction d'inventaires<br><br>";
             IList<OrderLine> orderLines = OrderService.GetAllOrderLine().Where(x => x.IsActive).ToList();
             IList<Order> orders = OrderService.GetAll().Where(x => x.IsActive && (x.OrderStatus == 2 || x.OrderStatus == 3)).ToList();
-            IList<StockTransaction> stockTransactions = StockServices.GetAllStockTransaction();
-            IList<Stock> stocks = StockServices.GetAllStock();
+            IList<StockTransaction> stockTransactions = StockService.GetAllStockTransaction();
+            IList<Stock> stocks = StockService.GetAllStock();
             foreach (OrderLine orderLine in orderLines)
             {
                 orderLine.Stock = stocks.FirstOrDefault(x => x.Id == orderLine.Stock.Id);
@@ -114,5 +116,90 @@ namespace ATMTECH.Administration.Views
             }
             return result;
         }
+
+        public string BalanceSearch(string objet)
+        {
+            string rtn = string.Empty;
+
+            switch (objet)
+            {
+                case "Country": return Save<Country>();
+                case "City": return Save<City>();
+                case "User": return Save<User>();
+                case "Customer": return Save<Customer>();
+                case "CustomerType": return Save<CustomerType>();
+                case "Enterprise": return Save<Enterprise>();
+                case "EnterpriseAddress": return Save<EnterpriseAddress>();
+                case "EnterpriseEmail": return Save<EnterpriseEmail>();
+                case "EnumOrderInformation": return Save<EnumOrderInformation>();
+                case "GroupProduct": return Save<GroupProduct>();
+                case "Order": return Save<Order>();
+                case "OrderLine": return Save<OrderLine>();
+                case "Product": return Save<Product>();
+                case "ProductCategory": return Save<ProductCategory>();
+                case "ProductFile": return Save<ProductFile>();
+                case "File": return Save<File>();
+                case "ProductPriceHistory": return Save<ProductPriceHistory>();
+                case "Stock": return Save<Stock>();
+                case "StockLink": return Save<StockLink>();
+                case "StockTemplate": return Save<StockTemplate>();
+                case "Supplier": return Save<Supplier>();
+                case "Taxes": return Save<Taxes>();
+            }
+
+            return "Aucune transaction";
+        }
+
+        private string Save<TModel>()
+        {
+
+
+            switch (typeof(TModel).FullName)
+            {
+                case "ATMTECH.ShoppingCart.Entities.Enterprise":
+                    foreach (Enterprise enterprise in EnterpriseService.GetAll())
+                    {
+                        EnterpriseService.Save(EnterpriseService.GetEnterprise(enterprise.Id));
+                    }
+                    break;
+                case "ATMTECH.ShoppingCart.Entities.Order":
+                    foreach (Order order in OrderService.GetAll())
+                    {
+                        OrderService.Save(OrderService.GetOrder(order.Id));
+                    }
+                    break;
+                case "ATMTECH.ShoppingCart.Entities.Stock":
+                    foreach (Stock stock in StockService.GetAllStock())
+                    {
+                        if (ProductService.GetProductSimple(stock.Product.Id) != null)
+                        {
+                            StockService.Save(StockService.GetStock(stock.Id));
+                        }
+                    }
+                    break;
+                case "ATMTECH.ShoppingCart.Entities.Customer":
+                    BaseDao<Customer, int> daoModelCustomer = new BaseDao<Customer, int>();
+
+                    foreach (Customer customer in CustomerService.GetAll())
+                    {
+                        customer.User = AuthenticationService.GetUser(customer.User.Id);
+                        daoModelCustomer.Save(customer);
+                    }
+                    break;
+                default:
+                    BaseDao<TModel, int> daoModel = new BaseDao<TModel, int>();
+                    IList<TModel> model = daoModel.GetAll();
+                    foreach (TModel model1 in model)
+                    {
+                        daoModel.Save(model1);
+                    }
+                    break;
+            }
+
+
+
+            return typeof(TModel).FullName + " Exécuté !!!<br>";
+        }
+
     }
 }

@@ -7,7 +7,7 @@ using ATMTECH.ShoppingCart.Entities;
 
 namespace ATMTECH.Administration
 {
-    public partial class SalesReport : PageBaseAdministration, ISalesReportPresenter
+    public partial class ShowOrder : PageBaseAdministration, ISalesReportPresenter
     {
         public SalesReportPresenter Presenter { get; set; }
 

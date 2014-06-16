@@ -106,12 +106,46 @@
 
 
         </table>
-        
-        
+
+
         <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
             Rebalancer les inventaires avec les commandes
         </div>
-         <asp:Button runat="server" ID="btnBalanceStock" OnClick="btnBalanceStockClick" CausesValidation="False" CssClass="button" Text="Balancer" />
+        <asp:Button runat="server" ID="btnBalanceStock" OnClick="btnBalanceStockClick" CausesValidation="False" CssClass="button" Text="Balancer" />
         <asp:Label runat="server" ID="lblResultBalance"></asp:Label>
+
+
+        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+            Rebalancer les colonnes de recherches
+        </div>
+        Objet à balancer: 
+        <asp:DropDownList runat="server" ID="ddlBalanceSearch" AutoPostBack="True">
+            <asp:ListItem Text="Country" Value="Country"></asp:ListItem>
+            <asp:ListItem Text="City" Value="City"></asp:ListItem>
+            <asp:ListItem Text="User" Value="User"></asp:ListItem>
+            <asp:ListItem Text="Customer" Value="Customer"></asp:ListItem>
+            <asp:ListItem Text="CustomerType" Value="CustomerType"></asp:ListItem>
+            <asp:ListItem Text="Enterprise" Value="Enterprise"></asp:ListItem>
+            <asp:ListItem Text="EnterpriseAddress" Value="EnterpriseAddress"></asp:ListItem>
+            <asp:ListItem Text="EnterpriseEmail" Value="EnterpriseEmail"></asp:ListItem>
+            <asp:ListItem Text="EnumOrderInformation" Value="EnumOrderInformation"></asp:ListItem>
+            <asp:ListItem Text="GroupProduct" Value="GroupProduct"></asp:ListItem>
+            <asp:ListItem Text="Order" Value="Order"></asp:ListItem>
+            <asp:ListItem Text="OrderLine" Value="OrderLine"></asp:ListItem>
+            <asp:ListItem Text="Product" Value="Product"></asp:ListItem>
+            <asp:ListItem Text="ProductCategory" Value="ProductCategory"></asp:ListItem>
+            <asp:ListItem Text="ProductFile" Value="ProductFile"></asp:ListItem>
+            <asp:ListItem Text="File" Value="File"></asp:ListItem>
+            <asp:ListItem Text="ProductPriceHistory" Value="ProductPriceHistory"></asp:ListItem>
+            <asp:ListItem Text="Stock" Value="Stock"></asp:ListItem>
+            <asp:ListItem Text="StockLink" Value="StockLink"></asp:ListItem>
+            <asp:ListItem Text="StockTemplate" Value="StockTemplate"></asp:ListItem>
+            <asp:ListItem Text="Supplier" Value="Supplier"></asp:ListItem>
+            <asp:ListItem Text="Taxes" Value="Taxes"></asp:ListItem>
+
+        </asp:DropDownList>
+        <asp:Button runat="server" ID="btnBalanceSearchColumn" OnClick="btnBalanceSearchColumnClick" CausesValidation="False" CssClass="button" Text="Balancer" />
+        <asp:Label runat="server" ID="lblResultatBalanceSearch"></asp:Label>
+
     </div>
 </asp:Content>

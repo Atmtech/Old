@@ -289,6 +289,7 @@ namespace ATMTECH.ShoppingCart.Services
         public void ConfirmOrder(int idOrder)
         {
             Order order = GetOrder(idOrder);
+            order.OrderStatus = OrderStatus.IsShipped;
             order.ShippingDate = DateTime.Now;
             DAOOrder.UpdateOrder(order);
 

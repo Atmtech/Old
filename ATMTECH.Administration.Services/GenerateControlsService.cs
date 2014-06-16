@@ -99,7 +99,7 @@ namespace ATMTECH.Administration.Services
             EntityProperty firstOrDefault = entityProperties.FirstOrDefault(x => x.EntityInformation.Id == id && x.PropertyName == propertyName);
             if (firstOrDefault != null)
             {
-                return firstOrDefault.Label;    
+                return firstOrDefault.Label;
             }
             return propertyName;
 
@@ -230,15 +230,39 @@ namespace ATMTECH.Administration.Services
         {
             if (propertyInfo.PropertyType.Namespace == "System")
             {
-                switch (propertyInfo.PropertyType.Name)
+                if (propertyInfo.Name == "OrderStatus")
                 {
-                    case "DateTime":
-                        return CreateDateTextBox(propertyInfo, value, entity, entityInformations, entityPropertiess);
-                    case "Boolean":
-                        return CreateCheckBox(propertyInfo, value);
-                    default:
-                        return IsLanguageProperty(propertyInfo) ? CreateComboboxLanguage(propertyInfo, value) : CreateTextBox(propertyInfo, value, isInserting, entity, entityInformations, entityPropertiess);
+                    IList<OrderStatusDisplay> orderStatus = new List<OrderStatusDisplay>();
+                    OrderStatusDisplay orderStatusDisplay1 = new OrderStatusDisplay();
+                    orderStatusDisplay1.Id = 1;
+                    orderStatusDisplay1.ComboboxDescription = "Liste de souhait";
+
+                    OrderStatusDisplay orderStatusDisplay2 = new OrderStatusDisplay();
+                    orderStatusDisplay2.Id = 2;
+                    orderStatusDisplay2.ComboboxDescription = "Commandé par le client";
+
+                    OrderStatusDisplay orderStatusDisplay3 = new OrderStatusDisplay();
+                    orderStatusDisplay3.Id = 3;
+                    orderStatusDisplay3.ComboboxDescription = "Envoyé au client";
+
+                    orderStatus.Add(orderStatusDisplay1);
+                    orderStatus.Add(orderStatusDisplay2);
+                    orderStatus.Add(orderStatusDisplay3);
+                    return CreateComboBoxSimple(propertyInfo, value, orderStatus, entity, entityInformations, entityPropertiess);
                 }
+                else
+                {
+                    switch (propertyInfo.PropertyType.Name)
+                    {
+                        case "DateTime":
+                            return CreateDateTextBox(propertyInfo, value, entity, entityInformations, entityPropertiess);
+                        case "Boolean":
+                            return CreateCheckBox(propertyInfo, value);
+                        default:
+                            return IsLanguageProperty(propertyInfo) ? CreateComboboxLanguage(propertyInfo, value) : CreateTextBox(propertyInfo, value, isInserting, entity, entityInformations, entityPropertiess);
+                    }
+                }
+
             }
             if (propertyInfo.PropertyType.Name.ToLower() != "ilist`1")
             {
@@ -248,6 +272,9 @@ namespace ATMTECH.Administration.Services
 
             return null;
         }
+
+      
+
         private ComboBoxSimple CreateComboBoxSimple(PropertyInfo propertyInfo, string selectedValue, object dataSource, string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityPropertiess)
         {
             ComboBoxSimple comboBoxSimple = new ComboBoxSimple
@@ -417,7 +444,7 @@ namespace ATMTECH.Administration.Services
                             return ckEditor;
 
                         }
-                       
+
 
                     }
             }

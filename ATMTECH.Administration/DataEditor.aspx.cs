@@ -358,7 +358,22 @@ namespace ATMTECH.Administration
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-
+                if (e.Row.DataItem is Order)
+                {
+                    string decodedText = HttpUtility.HtmlDecode(e.Row.Cells[18].Text);
+                    switch (decodedText)
+                    {
+                        case "1":
+                            e.Row.Cells[18].Text = "Liste de souhait";
+                            break;
+                        case "2":
+                            e.Row.Cells[18].Text = "Commandé par le client";
+                            break;
+                        case "3":
+                            e.Row.Cells[18].Text = "Envoyé au client";
+                            break;
+                    }
+                }
                 for (int i = 3; i < e.Row.Cells.Count; i++)
                 {
                     string decodedText = HttpUtility.HtmlDecode(e.Row.Cells[i].Text);

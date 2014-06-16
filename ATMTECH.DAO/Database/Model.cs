@@ -87,10 +87,10 @@ namespace ATMTECH.DAO.Database
         {
             Type type = model.GetType();
             var propert = type.GetProperty(property);
-            if (GetValueProperty(propert.Name, model) == null)
-            {
+            //if (GetValueProperty(propert.Name, model) == null)
+            //{
                 AssignValueToProperty(propert, value, model);
-            }
+            //}
         }
 
         public TModel FillModel(DataRow dataRow)

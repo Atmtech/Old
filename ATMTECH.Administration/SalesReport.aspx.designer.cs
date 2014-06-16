@@ -10,7 +10,7 @@
 namespace ATMTECH.Administration {
     
     
-    public partial class SalesReport {
+    public partial class ShowOrder {
         
         /// <summary>
         /// Contrôle cboEnterprise.

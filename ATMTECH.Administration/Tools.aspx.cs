@@ -122,5 +122,10 @@ namespace ATMTECH.Administration
         {
             lblResultBalance.Text = Presenter.BalanceStock();
         }
+
+        protected void btnBalanceSearchColumnClick(object sender, EventArgs e)
+        {
+           lblResultatBalanceSearch.Text = Presenter.BalanceSearch(ddlBalanceSearch.SelectedValue);
+        }
     }
 }

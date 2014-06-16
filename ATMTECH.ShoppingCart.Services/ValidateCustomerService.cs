@@ -21,7 +21,7 @@ namespace ATMTECH.ShoppingCart.Services
 
         public void IsValidCustomerOnUpdate(Customer customer)
         {
-            ValidateEmail(customer.User.Email);
+                ValidateEmail(customer.User.Email);
         }
 
         private void ValidateIfUserAlreadyExist(Customer customer)
