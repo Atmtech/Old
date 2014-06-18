@@ -10,32 +10,22 @@ namespace ATMTECH.Common.Context
             get
             {
                 bool isHttpContext = HttpContext.Current != null;
-                if (isHttpContext)
-                {
-                    return HttpContext.Current.Session;
-                }
-                else
-                {
-                    return null;
-                }
+                return isHttpContext ? HttpContext.Current.Session : null;
             }
         }
+
+
         public static HttpContext Context
         {
             get
             {
                 bool isHttpContext = HttpContext.Current != null;
-                if (isHttpContext)
-                {
-                    return HttpContext.Current;
-                }
-                else
-                {
-                    return null;
-                }
+                return isHttpContext ? HttpContext.Current : null;
             }
         }
 
-        
+
+
+
     }
 }
