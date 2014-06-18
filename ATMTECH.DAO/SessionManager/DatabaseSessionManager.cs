@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Data.SQLite;
 using System.Data.SqlClient;
+using ATMTECH.Common.Context;
 using ATMTECH.DAO.Database;
 using MySql.Data.MySqlClient;
 
@@ -13,83 +13,97 @@ namespace ATMTECH.DAO.SessionManager
     {
 
         public static string ConnectionString { get; set; }
-      
+
 
         public static int DatabaseTransactionCount { get; set; }
 
-        private static DbConnection _session;
+        // private static DbConnection _session;
         public static DbConnection Session
         {
             get
             {
-                switch (DatabaseVendor.GetCurrentDatabaseVendorType())
+
+                DbConnection dbConnection = null;
+                if (ContextSessionManager.Context.Session != null)
                 {
-                    case DatabaseVendor.DatabaseVendorType.Sqlite:
-                        if (_session == null)
-                        {
-                            SQLiteConnection sqLiteConnection = new SQLiteConnection(ConnectionString);
-                            _session = sqLiteConnection;
-                        }
 
-                        if (ConnectionString != _session.ConnectionString)
-                        {
-                            SQLiteConnection sqLiteConnection = new SQLiteConnection(ConnectionString);
-                            _session = sqLiteConnection;
-                        }
 
-                        if (_session.State != ConnectionState.Open)
-                        {
-                            if (_session.ConnectionString != "")
+                    if (ContextSessionManager.Context.Session["DatabaseSession"] is DbConnection)
+                    {
+                        dbConnection = (DbConnection)ContextSessionManager.Context.Session["DatabaseSession"];
+                    }
+
+                    switch (DatabaseVendor.GetCurrentDatabaseVendorType())
+                    {
+                        case DatabaseVendor.DatabaseVendorType.Sqlite:
+                            if (dbConnection == null)
                             {
-                                _session.Open();
+                                SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString);
+                                dbConnection = sqlConnection;
+                                ContextSessionManager.Context.Session["DatabaseSession"] = sqlConnection;
                             }
 
-                        }
-                        break;
-                    case DatabaseVendor.DatabaseVendorType.MsSql:
-                        if (_session == null)
-                        {
-                            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
-                            _session = sqlConnection;
-                        }
+                            if (ConnectionString != dbConnection.ConnectionString)
+                            {
+                                SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString);
+                                dbConnection = sqlConnection;
+                                ContextSessionManager.Context.Session["DatabaseSession"] = sqlConnection;
+                            }
 
-                        if (ConnectionString != _session.ConnectionString)
-                        {
-                            SqlConnection sqlConnection = new SqlConnection(ConnectionString);
-                            _session = sqlConnection;
-                        }
+                            if (dbConnection.State != ConnectionState.Open)
+                            {
+                                if (dbConnection.ConnectionString != "")
+                                {
+                                    dbConnection.Open();
+                                }
 
-                        if (_session.State != ConnectionState.Open)
-                        {
-                            _session.Open();
-                        }
-                        break;
-                    case DatabaseVendor.DatabaseVendorType.MySql:
-                        if (_session == null)
-                        {
-                            MySqlConnection sqlConnection = new MySqlConnection(ConnectionString);
-                            _session = sqlConnection;
-                        }
+                            }
+                            break;
+                        case DatabaseVendor.DatabaseVendorType.MsSql:
+                            if (dbConnection == null)
+                            {
+                                SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+                                dbConnection = sqlConnection;
+                                ContextSessionManager.Context.Session["DatabaseSession"] = sqlConnection;
+                            }
 
-                        if (ConnectionString != _session.ConnectionString)
-                        {
-                            MySqlConnection sqlConnection = new MySqlConnection(ConnectionString);
-                            _session = sqlConnection;
-                        }
+                            if (ConnectionString != dbConnection.ConnectionString)
+                            {
+                                SqlConnection sqlConnection = new SqlConnection(ConnectionString);
+                                dbConnection = sqlConnection;
+                                ContextSessionManager.Context.Session["DatabaseSession"] = sqlConnection;
+                            }
 
-                        if (_session.State != ConnectionState.Open)
-                        {
-                            _session.Open();
-                        }
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                            if (dbConnection.State != ConnectionState.Open)
+                            {
+                                dbConnection.Open();
+                            }
+                            break;
+                        case DatabaseVendor.DatabaseVendorType.MySql:
+                            if (dbConnection == null)
+                            {
+                                MySqlConnection sqlConnection = new MySqlConnection(ConnectionString);
+                                dbConnection = sqlConnection;
+                                ContextSessionManager.Context.Session["DatabaseSession"] = sqlConnection;
+                            }
+
+                            if (ConnectionString != dbConnection.ConnectionString)
+                            {
+                                MySqlConnection sqlConnection = new MySqlConnection(ConnectionString);
+                                dbConnection = sqlConnection;
+                                ContextSessionManager.Context.Session["DatabaseSession"] = sqlConnection;
+                            }
+
+                            if (dbConnection.State != ConnectionState.Open)
+                            {
+                                dbConnection.Open();
+                            }
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                 }
-
-
-
-
-                return _session;
+                return dbConnection;
             }
         }
 

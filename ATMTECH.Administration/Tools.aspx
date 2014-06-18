@@ -120,6 +120,7 @@
         </div>
         Objet à balancer: 
         <asp:DropDownList runat="server" ID="ddlBalanceSearch" AutoPostBack="True">
+            <asp:ListItem Text="Address" Value="Address"></asp:ListItem>
             <asp:ListItem Text="Country" Value="Country"></asp:ListItem>
             <asp:ListItem Text="City" Value="City"></asp:ListItem>
             <asp:ListItem Text="User" Value="User"></asp:ListItem>
