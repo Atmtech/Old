@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Data.SQLite;
+using System.Data.SqlClient;
 using ATMTECH.DAO.SessionManager;
 using ATMTECH.Services.Interface;
+using Microsoft.SqlServer.Management.Smo;
 
 namespace ATMTECH.Services
 {
@@ -12,7 +14,7 @@ namespace ATMTECH.Services
         {
             DatabaseSessionManager.ConnectionString = @"data source=" + sqliteSource;
             DataSet setBackup = new DataSet();
-            using (SQLiteCommand commandFill = new SQLiteCommand("select * from " + tableNameSource, (SQLiteConnection) DatabaseSessionManager.Session))
+            using (SQLiteCommand commandFill = new SQLiteCommand("select * from " + tableNameSource, (SQLiteConnection)DatabaseSessionManager.Session))
             {
                 using (SQLiteDataAdapter sqlDataAdapter = new SQLiteDataAdapter(commandFill))
                 {
@@ -21,18 +23,18 @@ namespace ATMTECH.Services
                     DatabaseSessionManager.ConnectionString = @"data source=" + sqliteDestination;
                     setBackup.Tables[0].TableName = tableNameDestination;
                     string sqlCreate = CreateTableSqlite(setBackup.Tables[0]);
-                    using (SQLiteCommand commandCreate = new SQLiteCommand(sqlCreate, (SQLiteConnection) DatabaseSessionManager.Session))
+                    using (SQLiteCommand commandCreate = new SQLiteCommand(sqlCreate, (SQLiteConnection)DatabaseSessionManager.Session))
                     {
                         commandCreate.ExecuteScalar();
                     }
 
-                    using (SQLiteTransaction transaction = (SQLiteTransaction) DatabaseSessionManager.Session.BeginTransaction())
+                    using (SQLiteTransaction transaction = (SQLiteTransaction)DatabaseSessionManager.Session.BeginTransaction())
                     {
                         SQLiteDataAdapter test = new SQLiteDataAdapter("SELECT * FROM " + tableNameDestination, (SQLiteConnection)DatabaseSessionManager.Session);
-                        
+
                         test.InsertCommand = new SQLiteCommandBuilder(test).GetInsertCommand();
 
-                        
+
                         test.Update(setBackup, tableNameDestination);
                         transaction.Commit();
                     }
@@ -40,7 +42,6 @@ namespace ATMTECH.Services
             }
 
         }
-
         public void RestoreXmlToSqliteDatabase(string xml, string sqliteDatabasePath)
         {
             DatabaseSessionManager.ConnectionString = @"data source=" + sqliteDatabasePath;
@@ -68,7 +69,7 @@ namespace ATMTECH.Services
                     }
 
 
-                    using (SQLiteTransaction transaction = ((SQLiteConnection) DatabaseSessionManager.Session).BeginTransaction())
+                    using (SQLiteTransaction transaction = ((SQLiteConnection)DatabaseSessionManager.Session).BeginTransaction())
                     using (SQLiteDataAdapter sqliteAdapter = new SQLiteDataAdapter("SELECT * FROM " + set.Tables[0].TableName, (SQLiteConnection)DatabaseSessionManager.Session))
                     {
                         using (sqliteAdapter.InsertCommand = new SQLiteCommandBuilder(sqliteAdapter).GetInsertCommand())
@@ -81,7 +82,6 @@ namespace ATMTECH.Services
             }
 
         }
-
         private string CreateTableSqlite(DataTable dataTable)
         {
             const string sql = "CREATE TABLE [{0}] ({1})";
@@ -133,5 +133,10 @@ namespace ATMTECH.Services
             }
             return String.Format(sql, tableName, column);
         }
+
+
+       
+
+       
     }
 }

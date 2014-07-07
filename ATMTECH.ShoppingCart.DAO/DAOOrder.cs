@@ -40,7 +40,7 @@ namespace ATMTECH.ShoppingCart.DAO
             criterias.Add(IsActive());
             IList<Order> orders = GetByCriteria(criterias);
             return orders.Count > 0 ? orders[0].GrandTotal : 0;
-            
+
         }
 
         public int GetCountNumberOfItemInBasket(Customer customer)
@@ -51,7 +51,9 @@ namespace ATMTECH.ShoppingCart.DAO
             criterias.Add(criteriaCustomer);
             criterias.Add(criteriaStatus);
             criterias.Add(IsActive());
-            return GetByCriteria(criterias).Count;
+            Order order = GetByCriteria(criterias)[0];
+            order.OrderLines = DAOOrderLine.GetOrderLine(order.Id);
+            return order.OrderLines.Count(x => x.IsActive);
         }
 
         public IList<Order> GetOrderFromCustomer(Customer customer)
@@ -93,10 +95,20 @@ namespace ATMTECH.ShoppingCart.DAO
 
             return order;
         }
+
+        private OrderLine RemoveQuantiyZeroInOrderLine(OrderLine orderLine)
+        {
+            if (orderLine.Quantity == 0)
+            {
+                orderLine.IsActive = false;
+            }
+            return orderLine;
+        }
         public int UpdateOrder(Order order)
         {
             foreach (OrderLine orderLine in order.OrderLines)
             {
+                RemoveQuantiyZeroInOrderLine(orderLine);
                 orderLine.Order = order;
                 DAOOrderLine.Update(orderLine);
             }

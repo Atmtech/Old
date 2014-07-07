@@ -147,6 +147,13 @@
         </asp:DropDownList>
         <asp:Button runat="server" ID="btnBalanceSearchColumn" OnClick="btnBalanceSearchColumnClick" CausesValidation="False" CssClass="button" Text="Balancer" />
         <asp:Label runat="server" ID="lblResultatBalanceSearch"></asp:Label>
-
+        
+        
+          <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+            Créer une copie de sauvegarde de la Base de données
+        </div>
+                <asp:Button runat="server" ID="btnCreateBackup" OnClick="btnCreateBackupClick" CausesValidation="False" CssClass="button" Text="Copie de sauvegarde" />
+        <br/>
+          <asp:Label runat="server" ID="lblResultBackup"></asp:Label>
     </div>
 </asp:Content>

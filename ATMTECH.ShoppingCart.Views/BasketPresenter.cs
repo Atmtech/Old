@@ -59,16 +59,16 @@ namespace ATMTECH.ShoppingCart.Views
 
                 if (View.CurrentOrder != null)
                 {
+                    View.IsPaypal = View.CurrentOrder.Enterprise.IsPaypal;
+                    View.IsPaypalRequired = View.CurrentOrder.Enterprise.IsPaypalRequired;
+                    View.IsAskShipping = View.CurrentOrder.IsAskShipping;
+                    View.IsOrderLocked = View.CurrentOrder.IsOrderLocked;
+                    DisplayShipping();
 
                     if (View.CurrentOrder.OrderLines.Count(x => x.IsActive) > 0)
                     {
                         RecalculateBasket();
                     }
-
-                    View.IsPaypal = View.CurrentOrder.Enterprise.IsPaypal;
-                    View.IsPaypalRequired = View.CurrentOrder.Enterprise.IsPaypalRequired;
-                    View.IsAskShipping = View.CurrentOrder.IsAskShipping;
-                    View.IsOrderLocked = View.CurrentOrder.IsOrderLocked;
                 }
             }
         }
@@ -93,6 +93,7 @@ namespace ATMTECH.ShoppingCart.Views
         }
         public void FinalizeOrder(bool isPaypal)
         {
+            RecalculateBasket();
             Order order = View.CurrentOrder;
             View.CurrentOrder.Project = View.Project;
             View.CurrentOrder.OrderInformation1 = View.OrderInformation1Value;
@@ -129,7 +130,7 @@ namespace ATMTECH.ShoppingCart.Views
                 }
             }
 
-            RecalculateBasket();
+            OrderService.UpdateOrderWithoutValidation(View.CurrentOrder, GetShippingParameter());
             NavigationService.Refresh();
         }
         public void PrintOrder()

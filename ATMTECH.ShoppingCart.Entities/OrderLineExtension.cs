@@ -8,5 +8,10 @@ namespace ATMTECH.ShoppingCart.Entities
         {
             get { return Stock != null ?  HttpUtility.HtmlDecode(Stock.ProductDescription) : ""; }
         }
+
+        public string ProductDescriptionEnglish
+        {
+            get { return Stock != null ? HttpUtility.HtmlDecode(Stock.ProductDescriptionEnglish) : ""; }
+        }
     }
 }

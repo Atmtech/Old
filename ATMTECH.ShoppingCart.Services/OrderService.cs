@@ -79,6 +79,14 @@ namespace ATMTECH.ShoppingCart.Services
             }
             return DAOOrder.Save(order);
         }
+
+        public int UpdateOrderWithoutValidation(Order order, ShippingParameter shippingParameter)
+        {
+            Taxes taxes = DAOTaxes.GetTaxes(order.Customer.Taxes.Id);
+            order = CalculateTotal(order, taxes.Type, shippingParameter);
+            return DAOOrder.UpdateOrder(order);
+        }
+
         public int UpdateOrder(Order order, ShippingParameter shippingParameter)
         {
             ValidateOrderService.IsValidOrder(order);
@@ -189,7 +197,6 @@ namespace ATMTECH.ShoppingCart.Services
             MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_NO_USER_AUTHENTICATED);
             return null;
         }
-
         public int GetCountNumberOfItemInBasket(Customer customer)
         {
             return DAOOrder.GetCountNumberOfItemInBasket(customer);
@@ -198,7 +205,6 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return DAOOrder.GetGrandTotalFromOrderWishList(customer);
         }
-
         public IList<Order> GetOrdersFromCustomer(Customer customer, int orderStatus)
         {
             if (customer != null)

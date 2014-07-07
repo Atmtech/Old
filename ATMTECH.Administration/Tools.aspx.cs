@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using ATMTECH.Administration.Views;
 using ATMTECH.Administration.Views.Interface;
@@ -125,7 +126,13 @@ namespace ATMTECH.Administration
 
         protected void btnBalanceSearchColumnClick(object sender, EventArgs e)
         {
-           lblResultatBalanceSearch.Text = Presenter.BalanceSearch(ddlBalanceSearch.SelectedValue);
+            lblResultatBalanceSearch.Text = Presenter.BalanceSearch(ddlBalanceSearch.SelectedValue);
+        }
+
+        protected void btnCreateBackupClick(object sender, EventArgs e)
+        {
+            
+            lblResultBackup.Text = Presenter.CreateBackup(Server.MapPath("data"));
         }
     }
 }

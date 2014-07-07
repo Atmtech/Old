@@ -9,6 +9,11 @@ namespace ATMTECH.ShoppingCart.Entities
             get { return Product != null ? Product.Ident + " " + Product.NameFrench + " " + FeatureFrench : ""; }
         }
 
+        public string ProductDescriptionEnglish
+        {
+            get { return Product != null ? Product.Ident + " " + Product.NameEnglish + " " + FeatureEnglish : ""; }
+        }
+
         public decimal StockPrice
         {
             get { return Product != null ? Product.UnitPrice + AdjustPrice : 0; }

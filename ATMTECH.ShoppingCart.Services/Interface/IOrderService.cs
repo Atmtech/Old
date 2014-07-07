@@ -9,6 +9,7 @@ namespace ATMTECH.ShoppingCart.Services.Interface
 {
     public interface IOrderService
     {
+        int UpdateOrderWithoutValidation(Order order, ShippingParameter shippingParameter);
         int CreateOrder(Order order, ShippingParameter shippingParameter);
         Order GetOrder(int idOrder);
         int Save(Order order);
@@ -48,5 +49,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface
 
         void AskForShipping(Order order);
         IList<StockControlReportLine> GetStockControlReport();
+        
     }
 }

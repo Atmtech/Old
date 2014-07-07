@@ -224,7 +224,15 @@ namespace ATMTECH.ShoppingCart.PubJL
                             else
                             {
                                 lblStock.Text = Presenter.LocalizeStock("lblStock");
-                                lblStockQuantity.Text += Presenter.GetActualStockState(dataItem);
+
+                                //txtQuantity
+                                int quantityInStock =  Presenter.GetActualStockState(dataItem);
+                                if (quantityInStock == 0)
+                                {
+                                    alpha.Visible = false;
+                                }
+                                lblStockQuantity.Text += quantityInStock;
+
                             }
                         }
 

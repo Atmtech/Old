@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
+using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.Interface;
 
 namespace ATMTECH.Administration.Views
@@ -21,7 +20,7 @@ namespace ATMTECH.Administration.Views
         public IProductService ProductService { get; set; }
         public IDAOStockTransaction DAOStockTransaction { get; set; }
         public IStockService StockService { get; set; }
-
+        public IDatabaseService DatabaseService { get; set; }
         public ICustomerService CustomerService { get; set; }
         public IDAOUser DAOUser { get; set; }
         public ToolsPresenter(IToolsPresenter view)
@@ -200,6 +199,11 @@ namespace ATMTECH.Administration.Views
 
 
             return typeof(TModel).FullName + " Exécuté !!!<br>";
+        }
+
+        public string CreateBackup(string path)
+        {
+           return DatabaseService.CreateMssqlBackup(path, "ShoppingCart.bak", "ShoppingCart");
         }
 
     }

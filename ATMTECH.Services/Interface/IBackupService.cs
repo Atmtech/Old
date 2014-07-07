@@ -8,5 +8,6 @@ namespace ATMTECH.Services.Interface
     public interface IBackupService
     {
         void RestoreXmlToSqliteDatabase(string xml, string sqliteDatabasePath);
+     
     }
 }

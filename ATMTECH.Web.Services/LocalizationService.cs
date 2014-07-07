@@ -25,7 +25,10 @@ namespace ATMTECH.Web.Services
             {
                 if (string.IsNullOrEmpty((string)ContextSessionManager.Session["currentLanguage"]))
                 {
-                    ContextSessionManager.Session["currentLanguage"] = LocalizationLanguage.FRENCH;
+                    string configuration = Utils.Configuration.GetConfigurationKey("DefaultLanguage");
+                    ContextSessionManager.Session["currentLanguage"] = !string.IsNullOrEmpty(configuration)
+                                                                           ? configuration
+                                                                           : LocalizationLanguage.FRENCH;
                 }
                 return (string)ContextSessionManager.Session["currentLanguage"];
             }

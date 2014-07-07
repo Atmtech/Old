@@ -133,12 +133,63 @@ namespace ATMTECH.Services
                                                    diffResult.Milliseconds.ToString() + "ms) :: " + sql);
                         }
                     }
-                   
+
                     break;
             }
 
             return dataSet;
         }
+
+        public string GetServerName()
+        {
+            System.Data.Common.DbConnectionStringBuilder builder = new System.Data.Common.DbConnectionStringBuilder
+                {
+                    ConnectionString = DatabaseSessionManager.ConnectionString
+                };
+
+            return builder["Server"] as string;
+        }
+        public string CreateMssqlBackup(string BackUpLocation, string BackUpFileName, string DatabaseName)
+        {
+            string ServerName = GetServerName();
+            string rtn;
+            DatabaseName = "[" + DatabaseName + "]";
+
+            string fileUNQ = DateTime.Now.Day.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + "_" + DateTime.Now.Second.ToString();
+
+            BackUpFileName = BackUpFileName + fileUNQ + ".bak";
+            string SQLBackUp = @"BACKUP DATABASE " + DatabaseName + " TO DISK = N'" + BackUpLocation + @"\" + BackUpFileName + @"'";
+
+            string svr = "Server=" + ServerName + ";Database=master;Integrated Security=True";
+
+            SqlConnection cnBk = new SqlConnection(svr);
+            SqlCommand cmdBkUp = new SqlCommand(SQLBackUp, cnBk);
+
+            try
+            {
+                cnBk.Open();
+                cmdBkUp.ExecuteNonQuery();
+                rtn = "SQLBackUp ######## Server name " + ServerName + " Database " + DatabaseName + " copie de sauvegarde sur " + BackUpLocation + @"\" + BackUpFileName + "\n Date : " + DateTime.Now.ToString();
+            }
+
+            catch (Exception ex)
+            {
+
+                rtn = "Erreur " + ex.ToString();
+            }
+
+            finally
+            {
+                if (cnBk.State == ConnectionState.Open)
+                {
+
+                    cnBk.Close();
+                }
+            }
+
+            return rtn;
+        }
+
 
     }
 }
