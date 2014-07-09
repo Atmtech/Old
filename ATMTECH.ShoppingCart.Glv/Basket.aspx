@@ -154,7 +154,7 @@
                     <asp:Label runat="server" ID="lblShippingLabel" Text="Adresse d'envoi" />
                 </strong>
             </div>
-            <atmtech:ComboBoxAvance runat="server" ID="ddlShipping" />
+            <atmtech:ComboBoxAvance runat="server" ID="ddlShipping" AutoPostBack="True" />
             <asp:Button runat="server" ID="btnModifyShippingAddress" OnClick="btnModifyShippingAddressClick"
                 Text="Modifier" />
             <asp:Label runat="server" ID="lblNoShippingAddress"  Visible="False" ForeColor="red"></asp:Label>
@@ -165,7 +165,7 @@
                     <asp:Label runat="server" ID="lblBillingLabel" Text="Adresse de facturation" />
                 </strong>
             </div>
-            <atmtech:ComboBoxAvance runat="server" ID="ddlBilling" />
+            <atmtech:ComboBoxAvance runat="server" ID="ddlBilling" AutoPostBack="True" />
             <asp:Button runat="server" ID="btnModifyBillingAddress" OnClick="btnModifyBillingAddressClick"
                 Text="Modifier" />
             <asp:Label runat="server" ID="lblNoBillingAddress" Visible="False" ForeColor="red"></asp:Label>

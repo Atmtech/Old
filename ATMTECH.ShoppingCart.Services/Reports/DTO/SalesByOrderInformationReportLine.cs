@@ -17,5 +17,7 @@ namespace ATMTECH.ShoppingCart.Services.Reports.DTO
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
         public string OrderInformation { get; set; }
+        public decimal GrandTotalOrder { get; set; }
+        public decimal GrandTotalWithTaxes { get; set; }
     }
 }

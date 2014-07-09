@@ -93,14 +93,19 @@ namespace ATMTECH.ShoppingCart.Views
         }
         public void FinalizeOrder(bool isPaypal)
         {
-            RecalculateBasket();
+            View.CurrentOrder.BillingAddress.Id = View.BillingAddressSelected;
+            View.CurrentOrder.ShippingAddress.Id = View.ShippingAddressSelected;
+
+            if (View.CurrentOrder != null)
+            {
+                OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
+            }
+
             Order order = View.CurrentOrder;
             View.CurrentOrder.Project = View.Project;
             View.CurrentOrder.OrderInformation1 = View.OrderInformation1Value;
             View.CurrentOrder.OrderInformation2 = View.OrderInformation2Value;
-            View.CurrentOrder.BillingAddress.Id = View.BillingAddressSelected;
-            View.CurrentOrder.ShippingAddress.Id = View.ShippingAddressSelected;
-
+          
             if (isPaypal)
             {
                 View.CurrentOrder.IsPayPal = true;

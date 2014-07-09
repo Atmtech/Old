@@ -40,8 +40,11 @@ namespace ATMTECH.ShoppingCart.Services
 
             foreach (Address address in enterprise.ShippingAddress)
             {
-                address.City = DAOCity.GetCity(address.City.Id);
-                address.Country = DAOCountry.GetCountry(address.Country.Id);
+                if (address != null)
+                {
+                    address.City = DAOCity.GetCity(address.City.Id);
+                    address.Country = DAOCountry.GetCountry(address.Country.Id);
+                }
             }
 
             return enterprise;
@@ -54,12 +57,12 @@ namespace ATMTECH.ShoppingCart.Services
 
         public IList<Enterprise> GetEnterpriseByAccess(User user)
         {
-            IList<EnterpriseAccess> enterpriseAccesses = DAOEnterpriseAccess.GetEnterpriseAccess(user).Where(x=>x.User.Id == user.Id).ToList();
+            IList<EnterpriseAccess> enterpriseAccesses = DAOEnterpriseAccess.GetEnterpriseAccess(user).Where(x => x.User.Id == user.Id).ToList();
             foreach (EnterpriseAccess enterpriseAccess in enterpriseAccesses)
             {
                 enterpriseAccess.Enterprise = GetEnterprise(enterpriseAccess.Enterprise.Id);
             }
-            return enterpriseAccesses.Select(enterprise => enterprise.Enterprise).ToList().Where(x=>x.IsActive).ToList();
+            return enterpriseAccesses.Select(enterprise => enterprise.Enterprise).ToList().Where(x => x.IsActive).ToList();
         }
 
         public void CreateEnterpriseFromAnother(int idEnterprise, string newName, User user)

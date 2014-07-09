@@ -393,6 +393,8 @@ namespace ATMTECH.ShoppingCart.Services
             IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).ToList();
             IList<Stock> stocks = products.SelectMany(product => product.Stocks).ToList();
 
+            decimal grandTotalWithTaxes = orders.Sum(x => x.GrandTotal);
+
             IList<EnumOrderInformation> enumOrderInformations = DAOEnumOrderInformation.GetOrderInformation().Where(x => x.Enterprise.Id == enterprise.Id).ToList();
             if (enumOrderInformations.Count > 0)
             {
@@ -406,6 +408,12 @@ namespace ATMTECH.ShoppingCart.Services
                             {
                                 if (orderLine.Order.FinalizedDate != null)
                                 {
+                                    string product =
+                                        HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " +
+                                                               orderLine.Stock.Product.NameFrench) + " ";
+                                    product += orderLine.Stock.FeatureFrench ?? "";
+                                    string orderInformation = orderLine.Order.OrderInformation1 + " - " +
+                                                              orderLine.Order.OrderInformation2;
                                     SalesByOrderInformationReportLine salesByOrderInformationReportLine = new SalesByOrderInformationReportLine
                                         {
                                             OrderId = orderLine.Order.Id,
@@ -414,12 +422,13 @@ namespace ATMTECH.ShoppingCart.Services
                                             ClientName = HttpUtility.HtmlDecode(orderLine.Order.Customer.User.FirstNameLastName),
                                             Enterprise = enterprise.Name,
                                             ProductId = orderLine.Stock.Product.Id,
-                                            Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.NameFrench + " " + orderLine.Stock.FeatureFrench),
+                                            Product = product,
                                             UnitPriceOrderLine = orderLine.UnitPrice,
                                             FinalizedDate = (DateTime)orderLine.Order.FinalizedDate,
                                             DateStart = dateStart,
                                             DateEnd = dateEnd,
-                                            OrderInformation = enumOrderInformations.FirstOrDefault(x => x.Code == orderLine.Order.OrderInformation1).Description + " - " + enumOrderInformations.FirstOrDefault(x => x.Code == orderLine.Order.OrderInformation2).Description
+                                            OrderInformation =  orderInformation,
+                                            GrandTotalWithTaxes = grandTotalWithTaxes
                                         };
                                     salesReportLines.Add(salesByOrderInformationReportLine);
                                 }
@@ -474,6 +483,8 @@ namespace ATMTECH.ShoppingCart.Services
             IList<Order> orders = DAOOrder.GetAllFinalized(enterprise, dateStart, dateEnd);
             IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).ToList();
             IList<Stock> stocks = products.SelectMany(product => product.Stocks).Where(x => x.IsActive).Distinct().ToList();
+
+            decimal grandTotalWithTaxes = orders.Sum(x => x.GrandTotal);
             foreach (Stock stock in stocks)
             {
                 int januarySales = 0;
@@ -569,7 +580,8 @@ namespace ATMTECH.ShoppingCart.Services
                             GrandTotalSales = grandTotalSales,
                             UnitPrice = unitPrice,
                             TotalValueStockActualState = stockActualState * stock.Product.UnitPrice,
-                            TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice
+                            TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice,
+                            GrandTotalWithTaxes = grandTotalWithTaxes
                         };
                     salesByMonthReportLines.Add(salesByMonthReportLine);
 
@@ -599,7 +611,8 @@ namespace ATMTECH.ShoppingCart.Services
                         GrandTotalSales = 0,
                         UnitPrice = stock.Product.UnitPrice,
                         TotalValueStockActualState = stockActualState * stock.Product.UnitPrice,
-                        TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice
+                        TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice,
+                        GrandTotalWithTaxes = grandTotalWithTaxes
                     };
                     salesByMonthReportLines.Add(salesByMonthReportLine);
                 }
