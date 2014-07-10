@@ -94,6 +94,10 @@ namespace ATMTECH.ShoppingCart.Views
         public void FinalizeOrder(bool isPaypal)
         {
             View.CurrentOrder.BillingAddress.Id = View.BillingAddressSelected;
+            if (View.CurrentOrder.ShippingAddress == null)
+            {
+                View.CurrentOrder.ShippingAddress = new Address();
+            }
             View.CurrentOrder.ShippingAddress.Id = View.ShippingAddressSelected;
 
             if (View.CurrentOrder != null)

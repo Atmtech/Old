@@ -29,7 +29,13 @@ namespace ATMTECH.ShoppingCart.DAO
 
         public Address GetAddress(int id)
         {
-            return Addresses.FirstOrDefault(x => x.Id == id);
+            Address address = Addresses.FirstOrDefault(x => x.Id == id);
+            if (address == null)
+            {
+                ContextSessionManager.Context.Session["Addresses"] = GetAll();
+                address = Addresses.FirstOrDefault(x => x.Id == id);
+            }
+            return address;
         }
 
         public int SaveAdress(Address address)
