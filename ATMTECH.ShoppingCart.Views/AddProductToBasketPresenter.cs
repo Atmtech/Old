@@ -16,6 +16,7 @@ namespace ATMTECH.ShoppingCart.Views
         public IProductService ProductService { get; set; }
         public IOrderService OrderService { get; set; }
         public IStockService StockService { get; set; }
+        public IValidateOrderService ValidateOrderService { get; set; }
 
         public AddProductToBasketPresenter(IAddProductToBasketPresenter view)
             : base(view)
@@ -174,6 +175,7 @@ namespace ATMTECH.ShoppingCart.Views
         {
             Order order = OrderService.GetOrder(GetCurrentOrderWishList());
             order = OrderService.AddOrderLine(CreateOrderLine(idStock, quantity), order);
+            ValidateOrderService.IsValidOrder(order);
             OrderService.UpdateOrder(order, null);
         }
         private int GetCurrentOrderWishList()

@@ -89,7 +89,6 @@ namespace ATMTECH.ShoppingCart.Services
 
         public int UpdateOrder(Order order, ShippingParameter shippingParameter)
         {
-            ValidateOrderService.IsValidOrder(order);
             Taxes taxes = DAOTaxes.GetTaxes(order.Customer.Taxes.Id);
             order = CalculateTotal(order, taxes.Type, shippingParameter);
             return DAOOrder.UpdateOrder(order);

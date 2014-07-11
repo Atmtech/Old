@@ -267,22 +267,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             MockPaypalService.Verify(test => test.SendPaypalRequest(It.Is<PaypalDto>(a => a.OrderId == order.Id.ToString())));
             MockPaypalService.Verify(test => test.SendPaypalRequest(It.Is<PaypalDto>(a => a.ProductName == productName.ToString())));
         }
-        [TestMethod]
-        public void UpdateOrder_DEvraitValiderLaCommande()
-        {
-            Order order = AutoFixture.Create<Order>();
-            ShippingParameter shippingParameter = AutoFixture.Create<ShippingParameter>();
-            Taxes taxes = AutoFixture.Create<Taxes>();
-            Product product = AutoFixture.Create<Product>();
-
-            MockDAOTaxes.Setup(test => test.GetTaxes(It.IsAny<int>())).Returns(taxes);
-            MockProductService.Setup(test => test.GetProduct(It.IsAny<int>())).Returns(product);
-
-            InstanceTest.UpdateOrder(order, shippingParameter);
-
-            MockValidateOrderService.Verify(test => test.IsValidOrder(It.Is<Order>(a => a.Id == order.Id)));
-        }
-
+       
         [TestMethod]
         public void CalculateTotal_QuandLeShippingEstInclus()
         {
