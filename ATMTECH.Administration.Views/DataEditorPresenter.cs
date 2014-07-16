@@ -50,7 +50,7 @@ namespace ATMTECH.Administration.Views
             base.OnViewInitialized();
             RefreshData();
 
-            
+
             User user = AuthenticationService.AuthenticateUser;
             if (user == null) return;
             if (!user.IsAdministrator)
@@ -60,20 +60,20 @@ namespace ATMTECH.Administration.Views
 
         }
 
-      
+
         public DataEditorPresenter(IDataEditorPresenter view)
             : base(view)
         {
         }
 
-       
+
         private void SetEntityInformationAndProperty()
         {
             View.EntityInformations = DAOEntityInformation.GetAllEntityInformationSimple();
             View.EntityProperties = DAOEntityProperty.GEtAllEntityProperty();
         }
 
-      
+
         public Object RechercheInformation(string recherche, int pageIndex)
         {
             switch (Entity.ToLower())
@@ -82,7 +82,7 @@ namespace ATMTECH.Administration.Views
                     IList<Order> orderlast = OrderService.GetOrder(Convert.ToInt32(View.Enterprise), pageIndex)
                         .OrderByDescending(x => x.FinalizedDate).ToList()
                         .Where(x => x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-                    
+
                     return OrderService.GetAllOrderLine().Where(orderLine => orderlast.Count(x => x.Id == orderLine.Order.Id && x.IsActive) > 0).ToList();
                 case "customer":
                     IList<Customer> customers = CustomerService.GetCustomerByEnterprise(Convert.ToInt32(View.Enterprise));
@@ -109,13 +109,13 @@ namespace ATMTECH.Administration.Views
                 case "stock":
                     IList<Stock> stocks = StockService.GetAllStockByEnterprise(Convert.ToInt32(View.Enterprise)).Where(x => x.Product != null).ToList();
                     stocks = stocks.Where(x => x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList().Take(10).Skip(pageIndex).ToList();
-                    
+
                     foreach (Stock stock in stocks)
                     {
                         stock.Product = ProductService.GetProductSimple(stock.Product.Id);
                     }
 
-                    
+
 
                     return stocks;
                 case "stocklink":
@@ -125,8 +125,9 @@ namespace ATMTECH.Administration.Views
                     productFiles = productFiles.Where(x => x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
                     return productFiles;
                 case "order":
-                    IList<Order> orders = OrderService.GetOrder(Convert.ToInt32(View.Enterprise), pageIndex).OrderByDescending(x => x.FinalizedDate).ToList();
-                    orders.Where(x => x.OrderStatus != 1).ToList();
+                    IList<Order> orders = OrderService.GetOrder(Convert.ToInt32(View.Enterprise), pageIndex);
+                    orders = orders.Where(x => x.OrderStatus != 1).ToList();
+                    orders = orders.OrderByDescending(x => x.FinalizedDate).ToList();
                     return orders.Where(x => x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
                 case "groupproduct":
                     return DAOGroupProduct.GetGroupProduct();
@@ -216,7 +217,7 @@ namespace ATMTECH.Administration.Views
             }
             if (manageClass.IsExistInNameSpace("ATMTECH.Entities", Entity))
             {
-              //  entityInformation = DAOEntityInformation.GetEntity("ATMTECH.Entities." + Entity);
+                //  entityInformation = DAOEntityInformation.GetEntity("ATMTECH.Entities." + Entity);
 
                 entityInformation =
                   View.EntityInformations.Where(x => x.NameSpace == "ATMTECH.Entities." + Entity)
@@ -264,8 +265,8 @@ namespace ATMTECH.Administration.Views
             }
             View.IdCopy = DataEditorService.Save(NameSpace, Entity, entity);
         }
-      
-      
+
+
         public IList<PropertyWithLabel> ListeProprieteSansCelleSysteme(string nameSpace, string entity)
         {
             return GenerateControlsService.ListeProprieteSansCelleSysteme(nameSpace, entity, View.EntityInformations, View.EntityProperties);
@@ -275,8 +276,8 @@ namespace ATMTECH.Administration.Views
         {
             return GenerateControlsService.CreateControls(nameSpace, entity, isInserting, id, idEnterprise, View.EntityInformations, View.EntityProperties);
         }
-       
-       
+
+
     }
 
 

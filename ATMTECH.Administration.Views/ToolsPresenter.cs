@@ -145,6 +145,7 @@ namespace ATMTECH.Administration.Views
                 case "StockTemplate": return Save<StockTemplate>();
                 case "Supplier": return Save<Supplier>();
                 case "Taxes": return Save<Taxes>();
+                case "StockTransaction": return Save<StockTransaction>();
             }
 
             return "Aucune transaction";
