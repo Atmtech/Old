@@ -427,7 +427,7 @@ namespace ATMTECH.ShoppingCart.Services
                                             DateStart = dateStart,
                                             DateEnd = dateEnd,
                                             OrderInformation =  orderInformation,
-                                            GrandTotalWithTaxes = grandTotalWithTaxes
+                                            GrandTotalWithTaxes = orderLine.Order.GrandTotal
                                         };
                                     salesReportLines.Add(salesByOrderInformationReportLine);
                                 }
@@ -437,8 +437,9 @@ namespace ATMTECH.ShoppingCart.Services
                 }
             }
 
+            salesReportLines = salesReportLines.OrderBy(x => x.FinalizedDate).ThenBy(x => x.ProductId).ToList();
 
-            return salesReportLines.OrderByDescending(x => x.OrderId).ThenBy(x => x.ProductId).ToList();
+            return salesReportLines;
         }
         public IList<OrderLine> GetAllOrderLine()
         {
