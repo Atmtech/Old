@@ -438,7 +438,7 @@ namespace ATMTECH.ShoppingCart.Services
             }
 
 
-            return salesReportLines.OrderBy(x => x.OrderInformation).ThenBy(x => x.ProductId).ToList();
+            return salesReportLines.OrderByDescending(x => x.OrderId).ThenBy(x => x.ProductId).ToList();
         }
         public IList<OrderLine> GetAllOrderLine()
         {
