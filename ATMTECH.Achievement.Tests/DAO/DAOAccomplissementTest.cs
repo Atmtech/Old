@@ -31,8 +31,6 @@ namespace ATMTECH.Achievement.Tests.DAO
         [TestMethod]
         public void ObtenirAccomplissement_DevraitRemplirCategorieImageEtTraits()
         {
-            
-
             Categorie categorie = AutoFixture.Create<Categorie>();
             File file = AutoFixture.Create<File>();
             IList<AccomplissementTrait> accomplissementTraits =

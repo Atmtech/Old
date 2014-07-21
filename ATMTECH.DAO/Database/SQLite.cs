@@ -254,10 +254,8 @@ namespace ATMTECH.DAO.Database
         }
         public void ExecuteSql(string sql)
         {
-
             DateTime startDate = DateTime.Now;
             string start = DateTime.Now + " " + DateTime.Now.Millisecond;
-
             using (SQLiteCommand command = new SQLiteCommand(sql, CurrentDatabaseConnection))
             {
                 command.ExecuteScalar();

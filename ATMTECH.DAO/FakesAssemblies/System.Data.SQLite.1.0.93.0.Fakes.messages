@@ -1,0 +1,154 @@
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.AssemblySourceIdAttribute : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.AssemblySourceTimeStampAttribute : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteLogCallback : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteConvert : le type n'a aucun constructeur visible de famille.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteBase : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLite3 : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLite3_UTF16 : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteBackup : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteOpenFlagsEnum : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteConnectionFlags : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteConfigOpsEnum : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteCommand : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteCommandBuilder : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.ConnectionEventArgs : le type n'a aucun constructeur visible de famille.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteConnectionEventHandler : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteConnection : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SynchronizationModes : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteAuthorizerCallback : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteUpdateCallback : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteCommitCallback : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteTraceCallback : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteRollbackCallback : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteAuthorizerEventHandler : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteCommitHandler : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteUpdateEventHandler : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteTraceEventHandler : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteBackupCallback : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.AuthorizerEventArgs : le type n'a aucun constructeur visible de famille.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.UpdateEventType : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.UpdateEventArgs : le type n'a aucun constructeur visible de famille.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.CommitEventArgs : le type n'a aucun constructeur visible de famille.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.TraceEventArgs : le type n'a aucun constructeur visible de famille.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteConnectionPool : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteConnectionStringBuilder : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.TypeAffinity : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteConnectionEventType : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteDateFormats : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteJournalModeEnum : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteSynchronousEnum : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteExecuteType : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteAuthorizerActionCode : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteAuthorizerReturnCode : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteType : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteDbTypeMap : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteDbTypeMapping : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.TypeNameStringComparer : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteDataAdapter : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteDataReader : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteDefineConstants : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteException : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteErrorCode : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteFactory : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.FunctionType : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteCallback : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteFinalCallback : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteCollation : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.CollationTypeEnum : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.CollationEncodingEnum : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.CollationSequence : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteFunctionAttribute : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteKeyReader : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.LogEventArgs : le type n'a aucun constructeur visible de famille.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteLogEventHandler : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteLog : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteMetaDataCollectionNames : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteParameter : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteParameterCollection : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteStatement : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteTransaction : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.UnsafeNativeMethods : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteConnectionHandle : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteStatementHandle : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteBackupHandle : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SR : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteEnlistment : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteContext : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteValue : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteIndexConstraintOp : le type est un type valeur.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteIndexConstraint : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteIndexOrderBy : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteIndexConstraintUsage : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteIndexInputs : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteIndexOutputs : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteIndex : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteMemory : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteString : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteBytes : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour System.Data.SQLite.SQLiteMarshal : le type est verrouillé.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le stub pour <PrivateImplementationDetails>{956BA188-3171-429D-9DFA-2B046C6F3CDB} : le type n'est pas pris en charge en raison de limitations internes.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteLogCallback : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteBase : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLite3 : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLite3_UTF16 : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteBackup : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.ISQLiteSchemaExtensions : le type est une interface.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteOpenFlagsEnum : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteConnectionFlags : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteConfigOpsEnum : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteConnectionEventHandler : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SynchronizationModes : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteAuthorizerCallback : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteUpdateCallback : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteCommitCallback : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteTraceCallback : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteRollbackCallback : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteAuthorizerEventHandler : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteCommitHandler : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteUpdateEventHandler : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteTraceEventHandler : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteBackupCallback : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.UpdateEventType : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.ISQLiteConnectionPool : le type est une interface.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteConnectionPool : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.TypeAffinity : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteConnectionEventType : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteDateFormats : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteJournalModeEnum : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteSynchronousEnum : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteExecuteType : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteAuthorizerActionCode : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteAuthorizerReturnCode : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteType : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteDbTypeMap : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteDbTypeMapping : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.TypeNameStringComparer : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteDataReader+ColumnParent : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteDefineConstants : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteErrorCode : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteFunction+AggregateData : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.FunctionType : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteCallback : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteFinalCallback : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteCollation : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.CollationTypeEnum : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.CollationEncodingEnum : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteKeyReader : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteLogEventHandler : le type est un délégué.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteStatement : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.UnsafeNativeMethods : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteConnectionHandle : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteStatementHandle : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteBackupHandle : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SR : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteEnlistment : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.ISQLiteNativeHandle : le type est une interface.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteIndexConstraintOp : le type est une énumération.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.ISQLiteNativeModule : le type est une interface.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.ISQLiteManagedModule : le type est une interface.
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteMemory : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteString : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteBytes : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteMarshal : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour System.Data.SQLite.SQLiteModule+SQLiteNativeModule : le type n'est pas visible pour exported or assembly(System.Data.SQLite.1.0.93.0.Fakes).
+C:\Dev\Atmtech\ATMTECH.DAO\Fakes\System.Data.SQLite.fakes : warning : Impossible de générer le shim pour <PrivateImplementationDetails>{956BA188-3171-429D-9DFA-2B046C6F3CDB} : le type n'est pas pris en charge en raison de limitations internes.
