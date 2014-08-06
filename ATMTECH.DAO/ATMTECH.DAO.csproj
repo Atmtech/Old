@@ -78,10 +78,6 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.SQLite, Version=1.0.91.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Library\System.Data.SQLite.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -104,7 +100,6 @@
     <Compile Include="DAOMenu.cs" />
     <Compile Include="DAOUser.cs" />
     <Compile Include="DAOContent.cs" />
-    <Compile Include="Database\DatabaseBackup.cs" />
     <Compile Include="Database\InitializeDatabase.cs" />
     <Compile Include="Database\ManageZipBackup.cs" />
     <Compile Include="Database\MsSql.cs" />
@@ -112,7 +107,6 @@
     <Compile Include="Database\DatabaseVendor.cs" />
     <Compile Include="Database\IDatabase.cs" />
     <Compile Include="Database\MySql.cs" />
-    <Compile Include="Database\SQLite.cs" />
     <Compile Include="Interface\IDAOLogVisit.cs" />
     <Compile Include="Interface\IDAOGroupUser.cs" />
     <Compile Include="Interface\IDAOMessage.cs" />
@@ -126,7 +120,6 @@
     <Compile Include="Database\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionManager\DatabaseSessionManager.cs" />
-    <Compile Include="Utilities\SQLiteBulkInsert.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
@@ -158,9 +151,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Fakes Include="Fakes\System.Data.SQLite.fakes" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

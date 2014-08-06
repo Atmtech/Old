@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.Common;
-using System.Data.SQLite;
 using System.Data.SqlClient;
 using ATMTECH.Common.Context;
 using ATMTECH.DAO.Database;
@@ -30,28 +29,7 @@ namespace ATMTECH.DAO.SessionManager
         {
             switch (DatabaseVendor.GetCurrentDatabaseVendorType())
             {
-                case DatabaseVendor.DatabaseVendorType.Sqlite:
-                    if (_session == null)
-                    {
-                        SQLiteConnection sqLiteConnection = new SQLiteConnection(ConnectionString);
-                        _session = sqLiteConnection;
-                    }
-
-                    if (ConnectionString != _session.ConnectionString)
-                    {
-                        SQLiteConnection sqLiteConnection = new SQLiteConnection(ConnectionString);
-                        _session = sqLiteConnection;
-                    }
-
-                    if (_session.State != ConnectionState.Open)
-                    {
-                        if (_session.ConnectionString != "")
-                        {
-                            _session.Open();
-                        }
-
-                    }
-                    break;
+              
                 case DatabaseVendor.DatabaseVendorType.MsSql:
                     if (_session == null)
                     {
@@ -109,30 +87,7 @@ namespace ATMTECH.DAO.SessionManager
 
                 switch (DatabaseVendor.GetCurrentDatabaseVendorType())
                 {
-                    case DatabaseVendor.DatabaseVendorType.Sqlite:
-                        if (dbConnection == null)
-                        {
-                            SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString);
-                            dbConnection = sqlConnection;
-                            ContextSessionManager.Context.Session["DatabaseSession"] = sqlConnection;
-                        }
 
-                        if (ConnectionString != dbConnection.ConnectionString)
-                        {
-                            SQLiteConnection sqlConnection = new SQLiteConnection(ConnectionString);
-                            dbConnection = sqlConnection;
-                            ContextSessionManager.Context.Session["DatabaseSession"] = sqlConnection;
-                        }
-
-                        if (dbConnection.State != ConnectionState.Open)
-                        {
-                            if (dbConnection.ConnectionString != "")
-                            {
-                                dbConnection.Open();
-                            }
-
-                        }
-                        break;
                     case DatabaseVendor.DatabaseVendorType.MsSql:
                         if (dbConnection == null)
                         {

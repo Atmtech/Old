@@ -12,8 +12,7 @@ namespace ATMTECH.DAO
     public class BaseDao<TModel, TId>
     {
         public DatabaseOperation<TModel, TId> DatabaseOperation { get { return new DatabaseOperation<TModel, TId>(); } }
-        public DatabaseBackup<TModel, TId> DatabaseBackup { get { return new DatabaseBackup<TModel, TId>(); } }
-        public Model<TModel, TId> Model { get { return new Model<TModel, TId>(); } }
+          public Model<TModel, TId> Model { get { return new Model<TModel, TId>(); } }
 
         public Criteria IsActive()
         {
@@ -183,11 +182,11 @@ namespace ATMTECH.DAO
         }
         public void BackupToXml(string zipFile, bool allTableFromDatabase)
         {
-            DatabaseBackup.BackupToXml(zipFile, allTableFromDatabase);
+           
         }
         public void RestoreFromXml(string zipFile)
         {
-            DatabaseBackup.RestoreFromXml(zipFile);
+           
         }
 
         public Object GetValueProperty(string property, TModel model)

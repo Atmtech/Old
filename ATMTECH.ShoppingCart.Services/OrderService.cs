@@ -126,6 +126,8 @@ namespace ATMTECH.ShoppingCart.Services
 
             order.ShippingTotal = GetShippingTotal(order, shippingParameter);
 
+            UpdateOrderWithoutValidation(order, shippingParameter);
+
             SendMailToUser(order);
             SendMailToAdmin(order);
             SendMailToEnterprise(order);

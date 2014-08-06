@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Data.SQLite;
 using System.Data.SqlClient;
 using ATMTECH.DAO.Interface;
 using ATMTECH.DAO.SessionManager;
@@ -57,16 +56,7 @@ namespace ATMTECH.Services
             {
                 switch (enumDatabaseVendor)
                 {
-                    case EnumDatabaseVendor.Sqlite:
-                        using (SQLiteCommand commandCreate = new SQLiteCommand(sql, (SQLiteConnection)DatabaseSessionManager.Session))
-                        {
-                            object retour = commandCreate.ExecuteScalar();
-                            if (retour != null)
-                            {
-                                html = retour.ToString();
-                            }
-                        }
-                        break;
+                   
                     case EnumDatabaseVendor.Mssql:
                         using (SqlCommand commandCreate = new SqlCommand(sql, (SqlConnection)DatabaseSessionManager.Session))
                         {
@@ -88,29 +78,6 @@ namespace ATMTECH.Services
 
             switch (enumDatabaseVendor)
             {
-                case EnumDatabaseVendor.Sqlite:
-                    using (SQLiteDataAdapter sqlDataAdapter = new SQLiteDataAdapter())
-                    {
-                        using (SQLiteCommand sqlCommand = new SQLiteCommand(sql, (SQLiteConnection)DatabaseSessionManager.Session))
-                        {
-                            DateTime startDate = DateTime.Now;
-                            string start = DateTime.Now + " " + DateTime.Now.Millisecond;
-
-                            sqlCommand.CommandType = CommandType.Text;
-                            sqlDataAdapter.SelectCommand = sqlCommand;
-
-                            sqlDataAdapter.Fill(dataSet);
-
-                            DateTime endDate = DateTime.Now;
-                            string end = DateTime.Now + " " + DateTime.Now.Millisecond;
-                            TimeSpan diffResult = endDate - startDate;
-
-                            // Show sql debug
-                            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
-                                                   diffResult.Milliseconds.ToString() + "ms) :: " + sql);
-                        }
-                    }
-                    break;
                 case EnumDatabaseVendor.Mssql:
                     using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
                     {

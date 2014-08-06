@@ -9,7 +9,6 @@ namespace ATMTECH.DAO.Database
 {
     public class DatabaseOperation<TModel, TId>
     {
-        public SQLite<TModel, TId> SqLite { get { return new SQLite<TModel, TId>(); } }
         public MsSql<TModel, TId> MsSql { get { return new MsSql<TModel, TId>(); } }
         public Model<TModel, TId> Model { get { return new Model<TModel, TId>(); } }
 
@@ -34,8 +33,6 @@ namespace ATMTECH.DAO.Database
         {
             switch (CurrentDatabaseVendor)
             {
-                case DatabaseVendor.DatabaseVendorType.Sqlite:
-                    return SqLite.ReturnAllColumnNameFromTable(table);
                 case DatabaseVendor.DatabaseVendorType.MsSql:
                     return MsSql.ReturnAllColumnNameFromTable(table);
                 default:
@@ -49,9 +46,6 @@ namespace ATMTECH.DAO.Database
             {
                 switch (CurrentDatabaseVendor)
                 {
-                    case DatabaseVendor.DatabaseVendorType.Sqlite:
-                        rtn = sql + string.Format(SQLite<TModel, TId>.SQL_PAGING, pagingOperation.PageIndex, pagingOperation.PageSize);
-                        break;
                     case DatabaseVendor.DatabaseVendorType.MsSql:
 
                         //                        DECLARE @RowsPerPage INT = 10, @PageNumber INT = 1 SELECT * FROM (SELECT *,ROW_NUMBER() OVER (ORDER BY Id) AS RowNum FROM Product ) AS SOD WHERE SOD.RowNum BETWEEN ((@PageNumber-1)*@RowsPerPage)+1 AND @RowsPerPage*(@PageNumber)
@@ -95,9 +89,6 @@ namespace ATMTECH.DAO.Database
             {
                 switch (CurrentDatabaseVendor)
                 {
-                    case DatabaseVendor.DatabaseVendorType.Sqlite:
-                        sql = string.Format(SQLite<TModel, TId>.SQL_ORDER_BY, orderOperation.OrderByColumn, "ASC");
-                        break;
                     case DatabaseVendor.DatabaseVendorType.MsSql:
                         sql = string.Format(MsSql<TModel, TId>.SQL_ORDER_BY, orderOperation.OrderByColumn, "ASC");
                         break;
@@ -112,9 +103,6 @@ namespace ATMTECH.DAO.Database
                 {
                     switch (CurrentDatabaseVendor)
                     {
-                        case DatabaseVendor.DatabaseVendorType.Sqlite:
-                            sql = string.Format(SQLite<TModel, TId>.SQL_ORDER_BY, orderOperation.OrderByColumn, "DESC");
-                            break;
                         case DatabaseVendor.DatabaseVendorType.MsSql:
                             sql = string.Format(MsSql<TModel, TId>.SQL_ORDER_BY, orderOperation.OrderByColumn, "DESC");
                             break;
@@ -146,9 +134,6 @@ namespace ATMTECH.DAO.Database
             {
                 switch (CurrentDatabaseVendor)
                 {
-                    case DatabaseVendor.DatabaseVendorType.Sqlite:
-                        sql = String.Format(SQLite<TModel, TId>.SQL_SELECT_WHERE, columns, tableName, where);
-                        break;
                     case DatabaseVendor.DatabaseVendorType.MsSql:
                         sql = String.Format(MsSql<TModel, TId>.SQL_SELECT_WHERE, columns, tableName, where);
                         break;
@@ -160,9 +145,6 @@ namespace ATMTECH.DAO.Database
             {
                 switch (CurrentDatabaseVendor)
                 {
-                    case DatabaseVendor.DatabaseVendorType.Sqlite:
-                        sql = String.Format(SQLite<TModel, TId>.SQL_SELECT, columns, tableName);
-                        break;
                     case DatabaseVendor.DatabaseVendorType.MsSql:
                         sql = String.Format(MsSql<TModel, TId>.SQL_SELECT, columns, tableName);
                         break;
@@ -260,8 +242,6 @@ namespace ATMTECH.DAO.Database
         {
             switch (CurrentDatabaseVendor)
             {
-                case DatabaseVendor.DatabaseVendorType.Sqlite:
-                    return SqLite.ReturnDataSetCount();
                 case DatabaseVendor.DatabaseVendorType.MsSql:
                     return MsSql.ReturnDataSetCount();
                 default:
@@ -274,8 +254,6 @@ namespace ATMTECH.DAO.Database
         {
             switch (CurrentDatabaseVendor)
             {
-                case DatabaseVendor.DatabaseVendorType.Sqlite:
-                    return SqLite.ReturnDataSetMax(columnName);
                 case DatabaseVendor.DatabaseVendorType.MsSql:
                     return MsSql.ReturnDataSetMax(columnName);
                 default:
@@ -287,8 +265,6 @@ namespace ATMTECH.DAO.Database
         {
             switch (CurrentDatabaseVendor)
             {
-                case DatabaseVendor.DatabaseVendorType.Sqlite:
-                    return SqLite.ReturnDataSet(pagingOperation, orderOperation);
                 case DatabaseVendor.DatabaseVendorType.MsSql:
                     return MsSql.ReturnDataSet(pagingOperation, orderOperation);
                 default:
@@ -300,8 +276,6 @@ namespace ATMTECH.DAO.Database
         {
             switch (CurrentDatabaseVendor)
             {
-                case DatabaseVendor.DatabaseVendorType.Sqlite:
-                    return SqLite.ReturnDataSet(sql);
                 case DatabaseVendor.DatabaseVendorType.MsSql:
                     return MsSql.ReturnDataSet(sql);
                 default:
@@ -315,8 +289,6 @@ namespace ATMTECH.DAO.Database
 
             switch (CurrentDatabaseVendor)
             {
-                case DatabaseVendor.DatabaseVendorType.Sqlite:
-                    return SqLite.ReturnDataSet(where, criterias, pagingOperation, orderOperation);
                 case DatabaseVendor.DatabaseVendorType.MsSql:
                     return MsSql.ReturnDataSet(where, criterias, pagingOperation, orderOperation);
                 default:
@@ -327,9 +299,6 @@ namespace ATMTECH.DAO.Database
         {
             switch (CurrentDatabaseVendor)
             {
-                case DatabaseVendor.DatabaseVendorType.Sqlite:
-                    SqLite.ExecuteSql(sql);
-                    break;
                 case DatabaseVendor.DatabaseVendorType.MsSql:
                     MsSql.ExecuteSql(sql);
                     break;
@@ -341,9 +310,6 @@ namespace ATMTECH.DAO.Database
         {
             switch (CurrentDatabaseVendor)
             {
-                case DatabaseVendor.DatabaseVendorType.Sqlite:
-                    SqLite.UpdateSql(model, id);
-                    break;
                 case DatabaseVendor.DatabaseVendorType.MsSql:
                     MsSql.UpdateSql(model, id);
                     break;
@@ -355,8 +321,6 @@ namespace ATMTECH.DAO.Database
         {
             switch (CurrentDatabaseVendor)
             {
-                case DatabaseVendor.DatabaseVendorType.Sqlite:
-                    return SqLite.InsertSql(model);
                 case DatabaseVendor.DatabaseVendorType.MsSql:
                     return MsSql.InsertSql(model);
 

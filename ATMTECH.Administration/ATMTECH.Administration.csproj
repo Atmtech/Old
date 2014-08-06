@@ -457,9 +457,6 @@
   <ItemGroup>
     <Content Include="StockReport.aspx" />
     <Content Include="UserControls\Login.ascx" />
-    <None Include="Web.config.ShoppingCart">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.Administration.DAO\ATMTECH.Administration.DAO.csproj">

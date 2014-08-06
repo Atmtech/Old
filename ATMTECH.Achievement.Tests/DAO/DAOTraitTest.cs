@@ -10,21 +10,21 @@ namespace ATMTECH.Achievement.Tests.DAO
     [TestClass]
     public class DAOTraitTest : BaseDaoTest<DAOTrait>
     {
-        [TestInitialize()]
-        public void Initialize()
-        {
-            CreerDatabaseTest("ATMTECH.Achievement.Entities");
-        }
+        //[TestInitialize()]
+        //public void Initialize()
+        //{
+        //    CreerDatabaseTest("ATMTECH.Achievement.Entities");
+        //}
 
-        [TestMethod]
-        public void DAOTraitTest_ObtenirTraitParCode_DevraitToujoursMeRetournerLeCode()
-        {
-            Trait traitSauvegarde = AutoFixture.Create<Trait>();
-            traitSauvegarde.Id = 0;
-            EnregistrerEntite(traitSauvegarde);
-            Trait trait = InstanceTest.ObtenirTraitParCode(traitSauvegarde.Code);
-            trait.Description.Should().Be(traitSauvegarde.Description);
-        }
+        //[TestMethod]
+        //public void DAOTraitTest_ObtenirTraitParCode_DevraitToujoursMeRetournerLeCode()
+        //{
+        //    Trait traitSauvegarde = AutoFixture.Create<Trait>();
+        //    traitSauvegarde.Id = 0;
+        //    EnregistrerEntite(traitSauvegarde);
+        //    Trait trait = InstanceTest.ObtenirTraitParCode(traitSauvegarde.Code);
+        //    trait.Description.Should().Be(traitSauvegarde.Description);
+        //}
     }
 }
 
