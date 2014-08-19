@@ -62,11 +62,11 @@ namespace ATMTECH.Shell.Tests
         }
 
 
-        public void CreerDatabaseTest(string nameSpaceEntities)
-        {
-            InitializeDatabase initializeDatabase = new InitializeDatabase();
-            initializeDatabase.InitializeDatabaseSqliteEnMemoire(nameSpaceEntities);
-        }
+        //public void CreerDatabaseTest(string nameSpaceEntities)
+        //{
+        //    InitializeDatabase initializeDatabase = new InitializeDatabase();
+        //    initializeDatabase.InitializeDatabaseSqliteEnMemoire(nameSpaceEntities);
+        //}
 
 
         public void EnregistrerEntite<T>(T entite) where T : BaseEntity

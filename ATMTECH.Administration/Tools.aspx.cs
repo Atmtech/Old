@@ -134,5 +134,11 @@ namespace ATMTECH.Administration
             
             lblResultBackup.Text = Presenter.CreateBackup(Server.MapPath("data"));
         }
+
+        protected void btnAdjustOrderlineClick(object sender, EventArgs e)
+        {
+            lblAdjustOrderline.Text = Presenter.AdjustOrderline(Convert.ToInt32(txtAdjustOrderlineId.Text),
+                                                                Convert.ToInt32(txtAdjustOrderlineQuantite.Text));
+        }
     }
 }

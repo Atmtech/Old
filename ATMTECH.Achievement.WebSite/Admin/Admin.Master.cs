@@ -13,14 +13,14 @@ namespace ATMTECH.Achievement.WebSite.Admin
 
         protected void btnGenererDatabase(object sender, EventArgs e)
         {
-            InitializeDatabase initializeDatabase = new InitializeDatabase();
-            initializeDatabase.InitializeDatabaseSqlite(@"C:\Dev\Atmtech\ATMTECH.Achievement.Tests\Database\Accomplissement.db3", "ATMTECH.Achievement.Entities");
+            //InitializeDatabase initializeDatabase = new InitializeDatabase();
+            //initializeDatabase.InitializeDatabaseSqlite(@"C:\Dev\Atmtech\ATMTECH.Achievement.Tests\Database\Accomplissement.db3", "ATMTECH.Achievement.Entities");
 
-            DatabaseData databaseData = new DatabaseData();
-            databaseData.FillData();
+            //DatabaseData databaseData = new DatabaseData();
+            //databaseData.FillData();
 
-            //Initialisation initialisation = new Initialisation();
-            //initialisation.CreerDatabase();
+            ////Initialisation initialisation = new Initialisation();
+            ////initialisation.CreerDatabase();
         }
 
 

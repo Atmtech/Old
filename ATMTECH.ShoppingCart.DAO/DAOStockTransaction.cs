@@ -22,7 +22,10 @@ namespace ATMTECH.ShoppingCart.DAO
             StockTransaction stockTransaction = new StockTransaction { Stock = stock, Transaction = quantity, Order = order, DateCreated = dateCreated};
             Save(stockTransaction);
         }
-
+        public int Update(StockTransaction stockTransaction)
+        {
+            return Save(stockTransaction);
+        }
         public int GetCurrentStockStatus(Stock stock)
         {
 

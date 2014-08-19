@@ -13,6 +13,6 @@ namespace ATMTECH.Services.Interface
     }
     public enum EnumDatabaseVendor
     {
-        Sqlite = 0, Mssql = 1
+        Mssql = 1
     }
 }

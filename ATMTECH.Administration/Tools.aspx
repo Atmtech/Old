@@ -106,6 +106,16 @@
 
 
         </table>
+        
+        
+        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+            Réajuster une ligne de commande
+        </div>
+        Id ligne commande à modifié:<asp:TextBox runat="server" ID="txtAdjustOrderlineId"></asp:TextBox> N.B.: Voir dans "Ligne de commande"<br/>
+        Quantité finale pour l'item:<asp:TextBox ID="txtAdjustOrderlineQuantite" runat="server"></asp:TextBox><br/>
+        <asp:Button runat="server" ID="btnAdjustOrderline" OnClick="btnAdjustOrderlineClick" CausesValidation="False" CssClass="button" Text="Réajuster" />
+        <asp:Label runat="server" ID="lblAdjustOrderline"></asp:Label>
+
 
 
         <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">

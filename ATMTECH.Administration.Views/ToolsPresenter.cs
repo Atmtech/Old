@@ -204,8 +204,23 @@ namespace ATMTECH.Administration.Views
 
         public string CreateBackup(string path)
         {
-           return DatabaseService.CreateMssqlBackup(path, "ShoppingCart.bak", "ShoppingCart");
+            return DatabaseService.CreateMssqlBackup(path, "ShoppingCart.bak", "ShoppingCart");
         }
 
+        public string AdjustOrderline(int id, int quantite)
+        {
+            OrderLine orderLine = OrderService.GetAllOrderLine().Where(x => x.Id == id).ToList()[0];
+            Order order = OrderService.GetOrder(orderLine.Order.Id);
+            StockTransaction stockTransaction = StockService.GetAllStockTransaction().Where(x => x.Order.Id == orderLine.Order.Id).ToList()[0];
+
+
+            order.OrderLines.Where(x => x.Id == id).ToList()[0].Quantity = quantite;
+
+            stockTransaction.Transaction = quantite * -1;
+
+            OrderService.UpdateOrder(order, null);
+            StockService.SaveStockTransaction(stockTransaction);
+            return "Ok";
+        }
     }
 }

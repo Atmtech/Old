@@ -94,6 +94,11 @@ namespace ATMTECH.ShoppingCart.Services
                 });
             }
         }
+
+        public int SaveStockTransaction(StockTransaction stockTransaction)
+        {
+            return DAOStockTransaction.Update(stockTransaction);
+        }
         public IList<StockTemplate> GetStockTemplate()
         {
             return DAOStockTemplate.GetStockTemplate();

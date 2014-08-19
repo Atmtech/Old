@@ -372,10 +372,10 @@ namespace ATMTECH.DAO.Database
                 string parameter = string.Empty;
                 if (commandInit.Parameters != null)
                 {
-                    foreach (SqlParameter sqLiteParameter in commandInit.Parameters)
+                    foreach (SqlParameter sqlParameter in commandInit.Parameters)
                     {
-                        if (sqLiteParameter.Value != null)
-                        { parameter += sqLiteParameter.ParameterName + "=" + sqLiteParameter.Value.ToString().Replace("'", "_") + Environment.NewLine; }
+                        if (sqlParameter.Value != null)
+                        { parameter += sqlParameter.ParameterName + "=" + sqlParameter.Value.ToString().Replace("'", "_") + Environment.NewLine; }
 
                     }
                 }
@@ -492,11 +492,11 @@ namespace ATMTECH.DAO.Database
                     }
 
                     using (SqlTransaction transaction = (CurrentDatabaseConnection).BeginTransaction())
-                    using (SqlDataAdapter sqliteAdapter = new SqlDataAdapter("SELECT * FROM " + dataTableXml.TableName, CurrentDatabaseConnection))
+                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM " + dataTableXml.TableName, CurrentDatabaseConnection))
                     {
-                        using (sqliteAdapter.InsertCommand = new SqlCommandBuilder(sqliteAdapter).GetInsertCommand())
+                        using (dataAdapter.InsertCommand = new SqlCommandBuilder(dataAdapter).GetInsertCommand())
                         {
-                            sqliteAdapter.Update(setBackup, dataTableXml.TableName);
+                            dataAdapter.Update(setBackup, dataTableXml.TableName);
                         }
                         transaction.Commit();
                     }

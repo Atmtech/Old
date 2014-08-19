@@ -24,8 +24,8 @@ namespace ATMTECH.Test
         public void Init()
         {
             DatabaseSessionManager.ConnectionString = @"data source=C:\dev\Atmtech\ATMTECH.Test.Website\App_Data\Test.db3";
-            EmptyDatabase();
-            FillDatabase();
+            //EmptyDatabase();
+            //FillDatabase();
         }
 
         //[TestMethod]
@@ -44,16 +44,16 @@ namespace ATMTECH.Test
         //    Assert.AreEqual(message.Description, "Erreur");
         //}
 
-        private void EmptyDatabase()
-        {
-            _databaseOperation.ExecuteSql("DELETE FROM Message");
-            _databaseOperation.ExecuteSql("delete from sqlite_sequence where name='Message'");
-        }
+        //private void EmptyDatabase()
+        //{
+        //    _databaseOperation.ExecuteSql("DELETE FROM Message");
+        //    _databaseOperation.ExecuteSql("delete from sqlite_sequence where name='Message'");
+        //}
 
-        private void FillDatabase()
-        {
-            Message message = new Message() { InnerId = "0001", Description = "Erreur" };
-            _daoMessage.Save(message);
-        }
+        //private void FillDatabase()
+        //{
+        //    Message message = new Message() { InnerId = "0001", Description = "Erreur" };
+        //    _daoMessage.Save(message);
+        //}
     }
 }
