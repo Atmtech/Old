@@ -394,8 +394,7 @@ namespace ATMTECH.ShoppingCart.Services
             IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).ToList();
             IList<Stock> stocks = products.SelectMany(product => product.Stocks).ToList();
 
-            decimal grandTotalWithTaxes = orders.Sum(x => x.GrandTotal);
-
+            decimal grandTotalAllOrder = orders.Sum(x => x.GrandTotal);
             IList<EnumOrderInformation> enumOrderInformations = DAOEnumOrderInformation.GetOrderInformation().Where(x => x.Enterprise.Id == enterprise.Id).ToList();
             if (enumOrderInformations.Count > 0)
             {
@@ -428,8 +427,9 @@ namespace ATMTECH.ShoppingCart.Services
                                             FinalizedDate = (DateTime)orderLine.Order.FinalizedDate,
                                             DateStart = dateStart,
                                             DateEnd = dateEnd,
-                                            OrderInformation =  orderInformation,
-                                            GrandTotalWithTaxes = orderLine.Order.GrandTotal
+                                            OrderInformation = orderInformation,
+                                            GrandTotalWithTaxes = orderLine.Order.GrandTotal,
+                                            GrandTotalAll = grandTotalAllOrder
                                         };
                                     salesReportLines.Add(salesByOrderInformationReportLine);
                                 }
@@ -440,7 +440,7 @@ namespace ATMTECH.ShoppingCart.Services
             }
 
             salesReportLines = salesReportLines.OrderBy(x => x.FinalizedDate).ThenBy(x => x.ProductId).ToList();
-
+            
             return salesReportLines;
         }
         public IList<OrderLine> GetAllOrderLine()
@@ -656,10 +656,15 @@ namespace ATMTECH.ShoppingCart.Services
 
             return html;
         }
-
+        public Order GetOrderSimple(int idOrder)
+        {
+            return DAOOrder.GetOrderSimple(idOrder);
+        }
         public IList<StockControlReportLine> GetStockControlReport()
         {
             IList<StockTransaction> stockTransactions = StockService.GetStockTransaction();
+            IList<Stock> stocks = StockService.GetAllStock();
+            IList<Order> orders = GetAll().Where(x => x.IsActive == true).ToList();
             IList<OrderLine> orderLines = GetAllOrderLine().Where(x => x.IsActive).ToList();
             IList<StockControlReportLine> stockControlReportLines = new List<StockControlReportLine>();
 
@@ -668,13 +673,13 @@ namespace ATMTECH.ShoppingCart.Services
 
                 if (stockTransactions.Count(x => x.Stock.Id == orderLine.Stock.Id) == 0)
                 {
-                    stockControlReportLines.Add(AddStockControlReportLine(orderLine, @"N\A", ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_NO_MATCH));
+                    stockControlReportLines.Add(AddStockControlReportLine(stocks,orders, orderLine, @"N\A", ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_NO_MATCH));
                 }
 
                 int transactionTotal = stockTransactions.Where(x => x.Stock.Id == orderLine.Stock.Id).Sum(x => x.Transaction);
                 if (transactionTotal != orderLine.Quantity * -1)
                 {
-                    stockControlReportLines.Add(AddStockControlReportLine(orderLine, transactionTotal.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_ORDERLINE_QUANTITY_VS_TRANSACTION_NOT_EQUAL));
+                    stockControlReportLines.Add(AddStockControlReportLine(stocks,orders, orderLine, transactionTotal.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_ORDERLINE_QUANTITY_VS_TRANSACTION_NOT_EQUAL));
                 }
             }
 
@@ -682,38 +687,50 @@ namespace ATMTECH.ShoppingCart.Services
             {
                 if (orderLines.Count(x => x.Stock.Id == stockTransaction.Stock.Id) == 0)
                 {
-                    stockControlReportLines.Add(AddStockControlReportLine(new OrderLine { Order = new Order { Id = stockTransaction.Order.Id } }, stockTransaction.Transaction.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_TRANSACTION_NOT_EXISTS_IN_ORDERLINE));
+                    stockControlReportLines.Add(AddStockControlReportLine(stocks, orders, new OrderLine { Order = new Order { Id = stockTransaction.Order.Id } }, stockTransaction.Transaction.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_TRANSACTION_NOT_EXISTS_IN_ORDERLINE));
                 }
             }
             return stockControlReportLines.OrderBy(x => x.Order).ToList();
         }
 
-        private StockControlReportLine AddStockControlReportLine(OrderLine orderLine, string stockTransactionQuantity, string message)
+        private StockControlReportLine AddStockControlReportLine(IList<Stock> stocks, IList<Order> orders, OrderLine orderLine, string stockTransactionQuantity, string message)
         {
 
             if (orderLine.Order != null)
             {
-                orderLine.Order = GetOrder(orderLine.Order.Id);
+                orderLine.Order = orders.FirstOrDefault(x => x.Id == orderLine.Order.Id);
             }
-
-            if (orderLine.Stock == null)
+            else
             {
-                StockControlReportLine stockControlReportLine = new StockControlReportLine()
+                StockControlReportLine stockControlReportLine = new StockControlReportLine
                 {
-                    Order = @"Commande: " + orderLine.Order.Id,
+                    Order = @"N\A",
                     Stock = @"N\A",
                     OrderLineQuantity = @"N\A",
-                    StockTransactionQuantity = stockTransactionQuantity,
+                    StockTransactionQuantity = "0",
                     Problem = message
                 };
                 return stockControlReportLine;
             }
+
+            if (orderLine.Stock == null)
+            {
+                StockControlReportLine stockControlReportLine = new StockControlReportLine
+                    {
+                        Order = orderLine.Order == null ? "Aucune commande existante" : HttpUtility.HtmlDecode(orderLine.Order.ComboboxDescription),
+                        Stock = @"N\A",
+                        OrderLineQuantity = @"N\A",
+                        StockTransactionQuantity = stockTransactionQuantity,
+                        Problem = message
+                    };
+                return stockControlReportLine;
+            }
             else
             {
-                orderLine.Stock = StockService.GetStock(orderLine.Stock.Id);
+                orderLine.Stock = stocks.FirstOrDefault(x=>x.Id == orderLine.Stock.Id);
                 StockControlReportLine stockControlReportLine = new StockControlReportLine()
                 {
-                    Order = HttpUtility.HtmlDecode(orderLine.Order.ComboboxDescription),
+                    Order = orderLine.Order == null ? "Aucune commande existante" : HttpUtility.HtmlDecode(orderLine.Order.ComboboxDescription),
                     Stock = HttpUtility.HtmlDecode(orderLine.Stock.ComboboxDescription),
                     OrderLineQuantity = orderLine.Quantity.ToString(),
                     StockTransactionQuantity = stockTransactionQuantity,

@@ -6,6 +6,7 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
 {
    public interface IDAOOrder
    {
+       Order GetOrderSimple(int idOrder);
        Order GetOrder(int idOrder);
        int CreateOrder(Order order);
        int UpdateOrder(Order order);

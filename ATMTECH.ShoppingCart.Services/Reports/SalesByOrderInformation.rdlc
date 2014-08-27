@@ -1195,14 +1195,14 @@
                 <TablixCell />
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox27">
+                    <Textbox Name="GrandTotalAll">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!GrandTotalWithTaxes.Value)</Value>
+                              <Value>=First(Fields!GrandTotalAll.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -1215,7 +1215,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox27</rd:DefaultName>
+                      <rd:DefaultName>GrandTotalAll</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1439,7 +1439,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.70347in</Height>
+    <Height>1.95347in</Height>
     <Style />
   </Body>
   <Width>13.64944in</Width>
@@ -1686,6 +1686,10 @@
         <Field Name="FinalizedDate">
           <DataField>FinalizedDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="GrandTotalAll">
+          <DataField>GrandTotalAll</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="GrandTotalOrder">
           <DataField>GrandTotalOrder</DataField>

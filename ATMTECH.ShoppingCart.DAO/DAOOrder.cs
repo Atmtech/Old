@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
-using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 
@@ -82,18 +80,28 @@ namespace ATMTECH.ShoppingCart.DAO
         public Order GetOrder(int idOrder)
         {
             Order order = GetById(idOrder);
-            order.Enterprise = DAOEntreprise.GetEnterprise(order.Enterprise.Id);
-            order.Customer = DAOCustomer.GetCustomer(order.Customer.Id);
-
-            IList<OrderLine> orderLines = DAOOrderLine.GetOrderLine(order.Id);
-            foreach (OrderLine orderLine in orderLines)
+            if (order != null)
             {
-                orderLine.Stock = DAOStock.GetStock(orderLine.Stock.Id);
-                orderLine.Stock.Product = DAOProduct.GetProduct(orderLine.Stock.Product.Id);
-            }
-            order.OrderLines = orderLines;
 
-            return order;
+
+                order.Enterprise = DAOEntreprise.GetEnterprise(order.Enterprise.Id);
+                order.Customer = DAOCustomer.GetCustomer(order.Customer.Id);
+
+                IList<OrderLine> orderLines = DAOOrderLine.GetOrderLine(order.Id);
+                foreach (OrderLine orderLine in orderLines)
+                {
+                    orderLine.Stock = DAOStock.GetStock(orderLine.Stock.Id);
+                    orderLine.Stock.Product = DAOProduct.GetProduct(orderLine.Stock.Product.Id);
+                }
+                order.OrderLines = orderLines;
+                return order;
+            }
+            return null;
+
+        }
+        public Order GetOrderSimple(int idOrder)
+        {
+            return GetById(idOrder);
         }
 
         private OrderLine RemoveQuantiyZeroInOrderLine(OrderLine orderLine)
@@ -122,7 +130,7 @@ namespace ATMTECH.ShoppingCart.DAO
             order.Id = idOrder;
             foreach (OrderLine orderLine in order.OrderLines)
             {
-                Order orderForLine = new Order() { Id = idOrder };
+                Order orderForLine = new Order { Id = idOrder };
                 orderLine.Order = orderForLine;
                 DAOOrderLine.Update(orderLine);
             }
