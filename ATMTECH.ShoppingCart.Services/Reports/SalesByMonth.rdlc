@@ -1646,6 +1646,7 @@
                               <Value>=Fields!StockActualState.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <Color>= iif(Fields!StockActualState.Value &lt;= Fields!MinimumAccept.Value, "Red", "Black")</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -3290,7 +3291,6 @@
                         <rd:FormatSymbolCulture>fr-CA</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -4225,6 +4225,10 @@
         </Field>
         <Field Name="MaySales">
           <DataField>MaySales</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MinimumAccept">
+          <DataField>MinimumAccept</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="NovemberSales">

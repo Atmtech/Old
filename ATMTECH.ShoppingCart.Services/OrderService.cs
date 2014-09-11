@@ -363,7 +363,7 @@ namespace ATMTECH.ShoppingCart.Services
                             Enterprise = enterprise.Name,
                             ProductId = orderLine.Stock.Product.Id,
                             Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.NameFrench + " " + orderLine.Stock.FeatureFrench),
-                            StockActualState = StockService.GetCurrentStockStatus(orderLine.Stock, dateStart, dateEnd),
+                            StockActualState = StockService.GetCurrentStockStatus(orderLine.Stock, new DateTime(1990, 01, 01), dateEnd),
                             StockInitialState = orderLine.Stock.InitialState,
                             UnitPrice = orderLine.Stock.Product.UnitPrice,
                             UnitPriceOrderLine = orderLine.UnitPrice,
@@ -481,7 +481,7 @@ namespace ATMTECH.ShoppingCart.Services
                                                                        DateTime dateEnd)
         {
             IList<SalesByMonthReportLine> salesByMonthReportLines = new List<SalesByMonthReportLine>();
-            IList<Product> products = ProductService.GetProductsWithoutLanguage(enterprise.Id);
+            IList<Product> products = ProductService.GetProductsWithoutLanguage(enterprise.Id).ToList();
             IList<Order> orders = DAOOrder.GetAllFinalized(enterprise, dateStart, dateEnd);
             IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).ToList();
             IList<Stock> stocks = products.SelectMany(product => product.Stocks).Where(x => x.IsActive).Distinct().ToList();
@@ -504,7 +504,7 @@ namespace ATMTECH.ShoppingCart.Services
                 decimal grandTotalSales = 0;
                 decimal unitPrice = 0;
 
-                int stockActualState = StockService.GetCurrentStockStatus(stock, dateStart, dateEnd);
+                int stockActualState = StockService.GetCurrentStockStatus(stock, new DateTime(1990,01,01), dateEnd);
                 int stockInitialState = stock.InitialState;
 
                 if (orderLines.Count(x => x.Stock.Id == stock.Id) > 0)
@@ -583,7 +583,8 @@ namespace ATMTECH.ShoppingCart.Services
                             UnitPrice = unitPrice,
                             TotalValueStockActualState = stockActualState * stock.Product.UnitPrice,
                             TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice,
-                            GrandTotalWithTaxes = grandTotalWithTaxes
+                            GrandTotalWithTaxes = grandTotalWithTaxes,
+                            MinimumAccept =  stock.MinimumAccept
                         };
                     salesByMonthReportLines.Add(salesByMonthReportLine);
 
@@ -614,7 +615,8 @@ namespace ATMTECH.ShoppingCart.Services
                         UnitPrice = stock.Product.UnitPrice,
                         TotalValueStockActualState = stockActualState * stock.Product.UnitPrice,
                         TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice,
-                        GrandTotalWithTaxes = grandTotalWithTaxes
+                        GrandTotalWithTaxes = grandTotalWithTaxes,
+                        MinimumAccept = stock.MinimumAccept
                     };
                     salesByMonthReportLines.Add(salesByMonthReportLine);
                 }

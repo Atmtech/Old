@@ -27,5 +27,6 @@ namespace ATMTECH.ShoppingCart.Services.Reports.DTO
         public int StockActualState { get; set; }
         public int StockInitialState { get; set; }
         public decimal GrandTotalWithTaxes { get; set; }
+        public int MinimumAccept { get; set; }
     }
 }
