@@ -523,6 +523,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\Administration.pubxml" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
     </None>

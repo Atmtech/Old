@@ -112,7 +112,7 @@
             Réajuster une ligne de commande
         </div>
         Id ligne commande à modifié:<asp:TextBox runat="server" ID="txtAdjustOrderlineId"></asp:TextBox> N.B.: Voir dans "Ligne de commande"<br/>
-        Quantité finale pour l'item:<asp:TextBox ID="txtAdjustOrderlineQuantite" runat="server"></asp:TextBox><br/>
+        Quantité finale pour l'item:<asp:TextBox ID="txtAdjustOrderlineQuantite" runat="server"></asp:TextBox> N.B.: Si quantité est 0 alors l'item sera enlevé de la commande<br/>
         <asp:Button runat="server" ID="btnAdjustOrderline" OnClick="btnAdjustOrderlineClick" CausesValidation="False" CssClass="button" Text="Réajuster" />
         <asp:Label runat="server" ID="lblAdjustOrderline"></asp:Label>
 

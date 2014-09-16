@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.Administration.Views.Base;
@@ -211,15 +212,37 @@ namespace ATMTECH.Administration.Views
         {
             OrderLine orderLine = OrderService.GetAllOrderLine().Where(x => x.Id == id).ToList()[0];
             Order order = OrderService.GetOrder(orderLine.Order.Id);
-            StockTransaction stockTransaction = StockService.GetAllStockTransaction().Where(x => x.Order.Id == orderLine.Order.Id).ToList()[0];
+
+            IList<OrderLine> orderLines = order.OrderLines.Where(x => x.Id == id).ToList();
+            if (orderLines.Count == 0)
+            {
+                MessageService.ThrowMessage(new Exception("Aucune ligne de commande active pour la commande: " + order.Id));
+            }
+
+            OrderLine orderLineAjuster = orderLines[0];
+
+            IList<StockTransaction> stockTransactions =
+                StockService.GetAllStockTransaction().Where(x => x.Order.Id == orderLine.Order.Id).ToList();
 
 
-            order.OrderLines.Where(x => x.Id == id).ToList()[0].Quantity = quantite;
+            IList<StockTransaction> stockTransactionTrouve = stockTransactions.Where(x => x.Stock.Id == orderLine.Stock.Id).ToList();
+            StockTransaction stockTransaction = stockTransactionTrouve.Count == 0 ? new StockTransaction() { Stock = orderLine.Stock, IsActive = true, Order = order } : stockTransactionTrouve[0];
 
-            stockTransaction.Transaction = quantite * -1;
+            if (quantite == 0)
+            {
+
+                orderLineAjuster.IsActive = false;
+                stockTransaction.IsActive = false;
+            }
+            else
+            {
+                orderLineAjuster.Quantity = quantite;
+                stockTransaction.Transaction = quantite * -1;
+            }
 
             OrderService.UpdateOrder(order, null);
             StockService.SaveStockTransaction(stockTransaction);
+
             return "Ok";
         }
     }

@@ -157,21 +157,21 @@ namespace ATMTECH.Administration.Services
         private Control CreateComboboxLanguage(PropertyInfo propertyInfo, string value)
         {
             return null;
-            ComboBoxAvance comboBoxAvance = new ComboBoxAvance
-            {
-                ID = propertyInfo.Name,
-                DataValueField = "Id",
-                DataTextField = "ComboboxDescription",
-                EstObligatoire = true
-            };
+            //ComboBoxAvance comboBoxAvance = new ComboBoxAvance
+            //{
+            //    ID = propertyInfo.Name,
+            //    DataValueField = "Id",
+            //    DataTextField = "ComboboxDescription",
+            //    EstObligatoire = true
+            //};
 
-            ListItem listItemFrancais = new ListItem("Français", "fr");
-            ListItem listItemAnglais = new ListItem("Anglais", "en");
+            //ListItem listItemFrancais = new ListItem("Français", "fr");
+            //ListItem listItemAnglais = new ListItem("Anglais", "en");
 
-            comboBoxAvance.Items.Add(listItemFrancais);
-            comboBoxAvance.Items.Add(listItemAnglais);
-            comboBoxAvance.SelectedValue = value;
-            return comboBoxAvance;
+            //comboBoxAvance.Items.Add(listItemFrancais);
+            //comboBoxAvance.Items.Add(listItemAnglais);
+            //comboBoxAvance.SelectedValue = value;
+            //return comboBoxAvance;
         }
         private Object GetDatasourceFromProperty(PropertyInfo propertyInfo, int idEnterprise, string nameSpace, string entity)
         {

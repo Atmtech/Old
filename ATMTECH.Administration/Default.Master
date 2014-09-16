@@ -103,6 +103,7 @@
                                             <li><a href="Videos/AjouterImageProduit.mp4">Ajouter une image au produit</a></li>
                                             <li><a href="Videos/ProcessusCommandeQuotation.mp4">Processus de commande avec quotation</a></li>
                                             <li><a href="Videos/ProcessusExportationPaypal.mp4">Processus d'exportation des commandes de paypal</a></li>
+                                            <li><a href="Videos/EnleverProduitDuneCommande.mp4">Enlever un produit d'une commande existante et le remplacer</a></li>
                                         </ul>
                                         <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
                                             Produit et commandes
