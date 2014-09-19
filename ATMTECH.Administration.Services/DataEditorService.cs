@@ -128,7 +128,7 @@ namespace ATMTECH.Administration.Services
         }
         public Object GetById(string nameSpace, string className, int id)
         {
-            if (id != 0)
+            if (id != 0 && !String.IsNullOrEmpty(nameSpace))
             {
                 ManageClass manageClass = new ManageClass();
                 Type d1 = typeof(BaseDao<,>);

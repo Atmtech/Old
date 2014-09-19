@@ -24,19 +24,24 @@ namespace ATMTECH.Common.Utilities
 
         public Type GetTypeFromNameSpace(string nameSpace, string className)
         {
-            Assembly assembly = Assembly.Load(nameSpace);
-            return assembly.GetTypes().Where(x => x.IsClass).FirstOrDefault(type => type.Name.ToLower() == className.ToLower());
+            if (!string.IsNullOrEmpty(nameSpace))
+            {
+                Assembly assembly = Assembly.Load(nameSpace);
+                return
+                assembly.GetTypes()
+                        .Where(x => x.IsClass)
+                        .FirstOrDefault(type => type.Name.ToLower() == className.ToLower());
+            }
+
+            return null;
+
+
         }
 
         public List<string> GetAllClassesFromNameSpace(string nameSpace)
         {
             Assembly asm = Assembly.Load(nameSpace);
-            List<string> namespaceList = new List<string>();
-            foreach (Type type in asm.GetTypes())
-            {
-                namespaceList.Add(type.Name);
-            }
-            return namespaceList;
+            return asm.GetTypes().Select(type => type.Name).ToList();
         }
         public List<string> GetAllClassesFromNameSpace(string nameSpace, IList<string> excluded)
         {
@@ -284,16 +289,20 @@ namespace ATMTECH.Common.Utilities
                             }
                             else
                             {
-                                pi.SetValue(instance, Convert.ChangeType(HtmlDecode(propertyValue), pi.PropertyType), null);    
+                                if (propertyValue != "null")
+                                {
+                                    pi.SetValue(instance, Convert.ChangeType(HtmlDecode(propertyValue), pi.PropertyType), null);
+                                }
+
                             }
-                            
+
                         }
 
 
 
                     }
                 }
-                catch  (Exception ex)
+                catch (Exception ex)
                 {
                     string s = ex.Message;
                 }

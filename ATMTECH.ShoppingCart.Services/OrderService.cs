@@ -694,7 +694,10 @@ namespace ATMTECH.ShoppingCart.Services
             }
             return stockControlReportLines.OrderBy(x => x.Order).ToList();
         }
-
+        public IList<OrderLine> GetOrderLine(int idOrder)
+        {
+            return DAOOrderLine.GetOrderLine(idOrder);
+        }
         private StockControlReportLine AddStockControlReportLine(IList<Stock> stocks, IList<Order> orders, OrderLine orderLine, string stockTransactionQuantity, string message)
         {
 
@@ -858,6 +861,8 @@ namespace ATMTECH.ShoppingCart.Services
             }
             return orders;
         }
+
+
     }
 }
 
