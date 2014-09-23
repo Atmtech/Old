@@ -49,11 +49,18 @@ namespace ATMTECH.ShoppingCart.Views
                 if (result)
                 {
                     Product product = ProductService.GetProduct(idProduct);
+
+                    if (product.ProductCategoryFrench == null || product.ProductCategoryEnglish == null)
+                    {
+                        MessageService.ThrowMessage(ErrorCode.SC_NO_CATEGORY);
+                    }
+                 
+
                     View.Product = product;
                     if (CustomerService.AuthenticateCustomer != null)
                     {
                         View.IsOrderable = CustomerService.AuthenticateCustomer.Enterprise.IsOrderPossible;
-                        View.IsOrderableAgainstSecurity = ProductService.GetProductAccessOrderable(product, CustomerService.AuthenticateCustomer.Id); 
+                        View.IsOrderableAgainstSecurity = ProductService.GetProductAccessOrderable(product, CustomerService.AuthenticateCustomer.Id);
                     }
                     else
                     {
@@ -156,7 +163,7 @@ namespace ATMTECH.ShoppingCart.Views
                         order.BillingAddress = CustomerService.AuthenticateCustomer.BillingAddress;
                     }
                 }
-                
+
                 if (CustomerService.AuthenticateCustomer.Enterprise.ShippingAddress.Count > 0)
                     order.ShippingAddress = CustomerService.AuthenticateCustomer.Enterprise.ShippingAddress[0];
                 else
@@ -183,7 +190,7 @@ namespace ATMTECH.ShoppingCart.Views
             if (CustomerService.AuthenticateCustomer != null)
             {
                 Order order = OrderService.GetWishListFromCustomer(CustomerService.AuthenticateCustomer);
-                return order != null ? order.Id : 0;    
+                return order != null ? order.Id : 0;
             }
             return 0;
         }
