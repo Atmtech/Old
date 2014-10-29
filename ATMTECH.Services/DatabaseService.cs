@@ -60,11 +60,19 @@ namespace ATMTECH.Services
                     case EnumDatabaseVendor.Mssql:
                         using (SqlCommand commandCreate = new SqlCommand(sql, (SqlConnection)DatabaseSessionManager.Session))
                         {
-                            object retour = commandCreate.ExecuteScalar();
-                            if (retour != null)
+                            try
                             {
-                                html = retour.ToString();
+                                object retour = commandCreate.ExecuteScalar();
+                                if (retour != null)
+                                {
+                                    html = retour.ToString();
+                                }
                             }
+                            catch (Exception ex)
+                            {
+                                html = ex.Message;
+                            }
+                            
                         }
                         break;
                 }
