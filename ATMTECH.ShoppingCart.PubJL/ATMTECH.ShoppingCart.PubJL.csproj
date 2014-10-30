@@ -191,7 +191,9 @@
     <Content Include="Errors\Maintenance.html" />
     <Content Include="Errors\SessionTimeout.htm" />
     <Content Include="ExpressCheckoutPaypal.aspx" />
-    <Content Include="fonts\iconFont.svg" />
+    <Content Include="fonts\iconFont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="fonts\license.txt" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Global.asax" />
@@ -291,9 +293,15 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Captcha.ashx" />
-    <None Include="fonts\iconFont.eot" />
-    <None Include="fonts\iconFont.ttf" />
-    <None Include="fonts\iconFont.woff" />
+    <None Include="fonts\iconFont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="fonts\iconFont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="fonts\iconFont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\Atmtech PUBJL.pubxml" />
   </ItemGroup>
