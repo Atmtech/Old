@@ -51,7 +51,7 @@ namespace ATMTECH.WPF.Themes
 
         public static void ApplyTheme(this ContentControl control, string theme)
         {
-            ResourceDictionary dictionary = ThemeManager.GetThemeResourceDictionary(theme);
+            ResourceDictionary dictionary = GetThemeResourceDictionary(theme);
 
             if (dictionary != null)
             {

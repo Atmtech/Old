@@ -151,7 +151,11 @@ namespace ATMTECH.DAO.Database
                 {
                     value = property.GetValue(value, null);
                 }
-                currentType = property.PropertyType;
+                if (property != null)
+                {
+                    currentType = property.PropertyType;    
+                }
+                
             }
             return value;
         }

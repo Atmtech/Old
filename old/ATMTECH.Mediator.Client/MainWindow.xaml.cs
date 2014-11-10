@@ -73,23 +73,23 @@ namespace ATMTECH.Mediator.Client
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                _timer = new DispatcherTimer();
-                _timer.Tick += delegate { ObtenirClavardage(); };
+            //try
+            //{
+            //    _timer = new DispatcherTimer();
+            //    _timer.Tick += delegate { ObtenirClavardage(); };
 
-                DemarrerTimer();
-                ObtenirUtilisateurAuthentifie();
+            //    DemarrerTimer();
+            //    ObtenirUtilisateurAuthentifie();
                 this.ApplyTheme("ExpressionDark");
-                _forumCourant = "#DEFAULT";
+            //    _forumCourant = "#DEFAULT";
 
-                txtClavardage.Focus();
-            }
-            catch (Exception ex)
-            {
-                GestionFlowDocument.AjouterErreur(ex.Message);
-                ArreterTimer();
-            }
+            //    txtClavardage.Focus();
+            //}
+            //catch (Exception ex)
+            //{
+            //    GestionFlowDocument.AjouterErreur(ex.Message);
+            //    ArreterTimer();
+            //}
 
 
         }
@@ -104,9 +104,10 @@ namespace ATMTECH.Mediator.Client
             try
             {
                 IList<Clavardage> clavardages = MediatorPresenter.ObtenirClavardage(_chatCourant);
-                if (clavardages == null) return;
-                _chatCourant = clavardages.Max(x => x.NoClavardage);
-                AfficherClavardage(clavardages);
+                
+                //if (clavardages == null) return;
+                //_chatCourant = clavardages.Max(x => x.NoClavardage);
+                //AfficherClavardage(clavardages);
             }
             catch (Exception ex)
             {
@@ -114,25 +115,22 @@ namespace ATMTECH.Mediator.Client
                 ArreterTimer();
             }
         }
-
         private void OuvrirLumiere()
         {
             lumiereOn.Visibility = Visibility.Visible;
             lumiereOff.Visibility = Visibility.Hidden;
         }
-
         private void FermerLumiere()
         {
             lumiereOn.Visibility = Visibility.Hidden;
             lumiereOff.Visibility = Visibility.Visible;
         }
-
         private void ArreterTimer()
         {
             FermerLumiere();
             _timer.Stop();
         }
-
+        
         private void ObtenirListeClavardage()
         {
             try
@@ -155,7 +153,6 @@ namespace ATMTECH.Mediator.Client
                 ArreterTimer();
             }
         }
-
         private void AfficherClavardage(IList<Clavardage> clavardages)
         {
             foreach (Clavardage clavardage in clavardages)
@@ -175,17 +172,14 @@ namespace ATMTECH.Mediator.Client
                 }
             }
         }
-
         private void MainWindow_OnClosed(object sender, EventArgs e)
         {
             MediatorPresenter.EnvoyerCommande(UtilisateurAuthentifie.NoUtilisateur, "/q", "#DEFAULT");
         }
-
         private void btnObtenir10DernierClick(object sender, RoutedEventArgs e)
         {
             ObtenirListeClavardage();
         }
-
         private void txtLog_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key != Key.Escape)
