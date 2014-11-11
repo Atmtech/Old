@@ -6,7 +6,7 @@ namespace ATMTECH.Mediator.Client
     public partial class FormMain : Form
     {
         private GestionPresentation _gestionPresentation;
-        public GestionPresentation GestionPresentation { get { return _gestionPresentation ?? (_gestionPresentation = new GestionPresentation()); }}
+        public GestionPresentation GestionPresentation { get { return _gestionPresentation ?? (_gestionPresentation = new GestionPresentation()); } }
 
         public FormMain()
         {
@@ -42,6 +42,23 @@ namespace ATMTECH.Mediator.Client
         private void btnDernierClavardage_Click(object sender, EventArgs e)
         {
             GestionPresentation.AfficherClavardage(richTextBoxClavardage, 50);
+        }
+
+        private void timerFocus_Tick(object sender, EventArgs e)
+        {
+            textBoxClavardage.Focus();
+            timerFocus.Enabled = false;
+        }
+
+        private void btnZoomPlus_Click(object sender, EventArgs e)
+        {
+            richTextBoxClavardage.ZoomFactor += (float)0.1;
+        }
+
+        private void btnZoomMoins_Click(object sender, EventArgs e)
+        {
+            if (richTextBoxClavardage.ZoomFactor >= 0.8)
+                richTextBoxClavardage.ZoomFactor -= (float)0.1;
         }
 
 
