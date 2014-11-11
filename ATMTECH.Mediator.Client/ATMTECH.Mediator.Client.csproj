@@ -50,8 +50,6 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionFormulaire.cs" />
-    <Compile Include="GestionControle.cs" />
     <Compile Include="GestionPresentation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

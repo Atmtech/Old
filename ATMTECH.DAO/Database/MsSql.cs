@@ -98,7 +98,7 @@ namespace ATMTECH.DAO.Database
             TModel model = (TModel)Activator.CreateInstance(typeof(TModel), null);
             Type type = model.GetType();
             string tableName = DatabaseOperation.ReturnTableName(type);
-            string sql = string.Format(SQL_COUNT, tableName);
+            string sql = string.Format(SQL_MAX, columnName, tableName);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection);
 

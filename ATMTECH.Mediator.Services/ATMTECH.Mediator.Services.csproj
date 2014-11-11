@@ -40,11 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ParametreService.cs" />
-    <Compile Include="Interface\IParametreService.cs" />
-    <Compile Include="Interface\IMediaService.cs" />
-    <Compile Include="Interface\IMediatorService.cs" />
-    <Compile Include="MediaService.cs" />
+    <Compile Include="Interface\IClavardageService.cs" />
     <Compile Include="ClavardageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

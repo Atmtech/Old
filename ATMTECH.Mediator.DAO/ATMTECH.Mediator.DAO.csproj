@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAOParametre.cs" />
     <Compile Include="DAOUtilisateurs.cs" />
     <Compile Include="DAOClavardage.cs" />
     <Compile Include="Interface\IDAOMediator.cs" />
