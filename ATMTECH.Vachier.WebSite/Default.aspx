@@ -41,7 +41,6 @@
             <div style="padding: 10px 10px 10px 10px; font-weight: bold; color: white; font-size: 12px; text-transform: uppercase;">
                 <asp:Button runat="server" ID="btnAjouter" Text="Ajouter votre merde" CssClass="button" OnClick="btnAjouterClick" />
                 <asp:Button runat="server" ID="btnCherche" Text="Cherche dans la merde" CssClass="button" OnClick="btnChercheClick" />
-                <a href="http:\\www.denoncetongros.com"><img src="Images/bulletDenonceTonGros.png" /> </a>
                 <%--<asp:Button runat="server" ID="btnAjouterCelebre" Text="Ajoute ta merde célèbre" CssClass="button" OnClick="btnAjouterCelebreClick"/>--%>
             </div>
         </div>
@@ -70,19 +69,19 @@
             <div class="liste">
                 <div style="padding: 10px 10px 10px 10px;">
                     <h1>Le top 10 des merdes</h1>
-                    <asp:DataList runat="server" ID="datalistTop" OnItemCommand="datalistTopItemCommandClick">
+                    <asp:DataList runat="server" ID="datalistTop">
                         <ItemTemplate>
                             <div class="top20">
                                 <table>
                                     <tr>
-                                        <td style="width: 10px;vertical-align: top;">
+                                        <td style="width: 10px; vertical-align: top;">
                                             <asp:Label runat="server" ID="lblNumber" Text='<%#Container.ItemIndex + 1  %>' ForeColor="Maroon"></asp:Label>.
                                         </td>
                                         <td style="width: 300px;">
                                             <asp:Label runat="server" ID="lblDescription" Text='<%#Eval("Description")%>'></asp:Label>
                                             <asp:Label runat="server" ID="lblInsulte" Text='<%#Eval("Insulte.Description")%>'></asp:Label>
                                         </td>
-                                        <td style="width: 30px;vertical-align: top;">
+                                        <td style="width: 30px; vertical-align: top;">
                                             <asp:Label runat="server" ID="lblJaime" Text='<%#"(" + Eval("JaimeTaMerde") + ")"%>' CssClass="compteEmmerdeur"></asp:Label>
 
                                         </td>
@@ -93,14 +92,6 @@
 
                             </div>
                         </ItemTemplate>
-                        <%-- <AlternatingItemTemplate>
-                            <div style="background-color: rgb(192, 192, 183);" class="top20">
-                                <asp:Label runat="server" ID="lblNumber" Text='<%#Container.ItemIndex + 1  %>' ForeColor="Maroon"></asp:Label>.
-                            <asp:Label runat="server" ID="lblDescription" Text='<%#Eval("Description")%>'></asp:Label>
-                                <asp:Label runat="server" ID="lblInsulte" Text='<%#Eval("Insulte.Description")%>'></asp:Label>
-                                <asp:Label runat="server" ID="lblJaime" Text='<%#"(" + Eval("JaimeTaMerde") + ")"%>' CssClass="compteEmmerdeur"></asp:Label>
-                            </div>
-                        </AlternatingItemTemplate>--%>
                         <FooterTemplate>
                             <asp:Label ID="lblEmpty" Text="Aucune merde importante à affichier bande de merdeux" runat="server"
                                 Visible='<%#bool.Parse((datalistTop.Items.Count==0).ToString())%>'>
@@ -143,9 +134,6 @@
             </div>
             <div class="vachier" style="">
                 <div style="padding: 10px 10px 10px 10px;">
-                    <asp:DropDownList runat="server" ID="ddlListePage" AutoPostBack="True" OnSelectedIndexChanged="ddlListePageSelectedIndexChanged" Visible="False">
-                        <asp:ListItem>0</asp:ListItem>
-                    </asp:DropDownList>
 
                     <asp:DropDownList runat="server" ID="ddlNombreParPage" AutoPostBack="True" Visible="False">
                         <asp:ListItem>20</asp:ListItem>
@@ -163,6 +151,12 @@
                     <div style="clear: both; height: 10px;"></div>
 
                     <div class="listeMerdeux">
+
+                        <div style="width: 100%;text-align: right;">
+                            Choisir une page de merde <asp:DropDownList runat="server" ID="ddlListePage" AutoPostBack="True" OnSelectedIndexChanged="ddlListePageSelectedIndexChanged" Visible="true">
+                            </asp:DropDownList>
+                        </div>
+
 
                         <asp:Panel runat="server" ID="pnlRecherche" Visible="False">
                             Vous avez recherché cette merde:
@@ -191,10 +185,9 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td style="width: 100px; padding-bottom: 10px;">
+                                    <td style="width: 50px; padding-bottom: 10px;">
                                         <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="Images/like.png" Width="20px" Height="20px" CommandName="JaimeTaMerde" CommandArgument='<%#Eval("Id")%>' AlternateText="J'aime ta merde" />
                                         <asp:Label runat="server" ID="lblJaimeTaMerde" Text='<%#Eval("JaimeTaMerde")%>'></asp:Label>
-                                        Merde(s)
                                     </td>
 
                                 </tr>

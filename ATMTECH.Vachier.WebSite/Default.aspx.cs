@@ -46,11 +46,7 @@ namespace ATMTECH.Vachier.WebSite
             CacherTout();
         }
 
-        protected void datalistTopItemCommandClick(object source, DataListCommandEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         protected void datalistMerdeItemCommandClick(object source, RepeaterCommandEventArgs repeaterCommandEventArgs)
         {
             if (repeaterCommandEventArgs.CommandName == "JaimeTaMerde")

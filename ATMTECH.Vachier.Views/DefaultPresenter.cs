@@ -29,7 +29,7 @@ namespace ATMTECH.Vachier.Views
             int total = DAOVachier.ObtenirCompte();
             List<Entities.Vachier> vachiers = ObtenirListe(total / View.NombreParPage, View.NombreParPage).ToList();
 
-            View.Liste = vachiers.OrderByDescending(x => x.Id).ToList();
+            View.Liste = vachiers.OrderByDescending(x => x.DateCreated).ToList();
             View.CompteTotal = total;
 
             View.MerdeDuMoment = DAOVachier.ObtenirMerdeDuJour();
@@ -47,7 +47,6 @@ namespace ATMTECH.Vachier.Views
             View.ListeTop = DAOVachier.ObtenirListeVachierTopListe();
         }
 
-
         public IList<Entities.Vachier> ObtenirListe(int indexDebut, int nombreSortie)
         {
             if (!string.IsNullOrEmpty(QueryString.GetQueryStringValue("r")))
@@ -55,7 +54,7 @@ namespace ATMTECH.Vachier.Views
                 View.RechercheQueryString = QueryString.GetQueryStringValue("r");
             }
 
-            return DAOVachier.ObtenirListeVachier(QueryString.GetQueryStringValue("r"), nombreSortie, indexDebut);
+            return DAOVachier.ObtenirListeVachier(QueryString.GetQueryStringValue("r"), nombreSortie, indexDebut).OrderByDescending(x => x.DateCreated).ToList();
         }
 
 
