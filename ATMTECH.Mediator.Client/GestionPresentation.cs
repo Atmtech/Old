@@ -79,6 +79,7 @@ namespace ATMTECH.Mediator.Client
                     if (clavardage.Texte.ToLower().IndexOf("/q") == 0)
                     {
                         AjouterTexte(string.Format("{0} est déconnecté", clavardage.Utilisateur.NomUtilisateur), Color.GreenYellow);
+                        AjouterSautLigne();
                     }
                 }
                 else
