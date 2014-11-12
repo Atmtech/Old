@@ -36,6 +36,7 @@
             this.btnDernierClavardage = new System.Windows.Forms.Button();
             this.btnZoomPlus = new System.Windows.Forms.Button();
             this.btnZoomMoins = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // richTextBoxClavardage
@@ -153,6 +154,7 @@
         private System.Windows.Forms.Button btnDernierClavardage;
         private System.Windows.Forms.Button btnZoomPlus;
         private System.Windows.Forms.Button btnZoomMoins;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

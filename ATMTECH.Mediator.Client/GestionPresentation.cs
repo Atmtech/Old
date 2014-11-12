@@ -28,6 +28,7 @@ namespace ATMTECH.Mediator.Client
             RichTextBox.SelectionColor = color;
             RichTextBox.AppendText(text);
             RichTextBox.SelectionColor = RichTextBox.ForeColor;
+            
         }
         public void AjouterSautLigne()
         {
