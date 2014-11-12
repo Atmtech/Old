@@ -6,7 +6,8 @@ namespace ATMTECH.Mediator.Client
     public partial class FormClavardage : Form
     {
         private GestionPresentation _gestionPresentation;
-        public GestionPresentation GestionPresentation { get { return _gestionPresentation ?? (_gestionPresentation = new GestionPresentation()); } }
+        public GestionPresentation GestionPresentation { get { return _gestionPresentation ?? (_gestionPresentation = new GestionPresentation { RichTextBox = richTextBoxClavardage }); } }
+
 
         public FormClavardage()
         {
@@ -18,7 +19,7 @@ namespace ATMTECH.Mediator.Client
             ActiveControl = textBoxClavardage;
             GestionPresentation.EnvoyerClavardage("/JOIN");
             timerClavardage.Enabled = true;
-            GestionPresentation.AfficherClavardage(richTextBoxClavardage);
+            GestionPresentation.EstAfficherClavardage();
         }
 
         private void textBoxChat_KeyUp(object sender, KeyEventArgs e)
@@ -36,12 +37,20 @@ namespace ATMTECH.Mediator.Client
 
         private void timerClavardage_Tick(object sender, EventArgs e)
         {
-            GestionPresentation.AfficherClavardage(richTextBoxClavardage);
+            if (GestionPresentation.EstAfficherClavardage())
+            {
+                //if (richTextBoxClavardage.ReachedBottom())
+                //{
+                richTextBoxClavardage.SelectionStart = richTextBoxClavardage.Text.Length;
+                richTextBoxClavardage.ScrollToCaret();
+                // }
+            }
+
         }
 
         private void btnDernierClavardage_Click(object sender, EventArgs e)
         {
-            GestionPresentation.AfficherClavardage(richTextBoxClavardage, 50);
+            GestionPresentation.AfficherClavardage( 50);
         }
 
         private void btnZoomPlus_Click(object sender, EventArgs e)

@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="client.ico" />
+    <Content Include="Time.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">

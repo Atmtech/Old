@@ -12,19 +12,6 @@ namespace ATMTECH.Mediator.DAO
     {
         private readonly DAOUtilisateurs _daoUtilisateurs = new DAOUtilisateurs();
 
-        //public Clavardage ObtenirClavardage(int chatCourant)
-        //{
-        //    int max = Convert.ToInt32(GetMax(Clavardage.NO_CLAVARDAGE));
-
-        //    if (max != chatCourant)
-        //    {
-        //        Clavardage clavardage = GetAllOneCriteria(Clavardage.NO_CLAVARDAGE, max.ToString())[0];
-        //        clavardage.Utilisateur = _daoUtilisateurs.ObtenirUtilisateur(clavardage.NoUtilisateur.ToString());
-        //        return clavardage;
-        //    }
-        //    return null;
-        //}
-
         public IList<Clavardage> ObtenirClavardage(int chatCourant)
         {
             IList<Criteria> criterias = new List<Criteria>();

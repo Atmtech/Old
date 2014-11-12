@@ -13,46 +13,52 @@ namespace ATMTECH.Mediator.Client
         public ClavardageService ClavardageService { get { return new ClavardageService(); } }
         public Utilisateur Utilisateur { get; set; }
         public int ClavardageCourant { get; set; }
+        public RichTextBox RichTextBox { get; set; }
+        public const string FORUMS = "#TEST";
 
         public GestionPresentation()
         {
             Utilisateur = ClavardageService.ObtenirUtilisateurCourant();
         }
 
-        public void AjouterTexte(RichTextBox box, string text, Color color)
+        public void AjouterTexte(string text, Color color)
         {
-            box.SelectionStart = box.TextLength;
-            box.SelectionLength = 0;
-            box.SelectionColor = color;
-            box.AppendText(text);
-            box.SelectionColor = box.ForeColor;
+            RichTextBox.SelectionStart = RichTextBox.TextLength;
+            RichTextBox.SelectionLength = 0;
+            RichTextBox.SelectionColor = color;
+            RichTextBox.AppendText(text);
+            RichTextBox.SelectionColor = RichTextBox.ForeColor;
         }
-        public void AfficherClavardage(RichTextBox box, int nombre)
+        public void AjouterSautLigne()
+        {
+            AjouterTexte(Environment.NewLine, Color.White);
+        }
+        public void AfficherClavardage(int nombre)
         {
             int plageInitial = ClavardageCourant - 100;
 
             IList<Clavardage> clavardages = ObtenirClavardage(plageInitial).Where(x => x.Type != "COMMAND").Take(nombre).OrderByDescending(x => x.NoClavardage).ToList();
-            AjouterTexte(box, "====================================================", Color.Turquoise);
-            AjouterTexte(box, Environment.NewLine, Color.White);
-            AjouterTexte(box, "Début historique de " + nombre + " clavardage", Color.Turquoise);
-            AjouterTexte(box, Environment.NewLine, Color.White);
-            AjouterTexte(box, "====================================================", Color.Turquoise);
-            AjouterTexte(box, Environment.NewLine, Color.White);
+            AjouterTexte("====================================================", Color.Turquoise);
+            AjouterTexte(Environment.NewLine, Color.White);
+            AjouterTexte("Début historique de " + nombre + " clavardage", Color.Turquoise);
+            AjouterTexte(Environment.NewLine, Color.White);
+            AjouterTexte("====================================================", Color.Turquoise);
+            AjouterTexte(Environment.NewLine, Color.White);
             foreach (Clavardage clavardage in clavardages)
             {
-                AjouterTexte(box, clavardage.Utilisateur.NomUtilisateur + " (" + clavardage.Date + ") > ", Color.GreenYellow);
-                AjouterTexte(box, clavardage.Texte, Color.White);
-                AjouterTexte(box, Environment.NewLine, Color.White);
-                box.SelectionStart = box.Text.Length;
-                box.ScrollToCaret();
+                AjouterTexte(clavardage.Utilisateur.NomUtilisateur + " (" + clavardage.Date + ") > ", Color.GreenYellow);
+                AjouterTexte(clavardage.Texte, Color.White);
+                AjouterTexte(Environment.NewLine, Color.White);
+                RichTextBox.SelectionStart = RichTextBox.Text.Length;
+                RichTextBox.ScrollToCaret();
             }
-            AjouterTexte(box, "====================================================", Color.Turquoise);
-            AjouterTexte(box, Environment.NewLine, Color.White);
+            AjouterTexte("====================================================", Color.Turquoise);
+            AjouterTexte(Environment.NewLine, Color.White);
         }
-        public void AfficherClavardage(RichTextBox box)
+        public bool EstAfficherClavardage()
         {
             IList<Clavardage> clavardages = ObtenirClavardage(ClavardageCourant);
-            if (clavardages == null) return;
+            if (clavardages == null) return false;
             foreach (Clavardage clavardage in clavardages)
             {
                 ClavardageCourant = clavardage.NoClavardage;
@@ -61,31 +67,45 @@ namespace ATMTECH.Mediator.Client
                 {
                     if (clavardage.Texte.ToLower().IndexOf("/join") == 0)
                     {
-                        AjouterTexte(box, string.Format("{0} est connecté", clavardage.Utilisateur.NomUtilisateur), Color.GreenYellow);
+                        AjouterTexte(string.Format("{0} est connecté", clavardage.Utilisateur.NomUtilisateur), Color.GreenYellow);
+                        AjouterSautLigne();
                     }
                     if (clavardage.Texte.ToLower().IndexOf("/me") == 0)
                     {
-                        AjouterTexte(box, clavardage.Texte.Substring(3, clavardage.Texte.Length - 3), Color.PaleVioletRed);
+                        AjouterTexte(clavardage.Texte.Substring(3, clavardage.Texte.Length - 3), Color.PaleVioletRed);
+                        AjouterSautLigne();
                     }
                     if (clavardage.Texte.ToLower().IndexOf("/q") == 0)
                     {
-                        AjouterTexte(box, string.Format("{0} est déconnecté", clavardage.Utilisateur.NomUtilisateur), Color.GreenYellow);
+                        AjouterTexte(string.Format("{0} est déconnecté", clavardage.Utilisateur.NomUtilisateur), Color.GreenYellow);
                     }
                 }
                 else
                 {
                     if (!string.IsNullOrEmpty(clavardage.Texte))
                     {
-                        AjouterTexte(box, clavardage.Utilisateur.NomUtilisateur + "> ", Color.GreenYellow);
-                        AjouterTexte(box, clavardage.Texte, Color.White);    
+                        
+                        Bitmap myBitmap = new Bitmap(@"C:\Dev\Atmtech\ATMTECH.Mediator.Client\Time.png");
+                        // Copy the bitmap to the clipboard.
+                        Clipboard.SetDataObject(myBitmap);
+                        // Get the format for the object type.
+                        DataFormats.Format myFormat = DataFormats.GetFormat(DataFormats.Bitmap);
+                        // After verifying that the data can be pasted, paste
+                        //if (RichTextBox.CanPaste(myFormat))
+                        //{
+                            RichTextBox.Paste(myFormat);
+                        //}
+
+                        AjouterTexte(clavardage.Utilisateur.NomUtilisateur + "> ", Color.GreenYellow);
+                        AjouterTexte(clavardage.Texte, Color.White);
+                        AjouterSautLigne();
                     }
                 }
-                AjouterTexte(box, Environment.NewLine, Color.White);
-                box.SelectionStart = box.Text.Length;
-                box.ScrollToCaret();
-            }
-        }
 
+                return true;
+            }
+            return false;
+        }
         private bool EstCommande(string texte)
         {
             return texte.Substring(0, 1) == "/";
@@ -97,7 +117,7 @@ namespace ATMTECH.Mediator.Client
                     NoUtilisateur = Utilisateur.NoUtilisateur,
                     Date = DateTime.Now,
                     Texte = texte,
-                    Forums = "#DEFAULT",
+                    Forums = FORUMS,
                     Type = EstCommande(texte) ? "COMMAND" : "CHAT"
                 };
             ClavardageService.EnvoyerClavardage(clavardage);
