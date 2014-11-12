@@ -2,7 +2,8 @@
     {
         margin: 0 0 0 0;
         background-color: rgb(174, 164, 146);
-        font-family: 'Open Sans', cursive;
+         font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
     }
     .listeMerdeux {
         font-weight: bold; font-size: 12px; color: rgb(49, 46, 43)
