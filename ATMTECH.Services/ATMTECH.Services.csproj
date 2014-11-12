@@ -57,7 +57,6 @@
   <ItemGroup>
     <Compile Include="DatabaseService.cs" />
     <Compile Include="FileService.cs" />
-    <Compile Include="DocumentConversionService.cs" />
     <Compile Include="Interface\IDatabaseService.cs" />
     <Compile Include="Interface\IFileService.cs" />
     <Compile Include="Interface\IBackupService.cs" />

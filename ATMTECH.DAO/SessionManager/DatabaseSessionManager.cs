@@ -4,19 +4,13 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using ATMTECH.Common.Context;
 using ATMTECH.DAO.Database;
-using MySql.Data.MySqlClient;
 
 namespace ATMTECH.DAO.SessionManager
 {
     public class DatabaseSessionManager
     {
-
         public static string ConnectionString { get; set; }
-
-
         public static int DatabaseTransactionCount { get; set; }
-
-        // private static DbConnection _session;
         public static DbConnection Session
         {
             get {
@@ -40,24 +34,6 @@ namespace ATMTECH.DAO.SessionManager
                     if (ConnectionString != _session.ConnectionString)
                     {
                         SqlConnection sqlConnection = new SqlConnection(ConnectionString);
-                        _session = sqlConnection;
-                    }
-
-                    if (_session.State != ConnectionState.Open)
-                    {
-                        _session.Open();
-                    }
-                    break;
-                case DatabaseVendor.DatabaseVendorType.MySql:
-                    if (_session == null)
-                    {
-                        MySqlConnection sqlConnection = new MySqlConnection(ConnectionString);
-                        _session = sqlConnection;
-                    }
-
-                    if (ConnectionString != _session.ConnectionString)
-                    {
-                        MySqlConnection sqlConnection = new MySqlConnection(ConnectionString);
                         _session = sqlConnection;
                     }
 
@@ -99,26 +75,6 @@ namespace ATMTECH.DAO.SessionManager
                         if (ConnectionString != dbConnection.ConnectionString)
                         {
                             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
-                            dbConnection = sqlConnection;
-                            ContextSessionManager.Context.Session["DatabaseSession"] = sqlConnection;
-                        }
-
-                        if (dbConnection.State != ConnectionState.Open)
-                        {
-                            dbConnection.Open();
-                        }
-                        break;
-                    case DatabaseVendor.DatabaseVendorType.MySql:
-                        if (dbConnection == null)
-                        {
-                            MySqlConnection sqlConnection = new MySqlConnection(ConnectionString);
-                            dbConnection = sqlConnection;
-                            ContextSessionManager.Context.Session["DatabaseSession"] = sqlConnection;
-                        }
-
-                        if (ConnectionString != dbConnection.ConnectionString)
-                        {
-                            MySqlConnection sqlConnection = new MySqlConnection(ConnectionString);
                             dbConnection = sqlConnection;
                             ContextSessionManager.Context.Session["DatabaseSession"] = sqlConnection;
                         }

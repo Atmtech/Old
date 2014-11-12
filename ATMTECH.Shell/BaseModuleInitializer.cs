@@ -18,9 +18,7 @@ namespace ATMTECH.Shell
         {
             Container.RegisterType<TInstance>().As<TInterface>().PropertiesAutowired();
         }
-
         public abstract void InitDependency();
-
 
         private void InitService()
         {
@@ -30,7 +28,6 @@ namespace ATMTECH.Shell
                 .PropertiesAutowired()
                 .SingleInstance();
         }
-
         private void InitDao()
         {
             Assembly dataAccess = VerificationEtForcerloadAssembly();
@@ -42,7 +39,6 @@ namespace ATMTECH.Shell
                    .PropertiesAutowired();
             }
         }
-
         private void InitializeFramework()
         {
             AddDependency<IParameterService, ParameterService>();
@@ -59,6 +55,20 @@ namespace ATMTECH.Shell
             AddDependency<IDAOParameter, DAOParameter>();
             AddDependency<IWeatherService, WeatherService>();
         }
+        private Assembly VerificationEtForcerloadAssembly()
+        {
+            string assemblyName = (GetType().Assembly.GetName().Name).Replace(".Services", "") + ".DAO";
+            return
+                AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == assemblyName) ??
+                ChercherAssemblyReferencer(assemblyName);
+        }
+        private Assembly ChercherAssemblyReferencer(string assemblyName)
+        {
+            AssemblyName assemblyReferencer =
+                GetType().Assembly.GetReferencedAssemblies().FirstOrDefault(a => a.Name == assemblyName);
+
+            return assemblyReferencer != null ? Assembly.Load(assemblyReferencer) : null;
+        }
 
         protected override void Load(ContainerBuilder builder)
         {
@@ -69,25 +79,6 @@ namespace ATMTECH.Shell
             InitDao();
             InitService();
         }
-
-        private Assembly VerificationEtForcerloadAssembly()
-        {
-            string assemblyName = (GetType().Assembly.GetName().Name).Replace(".Services", "") + ".DAO";
-            return
-                AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == assemblyName) ??
-                ChercherAssemblyReferencer(assemblyName);
-        }
-
-        private Assembly ChercherAssemblyReferencer(string assemblyName)
-        {
-            AssemblyName assemblyReferencer =
-                GetType().Assembly.GetReferencedAssemblies().FirstOrDefault(a => a.Name == assemblyName);
-
-            return assemblyReferencer != null ? Assembly.Load(assemblyReferencer) : null;
-        }
-
-
-
     }
 
 

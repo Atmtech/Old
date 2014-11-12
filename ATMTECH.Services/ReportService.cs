@@ -66,13 +66,10 @@ namespace ATMTECH.Services
 
             return retour;
         }
-
         public Stream SaveReportToStream(string reportName, byte[] file)
         {
             return new MemoryStream(file);
         }
-
-
         public void SaveReport(string reportName, byte[] file)
         {
             ContextSessionManager.Context.Response.BinaryWrite(file);
@@ -88,9 +85,7 @@ namespace ATMTECH.Services
         public IList<ReportInnerDataSource> DataSources { get; set; }
         public Dictionary<string, string> Parameters { get; set; }
         public string PathToReportAssembly { get; set; }
-
         public ReportFormat ReportFormat { get; set; }
-
         public void AddDatasource(string nom, IEnumerable valeur)
         {
             ReportInnerDataSource sourcesDonnees = new ReportInnerDataSource {Nom = nom, Valeurs = valeur};

@@ -18,22 +18,18 @@ namespace ATMTECH.Services
     public class FileService : IFileService
     {
         public IDAOFile DAOFile { get; set; }
-
         public File GetFile(int id)
         {
             return DAOFile.GetFile(id);
         }
-
         public File GetFile(File file)
         {
             return DAOFile.GetFile(file);
         }
-
         public IList<File> GetAllFile(string rootImagePath)
         {
             return DAOFile.GetAllFile().Where(x => x.RootImagePath == rootImagePath).ToList();
         }
-
         public IList<File> GetAllFile()
         {
             return DAOFile.GetAllFile();
@@ -98,14 +94,12 @@ namespace ATMTECH.Services
             httpPostedFile.SaveAs(serverPath);
             return rtn;
         }
-
         public void SaveFileWithoutDatabase(HttpPostedFile httpPostedFile, string root)
         {
             string filename = Path.GetFileName(httpPostedFile.FileName);
             string serverPath = string.Format(@"{0}\{1}\{2}", root, filename);
             httpPostedFile.SaveAs(serverPath);
         }
-
       
         private FileType GetFileType(File file)
         {

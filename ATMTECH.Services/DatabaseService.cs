@@ -11,7 +11,6 @@ namespace ATMTECH.Services
     {
         public IDAOMessage DAOMessage { get; set; }
 
-
         public string ExecuteSql(string sql, EnumDatabaseVendor enumDatabaseVendor)
         {
             string html = string.Empty;
@@ -79,42 +78,6 @@ namespace ATMTECH.Services
             }
             return html;
         }
-
-        private DataSet ReturnDataSet(string sql, EnumDatabaseVendor enumDatabaseVendor)
-        {
-            DataSet dataSet = new DataSet();
-
-            switch (enumDatabaseVendor)
-            {
-                case EnumDatabaseVendor.Mssql:
-                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
-                    {
-                        using (SqlCommand sqlCommand = new SqlCommand(sql, (SqlConnection)DatabaseSessionManager.Session))
-                        {
-                            DateTime startDate = DateTime.Now;
-                            string start = DateTime.Now + " " + DateTime.Now.Millisecond;
-
-                            sqlCommand.CommandType = CommandType.Text;
-                            sqlDataAdapter.SelectCommand = sqlCommand;
-
-                            sqlDataAdapter.Fill(dataSet);
-
-                            DateTime endDate = DateTime.Now;
-                            string end = DateTime.Now + " " + DateTime.Now.Millisecond;
-                            TimeSpan diffResult = endDate - startDate;
-
-                            // Show sql debug
-                            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
-                                                   diffResult.Milliseconds.ToString() + "ms) :: " + sql);
-                        }
-                    }
-
-                    break;
-            }
-
-            return dataSet;
-        }
-
         public string GetServerName()
         {
             System.Data.Common.DbConnectionStringBuilder builder = new System.Data.Common.DbConnectionStringBuilder
@@ -164,7 +127,40 @@ namespace ATMTECH.Services
 
             return rtn;
         }
+        private DataSet ReturnDataSet(string sql, EnumDatabaseVendor enumDatabaseVendor)
+        {
+            DataSet dataSet = new DataSet();
 
+            switch (enumDatabaseVendor)
+            {
+                case EnumDatabaseVendor.Mssql:
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                    {
+                        using (SqlCommand sqlCommand = new SqlCommand(sql, (SqlConnection)DatabaseSessionManager.Session))
+                        {
+                            DateTime startDate = DateTime.Now;
+                            string start = DateTime.Now + " " + DateTime.Now.Millisecond;
+
+                            sqlCommand.CommandType = CommandType.Text;
+                            sqlDataAdapter.SelectCommand = sqlCommand;
+
+                            sqlDataAdapter.Fill(dataSet);
+
+                            DateTime endDate = DateTime.Now;
+                            string end = DateTime.Now + " " + DateTime.Now.Millisecond;
+                            TimeSpan diffResult = endDate - startDate;
+
+                            // Show sql debug
+                            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
+                                                   diffResult.Milliseconds.ToString() + "ms) :: " + sql);
+                        }
+                    }
+
+                    break;
+            }
+
+            return dataSet;
+        }
 
     }
 }
