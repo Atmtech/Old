@@ -38,7 +38,7 @@ namespace ATMTECH.Mediator.Client
             int plageInitial = ClavardageCourant - 100;
 
             IList<Clavardage> clavardages = ObtenirClavardage(plageInitial).Where(x => x.Type != "COMMAND").Take(nombre).OrderByDescending(x => x.NoClavardage).ToList();
-            AjouterTexte("================= ===================================", Color.Turquoise);
+            AjouterTexte("====================================================", Color.Turquoise);
             AjouterTexte(Environment.NewLine, Color.White);
             AjouterTexte("Début historique de " + nombre + " clavardage", Color.Turquoise);
             AjouterTexte(Environment.NewLine, Color.White);
