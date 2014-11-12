@@ -39,13 +39,10 @@ namespace ATMTECH.Mediator.Client
         {
             if (GestionPresentation.EstAfficherClavardage())
             {
-                //if (richTextBoxClavardage.ReachedBottom())
-                //{
+                FlashWindow.Flash(this);
                 richTextBoxClavardage.SelectionStart = richTextBoxClavardage.Text.Length;
                 richTextBoxClavardage.ScrollToCaret();
-                // }
             }
-
         }
 
         private void btnDernierClavardage_Click(object sender, EventArgs e)

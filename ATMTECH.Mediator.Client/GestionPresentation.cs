@@ -14,7 +14,7 @@ namespace ATMTECH.Mediator.Client
         public Utilisateur Utilisateur { get; set; }
         public int ClavardageCourant { get; set; }
         public RichTextBox RichTextBox { get; set; }
-        public const string FORUMS = "#TEST";
+        public const string FORUMS = "#DEFAULT";
 
         public GestionPresentation()
         {
@@ -84,21 +84,10 @@ namespace ATMTECH.Mediator.Client
                 {
                     if (!string.IsNullOrEmpty(clavardage.Texte))
                     {
-                        
-                        Bitmap myBitmap = new Bitmap(@"C:\Dev\Atmtech\ATMTECH.Mediator.Client\Time.png");
-                        // Copy the bitmap to the clipboard.
-                        Clipboard.SetDataObject(myBitmap);
-                        // Get the format for the object type.
-                        DataFormats.Format myFormat = DataFormats.GetFormat(DataFormats.Bitmap);
-                        // After verifying that the data can be pasted, paste
-                        //if (RichTextBox.CanPaste(myFormat))
-                        //{
-                            RichTextBox.Paste(myFormat);
-                        //}
-
                         AjouterTexte(clavardage.Utilisateur.NomUtilisateur + "> ", Color.GreenYellow);
                         AjouterTexte(clavardage.Texte, Color.White);
                         AjouterSautLigne();
+                        
                     }
                 }
 
