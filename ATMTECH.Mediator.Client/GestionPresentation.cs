@@ -14,7 +14,7 @@ namespace ATMTECH.Mediator.Client
         public Utilisateur Utilisateur { get; set; }
         public int ClavardageCourant { get; set; }
         public RichTextBox RichTextBox { get; set; }
-        public const string FORUMS = "#TEST";
+        public const string FORUMS = "#DEFAULT";
 
         public GestionPresentation()
         {
