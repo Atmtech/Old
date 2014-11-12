@@ -1,6 +1,6 @@
 ﻿namespace ATMTECH.Mediator.Client
 {
-    partial class FormMain
+    partial class FormClavardage
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClavardage));
             this.richTextBoxClavardage = new System.Windows.Forms.RichTextBox();
             this.textBoxClavardage = new System.Windows.Forms.TextBox();
             this.timerClavardage = new System.Windows.Forms.Timer(this.components);
             this.btnDernierClavardage = new System.Windows.Forms.Button();
-            this.timerFocus = new System.Windows.Forms.Timer(this.components);
             this.btnZoomPlus = new System.Windows.Forms.Button();
             this.btnZoomMoins = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -55,6 +54,8 @@
             this.richTextBoxClavardage.Size = new System.Drawing.Size(836, 188);
             this.richTextBoxClavardage.TabIndex = 0;
             this.richTextBoxClavardage.Text = "";
+            this.richTextBoxClavardage.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBoxClavardage_LinkClicked);
+            this.richTextBoxClavardage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxClavardage_KeyDown);
             // 
             // textBoxClavardage
             // 
@@ -68,6 +69,7 @@
             this.textBoxClavardage.Name = "textBoxClavardage";
             this.textBoxClavardage.Size = new System.Drawing.Size(662, 20);
             this.textBoxClavardage.TabIndex = 1;
+            this.textBoxClavardage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxClavardage_KeyDown);
             this.textBoxClavardage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxChat_KeyUp);
             // 
             // timerClavardage
@@ -89,11 +91,6 @@
             this.btnDernierClavardage.Text = "50 derniers";
             this.btnDernierClavardage.UseVisualStyleBackColor = true;
             this.btnDernierClavardage.Click += new System.EventHandler(this.btnDernierClavardage_Click);
-            // 
-            // timerFocus
-            // 
-            this.timerFocus.Enabled = true;
-            this.timerFocus.Tick += new System.EventHandler(this.timerFocus_Tick);
             // 
             // btnZoomPlus
             // 
@@ -125,7 +122,7 @@
             this.btnZoomMoins.UseVisualStyleBackColor = true;
             this.btnZoomMoins.Click += new System.EventHandler(this.btnZoomMoins_Click);
             // 
-            // FormMain
+            // FormClavardage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -137,11 +134,12 @@
             this.Controls.Add(this.textBoxClavardage);
             this.Controls.Add(this.richTextBoxClavardage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormMain";
+            this.Name = "FormClavardage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mediator";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.Load += new System.EventHandler(this.FormMain_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormMain_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,7 +151,6 @@
         private System.Windows.Forms.TextBox textBoxClavardage;
         private System.Windows.Forms.Timer timerClavardage;
         private System.Windows.Forms.Button btnDernierClavardage;
-        private System.Windows.Forms.Timer timerFocus;
         private System.Windows.Forms.Button btnZoomPlus;
         private System.Windows.Forms.Button btnZoomMoins;
     }

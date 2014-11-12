@@ -3,22 +3,22 @@ using System.Windows.Forms;
 
 namespace ATMTECH.Mediator.Client
 {
-    public partial class FormMain : Form
+    public partial class FormClavardage : Form
     {
         private GestionPresentation _gestionPresentation;
         public GestionPresentation GestionPresentation { get { return _gestionPresentation ?? (_gestionPresentation = new GestionPresentation()); } }
 
-        public FormMain()
+        public FormClavardage()
         {
             InitializeComponent();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            ActiveControl = textBoxClavardage;
             GestionPresentation.EnvoyerClavardage("/JOIN");
             timerClavardage.Enabled = true;
             GestionPresentation.AfficherClavardage(richTextBoxClavardage);
-            textBoxClavardage.Focus();
         }
 
         private void textBoxChat_KeyUp(object sender, KeyEventArgs e)
@@ -44,12 +44,6 @@ namespace ATMTECH.Mediator.Client
             GestionPresentation.AfficherClavardage(richTextBoxClavardage, 50);
         }
 
-        private void timerFocus_Tick(object sender, EventArgs e)
-        {
-            textBoxClavardage.Focus();
-            timerFocus.Enabled = false;
-        }
-
         private void btnZoomPlus_Click(object sender, EventArgs e)
         {
             richTextBoxClavardage.ZoomFactor += (float)0.1;
@@ -59,6 +53,30 @@ namespace ATMTECH.Mediator.Client
         {
             if (richTextBoxClavardage.ZoomFactor >= 0.8)
                 richTextBoxClavardage.ZoomFactor -= (float)0.1;
+        }
+
+        private void richTextBoxClavardage_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
+
+        }
+
+        private void FormMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                WindowState = FormWindowState.Minimized;
+        }
+
+        private void textBoxClavardage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                WindowState = FormWindowState.Minimized;
+        }
+
+        private void richTextBoxClavardage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                WindowState = FormWindowState.Minimized;
         }
 
 

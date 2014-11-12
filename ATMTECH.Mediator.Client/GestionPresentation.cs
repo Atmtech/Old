@@ -74,8 +74,11 @@ namespace ATMTECH.Mediator.Client
                 }
                 else
                 {
-                    AjouterTexte(box, clavardage.Utilisateur.NomUtilisateur + "> ", Color.GreenYellow);
-                    AjouterTexte(box, clavardage.Texte, Color.White);
+                    if (!string.IsNullOrEmpty(clavardage.Texte))
+                    {
+                        AjouterTexte(box, clavardage.Utilisateur.NomUtilisateur + "> ", Color.GreenYellow);
+                        AjouterTexte(box, clavardage.Texte, Color.White);    
+                    }
                 }
                 AjouterTexte(box, Environment.NewLine, Color.White);
                 box.SelectionStart = box.Text.Length;
