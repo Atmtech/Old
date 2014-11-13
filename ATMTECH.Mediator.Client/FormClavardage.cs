@@ -12,7 +12,6 @@ namespace ATMTECH.Mediator.Client
         private GestionPresentation _gestionPresentation;
         public GestionPresentation GestionPresentation { get { return _gestionPresentation ?? (_gestionPresentation = new GestionPresentation { RichTextBox = richTextBoxClavardage }); } }
 
-
         public FormClavardage()
         {
             InitializeComponent();
@@ -46,7 +45,9 @@ namespace ATMTECH.Mediator.Client
             {
                 foreach (Clavardage clavardage in clavardages.Where(clavardage => !GestionPresentation.EstCommande(clavardage.Texte)))
                 {
-                    FlashWindow.Flash(this);
+                    if (clavardage.NoUtilisateur != GestionPresentation.Utilisateur.NoUtilisateur)
+                        FlashWindow.Flash(this);
+
                     richTextBoxClavardage.SelectionStart = richTextBoxClavardage.Text.Length;
                     richTextBoxClavardage.ScrollToCaret();
                 }
@@ -98,8 +99,5 @@ namespace ATMTECH.Mediator.Client
         {
             textBoxClavardage.Focus();
         }
-
-
-
     }
 }
