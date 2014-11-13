@@ -56,10 +56,10 @@ namespace ATMTECH.Mediator.Client
             AjouterTexte("====================================================", Color.Turquoise);
             AjouterTexte(Environment.NewLine, Color.White);
         }
-        public bool EstAfficherClavardage()
+        public IList<Clavardage> AfficherClavardage()
         {
             IList<Clavardage> clavardages = ObtenirClavardage(ClavardageCourant);
-            if (clavardages == null) return false;
+            if (clavardages == null) return null;
             foreach (Clavardage clavardage in clavardages)
             {
                 ClavardageCourant = clavardage.NoClavardage;
@@ -93,11 +93,11 @@ namespace ATMTECH.Mediator.Client
                     }
                 }
 
-                return true;
+                
             }
-            return false;
+            return clavardages;
         }
-        private bool EstCommande(string texte)
+        public bool EstCommande(string texte)
         {
             return texte.Substring(0, 1) == "/";
         }

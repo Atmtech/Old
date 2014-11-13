@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using ATMTECH.Mediator.Entities;
 
 namespace ATMTECH.Mediator.Client
 {
@@ -19,13 +23,7 @@ namespace ATMTECH.Mediator.Client
             ActiveControl = textBoxClavardage;
             GestionPresentation.EnvoyerClavardage("/JOIN");
             timerClavardage.Enabled = true;
-            GestionPresentation.EstAfficherClavardage();
-
-            //textBoxClavardage.LostFocus += new EventHandler(delegate(object sender, EventArgs e)
-            //{
-            //    textBoxClavardage.Focus();
-            //});
-
+            GestionPresentation.AfficherClavardage();
         }
 
         private void textBoxChat_KeyUp(object sender, KeyEventArgs e)
@@ -43,17 +41,22 @@ namespace ATMTECH.Mediator.Client
 
         private void timerClavardage_Tick(object sender, EventArgs e)
         {
-            if (GestionPresentation.EstAfficherClavardage())
+            IList<Clavardage> clavardages = GestionPresentation.AfficherClavardage();
+            if (clavardages != null)
             {
-                FlashWindow.Flash(this);
-                richTextBoxClavardage.SelectionStart = richTextBoxClavardage.Text.Length;
-                richTextBoxClavardage.ScrollToCaret();
+                foreach (Clavardage clavardage in clavardages.Where(clavardage => !GestionPresentation.EstCommande(clavardage.Texte)))
+                {
+                    FlashWindow.Flash(this);
+                    richTextBoxClavardage.SelectionStart = richTextBoxClavardage.Text.Length;
+                    richTextBoxClavardage.ScrollToCaret();
+                }
+                
             }
         }
 
         private void btnDernierClavardage_Click(object sender, EventArgs e)
         {
-            GestionPresentation.AfficherClavardage( 50);
+            GestionPresentation.AfficherClavardage(50);
         }
 
         private void btnZoomPlus_Click(object sender, EventArgs e)
@@ -96,7 +99,7 @@ namespace ATMTECH.Mediator.Client
             textBoxClavardage.Focus();
         }
 
-      
+
 
     }
 }
