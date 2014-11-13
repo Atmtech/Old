@@ -56,7 +56,6 @@
             this.richTextBoxClavardage.TabIndex = 0;
             this.richTextBoxClavardage.Text = "";
             this.richTextBoxClavardage.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBoxClavardage_LinkClicked);
-            this.richTextBoxClavardage.Enter += new System.EventHandler(this.richTextBoxClavardage_Enter);
             this.richTextBoxClavardage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBoxClavardage_KeyDown);
             // 
             // textBoxClavardage
@@ -73,6 +72,7 @@
             this.textBoxClavardage.TabIndex = 1;
             this.textBoxClavardage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxClavardage_KeyDown);
             this.textBoxClavardage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxChat_KeyUp);
+            this.textBoxClavardage.Leave += new System.EventHandler(this.textBoxClavardage_Leave);
             // 
             // timerClavardage
             // 
@@ -139,7 +139,6 @@
             this.Name = "FormClavardage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mediator";
-            this.Activated += new System.EventHandler(this.FormClavardage_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormMain_KeyDown);

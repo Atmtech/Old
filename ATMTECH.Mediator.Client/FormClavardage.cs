@@ -20,6 +20,12 @@ namespace ATMTECH.Mediator.Client
             GestionPresentation.EnvoyerClavardage("/JOIN");
             timerClavardage.Enabled = true;
             GestionPresentation.EstAfficherClavardage();
+
+            //textBoxClavardage.LostFocus += new EventHandler(delegate(object sender, EventArgs e)
+            //{
+            //    textBoxClavardage.Focus();
+            //});
+
         }
 
         private void textBoxChat_KeyUp(object sender, KeyEventArgs e)
@@ -85,15 +91,12 @@ namespace ATMTECH.Mediator.Client
                 WindowState = FormWindowState.Minimized;
         }
 
-        private void FormClavardage_Activated(object sender, EventArgs e)
+        private void textBoxClavardage_Leave(object sender, EventArgs e)
         {
             textBoxClavardage.Focus();
         }
 
-        private void richTextBoxClavardage_Enter(object sender, EventArgs e)
-        {
-            textBoxClavardage.Focus();
-        }
+      
 
     }
 }
