@@ -46,12 +46,11 @@ namespace ATMTECH.Mediator.Client
                 foreach (Clavardage clavardage in clavardages.Where(clavardage => !GestionPresentation.EstCommande(clavardage.Texte)))
                 {
                     if (clavardage.NoUtilisateur != GestionPresentation.Utilisateur.NoUtilisateur)
-                        FlashWindow.Flash(this);
+                        FlashWindow.Flash(this, 3);
 
                     richTextBoxClavardage.SelectionStart = richTextBoxClavardage.Text.Length;
                     richTextBoxClavardage.ScrollToCaret();
                 }
-                
             }
         }
 
