@@ -85,7 +85,15 @@ namespace ATMTECH.Mediator.Client
                 WindowState = FormWindowState.Minimized;
         }
 
+        private void FormClavardage_Activated(object sender, EventArgs e)
+        {
+            textBoxClavardage.Focus();
+        }
 
+        private void richTextBoxClavardage_Enter(object sender, EventArgs e)
+        {
+            textBoxClavardage.Focus();
+        }
 
     }
 }
