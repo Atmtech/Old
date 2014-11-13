@@ -38,23 +38,18 @@ namespace ATMTECH.Mediator.Client
         {
             int plageInitial = ClavardageCourant - 100;
 
-            IList<Clavardage> clavardages = ObtenirClavardage(plageInitial).Where(x => x.Type != "COMMAND").Take(nombre).OrderByDescending(x => x.NoClavardage).ToList();
-            AjouterTexte("====================================================", Color.Turquoise);
-            AjouterTexte(Environment.NewLine, Color.White);
-            AjouterTexte("Début historique de " + nombre + " clavardage", Color.Turquoise);
-            AjouterTexte(Environment.NewLine, Color.White);
-            AjouterTexte("====================================================", Color.Turquoise);
-            AjouterTexte(Environment.NewLine, Color.White);
+            IList<Clavardage> clavardages = ObtenirClavardage(plageInitial).Where(x => x.Type != "COMMAND").Take(nombre).OrderBy(x => x.NoClavardage).ToList();
+
+            RichTextBox.Clear();
+
             foreach (Clavardage clavardage in clavardages)
             {
-                AjouterTexte(clavardage.Utilisateur.NomUtilisateur + " (" + clavardage.Date + ") > ", Color.GreenYellow);
+                AjouterTexte(clavardage.Utilisateur.NomUtilisateur + " > ", Color.GreenYellow);
                 AjouterTexte(clavardage.Texte, Color.White);
                 AjouterTexte(Environment.NewLine, Color.White);
                 RichTextBox.SelectionStart = RichTextBox.Text.Length;
                 RichTextBox.ScrollToCaret();
             }
-            AjouterTexte("====================================================", Color.Turquoise);
-            AjouterTexte(Environment.NewLine, Color.White);
         }
         public IList<Clavardage> AfficherClavardage()
         {
