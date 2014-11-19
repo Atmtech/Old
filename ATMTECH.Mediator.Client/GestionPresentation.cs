@@ -21,7 +21,7 @@ namespace ATMTECH.Mediator.Client
         public Style GreenYellowStyle = new TextStyle(Brushes.GreenYellow, null, FontStyle.Regular);
         public Style WhiteStyle = new TextStyle(Brushes.White, null, FontStyle.Regular);
         public Style PaleVioletRedStyle = new TextStyle(Brushes.PaleVioletRed, null, FontStyle.Regular);
-        public Style Link = new TextStyle(Brushes.Red,Brushes.Purple, FontStyle.Underline);
+        public Style Link = new TextStyle(Brushes.Red, Brushes.Purple, FontStyle.Underline);
 
         public GestionPresentation()
         {

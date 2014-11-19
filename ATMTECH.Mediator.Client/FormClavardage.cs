@@ -11,10 +11,19 @@ namespace ATMTECH.Mediator.Client
     public partial class FormClavardage : Form
     {
         private GestionPresentation _gestionPresentation;
-        public GestionPresentation GestionPresentation { get { return _gestionPresentation ?? (_gestionPresentation = new GestionPresentation { FastColoredTextBox = fastColoredTextBoxClavardage }); } }
+
+        public GestionPresentation GestionPresentation
+        {
+            get
+            {
+                return _gestionPresentation ??
+                       (_gestionPresentation =
+                        new GestionPresentation { FastColoredTextBox = fastColoredTextBoxClavardage });
+            }
+        }
 
         private Boolean fastColoredTextBoxAutoScroll = true;
-        FormWindowState LastWindowState = FormWindowState.Minimized;
+        private FormWindowState LastWindowState = FormWindowState.Minimized;
 
         public FormClavardage()
         {
@@ -49,7 +58,9 @@ namespace ATMTECH.Mediator.Client
             IList<Clavardage> clavardages = GestionPresentation.AfficherClavardage();
             if (clavardages != null)
             {
-                foreach (Clavardage clavardage in clavardages.Where(clavardage => !GestionPresentation.EstCommande(clavardage.Texte)))
+                foreach (
+                    Clavardage clavardage in
+                        clavardages.Where(clavardage => !GestionPresentation.EstCommande(clavardage.Texte)))
                 {
                     if (clavardage.NoUtilisateur != GestionPresentation.Utilisateur.NoUtilisateur)
                         FlashWindow.Flash(this, 3);
@@ -107,14 +118,13 @@ namespace ATMTECH.Mediator.Client
         {
             if (e.KeyCode == Keys.Escape) WindowState = FormWindowState.Minimized;
         }
-<<<<<<< .mine
-=======
->>>>>>> .theirs        private void FormClavardage_Resize(object sender, EventArgs e)
+
+        private void FormClavardage_Resize(object sender, EventArgs e)
         {
             if (WindowState != LastWindowState)
             {
                 LastWindowState = WindowState;
-                
+
                 if (WindowState == FormWindowState.Maximized)
                     textBoxClavardage.Focus();
                 if (WindowState == FormWindowState.Normal)
@@ -122,11 +132,26 @@ namespace ATMTECH.Mediator.Client
             }
 
         }
-<<<<<<< .mine=======            var p = fastColoredTextBoxClavardage.PointToPlace(e.Location);
+
+        private void fastColoredTextBoxClavardage_MouseMove(object sender, MouseEventArgs e)
+        {
+            var p = fastColoredTextBoxClavardage.PointToPlace(e.Location);
+            fastColoredTextBoxClavardage.Cursor = GestionPresentation.EstUnLien(p) ? Cursors.Hand : Cursors.IBeam;
+        }
+
+        private void fastColoredTextBoxClavardage_TextChangedDelayed(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
+        {
+            e.ChangedRange.ClearStyle(GestionPresentation.Link);
+            e.ChangedRange.SetStyle(GestionPresentation.Link, @"(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?");
+        }
+
+        private void fastColoredTextBoxClavardage_MouseDown(object sender, MouseEventArgs e)
+        {
+            var p = fastColoredTextBoxClavardage.PointToPlace(e.Location);
             if (GestionPresentation.EstUnLien(p))
             {
                 Process.Start(fastColoredTextBoxClavardage.GetRange(p, p).GetFragment(@"[\S]").Text);
             }
         }
->>>>>>> .theirs    }
+    }
 }
