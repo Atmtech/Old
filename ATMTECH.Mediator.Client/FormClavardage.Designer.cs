@@ -34,8 +34,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.fastColoredTextBoxClavardage = new FastColoredTextBoxNS.FastColoredTextBox();
             this.tableLayoutPanelMediator = new System.Windows.Forms.TableLayoutPanel();
-            this.btnDernierClavardage = new System.Windows.Forms.Button();
             this.textBoxClavardage = new System.Windows.Forms.TextBox();
+            this.btnDernierClavardage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBoxClavardage)).BeginInit();
             this.tableLayoutPanelMediator.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +67,7 @@
             this.fastColoredTextBoxClavardage.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fastColoredTextBoxClavardage.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fastColoredTextBoxClavardage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fastColoredTextBoxClavardage.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fastColoredTextBoxClavardage.Font = new System.Drawing.Font("Consolas", 8.25F);
             this.fastColoredTextBoxClavardage.ForeColor = System.Drawing.Color.White;
             this.fastColoredTextBoxClavardage.IsReplaceMode = false;
             this.fastColoredTextBoxClavardage.Location = new System.Drawing.Point(3, 3);
@@ -101,6 +101,21 @@
             this.tableLayoutPanelMediator.Size = new System.Drawing.Size(841, 219);
             this.tableLayoutPanelMediator.TabIndex = 6;
             // 
+            // textBoxClavardage
+            // 
+            this.textBoxClavardage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxClavardage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBoxClavardage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxClavardage.ForeColor = System.Drawing.Color.White;
+            this.textBoxClavardage.Location = new System.Drawing.Point(5, 194);
+            this.textBoxClavardage.Margin = new System.Windows.Forms.Padding(5);
+            this.textBoxClavardage.Name = "textBoxClavardage";
+            this.textBoxClavardage.Size = new System.Drawing.Size(791, 20);
+            this.textBoxClavardage.TabIndex = 1;
+            this.textBoxClavardage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxClavardage_KeyDown);
+            this.textBoxClavardage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxChat_KeyUp);
+            // 
             // btnDernierClavardage
             // 
             this.btnDernierClavardage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -116,21 +131,6 @@
             this.btnDernierClavardage.UseVisualStyleBackColor = true;
             this.btnDernierClavardage.Click += new System.EventHandler(this.btnDernierClavardage_Click);
             this.btnDernierClavardage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnDernierClavardage_KeyDown);
-            // 
-            // textBoxClavardage
-            // 
-            this.textBoxClavardage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxClavardage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBoxClavardage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxClavardage.ForeColor = System.Drawing.Color.White;
-            this.textBoxClavardage.Location = new System.Drawing.Point(5, 194);
-            this.textBoxClavardage.Margin = new System.Windows.Forms.Padding(5);
-            this.textBoxClavardage.Name = "textBoxClavardage";
-            this.textBoxClavardage.Size = new System.Drawing.Size(791, 20);
-            this.textBoxClavardage.TabIndex = 1;
-            this.textBoxClavardage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxClavardage_KeyDown);
-            this.textBoxClavardage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxChat_KeyUp);
             // 
             // FormClavardage
             // 
@@ -148,6 +148,7 @@
             this.Load += new System.EventHandler(this.FormClavardage_Load);
             this.SizeChanged += new System.EventHandler(this.FormClavardage_SizeChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormClavardage_KeyDown);
+            this.Resize += new System.EventHandler(this.FormClavardage_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBoxClavardage)).EndInit();
             this.tableLayoutPanelMediator.ResumeLayout(false);
             this.tableLayoutPanelMediator.PerformLayout();

@@ -13,6 +13,7 @@ namespace ATMTECH.Mediator.Client
         public GestionPresentation GestionPresentation { get { return _gestionPresentation ?? (_gestionPresentation = new GestionPresentation { FastColoredTextBox = fastColoredTextBoxClavardage }); } }
 
         private Boolean fastColoredTextBoxAutoScroll = true;
+        FormWindowState LastWindowState = FormWindowState.Minimized;
 
         public FormClavardage()
         {
@@ -104,6 +105,20 @@ namespace ATMTECH.Mediator.Client
         private void btnDernierClavardage_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape) WindowState = FormWindowState.Minimized;
+        }
+
+        private void FormClavardage_Resize(object sender, EventArgs e)
+        {
+            if (WindowState != LastWindowState)
+            {
+                LastWindowState = WindowState;
+                
+                if (WindowState == FormWindowState.Maximized)
+                    textBoxClavardage.Focus();
+                if (WindowState == FormWindowState.Normal)
+                    textBoxClavardage.Focus();
+            }
+
         }
     }
 }
