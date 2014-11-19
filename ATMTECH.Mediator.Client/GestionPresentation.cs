@@ -29,7 +29,7 @@ namespace ATMTECH.Mediator.Client
 
         public void AjouterTexte(string text, Style style)
         {
-            FastColoredTextBox.InsertText(text, style);
+            FastColoredTextBox.AppendText(text, style);
         }
 
         public void AjouterSautLigne()
