@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -106,8 +107,9 @@ namespace ATMTECH.Mediator.Client
         {
             if (e.KeyCode == Keys.Escape) WindowState = FormWindowState.Minimized;
         }
-
-        private void FormClavardage_Resize(object sender, EventArgs e)
+<<<<<<< .mine
+=======
+>>>>>>> .theirs        private void FormClavardage_Resize(object sender, EventArgs e)
         {
             if (WindowState != LastWindowState)
             {
@@ -120,5 +122,11 @@ namespace ATMTECH.Mediator.Client
             }
 
         }
-    }
+<<<<<<< .mine=======            var p = fastColoredTextBoxClavardage.PointToPlace(e.Location);
+            if (GestionPresentation.EstUnLien(p))
+            {
+                Process.Start(fastColoredTextBoxClavardage.GetRange(p, p).GetFragment(@"[\S]").Text);
+            }
+        }
+>>>>>>> .theirs    }
 }

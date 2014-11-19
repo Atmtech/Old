@@ -15,13 +15,14 @@ namespace ATMTECH.Mediator.Client
         public Utilisateur Utilisateur { get; set; }
         public int ClavardageCourant { get; set; }
         public RichTextBox RichTextBox { get; set; }
-        public FastColoredTextBoxNS.FastColoredTextBox FastColoredTextBox { get; set; }
+        public FastColoredTextBox FastColoredTextBox { get; set; }
         public const string FORUMS = "#DEFAULT";
 
-        Style GreenYellowStyle = new TextStyle(Brushes.GreenYellow, null, FontStyle.Regular);
-        Style WhiteStyle = new TextStyle(Brushes.White, null, FontStyle.Regular);
-        Style PaleVioletRedStyle = new TextStyle(Brushes.PaleVioletRed, null, FontStyle.Regular);
-                
+        public Style GreenYellowStyle = new TextStyle(Brushes.GreenYellow, null, FontStyle.Regular);
+        public Style WhiteStyle = new TextStyle(Brushes.White, null, FontStyle.Regular);
+        public Style PaleVioletRedStyle = new TextStyle(Brushes.PaleVioletRed, null, FontStyle.Regular);
+        public Style Link = new TextStyle(Brushes.Red,Brushes.Purple, FontStyle.Underline);
+
         public GestionPresentation()
         {
             Utilisateur = ClavardageService.ObtenirUtilisateurCourant();
@@ -89,7 +90,7 @@ namespace ATMTECH.Mediator.Client
                     }
                 }
 
-                
+
             }
             return clavardages;
         }
@@ -119,5 +120,18 @@ namespace ATMTECH.Mediator.Client
             return ClavardageService.ObtenirClavardage(clavardage);
         }
 
+
+        public bool EstUnLien(Place place)
+        {
+            var mask = FastColoredTextBox.GetStyleIndexMask(new Style[] { Link });
+            if (place.iChar < FastColoredTextBox.GetLineLength(place.iLine))
+                if ((FastColoredTextBox[place].style & mask) != 0)
+                    return true;
+
+            return false;
+
+        }
+
     }
 }
+

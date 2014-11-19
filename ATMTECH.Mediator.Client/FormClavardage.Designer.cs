@@ -79,10 +79,13 @@
             this.fastColoredTextBoxClavardage.Size = new System.Drawing.Size(835, 183);
             this.fastColoredTextBoxClavardage.TabIndex = 0;
             this.fastColoredTextBoxClavardage.Zoom = 100;
+            this.fastColoredTextBoxClavardage.TextChangedDelayed += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBoxClavardage_TextChangedDelayed);
             this.fastColoredTextBoxClavardage.Scroll += new System.Windows.Forms.ScrollEventHandler(this.fastColoredTextBoxClavardage_Scroll);
             this.fastColoredTextBoxClavardage.Click += new System.EventHandler(this.fastColoredTextBoxClavardage_Click);
             this.fastColoredTextBoxClavardage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fastColoredTextBoxClavardage_KeyDown);
             this.fastColoredTextBoxClavardage.Leave += new System.EventHandler(this.fastColoredTextBoxClavardage_Leave);
+            this.fastColoredTextBoxClavardage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fastColoredTextBoxClavardage_MouseDown);
+            this.fastColoredTextBoxClavardage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.fastColoredTextBoxClavardage_MouseMove);
             // 
             // tableLayoutPanelMediator
             // 
