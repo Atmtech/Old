@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ATMTECH.Mediator.Entities;
 using ATMTECH.Mediator.Services;
+using FastColoredTextBoxNS;
 
 namespace ATMTECH.Mediator.Client
 {
@@ -14,44 +15,44 @@ namespace ATMTECH.Mediator.Client
         public Utilisateur Utilisateur { get; set; }
         public int ClavardageCourant { get; set; }
         public RichTextBox RichTextBox { get; set; }
+        public FastColoredTextBoxNS.FastColoredTextBox FastColoredTextBox { get; set; }
         public const string FORUMS = "#DEFAULT";
 
+        Style GreenYellowStyle = new TextStyle(Brushes.GreenYellow, null, FontStyle.Regular);
+        Style WhiteStyle = new TextStyle(Brushes.White, null, FontStyle.Regular);
+        Style PaleVioletRedStyle = new TextStyle(Brushes.PaleVioletRed, null, FontStyle.Regular);
+                
         public GestionPresentation()
         {
             Utilisateur = ClavardageService.ObtenirUtilisateurCourant();
         }
 
-        public void AjouterTexte(string text, Color color)
+        public void AjouterTexte(string text, Style style)
         {
-            RichTextBox.SelectionStart = RichTextBox.TextLength;
-            RichTextBox.SelectionLength = 0;
-            RichTextBox.SelectionColor = color;
-            RichTextBox.AppendText(text);
-            RichTextBox.SelectionColor = RichTextBox.ForeColor;
-            
+            FastColoredTextBox.InsertText(text, style);
         }
+
         public void AjouterSautLigne()
         {
-            AjouterTexte(Environment.NewLine, Color.White);
+            AjouterTexte(Environment.NewLine, WhiteStyle);
         }
+
         public void AfficherClavardage(int nombre)
         {
             int plageInitial = ClavardageCourant - 100;
 
             IList<Clavardage> clavardages = ObtenirClavardage(plageInitial).Where(x => x.Type != "COMMAND").OrderByDescending(x => x.NoClavardage).Take(nombre).OrderBy(x => x.NoClavardage).ToList();
 
-            RichTextBox.Clear();
+            FastColoredTextBox.Clear();
 
             foreach (Clavardage clavardage in clavardages)
             {
-                AjouterTexte(clavardage.Utilisateur.NomUtilisateur + " > ", Color.GreenYellow);
-                AjouterTexte(clavardage.Texte, Color.White);
-                AjouterTexte(Environment.NewLine, Color.White);
+                AjouterTexte(clavardage.Utilisateur.NomUtilisateur + "> ", GreenYellowStyle);
+                AjouterTexte(clavardage.Texte, WhiteStyle);
+                AjouterTexte(Environment.NewLine, WhiteStyle);
             }
-
-            RichTextBox.SelectionStart = RichTextBox.Text.Length;
-            RichTextBox.ScrollToCaret();
         }
+
         public IList<Clavardage> AfficherClavardage()
         {
             IList<Clavardage> clavardages = ObtenirClavardage(ClavardageCourant);
@@ -64,17 +65,17 @@ namespace ATMTECH.Mediator.Client
                 {
                     if (clavardage.Texte.ToLower().IndexOf("/join") == 0)
                     {
-                        AjouterTexte(string.Format("{0} est connecté", clavardage.Utilisateur.NomUtilisateur), Color.GreenYellow);
+                        AjouterTexte(string.Format("{0} est connecté", clavardage.Utilisateur.NomUtilisateur), GreenYellowStyle);
                         AjouterSautLigne();
                     }
                     if (clavardage.Texte.ToLower().IndexOf("/me") == 0)
                     {
-                        AjouterTexte(clavardage.Texte.Substring(3, clavardage.Texte.Length - 3), Color.PaleVioletRed);
+                        AjouterTexte(clavardage.Texte.Substring(3, clavardage.Texte.Length - 3), PaleVioletRedStyle);
                         AjouterSautLigne();
                     }
                     if (clavardage.Texte.ToLower().IndexOf("/q") == 0)
                     {
-                        AjouterTexte(string.Format("{0} est déconnecté", clavardage.Utilisateur.NomUtilisateur), Color.GreenYellow);
+                        AjouterTexte(string.Format("{0} est déconnecté", clavardage.Utilisateur.NomUtilisateur), GreenYellowStyle);
                         AjouterSautLigne();
                     }
                 }
@@ -82,10 +83,9 @@ namespace ATMTECH.Mediator.Client
                 {
                     if (!string.IsNullOrEmpty(clavardage.Texte))
                     {
-                        AjouterTexte(clavardage.Utilisateur.NomUtilisateur + "> ", Color.GreenYellow);
-                        AjouterTexte(clavardage.Texte, Color.White);
+                        AjouterTexte(clavardage.Utilisateur.NomUtilisateur + "> ", GreenYellowStyle);
+                        AjouterTexte(clavardage.Texte, WhiteStyle);
                         AjouterSautLigne();
-                        
                     }
                 }
 
