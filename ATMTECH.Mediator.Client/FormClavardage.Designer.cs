@@ -62,12 +62,12 @@
             this.fastColoredTextBoxClavardage.BackBrush = null;
             this.fastColoredTextBoxClavardage.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.fastColoredTextBoxClavardage.CharHeight = 12;
-            this.fastColoredTextBoxClavardage.CharWidth = 7;
+            this.fastColoredTextBoxClavardage.CharWidth = 6;
             this.tableLayoutPanelMediator.SetColumnSpan(this.fastColoredTextBoxClavardage, 2);
             this.fastColoredTextBoxClavardage.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fastColoredTextBoxClavardage.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fastColoredTextBoxClavardage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fastColoredTextBoxClavardage.Font = new System.Drawing.Font("Courier New", 8.25F);
+            this.fastColoredTextBoxClavardage.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fastColoredTextBoxClavardage.ForeColor = System.Drawing.Color.White;
             this.fastColoredTextBoxClavardage.IsReplaceMode = false;
             this.fastColoredTextBoxClavardage.Location = new System.Drawing.Point(3, 3);
@@ -129,6 +129,7 @@
             this.textBoxClavardage.Name = "textBoxClavardage";
             this.textBoxClavardage.Size = new System.Drawing.Size(791, 20);
             this.textBoxClavardage.TabIndex = 1;
+            this.textBoxClavardage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxClavardage_KeyDown);
             this.textBoxClavardage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxChat_KeyUp);
             // 
             // FormClavardage

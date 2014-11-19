@@ -96,6 +96,11 @@ namespace ATMTECH.Mediator.Client
             if (e.KeyCode == Keys.Escape) WindowState = FormWindowState.Minimized;
         }
 
+        private void textBoxClavardage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) WindowState = FormWindowState.Minimized;
+        }
+
         private void btnDernierClavardage_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape) WindowState = FormWindowState.Minimized;
