@@ -58,7 +58,7 @@
         '\"',
         '\'',
         '\''};
-            this.fastColoredTextBoxClavardage.AutoScrollMinSize = new System.Drawing.Size(2, 12);
+            this.fastColoredTextBoxClavardage.AutoScrollMinSize = new System.Drawing.Size(0, 12);
             this.fastColoredTextBoxClavardage.BackBrush = null;
             this.fastColoredTextBoxClavardage.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.fastColoredTextBoxClavardage.CharHeight = 12;
@@ -78,6 +78,7 @@
             this.fastColoredTextBoxClavardage.ShowLineNumbers = false;
             this.fastColoredTextBoxClavardage.Size = new System.Drawing.Size(835, 183);
             this.fastColoredTextBoxClavardage.TabIndex = 0;
+            this.fastColoredTextBoxClavardage.WordWrap = true;
             this.fastColoredTextBoxClavardage.Zoom = 100;
             this.fastColoredTextBoxClavardage.TextChangedDelayed += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBoxClavardage_TextChangedDelayed);
             this.fastColoredTextBoxClavardage.Scroll += new System.Windows.Forms.ScrollEventHandler(this.fastColoredTextBoxClavardage_Scroll);
