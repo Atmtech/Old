@@ -153,5 +153,14 @@ namespace ATMTECH.Mediator.Client
                 Process.Start(fastColoredTextBoxClavardage.GetRange(p, p).GetFragment(@"[\S]").Text);
             }
         }
+
+        //private void fastColoredTextBoxClavardage_ToolTipNeeded(object sender, FastColoredTextBoxNS.ToolTipNeededEventArgs e)
+        //{
+        //    string heureLigneClavardage;
+
+        //    heureLigneClavardage = GestionPresentation.ObtenirHeureLigneClavardage(e);
+
+        //    MessageBox.Show(heureLigneClavardage);
+        //}
     }
 }
