@@ -18,11 +18,7 @@ namespace ATMTECH.Mediator.Services
             DatabaseSessionManager.ConnectionString = Utils.Configuration.GetConfigurationKey("ConnectionString");
         }
 
-        public IList<Clavardage> ObtenirListeClavardage(int nombreAnterieur)
-        {
-            return DAOClavardage.ObtenirListeClavardage(nombreAnterieur);
-        }
-
+       
         public Utilisateur ObtenirUtilisateurCourant()
         {
             return ObtenirUtilisateur().FirstOrDefault(x => x.NomUtilisateur2 == Environment.UserName);

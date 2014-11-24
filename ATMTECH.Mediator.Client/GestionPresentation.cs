@@ -138,10 +138,7 @@ namespace ATMTECH.Mediator.Client
             ClavardageService.EnvoyerClavardage(clavardage);
         }
 
-        public IList<Clavardage> ObtenirListeClavardage(int nombreAnterieur)
-        {
-            return ClavardageService.ObtenirListeClavardage(nombreAnterieur);
-        }
+       
         public IList<Clavardage> ObtenirClavardage(int clavardage)
         {
             return ClavardageService.ObtenirClavardage(clavardage);

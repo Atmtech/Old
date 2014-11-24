@@ -43,23 +43,7 @@ namespace ATMTECH.Mediator.DAO
 
         }
 
-        public IList<Clavardage> ObtenirListeClavardage(int nombreAnterieur)
-        {
-            int max = Convert.ToInt32(GetMax(Clavardage.NO_CLAVARDAGE));
-            int prendreLogApartirDeLa = max - 200;
-            IList<Criteria> criterias = new List<Criteria>();
-            Criteria criteriaLog = new Criteria { Column = Clavardage.NO_CLAVARDAGE, Operator = DatabaseOperator.OPERATOR_GREATER_THAN, Value = prendreLogApartirDeLa.ToString() };
-            Criteria criteriaType = new Criteria { Column = Clavardage.TYPE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = "CHAT" };
-            criterias.Add(criteriaLog);
-            criterias.Add(criteriaType);
-            IList<Clavardage> clavardages = GetByCriteria(criterias);
-            clavardages = clavardages.OrderByDescending(x => x.Id).Take(nombreAnterieur).ToList();
-            foreach (Clavardage clavardage in clavardages)
-            {
-                clavardage.Utilisateur = _daoUtilisateurs.ObtenirUtilisateur(clavardage.NoUtilisateur.ToString());
-            }
-            return clavardages;
-        }
+      
 
         public void EnregistrerClavardage(Clavardage clavardage)
         {
