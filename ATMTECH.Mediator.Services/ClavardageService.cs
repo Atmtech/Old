@@ -17,13 +17,21 @@ namespace ATMTECH.Mediator.Services
         {
             DatabaseSessionManager.ConnectionString = Utils.Configuration.GetConfigurationKey("ConnectionString");
         }
-
        
         public Utilisateur ObtenirUtilisateurCourant()
         {
             return ObtenirUtilisateur().FirstOrDefault(x => x.NomUtilisateur2 == Environment.UserName);
         }
 
+        public DateTime ObtenirDateClavardage(int noClavardage)
+        {
+            return DAOClavardage.ObtenirDateClavardage(noClavardage);
+        }
+        
+        public int ObtenirMaximumClavardage()
+        {
+            return DAOClavardage.ObtenirMaximumClavardage();
+        }
 
         public IList<Clavardage> ObtenirClavardage(int currentLog)
         {
@@ -39,9 +47,5 @@ namespace ATMTECH.Mediator.Services
         {
             return DAOUtilisateurs.ObtenirListeUtilisateur();
         }
-
-
-
     }
-
 }

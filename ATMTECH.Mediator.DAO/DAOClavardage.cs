@@ -56,6 +56,7 @@ namespace ATMTECH.Mediator.DAO
             return null;
 
         }
+
         public void EnregistrerClavardage(Clavardage clavardage)
         {
             Save(clavardage);

@@ -22,7 +22,6 @@ namespace ATMTECH.Mediator.Client
         public Style WhiteStyle = new TextStyle(Brushes.White, null, FontStyle.Regular);
         public Style PaleVioletRedStyle = new TextStyle(Brushes.PaleVioletRed, null, FontStyle.Regular);
         public Style Link = new TextStyle(Brushes.Red, Brushes.Purple, FontStyle.Underline);
-        //public Style UserStyle = new TextStyle(Brushes.GreenYellow, null, FontStyle.Regular);
 
         public GestionPresentation()
         {
@@ -116,15 +115,15 @@ namespace ATMTECH.Mediator.Client
                         AjouterSautLigne();
                     }
                 }
-
-
             }
             return clavardages;
         }
+
         public bool EstCommande(string texte)
         {
             return texte.Substring(0, 1) == "/";
         }
+
         public void EnvoyerClavardage(string texte)
         {
             Clavardage clavardage = new Clavardage
@@ -137,7 +136,6 @@ namespace ATMTECH.Mediator.Client
                 };
             ClavardageService.EnvoyerClavardage(clavardage);
         }
-
        
         public IList<Clavardage> ObtenirClavardage(int clavardage)
         {
@@ -155,20 +153,10 @@ namespace ATMTECH.Mediator.Client
 
         }
 
-        //public string ObtenirHeureLigneClavardage(FastColoredTextBoxNS.ToolTipNeededEventArgs e)
-        //{
-        //    string heureLigneClavardage = null;
-
-        //    int nbLignesDeLaFinDuLog = FastColoredTextBox.LinesCount - e.Place.iLine + 1;
-  
-        //    //int linesCount = fastColoredTextBoxClavardage.LinesCount;
-        //    //string text = fastColoredTextBoxClavardage.Range.Text;
-
-        //    //MessageBox.Show(linesCount.ToString());
-        //    MessageBox.Show(nbLignesDeLaFinDuLog.ToString());
-
-        //    return heureLigneClavardage;
-        //}
+        public DateTime ObtenirDateClavardage(int noLigneToolTip)
+        {
+            return ClavardageService.ObtenirDateClavardage(ClavardageService.ObtenirMaximumClavardage() - noLigneToolTip);
+        }
     }
 }
 

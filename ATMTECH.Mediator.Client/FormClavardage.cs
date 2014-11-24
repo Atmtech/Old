@@ -154,13 +154,13 @@ namespace ATMTECH.Mediator.Client
             }
         }
 
-        //private void fastColoredTextBoxClavardage_ToolTipNeeded(object sender, FastColoredTextBoxNS.ToolTipNeededEventArgs e)
-        //{
-        //    string heureLigneClavardage;
+        private void fastColoredTextBoxClavardage_ToolTipNeeded(object sender, FastColoredTextBoxNS.ToolTipNeededEventArgs e)
+        {
+            int noLigneToolTip = fastColoredTextBoxClavardage.LinesCount - e.Place.iLine - 2;
 
-        //    heureLigneClavardage = GestionPresentation.ObtenirHeureLigneClavardage(e);
-
-        //    MessageBox.Show(heureLigneClavardage);
-        //}
+            if (noLigneToolTip >= 0)
+                if (fastColoredTextBoxClavardage[e.Place].style.ToString() == "Style0")
+                    e.ToolTipText = GestionPresentation.ObtenirDateClavardage(noLigneToolTip).ToString();
+        }
     }
 }
