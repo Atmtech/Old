@@ -12,6 +12,20 @@ namespace ATMTECH.Mediator.DAO
     {
         private readonly DAOUtilisateurs _daoUtilisateurs = new DAOUtilisateurs();
 
+        public DateTime ObtenirDateClavardage(int noClavardage)
+        {
+            IList<Criteria> criterias = new List<Criteria>();
+
+            Criteria criteriaLog = new Criteria { Column = Clavardage.NO_CLAVARDAGE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = noClavardage.ToString() };
+            criterias.Add(criteriaLog);
+            return GetByCriteria(criterias)[0].Date;
+        }
+
+        public int ObtenirMaximumClavardage()
+        {
+            return Convert.ToInt32(GetMax(Clavardage.NO_CLAVARDAGE));
+        }
+
         public IList<Clavardage> ObtenirClavardage(int chatCourant)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -36,15 +50,12 @@ namespace ATMTECH.Mediator.DAO
                 {
                     clavardage.Utilisateur = _daoUtilisateurs.ObtenirUtilisateur(clavardage.NoUtilisateur.ToString());
                 }
-                return clavardages.OrderBy(x=>x.NoClavardage).ToList();
+                return clavardages.OrderBy(x => x.NoClavardage).ToList();
             }
 
             return null;
 
         }
-
-      
-
         public void EnregistrerClavardage(Clavardage clavardage)
         {
             Save(clavardage);
