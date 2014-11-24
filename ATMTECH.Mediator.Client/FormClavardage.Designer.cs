@@ -80,7 +80,6 @@
             this.fastColoredTextBoxClavardage.TabIndex = 0;
             this.fastColoredTextBoxClavardage.WordWrap = true;
             this.fastColoredTextBoxClavardage.Zoom = 100;
-            this.fastColoredTextBoxClavardage.ToolTipNeeded += new System.EventHandler<FastColoredTextBoxNS.ToolTipNeededEventArgs>(this.fastColoredTextBoxClavardage_ToolTipNeeded);
             this.fastColoredTextBoxClavardage.TextChangedDelayed += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBoxClavardage_TextChangedDelayed);
             this.fastColoredTextBoxClavardage.Scroll += new System.Windows.Forms.ScrollEventHandler(this.fastColoredTextBoxClavardage_Scroll);
             this.fastColoredTextBoxClavardage.Click += new System.EventHandler(this.fastColoredTextBoxClavardage_Click);
