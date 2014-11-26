@@ -156,8 +156,8 @@ namespace ATMTECH.ShoppingCart.Services
                 foreach (EnterpriseEmail enterpriseEmail in enterpriseEmails)
                 {
                     MailService.SendEmail(enterpriseEmail.Email, ParameterService.GetValue(Constant.ADMIN_MAIL),
-                                          string.Format(ParameterService.GetValue(Constant.MAIL_SUBJECT_ORDER_FINALIZED), order.EnterpriseName, "No.: " + order.Id),
-                                          ParameterService.GetValue(Constant.MAIL_BODY_ORDER_FINALIZED));
+                                          string.Format(ParameterService.GetValue(Constant.MAIL_LOW_STOCK_SUBJECT), order.EnterpriseName, order.Id),
+                                          string.Format(ParameterService.GetValue(Constant.MAIL_LOW_STOCK_BODY), stock.Description));
                 }
             }
         }
@@ -440,7 +440,7 @@ namespace ATMTECH.ShoppingCart.Services
             }
 
             salesReportLines = salesReportLines.OrderBy(x => x.FinalizedDate).ThenBy(x => x.ProductId).ToList();
-            
+
             return salesReportLines;
         }
         public IList<OrderLine> GetAllOrderLine()
@@ -504,7 +504,7 @@ namespace ATMTECH.ShoppingCart.Services
                 decimal grandTotalSales = 0;
                 decimal unitPrice = 0;
 
-                int stockActualState = StockService.GetCurrentStockStatus(stock, new DateTime(1990,01,01), dateEnd);
+                int stockActualState = StockService.GetCurrentStockStatus(stock, new DateTime(1990, 01, 01), dateEnd);
                 int stockInitialState = stock.InitialState;
 
                 if (orderLines.Count(x => x.Stock.Id == stock.Id) > 0)
@@ -584,7 +584,7 @@ namespace ATMTECH.ShoppingCart.Services
                             TotalValueStockActualState = stockActualState * stock.Product.UnitPrice,
                             TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice,
                             GrandTotalWithTaxes = grandTotalWithTaxes,
-                            MinimumAccept =  stock.MinimumAccept
+                            MinimumAccept = stock.MinimumAccept
                         };
                     salesByMonthReportLines.Add(salesByMonthReportLine);
 
@@ -675,13 +675,13 @@ namespace ATMTECH.ShoppingCart.Services
 
                 if (stockTransactions.Count(x => x.Stock.Id == orderLine.Stock.Id) == 0)
                 {
-                    stockControlReportLines.Add(AddStockControlReportLine(stocks,orders, orderLine, @"N\A", ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_NO_MATCH));
+                    stockControlReportLines.Add(AddStockControlReportLine(stocks, orders, orderLine, @"N\A", ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_NO_MATCH));
                 }
 
                 int transactionTotal = stockTransactions.Where(x => x.Stock.Id == orderLine.Stock.Id).Sum(x => x.Transaction);
                 if (transactionTotal != orderLine.Quantity * -1)
                 {
-                    stockControlReportLines.Add(AddStockControlReportLine(stocks,orders, orderLine, transactionTotal.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_ORDERLINE_QUANTITY_VS_TRANSACTION_NOT_EQUAL));
+                    stockControlReportLines.Add(AddStockControlReportLine(stocks, orders, orderLine, transactionTotal.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_ORDERLINE_QUANTITY_VS_TRANSACTION_NOT_EQUAL));
                 }
             }
 
@@ -732,7 +732,7 @@ namespace ATMTECH.ShoppingCart.Services
             }
             else
             {
-                orderLine.Stock = stocks.FirstOrDefault(x=>x.Id == orderLine.Stock.Id);
+                orderLine.Stock = stocks.FirstOrDefault(x => x.Id == orderLine.Stock.Id);
                 StockControlReportLine stockControlReportLine = new StockControlReportLine()
                 {
                     Order = orderLine.Order == null ? "Aucune commande existante" : HttpUtility.HtmlDecode(orderLine.Order.ComboboxDescription),
