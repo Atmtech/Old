@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ATMTECH.Mediator.Entities;
+using ATMTECH.Mediator.Services;
 
 namespace ATMTECH.Mediator.Client
 {
@@ -58,12 +59,9 @@ namespace ATMTECH.Mediator.Client
             IList<Clavardage> clavardages = GestionPresentation.AfficherClavardage();
             if (clavardages != null)
             {
-                foreach (
-                    Clavardage clavardage in
-                        clavardages.Where(clavardage => !GestionPresentation.EstCommande(clavardage.Texte)))
+                foreach (Clavardage clavardage in clavardages.Where(clavardage => !GestionPresentation.EstCommande(clavardage.Texte)))
                 {
-                    if (clavardage.NoUtilisateur != GestionPresentation.Utilisateur.NoUtilisateur)
-                        FlashWindow.Flash(this, 3);
+                    if (PlatformInvocationService.IsActive(this.Handle) == false) FlashWindow.Flash(this, 3);
                 }
             }
 
@@ -125,12 +123,9 @@ namespace ATMTECH.Mediator.Client
             {
                 LastWindowState = WindowState;
 
-                if (WindowState == FormWindowState.Maximized)
-                    textBoxClavardage.Focus();
-                if (WindowState == FormWindowState.Normal)
-                    textBoxClavardage.Focus();
+                if (WindowState == FormWindowState.Maximized) textBoxClavardage.Focus();
+                if (WindowState == FormWindowState.Normal) textBoxClavardage.Focus();
             }
-
         }
 
         private void fastColoredTextBoxClavardage_MouseMove(object sender, MouseEventArgs e)

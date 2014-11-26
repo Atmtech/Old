@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Interface\IClavardageService.cs" />
     <Compile Include="ClavardageService.cs" />
+    <Compile Include="PlatformInvocationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
