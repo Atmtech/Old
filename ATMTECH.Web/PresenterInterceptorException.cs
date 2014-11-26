@@ -43,11 +43,8 @@ namespace ATMTECH.Web
                 }
                 else
                 {
-                    // Get stack trace for the exception with source file information
                     var st = new StackTrace(result.Exception, true);
-                    // Get the top stack frame
                     var frame = st.GetFrame(0);
-                    // Get the line number from the stack frame
                     var line = frame.GetFileLineNumber();
 
                     string message = result.Exception.Message;

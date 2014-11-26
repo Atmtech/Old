@@ -155,9 +155,10 @@ namespace ATMTECH.ShoppingCart.Services
                 IList<EnterpriseEmail> enterpriseEmails = DAOEnterpriseEmail.GetEnterpriseEmail(order.Enterprise);
                 foreach (EnterpriseEmail enterpriseEmail in enterpriseEmails)
                 {
-                    MailService.SendEmail(enterpriseEmail.Email, ParameterService.GetValue(Constant.ADMIN_MAIL),
+                    
+                   MailService.SendEmail(enterpriseEmail.Email, ParameterService.GetValue(Constant.ADMIN_MAIL),
                                           string.Format(ParameterService.GetValue(Constant.MAIL_LOW_STOCK_SUBJECT), order.EnterpriseName, order.Id),
-                                          string.Format(ParameterService.GetValue(Constant.MAIL_LOW_STOCK_BODY), stock.Description));
+                                          string.Format(ParameterService.GetValue(Constant.MAIL_LOW_STOCK_BODY), "(" + stock.ComboboxDescription + ") l'état initial de l'inventaire était de: " + stock.InitialState.ToString() + " l'état actuel est de: " + stockStatut.ToString() + " et l'alarme mis à: " + stock.MinimumAccept.ToString() ));
                 }
             }
         }
