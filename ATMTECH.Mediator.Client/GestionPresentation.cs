@@ -144,7 +144,7 @@ namespace ATMTECH.Mediator.Client
 
         public bool EstUnLien(Place place)
         {
-            var mask = FastColoredTextBox.GetStyleIndexMask(new Style[] { Link });
+            var mask = FastColoredTextBox.GetStyleIndexMask(new[] { Link });
             if (place.iChar < FastColoredTextBox.GetLineLength(place.iLine))
                 if ((FastColoredTextBox[place].style & mask) != 0)
                     return true;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ATMTECH.Mediator.Entities;
@@ -51,7 +50,7 @@ namespace ATMTECH.Mediator.Client
 
         private void FormClavardage_SizeChanged(object sender, EventArgs e)
         {
-            if (fastColoredTextBoxAutoScroll == true) fastColoredTextBoxClavardage.GoEnd();
+            if (fastColoredTextBoxAutoScroll) fastColoredTextBoxClavardage.GoEnd();
         }
 
         private void timerClavardage_Tick(object sender, EventArgs e)
@@ -61,11 +60,11 @@ namespace ATMTECH.Mediator.Client
             {
                 foreach (Clavardage clavardage in clavardages.Where(clavardage => !GestionPresentation.EstCommande(clavardage.Texte)))
                 {
-                    if (PlatformInvocationService.IsActive(this.Handle) == false) FlashWindow.Flash(this, 3);
+                    if (PlatformInvocationService.IsActive(Handle) == false) FlashWindow.Flash(this, 3);
                 }
             }
 
-            if (fastColoredTextBoxAutoScroll == true) fastColoredTextBoxClavardage.GoEnd();
+            if (fastColoredTextBoxAutoScroll) fastColoredTextBoxClavardage.GoEnd();
         }
 
         private void textBoxChat_KeyUp(object sender, KeyEventArgs e)

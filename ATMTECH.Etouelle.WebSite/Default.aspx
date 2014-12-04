@@ -44,7 +44,7 @@
 <body style="margin: 0 0 0 0;">
     <form id="form1" runat="server">
         <div>
-            <div style="font-family: Pacifico, sans-serif; padding-left: 200px; padding-top: 250px; color: white; font-size: 80px;">
+            <div style="font-family: Pacifico, sans-serif; padding-left: 200px; padding-top: 150px; color: white; font-size: 80px;">
                 Etouelle
             </div>
             <div style="font-family: Montserrat; padding-left: 205px; color: whitesmoke; font-size: 15px;">
