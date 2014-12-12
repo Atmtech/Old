@@ -51,6 +51,7 @@ namespace ATMTECH.Shell
             AddDependency<IDAOUser, DAOUser>();
             AddDependency<IDAOLogVisit, DAOLogVisit>();
             AddDependency<IDAOLogException, DAOLogException>();
+            AddDependency<IDAOLogMail, DAOLogMail>();
             AddDependency<IDAOMessage, DAOMessage>();
             AddDependency<IDAOParameter, DAOParameter>();
             AddDependency<IWeatherService, WeatherService>();

@@ -40,6 +40,7 @@ namespace ATMTECH.ShoppingCart.Services.Base
             AddDependency<IDAOGroupProduct, DAOGroupProduct>();
             AddDependency<IDAOMessage, DAOMessage>();
             AddDependency<IDAOLogException, DAOLogException>();
+            AddDependency<IDAOLogMail, DAOLogMail>();
             AddDependency<IDAOParameter, DAOParameter>();
             AddDependency<IDAOUser, DAOUser>();
             AddDependency<IDAOCustomer, DAOCustomer>();
@@ -63,3 +64,4 @@ namespace ATMTECH.ShoppingCart.Services.Base
         }
     }
 }
+

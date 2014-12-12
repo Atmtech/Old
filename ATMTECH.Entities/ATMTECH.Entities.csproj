@@ -70,6 +70,7 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="BaseEnumeration.cs" />
     <Compile Include="ContentCms.cs" />
+    <Compile Include="LogMail.cs" />
     <Compile Include="Weather.cs" />
     <Compile Include="GroupUser.cs" />
     <Compile Include="Group.cs" />

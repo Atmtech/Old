@@ -1,4 +1,5 @@
-﻿using ATMTECH.Entities;
+﻿using System.Net.Mail;
+using ATMTECH.Entities;
 
 namespace ATMTECH.Web.Services.Interface
 {
@@ -7,5 +8,6 @@ namespace ATMTECH.Web.Services.Interface
         void LogVisit();
         void LogException(Message message, System.Exception ex);
         void LogException(Message message);
+        void LogMail(MailMessage mailMessage);
     }
 }

@@ -7,7 +7,9 @@
     <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
         <div class="title">
             <strong>
-                <asp:Label runat="server" ID="lblConfirmPassword" Text="Confirmation de la création de votre utilisateur"></asp:Label>
+                <div style="font-size: 16px;">
+                    <asp:Label runat="server" ID="lblConfirmPassword" Text="Confirmation de la création de votre utilisateur"></asp:Label>
+                </div>
             </strong>
         </div>
         <asp:Panel runat="server" ID="pnlNotConfirmed">

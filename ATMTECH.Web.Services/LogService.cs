@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Mail;
 using System.Xml.Linq;
 using ATMTECH.Common.Context;
 using ATMTECH.DAO.Interface;
@@ -15,6 +16,7 @@ namespace ATMTECH.Web.Services
         public IDAOLogVisit DAOLogVisit { get; set; }
         public INavigationService NavigationService { get; set; }
         public IDAOLogException DAOLogException { get; set; }
+        public IDAOLogMail DAOLogMail { get; set; }
 
         private User _authenticateUser;
         public User AuthenticateUser
@@ -110,6 +112,11 @@ namespace ATMTECH.Web.Services
                 logException.User = AuthenticateUser;
             }
             DAOLogException.CreateLog(logException);
+        }
+
+        public void LogMail(MailMessage mailMessage)
+        {
+            DAOLogMail.CreateLog(mailMessage);
         }
     }
 }
