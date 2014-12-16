@@ -78,6 +78,43 @@ namespace ATMTECH.Services
             }
             return html;
         }
+
+        public string RestoreMssqlBackup(string BackUpLocation, string BackUpFileName, string DatabaseName)
+        {
+            string ServerName = GetServerName();
+            string rtn;
+            
+            const string SQLRestore = @"ALTER DATABASE [ShoppingCart] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [ShoppingCart] FROM  DISK = N'C:\Website\admin.boutiquecorpo.com\Data\ShoppingCartRestore.bak' WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 5;ALTER DATABASE [ShoppingCart] SET MULTI_USER";
+            string svr = "Server=" + ServerName + ";Database=master;Integrated Security=True";
+
+            SqlConnection cnBk = new SqlConnection(svr);
+            SqlCommand cmdBkUp = new SqlCommand(SQLRestore, cnBk);
+
+            try
+            {
+                cnBk.Open();
+                cmdBkUp.ExecuteNonQuery();
+                rtn = "SQLRestore ######## Server name " + ServerName + " Database [ShoppingCart] Restore\n Date : " + DateTime.Now.ToString();
+            }
+
+            catch (Exception ex)
+            {
+
+                rtn = "Erreur " + ex.ToString();
+            }
+
+            finally
+            {
+                if (cnBk.State == ConnectionState.Open)
+                {
+
+                    cnBk.Close();
+                }
+            }
+
+            return rtn;
+        }
+
         public string GetServerName()
         {
             System.Data.Common.DbConnectionStringBuilder builder = new System.Data.Common.DbConnectionStringBuilder

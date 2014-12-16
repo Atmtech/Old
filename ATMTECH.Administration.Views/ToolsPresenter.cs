@@ -245,5 +245,10 @@ namespace ATMTECH.Administration.Views
 
             return "Ok";
         }
+
+        public string RestoreBackup(string mapPath)
+        {
+            return DatabaseService.RestoreMssqlBackup(mapPath, "ShoppingCart.bak", "ShoppingCart");
+        }
     }
 }

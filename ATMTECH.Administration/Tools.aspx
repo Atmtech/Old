@@ -106,13 +106,15 @@
 
 
         </table>
-        
-        
+
+
         <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
             Réajuster une ligne de commande
         </div>
-        Id ligne commande à modifié:<asp:TextBox runat="server" ID="txtAdjustOrderlineId"></asp:TextBox> N.B.: Voir dans "Ligne de commande"<br/>
-        Quantité finale pour l'item:<asp:TextBox ID="txtAdjustOrderlineQuantite" runat="server"></asp:TextBox> N.B.: Si quantité est 0 alors l'item sera enlevé de la commande<br/>
+        Id ligne commande à modifié:<asp:TextBox runat="server" ID="txtAdjustOrderlineId"></asp:TextBox>
+        N.B.: Voir dans "Ligne de commande"<br />
+        Quantité finale pour l'item:<asp:TextBox ID="txtAdjustOrderlineQuantite" runat="server"></asp:TextBox>
+        N.B.: Si quantité est 0 alors l'item sera enlevé de la commande<br />
         <asp:Button runat="server" ID="btnAdjustOrderline" OnClick="btnAdjustOrderlineClick" CausesValidation="False" CssClass="button" Text="Réajuster" />
         <asp:Label runat="server" ID="lblAdjustOrderline"></asp:Label>
 
@@ -158,13 +160,22 @@
         </asp:DropDownList>
         <asp:Button runat="server" ID="btnBalanceSearchColumn" OnClick="btnBalanceSearchColumnClick" CausesValidation="False" CssClass="button" Text="Balancer" />
         <asp:Label runat="server" ID="lblResultatBalanceSearch"></asp:Label>
-        
-        
-          <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+
+
+        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
             Créer une copie de sauvegarde de la Base de données
         </div>
-                <asp:Button runat="server" ID="btnCreateBackup" OnClick="btnCreateBackupClick" CausesValidation="False" CssClass="button" Text="Copie de sauvegarde" />
-        <br/>
-          <asp:Label runat="server" ID="lblResultBackup"></asp:Label>
+        <asp:Button runat="server" ID="btnCreateBackup" OnClick="btnCreateBackupClick" CausesValidation="False" CssClass="button" Text="Copie de sauvegarde" />
+        <br />
+        <asp:Label runat="server" ID="lblResultBackup"></asp:Label>
+        
+        
+         <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+            Restaurer fichier base données
+        </div>
+        <asp:Button runat="server" ID="btnRestore" OnClick="btnRestoreClick" CausesValidation="False" CssClass="button" Text="Restaurer" />
+        <br />
+        <asp:Label runat="server" ID="lblResultRestore"></asp:Label>
+
     </div>
 </asp:Content>

@@ -9,6 +9,7 @@ namespace ATMTECH.Services.Interface
     {
         string ExecuteSql(string sql, EnumDatabaseVendor enumDatabaseVendor);
         string CreateMssqlBackup(string BackUpLocation, string BackUpFileName, string DatabaseName);
+        string RestoreMssqlBackup(string BackUpLocation, string BackUpFileName, string DatabaseName);
         string GetServerName();
     }
     public enum EnumDatabaseVendor
