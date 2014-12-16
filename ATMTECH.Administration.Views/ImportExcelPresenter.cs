@@ -53,15 +53,13 @@ namespace ATMTECH.Administration.Views
         {
             OleDbDataAdapter ada = new OleDbDataAdapter("select * from [Product$]", conn);
             DataSet ds = new DataSet();
-            DataRow rowerrer;
+         
             try
             {
                 ada.Fill(ds, "result_name");
                 DataTable dt = ds.Tables["result_name"];
-
                 foreach (DataRow row in dt.Rows)
                 {
-                    rowerrer = row;
                     ImportExcelToProduct(row);
 
                 }
@@ -79,14 +77,12 @@ namespace ATMTECH.Administration.Views
         {
             OleDbDataAdapter ada = new OleDbDataAdapter("select * from [Stock$]", conn);
             DataSet ds = new DataSet();
-            DataRow rowerrer;
             try
             {
                 ada.Fill(ds, "result_name");
                 DataTable dt = ds.Tables["result_name"];
                 foreach (DataRow row in dt.Rows)
                 {
-                    rowerrer = row;
                     ImportExcelToStock(row);
                 }
             }
@@ -131,21 +127,23 @@ namespace ATMTECH.Administration.Views
                 return;
             }
           
-            Product product = new Product();
-            product.DescriptionEnglish = row["DescriptionEnglish"].ToString();
-            product.DescriptionFrench = row["DescriptionFrench"].ToString();
-            product.IsActive = true;
-            product.DateCreated = DateTime.Now;
-            product.DateModified = DateTime.Now;
-            product.Ident = row["Ident"].ToString();
-            product.NameFrench = row["NameFrench"].ToString();
-            product.NameEnglish = row["NameEnglish"].ToString();
-            product.UnitPrice = row["UnitPrice"] == null ? 0 : Convert.ToDecimal(row["UnitPrice"].ToString());
-            product.CostPrice = row["CostPrice"] == null ? 0 : Convert.ToDecimal(row["CostPrice"].ToString());
-            product.Enterprise = new Enterprise() { Id = Convert.ToInt32(Convert.ToInt32(row["Enterprise"])) };
-            product.Weight = row["Weight"] == null ? 0 : Convert.ToDecimal(row["Weight"].ToString());
-            product.ProductCategoryFrench = new ProductCategory() { Id = Convert.ToInt32(row["ProductCategoryFrench"]) };
-            product.ProductCategoryEnglish = new ProductCategory() { Id = Convert.ToInt32(row["ProductCategoryEnglish"]) };
+            Product product = new Product
+                {
+                    DescriptionEnglish = row["DescriptionEnglish"].ToString(),
+                    DescriptionFrench = row["DescriptionFrench"].ToString(),
+                    IsActive = true,
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    Ident = row["Ident"].ToString(),
+                    NameFrench = row["NameFrench"].ToString(),
+                    NameEnglish = row["NameEnglish"].ToString(),
+                    UnitPrice = row["UnitPrice"] == null ? 0 : Convert.ToDecimal(row["UnitPrice"].ToString()),
+                    CostPrice = row["CostPrice"] == null ? 0 : Convert.ToDecimal(row["CostPrice"].ToString()),
+                    Enterprise = new Enterprise() {Id = Convert.ToInt32(Convert.ToInt32(row["Enterprise"]))},
+                    Weight = row["Weight"] == null ? 0 : Convert.ToDecimal(row["Weight"].ToString()),
+                    ProductCategoryFrench = new ProductCategory() {Id = Convert.ToInt32(row["ProductCategoryFrench"])},
+                    ProductCategoryEnglish = new ProductCategory() {Id = Convert.ToInt32(row["ProductCategoryEnglish"])}
+                };
 
             product.UnitPrice = row["UnitPrice"] == null ? 0 : Convert.ToDecimal(row["UnitPrice"].ToString());
 
