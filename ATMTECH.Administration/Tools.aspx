@@ -168,14 +168,22 @@
         <asp:Button runat="server" ID="btnCreateBackup" OnClick="btnCreateBackupClick" CausesValidation="False" CssClass="button" Text="Copie de sauvegarde" />
         <br />
         <asp:Label runat="server" ID="lblResultBackup"></asp:Label>
-        
-        
-         <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+
+
+        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
             Restaurer fichier base données
         </div>
         <asp:Button runat="server" ID="btnRestore" OnClick="btnRestoreClick" CausesValidation="False" CssClass="button" Text="Restaurer" />
         <br />
         <asp:Label runat="server" ID="lblResultRestore"></asp:Label>
+        
+        
+        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+           Ouvrir ou fermer le système
+        </div>
+        <asp:Button runat="server" ID="btnOpenApplication" OnClick="btnOpenApplicationClick" CausesValidation="False" CssClass="button" Text="Ouvrir l'application" />
+        <asp:Button runat="server" ID="btnCloseApplication" OnClick="btnCloseApplicationClick" CausesValidation="False" CssClass="button" Text="Fermer l'application" />
+       
 
     </div>
 </asp:Content>

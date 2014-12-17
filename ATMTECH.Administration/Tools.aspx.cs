@@ -145,5 +145,15 @@ namespace ATMTECH.Administration
         {
             lblResultRestore.Text = Presenter.RestoreBackup(Server.MapPath("data"));
         }
+
+        protected void btnCloseApplicationClick(object sender, EventArgs e)
+        {
+            Presenter.CloseApplication();
+        }
+
+        protected void btnOpenApplicationClick(object sender, EventArgs e)
+        {
+            Presenter.OpenApplication();
+        }
     }
 }

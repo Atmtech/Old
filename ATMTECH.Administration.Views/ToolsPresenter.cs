@@ -11,6 +11,7 @@ using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.Administration.Views
 {
@@ -24,6 +25,7 @@ namespace ATMTECH.Administration.Views
         public IDatabaseService DatabaseService { get; set; }
         public ICustomerService CustomerService { get; set; }
         public IDAOUser DAOUser { get; set; }
+        public IParameterService ParameterService { get; set; }
         public ToolsPresenter(IToolsPresenter view)
             : base(view)
         {
@@ -249,6 +251,16 @@ namespace ATMTECH.Administration.Views
         public string RestoreBackup(string mapPath)
         {
             return DatabaseService.RestoreMssqlBackup(mapPath, "ShoppingCart.bak", "ShoppingCart");
+        }
+
+        public void CloseApplication()
+        {
+            ParameterService.SetValue("IsOffline", "1");
+        }
+
+        public void OpenApplication()
+        {
+            ParameterService.SetValue("IsOffline", "0");
         }
     }
 }

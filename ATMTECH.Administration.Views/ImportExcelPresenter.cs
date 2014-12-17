@@ -8,13 +8,11 @@ using ATMTECH.Administration.Views.Interface;
 using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
-using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.Administration.Views
 {
     public class ImportExcelPresenter : BaseAdministrationPresenter<IImportExcelPresenter>
     {
-        public IAuthenticationService AuthenticationService { get; set; }
         public IFileService FileService { get; set; }
         public IProductService ProductService { get; set; }
         public IStockService StockService { get; set; }
@@ -38,60 +36,80 @@ namespace ATMTECH.Administration.Views
 
         private void ImportExcelfile(string file)
         {
-            using (
-          OleDbConnection conn =
-              new OleDbConnection(("provider=Microsoft.Jet.OLEDB.4.0; " +
-                                   ("data source=" + file + "; " + "Extended Properties=Excel 8.0;"))))
+            using (OleDbConnection conn = new OleDbConnection(("provider=Microsoft.Jet.OLEDB.4.0; " + ("data source=" + file + "; " + "Extended Properties=Excel 8.0;"))))
             {
                 conn.Open();
-                ImportWorkSheetProduct(conn);
-                ImportWorkSheetStock(conn);
+                ImportWorkSheet(conn, file);
             }
         }
 
-        private void ImportWorkSheetProduct(OleDbConnection conn)
+
+        private void ImportWorkSheet(OleDbConnection conn, string file)
         {
-            OleDbDataAdapter ada = new OleDbDataAdapter("select * from [Product$]", conn);
+            OleDbDataAdapter ada = new OleDbDataAdapter("select * from [Import$]", conn);
             DataSet ds = new DataSet();
-         
+
             try
             {
                 ada.Fill(ds, "result_name");
                 DataTable dt = ds.Tables["result_name"];
                 foreach (DataRow row in dt.Rows)
                 {
-                    ImportExcelToProduct(row);
-
-                }
-            }
-            catch (Exception ex)
-            {
-                //ex.Message += rowErreur.ItemArray.ToString();
-                MessageService.ThrowMessage(ex);
-
-            }
-
-        }
-
-        private void ImportWorkSheetStock(OleDbConnection conn)
-        {
-            OleDbDataAdapter ada = new OleDbDataAdapter("select * from [Stock$]", conn);
-            DataSet ds = new DataSet();
-            try
-            {
-                ada.Fill(ds, "result_name");
-                DataTable dt = ds.Tables["result_name"];
-                foreach (DataRow row in dt.Rows)
-                {
-                    ImportExcelToStock(row);
+                    if (file.IndexOf("Product") > 0)
+                        ImportExcelToProduct(row);
+                    if (file.IndexOf("Stock") > 0)
+                        ImportExcelToStock(row);
                 }
             }
             catch (Exception ex)
             {
                 MessageService.ThrowMessage(ex);
-
             }
         }
+
+        //private void ImportWorkSheetProduct(OleDbConnection conn)
+        //{
+        //    OleDbDataAdapter ada = new OleDbDataAdapter("select * from [Product$]", conn);
+        //    DataSet ds = new DataSet();
+
+        //    try
+        //    {
+        //        ada.Fill(ds, "result_name");
+        //        DataTable dt = ds.Tables["result_name"];
+        //        foreach (DataRow row in dt.Rows)
+        //        {
+        //            ImportExcelToProduct(row);
+
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //ex.Message += rowErreur.ItemArray.ToString();
+        //        MessageService.ThrowMessage(ex);
+
+        //    }
+
+        //}
+
+        //private void ImportWorkSheetStock(OleDbConnection conn)
+        //{
+        //    OleDbDataAdapter ada = new OleDbDataAdapter("select * from [Stock$]", conn);
+        //    DataSet ds = new DataSet();
+        //    try
+        //    {
+        //        ada.Fill(ds, "result_name");
+        //        DataTable dt = ds.Tables["result_name"];
+        //        foreach (DataRow row in dt.Rows)
+        //        {
+        //            ImportExcelToStock(row);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageService.ThrowMessage(ex);
+
+        //    }
+        //}
 
         private void ImportExcelToStock(DataRow row)
         {
@@ -126,7 +144,7 @@ namespace ATMTECH.Administration.Views
             {
                 return;
             }
-          
+
             Product product = new Product
                 {
                     DescriptionEnglish = row["DescriptionEnglish"].ToString(),
@@ -139,10 +157,10 @@ namespace ATMTECH.Administration.Views
                     NameEnglish = row["NameEnglish"].ToString(),
                     UnitPrice = row["UnitPrice"] == null ? 0 : Convert.ToDecimal(row["UnitPrice"].ToString()),
                     CostPrice = row["CostPrice"] == null ? 0 : Convert.ToDecimal(row["CostPrice"].ToString()),
-                    Enterprise = new Enterprise() {Id = Convert.ToInt32(Convert.ToInt32(row["Enterprise"]))},
+                    Enterprise = new Enterprise { Id = Convert.ToInt32(Convert.ToInt32(row["Enterprise"])) },
                     Weight = row["Weight"] == null ? 0 : Convert.ToDecimal(row["Weight"].ToString()),
-                    ProductCategoryFrench = new ProductCategory() {Id = Convert.ToInt32(row["ProductCategoryFrench"])},
-                    ProductCategoryEnglish = new ProductCategory() {Id = Convert.ToInt32(row["ProductCategoryEnglish"])}
+                    ProductCategoryFrench = new ProductCategory { Id = Convert.ToInt32(row["ProductCategoryFrench"]) },
+                    ProductCategoryEnglish = new ProductCategory { Id = Convert.ToInt32(row["ProductCategoryEnglish"]) }
                 };
 
             product.UnitPrice = row["UnitPrice"] == null ? 0 : Convert.ToDecimal(row["UnitPrice"].ToString());

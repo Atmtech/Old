@@ -6,5 +6,5 @@
     <asp:Button runat="server" CssClass="button" ID="btnImport" OnClick="btnImportClick" Text="Importer le fichier" />
     <asp:Label runat="server" ID="lblFileImported" Text="Le fichier a été importé avec succès" Visible="False"></asp:Label>
     
-    <br/><br/>N.B.: Vous devez avoir un onglet Product et Stock pour pouvoir importer ! 
+    <br/><br/>N.B.: Le nom du fichier correspond a la table à importer ! 
 </asp:Content>
