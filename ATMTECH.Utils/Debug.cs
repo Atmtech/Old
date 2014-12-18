@@ -5,7 +5,7 @@
         
         public static void WriteDebug(string debugLine)
         {
-            //System.Diagnostics.Debug.WriteLine(debugLine);
+            System.Diagnostics.Debug.WriteLine(debugLine);
         }
     }
 }

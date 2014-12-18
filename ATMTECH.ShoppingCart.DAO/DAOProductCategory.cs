@@ -30,7 +30,7 @@ namespace ATMTECH.ShoppingCart.DAO
 
             OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ORDER_ID, OrderByType = OrderBy.Type.Ascending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
-            SetLanguage(criterias, CurrentLanguage);
+            //SetLanguage(criterias, CurrentLanguage);
              IList<ProductCategory> rtn = GetByCriteria(criterias, pagingOperation, orderOperation);
             return rtn;
 
