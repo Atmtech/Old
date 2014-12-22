@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Configuration;
+using System.IO;
+using System.Net;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.Administration.Views;
@@ -29,8 +31,6 @@ namespace ATMTECH.Administration
                     pnlAchievement.Visible = true;
                     break;
             }
-
-
         }
 
         public bool ThrowExceptionIfNoPresenterBound

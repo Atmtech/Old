@@ -25,12 +25,12 @@
     Sélectionner un emplacement à visualiser: 
     
     <asp:DropDownList runat="server" ID="ddlSiteList" AutoPostBack="True">
-        <asp:ListItem Value="C:\WebSite\cima-directeur.boutiquecorpo.com\Images">cima-directeur.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="C:\WebSite\cima-employe.boutiquecorpo.com\Images">cima-employe.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="C:\WebSite\ursulines.boutiquecorpo.com\Images">ursuline.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="C:\WebSite\glv.boutiquecorpo.com\Images">glv.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="C:\WebSite\glv-an.boutiquecorpo.com\Images">glv-an.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="C:\WebSite\lauzon.boutiquecorpo.com\Images">lauzon.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\cima-directeur.boutiquecorpo.com\www\Images">cima-directeur.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\cima-employe.boutiquecorpo.com\www\Images">cima-employe.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\ursulines.boutiquecorpo.com\www\Images">ursuline.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\glv.boutiquecorpo.com\www\Images">glv.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\glv-an.boutiquecorpo.com\www\Images">glv-an.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\lauzon.boutiquecorpo.com\www\Images">lauzon.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="C:\dev\Atmtech\ATMTECH.ShoppingCart.PubJL\Images">Développement</asp:ListItem>
     </asp:DropDownList>
     <hr />
