@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Mail;
+using System.Web;
 using System.Xml.Linq;
 using ATMTECH.Common.Context;
 using ATMTECH.DAO.Interface;
@@ -111,7 +112,13 @@ namespace ATMTECH.Web.Services
             {
                 logException.User = AuthenticateUser;
             }
-            DAOLogException.CreateLog(logException);
+            //string path = HttpContext.Current.Server.MapPath("");
+
+            //using (System.IO.StreamWriter file = new System.IO.StreamWriter(path + @"\LogException.log", true))
+            //{
+            //    file.WriteLine(DateTime.Now.ToString() + " :: " + logException.InnerId + " - " +  logException.Description);
+            //}
+            //DAOLogException.CreateLog(logException);
         }
 
         public void LogMail(MailMessage mailMessage)

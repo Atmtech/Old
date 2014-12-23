@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
+   <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
 
         <asp:Panel runat="server" ID="pnlAskShipping" Visible="False" CssClass="askShippingBox">
             <asp:Label runat="server" ID="lblAskShipping" Font-Bold="True"></asp:Label>
@@ -41,8 +41,8 @@
                     <asp:TemplateField HeaderText="Quantité">
                         <ItemTemplate>
                             <center>
-                                <atmtech:AlphaNumTextBoxAvance runat="server" ID="txtQuantity" Text='<%#Eval("Quantity")%>'
-                                    Width="50px" EstNumeriqueSeul="true"></atmtech:AlphaNumTextBoxAvance>
+                                <asp:TextBox runat="server" ID="txtQuantity" Text='<%#Eval("Quantity")%>'
+                                    Width="50px"></asp:TextBox>
                             </center>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -154,7 +154,7 @@
                     <asp:Label runat="server" ID="lblShippingLabel" Text="Adresse d'envoi" />
                 </strong>
             </div>
-            <atmtech:ComboBoxAvance runat="server" ID="ddlShipping" AutoPostBack="True" />
+            <asp:DropDownList runat="server" ID="ddlShipping" AutoPostBack="True" />
             <asp:Button runat="server" ID="btnModifyShippingAddress" OnClick="btnModifyShippingAddressClick"
                 Text="Modifier" />
             <asp:Label runat="server" ID="lblNoShippingAddress"  Visible="False" ForeColor="red"></asp:Label>
@@ -165,7 +165,7 @@
                     <asp:Label runat="server" ID="lblBillingLabel" Text="Adresse de facturation" />
                 </strong>
             </div>
-            <atmtech:ComboBoxAvance runat="server" ID="ddlBilling" AutoPostBack="True" />
+            <asp:DropDownList runat="server" ID="ddlBilling" AutoPostBack="True" />
             <asp:Button runat="server" ID="btnModifyBillingAddress" OnClick="btnModifyBillingAddressClick"
                 Text="Modifier" />
             <asp:Label runat="server" ID="lblNoBillingAddress" Visible="False" ForeColor="red"></asp:Label>

@@ -12,21 +12,24 @@ namespace ATMTECH.ShoppingCart.Glv{
 
         public DateTime DateStartSalesByMonthReport
         {
-            get { return txtDateStartReport.ValeurDateTime; }
+            get { return Convert.ToDateTime(txtDateStartReport.Text); }
         }
         public DateTime DateEndSalesByMonthReport
         {
-            get { return txtDateEndReport.ValeurDateTime; }
+            get { return Convert.ToDateTime(txtDateEndReport.Text); }
         }
 
         public DateTime DateStartSalesByOrderInformationReport
         {
-            get { return txtDateStartSalesByOrderInformationReport.ValeurDateTime; }
+            get { return Convert.ToDateTime(txtDateStartSalesByOrderInformationReport.Text); }
         }
         public DateTime DateEndSalesByOrderInformationReport
         {
-            get { return txtDateEndSalesByOrderInformationReport.ValeurDateTime; }
+            get { return Convert.ToDateTime(txtDateEndSalesByOrderInformationReport.Text); }
         }
+
+        public bool IsDontAddPersonnalAddressShipping { set { if (value) pnlChangeAddressShipping.Visible = false; } }
+        public bool IsDontAddPersonnalAddressBilling { set { if (value) pnlChangeAddressBilling.Visible = false; } }
 
         public IList<Country> Countrys
         {
@@ -70,8 +73,6 @@ namespace ATMTECH.ShoppingCart.Glv{
             }
         }
 
-        public bool IsDontAddPersonnalAddressShipping { set { if (value) pnlChangeAddressShipping.Visible = false; } }
-        public bool IsDontAddPersonnalAddressBilling { set { if (value) pnlChangeAddressBilling.Visible = false; } }
 
         public string BillingWay { get { return txtModifyBillingWay.Text; } set { txtModifyBillingWay.Text = value; } }
         public string BillingCountry { get { return ddlModifyBillingCountry.SelectedValue; } set { ddlModifyBillingCountry.SelectedValue = value; } }
@@ -79,7 +80,7 @@ namespace ATMTECH.ShoppingCart.Glv{
         public string BillingPostalCode { get { return txtModifyBillingPostalCode.Text; } set { txtModifyBillingPostalCode.Text = value; } }
 
 
-        public string ShippingWay { get { return txtModifyShippingWay.Text; } set { txtModifyShippingWay.Text = value; } }
+        public string ShippingWay { get { return txtModifyBillingWay.Text; } set { txtModifyShippingWay.Text = value; } }
         public string ShippingCountry { get { return ddlModifyShippingCountry.SelectedValue; } set { ddlModifyShippingCountry.SelectedValue = value; } }
         public string ShippingCity { get { return txtModifyShippingCity.Text; } set { txtModifyShippingCity.Text = value; } }
         public string ShippingPostalCode { get { return txtModifyShippingPostalCode.Text; } set { txtModifyShippingPostalCode.Text = value; } }

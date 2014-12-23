@@ -4,8 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-    <div class="tile triple-vertical triple bg-color-darken">
+     <div class="tile triple-vertical triple bg-color-darken">
         <div class="tile-content">
             <div style="float: left; text-align: center; padding-left: 20px; padding-top: 20px;">
                 <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" OnClick="imgProductPrincipalClick" />
@@ -21,21 +20,21 @@
         </div>
     </div>
     <div class="tile triple-vertical triple bg-color-grayDark">
-        <div class="tile-content" style="overflow: auto; overflow-x: hidden;">
+        <div class="tile-content">
             <h4>
                 <asp:Label runat="server" ID="lblIdent" Visible="True"></asp:Label>
                 <asp:Label runat="server" ID="lblName"></asp:Label>
             </h4>
             <br />
             <h4>
-                <asp:Label runat="server" ID="lblUnitPrice"></asp:Label> CDN</h4>
+                <asp:Label runat="server" ID="lblUnitPrice"></asp:Label></h4>
             <br />
             <asp:Label runat="server" ID="lblDescription"></asp:Label>
             <asp:Label runat="server" ID="lblAddToBasketSucessfull" Visible="false" Text="Ajouté avec succès..."></asp:Label>
             <br />
             <br />
             <asp:DataList runat="server" ID="DataListStockNotOrderable" OnItemDataBound="StockDataBound"
-                Visible="false" OnItemCommand="StockAddCommand" ItemStyle="addToBasket">
+                Visible="false" OnItemCommand="StockAddCommand">
                 <ItemTemplate>
                     <div style="font-size: 12px;">
                         <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
@@ -43,11 +42,11 @@
                 </ItemTemplate>
             </asp:DataList>
             <asp:DataList runat="server" ID="DataListStockOrderable" OnItemDataBound="StockDataBound"
-                Visible="false" OnItemCommand="StockAddCommand" ItemStyle="addToBasket">
+                Visible="false" OnItemCommand="StockAddCommand">
                 <ItemTemplate>
-                    <div class="addToBasketOrderList">
-                        <atmtech:AlphaNumTextBoxAvance runat="server" ID="txtQuantity" ValidationGroup="AddBasket"
-                            TypeSaisie="Numerique" EstObligatoire="true" Width="50px" StyleTextBox="color:black;"></atmtech:AlphaNumTextBoxAvance>
+                    <div style="font-size: 12px;">
+                        <asp:TextBox runat="server" ID="txtQuantity" ValidationGroup="AddBasket"
+                             Width="50px"></asp:TextBox>
                         <asp:Label runat="server" ID="lblStockId" Visible="False"></asp:Label>
                         <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
                         <asp:Label runat="server" ID="lblQuantityDisplay"></asp:Label>

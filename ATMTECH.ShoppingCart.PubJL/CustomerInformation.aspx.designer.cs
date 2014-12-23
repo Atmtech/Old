@@ -22,13 +22,31 @@ namespace ATMTECH.ShoppingCart.PubJL {
         protected global::System.Web.UI.WebControls.Label lblCustomerInformation;
         
         /// <summary>
+        /// Contrôle lblName.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblName;
+        
+        /// <summary>
         /// Contrôle txtName.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtName;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
+        
+        /// <summary>
+        /// Contrôle lblLogin.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLogin;
         
         /// <summary>
         /// Contrôle txtLogin.
@@ -37,7 +55,16 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtLogin;
+        protected global::System.Web.UI.WebControls.TextBox txtLogin;
+        
+        /// <summary>
+        /// Contrôle lblFirstName.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFirstName;
         
         /// <summary>
         /// Contrôle txtFirstName.
@@ -46,7 +73,16 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtFirstName;
+        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
+        
+        /// <summary>
+        /// Contrôle lblLastName.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLastName;
         
         /// <summary>
         /// Contrôle txtLastName.
@@ -55,7 +91,16 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtLastName;
+        protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        
+        /// <summary>
+        /// Contrôle lblEmail.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmail;
         
         /// <summary>
         /// Contrôle txtEmail.
@@ -64,7 +109,7 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
         /// Contrôle btnSave.
@@ -130,13 +175,31 @@ namespace ATMTECH.ShoppingCart.PubJL {
         protected global::System.Web.UI.WebControls.Panel pnlSalesByOrderInformationReport;
         
         /// <summary>
+        /// Contrôle lblDateStartSalesByOrderInformationReport.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDateStartSalesByOrderInformationReport;
+        
+        /// <summary>
         /// Contrôle txtDateStartSalesByOrderInformationReport.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.DateTextBoxAvance txtDateStartSalesByOrderInformationReport;
+        protected global::System.Web.UI.WebControls.TextBox txtDateStartSalesByOrderInformationReport;
+        
+        /// <summary>
+        /// Contrôle lblDateEndSalesByOrderInformationReport.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDateEndSalesByOrderInformationReport;
         
         /// <summary>
         /// Contrôle txtDateEndSalesByOrderInformationReport.
@@ -145,7 +208,7 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.DateTextBoxAvance txtDateEndSalesByOrderInformationReport;
+        protected global::System.Web.UI.WebControls.TextBox txtDateEndSalesByOrderInformationReport;
         
         /// <summary>
         /// Contrôle btnGenerateSalesByOrderInformationReport.
@@ -166,13 +229,31 @@ namespace ATMTECH.ShoppingCart.PubJL {
         protected global::System.Web.UI.WebControls.Panel pnlSalesByMonthReport;
         
         /// <summary>
+        /// Contrôle lblDateStartReport.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDateStartReport;
+        
+        /// <summary>
         /// Contrôle txtDateStartReport.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.DateTextBoxAvance txtDateStartReport;
+        protected global::System.Web.UI.WebControls.TextBox txtDateStartReport;
+        
+        /// <summary>
+        /// Contrôle lblDateEndReport.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDateEndReport;
         
         /// <summary>
         /// Contrôle txtDateEndReport.
@@ -181,7 +262,7 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.DateTextBoxAvance txtDateEndReport;
+        protected global::System.Web.UI.WebControls.TextBox txtDateEndReport;
         
         /// <summary>
         /// Contrôle btnGenerateSalesByMonthReport.
@@ -211,13 +292,31 @@ namespace ATMTECH.ShoppingCart.PubJL {
         protected global::System.Web.UI.WebControls.Label lblChangementDeMotDePasse;
         
         /// <summary>
+        /// Contrôle lblPassword.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPassword;
+        
+        /// <summary>
         /// Contrôle txtPassword.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        
+        /// <summary>
+        /// Contrôle lblConfirmPassword.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConfirmPassword;
         
         /// <summary>
         /// Contrôle txtConfirmPassword.
@@ -226,7 +325,7 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtConfirmPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
         
         /// <summary>
         /// Contrôle lblModificationAdresse.
@@ -256,13 +355,31 @@ namespace ATMTECH.ShoppingCart.PubJL {
         protected global::System.Web.UI.WebControls.Label lblBillingLabel;
         
         /// <summary>
+        /// Contrôle lblModifyBillingWay.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModifyBillingWay;
+        
+        /// <summary>
         /// Contrôle txtModifyBillingWay.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyBillingWay;
+        protected global::System.Web.UI.WebControls.TextBox txtModifyBillingWay;
+        
+        /// <summary>
+        /// Contrôle lblModifyBillingCountry.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModifyBillingCountry;
         
         /// <summary>
         /// Contrôle ddlModifyBillingCountry.
@@ -271,7 +388,16 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.ComboBoxAvance ddlModifyBillingCountry;
+        protected global::System.Web.UI.WebControls.DropDownList ddlModifyBillingCountry;
+        
+        /// <summary>
+        /// Contrôle lblModifyBillingCity.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModifyBillingCity;
         
         /// <summary>
         /// Contrôle txtModifyBillingCity.
@@ -280,7 +406,16 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyBillingCity;
+        protected global::System.Web.UI.WebControls.TextBox txtModifyBillingCity;
+        
+        /// <summary>
+        /// Contrôle lblModifyBillingPostalCode.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModifyBillingPostalCode;
         
         /// <summary>
         /// Contrôle txtModifyBillingPostalCode.
@@ -289,7 +424,7 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyBillingPostalCode;
+        protected global::System.Web.UI.WebControls.TextBox txtModifyBillingPostalCode;
         
         /// <summary>
         /// Contrôle btnSaveAddressBilling.
@@ -328,13 +463,31 @@ namespace ATMTECH.ShoppingCart.PubJL {
         protected global::System.Web.UI.WebControls.Label lblShippingLabel;
         
         /// <summary>
+        /// Contrôle lblModifyShippingWay.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModifyShippingWay;
+        
+        /// <summary>
         /// Contrôle txtModifyShippingWay.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyShippingWay;
+        protected global::System.Web.UI.WebControls.TextBox txtModifyShippingWay;
+        
+        /// <summary>
+        /// Contrôle lblModifyShippingCountry.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModifyShippingCountry;
         
         /// <summary>
         /// Contrôle ddlModifyShippingCountry.
@@ -343,7 +496,16 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.ComboBoxAvance ddlModifyShippingCountry;
+        protected global::System.Web.UI.WebControls.DropDownList ddlModifyShippingCountry;
+        
+        /// <summary>
+        /// Contrôle lblModifyShippingCity.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModifyShippingCity;
         
         /// <summary>
         /// Contrôle txtModifyShippingCity.
@@ -352,7 +514,16 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyShippingCity;
+        protected global::System.Web.UI.WebControls.TextBox txtModifyShippingCity;
+        
+        /// <summary>
+        /// Contrôle lblModifyShippingPostalCode.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModifyShippingPostalCode;
         
         /// <summary>
         /// Contrôle txtModifyShippingPostalCode.
@@ -361,7 +532,7 @@ namespace ATMTECH.ShoppingCart.PubJL {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtModifyShippingPostalCode;
+        protected global::System.Web.UI.WebControls.TextBox txtModifyShippingPostalCode;
         
         /// <summary>
         /// Contrôle btnSaveAddressShipping.

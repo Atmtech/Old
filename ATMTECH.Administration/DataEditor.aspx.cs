@@ -12,7 +12,7 @@ using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.Utils.Web;
 using ATMTECH.Web;
-using ATMTECH.Web.Controls.Edition;
+
 
 namespace ATMTECH.Administration
 {
@@ -208,7 +208,7 @@ namespace ATMTECH.Administration
         {
             if (id != null)
             {
-                windowEditData.OuvrirFenetre("Édition");
+                pnlEdit.Visible = true;
                 IsInserting = false;
                 GenererControles((int)id);
             }
@@ -277,45 +277,35 @@ namespace ATMTECH.Administration
 
             foreach (Control control in type.GetProperties().Select(propertyInfo => Pages.FindControlRecursive(pnlControl, propertyInfo.Name)))
             {
-                var textBoxAvance = control as TextBoxAvance;
+                var textBoxAvance = control as TextBox;
                 if (textBoxAvance != null)
                 {
                     manageClass.AssignValue(type, entity, textBoxAvance.Text, textBoxAvance.ID);
                 }
 
-                var alphaNumTextBoxAvance = control as AlphaNumTextBoxAvance;
-                if (alphaNumTextBoxAvance != null)
-                {
-                    manageClass.AssignValue(type, entity, alphaNumTextBoxAvance.ValeurDecimale.ToString(), alphaNumTextBoxAvance.ID);
-                }
-
-                var dateTextBoxAvance = control as DateTextBoxAvance;
-                if (dateTextBoxAvance != null)
-                {
-                    manageClass.AssignValue(type, entity, dateTextBoxAvance.Text, dateTextBoxAvance.ID);
-                }
-                var comboboxAvance = control as ComboBoxAvance;
+             
+                var comboboxAvance = control as DropDownList;
                 if (comboboxAvance != null)
                 {
                     manageClass.AssignValue(type, entity, comboboxAvance.SelectedValue, comboboxAvance.ID);
                 }
-                var checkboxAvance = control as CheckBoxAvance;
+                var checkboxAvance = control as CheckBox;
                 if (checkboxAvance != null)
                 {
                     manageClass.AssignValue(type, entity, checkboxAvance.Checked ? "True" : "False", checkboxAvance.ID);
                 }
 
-                var comboboxSimple = control as ComboBoxSimple;
-                if (comboboxSimple != null)
-                {
-                    manageClass.AssignValue(type, entity, comboboxSimple.SelectedValue, comboboxSimple.ID);
-                }
+                //var comboboxSimple = control as ComboBoxSimple;
+                //if (comboboxSimple != null)
+                //{
+                //    manageClass.AssignValue(type, entity, comboboxSimple.SelectedValue, comboboxSimple.ID);
+                //}
 
-                var textEditorAvance = control as TextEditorAvance;
-                if (textEditorAvance != null)
-                {
-                    manageClass.AssignValue(type, entity, textEditorAvance.Text, textEditorAvance.ID);
-                }
+                //var textEditorAvance = control as TextEditorAvance;
+                //if (textEditorAvance != null)
+                //{
+                //    manageClass.AssignValue(type, entity, textEditorAvance.Text, textEditorAvance.ID);
+                //}
 
 
             }
@@ -333,18 +323,18 @@ namespace ATMTECH.Administration
         protected void SaveClick(object sender, EventArgs e)
         {
             Save();
-            windowEditData.FermerFenetre();
+            pnlEdit.Visible = false;
         }
         protected void AddClick(object sender, EventArgs e)
         {
-            windowEditData.OuvrirFenetre("Ajouter une donnée");
+            pnlEdit.Visible = true;
             IsInserting = true;
             GenererControles(0);
         }
         protected void CancelClick(object sender, EventArgs e)
         {
             GenererControles((int)Session["IdSelectionner"]);
-            windowEditData.FermerFenetre();
+            pnlEdit.Visible = false;
         }
         protected void PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

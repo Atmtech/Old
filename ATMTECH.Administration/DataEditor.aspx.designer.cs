@@ -13,13 +13,13 @@ namespace ATMTECH.Administration {
     public partial class DataEditor {
         
         /// <summary>
-        /// Contrôle windowEditData.
+        /// Contrôle pnlEdit.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Affichage.FenetreDialogue windowEditData;
+        protected global::System.Web.UI.WebControls.Panel pnlEdit;
         
         /// <summary>
         /// Contrôle pnlSaveDone.
@@ -112,13 +112,22 @@ namespace ATMTECH.Administration {
         protected global::System.Web.UI.WebControls.Panel pnlSearch;
         
         /// <summary>
+        /// Contrôle lblSearch.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSearch;
+        
+        /// <summary>
         /// Contrôle txtSearch.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.TextBoxAvance txtSearch;
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
         
         /// <summary>
         /// Contrôle btnSearch.

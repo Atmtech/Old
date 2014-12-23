@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Test.aspx.cs" Inherits="ATMTECH.Administration.Test"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="test.aspx.cs" Inherits="ATMTECH.Administration.test" %>
 
 <!DOCTYPE html>
 
@@ -10,8 +10,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        Hello World
-
+        <asp:Button runat="server" Text="test" OnClick="testClick"/>
+        <asp:Button ID="btntest2" runat="server" Text="test2" OnClick="test2Click"/>
     </div>
     </form>
 </body>

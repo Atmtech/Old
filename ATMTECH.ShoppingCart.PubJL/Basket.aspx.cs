@@ -7,7 +7,6 @@ using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.ShoppingCart.Views.Pages;
-using ATMTECH.Web.Controls.Edition;
 
 namespace ATMTECH.ShoppingCart.PubJL
 {
@@ -37,7 +36,7 @@ namespace ATMTECH.ShoppingCart.PubJL
         public bool IsDontAddPersonnalAddressShipping { set { if (value) btnModifyShippingAddress.Visible = false; } }
         public bool IsDontAddPersonnalAddressBilling { set { if (value) btnModifyBillingAddress.Visible = false; } }
 
-        public string OrderInformation1Value { get { return ddlOrderInformation1.SelectedValue.ToString(); } }
+        public string OrderInformation1Value { get { return ddlOrderInformation1.SelectedValue; } }
         public string OrderInformation2Value { get { return ddlOrderInformation2.SelectedValue; } }
         public string NoAddressFound
         {
@@ -276,7 +275,7 @@ namespace ATMTECH.ShoppingCart.PubJL
         protected void RecalculerClick(object sender, EventArgs e)
         {
             int i = 0;
-            foreach (AlphaNumTextBoxAvance textBox in from GridViewRow row in grvBasket.Rows select (AlphaNumTextBoxAvance)row.FindControl("txtQuantity"))
+            foreach (TextBox textBox in from GridViewRow row in grvBasket.Rows select (TextBox)row.FindControl("txtQuantity"))
             {
                 CurrentOrder.OrderLines[i].Quantity = Convert.ToInt32(textBox.Text);
                 i++;
@@ -284,7 +283,8 @@ namespace ATMTECH.ShoppingCart.PubJL
 
             Presenter.RecalculateBasket();
 
-            ((Default)Master).RefreshTotal();
+            var @default = (Default) Master;
+            if (@default != null) @default.RefreshTotal();
         }
         protected void GrvBasketCommand(object sender, GridViewCommandEventArgs e)
         {

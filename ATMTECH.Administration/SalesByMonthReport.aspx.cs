@@ -31,11 +31,11 @@ namespace ATMTECH.Administration
 
         public DateTime DateStart
         {
-            get { return txtDateStart.ValeurDateTime; }
+            get { return Convert.ToDateTime(txtDateStart.Text); }
         }
         public DateTime DateEnd
         {
-            get { return txtDateEnd.ValeurDateTime; }
+            get { return Convert.ToDateTime(txtDateEnd.Text); }
         }
         public string EnterpriseSelected
         {

@@ -7,9 +7,9 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="Site.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+    <link href="Javascript/CSS/jquery-ui.css" rel="stylesheet" />
+    <script src="Javascript/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="Javascript/jquery-ui.js"  type="text/javascript"></script>
 </head>
 <body>
     <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
@@ -36,7 +36,32 @@
                         Administration
                     </div>
                     <div style="float: right; padding-top: 5px; padding-bottom: 5px; padding-right: 10px;">
-                        <atmtech:Login ID="Login1" runat="server"></atmtech:Login>
+                        <asp:Panel runat="server" ID="pnlLogin" Visible="True" DefaultButton="btnSignIn">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblUser" Text="Utilisateur"></asp:Label></td>
+                                    <td>
+                                        <asp:TextBox runat="server" ID="txtUser" /></td>
+
+                                    <td>
+                                        <asp:Label runat="server" ID="lblPassword" Text="Mot de passe"></asp:Label></td>
+                                    <td>
+                                        <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" />
+                                    </td>
+
+                                    <td>
+                                        <asp:Button runat="server" ID="btnSignIn" Text="Entrer" OnClick="SignInClick" CssClass="button" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </asp:Panel>
+                        <asp:Panel runat="server" ID="pnlWelcome" Visible="False">
+                            Bienvenue,
+        <asp:Label runat="server" ID="lblName"></asp:Label>
+                            <asp:Button runat="server" ID="lnkSignOut" OnClick="SignOutClick" Text="Fermer la session" CssClass="button"></asp:Button>
+                        </asp:Panel>
+
                     </div>
                     <div style="clear: both;">
                     </div>
@@ -86,9 +111,6 @@
                                             <li>
                                                 <asp:LinkButton runat="server" ID="LinkButton1" Text="Générer les colonnes"
                                                     OnClick="BtnGenerateColumns" /></li>
-                                            <li>
-                                                <asp:LinkButton runat="server" ID="LinkButton2" Text="Générer la base de données "
-                                                    OnClick="btnGenererDatabase" /></li>
                                         </ul>
                                     </div>
 
@@ -193,7 +215,8 @@
                 </asp:Panel>
             </div>
         </div>
-        IP: <asp:Label runat="server" ID="lblIp" Font-Size="10"></asp:Label>
+        IP:
+        <asp:Label runat="server" ID="lblIp" Font-Size="10"></asp:Label>
         <input type="hidden" id="EstFenetreModal" value="0" />
         <input type="hidden" id="StatutExpiration" value="1" />
     </form>

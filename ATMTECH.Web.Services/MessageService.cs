@@ -17,7 +17,7 @@ namespace ATMTECH.Web.Services
         {
 
             Message message = DAOMessage.GetMessage(innerId, LocalizationService.CurrentLanguage);
-            LogService.LogException(message);
+            //LogService.LogException(message);
             throw new BaseException(message);
         }
 
@@ -30,21 +30,21 @@ namespace ATMTECH.Web.Services
         {
             Message message = DAOMessage.GetMessage(innerId, LocalizationService.CurrentLanguage);
             message.Description = string.Format(message.Description, parameter);
-            LogService.LogException(message);
+           // LogService.LogException(message);
             throw new BaseException(message);
         }
 
         public void ThrowMessage(string innerId, System.Exception ex)
         {
             Message message = DAOMessage.GetMessage(innerId, LocalizationService.CurrentLanguage);
-            LogService.LogException(message, ex);
+            //LogService.LogException(message, ex);
             throw new BaseException(message);
         }
 
         public void ThrowMessage(System.Exception ex)
         {
             Message message = new Message() { Description = ex.Message };
-            LogService.LogException(message, ex);
+         //   LogService.LogException(message, ex);
             throw new BaseException(message);
         }
 

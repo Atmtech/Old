@@ -19,7 +19,7 @@ namespace ATMTECH.Administration {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.ComboBoxAvance cboEnterprise;
+        protected global::System.Web.UI.WebControls.DropDownList cboEnterprise;
         
         /// <summary>
         /// Contrôle txtDateStart.
@@ -28,7 +28,7 @@ namespace ATMTECH.Administration {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.DateTextBoxAvance txtDateStart;
+        protected global::System.Web.UI.WebControls.TextBox txtDateStart;
         
         /// <summary>
         /// Contrôle txtDateEnd.
@@ -37,7 +37,7 @@ namespace ATMTECH.Administration {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.DateTextBoxAvance txtDateEnd;
+        protected global::System.Web.UI.WebControls.TextBox txtDateEnd;
         
         /// <summary>
         /// Contrôle btnGenerate.

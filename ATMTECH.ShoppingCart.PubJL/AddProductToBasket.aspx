@@ -45,8 +45,8 @@
                 Visible="false" OnItemCommand="StockAddCommand">
                 <ItemTemplate>
                     <div style="font-size: 12px;">
-                        <atmtech:AlphaNumTextBoxAvance runat="server" ID="txtQuantity" ValidationGroup="AddBasket"
-                            TypeSaisie="Numerique" EstObligatoire="true" Width="50px" StyleTextBox="color:black;"></atmtech:AlphaNumTextBoxAvance>
+                        <asp:TextBox runat="server" ID="txtQuantity" ValidationGroup="AddBasket"
+                             Width="50px"></asp:TextBox>
                         <asp:Label runat="server" ID="lblStockId" Visible="False"></asp:Label>
                         <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
                         <asp:Label runat="server" ID="lblQuantityDisplay"></asp:Label>

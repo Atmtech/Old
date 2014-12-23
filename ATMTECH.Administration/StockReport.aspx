@@ -6,20 +6,22 @@
         Rapport d'inventaires
     </div>
     <table>
-        <tr>
-            <td>
-                Enterprise:
+          <tr>
+            <td>Enterprise:
             </td>
             <td>
-                <atmtech:ComboBoxAvance runat="server" ID="cboEnterprise" />
+                <asp:DropDownList runat="server" ID="cboEnterprise" />
             </td>
         </tr>
         <tr>
-            <atmtech:DateTextBoxAvance runat="server" ID="txtDateStart" Libelle="Date début:"
-                EstObligatoire="True" />
+            <td>Date début:
+                <asp:TextBox runat="server" ID="txtDateStart" />
+            </td>
         </tr>
         <tr>
-            <atmtech:DateTextBoxAvance runat="server" ID="txtDateEnd" Libelle="Date fin:" EstObligatoire="True" />
+            <td>Date fin:
+                <asp:TextBox runat="server" ID="txtDateEnd" />
+            </td>
         </tr>
     </table>
     <div style="background-color: lightgray; border: solid 1px gray; padding: 5px 5px 5px 5px;">

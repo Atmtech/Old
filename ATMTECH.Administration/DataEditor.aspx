@@ -51,7 +51,7 @@
             background: white;
         }
     </style>
-    <atmtech:FenetreDialogue runat="server" ID="windowEditData" Largeur="1000"  >
+    <asp:panel runat="server" ID="pnlEdit" Visible="False">
 
         <asp:Panel runat="server" ID="pnlSaveDone" Visible="False">
             <div style="border: solid 1px black; color: green; padding: 10px 10px 10px 10px; background-color: white; margin-bottom: 5px;">
@@ -69,7 +69,7 @@
                 CssClass="button" />
         </div>
 
-    </atmtech:FenetreDialogue>
+    </asp:panel>
 
 
 
@@ -99,7 +99,11 @@
                             <td style="width: 175px;">Rechercher:
                             </td>
                             <td style="width: 200px;">
-                                <atmtech:TextBoxAvance runat="server" ID="txtSearch" />
+                                <td>
+                                    <asp:Label runat="server" ID="lblSearch" Text="Rechercher"></asp:Label>
+                                </td>
+                                <td><asp:TextBox runat="server" ID="txtSearch" /></td>
+                                
                             </td>
                             <td>
                                 <asp:Button runat="server" ID="btnSearch" OnClick="SearchClick" Text="Rechercher"

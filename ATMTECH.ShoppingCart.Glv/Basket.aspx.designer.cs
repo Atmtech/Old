@@ -289,7 +289,7 @@ namespace ATMTECH.ShoppingCart.Glv {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.ComboBoxAvance ddlShipping;
+        protected global::System.Web.UI.WebControls.DropDownList ddlShipping;
         
         /// <summary>
         /// Contrôle btnModifyShippingAddress.
@@ -325,7 +325,7 @@ namespace ATMTECH.ShoppingCart.Glv {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.Web.Controls.Edition.ComboBoxAvance ddlBilling;
+        protected global::System.Web.UI.WebControls.DropDownList ddlBilling;
         
         /// <summary>
         /// Contrôle btnModifyBillingAddress.

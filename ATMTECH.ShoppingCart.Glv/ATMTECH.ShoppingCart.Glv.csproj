@@ -287,10 +287,6 @@
       <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
       <Name>ATMTECH.Views</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Web.Controls\ATMTECH.Web.Controls.csproj">
-      <Project>{2D2B35D6-59B5-41B0-A23C-A3B4F6A0EE52}</Project>
-      <Name>ATMTECH.Web.Controls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
       <Name>ATMTECH.Web.Services</Name>

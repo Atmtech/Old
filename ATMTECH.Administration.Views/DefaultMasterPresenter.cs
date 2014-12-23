@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ATMTECH.Administration.Services.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
 using ATMTECH.DAO;
-using ATMTECH.DAO.Database;
 using ATMTECH.Entities;
 using ATMTECH.Services;
 using ATMTECH.Services.Interface;
@@ -18,17 +16,52 @@ namespace ATMTECH.Administration.Views
     {
         public IGenerateDataEditorService GenerateDataEditorService { get; set; }
         public IReportService ReportService { get; set; }
+        public ICustomerService CustomerService { get; set; }
+        public IOrderService OrderService { get; set; }
+        public IEnterpriseService EnterpriseService { get; set; }
+        public IProductService ProductService { get; set; }
+        public IStockService StockService { get; set; }
 
         public DefaultMasterPresenter(IDefaultMasterPresenter view)
             : base(view)
         {
         }
 
+
         public override void OnViewLoaded()
         {
             User user = AuthenticationService.AuthenticateUser;
             View.IsLogged = user != null && user.IsAdministrator;
+            if (user != null)
+                View.FullName = user.FirstNameLastName;
         }
+
+        public void FillData(User user)
+        {
+            if (user != null)
+            {
+                View.FullName = user.FirstNameLastName;
+                View.IsLogged = true;
+                View.IsAdministrator = user.IsAdministrator;
+            }
+            else
+            {
+                View.IsLogged = false;
+            }
+
+        }
+
+
+        public void SignIn(string homePage)
+        {
+            User user = AuthenticationService.SignIn(View.UserName, View.Password);
+            if (user != null)
+            {
+                FillData(user);
+                NavigationService.Redirect(homePage);
+            }
+        }
+
 
 
         public void GenerateEntityInformation()
@@ -41,16 +74,6 @@ namespace ATMTECH.Administration.Views
             }
         }
 
-        public void GenerateDatabaseAchievement()
-        {
-
-        }
-
-        public ICustomerService CustomerService { get; set; }
-        public IOrderService OrderService { get; set; }
-        public IEnterpriseService EnterpriseService { get; set; }
-        public IProductService ProductService { get; set; }
-        public IStockService StockService { get; set; }
 
         private string Save<TModel>()
         {
@@ -135,16 +158,23 @@ namespace ATMTECH.Administration.Views
                 Parameters = dictionnaire
             };
 
-         
+
             IList<StockControlReportLine> stockControlReportLines = OrderService.GetStockControlReport();
 
             reportParameter.AddDatasource("dsStockControl", stockControlReportLines);
             ReportService.SaveReport("StockControl.pdf", ReportService.GetReport(reportParameter));
         }
 
+        public void SignOut(string homePage)
+        {
+            AuthenticationService.SignOut();
+            NavigationService.Redirect(homePage);
+        }
+
+
         public void Export()
         {
-          
+
         }
     }
 }

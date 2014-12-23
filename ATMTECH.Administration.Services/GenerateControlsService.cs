@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ATMTECH.Administration.DAO.Interface;
 using ATMTECH.Administration.Services.Interface;
 using ATMTECH.Common.Utilities;
 using ATMTECH.DAO;
@@ -13,7 +11,6 @@ using ATMTECH.DAO.Database;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
-using ATMTECH.Web.Controls.Edition;
 using ATMTECH.Web.Services.Base;
 using ATMTECH.Web.Services.Interface;
 
@@ -59,7 +56,7 @@ namespace ATMTECH.Administration.Services
                         ControlWithLabel controlWithLabel = new ControlWithLabel();
                         Control controlLabel = CreateLabel(propertyInfo, entity, entityInformations, entityProperties);
                         string value = GetValueFromProperty(entityObject, propertyInfo, isInserting);
-                        Control control = GenerateEditingControl(propertyInfo, value, idEnterprise, nameSpace, entity, isInserting, entityInformations, entityProperties);
+                        Control control = GenerateEditingControl(propertyInfo, value, idEnterprise, nameSpace, entity, isInserting);
                         if (control != null)
                         {
                             controlWithLabel.Label = controlLabel;
@@ -89,17 +86,21 @@ namespace ATMTECH.Administration.Services
             return true;
         }
 
-        private string TrouverLibelle(string propertyName, string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityProperties)
+        private string TrouverLibelle(string propertyName, string entity, IEnumerable<EntityInformation> entityInformations, IEnumerable<EntityProperty> entityProperties)
         {
             //int id = DAOEntityInformation.GetEntityInformationId(entity);
-            int id = entityInformations.FirstOrDefault(x => x.Entity == entity).Id;
-            if (id == 0)
-                return "Inconnu";
-            //return DAOEntityProperty.GetEntityPropertyLabel(id, propertyName);
-            EntityProperty firstOrDefault = entityProperties.FirstOrDefault(x => x.EntityInformation.Id == id && x.PropertyName == propertyName);
-            if (firstOrDefault != null)
+            var entityInformation = entityInformations.FirstOrDefault(x => x.Entity == entity);
+            if (entityInformation != null)
             {
-                return firstOrDefault.Label;
+                int id = entityInformation.Id;
+                if (id == 0)
+                    return "Inconnu";
+                //return DAOEntityProperty.GetEntityPropertyLabel(id, propertyName);
+                EntityProperty firstOrDefault = entityProperties.FirstOrDefault(x => x.EntityInformation.Id == id && x.PropertyName == propertyName);
+                if (firstOrDefault != null)
+                {
+                    return firstOrDefault.Label;
+                }
             }
             return propertyName;
 
@@ -110,7 +111,7 @@ namespace ATMTECH.Administration.Services
             Activator.CreateInstance(type, null);
             return type.GetProperties().OrderByDescending(x => DataEditorService.IsSystemColumn(x.Name));
         }
-        private Control CreateLabel(PropertyInfo propertyInfo, string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityProperties)
+        private Control CreateLabel(PropertyInfo propertyInfo, string entity, IEnumerable<EntityInformation> entityInformations, IEnumerable<EntityProperty> entityProperties)
         {
             return new Label
             {
@@ -154,7 +155,7 @@ namespace ATMTECH.Administration.Services
         {
             return propertyInfo.Name == "Language";
         }
-        private Control CreateComboboxLanguage(PropertyInfo propertyInfo, string value)
+        private Control CreateComboboxLanguage()
         {
             return null;
             //ComboBoxAvance comboBoxAvance = new ComboBoxAvance
@@ -189,7 +190,8 @@ namespace ATMTECH.Administration.Services
                         IList<Stock> rtn = new List<Stock>();
                         foreach (Stock stock in stocks)
                         {
-                            stock.Product = ProductService.GetProductSimple(stock.Product.Id);
+                            if (stock.Product != null)
+                                stock.Product = ProductService.GetProductSimple(stock.Product.Id);
                             if (stock.Product != null)
                             {
                                 if (stock.Product.Enterprise.Id == idEnterprise)
@@ -226,48 +228,50 @@ namespace ATMTECH.Administration.Services
             }
         }
 
-        private Control GenerateEditingControl(PropertyInfo propertyInfo, string value, int idEnterprise, string nameSpace, string entity, bool isInserting, IList<EntityInformation> entityInformations, IList<EntityProperty> entityPropertiess)
+        private Control GenerateEditingControl(PropertyInfo propertyInfo, string value, int idEnterprise, string nameSpace, string entity, bool isInserting)
         {
             if (propertyInfo.PropertyType.Namespace == "System")
             {
                 if (propertyInfo.Name == "OrderStatus")
                 {
                     IList<OrderStatusDisplay> orderStatus = new List<OrderStatusDisplay>();
-                    OrderStatusDisplay orderStatusDisplay1 = new OrderStatusDisplay();
-                    orderStatusDisplay1.Id = 1;
-                    orderStatusDisplay1.ComboboxDescription = "Liste de souhait";
+                    OrderStatusDisplay orderStatusDisplay1 = new OrderStatusDisplay
+                        {
+                            Id = 1,
+                            ComboboxDescription = "Liste de souhait"
+                        };
 
-                    OrderStatusDisplay orderStatusDisplay2 = new OrderStatusDisplay();
-                    orderStatusDisplay2.Id = 2;
-                    orderStatusDisplay2.ComboboxDescription = "Commandé par le client";
+                    OrderStatusDisplay orderStatusDisplay2 = new OrderStatusDisplay
+                        {
+                            Id = 2,
+                            ComboboxDescription = "Commandé par le client"
+                        };
 
-                    OrderStatusDisplay orderStatusDisplay3 = new OrderStatusDisplay();
-                    orderStatusDisplay3.Id = 3;
-                    orderStatusDisplay3.ComboboxDescription = "Envoyé au client";
+                    OrderStatusDisplay orderStatusDisplay3 = new OrderStatusDisplay
+                        {
+                            Id = 3,
+                            ComboboxDescription = "Envoyé au client"
+                        };
 
                     orderStatus.Add(orderStatusDisplay1);
                     orderStatus.Add(orderStatusDisplay2);
                     orderStatus.Add(orderStatusDisplay3);
-                    return CreateComboBoxSimple(propertyInfo, value, orderStatus, entity, entityInformations, entityPropertiess);
+                    return CreateComboBoxSimple(propertyInfo, value, orderStatus);
                 }
-                else
+                switch (propertyInfo.PropertyType.Name)
                 {
-                    switch (propertyInfo.PropertyType.Name)
-                    {
-                        case "DateTime":
-                            return CreateDateTextBox(propertyInfo, value, entity, entityInformations, entityPropertiess);
-                        case "Boolean":
-                            return CreateCheckBox(propertyInfo, value);
-                        default:
-                            return IsLanguageProperty(propertyInfo) ? CreateComboboxLanguage(propertyInfo, value) : CreateTextBox(propertyInfo, value, isInserting, entity, entityInformations, entityPropertiess);
-                    }
+                    case "DateTime":
+                        return CreateDateTextBox(propertyInfo, value);
+                    case "Boolean":
+                        return CreateCheckBox(propertyInfo, value);
+                    default:
+                        return IsLanguageProperty(propertyInfo) ? CreateComboboxLanguage() : CreateTextBox(propertyInfo, value, isInserting);
                 }
-
             }
             if (propertyInfo.PropertyType.Name.ToLower() != "ilist`1")
             {
                 Object datasource = GetDatasourceFromProperty(propertyInfo, idEnterprise, nameSpace, entity);
-                return CreateComboBoxSimple(propertyInfo, value, datasource, entity, entityInformations, entityPropertiess);
+                return CreateComboBoxSimple(propertyInfo, value, datasource);
             }
 
             return null;
@@ -275,15 +279,15 @@ namespace ATMTECH.Administration.Services
 
       
 
-        private ComboBoxSimple CreateComboBoxSimple(PropertyInfo propertyInfo, string selectedValue, object dataSource, string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityPropertiess)
+        private DropDownList CreateComboBoxSimple(PropertyInfo propertyInfo, string selectedValue, object dataSource)
         {
-            ComboBoxSimple comboBoxSimple = new ComboBoxSimple
+            DropDownList comboBoxSimple = new DropDownList
             {
                 ID = propertyInfo.Name,
                 DataValueField = BaseEntity.ID,
                 DataTextField = BaseEntity.COMBOBOX_DESCRIPTION,
                 DataSource = dataSource,
-                EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess)
+               // EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess)
             };
             comboBoxSimple.DataBind();
 
@@ -296,9 +300,9 @@ namespace ATMTECH.Administration.Services
             return comboBoxSimple;
         }
 
-        private CheckBoxAvance CreateCheckBox(PropertyInfo propertyInfo, string value)
+        private CheckBox CreateCheckBox(PropertyInfo propertyInfo, string value)
         {
-            CheckBoxAvance checkBoxAvance = new CheckBoxAvance { ID = propertyInfo.Name };
+            CheckBox checkBoxAvance = new CheckBox { ID = propertyInfo.Name };
             if (value.ToLower() == "true")
             {
                 checkBoxAvance.Checked = true;
@@ -310,7 +314,7 @@ namespace ATMTECH.Administration.Services
 
             return checkBoxAvance;
         }
-        private Control CreateTextBox(PropertyInfo propertyInfo, string value, bool isInserting, string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityPropertiess)
+        private Control CreateTextBox(PropertyInfo propertyInfo, string value, bool isInserting)
         {
 
             bool isEnabled = true;
@@ -332,10 +336,10 @@ namespace ATMTECH.Administration.Services
                 ListItem listItem1 = new ListItem("Facturation", EnterpriseAddress.CODE_ADRESS_TYPE_BILLING);
                 ListItem listItem2 = new ListItem("Livraison", EnterpriseAddress.CODE_ADRESS_TYPE_SHIPPING);
 
-                ComboBoxAvance comboBoxAvance = new ComboBoxAvance
+                DropDownList comboBoxAvance = new DropDownList
                 {
                     ID = propertyInfo.Name,
-                    EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess)
+                    //EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess)
                 };
                 comboBoxAvance.Items.Add(listItem1);
                 comboBoxAvance.Items.Add(listItem2);
@@ -347,13 +351,13 @@ namespace ATMTECH.Administration.Services
             {
                 case "System.Decimal":
                     {
-                        TextBoxAvance textBoxAvance = new TextBoxAvance
+                        TextBox textBoxAvance = new TextBox
                         {
                             ID = propertyInfo.Name,
                             Text = value,
                             Width = Unit.Pixel(150),
                             TextMode = TextBoxMode.SingleLine,
-                            EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess),
+                            //EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess),
                             Enabled = isEnabled
                         };
                         if (DataEditorService.IsSystemColumn(propertyInfo.Name))
@@ -365,17 +369,17 @@ namespace ATMTECH.Administration.Services
                     }
                 case "System.Int32":
                     {
-                        AlphaNumTextBoxAvance alphaNumTextBoxAvance = new AlphaNumTextBoxAvance
+                        TextBox alphaNumTextBoxAvance = new TextBox
                         {
                             ID = propertyInfo.Name,
                             Text = value,
                             Width = Unit.Percentage(80),
-                            TypeSaisie =
-                                AlphaNumTextBoxAvance.TypeDeChamp.
-                                Decimal,
-                            NombreDecimaux = 2,
-                            NombreEntiers = 15,
-                            EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess),
+                            //TypeSaisie =
+                            //    AlphaNumTextBoxAvance.TypeDeChamp.
+                            //    Decimal,
+                            //NombreDecimaux = 2,
+                            //NombreEntiers = 15,
+                            //EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess),
                             Enabled = isEnabled
                         };
                         if (DataEditorService.IsSystemColumn(propertyInfo.Name))
@@ -387,13 +391,13 @@ namespace ATMTECH.Administration.Services
                     }
                 case "System.DateTime":
                     {
-                        TextBoxAvance textBoxAvance = new TextBoxAvance
+                        TextBox textBoxAvance = new TextBox
                         {
                             ID = propertyInfo.Name,
                             Text = value,
                             Width = Unit.Pixel(150),
                             TextMode = TextBoxMode.SingleLine,
-                            EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess),
+                            //EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess),
                             Enabled = isEnabled
                         };
                         if (DataEditorService.IsSystemColumn(propertyInfo.Name))
@@ -408,13 +412,13 @@ namespace ATMTECH.Administration.Services
                     {
                         if (propertyInfo.PropertyType.FullName.IndexOf("System.DateTime") > 0)
                         {
-                            TextBoxAvance textBoxAvance = new TextBoxAvance
+                            TextBox textBoxAvance = new TextBox
                             {
                                 ID = propertyInfo.Name,
                                 Text = value,
                                 Width = Unit.Pixel(150),
                                 TextMode = TextBoxMode.SingleLine,
-                                EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess),
+                                //EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess),
                                 Enabled = isEnabled
                             };
                             if (DataEditorService.IsSystemColumn(propertyInfo.Name))
@@ -424,38 +428,32 @@ namespace ATMTECH.Administration.Services
 
                             return textBoxAvance;
                         }
-                        else
-                        {
-                            TextEditorAvance ckEditor = new TextEditorAvance
+                        TextBox ckEditor = new TextBox
                             {
                                 ID = propertyInfo.Name,
                                 Text = value,
                                 Width = Unit.Percentage(90),
                                 Enabled = isEnabled,
-                                Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
+                                // Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
                                 Height = Unit.Pixel(50)
 
                             };
 
-                            if (DataEditorService.IsSystemColumn(propertyInfo.Name))
-                            {
-                                ckEditor.Enabled = false;
-                            }
-                            return ckEditor;
-
+                        if (DataEditorService.IsSystemColumn(propertyInfo.Name))
+                        {
+                            ckEditor.Enabled = false;
                         }
-
-
+                        return ckEditor;
                     }
             }
         }
-        private DateTextBoxAvance CreateDateTextBox(PropertyInfo propertyInfo, string value, string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityPropertiess)
+        private TextBox CreateDateTextBox(PropertyInfo propertyInfo, string value)
         {
-            DateTextBoxAvance dateTextBoxAvance = new DateTextBoxAvance
+            TextBox dateTextBoxAvance = new TextBox
             {
                 ID = propertyInfo.Name,
                 Text = value,
-                EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess)
+                //EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess)
             };
             if (DataEditorService.IsSystemColumn(propertyInfo.Name))
             {
@@ -464,37 +462,37 @@ namespace ATMTECH.Administration.Services
             return dateTextBoxAvance;
         }
 
-        private bool IsRequired(string property, string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityPropertiess)
-        {
-            IList<EntityProperty> entityProperties = FindEntityInformation(entity, entityInformations, entityPropertiess).EntityProperties;
-            entityProperties = entityProperties.Where(x => x.PropertyName == property).ToList();
-            if (entityProperties.Count > 0)
-                return entityProperties[0].IsRequired;
-            else
-                return false;
-        }
-        private EntityInformation FindEntityInformation(string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityProperties)
-        {
-            ManageClass manageClass = new ManageClass();
-            EntityInformation entityInformation = null;
-            if (manageClass.IsExistInNameSpace("ATMTECH.ShoppingCart.Entities", entity))
-            {
-                entityInformation =
-                   entityInformations.Where(x => x.NameSpace == "ATMTECH.ShoppingCart.Entities." + entity)
-                       .ToList()[0];
-                entityInformation.EntityProperties =
-                    entityProperties.Where(x => x.EntityInformation.Id == entityInformation.Id).ToList();
-            }
-            if (manageClass.IsExistInNameSpace("ATMTECH.Entities", entity))
-            {
-                entityInformation =
-                    entityInformations.Where(x => x.NameSpace == "ATMTECH.Entities." + entity)
-                        .ToList()[0];
-                entityInformation.EntityProperties =
-                    entityProperties.Where(x => x.EntityInformation.Id == entityInformation.Id).ToList();
-            }
-            return entityInformation;
-        }
+        //private bool IsRequired(string property, string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityPropertiess)
+        //{
+        //    IList<EntityProperty> entityProperties = FindEntityInformation(entity, entityInformations, entityPropertiess).EntityProperties;
+        //    entityProperties = entityProperties.Where(x => x.PropertyName == property).ToList();
+        //    if (entityProperties.Count > 0)
+        //        return entityProperties[0].IsRequired;
+        //    else
+        //        return false;
+        //}
+        //private EntityInformation FindEntityInformation(string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityProperties)
+        //{
+        //    ManageClass manageClass = new ManageClass();
+        //    EntityInformation entityInformation = null;
+        //    if (manageClass.IsExistInNameSpace("ATMTECH.ShoppingCart.Entities", entity))
+        //    {
+        //        entityInformation =
+        //           entityInformations.Where(x => x.NameSpace == "ATMTECH.ShoppingCart.Entities." + entity)
+        //               .ToList()[0];
+        //        entityInformation.EntityProperties =
+        //            entityProperties.Where(x => x.EntityInformation.Id == entityInformation.Id).ToList();
+        //    }
+        //    if (manageClass.IsExistInNameSpace("ATMTECH.Entities", entity))
+        //    {
+        //        entityInformation =
+        //            entityInformations.Where(x => x.NameSpace == "ATMTECH.Entities." + entity)
+        //                .ToList()[0];
+        //        entityInformation.EntityProperties =
+        //            entityProperties.Where(x => x.EntityInformation.Id == entityInformation.Id).ToList();
+        //    }
+        //    return entityInformation;
+        //}
     }
 
     public class ControlWithLabel

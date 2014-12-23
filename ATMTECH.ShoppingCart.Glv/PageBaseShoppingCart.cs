@@ -5,7 +5,8 @@ using System.Web.UI.WebControls;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.Views.Interface;
-using ATMTECH.Web.Controls.Base;
+using ATMTECH.Web;
+
 
 namespace ATMTECH.ShoppingCart.Glv
 {

@@ -13,20 +13,20 @@ namespace ATMTECH.ShoppingCart.Lauzon
 
         public DateTime DateStartSalesByMonthReport
         {
-            get { return txtDateStartReport.ValeurDateTime; }
+            get { return Convert.ToDateTime(txtDateStartReport.Text); }
         }
         public DateTime DateEndSalesByMonthReport
         {
-            get { return txtDateEndReport.ValeurDateTime; }
+            get { return Convert.ToDateTime(txtDateEndReport.Text); }
         }
 
         public DateTime DateStartSalesByOrderInformationReport
         {
-            get { return txtDateStartSalesByOrderInformationReport.ValeurDateTime; }
+            get { return Convert.ToDateTime(txtDateStartSalesByOrderInformationReport.Text); }
         }
         public DateTime DateEndSalesByOrderInformationReport
         {
-            get { return txtDateEndSalesByOrderInformationReport.ValeurDateTime; }
+            get { return Convert.ToDateTime(txtDateEndSalesByOrderInformationReport.Text); }
         }
 
         public bool IsDontAddPersonnalAddressShipping { set { if (value) pnlChangeAddressShipping.Visible = false; } }

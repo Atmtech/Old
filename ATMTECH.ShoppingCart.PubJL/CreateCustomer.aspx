@@ -10,47 +10,87 @@
                 <asp:Label runat="server" ID="lblCreateCustomer" Text="Création d'un client"></asp:Label>
             </strong>
         </div>
-        
-           <asp:Panel runat="server" ID="pnlCreate">
+
+        <asp:Panel runat="server" ID="pnlCreate">
             <table>
                 <tr>
-                    <atmtech:TextBoxAvance runat="server" ID="txtFirstName" Libelle="Prénom: " ValidationGroup="CreateCustomer"
-                        StyleTextBox="width:400px" EstObligatoire="True"></atmtech:TextBoxAvance>
+                    <td>
+                        <asp:Label runat="server" ID="lblFirstName" Text="Prénom"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox runat="server" ID="txtFirstName" ValidationGroup="CreateCustomer"
+                            Width="400px"></asp:TextBox>
+                    </td>
+
                 </tr>
                 <tr>
-                    <atmtech:TextBoxAvance runat="server" ID="txtLastName" Libelle="Nom: " ValidationGroup="CreateCustomer"
-                        StyleTextBox="width:400px" EstObligatoire="True"></atmtech:TextBoxAvance>
+                    <td>
+                        <asp:Label runat="server" ID="lblLastName" Text="Nom"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox runat="server" ID="txtLastName" ValidationGroup="CreateCustomer"
+                            Width="400px"></asp:TextBox>
+                    </td>
+
                 </tr>
                 <tr>
-                    <atmtech:TextBoxAvance runat="server" ID="txtEmail" Libelle="Courriel: " ValidationGroup="CreateCustomer"
-                        StyleTextBox="width:400px" EstObligatoire="True"></atmtech:TextBoxAvance>
+                    <td>
+                        <asp:Label runat="server" ID="lblEmail" Text="Courriel:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox runat="server" ID="txtEmail" ValidationGroup="CreateCustomer"
+                            Width="400px"></asp:TextBox>
+                    </td>
+
                 </tr>
                 <tr>
-                    <atmtech:TextBoxAvance runat="server" ID="txtLogin" Libelle="Nom d'utilisateur: "
-                        StyleTextBox="width:400px" ValidationGroup="CreateCustomer" EstObligatoire="True"></atmtech:TextBoxAvance>
+                    <td>
+                        <asp:Label runat="server" ID="lblLogin" Text="Nom d'utilisateur:"></asp:Label>
+
+                    </td>
+                    <td>
+                        <asp:TextBox runat="server" ID="txtLogin"
+                            Width="400px" ValidationGroup="CreateCustomer"></asp:TextBox>
+                    </td>
+
                 </tr>
                 <tr>
-                    <atmtech:TextBoxAvance runat="server" ID="txtPassword" Libelle="Mot de passe: " ValidationGroup="CreateCustomer"
-                        StyleTextBox="width:400px" TextMode="Password" EstObligatoire="True"></atmtech:TextBoxAvance>
+                    <td>
+                        <asp:Label runat="server" ID="lblPassword" Text="Mot de passe:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox runat="server" ID="txtPassword" ValidationGroup="CreateCustomer"
+                            Width="400px" TextMode="Password"></asp:TextBox>
+                    </td>
+
                 </tr>
                 <tr>
-                    <atmtech:TextBoxAvance runat="server" ID="txtConfirmPassword" Libelle="Confirmation:"
-                        StyleTextBox="width:400px" ValidationGroup="CreateCustomer" TextMode="Password"
-                        EstObligatoire="True"></atmtech:TextBoxAvance>
+                    <td>
+                        <asp:Label runat="server" ID="lblConfirmPassword" Text="Confirmation:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox runat="server" ID="txtConfirmPassword"
+                            Width="400px" ValidationGroup="CreateCustomer" TextMode="Password"></asp:TextBox>
+                    </td>
+
                 </tr>
                 <tr>
                     <td>
                         <asp:Image ID="imgCaptcha" ImageUrl="Captcha.ashx" runat="server" />
                     </td>
                     <td>
-                        <atmtech:Bouton runat="server" ID="btnReloadCaptcha" OnClick="ReloadCaptcha_click"
+                        <asp:Button runat="server" ID="btnReloadCaptcha" OnClick="ReloadCaptcha_click"
                             Text="Recharger l'image" />
                     </td>
                 </tr>
                 <tr>
-                    <atmtech:AlphaNumTextBoxAvance runat="server" ID="txtCaptcha" Libelle="Saisir les chiffres que vous voyez dans l'image: "
-                        ValidationGroup="CreateCustomer" StyleTextBox="width:400px" EstObligatoire="True"
-                        EstNumeriqueSeul="True"></atmtech:AlphaNumTextBoxAvance>
+                    <td>
+                        <asp:Label runat="server" ID="lblCaptcha" Text="Saisir les chiffres que vous voyez dans l'image:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox runat="server" ID="txtCaptcha"
+                            ValidationGroup="CreateCustomer" Width="400px"></asp:TextBox>
+                    </td>
                 </tr>
             </table>
             <asp:Button runat="server" ID="btnCreate" OnClick="CreateCustomer_click" Text="Créer"

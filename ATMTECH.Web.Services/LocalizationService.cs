@@ -6,7 +6,6 @@ using ATMTECH.Common.Constant;
 using ATMTECH.Common.Context;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
-using ATMTECH.Web.Controls.Edition;
 using ATMTECH.Web.Services.Interface;
 using Parameter = ATMTECH.Entities.Parameter;
 
@@ -85,11 +84,7 @@ namespace ATMTECH.Web.Services
                         {
                             (control as Label).Text = localizeString;
                         }
-                        if (control is TextBoxAvance)
-                        {
-                            (control as TextBoxAvance).Libelle = localizeString;
-                            (control as TextBoxAvance).ToolTip = localizeString;
-                        }
+                       
                         if (control is TextBox)
                         {
                             (control as TextBox).ToolTip = localizeString;
@@ -112,10 +107,7 @@ namespace ATMTECH.Web.Services
                         {
                             (control as Label).Text += " (*Loc)";
                         }
-                        if (control is TextBoxAvance)
-                        {
-                            (control as TextBoxAvance).Libelle += " (*Loc)";
-                        }
+                       
                         if (control is Button)
                         {
                             (control as Button).Text += " (*Loc)";
@@ -141,10 +133,7 @@ namespace ATMTECH.Web.Services
             {
                 return true;
             }
-            if (control is TextBoxAvance)
-            {
-                return true;
-            }
+            
             if (control is TextBox)
             {
                 return true;

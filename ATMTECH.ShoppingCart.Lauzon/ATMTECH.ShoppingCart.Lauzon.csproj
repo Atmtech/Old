@@ -150,14 +150,12 @@
   <ItemGroup>
     <Compile Include="AddProductToBasket.aspx.cs">
       <DependentUpon>AddProductToBasket.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddProductToBasket.aspx.designer.cs">
       <DependentUpon>AddProductToBasket.aspx</DependentUpon>
     </Compile>
     <Compile Include="Basket.aspx.cs">
       <DependentUpon>Basket.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Basket.aspx.designer.cs">
       <DependentUpon>Basket.aspx</DependentUpon>
@@ -167,28 +165,24 @@
     </Compile>
     <Compile Include="ConfirmCreate.aspx.cs">
       <DependentUpon>ConfirmCreate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConfirmCreate.aspx.designer.cs">
       <DependentUpon>ConfirmCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateCustomer.aspx.cs">
       <DependentUpon>CreateCustomer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CreateCustomer.aspx.designer.cs">
       <DependentUpon>CreateCustomer.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerInformation.aspx.cs">
       <DependentUpon>CustomerInformation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CustomerInformation.aspx.designer.cs">
       <DependentUpon>CustomerInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -202,14 +196,12 @@
     </Compile>
     <Compile Include="ExpressCheckoutPaypal.aspx.cs">
       <DependentUpon>ExpressCheckoutPaypal.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ExpressCheckoutPaypal.aspx.designer.cs">
       <DependentUpon>ExpressCheckoutPaypal.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgetPassword.aspx.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ForgetPassword.aspx.designer.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
@@ -219,24 +211,19 @@
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PageBaseShoppingCart.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="PageBaseShoppingCart.cs" />
     <Compile Include="ProductCatalog.aspx.cs">
       <DependentUpon>ProductCatalog.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProductCatalog.aspx.designer.cs">
       <DependentUpon>ProductCatalog.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductSearch.aspx.cs">
       <DependentUpon>ProductSearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProductSearch.aspx.designer.cs">
       <DependentUpon>ProductSearch.aspx</DependentUpon>
@@ -291,10 +278,6 @@
     <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
       <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
       <Name>ATMTECH.Views</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Web.Controls\ATMTECH.Web.Controls.csproj">
-      <Project>{2d2b35d6-59b5-41b0-a23c-a3b4f6a0ee52}</Project>
-      <Name>ATMTECH.Web.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6cb13c83-a099-4133-910f-b640965eb91e}</Project>

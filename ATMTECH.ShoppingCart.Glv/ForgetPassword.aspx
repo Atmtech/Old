@@ -4,14 +4,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
+     <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
         <div class="title">
-            <strong>
-                <asp:Label runat="server" ID="lblTitleForgetPassword" Text="J'ai oublié mon mot de passe" />
+            <asp:Label runat="server" ID="lblTitleForgetPassword" Text="J'ai oublié mon mot de passe" />
         </div>
         <table>
             <tr>
-                <atmtech:TextBoxAvance runat="server" ID="txtEmail" Libelle="Courriel: " StyleTextBox="width:400px;"></atmtech:TextBoxAvance>
+                <td>
+                    <asp:Label runat="server" ID="lblEmail" Text="Courriel:"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox runat="server" ID="txtEmail" Width="400px"></asp:TextBox>
+                </td>
+
             </tr>
         </table>
         <asp:Button runat="server" ID="btnSendMailForget" OnClick="SendMail_click" Text="Envoyez moi mon mot de passe" />

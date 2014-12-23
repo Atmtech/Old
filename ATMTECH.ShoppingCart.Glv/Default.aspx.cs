@@ -4,6 +4,7 @@ using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.ShoppingCart.Views.Pages;
+using ATMTECH.Web;
 
 namespace ATMTECH.ShoppingCart.Glv
 {
@@ -11,7 +12,7 @@ namespace ATMTECH.ShoppingCart.Glv
     {
         public string QueryStringContent
         {
-            get { return ObtenirParametreQueryString(PagesId.CONTENT_ID); }
+            get { return QueryString.GetQueryStringValue(PagesId.CONTENT_ID); }
         }
 
         public string ContentValue

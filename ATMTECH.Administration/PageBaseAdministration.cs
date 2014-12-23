@@ -1,7 +1,6 @@
 ﻿using System.Web.UI.WebControls;
 using ATMTECH.Entities;
-using ATMTECH.Web.Controls.Affichage;
-using ATMTECH.Web.Controls.Base;
+using ATMTECH.Web;
 
 namespace ATMTECH.Administration
 {

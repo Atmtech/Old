@@ -5,13 +5,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="title">
-        <strong><asp:Label runat="server" id="lblSearchTitle"></asp:Label></strong>
+        <asp:Label runat="server" ID="lblSearchTitle"></asp:Label>
     </div>
-    <table style="display:none;">
+    <table style="display: none;">
         <tr>
-            <atmtech:TextBoxAvance runat="server" Libelle="Rechercher:" ID="txtSearch" />
             <td>
-                <atmtech:Bouton runat="server" ID="btnSearch" OnClick="SearchClick" Text="Rechercher" />
+                <asp:Label runat="server" ID="lblSearch" Text="Rechercher:"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox runat="server" ID="txtSearch" />
+            </td>
+            <td>
+                <asp:Button runat="server" ID="btnSearch" OnClick="SearchClick" Text="Rechercher" />
             </td>
         </tr>
     </table>

@@ -9,7 +9,6 @@ using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Web;
-using ATMTECH.Web.Controls.Edition;
 
 namespace ATMTECH.ShoppingCart.PubJL
 {
@@ -39,7 +38,7 @@ namespace ATMTECH.ShoppingCart.PubJL
         {
             get
             {
-                return ObtenirParametreQueryString(PagesId.PRODUCT_ID);
+                return QueryString.GetQueryStringValue(PagesId.PRODUCT_ID);
             }
             set
             {
@@ -168,7 +167,7 @@ namespace ATMTECH.ShoppingCart.PubJL
         {
             if (e.CommandName == "Add")
             {
-                Presenter.AddToBasket(Convert.ToInt32(e.CommandArgument), ((AlphaNumTextBoxAvance)e.Item.FindControl("txtQuantity")).ValeurInt);
+                Presenter.AddToBasket(Convert.ToInt32(e.CommandArgument), Convert.ToInt32(e.Item.FindControl("txtQuantity")));
             }
         }
 
@@ -202,9 +201,10 @@ namespace ATMTECH.ShoppingCart.PubJL
                         Control lblStockId = e.Item.FindControl("lblStockId");
                         if (lblStockId != null)
                         {
-                            (lblStockId as Label).Text = id;
+                            var label = lblStockId as Label;
+                            if (label != null) label.Text = id;
                         }
-                        AlphaNumTextBoxAvance alpha = ((AlphaNumTextBoxAvance)e.Item.FindControl("txtQuantity"));
+                        TextBox alpha = ((TextBox)e.Item.FindControl("txtQuantity"));
 
                         if (alpha != null)
                         {
@@ -228,7 +228,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                                 int quantityInStock =  Presenter.GetActualStockState(dataItem);
                                 if (quantityInStock == 0)
                                 {
-                                    alpha.Visible = false;
+                                    if (alpha != null) alpha.Visible = false;
                                 }
                                 lblStockQuantity.Text += quantityInStock;
 
@@ -271,10 +271,11 @@ namespace ATMTECH.ShoppingCart.PubJL
             {
                 Label idStock = dataListItem.FindControl("lblStockId") as Label;
 
-                AlphaNumTextBoxAvance alphaNumTextBoxAvance = dataListItem.FindControl("txtQuantity") as AlphaNumTextBoxAvance;
-                if (!string.IsNullOrEmpty(alphaNumTextBoxAvance.Text))
+                TextBox alphaNumTextBoxAvance = dataListItem.FindControl("txtQuantity") as TextBox;
+                if (alphaNumTextBoxAvance != null && !string.IsNullOrEmpty(alphaNumTextBoxAvance.Text))
                 {
-                    Presenter.AddToBasket(Convert.ToInt32(idStock.Text), alphaNumTextBoxAvance.ValeurInt);
+                    if (idStock != null)
+                        Presenter.AddToBasket(Convert.ToInt32(idStock.Text), Convert.ToInt32(alphaNumTextBoxAvance));
                 }
             }
 

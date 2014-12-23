@@ -1,25 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="SalesByOrderInformation.aspx.cs" Inherits="ATMTECH.Administration.SalesByOrderInformation" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="title">
-       Rapports des ventes par imputation
+    <div class="title">
+        Rapports des ventes par imputation
     </div>
     <table>
         <tr>
-            <td>
-                Enterprise:
+            <td>Enterprise:
             </td>
             <td>
-                <atmtech:ComboBoxAvance runat="server" ID="cboEnterprise" />
+                <asp:DropDownList runat="server" ID="cboEnterprise" />
             </td>
         </tr>
         <tr>
-            <atmtech:DateTextBoxAvance runat="server" ID="txtDateStart" Libelle="Date début:"
-                EstObligatoire="True" />
+            <td>Date début:<asp:TextBox runat="server" ID="txtDateStart" />
+            </td>
         </tr>
         <tr>
-            <atmtech:DateTextBoxAvance runat="server" ID="txtDateEnd" Libelle="Date fin:" EstObligatoire="True" />
+            <td>Date fin: 
+                <asp:TextBox runat="server" ID="txtDateEnd" />
+            </td>
+            
         </tr>
     </table>
     <div style="background-color: lightgray; border: solid 1px gray; padding: 5px 5px 5px 5px;">

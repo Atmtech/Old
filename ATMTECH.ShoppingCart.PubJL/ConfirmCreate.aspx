@@ -13,7 +13,7 @@
             </strong>
         </div>
         <asp:Panel runat="server" ID="pnlNotConfirmed">
-            <atmtech:Bouton runat="server" ID="btnConfirmCreate" OnClick="ConfirmCreate_click"
+            <asp:Button runat="server" ID="btnConfirmCreate" OnClick="ConfirmCreate_click"
                 Text="Je confirme la création de mon compte utilisateur" />
         </asp:Panel>
         <asp:Panel runat="server" ID="pnlConfirmed" Visible="False">

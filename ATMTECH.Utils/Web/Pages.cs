@@ -5,6 +5,7 @@ using System.Web.UI;
 using ATMTECH.Common.Context;
 using System.Web;
 
+
 namespace ATMTECH.Utils.Web
 {
     public class Pages
@@ -68,12 +69,11 @@ namespace ATMTECH.Utils.Web
             if (t != null)
                 yield return t;
 
-            var container = root as Control;
+            var container = root;
             if (container != null)
                 foreach (var i in from Control c in container.Controls from i in GetControlsOfType<T>(c) select i)
                     yield return i;
         }
-
 
         public static Control FindControlRecursive(Control container, string name)
         {

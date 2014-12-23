@@ -5,11 +5,12 @@ using System.Web.UI.WebControls;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.Views.Interface;
-using ATMTECH.Web.Controls.Base;
+using ATMTECH.Web;
+
 
 namespace ATMTECH.ShoppingCart.Lauzon
 {
-    public class PageBaseShoppingCart<TPresenter, TView> : PageBase
+    public class PageBaseShoppingCart<TPresenter, TView> : ATMTECH.Web.PageBase
         where TView : class, IViewBase
         where TPresenter : BaseShoppingCartPresenter<TView>
     {
