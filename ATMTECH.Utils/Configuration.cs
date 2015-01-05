@@ -6,7 +6,12 @@ namespace ATMTECH.Utils
     {
         public static string GetConfigurationKey(string key)
         {
-            return ConfigurationManager.AppSettings.Get(key);
+            string config = ConfigurationManager.AppSettings.Get(key);
+            if (config == null && key == "ConnectionString")
+            {
+               config = ConfigurationManager.ConnectionStrings[1].ToString();
+            }
+            return config;
         }
 
         public static void SetConfigurationKey(string key, string value)
