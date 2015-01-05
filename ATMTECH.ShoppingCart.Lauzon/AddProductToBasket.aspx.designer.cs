@@ -7,7 +7,7 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace ATMTECH.ShoppingCart.PubJL {
+namespace ATMTECH.ShoppingCart.Lauzon {
     
     
     public partial class AddProductToBasket {

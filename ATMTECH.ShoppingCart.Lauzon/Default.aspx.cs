@@ -4,6 +4,7 @@ using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.ShoppingCart.Views.Pages;
+using ATMTECH.Web;
 
 namespace ATMTECH.ShoppingCart.Lauzon
 {
@@ -11,7 +12,7 @@ namespace ATMTECH.ShoppingCart.Lauzon
     {
         public string QueryStringContent
         {
-            get { return ObtenirParametreQueryString(PagesId.CONTENT_ID); }
+            get { return QueryString.GetQueryStringValue(PagesId.CONTENT_ID); }
         }
 
         public string ContentValue
@@ -28,9 +29,9 @@ namespace ATMTECH.ShoppingCart.Lauzon
                     string header = "<a href='AddProductToBasket.aspx?" + PagesId.PRODUCT_ID + "=" + product.Id + "'><div class='tile image outline-color-white'>";
                     string image = "<div class='tile-content'><img src='" + product.PrincipalFileUrl + "'></div>";
                     string name = Session["currentLanguage"].ToString().Equals("fr")
-                                     ? product.NameFrench
-                                     : product.NameEnglish;
-                    string productDisplay = product.Ident + " " + name + " ";
+                                    ? product.NameFrench
+                                    : product.NameEnglish;
+                    string productDisplay = product.Ident + " " + name;
                     string brand = "<div class='brand bg-color-product' style='height:40px;width:175px;'><div style='font-size:10px;padding-top: 3px; padding-left:3px; padding-right:20px;height:40px;width:165px;font-weight:bold;'>" + Utils.Web.Pages.RemoveHtmlTag(productDisplay) + "</div></div>";
                     string footer = "</div></a>";
                     Literal literal = new Literal { Text = header + image + brand + footer };
