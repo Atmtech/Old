@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using ATMTECH.Web;
 
 namespace ATMTECH.Administration
@@ -8,7 +9,9 @@ namespace ATMTECH.Administration
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            Trace.Write("Avant Configure");
             Configure();
+            Trace.Write("Apres Configure");
         }
 
         protected void Session_Start(object sender, EventArgs e)

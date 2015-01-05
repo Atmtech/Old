@@ -275,7 +275,7 @@ namespace ATMTECH.ShoppingCart.Glv
                 if (alphaNumTextBoxAvance != null && !string.IsNullOrEmpty(alphaNumTextBoxAvance.Text))
                 {
                     if (idStock != null)
-                        Presenter.AddToBasket(Convert.ToInt32(idStock.Text), Convert.ToInt32(alphaNumTextBoxAvance));
+                        Presenter.AddToBasket(Convert.ToInt32(idStock.Text), Convert.ToInt32(alphaNumTextBoxAvance.Text));
                 }
             }
 
