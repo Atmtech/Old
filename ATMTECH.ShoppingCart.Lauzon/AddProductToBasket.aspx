@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" EnableEventValidation="false"
     CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Lauzon.AddProductToBasket" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="tile triple-vertical triple bg-color-grayDark">
-        <div class="tile-content">
+        <div class="tile-content"  style="overflow: auto; overflow-x: hidden;">
             <h4>
                 <asp:Label runat="server" ID="lblIdent" Visible="True"></asp:Label>
                 <asp:Label runat="server" ID="lblName"></asp:Label>
@@ -45,7 +45,7 @@
                 <ItemTemplate>
                     <div style="font-size: 12px;">
                         <asp:TextBox runat="server" ID="txtQuantity" ValidationGroup="AddBasket"
-                             Width="50px"></asp:TextBox>
+                             Width="50px" ForeColor="Black"></asp:TextBox>
                         <asp:Label runat="server" ID="lblStockId" Visible="False"></asp:Label>
                         <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
                         <asp:Label runat="server" ID="lblQuantityDisplay"></asp:Label>

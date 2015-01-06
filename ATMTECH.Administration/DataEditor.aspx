@@ -5,18 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        input.textBoxAvance, textarea.textBoxAvance
-        {
-            border: 1px solid gray;
-            padding: 0 1px;
-            color: #333333;
-        }
-
-        input.textBoxAvance, textarea, .dxeListBox, input.dxeEditArea
-        {
-            font-size: 12px;
-        }
-
+      
         .ui-widget
         {
             font-size: 12px;
@@ -51,7 +40,7 @@
             background: white;
         }
     </style>
-    <asp:panel runat="server" ID="pnlEdit" Visible="False">
+    <asp:Panel runat="server" ID="pnlEdit" Visible="False">
 
         <asp:Panel runat="server" ID="pnlSaveDone" Visible="False">
             <div style="border: solid 1px black; color: green; padding: 10px 10px 10px 10px; background-color: white; margin-bottom: 5px;">
@@ -59,7 +48,7 @@
             </div>
         </asp:Panel>
 
-        <div style="font-size: 11px; margin-bottom: 10px;">
+        <div style="font-size: 11px; margin-bottom: 10px;border:black solid 1px; background-color: silver">
             <asp:PlaceHolder runat="server" ID="pnlControl"></asp:PlaceHolder>
         </div>
         <div style="background-color: lightgray; border: solid 1px gray; padding: 5px 5px 5px 5px;">
@@ -69,7 +58,7 @@
                 CssClass="button" />
         </div>
 
-    </asp:panel>
+    </asp:Panel>
 
 
 
@@ -99,12 +88,10 @@
                             <td style="width: 175px;">Rechercher:
                             </td>
                             <td style="width: 200px;">
-                                <td>
-                                    <asp:Label runat="server" ID="lblSearch" Text="Rechercher"></asp:Label>
-                                </td>
-                                <td><asp:TextBox runat="server" ID="txtSearch" /></td>
-                                
-                            </td>
+
+                                <asp:TextBox runat="server" ID="txtSearch" /></td>
+
+
                             <td>
                                 <asp:Button runat="server" ID="btnSearch" OnClick="SearchClick" Text="Rechercher"
                                     CssClass="button" CausesValidation="False" />
@@ -118,7 +105,7 @@
         <fieldset style="padding: 7px; border-radius: 5px; -moz-border-radius: 5px;">
             <legend><b>Liste obtenu</b></legend>
 
-            <div style="overflow: scroll; width: 1350px">
+            <div style="overflow: scroll;">
                 <asp:Button runat="server" ID="btnAdd" OnClick="AddClick" Text="Ajouter" CausesValidation="False"
                     CssClass="button" />
                 <asp:GridView ID="grdData" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None"

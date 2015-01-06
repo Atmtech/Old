@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ATMTECH.Web.Controls">
+      <HintPath>..\ATMTECH.ShoppingCart.Glv\Bin\ATMTECH.Web.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac">
       <HintPath>..\Library\Autofac.dll</HintPath>
     </Reference>

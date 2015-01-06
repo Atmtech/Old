@@ -239,7 +239,7 @@ namespace ATMTECH.Web.Controls.Base
                 PageBase pb = controle.Page as PageBase;
                 if (pb != null)
                 {
-                    modeAffichage = pb.ModeAffichage;
+                   // modeAffichage = pb.ModeAffichage;
                 }
             }
             if (modeAffichage == ModeAffichage.Herite)

@@ -215,7 +215,7 @@
                 </asp:Panel>
             </div>
         </div>
-        IP:
+        Version: 20150106
         <asp:Label runat="server" ID="lblIp" Font-Size="10"></asp:Label>
         <input type="hidden" id="EstFenetreModal" value="0" />
         <input type="hidden" id="StatutExpiration" value="1" />

@@ -82,7 +82,7 @@ namespace ATMTECH.Web.Controls.Base
                 PageBase pb = Page as PageBase;
                 if (pb != null)
                 {
-                    modeAffichage = pb.ModeAffichage;
+                    //modeAffichage = pb.ModeAffichage;
                 }
             }
             if (modeAffichage == ModeAffichage.Herite)

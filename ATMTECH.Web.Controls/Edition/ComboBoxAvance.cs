@@ -1015,7 +1015,7 @@ namespace ATMTECH.Web.Controls.Edition
                 PageBase page = Page as PageBase;
                 if (page != null)
                 {
-                    page.FocusSurControl(EstAutoComplet ? (Control) _devExpressComboBox : _dropDownList);
+                    //page.FocusSurControl(EstAutoComplet ? (Control) _devExpressComboBox : _dropDownList);
                 }
             }
             if (SelectedIndexChanged != null)

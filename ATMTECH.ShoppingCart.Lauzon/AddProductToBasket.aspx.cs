@@ -253,6 +253,7 @@ namespace ATMTECH.ShoppingCart.Lauzon
                         }
                         else
                         {
+                            Presenter.RefreshInformation();
                             imgProductPrincipal.ImageUrl = "../images/product/" + productFile.File.FileName;
                         }
                     }

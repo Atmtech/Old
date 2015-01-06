@@ -28,6 +28,7 @@ namespace ATMTECH.ShoppingCart.Views
             base.OnViewInitialized();
             RefreshInformation();
         }
+        
         public void AddToBasket(int idStock, int quantity)
         {
             if (GetCurrentOrderWishList() == 0)

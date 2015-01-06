@@ -28,9 +28,9 @@ namespace ATMTECH.ShoppingCart.PubJL
                 {
                     ((ImageButton)e.Item.FindControl("imgProductFile")).ImageUrl = "../images/product/NoImageForThisProduct.jpg";
                 }
-                
+
                 ((ImageButton)e.Item.FindControl("imgProductFile")).CommandArgument = dataItem.Id.ToString();
-                
+
             }
         }
 
@@ -192,7 +192,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                         }
 
 
-                        
+
                         if (dataItem.AdjustPrice != 0)
                         {
                             feature += " (+" + dataItem.AdjustPrice.ToString("c") + ")";
@@ -224,8 +224,8 @@ namespace ATMTECH.ShoppingCart.PubJL
                             else
                             {
                                 lblStock.Text = Presenter.LocalizeStock("lblStock");
-                                
-                                int quantityInStock =  Presenter.GetActualStockState(dataItem);
+
+                                int quantityInStock = Presenter.GetActualStockState(dataItem);
                                 if (quantityInStock == 0)
                                 {
                                     if (alpha != null) alpha.Visible = false;
@@ -253,6 +253,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                         }
                         else
                         {
+                            Presenter.RefreshInformation();
                             imgProductPrincipal.ImageUrl = "../images/product/" + productFile.File.FileName;
                         }
                     }

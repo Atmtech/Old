@@ -87,7 +87,7 @@ namespace ATMTECH.Web.Controls.Base
         /// <param name="url">L'URL du rapport.</param>
         public void AfficherRapport(string url)
         {
-            PageBase.AfficherRapport(Page, url);
+          //  PageBase.AfficherRapport(Page, url);
         }
 
 

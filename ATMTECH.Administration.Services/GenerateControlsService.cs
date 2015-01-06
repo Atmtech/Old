@@ -11,6 +11,7 @@ using ATMTECH.DAO.Database;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.Web.Controls.Edition;
 using ATMTECH.Web.Services.Base;
 using ATMTECH.Web.Services.Interface;
 
@@ -227,7 +228,6 @@ namespace ATMTECH.Administration.Services
                     return DataEditorService.GetByCriteria(propertyInfo.PropertyType.Namespace != nameSpace ? propertyInfo.PropertyType.Namespace : nameSpace, propertyInfo.PropertyType.Name, 5000, 0, "");
             }
         }
-
         private Control GenerateEditingControl(PropertyInfo propertyInfo, string value, int idEnterprise, string nameSpace, string entity, bool isInserting)
         {
             if (propertyInfo.PropertyType.Namespace == "System")
@@ -276,30 +276,28 @@ namespace ATMTECH.Administration.Services
 
             return null;
         }
-
-      
-
-        private DropDownList CreateComboBoxSimple(PropertyInfo propertyInfo, string selectedValue, object dataSource)
+        private ComboBoxSimple CreateComboBoxSimple(PropertyInfo propertyInfo, string selectedValue, object dataSource)
         {
-            DropDownList comboBoxSimple = new DropDownList
+            ComboBoxSimple comboBoxSimple = new ComboBoxSimple
             {
                 ID = propertyInfo.Name,
                 DataValueField = BaseEntity.ID,
                 DataTextField = BaseEntity.COMBOBOX_DESCRIPTION,
                 DataSource = dataSource,
-               // EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess)
+                // EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess)
             };
             comboBoxSimple.DataBind();
 
             ListItem listItem = new ListItem("-- N/A --", "null");
             comboBoxSimple.Items.Insert(0, listItem);
-            if (selectedValue != "0")
-            {
-                comboBoxSimple.SelectedValue = selectedValue;
-            }
+            //if (selectedValue != "0" || selectedValue != "")
+            //{
+            //    comboBoxSimple.SelectedValue = selectedValue;
+            //}
+
+
             return comboBoxSimple;
         }
-
         private CheckBox CreateCheckBox(PropertyInfo propertyInfo, string value)
         {
             CheckBox checkBoxAvance = new CheckBox { ID = propertyInfo.Name };
@@ -461,7 +459,6 @@ namespace ATMTECH.Administration.Services
             }
             return dateTextBoxAvance;
         }
-
         //private bool IsRequired(string property, string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityPropertiess)
         //{
         //    IList<EntityProperty> entityProperties = FindEntityInformation(entity, entityInformations, entityPropertiess).EntityProperties;
