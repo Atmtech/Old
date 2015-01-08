@@ -273,11 +273,15 @@ namespace ATMTECH.ShoppingCart.Lauzon
             {
                 Label idStock = dataListItem.FindControl("lblStockId") as Label;
 
-                TextBox alphaNumTextBoxAvance = dataListItem.FindControl("txtQuantity") as TextBox;
-                if (alphaNumTextBoxAvance != null && !string.IsNullOrEmpty(alphaNumTextBoxAvance.Text))
+                Numeric numeric = dataListItem.FindControl("txtQuantity") as Numeric;
+
+                if (numeric != null && !string.IsNullOrEmpty(numeric.Text))
                 {
-                    if (idStock != null)
-                        Presenter.AddToBasket(Convert.ToInt32(idStock.Text), Convert.ToInt32(alphaNumTextBoxAvance.Text));
+                    if (numeric.Text != "0")
+                    {
+                        if (idStock != null)
+                            Presenter.AddToBasket(Convert.ToInt32(idStock.Text), Convert.ToInt32(numeric.Text));
+                    }
                 }
             }
 

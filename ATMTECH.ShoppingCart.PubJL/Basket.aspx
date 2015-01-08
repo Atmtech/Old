@@ -41,8 +41,7 @@
                     <asp:TemplateField HeaderText="Quantité">
                         <ItemTemplate>
                             <center>
-                                <asp:TextBox runat="server" ID="txtQuantity" Text='<%#Eval("Quantity")%>'
-                                    Width="50px"></asp:TextBox>
+                                <atmtech:Numeric runat="server" ID="txtQuantity" Text='<%#Eval("Quantity")%>' NoDecimal="True" Width="50px"></atmtech:Numeric>
                             </center>
                         </ItemTemplate>
                     </asp:TemplateField>

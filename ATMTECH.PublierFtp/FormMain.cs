@@ -54,9 +54,20 @@ namespace ATMTECH.PublierFtp
                 {
                     lsvResultat.Items.Clear();
                     int i = lsviFtp.SubItems.Count;
-                    
+
                     string repertoireLocal = lsviFtp.SubItems[3].Text;
                     string repertoireFtp = lsviFtp.SubItems[2].Text;
+
+                    DirectoryInfo di = new DirectoryInfo(repertoireLocal);
+                    FileInfo[] files = di.GetFiles("*.config")
+                                         .Where(p => p.Extension == ".config").ToArray();
+                    foreach (FileInfo file in files)
+                        try
+                        {
+                            file.Attributes = FileAttributes.Normal;
+                            File.Delete(file.FullName);
+                        }
+                        catch { }
 
                     foreach (string enumerateFile in Directory.EnumerateFiles(repertoireLocal, "*.*", SearchOption.AllDirectories))
                     {
@@ -81,7 +92,7 @@ namespace ATMTECH.PublierFtp
                         string nomFichier = Path.GetFileName(lsviResultat.SubItems[1].Text);
                         string nomFichierAvecRepertoire = lsviResultat.SubItems[1].Text;
 
-                    
+
                         lsviResultat.SubItems[3].Text = EnvoyerFichierFtp(ftpClient, repertoireFtpEnvoyer, nomFichier, nomFichierAvecRepertoire);
                         nombreFichierTransfere += 1;
                         lsviFtp.SubItems[4].Text = nombreFichierTransfere.ToString() + " / " + lsvResultat.Items.Count.ToString() + "      (fichiers transférés)";

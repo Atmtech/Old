@@ -7,6 +7,7 @@ using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.ShoppingCart.Views.Pages;
+using ATMTECH.WebControls;
 
 namespace ATMTECH.ShoppingCart.PubJL
 {
@@ -275,7 +276,7 @@ namespace ATMTECH.ShoppingCart.PubJL
         protected void RecalculerClick(object sender, EventArgs e)
         {
             int i = 0;
-            foreach (TextBox textBox in from GridViewRow row in grvBasket.Rows select (TextBox)row.FindControl("txtQuantity"))
+            foreach (Numeric textBox in from GridViewRow row in grvBasket.Rows select (Numeric)row.FindControl("txtQuantity"))
             {
                 CurrentOrder.OrderLines[i].Quantity = Convert.ToInt32(textBox.Text);
                 i++;

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
     CodeBehind="Basket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Glv.Basket" %>
+<%@ Register TagPrefix="atmtech" Namespace="ATMTECH.WebControls" Assembly="ATMTECH.WebControls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -41,8 +42,7 @@
                     <asp:TemplateField HeaderText="Quantité">
                         <ItemTemplate>
                             <center>
-                                <asp:TextBox runat="server" ID="txtQuantity" Text='<%#Eval("Quantity")%>'
-                                    Width="50px"></asp:TextBox>
+                                <atmtech:Numeric runat="server" ID="txtQuantity" Text='<%#Eval("Quantity")%>' NoDecimal="True" Width="50px"></atmtech:Numeric>
                             </center>
                         </ItemTemplate>
                     </asp:TemplateField>
