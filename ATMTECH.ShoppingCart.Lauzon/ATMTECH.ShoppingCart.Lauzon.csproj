@@ -139,6 +139,33 @@
     <Content Include="Javascript\tile-drag.js" />
     <Content Include="Javascript\tile-slider.js" />
     <Content Include="Javascript\Utilitaires.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.css" />
+    <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\external\jquery\jquery.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-icons_222222_256x240.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\index.html" />
+    <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.css" />
+    <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.min.css" />
+    <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.min.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.structure.css" />
+    <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.structure.min.css" />
+    <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.theme.css" />
+    <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.theme.min.css" />
+    <Content Include="JQuery\jquery-ui-1.11.2\PriceFormat.js" />
     <Content Include="Login.aspx" />
     <Content Include="ProductCatalog.aspx" />
     <Content Include="ProductSearch.aspx" />
@@ -150,12 +177,14 @@
   <ItemGroup>
     <Compile Include="AddProductToBasket.aspx.cs">
       <DependentUpon>AddProductToBasket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddProductToBasket.aspx.designer.cs">
       <DependentUpon>AddProductToBasket.aspx</DependentUpon>
     </Compile>
     <Compile Include="Basket.aspx.cs">
       <DependentUpon>Basket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Basket.aspx.designer.cs">
       <DependentUpon>Basket.aspx</DependentUpon>
@@ -165,24 +194,28 @@
     </Compile>
     <Compile Include="ConfirmCreate.aspx.cs">
       <DependentUpon>ConfirmCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConfirmCreate.aspx.designer.cs">
       <DependentUpon>ConfirmCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateCustomer.aspx.cs">
       <DependentUpon>CreateCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CreateCustomer.aspx.designer.cs">
       <DependentUpon>CreateCustomer.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerInformation.aspx.cs">
       <DependentUpon>CustomerInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CustomerInformation.aspx.designer.cs">
       <DependentUpon>CustomerInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -196,12 +229,14 @@
     </Compile>
     <Compile Include="ExpressCheckoutPaypal.aspx.cs">
       <DependentUpon>ExpressCheckoutPaypal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ExpressCheckoutPaypal.aspx.designer.cs">
       <DependentUpon>ExpressCheckoutPaypal.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgetPassword.aspx.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ForgetPassword.aspx.designer.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
@@ -211,19 +246,24 @@
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PageBaseShoppingCart.cs" />
+    <Compile Include="PageBaseShoppingCart.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="ProductCatalog.aspx.cs">
       <DependentUpon>ProductCatalog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProductCatalog.aspx.designer.cs">
       <DependentUpon>ProductCatalog.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductSearch.aspx.cs">
       <DependentUpon>ProductSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProductSearch.aspx.designer.cs">
       <DependentUpon>ProductSearch.aspx</DependentUpon>
@@ -282,6 +322,10 @@
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6cb13c83-a099-4133-910f-b640965eb91e}</Project>
       <Name>ATMTECH.Web.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.WebControls\ATMTECH.WebControls.csproj">
+      <Project>{ffe0d22c-fe79-4e43-9a65-1ca2edf14e9a}</Project>
+      <Name>ATMTECH.WebControls</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

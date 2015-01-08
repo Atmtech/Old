@@ -79,7 +79,7 @@
                             <asp:Label runat="server" ID="lblDateStartSalesByOrderInformationReport" Text="Date début:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDateStartSalesByOrderInformationReport" />
+                            <atmtech:DatePicker runat="server" ID="txtDateStartSalesByOrderInformationReport" />
                         </td>
 
 
@@ -89,7 +89,7 @@
                             <asp:Label runat="server" ID="lblDateEndSalesByOrderInformationReport" Text="Date fin:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDateEndSalesByOrderInformationReport" Libelle="Date fin:" />
+                            <atmtech:DatePicker runat="server" ID="txtDateEndSalesByOrderInformationReport" Libelle="Date fin:" />
                         </td>
 
 
@@ -107,7 +107,7 @@
                             <asp:Label runat="server" ID="lblDateStartReport" Text="Date début:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDateStartReport" Libelle="Date début:" />
+                            <atmtech:DatePicker runat="server" ID="txtDateStartReport" Libelle="Date début:" />
                         </td>
                     </tr>
                     <tr>
@@ -115,7 +115,7 @@
                             <asp:Label runat="server" ID="lblDateEndReport" Text="Date fin:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDateEndReport" />
+                            <atmtech:DatePicker runat="server" ID="txtDateEndReport" />
                         </td>
 
 

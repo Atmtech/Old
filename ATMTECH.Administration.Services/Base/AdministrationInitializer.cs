@@ -1,4 +1,6 @@
-﻿using ATMTECH.Administration.Services.Interface;
+﻿using ATMTECH.Administration.DAO;
+using ATMTECH.Administration.DAO.Interface;
+using ATMTECH.Administration.Services.Interface;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Services;
@@ -72,8 +74,8 @@ namespace ATMTECH.Administration.Services.Base
             AddDependency<IDAOStockLink, DAOStockLink>();
             AddDependency<IDAOEnumOrderInformation, DAOEnumOrderInformation>();
             AddDependency<IDAOEnterpriseAccess, DAOEnterpriseAccess>();
-            
-
+            AddDependency<IDAOEntityInformation, DAOEntityInformation>();
+            AddDependency<IDAOEntityProperty, DAOEntityProperty>();
         }
     }
 }

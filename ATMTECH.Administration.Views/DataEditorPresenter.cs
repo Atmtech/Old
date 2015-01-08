@@ -89,7 +89,7 @@ namespace ATMTECH.Administration.Views
                     }
 
                     return orderlast.SelectMany(order => order.OrderLines).ToList();
-                    //return OrderService.GetAllOrderLine().Where(orderLine => orderlast.Count(x => x.Id == orderLine.Order.Id && x.IsActive) > 0).ToList();
+                //return OrderService.GetAllOrderLine().Where(orderLine => orderlast.Count(x => x.Id == orderLine.Order.Id && x.IsActive) > 0).ToList();
                 case "customer":
                     IList<Customer> customers = CustomerService.GetCustomerByEnterprise(Convert.ToInt32(View.Enterprise));
                     if (!string.IsNullOrEmpty(recherche))
@@ -99,15 +99,22 @@ namespace ATMTECH.Administration.Views
                     return customers;
                 case "stocktransaction":
                     IList<StockTransaction> stockTransactions = StockService.GetStockTransaction();
+                    IList<Stock> listStock = StockService.GetAllStockByEnterprise(Convert.ToInt32(View.Enterprise));
+                    IList<Product> listProduct = ProductService.GetProducts(Convert.ToInt32(View.Enterprise));
+
                     IList<StockTransaction> rtn = new List<StockTransaction>();
 
                     foreach (StockTransaction stockTransaction in stockTransactions)
                     {
-                        stockTransaction.Stock = StockService.GetStock(stockTransaction.Stock.Id);
-                        stockTransaction.Stock.Product = ProductService.GetProductSimple(stockTransaction.Stock.Product.Id);
-                        if (stockTransaction.Stock.Product.Enterprise.Id.ToString() == View.Enterprise)
+                        stockTransaction.Stock = listStock.FirstOrDefault(x => x.Id == stockTransaction.Stock.Id);
+                        if (stockTransaction.Stock != null)
                         {
-                            rtn.Add(stockTransaction);
+                            stockTransaction.Stock.Product = listProduct.FirstOrDefault(x => x.Id == stockTransaction.Stock.Product.Id);
+
+                            if (stockTransaction.Stock.Product.Enterprise.Id.ToString() == View.Enterprise)
+                            {
+                                rtn.Add(stockTransaction);
+                            }
                         }
                     }
 

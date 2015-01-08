@@ -7,28 +7,14 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="css/Site.css" rel="stylesheet" type="text/css" />
-    <link href="css/Site.css" rel="stylesheet" type="text/css" media="print" />
-    <link href="Javascript/CSS/print-preview.css" rel="stylesheet" type="text/css" />
-    <link href="css/modern.css" rel="stylesheet">
-   
-    <script type="text/javascript" src="Javascript/dropdown.js"></script>
-    <script type="text/javascript" src="Javascript/accordion.js"></script>
-    <script type="text/javascript" src="Javascript/buttonset.js"></script>
-    <script type="text/javascript" src="Javascript/carousel.js"></script>
-    <script type="text/javascript" src="Javascript/input-control.js"></script>
-    <script type="text/javascript" src="Javascript/pagecontrol.js"></script>
-    <script type="text/javascript" src="Javascript/rating.js"></script>
-    <script type="text/javascript" src="Javascript/slider.js"></script>
-    <script type="text/javascript" src="Javascript/tile-slider.js"></script>
-    <script type="text/javascript" src="Javascript/tile-drag.js"></script>
-    <script type="text/javascript" src="Javascript/calendar.js"></script>
+    <link href="css/modern.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/PriceFormat.js"></script>
 </head>
 <body class="metrouicss">
-    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.min.js") %>"></script>
-    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery-ui.custom.min.js") %>"></script>
-    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.jqprint.0.3.js") %>"></script>
     <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
-    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.print-preview.js") %>"></script>
 
     <%-- Envoyer true à la fonction GererExpiration pour l'affichage du temps restant en bas de page. --%>
     <script type="text/javascript">
@@ -41,115 +27,122 @@
         });
     </script>
     <form id="form1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
-        EnableScriptLocalization="true">
-    </asp:ScriptManager>
-    
-    <div style="width: 970px; margin-left: auto; margin-right: auto;">
-        <div style="width: 100%; padding-top: 20px; padding-left: 10px;">
-            <div class="bg-color-header" style="margin-bottom: 10px;
-                width: 950px; height: 70px;">
-                <div style="float: left; width: 30%;">
-                    <asp:ImageButton runat="server" ID="imageCorporative" OnClick="RedirectHome" />
-                </div>
-                <div style="float: left; width: 70%;">
-                    <div class="menuShoppingBasket">
-                        <center>
-                            <small>
-                                <asp:ImageButton runat="server" ID="btnBasketItemImage" OnClick="RedirectBasket"
-                                    ImageUrl="Images/WebSite/BulletCart.png" />
-                                <br />
-                                <asp:Label runat="server" ID="lblNumberArticle" Visible="False" ForeColor="Black" />
-                                <asp:Label runat="server" ID="lblArticle" Visible="False" ForeColor="Black" />
-                                <asp:Label runat="server" ID="lblTotalPrice" Visible="False" ForeColor="Black" />
-                            </small>
-                        </center>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
+            EnableScriptLocalization="true">
+        </asp:ScriptManager>
+
+        <div style="width: 970px; margin-left: auto; margin-right: auto;">
+            <div style="width: 100%; padding-top: 20px; padding-left: 10px;">
+                <div class="bg-color-header" style="margin-bottom: 10px; width: 950px; height: 70px;">
+                    <div style="float: left; width: 30%;">
+                        <asp:ImageButton runat="server" ID="imageCorporative" OnClick="RedirectHome" />
                     </div>
-                    <div class="menuShopping">
-                        <asp:TextBox runat="server" ID="txtSearch" Width="100px"></asp:TextBox>
-                        <asp:LinkButton runat="server" ID="lnkSearch" OnClick="RedirectProductSearch"><i class="icon-search" ></i></asp:LinkButton></div>
-                    <div class="menuShopping" runat="server" id="pnlAccount" visible="False">
-                        <asp:LinkButton runat="server" ID="btnAccount" OnClick="RedirectCustomerInformation"></asp:LinkButton>
-                    </div>
-                    <div class="menuShopping">
-                        <asp:LinkButton runat="server" Text="S'authentifier" ID="btnSignIn" OnClick="OpenSession"></asp:LinkButton>
-                        <asp:LinkButton runat="server" Text="S'authentifier" ID="btnSignOut" OnClick="CloseSessionClick"
-                            Visible="False"></asp:LinkButton></div>
-                    <div class="menuShopping">
-                        <asp:LinkButton runat="server" Text="English" OnClick="RedirectLanguage" ID="lnkLanguage"></asp:LinkButton>
-                    </div>
-                    <div class="menuShopping">
-                        <asp:LinkButton ID="lnkHome" runat="server" Text="Accueil" OnClick="RedirectHome"></asp:LinkButton>
-                    </div>
-                </div>
-            </div>
-            <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" BorderStyle="Solid" Visible="False">
-                <img src="Images/WebSite/error-icon.png" style="width:40px;height:40px;vertical-align: middle;" /> <strong>
-                    <asp:Label runat="server" ID="lblError"></asp:Label></strong>
-            </asp:Panel>
-            <asp:Panel runat="server" ID="pnlSuccess" CssClass="successMessage" BorderStyle="Solid" Visible="False">
-                <img src="Images/WebSite/success-icon.png" style="width:40px;height:40px;vertical-align: middle;"  />
-                <strong>
-                    <asp:Label runat="server" ID="lblSuccess"></asp:Label></strong>
-            </asp:Panel>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-            <asp:Panel runat="server" ID="pnlMenuBottom" Visible="True">
-                <a href="ProductCatalog.aspx">
-                    <div class="tile triple icon bg-color-button-product outline-color-white">
-                        <div class="tile-content">
-                            <i class="icon-tag" style="height: 200px;"></i>
+                    <div style="float: left; width: 70%;">
+                        <div class="menuShoppingBasket">
+                            <center>
+                                <small>
+                                    <asp:ImageButton runat="server" ID="btnBasketItemImage" OnClick="RedirectBasket"
+                                        ImageUrl="Images/WebSite/BulletCart.png" />
+                                    <br />
+                                    <asp:Label runat="server" ID="lblNumberArticle" Visible="False" ForeColor="Black" />
+                                    <asp:Label runat="server" ID="lblArticle" Visible="False" ForeColor="Black" />
+                                    <asp:Label runat="server" ID="lblTotalPrice" Visible="False" ForeColor="Black" />
+                                </small>
+                            </center>
                         </div>
-                        <div class="brand">
-                            <div class="badge">
-                                <asp:Label runat="server" ID="lblProductCount"></asp:Label>
+                        <div class="menuShopping">
+                            <asp:TextBox runat="server" ID="txtSearch" Width="100px"></asp:TextBox>
+                            <asp:LinkButton runat="server" ID="lnkSearch" OnClick="RedirectProductSearch"><i class="icon-search" ></i></asp:LinkButton>
+                        </div>
+                        <div class="menuShopping" runat="server" id="pnlAccount" visible="False">
+                            <asp:LinkButton runat="server" ID="btnAccount" OnClick="RedirectCustomerInformation"></asp:LinkButton>
+                        </div>
+                        <div class="menuShopping">
+                            <asp:LinkButton runat="server" Text="S'authentifier" ID="btnSignIn" OnClick="OpenSession"></asp:LinkButton>
+                            <asp:LinkButton runat="server" Text="S'authentifier" ID="btnSignOut" OnClick="CloseSessionClick"
+                                Visible="False"></asp:LinkButton>
+                        </div>
+                        <div class="menuShopping">
+                            <asp:LinkButton runat="server" Text="English" OnClick="RedirectLanguage" ID="lnkLanguage"></asp:LinkButton>
+                        </div>
+                        <div class="menuShopping">
+                            <asp:LinkButton ID="lnkHome" runat="server" Text="Accueil" OnClick="RedirectHome"></asp:LinkButton>
+                        </div>
+                    </div>
+                </div>
+                <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" BorderStyle="Solid" Visible="False">
+                    <img src="Images/WebSite/error-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
+                    <strong>
+                        <asp:Label runat="server" ID="lblError"></asp:Label></strong>
+                </asp:Panel>
+                <asp:Panel runat="server" ID="pnlSuccess" CssClass="successMessage" BorderStyle="Solid" Visible="False">
+                    <img src="Images/WebSite/success-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
+                    <strong>
+                        <asp:Label runat="server" ID="lblSuccess"></asp:Label></strong>
+                </asp:Panel>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <asp:Panel runat="server" ID="pnlMenuBottom" Visible="True">
+                    <a href="ProductCatalog.aspx">
+                        <div class="tile triple icon bg-color-button-product outline-color-white">
+                            <div class="tile-content">
+                                <i class="icon-tag" style="height: 200px;"></i>
                             </div>
-                            <div class="name">
-                                <asp:Label runat="server" ID="lblProductList"></asp:Label></div>
+                            <div class="brand">
+                                <div class="badge">
+                                    <asp:Label runat="server" ID="lblProductCount"></asp:Label>
+                                </div>
+                                <div class="name">
+                                    <asp:Label runat="server" ID="lblProductList"></asp:Label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </a><a href="Default.aspx?ContentId=ContentInformations">
-                    <div class="tile icon bg-color-button-instruction outline-color-white">
-                        <div class="tile-content">
-                            <i class=" icon-comments-2" style="height: 200px;"></i>
+                    </a><a href="Default.aspx?ContentId=ContentInformations">
+                        <div class="tile icon bg-color-button-instruction outline-color-white">
+                            <div class="tile-content">
+                                <i class=" icon-comments-2" style="height: 200px;"></i>
+                            </div>
+                            <div class="brand">
+                                <div class="name">
+                                    <asp:Label runat="server" ID="lblInstruction"></asp:Label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="brand">
-                            <div class="name">
-                                <asp:Label runat="server" ID="lblInstruction"></asp:Label></div>
+                    </a><a href="Default.aspx?ContentId=ContentStep">
+                        <div class="tile icon bg-color-button-steptoorder outline-color-white">
+                            <div class="tile-content">
+                                <i class="icon-list" style="height: 200px;"></i>
+                            </div>
+                            <div class="brand">
+                                <div class="name">
+                                    <asp:Label runat="server" ID="lblStepToOrder"></asp:Label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </a><a href="Default.aspx?ContentId=ContentStep">
-                    <div class="tile icon bg-color-button-steptoorder outline-color-white">
-                        <div class="tile-content">
-                            <i class="icon-list" style="height: 200px;"></i>
+                    </a><a href="Default.aspx?ContentId=ContentPublicRelation">
+                        <div class="tile icon bg-color-button-customercare outline-color-white">
+                            <div class="tile-content">
+                                <i class="icon-user-3" style="height: 200px;"></i>
+                            </div>
+                            <div class="brand">
+                                <div class="name">
+                                    <asp:Label runat="server" ID="lblCustomerCare"></asp:Label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="brand">
-                            <div class="name">
-                                <asp:Label runat="server" ID="lblStepToOrder"></asp:Label></div>
-                        </div>
-                    </div>
-                </a><a href="Default.aspx?ContentId=ContentPublicRelation">
-                    <div class="tile icon bg-color-button-customercare outline-color-white">
-                        <div class="tile-content">
-                            <i class="icon-user-3" style="height: 200px;"></i>
-                        </div>
-                        <div class="brand">
-                            <div class="name">
-                                <asp:Label runat="server" ID="lblCustomerCare"></asp:Label></div>
-                        </div>
-                    </div>
-                </a>
-            </asp:Panel>
-            <div class="clearfix">
+                    </a>
+                </asp:Panel>
+                <div class="clearfix">
+                </div>
+                <div class="bottom bg-color-button-contact">
+                    <asp:Label runat="server" ID="lblContact"></asp:Label>
+                </div>
             </div>
-            <div class="bottom bg-color-button-contact">
-               <asp:Label runat="server" ID="lblContact"></asp:Label>
+            <div style="color: thistle; font-size: 9px; padding-left: 10px;">
+                <asp:Label runat="server" ID="lblEnterprise"></asp:Label>
             </div>
         </div>
-         <div style="color:thistle;font-size: 9px;padding-left: 10px;"><asp:Label runat="server" ID="lblEnterprise"></asp:Label>
-             </div>
-    </div>
-       
+
     </form>
 </body>
 </html>

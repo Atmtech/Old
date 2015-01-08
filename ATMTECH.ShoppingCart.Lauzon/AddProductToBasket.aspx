@@ -1,9 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" EnableEventValidation="false"
     CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Lauzon.AddProductToBasket" %>
+
+<%@ Register TagPrefix="atmtech" Namespace="ATMTECH.WebControls" Assembly="ATMTECH.WebControls" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="tile triple-vertical triple bg-color-darken">
+    <div class="tile triple-vertical triple bg-color-darken">
         <div class="tile-content">
             <div style="float: left; text-align: center; padding-left: 20px; padding-top: 20px;">
                 <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" OnClick="imgProductPrincipalClick" />
@@ -19,7 +21,7 @@
         </div>
     </div>
     <div class="tile triple-vertical triple bg-color-grayDark">
-        <div class="tile-content"  style="overflow: auto; overflow-x: hidden;">
+        <div class="tile-content" style="overflow: auto; overflow-x: hidden;">
             <h4>
                 <asp:Label runat="server" ID="lblIdent" Visible="True"></asp:Label>
                 <asp:Label runat="server" ID="lblName"></asp:Label>
@@ -44,8 +46,7 @@
                 Visible="false" OnItemCommand="StockAddCommand">
                 <ItemTemplate>
                     <div style="font-size: 12px;">
-                        <asp:TextBox runat="server" ID="txtQuantity" ValidationGroup="AddBasket"
-                             Width="50px" ForeColor="Black"></asp:TextBox>
+                        <atmtech:Numeric runat="server" ID="txtQuantity" Width="50px" ForeColor="Black" NoDecimal="True"></atmtech:Numeric>
                         <asp:Label runat="server" ID="lblStockId" Visible="False"></asp:Label>
                         <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
                         <asp:Label runat="server" ID="lblQuantityDisplay"></asp:Label>

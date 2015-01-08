@@ -293,6 +293,8 @@ namespace ATMTECH.Common.Utilities
                                 {
                                     pi.SetValue(instance, Convert.ChangeType(HtmlDecode(propertyValue), pi.PropertyType), null);
                                 }
+                             
+
 
                             }
 

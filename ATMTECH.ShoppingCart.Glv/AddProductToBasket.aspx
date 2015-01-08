@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
     CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Glv.AddProductToBasket" %>
+<%@ Register TagPrefix="atmtech" Namespace="ATMTECH.WebControls" Assembly="ATMTECH.WebControls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -45,8 +46,7 @@
                 Visible="false" OnItemCommand="StockAddCommand">
                 <ItemTemplate>
                     <div style="font-size: 12px;">
-                        <asp:TextBox runat="server" ID="txtQuantity" ValidationGroup="AddBasket"
-                             Width="50px" ForeColor="Black"></asp:TextBox>
+                        <atmtech:Numeric runat="server" ID="txtQuantity" Width="50px" ForeColor="Black" NoDecimal="True"></atmtech:Numeric>
                         <asp:Label runat="server" ID="lblStockId" Visible="False"></asp:Label>
                         <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
                         <asp:Label runat="server" ID="lblQuantityDisplay"></asp:Label>

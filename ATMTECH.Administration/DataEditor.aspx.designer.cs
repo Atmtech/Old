@@ -13,15 +13,6 @@ namespace ATMTECH.Administration {
     public partial class DataEditor {
         
         /// <summary>
-        /// Contrôle pnlEdit.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlEdit;
-        
-        /// <summary>
         /// Contrôle pnlSaveDone.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace ATMTECH.Administration {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMessage;
+        
+        /// <summary>
+        /// Contrôle pnlEdit.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlEdit;
         
         /// <summary>
         /// Contrôle pnlControl.
@@ -65,6 +65,15 @@ namespace ATMTECH.Administration {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAnnuler;
+        
+        /// <summary>
+        /// Contrôle pnlPilotage.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPilotage;
         
         /// <summary>
         /// Contrôle lblTitle.

@@ -28,7 +28,7 @@ namespace ATMTECH.Administration {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateStart;
+        protected global::ATMTECH.WebControls.DatePicker txtDateStart;
         
         /// <summary>
         /// Contrôle txtDateEnd.
@@ -37,7 +37,7 @@ namespace ATMTECH.Administration {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateEnd;
+        protected global::ATMTECH.WebControls.DatePicker txtDateEnd;
         
         /// <summary>
         /// Contrôle btnGenerate.

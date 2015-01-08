@@ -190,7 +190,7 @@ namespace ATMTECH.ShoppingCart.Glv {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateStartSalesByOrderInformationReport;
+        protected global::ATMTECH.WebControls.DatePicker txtDateStartSalesByOrderInformationReport;
         
         /// <summary>
         /// Contrôle lblDateEndSalesByOrderInformationReport.
@@ -208,7 +208,7 @@ namespace ATMTECH.ShoppingCart.Glv {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateEndSalesByOrderInformationReport;
+        protected global::ATMTECH.WebControls.DatePicker txtDateEndSalesByOrderInformationReport;
         
         /// <summary>
         /// Contrôle btnGenerateSalesByOrderInformationReport.
@@ -244,7 +244,7 @@ namespace ATMTECH.ShoppingCart.Glv {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateStartReport;
+        protected global::ATMTECH.WebControls.DatePicker txtDateStartReport;
         
         /// <summary>
         /// Contrôle lblDateEndReport.
@@ -262,7 +262,7 @@ namespace ATMTECH.ShoppingCart.Glv {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateEndReport;
+        protected global::ATMTECH.WebControls.DatePicker txtDateEndReport;
         
         /// <summary>
         /// Contrôle btnGenerateSalesByMonthReport.

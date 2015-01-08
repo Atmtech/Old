@@ -9,6 +9,7 @@ using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Web;
+using ATMTECH.WebControls;
 
 namespace ATMTECH.ShoppingCart.Glv
 {
@@ -204,7 +205,7 @@ namespace ATMTECH.ShoppingCart.Glv
                             var label = lblStockId as Label;
                             if (label != null) label.Text = id;
                         }
-                        TextBox alpha = ((TextBox)e.Item.FindControl("txtQuantity"));
+                        Numeric alpha = ((Numeric)e.Item.FindControl("txtQuantity"));
 
                         if (alpha != null)
                         {

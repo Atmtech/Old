@@ -12,6 +12,7 @@ using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.Utils.Web;
 using ATMTECH.Web;
+using ATMTECH.WebControls;
 
 
 namespace ATMTECH.Administration
@@ -112,8 +113,8 @@ namespace ATMTECH.Administration
                 EditData(value);
             }
         }
-       
-       
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -209,6 +210,7 @@ namespace ATMTECH.Administration
             if (id != null)
             {
                 pnlEdit.Visible = true;
+                pnlPilotage.Visible = false;
                 IsInserting = false;
                 GenererControles((int)id);
             }
@@ -277,64 +279,63 @@ namespace ATMTECH.Administration
 
             foreach (Control control in type.GetProperties().Select(propertyInfo => Pages.FindControlRecursive(pnlControl, propertyInfo.Name)))
             {
-                var textBoxAvance = control as TextBox;
-                if (textBoxAvance != null)
+                var editor = control as Editor;
+                if (editor != null)
                 {
-                    manageClass.AssignValue(type, entity, textBoxAvance.Text, textBoxAvance.ID);
+                    manageClass.AssignValue(type, entity, editor.Text, editor.ID);
                 }
-
-             
-                var comboboxAvance = control as DropDownList;
-                if (comboboxAvance != null)
+                var combobox = control as ComboBox;
+                if (combobox != null)
                 {
-                    manageClass.AssignValue(type, entity, comboboxAvance.SelectedValue, comboboxAvance.ID);
+                    if (!string.IsNullOrEmpty(combobox.SelectedValue))
+                    {
+                        manageClass.AssignValue(type, entity, combobox.SelectedValue, combobox.ID);
+                    }
                 }
-                var checkboxAvance = control as CheckBox;
-                if (checkboxAvance != null)
+                var checkbox = control as CheckBox;
+                if (checkbox != null)
                 {
-                    manageClass.AssignValue(type, entity, checkboxAvance.Checked ? "True" : "False", checkboxAvance.ID);
+                    manageClass.AssignValue(type, entity, checkbox.Checked ? "True" : "False", checkbox.ID);
                 }
-
-                //var comboboxSimple = control as ComboBoxSimple;
-                //if (comboboxSimple != null)
-                //{
-                //    manageClass.AssignValue(type, entity, comboboxSimple.SelectedValue, comboboxSimple.ID);
-                //}
-
-                //var textEditorAvance = control as TextEditorAvance;
-                //if (textEditorAvance != null)
-                //{
-                //    manageClass.AssignValue(type, entity, textEditorAvance.Text, textEditorAvance.ID);
-                //}
-
-
+                var datePicker = control as DatePicker;
+                if (datePicker != null)
+                {
+                    manageClass.AssignValue(type, entity, datePicker.Text, datePicker.ID);
+                }
+                var numeric = control as Numeric;
+                if (numeric != null)
+                {
+                    manageClass.AssignValue(type, entity, numeric.Text.Replace(".", ","), numeric.ID);
+                }
             }
-
 
             string entreprise = Enterprise;
             Presenter.Save(entity);
             cboSelectionEntreprise.SelectedValue = entreprise;
             Search();
             GenererControles(Convert.ToInt32(Session["IdSelectionner"]));
-            pnlSaveDone.Visible = true;
-
             IsInserting = false;
         }
         protected void SaveClick(object sender, EventArgs e)
         {
             Save();
+            pnlSaveDone.Visible = true;
             pnlEdit.Visible = false;
+            pnlPilotage.Visible = true;
         }
         protected void AddClick(object sender, EventArgs e)
         {
             pnlEdit.Visible = true;
+            pnlPilotage.Visible = false;
             IsInserting = true;
             GenererControles(0);
+
         }
         protected void CancelClick(object sender, EventArgs e)
         {
             GenererControles((int)Session["IdSelectionner"]);
             pnlEdit.Visible = false;
+            pnlPilotage.Visible = true;
         }
         protected void PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -342,8 +343,6 @@ namespace ATMTECH.Administration
             grdData.DataBind();
             Search();
         }
-      
-      
         protected void RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)

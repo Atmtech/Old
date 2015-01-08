@@ -7,28 +7,14 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="css/Site.css" rel="stylesheet" type="text/css" />
-    <link href="css/Site.css" rel="stylesheet" type="text/css" media="print" />
-    <link href="Javascript/CSS/print-preview.css" rel="stylesheet" type="text/css" />
-    <link href="css/modern.css" rel="stylesheet">
-
-    <script type="text/javascript" src="Javascript/dropdown.js"></script>
-    <script type="text/javascript" src="Javascript/accordion.js"></script>
-    <script type="text/javascript" src="Javascript/buttonset.js"></script>
-    <script type="text/javascript" src="Javascript/carousel.js"></script>
-    <script type="text/javascript" src="Javascript/input-control.js"></script>
-    <script type="text/javascript" src="Javascript/pagecontrol.js"></script>
-    <script type="text/javascript" src="Javascript/rating.js"></script>
-    <script type="text/javascript" src="Javascript/slider.js"></script>
-    <script type="text/javascript" src="Javascript/tile-slider.js"></script>
-    <script type="text/javascript" src="Javascript/tile-drag.js"></script>
-    <script type="text/javascript" src="Javascript/calendar.js"></script>
+    <link href="css/modern.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/PriceFormat.js"></script>
 </head>
 <body class="metrouicss">
-    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.min.js") %>"></script>
-    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery-ui.custom.min.js") %>"></script>
-    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.jqprint.0.3.js") %>"></script>
     <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
-    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/jquery.print-preview.js") %>"></script>
 
     <%-- Envoyer true à la fonction GererExpiration pour l'affichage du temps restant en bas de page. --%>
     <script type="text/javascript">
@@ -100,7 +86,7 @@
                     <asp:Label runat="server" ID="lblProductCount" Visible="False"></asp:Label>
                     <asp:HyperLink runat="server" ID="lnkVEtement">
                         <div style="width: 230px; height: 150px; margin-right: 10px; float: left;">
-                            <asp:Image runat="server" ID="imgVetement" ImageUrl="Images/WebSite/GLV_vetements.png"  />
+                            <asp:Image runat="server" ID="imgVetement" ImageUrl="Images/WebSite/GLV_vetements.png" />
                         </div>
                     </asp:HyperLink>
                     <asp:HyperLink runat="server" ID="lnkArticlePromotionnel">
@@ -117,7 +103,7 @@
                             <asp:Image runat="server" ID="imgEtapeCommande" ImageUrl="Images/WebSite/GLV_commander.png" />
                         </div>
                     </a><a href="Default.aspx?ContentId=ContentPublicRelation">
-                       <div style="width: 140px; height: 150px; margin-left: 20px; float: left;">
+                        <div style="width: 140px; height: 150px; margin-left: 20px; float: left;">
                             <asp:Image runat="server" ID="imgServiceClientele" ImageUrl="Images/WebSite/GLV_service.png" />
                         </div>
                     </a>

@@ -15,12 +15,12 @@
             </td>
         </tr>
         <tr>
-            <td>Date début:<asp:TextBox runat="server" ID="txtDateStart" />
+            <td>Date début:<atmtech:DatePicker runat="server" ID="txtDateStart" />
             </td>
         </tr>
         <tr>
             <td>Date fin: 
-                <asp:TextBox runat="server" ID="txtDateEnd" />
+                <atmtech:DatePicker runat="server" ID="txtDateEnd" />
             </td>
             
         </tr>

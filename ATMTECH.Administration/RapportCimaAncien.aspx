@@ -10,8 +10,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        Date depart:<asp:TextBox runat="server" ID="txtDepart"></asp:TextBox> (ex: 20100101)<br/>
-        Date fin: <asp:TextBox runat="server" ID="txtFin"></asp:TextBox> (ex: 20100101)
+        Date depart:<atmtech:DatePicker runat="server" ID="txtDepart"></atmtech:DatePicker> (ex: 20100101)<br/>
+        Date fin: <atmtech:DatePicker runat="server" ID="txtFin"></atmtech:DatePicker> (ex: 20100101)
 
         <asp:Button runat="server" ID="btnRapport" OnClick="btnRapportClick" Text="Generer le rapport"/>
         <asp:GridView runat="server" ID="grdTest"></asp:GridView>

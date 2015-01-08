@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
     CodeBehind="CustomerInformation.aspx.cs" Inherits="ATMTECH.ShoppingCart.Glv.CustomerInformation" %>
+<%@ Register TagPrefix="atmtech" Namespace="ATMTECH.WebControls" Assembly="ATMTECH.WebControls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
+    <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
         <div class="title">
             <strong>
                 <asp:Label runat="server" ID="lblCustomerInformation" Text="Information du client"></asp:Label></strong>
@@ -79,7 +80,7 @@
                             <asp:Label runat="server" ID="lblDateStartSalesByOrderInformationReport" Text="Date début:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDateStartSalesByOrderInformationReport" />
+                            <atmtech:DatePicker runat="server" ID="txtDateStartSalesByOrderInformationReport" />
                         </td>
 
 
@@ -89,7 +90,7 @@
                             <asp:Label runat="server" ID="lblDateEndSalesByOrderInformationReport" Text="Date fin:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDateEndSalesByOrderInformationReport" Libelle="Date fin:" />
+                            <atmtech:DatePicker runat="server" ID="txtDateEndSalesByOrderInformationReport" Libelle="Date fin:" />
                         </td>
 
 
@@ -107,7 +108,7 @@
                             <asp:Label runat="server" ID="lblDateStartReport" Text="Date début:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDateStartReport" Libelle="Date début:" />
+                            <atmtech:DatePicker runat="server" ID="txtDateStartReport" Libelle="Date début:" />
                         </td>
                     </tr>
                     <tr>
@@ -115,7 +116,7 @@
                             <asp:Label runat="server" ID="lblDateEndReport" Text="Date fin:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDateEndReport" />
+                            <atmtech:DatePicker runat="server" ID="txtDateEndReport" />
                         </td>
 
 

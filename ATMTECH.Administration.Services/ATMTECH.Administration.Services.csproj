@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ATMTECH.Web.Controls">
-      <HintPath>..\ATMTECH.ShoppingCart.Glv\Bin\ATMTECH.Web.Controls.dll</HintPath>
-    </Reference>
     <Reference Include="Autofac">
       <HintPath>..\Library\Autofac.dll</HintPath>
     </Reference>
@@ -54,7 +51,6 @@
     <Compile Include="GenerateControlsService.cs" />
     <Compile Include="Interface\IGenerateControlsService.cs" />
     <Compile Include="DataEditorService.cs" />
-    <Compile Include="GenerateDataEditorService.cs" />
     <Compile Include="Interface\IDataEditorService.cs" />
     <Compile Include="Interface\IGenerateDataEditorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +95,10 @@
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
       <Name>ATMTECH.Web.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.WebControls\ATMTECH.WebControls.csproj">
+      <Project>{ffe0d22c-fe79-4e43-9a65-1ca2edf14e9a}</Project>
+      <Name>ATMTECH.WebControls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
