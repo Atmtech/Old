@@ -3,7 +3,7 @@ using System.Web.UI.WebControls;
 using ATMTECH.Entities;
 using ATMTECH.Vachier.Views.Base;
 using ATMTECH.Views.Interface;
-using ATMTECH.Web.Controls.Base;
+using ATMTECH.Web;
 
 namespace ATMTECH.Vachier.WebSite
 {
@@ -28,17 +28,23 @@ namespace ATMTECH.Vachier.WebSite
         {
             if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
             {
-                Panel panel = (Panel)Master.FindControl("pnlSuccess");
-                Label literal = (Label)Master.FindControl("lblSucces");
-                literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
-                panel.Visible = true;
+                if (Master != null)
+                {
+                    Panel panel = (Panel)Master.FindControl("pnlSuccess");
+                    Label literal = (Label)Master.FindControl("lblSucces");
+                    literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
+                    panel.Visible = true;
+                }
             }
             else
             {
-                Panel panel = (Panel)Master.FindControl("pnlError");
-                Label literal = (Label)Master.FindControl("lblError");
-                literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
-                panel.Visible = true;
+                if (Master != null)
+                {
+                    Panel panel = (Panel)Master.FindControl("pnlError");
+                    Label literal = (Label)Master.FindControl("lblError");
+                    literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
+                    panel.Visible = true;
+                }
             }
         }
 

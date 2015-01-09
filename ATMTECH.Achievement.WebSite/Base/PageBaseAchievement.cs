@@ -3,8 +3,7 @@ using System.Web.UI.WebControls;
 using ATMTECH.Achievement.Views.Base;
 using ATMTECH.Entities;
 using ATMTECH.Views.Interface;
-using ATMTECH.Web.Controls.Affichage;
-using ATMTECH.Web.Controls.Base;
+using ATMTECH.Web;
 
 namespace ATMTECH.Achievement.WebSite.Base
 {
@@ -29,17 +28,23 @@ namespace ATMTECH.Achievement.WebSite.Base
         {
             if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
             {
-                Panel panel = (Panel)Master.FindControl("pnlSuccess");
-                Label literal = (Label)Master.FindControl("lblSuccess");
-                literal.Text = message.Description;
-                panel.Visible = true;
+                if (Master != null)
+                {
+                    Panel panel = (Panel)Master.FindControl("pnlSuccess");
+                    Label literal = (Label)Master.FindControl("lblSuccess");
+                    literal.Text = message.Description;
+                    panel.Visible = true;
+                }
             }
             else
             {
-                Panel panel = (Panel)Master.FindControl("pnlError");
-                Label literal = (Label)Master.FindControl("lblError");
-                literal.Text = message.Description;
-                panel.Visible = true;
+                if (Master != null)
+                {
+                    Panel panel = (Panel)Master.FindControl("pnlError");
+                    Label literal = (Label)Master.FindControl("lblError");
+                    literal.Text = message.Description;
+                    panel.Visible = true;
+                }
             }
         }
 
