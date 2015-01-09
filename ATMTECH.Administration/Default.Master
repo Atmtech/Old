@@ -33,193 +33,180 @@
             EnableScriptLocalization="true">
         </asp:ScriptManager>
         <div>
-            <div style="margin: 10px 10px 10px 10px">
-                <div style="background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
-                    <div style="float: left; font-weight: bold; font-size: 25px; width: 50%; padding-left: 10px; padding-top: 5px; padding-bottom: 5px; text-transform: uppercase;">
-                        Administration
-                    </div>
-                    <div style="float: right; padding-top: 5px; padding-bottom: 5px; padding-right: 10px;">
-                        <asp:Panel runat="server" ID="pnlLogin" Visible="True" DefaultButton="btnSignIn">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server" ID="lblUser" Text="Utilisateur"></asp:Label></td>
-                                    <td>
-                                        <asp:TextBox runat="server" ID="txtUser" /></td>
 
-                                    <td>
-                                        <asp:Label runat="server" ID="lblPassword" Text="Mot de passe"></asp:Label></td>
-                                    <td>
-                                        <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" />
-                                    </td>
-
-                                    <td>
-                                        <asp:Button runat="server" ID="btnSignIn" Text="Entrer" OnClick="SignInClick" CssClass="button" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </asp:Panel>
-                        <asp:Panel runat="server" ID="pnlWelcome" Visible="False">
-                            Bienvenue,
-        <asp:Label runat="server" ID="lblName"></asp:Label>
-                            <asp:Button runat="server" ID="lnkSignOut" OnClick="SignOutClick" Text="Fermer la session" CssClass="button"></asp:Button>
-                        </asp:Panel>
-
-                    </div>
-                    <div style="clear: both;">
-                    </div>
+            <div style="background-color: goldenrod; border: solid 1px gray; margin-bottom: 10px;">
+                <div style="float: left; color: white; font-weight: bold; font-size: 25px; width: 50%; padding-left: 10px; padding-top: 5px; padding-bottom: 5px; text-transform: uppercase;">
+                    Administration
                 </div>
-                <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" BorderStyle="Solid" Visible="False">
-                    <img src="Images/WebSite/error-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
-                    <strong>
-                        <asp:Label runat="server" ID="lblError"></asp:Label></strong>
-                </asp:Panel>
-                <asp:Panel runat="server" ID="pnlSuccess" CssClass="successMessage" BorderStyle="Solid" Visible="False">
-                    <img src="Images/WebSite/success-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
-                    <strong>
-                        <asp:Label runat="server" ID="lblSuccess"></asp:Label></strong>
-                </asp:Panel>
-                <asp:Panel runat="server" ID="pnlLogged" Visible="false">
-                    <table style="width: 100%; border-bottom: solid 1px gray;">
-                        <tr>
-                            <td style="width: 260px; border-right: solid 2px gray;" valign="top">
-                                <div class="title">
-                                    Menu
-                                </div>
+                <div style="float: right; padding-top: 5px; padding-bottom: 5px; padding-right: 10px;">
+                    <asp:Panel runat="server" ID="pnlLogin" Visible="True" DefaultButton="btnSignIn">
+                        <table>
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="lblUser" Text="Utilisateur"></asp:Label></td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="txtUser" /></td>
 
-                                <asp:Panel runat="server" ID="pnlAchievement" Visible="False">
-                                    <div id="list4">
-                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
-                                            Entités
-                                        </div>
-                                        <ul>
-                                            <li><a href="DataEditor.aspx?Entity=Accomplissement&IsEnterpriseRuled=0">Les accomplissements</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=AccomplissementUtilisateur&IsEnterpriseRuled=0">Les accomplissements des utilisateurs</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=AccomplissementTrait&IsEnterpriseRuled=0">Les qualités d'un accomplissement</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Categorie&IsEnterpriseRuled=0">Les catégories</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Trait&IsEnterpriseRuled=0">Les qualités</a></li>
-                                        </ul>
-                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
-                                            Outils
-                                        </div>
-                                        <ul>
-                                            <li><a href="FileUpload.aspx">Gestions des fichiers</a> </li>
-                                            <li><a href="DataEditor.aspx?Entity=Task&IsEnterpriseRuled=0">Les demandes de développement</a></li>
-                                            <li><a href="ExecuteSql.aspx">Executer du script sql</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Parameter&IsEnterpriseRuled=0">Les paramètres</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Localization&IsEnterpriseRuled=0">Langue (Anglais
-                                        / Français)</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Message&IsEnterpriseRuled=0">Les messages d'applications</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=LogException&IsEnterpriseRuled=0">Log des erreurs</a></li>
-                                            <li>
-                                                <asp:LinkButton runat="server" ID="LinkButton1" Text="Générer les colonnes"
-                                                    OnClick="BtnGenerateColumns" /></li>
-                                        </ul>
-                                    </div>
+                                <td>
+                                    <asp:Label runat="server" ID="lblPassword" Text="Mot de passe"></asp:Label></td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" />
+                                </td>
 
-                                </asp:Panel>
+                                <td>
+                                    <asp:Button runat="server" ID="btnSignIn" Text="Entrer" OnClick="SignInClick" CssClass="button" />
+                                </td>
+                            </tr>
+                        </table>
+                    </asp:Panel>
+                    <asp:Panel runat="server" ID="pnlWelcome" Visible="False">
+                        Bienvenue,
+        <asp:Label runat="server" ID="lblName"></asp:Label>
+                        <asp:Button runat="server" ID="lnkSignOut" OnClick="SignOutClick" Text="Fermer la session" CssClass="button"></asp:Button>
+                    </asp:Panel>
 
-                                <asp:Panel runat="server" ID="pnlShoppingCart" Visible="False">
-                                    <div id="list4">
-                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
-                                            Comment faire ? 
-                                        </div>
-                                        <ul>
-                                            <li><a href="Videos/AjouterImageProduit.mp4">Ajouter une image au produit</a></li>
-                                            <li><a href="Videos/ProcessusCommandeQuotation.mp4">Processus de commande avec quotation</a></li>
-                                            <li><a href="Videos/ProcessusExportationPaypal.mp4">Processus d'exportation des commandes de paypal</a></li>
-                                            <li><a href="Videos/EnleverProduitDuneCommande.mp4">Enlever un produit d'une commande existante et le remplacer</a></li>
-                                        </ul>
-                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
-                                            Produit et commandes
-                                        </div>
-                                        <ul>
-                                            <li><a href="DataEditor.aspx?Entity=Product">Les produits</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=ProductCategory">Les catégories de produit</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Stock">Les inventaires</a> </li>
-                                            <li><a href="DataEditor.aspx?Entity=StockTransaction">Les transactions inventaires</a></li>
-                                            <li><a href="StockReport.aspx">Rapports des inventaires</a></li>
-                                            <li><a href="SalesReport.aspx">Rapports des commandes</a></li>
-                                            <li><a href="SalesByMonthReport.aspx">Rapports des ventes par mois</a></li>
-                                            <li>
-                                                <asp:LinkButton runat="server" ID="btnGenererRapportControlStock" OnClick="btnGenererRapportControlStockClick" Text="Rapport de controle inventaire"></asp:LinkButton>
-                                            </li>
-                                            <li><a href="SalesByOrderInformation.aspx">Rapports des ventes par imputation</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=ProductFile">Les images des produits</a> </li>
-                                            <li><a href="DataEditor.aspx?Entity=Order">Les commandes</a> </li>
-                                            <li><a href="DataEditor.aspx?Entity=OrderLine">Les ligne de commandes</a> </li>
-                                            <li><a href="DataEditor.aspx?Entity=ProductPriceHistory&IsEnterpriseRuled=0">Historique des prix modifiés</a> </li>
-
-                                        </ul>
-                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
-                                            Entreprise et autres
-                                        </div>
-                                        <ul>
-                                            <li><a href="DataEditor.aspx?Entity=Enterprise&IsEnterpriseRuled=0">Les entreprises</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=EnterpriseEmail">Personnes informés par courriel</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Address&IsEnterpriseRuled=0">Les adresses</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=EnterpriseAddress">Les adresses d'entreprise</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Customer">Les clients</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=User&IsEnterpriseRuled=0">Les utilisateurs</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=City&IsEnterpriseRuled=0">Les villes</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Taxes&IsEnterpriseRuled=0">Les taxes</a></li>
-                                        </ul>
-                                        <%-- <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
-                                            La sécurité
-                                        </div>
-                                        <ul>
-                                            <li><a href="DataEditor.aspx?Entity=Group&IsEnterpriseRuled=0">Les groupes</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=GroupProduct&IsEnterpriseRuled=1">Les accès aux
-                                        produits</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=GroupUser&IsEnterpriseRuled=0">Les utiliseurs d'un
-                                        groupe</a></li>
-                                        </ul>--%>
-                                        <div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
-                                            Outils
-                                        </div>
-                                        <ul>
-                                            <li><a href="Tools.aspx">Divers (Clients, inventaires etc) </a></li>
-                                            <li><a href="FileUpload.aspx">Gestions des fichiers</a> </li>
-                                            <li><a href="DataEditor.aspx?Entity=Task&IsEnterpriseRuled=0">Les demandes de développement</a></li>
-                                            <li><a href="ExecuteSql.aspx">Executer du script sql</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=StockTemplate&IsEnterpriseRuled=0">Les modèles d'inventaires</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Parameter&IsEnterpriseRuled=0">Les paramètres</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Localization&IsEnterpriseRuled=0">Langue (Anglais
-                                        / Français)</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=Message&IsEnterpriseRuled=0">Les messages d'applications</a></li>
-                                            <li><a href="DataEditor.aspx?Entity=LogException&IsEnterpriseRuled=0">Log des erreurs</a></li>
-                                            <li>
-                                                <asp:LinkButton runat="server" ID="btnGenerateColumns" Text="Générer les colonnes inconnues"
-                                                    OnClick="BtnGenerateColumns" /></li>
-                                            <li><a href="ImportExcel.aspx">Importer des données</a> </li>
-                                            <li>
-                                                <asp:LinkButton runat="server" ID="lnkExport" Text="Exporter données" OnClick="lnkExportClick"></asp:LinkButton>
-                                            </li>
-                                        </ul>
-                                        <%--<div style="text-transform: uppercase; font-size: 14px; padding-top: 10px; padding-bottom: 5px;">
-                                            Liens rapides
-                                        </div>
-                                        <ul>
-                                            <li><a href="http://admin.boutiquecorpo.com">Administration</a></li>
-                                            <li><a href="http://ursulines.boutiquecorpo.com">Site ursulines</a></li>
-                                            
-
-                                        </ul>--%>
-                                    </div>
-                                </asp:Panel>
-                            </td>
-                            <td valign="top">
-                                <asp:Label runat="server" ID="lblResultat" ForeColor="green"></asp:Label>
-                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                                </asp:ContentPlaceHolder>
-                            </td>
-                        </tr>
-                    </table>
-                </asp:Panel>
+                </div>
+                <div style="clear: both;">
+                </div>
             </div>
+            <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" BorderStyle="Solid" Visible="False">
+                <img src="Images/WebSite/error-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
+                <strong>
+                    <asp:Label runat="server" ID="lblError"></asp:Label></strong>
+            </asp:Panel>
+            <asp:Panel runat="server" ID="pnlSuccess" CssClass="successMessage" BorderStyle="Solid" Visible="False">
+                <img src="Images/WebSite/success-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
+                <strong>
+                    <asp:Label runat="server" ID="lblSuccess"></asp:Label></strong>
+            </asp:Panel>
+            <asp:Panel runat="server" ID="pnlLogged" Visible="false">
+                <table style="width: 100%; border-bottom: solid 1px gray; " cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style="width: 260px; padding-right: 5px; border-right: solid 2px gray;" valign="top">
+                            <div class="title">
+                                Menu
+                            </div>
+
+                            <asp:Panel runat="server" ID="pnlShoppingCart" Visible="False">
+                                <div id="list4">
+
+                                    <div style="text-transform: uppercase; color: white; font-size: 16px; padding-left: 4px; background-color: goldenrod">
+                                        Les produits
+                                    </div>
+                                    <ul>
+                                        <li><a href="DataEditor.aspx?Entity=Product">Les produits</a></li>
+                                        <li><a href="DataEditor.aspx?Entity=ProductCategory">Les catégories de produit</a></li>
+
+                                        <li><a href="DataEditor.aspx?Entity=ProductFile">Les images des produits</a> </li>
+
+                                        <li><a href="DataEditor.aspx?Entity=ProductPriceHistory&IsEnterpriseRuled=0">Historique des prix modifiés</a> </li>
+                                    </ul>
+
+                                    <div style="text-transform: uppercase; color: white; font-size: 16px; padding-left: 4px; background-color: goldenrod">
+                                        Les inventaires
+                                    </div>
+                                    <ul>
+                                        <li><a href="DataEditor.aspx?Entity=Stock">Les inventaires</a> </li>
+                                        <li><a href="DataEditor.aspx?Entity=StockTransaction">Les transactions inventaires</a></li>
+                                    </ul>
+
+                                    <div style="text-transform: uppercase; color: white; font-size: 16px; padding-left: 4px; background-color: goldenrod">
+                                        Les commandes
+                                    </div>
+                                    <ul>
+                                        <li><a href="DataEditor.aspx?Entity=Order">Les commandes</a> </li>
+                                        <li><a href="DataEditor.aspx?Entity=OrderLine">Les ligne de commandes</a> </li>
+                                    </ul>
+                                    <div style="text-transform: uppercase; color: white; font-size: 16px; padding-left: 4px; background-color: goldenrod">
+                                        Les entreprises
+                                    </div>
+                                    <ul>
+                                        <li><a href="DataEditor.aspx?Entity=Enterprise&IsEnterpriseRuled=0">Les entreprises</a></li>
+                                        <li><a href="DataEditor.aspx?Entity=EnterpriseAddress">Les adresses d'entreprise</a></li>
+                                    </ul>
+
+
+
+                                    <div style="text-transform: uppercase; color: white; font-size: 16px; padding-left: 4px; background-color: goldenrod">
+                                        Les utilisateurs
+                                    </div>
+                                    <ul>
+                                        <li><a href="DataEditor.aspx?Entity=User&IsEnterpriseRuled=0">Les utilisateurs</a></li>
+                                        <li><a href="DataEditor.aspx?Entity=Customer">Les clients</a></li>
+                                        <li><a href="DataEditor.aspx?Entity=EnterpriseEmail">Personnes informés par courriel</a></li>
+                                    </ul>
+
+                                    <div style="text-transform: uppercase; color: white; font-size: 16px; padding-left: 4px; background-color: goldenrod">
+                                        Les rapports
+                                    </div>
+                                    <ul>
+                                        <li><a href="StockReport.aspx">Rapports des inventaires</a></li>
+                                        <li><a href="SalesReport.aspx">Rapports des commandes</a></li>
+                                        <li><a href="SalesByMonthReport.aspx">Rapports des ventes par mois</a></li>
+                                        <li>
+                                            <asp:LinkButton runat="server" ID="btnGenererRapportControlStock" OnClick="btnGenererRapportControlStockClick" Text="Rapport de controle inventaire"></asp:LinkButton>
+                                        </li>
+                                        <li><a href="SalesByOrderInformation.aspx">Rapports des ventes par imputation</a></li>
+                                    </ul>
+
+                                    <div style="text-transform: uppercase; color: white; font-size: 16px; padding-left: 4px; background-color: goldenrod">
+                                        Les paramètres généraux
+                                    </div>
+                                    <ul>
+                                        <li><a href="DataEditor.aspx?Entity=Address&IsEnterpriseRuled=0">Les adresses</a></li>
+                                        <li><a href="DataEditor.aspx?Entity=City&IsEnterpriseRuled=0">Les villes</a></li>
+                                        <li><a href="DataEditor.aspx?Entity=Taxes&IsEnterpriseRuled=0">Les taxes</a></li>
+                                        <li><a href="FileUpload.aspx">Gestions des fichiers</a> </li>
+                                        <li><a href="DataEditor.aspx?Entity=Parameter&IsEnterpriseRuled=0">Les paramètres</a></li>
+                                        <li><a href="DataEditor.aspx?Entity=Message&IsEnterpriseRuled=0">Les messages d'applications</a></li>
+                                    </ul>
+
+                                    <div style="text-transform: uppercase; color: white; font-size: 16px; padding-left: 4px; background-color: goldenrod">
+                                        Outils
+                                    </div>
+                                    <ul>
+                                        <li><a href="Tools.aspx">Divers</a></li>
+
+                                        <li><a href="DataEditor.aspx?Entity=Task&IsEnterpriseRuled=0">Les demandes de développement</a></li>
+                                        <li><a href="ExecuteSql.aspx">Executer du script sql</a></li>
+                                        <li><a href="DataEditor.aspx?Entity=StockTemplate&IsEnterpriseRuled=0">Les modèles d'inventaires</a></li>
+
+                                        <li><a href="DataEditor.aspx?Entity=Localization&IsEnterpriseRuled=0">Langue (Anglais
+                                        / Français)</a></li>
+
+                                        <li><a href="DataEditor.aspx?Entity=LogException&IsEnterpriseRuled=0">Log des erreurs</a></li>
+                                        <li>
+                                            <asp:LinkButton runat="server" ID="btnGenerateColumns" Text="Générer les colonnes inconnues"
+                                                OnClick="BtnGenerateColumns" /></li>
+                                        <li><a href="ImportExcel.aspx">Importer des données</a> </li>
+                                        <li>
+                                            <asp:LinkButton runat="server" ID="lnkExport" Text="Exporter données" OnClick="lnkExportClick"></asp:LinkButton>
+                                        </li>
+                                    </ul>
+
+                                    <div style="text-transform: uppercase; color: white; font-size: 16px; background-color: goldenrod">
+                                        Comment faire ? 
+                                    </div>
+                                    <ul>
+                                        <li><a href="Videos/AjouterImageProduit.mp4">Ajouter une image au produit</a></li>
+                                        <li><a href="Videos/ProcessusCommandeQuotation.mp4">Processus de commande avec quotation</a></li>
+                                        <li><a href="Videos/ProcessusExportationPaypal.mp4">Processus d'exportation des commandes de paypal</a></li>
+                                        <li><a href="Videos/EnleverProduitDuneCommande.mp4">Enlever un produit d'une commande existante et le remplacer</a></li>
+                                    </ul>
+                                </div>
+                            </asp:Panel>
+                        </td>
+                        <td valign="top" style="padding-left: 4px;">
+                            <asp:Label runat="server" ID="lblResultat" ForeColor="green"></asp:Label>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
         </div>
-        Version: 20150106
-        <asp:Label runat="server" ID="lblIp" Font-Size="10"></asp:Label>
+        Version: 20150109
+        
         <input type="hidden" id="EstFenetreModal" value="0" />
         <input type="hidden" id="StatutExpiration" value="1" />
     </form>

@@ -21,6 +21,8 @@ namespace ATMTECH.Administration
             }
         }
 
+        public string Filter { get { return txtFilter.Text; } }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -159,6 +161,11 @@ namespace ATMTECH.Administration
             Presenter.SaveFile(file);
             pnlEdit.Visible = false;
             Presenter.Refresh();
+        }
+
+        protected void btnFilterClick(object sender, EventArgs e)
+        {
+           Presenter.FillAllFiles();
         }
     }
 }

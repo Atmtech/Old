@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="StockReport.aspx.cs" Inherits="ATMTECH.Administration.StockReport" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -6,7 +7,7 @@
         Rapport d'inventaires
     </div>
     <table>
-          <tr>
+        <tr>
             <td>Enterprise:
             </td>
             <td>
@@ -15,11 +16,14 @@
         </tr>
         <tr>
             <td>Date début:
+            </td>
+            <td>
                 <atmtech:DatePicker runat="server" ID="txtDateStart" />
             </td>
         </tr>
         <tr>
-            <td>Date fin:
+            <td>Date fin:</td>
+            <td>
                 <atmtech:DatePicker runat="server" ID="txtDateEnd" />
             </td>
         </tr>

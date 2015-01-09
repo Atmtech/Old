@@ -1,7 +1,6 @@
 ﻿
 using System.Collections.Generic;
 using System.Linq;
-using ATMTECH.Common.Context;
 using ATMTECH.DAO;
 using ATMTECH.Entities;
 using ATMTECH.Vachier.DAO.Interface;

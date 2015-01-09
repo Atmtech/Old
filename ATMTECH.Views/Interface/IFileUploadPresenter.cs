@@ -9,5 +9,6 @@ namespace ATMTECH.Views.Interface
         string Category { get; set; }
         IList<File> AllFiles { set; }
         string RootImagePath { get; }
+        string Filter { get; }
     }
 }

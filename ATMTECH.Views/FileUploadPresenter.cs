@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Linq;
+using System.Web;
 using ATMTECH.Entities;
 using ATMTECH.Services.Interface;
 using ATMTECH.Views.Interface;
@@ -31,7 +32,13 @@ namespace ATMTECH.Views
         {
             base.OnViewLoaded();
             View.SaveImageFile();
-            View.AllFiles = FileService.GetAllFile(View.RootImagePath);
+            FillAllFiles();
+            
+        }
+
+        public void FillAllFiles()
+        {
+            View.AllFiles = !string.IsNullOrEmpty(View.Filter) ? FileService.GetAllFile(View.RootImagePath).Where(x => x.ComboboxDescription.Contains(View.Filter)).ToList() : FileService.GetAllFile(View.RootImagePath);
         }
 
         public void ResizeAll(string directory)

@@ -25,12 +25,19 @@
     Sélectionner un emplacement à visualiser: 
     
     <asp:DropDownList runat="server" ID="ddlSiteList" AutoPostBack="True">
-        <asp:ListItem Value="C:\Domains\cima-directeur.boutiquecorpo.com\www\Images">cima-directeur.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\WebSite\cima-directeur.boutiquecorpo.com\Images">cima-directeur.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\WebSite\cima-employe.boutiquecorpo.com\Images">cima-employe.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\WebSite\ursulines.boutiquecorpo.com\Images">ursuline.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\WebSite\glv.boutiquecorpo.com\Images">glv.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\WebSite\glv-an.boutiquecorpo.com\Images">glv-an.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\WebSite\lauzon.boutiquecorpo.com\Images">lauzon.boutiquecorpo.com</asp:ListItem>
+
+        <%--<asp:ListItem Value="C:\Domains\cima-directeur.boutiquecorpo.com\www\Images">cima-directeur.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="C:\Domains\cima-employe.boutiquecorpo.com\www\Images">cima-employe.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="C:\Domains\ursulines.boutiquecorpo.com\www\Images">ursuline.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="C:\Domains\glv.boutiquecorpo.com\www\Images">glv.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="C:\Domains\glv-an.boutiquecorpo.com\www\Images">glv-an.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="C:\Domains\lauzon.boutiquecorpo.com\www\Images">lauzon.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\lauzon.boutiquecorpo.com\www\Images">lauzon.boutiquecorpo.com</asp:ListItem>--%>
         <asp:ListItem Value="C:\dev\Atmtech\ATMTECH.ShoppingCart.PubJL\Images">Développement</asp:ListItem>
     </asp:DropDownList>
     <hr />
@@ -66,6 +73,8 @@
 
                     <fieldset style="padding: 7px; border-radius: 5px; -moz-border-radius: 5px;">
                         <legend><b>Liste des fichiers sur le serveur pour les produits</b></legend>
+                        <asp:TextBox runat="server" ID="txtFilter"></asp:TextBox>
+                        <asp:Button runat="server" ID="btnFilter" Text="Filtrer" OnClick="btnFilterClick"/>
                         <asp:GridView runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" ID="grdFile"
                             AllowPaging="True" AutoGenerateColumns="False" PageSize="10"
                             OnPageIndexChanging="PageIndexChanging" Font-Size="11px" EmptyDataText="Aucune données ..." OnRowCommand="RowCommand">
@@ -84,7 +93,7 @@
                         </asp:GridView>
                     </fieldset>
 
-                    <asp:Panel runat="server" ID="pnlEdit" Visible="False">
+                    <asp:Panel runat="server" ID="pnlEdit" Visible="False" BorderStyle="Solid">
                         <table>
                             <tr>
                                 <td>Id:</td>
@@ -113,18 +122,5 @@
             </tr>
         </table>
     </div>
-    <div class="title">
-        La base de données
-    </div>
-    <div>
-        <fieldset style="padding: 7px; border-radius: 5px; -moz-border-radius: 5px;">
-            <legend><b>Télécharger la base de données</b></legend>
-            <asp:Button runat="server" ID="btnTelecharger" OnClick="btnTelechargerClick" Text="Télécharger la base de données" CssClass="button" />
-        </fieldset>
-        <fieldset style="padding: 7px; border-radius: 5px; -moz-border-radius: 5px;">
-            <legend><b>Téléverser une nouvelle base de données</b></legend>
-            <asp:FileUpload ID="FileUpload2" runat="server" class="multi" />
-            <asp:Button runat="server" ID="btnTeleverser" OnClick="btnTeleverserClick" Text="Téléverser la base de données" CssClass="button" />
-        </fieldset>
-    </div>
+    
 </asp:Content>

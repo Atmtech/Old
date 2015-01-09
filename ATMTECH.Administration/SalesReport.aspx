@@ -16,12 +16,14 @@
             </td>
         </tr>
         <tr>
-            <td>Date début:
+            <td>Date début:</td>
+            <td>
                 <atmtech:DatePicker runat="server" ID="txtDateStart" />
             </td>
         </tr>
         <tr>
-            <td>Date fin:
+            <td>Date fin:</td>
+            <td>
                 <atmtech:DatePicker runat="server" ID="txtDateEnd" />
             </td>
         </tr>

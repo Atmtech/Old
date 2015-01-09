@@ -15,14 +15,17 @@
             </td>
         </tr>
         <tr>
-            <td>Date début:<atmtech:DatePicker runat="server" ID="txtDateStart" />
+            <td>Date début:</td>
+            <td>
+                <atmtech:DatePicker runat="server" ID="txtDateStart" />
             </td>
         </tr>
         <tr>
-            <td>Date fin: 
+            <td>Date fin: </td>
+            <td>
                 <atmtech:DatePicker runat="server" ID="txtDateEnd" />
             </td>
-            
+
         </tr>
     </table>
     <div style="background-color: lightgray; border: solid 1px gray; padding: 5px 5px 5px 5px;">

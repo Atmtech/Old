@@ -4,8 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div style="padding-left: 10px;">
-        <div style="text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+    <div>
+        <div class="EnteteOutils" style="margin-top: 0px;">
             Confirmation d'une commande à un client (Envoi d'un courriel et changement du status de la commande)
         </div>
         Numéro de commande: 
@@ -13,7 +13,7 @@
         <asp:Button runat="server" ID="btnConfirm" OnClick="ConfirmOrderClick" Text="Confirmer"
             CausesValidation="False" CssClass="button" Visible="True" />
 
-        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+        <div class="EnteteOutils">
             Afficher une facture en format PDF
         </div>
         Numéro de commande: 
@@ -21,7 +21,7 @@
         <asp:Button runat="server" ID="btnDisplayOrder" OnClick="DisplayOrderClick" Text="Afficher" CausesValidation="False" CssClass="button" />
 
 
-        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+        <div class="EnteteOutils">
             Associer un utilisateur qui n'est pas un client à une entreprise
         </div>
         <table>
@@ -43,10 +43,9 @@
             </tr>
         </table>
 
-        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+        <div class="EnteteOutils">
             Créer une entreprise à partir d'une autre
         </div>
-
         <table>
             <tr>
                 <td>Enterprise:
@@ -62,7 +61,7 @@
             </tr>
         </table>
 
-        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+        <div class="EnteteOutils">
             Appliquer un modèle d'inventaire à un produit
         </div>
 
@@ -108,7 +107,7 @@
         </table>
 
 
-        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+        <div class="EnteteOutils">
             Réajuster une ligne de commande
         </div>
         Id ligne commande à modifié:<asp:TextBox runat="server" ID="txtAdjustOrderlineId"></asp:TextBox>
@@ -120,14 +119,14 @@
 
 
 
-        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+        <div class="EnteteOutils">
             Rebalancer les inventaires avec les commandes
         </div>
         <asp:Button runat="server" ID="btnBalanceStock" OnClick="btnBalanceStockClick" CausesValidation="False" CssClass="button" Text="Balancer" />
         <asp:Label runat="server" ID="lblResultBalance"></asp:Label>
 
 
-        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+        <div class="EnteteOutils">
             Rebalancer les colonnes de recherches
         </div>
         Objet à balancer: 
@@ -162,7 +161,7 @@
         <asp:Label runat="server" ID="lblResultatBalanceSearch"></asp:Label>
 
 
-        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+        <div class="EnteteOutils">
             Créer une copie de sauvegarde de la Base de données
         </div>
         <asp:Button runat="server" ID="btnCreateBackup" OnClick="btnCreateBackupClick" CausesValidation="False" CssClass="button" Text="Copie de sauvegarde" />
@@ -170,7 +169,7 @@
         <asp:Label runat="server" ID="lblResultBackup"></asp:Label>
 
 
-        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+        <div class="EnteteOutils">
             Restaurer fichier base données
         </div>
         <asp:Button runat="server" ID="btnRestore" OnClick="btnRestoreClick" CausesValidation="False" CssClass="button" Text="Restaurer" />
@@ -178,7 +177,7 @@
         <asp:Label runat="server" ID="lblResultRestore"></asp:Label>
         
         
-        <div style="margin-top: 20px; text-transform: uppercase; padding: 10px 10px 10px 10px; font-weight: bold; background-color: rgb(175, 181, 183); border: solid 1px gray; box-shadow: 1px 1px 5px 2px #b2b0b0; margin-bottom: 10px;">
+        <div class="EnteteOutils">
            Ouvrir ou fermer le système
         </div>
         <asp:Button runat="server" ID="btnOpenApplication" OnClick="btnOpenApplicationClick" CausesValidation="False" CssClass="button" Text="Ouvrir l'application" />
