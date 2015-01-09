@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services;
-using ATMTECH.ShoppingCart.Services.ErrorCode;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface;
@@ -11,6 +10,7 @@ using ATMTECH.Web;
 using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 using System.Linq;
+using ErrorCode = ATMTECH.ShoppingCart.Services.ErrorCode;
 
 namespace ATMTECH.ShoppingCart.Views
 {

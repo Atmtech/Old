@@ -3,7 +3,7 @@ using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface;
-using ATMTECH.Web.Services.ErrorCode;
+using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.ShoppingCart.Views

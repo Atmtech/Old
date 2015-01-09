@@ -72,7 +72,7 @@ namespace ATMTECH.ShoppingCart.Services
         {
             if (customer == null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_SEND_MAIL_FAILED);
+                MessageService.ThrowMessage(ErrorCode.SC_SEND_MAIL_FAILED);
             }
 
             ValidateCustomerService.IsValidCustomerOnCreate(customer);
@@ -97,7 +97,7 @@ namespace ATMTECH.ShoppingCart.Services
                                                   string.Format(ParameterService.GetValue(Constant.MAIL_BODY_CONFIRM_CREATE), customerCreate.Enterprise.Name, customerCreate.Enterprise.SubDomainName, customer.User.Id));
                     if (ret == false)
                     {
-                        MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_SEND_MAIL_FAILED);
+                        MessageService.ThrowMessage(ErrorCode.SC_SEND_MAIL_FAILED);
                     }
                 }
                 return true;
@@ -146,7 +146,7 @@ namespace ATMTECH.ShoppingCart.Services
             }
             else
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_USER_NOT_EXIST_ON_CONFIRM);
+                MessageService.ThrowMessage(ErrorCode.SC_USER_NOT_EXIST_ON_CONFIRM);
             }
             return false;
         }

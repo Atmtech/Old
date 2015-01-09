@@ -76,7 +76,7 @@
     <Compile Include="Base\BaseService.cs" />
     <Compile Include="Base\IBaseService.cs" />
     <Compile Include="Base\ParameterConstant.cs" />
-    <Compile Include="ErrorCode\ErrorCode.cs" />
+    <Compile Include="ErrorCode.cs" />
     <Compile Include="WeatherService.cs" />
     <Compile Include="Interface\IWeatherService.cs" />
     <Compile Include="Service References\GlobalWeatherService\Reference.cs">
@@ -90,7 +90,7 @@
     <Compile Include="Interface\IUpsService.cs" />
     <Compile Include="LogService.cs" />
     <Compile Include="ParameterService.cs" />
-    <Compile Include="DTO\CountryIp.cs" />
+    <Compile Include="Entities\CountryIp.cs" />
     <Compile Include="Interface\IParameterService.cs" />
     <Compile Include="Interface\IAuthenticationService.cs" />
     <Compile Include="Interface\ILocalizationService.cs" />
@@ -137,10 +137,6 @@
     <ProjectReference Include="..\ATMTECH.Exception\ATMTECH.Exception.csproj">
       <Project>{8FB02184-36DE-4C31-836F-B6712B7A22C8}</Project>
       <Name>ATMTECH.Exception</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Utils\ATMTECH.Utils.csproj">
-      <Project>{E39E16B8-CA93-4928-901D-42AEDF82A538}</Project>
-      <Name>ATMTECH.Utils</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Web\ATMTECH.Web.csproj">
       <Project>{F4ED3261-CB00-4C89-B481-56806262BFCF}</Project>

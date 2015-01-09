@@ -59,7 +59,7 @@ namespace ATMTECH.Web.Services
             var resp = paypalAAInt.SetExpressCheckout(ref type, req);
             if (resp.Errors != null && resp.Errors.Length > 0)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.ADM_PAYPAL_SEND_FAILED, resp.Errors[0].LongMessage);
+                MessageService.ThrowMessage(ErrorCode.ADM_PAYPAL_SEND_FAILED, resp.Errors[0].LongMessage);
             }
             else
             {

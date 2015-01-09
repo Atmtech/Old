@@ -5,7 +5,6 @@ namespace ATMTECH.Web
 {
     public class QueryString
     {
-        // pour le Ascx Content
         public const string PAGENAME = "PageName";
 
         public string Name { get; set; }

@@ -4,8 +4,8 @@ using ATMTECH.Entities;
 using ATMTECH.Services;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.Base;
-using ATMTECH.ShoppingCart.Services.ErrorCode;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Reports.DTO;
 using ATMTECH.ShoppingCart.Views.Base;
@@ -90,7 +90,7 @@ namespace ATMTECH.ShoppingCart.Views
             customer.User.Email = View.Email;
             CustomerService.SaveCustomer(customer);
             View.Name = customer.User.FirstNameLastName;
-            MessageService.ThrowMessage(Common.ErrorCode.ADM_SAVE_IS_CORRECT);
+            MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_SAVE_IS_CORRECT);
         }
 
         public void PrintOrder(int idOrder)
@@ -188,7 +188,7 @@ namespace ATMTECH.ShoppingCart.Views
 
             }
 
-            MessageService.ThrowMessage(Common.ErrorCode.ADM_SAVE_IS_CORRECT);
+            MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_SAVE_IS_CORRECT);
         }
 
         public void GenerateSalesByMonthReport()

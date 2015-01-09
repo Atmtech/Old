@@ -101,7 +101,7 @@ namespace ATMTECH.Administration
 
         protected void BtnGenerateColumns(object sender, EventArgs e)
         {
-            Presenter.GenerateEntityInformation();
+            //Presenter.GenerateEntityInformation();
         }
         protected void btnInitialiserColonneRechercheClick(object sender, EventArgs e)
         {

@@ -66,10 +66,6 @@
       <Project>{52798362-2848-4E27-BAE3-2DF0E813881C}</Project>
       <Name>ATMTECH.Mediator.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Utils\ATMTECH.Utils.csproj">
-      <Project>{E39E16B8-CA93-4928-901D-42AEDF82A538}</Project>
-      <Name>ATMTECH.Utils</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

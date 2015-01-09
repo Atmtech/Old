@@ -1,4 +1,4 @@
-﻿namespace ATMTECH.Web.Services.DTO
+﻿namespace ATMTECH.Web.Services.Entities
 {
     public class CountryIp
     {

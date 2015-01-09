@@ -19,7 +19,7 @@ namespace ATMTECH.Administration.Views
         {
             string display = "tabarnak";
 
-            MessageService.ThrowMessage(ErrorCode.ADM_BAD_LOGIN);
+            MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_BAD_LOGIN);
 
             //display += "Début";
             //User user = AuthenticationService.SignIn("riov01", "10crevette011");

@@ -1,5 +1,4 @@
-﻿using System.Collections.Specialized;
-using System.Configuration;
+﻿using System.Configuration;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.Web.Services.Base;
@@ -19,10 +18,7 @@ namespace ATMTECH.Web.Services
             {
                 return parameter.Description;
             }
-            else
-            {
-                return ConfigurationManager.AppSettings.Get(code) ?? null;
-            }
+            return ConfigurationManager.AppSettings.Get(code);
         }
 
         public void SetValue(string code, string value)

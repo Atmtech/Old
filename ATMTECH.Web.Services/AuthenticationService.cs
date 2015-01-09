@@ -1,5 +1,4 @@
 ﻿using System;
-using ATMTECH.Common;
 using ATMTECH.Common.Context;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
@@ -54,13 +53,8 @@ namespace ATMTECH.Web.Services
                 }
                 return user;
             }
-            else
-            {
-                MessageService.ThrowMessage(Common.ErrorCode.ADM_BAD_LOGIN);
-                return null;
-            }
-
-
+            MessageService.ThrowMessage(ErrorCode.ADM_BAD_LOGIN);
+            return null;
         }
 
         public void SignOut()

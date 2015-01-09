@@ -18,7 +18,7 @@ namespace ATMTECH.ShoppingCart.Services
         {
             if (order == null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ORDER_NULL);
+                MessageService.ThrowMessage(ErrorCode.SC_ORDER_NULL);
             }
 
             IsValidOrderLine(order);
@@ -34,7 +34,7 @@ namespace ATMTECH.ShoppingCart.Services
             {
                 if (string.IsNullOrEmpty(order.OrderInformation1) || string.IsNullOrEmpty(order.OrderInformation2))
                 {
-                    MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_IF_ORDER_INFORMATION_MANAGED_CANT_BE_EMPTY);
+                    MessageService.ThrowMessage(ErrorCode.SC_IF_ORDER_INFORMATION_MANAGED_CANT_BE_EMPTY);
                 }
             }
         }
@@ -52,7 +52,7 @@ namespace ATMTECH.ShoppingCart.Services
                     string parameter = string.Format("{0} - {1}", productDescription,
                                                      DAOStockTransaction.GetCurrentStockStatus(orderLine.Stock));
 
-                    MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_STOCK_INSUFICIENT, parameter);
+                    MessageService.ThrowMessage(ErrorCode.SC_STOCK_INSUFICIENT, parameter);
                     break;
                 }
             }
@@ -62,59 +62,59 @@ namespace ATMTECH.ShoppingCart.Services
         {
             if (order.Customer == null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_NO_CUSTOMER_LINKED_TO_ORDER);
+                MessageService.ThrowMessage(ErrorCode.SC_NO_CUSTOMER_LINKED_TO_ORDER);
             }
 
             if (order.Customer != null && order.Customer.Taxes == null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_NO_TAXE_TYPE);
+                MessageService.ThrowMessage(ErrorCode.SC_NO_TAXE_TYPE);
             }
         }
         private void IsValidEnterprise(Order order)
         {
             if (order.Enterprise == null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ENTERPRISE_NULL_ORDER);
+                MessageService.ThrowMessage(ErrorCode.SC_ENTERPRISE_NULL_ORDER);
             }
             if (order.Enterprise != null && order.Enterprise.IsOrderPossible == false)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ENTERPRISE_CANT_ORDER);
+                MessageService.ThrowMessage(ErrorCode.SC_ENTERPRISE_CANT_ORDER);
             }
         }
         private void IsValidOrderStatus(Order order)
         {
             if (order.OrderStatus != OrderStatus.IsWishList && order.OrderStatus != OrderStatus.IsOrdered && order.OrderStatus != OrderStatus.IsShipped)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ORDERSTATUS_UNKNOWN);
+                MessageService.ThrowMessage(ErrorCode.SC_ORDERSTATUS_UNKNOWN);
             }
         }
         public void IsValidAddress(Order order)
         {
             if (order.ShippingAddress == null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_SHIPPING_ADDRESS_NULL);
+                MessageService.ThrowMessage(ErrorCode.SC_SHIPPING_ADDRESS_NULL);
             }
 
             if (order.BillingAddress == null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_BILLING_ADDRESS_NULL);
+                MessageService.ThrowMessage(ErrorCode.SC_BILLING_ADDRESS_NULL);
             }
         }
         private void IsValidOrderLine(Order order)
         {
             if (order.OrderLines == null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ORDERLINE_NULL);
+                MessageService.ThrowMessage(ErrorCode.SC_ORDERLINE_NULL);
             }
 
             if (order.OrderLines != null && order.OrderLines.Count == 0)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ORDERLINE_COUNT_ZERO);
+                MessageService.ThrowMessage(ErrorCode.SC_ORDERLINE_COUNT_ZERO);
             }
 
             if (order.OrderLines != null && order.OrderLines.Any(orderLine => orderLine.Stock.Product.Id == 0))
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ORDERLINE_PRODUCT_ID_ZERO);
+                MessageService.ThrowMessage(ErrorCode.SC_ORDERLINE_PRODUCT_ID_ZERO);
             }
         }
     }

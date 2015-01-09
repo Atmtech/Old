@@ -30,7 +30,7 @@ namespace ATMTECH.Web.Services
         {
             if (string.IsNullOrEmpty(to))
             {
-                MessageService.ThrowMessage(Common.ErrorCode.ADM_NO_EMAIL_TO);
+                MessageService.ThrowMessage(ErrorCode.ADM_NO_EMAIL_TO);
                 return false;
             }
 

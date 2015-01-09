@@ -129,21 +129,21 @@ namespace ATMTECH.Web.Services
                 }
                 else
                 {
-                    MessageService.ThrowMessage(Common.ErrorCode.ADM_UPS_ERROR);
+                    MessageService.ThrowMessage(ErrorCode.ADM_UPS_ERROR);
 
                 }
             }
             catch (ProtocolViolationException ex)
             {
-                MessageService.ThrowMessage(Common.ErrorCode.ADM_UPS_TIMEOUT_ERROR, ex);
+                MessageService.ThrowMessage(ErrorCode.ADM_UPS_TIMEOUT_ERROR, ex);
             }
             catch (WebException ex)
             {
-                MessageService.ThrowMessage(Common.ErrorCode.ADM_UPS_EMPTY_ERROR, ex);
+                MessageService.ThrowMessage(ErrorCode.ADM_UPS_EMPTY_ERROR, ex);
             }
             catch (System.Exception ex)
             {
-                MessageService.ThrowMessage(Common.ErrorCode.ADM_UPS_ERROR, ex);
+                MessageService.ThrowMessage(ErrorCode.ADM_UPS_ERROR, ex);
             }
 
             return result;

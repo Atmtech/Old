@@ -116,10 +116,6 @@
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Utils\ATMTECH.Utils.csproj">
-      <Project>{E39E16B8-CA93-4928-901D-42AEDF82A538}</Project>
-      <Name>ATMTECH.Utils</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

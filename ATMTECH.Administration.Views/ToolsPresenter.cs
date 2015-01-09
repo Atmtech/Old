@@ -52,12 +52,12 @@ namespace ATMTECH.Administration.Views
         {
             Product product = ProductService.GetProductSimple(Convert.ToInt32(productId));
             StockService.CreateStockWithTemplate(product, templateGroup, quantity, isWithoutStock);
-            MessageService.ThrowMessage(ErrorCode.ADM_SAVE_IS_CORRECT);
+            MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_SAVE_IS_CORRECT);
         }
         public void ConfirmOrder(string id)
         {
             OrderService.ConfirmOrder(Convert.ToInt32(id));
-            MessageService.ThrowMessage(ErrorCode.ADM_SAVE_IS_CORRECT);
+            MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_SAVE_IS_CORRECT);
         }
         public void DisplayOrder(int id)
         {
@@ -84,7 +84,7 @@ namespace ATMTECH.Administration.Views
                     };
 
                     CustomerService.SaveCustomer(customer);
-                    MessageService.ThrowMessage(ErrorCode.ADM_SAVE_IS_CORRECT);
+                    MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_SAVE_IS_CORRECT);
                 }
 
             }
@@ -92,7 +92,7 @@ namespace ATMTECH.Administration.Views
         public void CreateEnterpriseFromAnother(int id, string newName)
         {
             EnterpriseService.CreateEnterpriseFromAnother(id, newName, AuthenticationService.AuthenticateUser);
-            MessageService.ThrowMessage(ErrorCode.ADM_SAVE_IS_CORRECT);
+            MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_SAVE_IS_CORRECT);
         }
 
         public string BalanceStock()

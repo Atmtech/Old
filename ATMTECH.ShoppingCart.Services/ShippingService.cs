@@ -42,7 +42,7 @@ namespace ATMTECH.ShoppingCart.Services
             decimal total = 0;
             if ((int)order.TotalWeight == 0)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_WEIGHT_EQUAL_ZERO_CANNOT_EVALUATE_SHIPPING_COST);
+                MessageService.ThrowMessage(ErrorCode.SC_WEIGHT_EQUAL_ZERO_CANNOT_EVALUATE_SHIPPING_COST);
             }
             PurolatorPackage purolatorPackage = new PurolatorPackage
                                                     {
@@ -90,7 +90,7 @@ namespace ATMTECH.ShoppingCart.Services
             }
             catch (System.Exception ex)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_PUROLATOR_ERROR, ex);
+                MessageService.ThrowMessage(ErrorCode.SC_PUROLATOR_ERROR, ex);
             }
 
             return total;
@@ -105,7 +105,7 @@ namespace ATMTECH.ShoppingCart.Services
 
             if (order == null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ORDER_NULL);
+                MessageService.ThrowMessage(ErrorCode.SC_ORDER_NULL);
             }
 
             if (shippingParameter == null)
@@ -138,7 +138,7 @@ namespace ATMTECH.ShoppingCart.Services
                 case ShippingType.UsMail:
                     break;
                 default:
-                    MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_SHIPPING_CODE_DONT_EXIST);
+                    MessageService.ThrowMessage(ErrorCode.SC_SHIPPING_CODE_DONT_EXIST);
                     break;
             }
             return 0;

@@ -6,7 +6,7 @@ using ATMTECH.Entities;
 using ATMTECH.Vachier.Entities;
 using ATMTECH.Vachier.Views;
 using ATMTECH.Vachier.Views.Interface;
-using ATMTECH.Web.Services.DTO;
+using ATMTECH.Web.Services.Entities;
 
 namespace ATMTECH.Vachier.WebSite
 {

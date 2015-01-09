@@ -49,6 +49,7 @@
     <Compile Include="Base\ShoppingCartInitializer.cs" />
     <Compile Include="AddressService.cs" />
     <Compile Include="DTO\ProductBySale.cs" />
+    <Compile Include="ErrorCode.cs" />
     <Compile Include="Interface\IAddressService.cs" />
     <Compile Include="Reports\DTO\SalesByOrderInformationReportLine.cs" />
     <Compile Include="Reports\DTO\ProductPriceHistoryReportLine.cs" />
@@ -59,7 +60,6 @@
     <Compile Include="ValidateCustomerService.cs" />
     <Compile Include="EnterpriseService.cs" />
     <Compile Include="CustomerService.cs" />
-    <Compile Include="ErrorCode\ErrorCode.cs" />
     <Compile Include="Interface\IValidateCustomerService.cs" />
     <Compile Include="Interface\ICustomerService.cs" />
     <Compile Include="Interface\IEnterpriseService.cs" />
@@ -111,10 +111,6 @@
       <Project>{F2B35967-8009-4AD0-9B21-78A2EE6C1E36}</Project>
       <Name>ATMTECH.ShoppingCart.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Utils\ATMTECH.Utils.csproj">
-      <Project>{E39E16B8-CA93-4928-901D-42AEDF82A538}</Project>
-      <Name>ATMTECH.Utils</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
       <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
       <Name>ATMTECH.Views</Name>
@@ -155,6 +151,7 @@
     <None Include="Properties\DataSources\ATMTECH.ShoppingCart.Services.Reports.StockReportLine.datasource" />
     <None Include="Properties\DataSources\OrderService.datasource" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

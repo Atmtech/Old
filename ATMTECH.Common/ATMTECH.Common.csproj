@@ -89,7 +89,6 @@
     <Compile Include="Utils\DynamicInvoke.cs" />
     <Compile Include="Utils\Hour.cs" />
     <Compile Include="Utils\Math.cs" />
-    <Compile Include="ErrorCode.cs" />
     <Compile Include="PresenterBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\BackupSql2Xml.cs" />
@@ -98,6 +97,8 @@
     </Compile>
     <Compile Include="Utils\ManageClass.cs" />
     <Compile Include="Utils\Paging.cs" />
+    <Compile Include="Utils\RandomNumberStrong.cs" />
+    <Compile Include="Utils\RandomText.cs" />
     <Compile Include="Utils\Sort.cs" />
     <Compile Include="Utils\Web\Mimes.cs" />
     <Compile Include="Utils\Web\Pages.cs" />

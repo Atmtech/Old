@@ -29,7 +29,7 @@ namespace ATMTECH.ShoppingCart.Services
             User user = DAOUser.GetUser(customer.User.Login);
             if (user != null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_THIS_USER_ALREADY_EXIST);
+                MessageService.ThrowMessage(ErrorCode.SC_THIS_USER_ALREADY_EXIST);
             }
         }
 
@@ -43,7 +43,7 @@ namespace ATMTECH.ShoppingCart.Services
 
                 if (!Regex.IsMatch(email, matchEmailPattern))
                 {
-                    MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_INVALID_EMAIL);
+                    MessageService.ThrowMessage(ErrorCode.SC_INVALID_EMAIL);
                 }
             }
         }

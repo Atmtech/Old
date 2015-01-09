@@ -7,8 +7,6 @@ namespace ATMTECH.Web
 {
     public class HttpModuleSessionManager : IHttpModule
     {
-        /// <summary>
-        /// </summary>
         public void Init(HttpApplication context)
         {
             context.BeginRequest += ApplicationBeginRequest;
@@ -16,8 +14,6 @@ namespace ATMTECH.Web
             context.Error += ApplicationError;
         }
 
-        /// <summary>
-        /// </summary>
         public void Dispose()
         {
         }
@@ -34,7 +30,6 @@ namespace ATMTECH.Web
         {
             if (IsPageAspx(sender))
             {
-                //if (DatabaseSessionManager.Session.State == System.Data.ConnectionState.Open)
                 if (DatabaseSessionManager.Session != null)
                     DatabaseSessionManager.Session.Close();
             }

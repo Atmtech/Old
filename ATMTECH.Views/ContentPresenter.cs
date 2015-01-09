@@ -3,7 +3,6 @@ using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO;
 using ATMTECH.Entities;
 using ATMTECH.Views.Interface;
-using ATMTECH.Web;
 using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.Views
@@ -25,7 +24,7 @@ namespace ATMTECH.Views
         private IList<Language> FillLanguage()
         {
             BaseDao<Language, int> baseDao = new BaseDao<Language, int>();
-            OrderOperation orderOperation = new OrderOperation() { OrderByColumn = BaseEntity.ID, OrderByType = OrderBy.Type.Ascending };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ID, OrderByType = OrderBy.Type.Ascending };
             return baseDao.GetAllActive(orderOperation);
         }
 

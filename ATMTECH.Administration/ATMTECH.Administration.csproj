@@ -512,10 +512,6 @@
       <Project>{D226BF01-2BD8-4206-A576-F9F929518A01}</Project>
       <Name>ATMTECH.ShoppingCart.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Utils\ATMTECH.Utils.csproj">
-      <Project>{E39E16B8-CA93-4928-901D-42AEDF82A538}</Project>
-      <Name>ATMTECH.Utils</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
       <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
       <Name>ATMTECH.Views</Name>

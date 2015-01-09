@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.Vachier.Entities;
 using ATMTECH.Views.Interface;
-using ATMTECH.Web.Services.DTO;
+using ATMTECH.Web.Services.Entities;
 
 namespace ATMTECH.Vachier.Views.Interface
 {

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using ATMTECH.Common.Constant;
 using ATMTECH.Common.Utils;
 using ATMTECH.DAO;
 using ATMTECH.DAO.SessionManager;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services.Base;
-using ErrorCode = ATMTECH.Common.ErrorCode;
+using ATMTECH.Web.Services;
+using ErrorCode = ATMTECH.ShoppingCart.Services.ErrorCode;
 
 namespace ATMTECH.ShoppingCart.Tests.Base
 {
@@ -45,35 +43,35 @@ namespace ATMTECH.ShoppingCart.Tests.Base
         private static void CreateErrorMessage()
         {
             BaseDao<Message, int> dao = new BaseDao<Message, int>();
-            Message message1 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_BILLING_ADDRESS_NULL, Language = "fr", Description = "L'adresse de facturation ne peut pas être vide." };
-            Message message2 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_ENTERPRISE_CANT_ORDER, Language = "fr", Description = "Cette entreprise ne peut pas passer de commande." };
-            Message message3 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_ENTERPRISE_NULL_ORDER, Language = "fr", Description = "Aucune entreprise associé à la commande." };
-            Message message4 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_ORDERLINE_COUNT_ZERO, Language = "fr", Description = "Aucune ligne de commande." };
-            Message message5 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_ORDERLINE_NULL, Language = "fr", Description = "Aucune ligne de commande." };
-            Message message6 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_ORDERLINE_PRODUCT_ID_ZERO, Language = "fr", Description = "Le produit dans une des lignes de commandes est inconnu." };
-            Message message7 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_ORDERSTATUS_UNKNOWN, Language = "fr", Description = "Statut de la commande inconnu." };
-            Message message8 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_ORDER_CREATE_NOT_ZERO, Language = "fr", Description = "On ne peut pas créer une commande en affectant un ID." };
-            Message message9 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_SHIPPING_ADDRESS_NULL, Language = "fr", Description = "L'adresse de'envoi ne peut pas être vide." };
-            Message message10 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_ORDER_NULL, Language = "fr", Description = "La commande ne peut pas être vide" };
-            Message message11 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_NO_USER_AUTHENTICATED, Language = "fr", Description = "Vous ne pouvez pas exécuter cette action si vous n'êtes pas préalablement authentifié par le système." };
-            Message message12 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_NO_TAXE_TYPE, Language = "fr", Description = "Aucun type de taxe fourni" };
-            Message message13 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_NO_CUSTOMER_LINKED_TO_ORDER, Language = "fr", Description = "Il n'y pas de client lié à la commande." };
-            Message message14 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_THIS_PRODUCT_NUMBER_DONT_EXIST, Language = "fr", Description = "Ce produit n'existe pas dans le système" };
-            Message message15 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_PUROLATOR_ERROR, Language = "fr", Description = "Erreur avec le service de purolator." };
-            Message message16 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_SEND_MAIL_FAILED, Language = "fr", Description = "L'envoi de courriel n'a pas fonctionné." };
-            Message message17 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM, Language = "fr", Description = "Le mot de passe saisi ne correspond pas à la confirmation." };
-            Message message18 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_INVALID_EMAIL, Language = "fr", Description = "Le courriel que vous avez saisie est invalide." };
-            Message message19 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_THIS_USER_ALREADY_EXIST, Language = "fr", Description = "Cet utilisateur existe déjà." };
-            Message message20 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_CUSTOMER_IS_NULL, Language = "fr", Description = "Erreur technique customer est null." };
-            Message message21 = new Message { InnerId = ErrorCode.ADM_BAD_LOGIN, Language = "fr", Description = "Vos informations d'identification ne sont pas valide." };
-            Message message22 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_SHIPPING_PARAMETER_CANNOT_BE_NULL, Language = "fr", Description = "Le parametre de shipping ne peut être null, message destiné aux développeurs" };
-            Message message23 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_USER_NOT_EXIST_ON_CONFIRM, Language = "fr", Description = "Vous ne pouvez pas confirmer cet utilisateur" };
-            Message message24 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_CAPTCHA_INVALID, Language = "fr", Description = "Veuillez saisir les chiffres dans l'image." };
-            Message message25 = new Message { InnerId = ErrorCode.ADM_UPS_EMPTY_ERROR, Language = "fr", Description = "Aucune donnée envoyé de UPS" };
-            Message message26 = new Message { InnerId = ErrorCode.ADM_UPS_ERROR, Language = "fr", Description = "Erreur avec UPS" };
-            Message message27 = new Message { InnerId = ErrorCode.ADM_UPS_TIMEOUT_ERROR, Language = "fr", Description = "Erreur de connection avec UPS" };
-            Message message28 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_SHIPPING_CODE_DONT_EXIST, Language = "fr", Description = "Le code d'envoi n'existe pas" };
-            Message message29 = new Message { InnerId = ShoppingCart.Services.ErrorCode.ErrorCode.SC_STOCK_INSUFICIENT, Language = "fr", Description = "L'inventaire pour le produit: {0} étant la quantité maximale en inventaire ce qui est insufisant pour compléter votre commande. Veuillez inscrire une quantité inférieur au maximum." };
+            Message message1 = new Message { InnerId = ErrorCode.SC_BILLING_ADDRESS_NULL, Language = "fr", Description = "L'adresse de facturation ne peut pas être vide." };
+            Message message2 = new Message { InnerId = ErrorCode.SC_ENTERPRISE_CANT_ORDER, Language = "fr", Description = "Cette entreprise ne peut pas passer de commande." };
+            Message message3 = new Message { InnerId = ErrorCode.SC_ENTERPRISE_NULL_ORDER, Language = "fr", Description = "Aucune entreprise associé à la commande." };
+            Message message4 = new Message { InnerId = ErrorCode.SC_ORDERLINE_COUNT_ZERO, Language = "fr", Description = "Aucune ligne de commande." };
+            Message message5 = new Message { InnerId = ErrorCode.SC_ORDERLINE_NULL, Language = "fr", Description = "Aucune ligne de commande." };
+            Message message6 = new Message { InnerId = ErrorCode.SC_ORDERLINE_PRODUCT_ID_ZERO, Language = "fr", Description = "Le produit dans une des lignes de commandes est inconnu." };
+            Message message7 = new Message { InnerId = ErrorCode.SC_ORDERSTATUS_UNKNOWN, Language = "fr", Description = "Statut de la commande inconnu." };
+            Message message8 = new Message { InnerId = ErrorCode.SC_ORDER_CREATE_NOT_ZERO, Language = "fr", Description = "On ne peut pas créer une commande en affectant un ID." };
+            Message message9 = new Message { InnerId = ErrorCode.SC_SHIPPING_ADDRESS_NULL, Language = "fr", Description = "L'adresse de'envoi ne peut pas être vide." };
+            Message message10 = new Message { InnerId = ErrorCode.SC_ORDER_NULL, Language = "fr", Description = "La commande ne peut pas être vide" };
+            Message message11 = new Message { InnerId = ErrorCode.SC_NO_USER_AUTHENTICATED, Language = "fr", Description = "Vous ne pouvez pas exécuter cette action si vous n'êtes pas préalablement authentifié par le système." };
+            Message message12 = new Message { InnerId = ErrorCode.SC_NO_TAXE_TYPE, Language = "fr", Description = "Aucun type de taxe fourni" };
+            Message message13 = new Message { InnerId = ErrorCode.SC_NO_CUSTOMER_LINKED_TO_ORDER, Language = "fr", Description = "Il n'y pas de client lié à la commande." };
+            Message message14 = new Message { InnerId = ErrorCode.SC_THIS_PRODUCT_NUMBER_DONT_EXIST, Language = "fr", Description = "Ce produit n'existe pas dans le système" };
+            Message message15 = new Message { InnerId = ErrorCode.SC_PUROLATOR_ERROR, Language = "fr", Description = "Erreur avec le service de purolator." };
+            Message message16 = new Message { InnerId = ErrorCode.SC_SEND_MAIL_FAILED, Language = "fr", Description = "L'envoi de courriel n'a pas fonctionné." };
+            Message message17 = new Message { InnerId = ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM, Language = "fr", Description = "Le mot de passe saisi ne correspond pas à la confirmation." };
+            Message message18 = new Message { InnerId = ErrorCode.SC_INVALID_EMAIL, Language = "fr", Description = "Le courriel que vous avez saisie est invalide." };
+            Message message19 = new Message { InnerId = ErrorCode.SC_THIS_USER_ALREADY_EXIST, Language = "fr", Description = "Cet utilisateur existe déjà." };
+            Message message20 = new Message { InnerId = ErrorCode.SC_CUSTOMER_IS_NULL, Language = "fr", Description = "Erreur technique customer est null." };
+            Message message21 = new Message { InnerId = Web.Services.ErrorCode.ADM_BAD_LOGIN, Language = "fr", Description = "Vos informations d'identification ne sont pas valide." };
+            Message message22 = new Message { InnerId = ErrorCode.SC_SHIPPING_PARAMETER_CANNOT_BE_NULL, Language = "fr", Description = "Le parametre de shipping ne peut être null, message destiné aux développeurs" };
+            Message message23 = new Message { InnerId = ErrorCode.SC_USER_NOT_EXIST_ON_CONFIRM, Language = "fr", Description = "Vous ne pouvez pas confirmer cet utilisateur" };
+            Message message24 = new Message { InnerId = ErrorCode.SC_CAPTCHA_INVALID, Language = "fr", Description = "Veuillez saisir les chiffres dans l'image." };
+            Message message25 = new Message { InnerId = Web.Services.ErrorCode.ADM_UPS_EMPTY_ERROR, Language = "fr", Description = "Aucune donnée envoyé de UPS" };
+            Message message26 = new Message { InnerId = Web.Services.ErrorCode.ADM_UPS_ERROR, Language = "fr", Description = "Erreur avec UPS" };
+            Message message27 = new Message { InnerId = Web.Services.ErrorCode.ADM_UPS_TIMEOUT_ERROR, Language = "fr", Description = "Erreur de connection avec UPS" };
+            Message message28 = new Message { InnerId = ErrorCode.SC_SHIPPING_CODE_DONT_EXIST, Language = "fr", Description = "Le code d'envoi n'existe pas" };
+            Message message29 = new Message { InnerId = ErrorCode.SC_STOCK_INSUFICIENT, Language = "fr", Description = "L'inventaire pour le produit: {0} étant la quantité maximale en inventaire ce qui est insufisant pour compléter votre commande. Veuillez inscrire une quantité inférieur au maximum." };
 
             dao.Save(message1);
             dao.Save(message2);

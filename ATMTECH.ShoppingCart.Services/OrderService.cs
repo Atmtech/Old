@@ -185,7 +185,7 @@ namespace ATMTECH.ShoppingCart.Services
                 order = CalculateTotal(order, type, shippingParameter);
                 return DAOOrder.CreateOrder(order);
             }
-            MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_ORDER_CREATE_NOT_ZERO);
+            MessageService.ThrowMessage(ErrorCode.SC_ORDER_CREATE_NOT_ZERO);
 
             return 0;
         }
@@ -197,7 +197,7 @@ namespace ATMTECH.ShoppingCart.Services
                 return GetAddressOrder(orders.FirstOrDefault(order => order.OrderStatus == OrderStatus.IsWishList));
             }
 
-            MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_NO_USER_AUTHENTICATED);
+            MessageService.ThrowMessage(ErrorCode.SC_NO_USER_AUTHENTICATED);
             return null;
         }
         public int GetCountNumberOfItemInBasket(Customer customer)
@@ -215,7 +215,7 @@ namespace ATMTECH.ShoppingCart.Services
                 return DAOOrder.GetOrderFromCustomer(customer, orderStatus);
             }
 
-            MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_NO_USER_AUTHENTICATED);
+            MessageService.ThrowMessage(ErrorCode.SC_NO_USER_AUTHENTICATED);
             return null;
         }
         public IList<Order> GetOrderToReport(int idOrder)
@@ -677,13 +677,13 @@ namespace ATMTECH.ShoppingCart.Services
 
                 if (stockTransactions.Count(x => x.Stock.Id == orderLine.Stock.Id) == 0)
                 {
-                    stockControlReportLines.Add(AddStockControlReportLine(stocks, orders, orderLine, @"N\A", ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_NO_MATCH));
+                    stockControlReportLines.Add(AddStockControlReportLine(stocks, orders, orderLine, @"N\A", ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_NO_MATCH));
                 }
 
                 int transactionTotal = stockTransactions.Where(x => x.Stock.Id == orderLine.Stock.Id).Sum(x => x.Transaction);
                 if (transactionTotal != orderLine.Quantity * -1)
                 {
-                    stockControlReportLines.Add(AddStockControlReportLine(stocks, orders, orderLine, transactionTotal.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_ORDERLINE_QUANTITY_VS_TRANSACTION_NOT_EQUAL));
+                    stockControlReportLines.Add(AddStockControlReportLine(stocks, orders, orderLine, transactionTotal.ToString(), ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_ORDERLINE_QUANTITY_VS_TRANSACTION_NOT_EQUAL));
                 }
             }
 
@@ -691,7 +691,7 @@ namespace ATMTECH.ShoppingCart.Services
             {
                 if (orderLines.Count(x => x.Stock.Id == stockTransaction.Stock.Id) == 0)
                 {
-                    stockControlReportLines.Add(AddStockControlReportLine(stocks, orders, new OrderLine { Order = new Order { Id = stockTransaction.Order.Id } }, stockTransaction.Transaction.ToString(), ErrorCode.ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_TRANSACTION_NOT_EXISTS_IN_ORDERLINE));
+                    stockControlReportLines.Add(AddStockControlReportLine(stocks, orders, new OrderLine { Order = new Order { Id = stockTransaction.Order.Id } }, stockTransaction.Transaction.ToString(), ErrorCode.MESSAGE_CONTROL_STOCK_ORDERLINE_TRANSACTION_NOT_EXISTS_IN_ORDERLINE));
                 }
             }
             return stockControlReportLines.OrderBy(x => x.Order).ToList();
@@ -803,7 +803,7 @@ namespace ATMTECH.ShoppingCart.Services
         {
             if (string.IsNullOrEmpty(type))
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_NO_TAXE_TYPE);
+                MessageService.ThrowMessage(ErrorCode.SC_NO_TAXE_TYPE);
             }
             else
             {

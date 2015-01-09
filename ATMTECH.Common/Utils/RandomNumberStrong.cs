@@ -1,7 +1,7 @@
 using System;
 using System.Security.Cryptography;
 
-namespace ATMTECH.Web
+namespace ATMTECH.Common.Utils
 {
     /// <summary>
     /// Provides methods for generating cryptographically-strong random numbers.

@@ -2,6 +2,8 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using ATMTECH.Common.Utils;
+using Math = System.Math;
 
 namespace ATMTECH.Web
 {

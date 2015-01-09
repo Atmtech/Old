@@ -52,7 +52,6 @@
     <Compile Include="Interface\IGenerateControlsService.cs" />
     <Compile Include="DataEditorService.cs" />
     <Compile Include="Interface\IDataEditorService.cs" />
-    <Compile Include="Interface\IGenerateDataEditorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

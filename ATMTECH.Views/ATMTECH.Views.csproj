@@ -112,10 +112,6 @@
       <Project>{C9D4E476-745E-4FF4-AD7B-43B223B29F39}</Project>
       <Name>ATMTECH.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Utils\ATMTECH.Utils.csproj">
-      <Project>{E39E16B8-CA93-4928-901D-42AEDF82A538}</Project>
-      <Name>ATMTECH.Utils</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
       <Name>ATMTECH.Web.Services</Name>

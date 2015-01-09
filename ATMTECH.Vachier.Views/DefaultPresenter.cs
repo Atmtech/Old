@@ -6,7 +6,7 @@ using ATMTECH.Vachier.Entities;
 using ATMTECH.Vachier.Views.Base;
 using ATMTECH.Vachier.Views.Interface;
 using ATMTECH.Web;
-using ATMTECH.Web.Services.DTO;
+using ATMTECH.Web.Services.Entities;
 
 namespace ATMTECH.Vachier.Views
 {
@@ -95,12 +95,10 @@ namespace ATMTECH.Vachier.Views
         }
         public void RechercherMerde()
         {
-            //string page = Utils.Web.Pages.GetCurrentPage();
             NavigationService.Redirect("default.aspx?r=" + View.RechercheMerde);
         }
         public void AnnulerRecherche()
         {
-            //string page = Utils.Web.Pages.GetCurrentPage();
             NavigationService.Redirect("default.aspx?r=");
         }
         public void AjouterMerdeCelebre()

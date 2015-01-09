@@ -1,10 +1,10 @@
-ï»¿namespace ATMTECH.ShoppingCart.Services.ErrorCode
+namespace ATMTECH.ShoppingCart.Services
 {
     public static class ErrorCode
     {
 
         public const string MESSAGE_CONTROL_STOCK_ORDERLINE_NO_MATCH = "Aucune correspondance dans les transactions de stock";
-        public const string MESSAGE_CONTROL_STOCK_ORDERLINE_ORDERLINE_QUANTITY_VS_TRANSACTION_NOT_EQUAL = "La quantitÃ© commandÃ© n'est pas la mÃªme que dans la transaction de stock";
+        public const string MESSAGE_CONTROL_STOCK_ORDERLINE_ORDERLINE_QUANTITY_VS_TRANSACTION_NOT_EQUAL = "La quantité commandé n'est pas la même que dans la transaction de stock";
         public const string MESSAGE_CONTROL_STOCK_ORDERLINE_TRANSACTION_NOT_EXISTS_IN_ORDERLINE = "La transaction sur la commande n'existe pas dans les lignes de commandes";
 
 

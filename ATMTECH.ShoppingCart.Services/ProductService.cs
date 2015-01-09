@@ -33,7 +33,7 @@ namespace ATMTECH.ShoppingCart.Services
             Product product = DAOProduct.GetProduct(id);
             if (product == null)
             {
-                MessageService.ThrowMessage(ErrorCode.ErrorCode.SC_THIS_PRODUCT_NUMBER_DONT_EXIST);
+                MessageService.ThrowMessage(ErrorCode.SC_THIS_PRODUCT_NUMBER_DONT_EXIST);
             }
             else
             {

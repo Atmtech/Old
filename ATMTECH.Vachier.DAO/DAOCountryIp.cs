@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.DAO;
 using ATMTECH.Vachier.DAO.Interface;
-using ATMTECH.Web.Services.DTO;
+using ATMTECH.Web.Services.Entities;
 
 namespace ATMTECH.Vachier.DAO
 {

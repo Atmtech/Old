@@ -4,7 +4,6 @@ using ATMTECH.Shell.Tests;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services;
-using ATMTECH.ShoppingCart.Services.ErrorCode;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Reports.DTO;
 using ATMTECH.Test;
@@ -14,6 +13,7 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ploeh.AutoFixture;
+using ErrorCode = ATMTECH.ShoppingCart.Services.ErrorCode;
 
 namespace ATMTECH.ShoppingCart.Tests.Services
 {

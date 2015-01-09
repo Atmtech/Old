@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using ATMTECH.Common.Context;
 using ATMTECH.Web.Services.Base;
-using ATMTECH.Web.Services.DTO;
+using ATMTECH.Web.Services.Entities;
 using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.Web.Services

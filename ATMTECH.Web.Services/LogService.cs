@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Net.Mail;
-using System.Web;
-using System.Xml.Linq;
 using ATMTECH.Common.Context;
 using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO.Interface;
@@ -10,7 +7,6 @@ using ATMTECH.Entities;
 using ATMTECH.Web.Services.Base;
 
 using ATMTECH.Web.Services.Interface;
-using System.Xml;
 
 namespace ATMTECH.Web.Services
 {
@@ -100,7 +96,7 @@ namespace ATMTECH.Web.Services
 
         public void LogException(Message message, System.Exception ex)
         {
-            LogException logException = new LogException() { Description = message.Description + " " + ex.Message, InnerId = message.InnerId };
+            LogException logException = new LogException { Description = message.Description + " " + ex.Message, InnerId = message.InnerId };
             if (AuthenticateUser != null)
             {
                 logException.User = AuthenticateUser;
@@ -110,7 +106,7 @@ namespace ATMTECH.Web.Services
 
         public void LogException(Message message)
         {
-            LogException logException = new LogException() { Description = message.Description, InnerId = message.InnerId };
+            LogException logException = new LogException { Description = message.Description, InnerId = message.InnerId };
             if (AuthenticateUser != null)
             {
                 logException.User = AuthenticateUser;

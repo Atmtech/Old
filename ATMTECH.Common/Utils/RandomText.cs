@@ -1,5 +1,5 @@
 
-namespace ATMTECH.Web
+namespace ATMTECH.Common.Utils
 {
     /// <summary>
     /// Provides methods for generating random texts.

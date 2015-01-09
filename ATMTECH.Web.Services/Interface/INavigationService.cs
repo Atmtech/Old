@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using ATMTECH.Web.Services.DTO;
+using ATMTECH.Web.Services.Entities;
 
 namespace ATMTECH.Web.Services.Interface
 {
