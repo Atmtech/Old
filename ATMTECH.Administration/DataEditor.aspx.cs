@@ -8,9 +8,9 @@ using ATMTECH.Administration.Services;
 using ATMTECH.Administration.Views;
 using ATMTECH.Administration.Views.Interface;
 using ATMTECH.Common.Utils;
+using ATMTECH.Common.Utils.Web;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.Utils.Web;
 using ATMTECH.Web;
 using ATMTECH.WebControls;
 

@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Reflection;
 
-namespace ATMTECH.Utils
+namespace ATMTECH.Common.Utils
 {
     //    // Create an object array consisting of the parameters to the method.
     //// Make sure you get the types right or the underlying

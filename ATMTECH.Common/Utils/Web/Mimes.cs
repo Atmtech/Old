@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace ATMTECH.Utils.Web
+namespace ATMTECH.Common.Utils.Web
 {
     public class Mimes
     {

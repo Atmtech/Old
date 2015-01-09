@@ -1,6 +1,6 @@
 ﻿using ATMTECH.Common.Context;
+using ATMTECH.Common.Utils.Web;
 using ATMTECH.Entities;
-using ATMTECH.Utils.Web;
 using ATMTECH.Web.Services.Base;
 using ATMTECH.Web.Services.Interface;
 using ATMTECH.Web.Services.PaypalSandboxService;

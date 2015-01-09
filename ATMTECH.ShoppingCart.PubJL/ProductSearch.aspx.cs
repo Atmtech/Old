@@ -6,6 +6,7 @@ using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Web;
+using Pages = ATMTECH.Common.Utils.Web.Pages;
 
 namespace ATMTECH.ShoppingCart.PubJL
 {
@@ -25,7 +26,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                                       ? product.NameFrench
                                       : product.NameEnglish;
                     string productDisplay = product.Ident + " " + name + " " + product.UnitPrice.ToString("C");
-                    string brand = "<div class='brand bg-color-button-product' style='height:45px;width:500px;'><div style='font-size:12px;padding: 3px 3px 3px 3px;font-weight:bold;'>" + Utils.Web.Pages.RemoveHtmlTag(productDisplay) + "</div></div>";
+                    string brand = "<div class='brand bg-color-button-product' style='height:45px;width:500px;'><div style='font-size:12px;padding: 3px 3px 3px 3px;font-weight:bold;'>" + Pages.RemoveHtmlTag(productDisplay) + "</div></div>";
                     string footer = "</div></a>";
                     Literal literal = new Literal { Text = header + image + brand + footer };
                     placeHolderProduct.Controls.Add(literal);

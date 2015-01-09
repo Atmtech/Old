@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using ATMTECH.Common.Utils;
 using ATMTECH.DAO.Interface;
 using ATMTECH.DAO.SessionManager;
 using ATMTECH.Services.Interface;
@@ -188,7 +189,7 @@ namespace ATMTECH.Services
                             TimeSpan diffResult = endDate - startDate;
 
                             // Show sql debug
-                            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
+                            Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
                                                    diffResult.Milliseconds.ToString() + "ms) :: " + sql);
                         }
                     }

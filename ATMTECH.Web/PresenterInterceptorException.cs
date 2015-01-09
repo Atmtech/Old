@@ -5,6 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Web;
 using ATMTECH.Common.Context;
+using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO;
 using ATMTECH.Entities;
 using ATMTECH.Exception;
@@ -55,8 +56,8 @@ namespace ATMTECH.Web
                                                         Description = message + " => PresenterInterceptor",
                                                         InnerId = "INTERNAL",
                                                         Page =
-                                                            Utils.Web.Pages.GetCurrentUrl() +
-                                                            Utils.Web.Pages.GetCurrentPage(),
+                                                            Pages.GetCurrentUrl() +
+                                                            Pages.GetCurrentPage(),
                                                         StackTrace = result.Exception.StackTrace
                                                     };
 

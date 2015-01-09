@@ -4,6 +4,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Xml.Linq;
 using ATMTECH.Common.Context;
+using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.Web.Services.Base;
@@ -62,7 +63,7 @@ namespace ATMTECH.Web.Services
 
 
                 logVisit.Ip = ContextSessionManager.Context.Request.UserHostName;
-                logVisit.Page = Utils.Web.Pages.GetCurrentPage();
+                logVisit.Page = Pages.GetCurrentPage();
                 logVisit.DateCreated = DateTime.Now;
                 logVisit.Url = ContextSessionManager.Context.Request.Url.AbsoluteUri;
 
@@ -92,6 +93,7 @@ namespace ATMTECH.Web.Services
             }
             catch (System.Exception exception)
             {
+                string x = exception.Message;
                 //LogException(new Message() { Description = "Erreur fatale dans LogVisit: ", InnerId = "ADM0001" }, exception);
             }
         }

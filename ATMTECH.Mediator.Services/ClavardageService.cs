@@ -15,7 +15,7 @@ namespace ATMTECH.Mediator.Services
 
         public ClavardageService()
         {
-            DatabaseSessionManager.ConnectionString = Utils.Configuration.GetConfigurationKey("ConnectionString");
+            DatabaseSessionManager.ConnectionString = Common.Utils.Configuration.GetConfigurationKey("ConnectionString");
         }
        
         public Utilisateur ObtenirUtilisateurCourant()

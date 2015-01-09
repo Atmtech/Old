@@ -4,6 +4,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.Common.Constant;
 using ATMTECH.Common.Context;
+using ATMTECH.Common.Utils;
+using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.Web.Services.Interface;
@@ -24,7 +26,7 @@ namespace ATMTECH.Web.Services
             {
                 if (string.IsNullOrEmpty((string)ContextSessionManager.Session["currentLanguage"]))
                 {
-                    string configuration = Utils.Configuration.GetConfigurationKey("DefaultLanguage");
+                    string configuration = Configuration.GetConfigurationKey("DefaultLanguage");
                     ContextSessionManager.Session["currentLanguage"] = !string.IsNullOrEmpty(configuration)
                                                                            ? configuration
                                                                            : LocalizationLanguage.FRENCH;
@@ -39,7 +41,7 @@ namespace ATMTECH.Web.Services
 
         public string Localize(string controlId, string currentLanguage)
         {
-            string page = Utils.Web.Pages.GetCurrentPage();
+            string page = Pages.GetCurrentPage();
             Localization localization =
                           DAOLocalization.GetLocalization(controlId, page);
             string localizeString = FindLocalizeString(currentLanguage, localization);
@@ -54,7 +56,7 @@ namespace ATMTECH.Web.Services
                 if (!string.IsNullOrEmpty(isEnabled) && isEnabled != "1") return;
             }
 
-            string page = Utils.Web.Pages.GetCurrentPage();
+            string page = Pages.GetCurrentPage();
             if (Controls == null) return;
 
             foreach (Control control in Controls.Where(control => IsLocalizable(control)))

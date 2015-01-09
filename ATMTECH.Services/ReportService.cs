@@ -5,8 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using ATMTECH.Common.Context;
+using ATMTECH.Common.Utils.Web;
 using ATMTECH.Services.Interface;
-using ATMTECH.Utils.Web;
 using Microsoft.Reporting.WebForms;
 
 namespace ATMTECH.Services

@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using ATMTECH.Services;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface;
-using ATMTECH.ShoppingCart.Views.Pages;
-using ATMTECH.Utils;
-using ATMTECH.Web;
 using ATMTECH.Web.Services.ErrorCode;
 using ATMTECH.Web.Services.Interface;
 
@@ -16,7 +11,6 @@ namespace ATMTECH.ShoppingCart.Views
     public class ExpressCheckoutPaypalPresenter : BaseShoppingCartPresenter<IExpressCheckoutPaypalPresenter>
     {
         public IPaypalService PayPalService { get; set; }
-        public IParameterService ParameterService { get; set; }
         public IOrderService OrderService { get; set; }
         public ATMTECH.Services.Interface.IReportService ReportService { get; set; }
 

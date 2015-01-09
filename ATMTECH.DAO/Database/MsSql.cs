@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web;
+using ATMTECH.Common.Utils;
 using ATMTECH.DAO.SessionManager;
 using ATMTECH.Entities;
 
@@ -82,7 +83,7 @@ namespace ATMTECH.DAO.Database
                     TimeSpan diffResult = endDate - startDate;
 
                     // Show sql debug
-                    Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
+                    Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
                                            diffResult.Milliseconds.ToString() + "ms) :: " + sql);
                 }
             }
@@ -116,7 +117,7 @@ namespace ATMTECH.DAO.Database
             TimeSpan diffResult = endDate - startDate;
 
             // Show sql debug
-            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " + diffResult.Milliseconds.ToString() + "ms) :: " + sql);
+            Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " + diffResult.Milliseconds.ToString() + "ms) :: " + sql);
             return dataSet;
         }
         public DataSet ReturnDataSetCount()
@@ -143,7 +144,7 @@ namespace ATMTECH.DAO.Database
             TimeSpan diffResult = endDate - startDate;
 
             // Show sql debug
-            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " + diffResult.Milliseconds.ToString() + "ms) :: " + sql);
+            Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " + diffResult.Milliseconds.ToString() + "ms) :: " + sql);
             return dataSet;
         }
         public DataSet ReturnDataSet(string where, IList<Criteria> criterias, PagingOperation pagingOperation, OrderOperation orderOperation)
@@ -192,7 +193,7 @@ namespace ATMTECH.DAO.Database
                     TimeSpan diffResult = endDate - startDate;
 
                     // Show sql debug
-                    Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
+                    Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
                                            diffResult.Milliseconds.ToString() + "ms) :: " + sql);
 
                     //DatabaseSessionManager.
@@ -274,7 +275,7 @@ namespace ATMTECH.DAO.Database
             TimeSpan diffResult = endDate - startDate;
 
             // Show sql debug
-            Utils.Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
+            Debug.WriteDebug("(Start: " + start + " End: " + end + " TimeSpent: " +
                                    diffResult.Milliseconds.ToString() + "ms) :: " + sql);
         }
         public void UpdateSql(TModel model, string id)

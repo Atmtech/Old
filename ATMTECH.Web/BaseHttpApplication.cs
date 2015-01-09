@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Web;
 using ATMTECH.Common;
+using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO;
 using ATMTECH.Entities;
 using Autofac;
@@ -75,7 +76,7 @@ namespace ATMTECH.Web
                 LogException logException = new LogException
                 {
                     InnerId = "INTERNAL",
-                    Page = Utils.Web.Pages.GetCurrentUrl() + Utils.Web.Pages.GetCurrentPage(),
+                    Page = Pages.GetCurrentUrl() + Pages.GetCurrentPage(),
                     Description = exception.Message + " => BaseHttpApplication",
                     StackTrace = "Line number: " + line + "            " + exception.StackTrace
                 };

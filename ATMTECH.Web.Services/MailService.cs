@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Mail;
+using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO;
 using ATMTECH.Entities;
 using ATMTECH.Web.Services.Base;
@@ -36,7 +37,7 @@ namespace ATMTECH.Web.Services
             MailAddress fromx = new MailAddress(from, "");
             MailAddress tox = new MailAddress(to, "");
 
-            string subjectFormat = Utils.Web.Pages.RemoveHtmlTag(subject);
+            string subjectFormat = Pages.RemoveHtmlTag(subject);
             MailMessage message = new MailMessage(fromx, tox) { IsBodyHtml = true, Body = body, Subject = subjectFormat };
             LogService.LogMail(message);
             return Send(message, file, fileName);
@@ -46,7 +47,7 @@ namespace ATMTECH.Web.Services
             MailAddress fromx = new MailAddress(from, "");
             MailAddress tox = new MailAddress(to, "");
 
-            string subjectFormat = Utils.Web.Pages.RemoveHtmlTag(subject);
+            string subjectFormat = Pages.RemoveHtmlTag(subject);
             MailMessage message = new MailMessage(fromx, tox) { IsBodyHtml = true, Body = body, Subject = subjectFormat };
             LogService.LogMail(message);
             return true;
@@ -78,7 +79,7 @@ namespace ATMTECH.Web.Services
                     LogException logException = new LogException
                         {
                             InnerId = "INTERNAL",
-                            Page = Utils.Web.Pages.GetCurrentUrl() + Utils.Web.Pages.GetCurrentPage(),
+                            Page = Pages.GetCurrentUrl() + Pages.GetCurrentPage(),
                             Description =
                                 exception.Message + " => SendMail " + client.Host + " " + client.Port + " " +
                                 myCreds.UserName + " " + myCreds.Password,

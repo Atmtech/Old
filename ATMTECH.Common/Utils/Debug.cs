@@ -1,4 +1,4 @@
-﻿namespace ATMTECH.Utils
+namespace ATMTECH.Common.Utils
 {
     public static class Debug
     {

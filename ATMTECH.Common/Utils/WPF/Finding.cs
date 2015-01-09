@@ -1,11 +1,9 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Media;
 
-namespace ATMTECH.Utils.WPF
+namespace ATMTECH.Common.Utils.WPF
 {
     public static class Finding
     {
@@ -38,12 +36,9 @@ namespace ATMTECH.Utils.WPF
                         var child = VisualTreeHelper.GetChild(visual, i);
                         if (child is T)
                             return child as T;
-                        else
-                        {
-                            var childTest = child.FindFirstVisualDescendantOfType<T>(VisualChildExplorationMode.Vertical);
-                            if (childTest != null)
-                                return childTest;
-                        }
+                        var childTest = FindFirstVisualDescendantOfType<T>(child, VisualChildExplorationMode.Vertical);
+                        if (childTest != null)
+                            return childTest;
                     }
                     break;
                 // Horizontal mode : let's use the power of Linq
@@ -55,14 +50,14 @@ namespace ATMTECH.Utils.WPF
                 // .Net 2 (only iterators).
                 case VisualChildExplorationMode.Horizontal:
                     List<DependencyObject> currentGeneration = new List<DependencyObject> { visual }, nextGeneration;
-                    nextGeneration = new List<DependencyObject>(currentGeneration.SelectMany(v => v.GetVisualChildren()));
+                    nextGeneration = new List<DependencyObject>(currentGeneration.SelectMany(v => GetVisualChildren(v)));
                     while (nextGeneration.Count > 0)
                     {
                         currentGeneration = nextGeneration;
-                        var result = currentGeneration.OfType<T>().FirstOrDefault();
+                        var result = Enumerable.OfType<T>(currentGeneration).FirstOrDefault();
                         if (result != null)
                             return result;
-                        nextGeneration = new List<DependencyObject>(currentGeneration.SelectMany(v => v.GetVisualChildren()));
+                        nextGeneration = new List<DependencyObject>(currentGeneration.SelectMany(v => GetVisualChildren(v)));
 
                     }
                     break;

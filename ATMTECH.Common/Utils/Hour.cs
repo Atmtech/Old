@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-namespace ATMTECH.Utils
+namespace ATMTECH.Common.Utils
 {
     public static class Hour
     {

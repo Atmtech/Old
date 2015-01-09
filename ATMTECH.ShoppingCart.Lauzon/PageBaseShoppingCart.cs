@@ -10,7 +10,7 @@ using ATMTECH.Web;
 
 namespace ATMTECH.ShoppingCart.Lauzon
 {
-    public class PageBaseShoppingCart<TPresenter, TView> : ATMTECH.Web.PageBase
+    public class PageBaseShoppingCart<TPresenter, TView> : PageBase
         where TView : class, IViewBase
         where TPresenter : BaseShoppingCartPresenter<TView>
     {

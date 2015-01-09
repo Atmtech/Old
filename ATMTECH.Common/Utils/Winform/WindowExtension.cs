@@ -1,11 +1,9 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows;
-using System.Windows.Forms.VisualStyles;
 using System.Windows.Interop;
 
-
-namespace ATMTECH.Utils.Winform
+namespace ATMTECH.Common.Utils.Winform
 {
     public static class WindowExtensions
     {

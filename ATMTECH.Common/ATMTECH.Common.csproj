@@ -57,11 +57,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Library\Ionic.Zip.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -73,11 +78,16 @@
     <Reference Include="WebFormsMvp">
       <HintPath>..\Library\WebFormsMvp.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant\OrderByType.cs" />
     <Compile Include="Constant\LocalizationLanguage.cs" />
     <Compile Include="Context\ContextSessionManager.cs" />
+    <Compile Include="Utils\Configuration.cs" />
+    <Compile Include="Utils\Debug.cs" />
+    <Compile Include="Utils\DynamicInvoke.cs" />
+    <Compile Include="Utils\Hour.cs" />
     <Compile Include="Utils\Math.cs" />
     <Compile Include="ErrorCode.cs" />
     <Compile Include="PresenterBinding.cs" />
@@ -89,6 +99,10 @@
     <Compile Include="Utils\ManageClass.cs" />
     <Compile Include="Utils\Paging.cs" />
     <Compile Include="Utils\Sort.cs" />
+    <Compile Include="Utils\Web\Mimes.cs" />
+    <Compile Include="Utils\Web\Pages.cs" />
+    <Compile Include="Utils\Winform\WindowExtension.cs" />
+    <Compile Include="Utils\WPF\Finding.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">

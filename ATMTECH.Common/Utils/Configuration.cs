@@ -1,6 +1,6 @@
-﻿using System.Configuration;
+using System.Configuration;
 
-namespace ATMTECH.Utils
+namespace ATMTECH.Common.Utils
 {
     public static class Configuration
     {

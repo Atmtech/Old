@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO;
 using ATMTECH.Entities;
 using ATMTECH.Views.Interface;
@@ -93,7 +94,7 @@ namespace ATMTECH.Views
             View.CurrentContent.PageName = View.PageName;
             View.CurrentContent.Value = View.Value;
             View.CurrentContent.Language = View.LanguageValue;
-            View.CurrentContent.StripedValue = Utils.Web.Pages.RemoveHtmlTag(View.Value);
+            View.CurrentContent.StripedValue = Pages.RemoveHtmlTag(View.Value);
             daoContent.SaveContent(View.CurrentContent);
         }
     }

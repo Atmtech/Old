@@ -10,7 +10,6 @@ using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Reports.DTO;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface;
-using ATMTECH.Utils;
 using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.ShoppingCart.Views

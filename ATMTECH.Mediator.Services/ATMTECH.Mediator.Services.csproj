@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
+      <Project>{42563e34-aaeb-4558-824a-60701e2a0e0b}</Project>
+      <Name>ATMTECH.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
       <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
       <Name>ATMTECH.DAO</Name>
