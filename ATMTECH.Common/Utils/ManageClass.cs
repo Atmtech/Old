@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Runtime.Remoting;
 using System.Web;
 
-namespace ATMTECH.Common.Utilities
+namespace ATMTECH.Common.Utils
 {
     public class ManageClass
     {

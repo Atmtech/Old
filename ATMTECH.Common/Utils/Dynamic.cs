@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Threading;
 
-namespace System.Linq.Dynamic
+namespace ATMTECH.Common.Utils
 {
     /// <summary>
     /// 
@@ -826,7 +826,7 @@ namespace System.Linq.Dynamic
             typeof(DateTime),
             typeof(TimeSpan),
             typeof(Guid),
-            typeof(Math),
+            typeof(System.Math),
             typeof(Convert)
         };
 

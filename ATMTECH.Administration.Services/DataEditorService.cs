@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using ATMTECH.Administration.Services.Interface;
-using ATMTECH.Common.Utilities;
+using ATMTECH.Common.Utils;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.Entities;

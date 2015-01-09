@@ -7,7 +7,7 @@ using ATMTECH.Administration.Services;
 using ATMTECH.Administration.Services.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
-using ATMTECH.Common.Utilities;
+using ATMTECH.Common.Utils;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface;

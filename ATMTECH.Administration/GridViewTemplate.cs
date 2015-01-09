@@ -2,7 +2,7 @@ using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.Administration.Services;
-using ATMTECH.Common.Utilities;
+using ATMTECH.Common.Utils;
 
 namespace ATMTECH.Administration
 {

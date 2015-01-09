@@ -1,107 +1,152 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ATMTECH.DAO;
-using ATMTECH.DAO.Database;
+using ATMTECH.DAO.SessionManager;
 using ATMTECH.Entities;
-using FluentAssertions;
+using ATMTECH.Shell.Tests;
+using ATMTECH.Web;
+using ATMTECH.Web.Session;
+using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using Ploeh.AutoFixture;
 
 namespace ATMTECH.Test
 {
     [TestClass]
-    public class BaseDaoTest
+    public abstract class BaseDaoTest<TTypeTeste> : IDisposable where TTypeTeste : class
     {
-        //private readonly BaseDao<User, int> _daoUser = new BaseDao<User, int>();
-        //private readonly Model<User, int> _model = new Model<User, int>();
 
-        //[TestInitialize]
-        //public void Initialize()
+        private MockRepository _mockRepository;
+        private ContainerBuilder _containerBuilder;
+        private IContainer _container;
+        private readonly StateValueInjecteur _stateValueInjecteur = new StateValueInjecteur();
+        private TTypeTeste _instanceTest;
+
+        [TestInitialize]
+        public void BaseDaoTestInitialize()
+        {
+            _instanceTest = default(TTypeTeste);
+            ConfigurerAutofac();
+            InitialiserDependences();
+
+
+
+        }
+
+        public TTypeTeste InstanceTest
+        {
+            get
+            {
+                return _instanceTest ?? CreerInstanceTest();
+            }
+        }
+
+        public Fixture AutoFixture
+        {
+            get
+            {
+                Fixture fixture = (Fixture)new Fixture().Customize(new MultipleCustomization());
+                fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
+                fixture.Behaviors.Add(new OmitOnRecursionBehavior());
+                return fixture;
+            }
+        }
+
+
+
+        public virtual void InitialiserDependences()
+        {
+        }
+
+
+        //public void CreerDatabaseTest(string nameSpaceEntities)
         //{
         //    InitializeDatabase initializeDatabase = new InitializeDatabase();
-        //    initializeDatabase.InitializeDatabaseSqliteEnMemoire();
-
-        //    RemplirBaseDonnee();
+        //    initializeDatabase.InitializeDatabaseSqliteEnMemoire(nameSpaceEntities);
         //}
 
-        //public Fixture AutoFixture
-        //{
-        //    get
-        //    {
-        //        Fixture fixture = (Fixture)new Fixture().Customize(new MultipleCustomization());
-        //        fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
-        //        fixture.Behaviors.Add(new OmitOnRecursionBehavior());
-        //        return fixture;
-        //    }
-        //}
 
-        //private void RemplirBaseDonnee()
-        //{
-        //    User user1 = AutoFixture.Create<User>();
-        //    user1.Id = 0;
-        //    user1.IsActive = true;
-        //    user1.FirstName = "Vincent";
-        //    User user2 = AutoFixture.Create<User>();
-        //    user2.Id = 0;
-        //    user2.IsActive = false;
-        //    _daoUser.Save(user1);
-        //    _daoUser.Save(user2);
-        //}
+        public void EnregistrerEntite<T>(T entite) where T : BaseEntity
+        {
+            DatabaseSessionManager.ConnectionString = @"data source=:memory:";
+            BaseDao<T, int> daoSave = new BaseDao<T, int>();
+            int id = daoSave.Save(entite);
+            entite.Id = id;
+        }
+        public void InsererEntite<T>(T entite) where T : BaseEntity
+        {
+            DatabaseSessionManager.ConnectionString = @"data source=:memory:";
+            BaseDao<T, int> daoSave = new BaseDao<T, int>();
+            entite.Id = 0;
+            int id = daoSave.Save(entite);
+            entite.Id = id;
+        }
 
-        //[TestMethod]
-        //public void GetIdKeyColumnFromModel_RetourneLaCleId()
-        //{
-        //    string idKey = _model.GetIdKeyColumnFromModel();
-        //    idKey.Should().Be("Id");
-        //}
-        //[TestMethod]
-        //public void ExecuteSql_DoitExecuterLaLigneCommande()
-        //{
-        //    _daoUser.ExecuteSql("DELETE FROM User");
-        //    _daoUser.ExecuteSql("INSERT INTO User (Description) VALUES ('TEST')");
-        //    _daoUser.GetAll().Count.Should().Be(1);
-        //}
-        //[TestMethod]
-        //public void GetById_DevraitRetournerObjetRempli()
-        //{
-        //    User user = _daoUser.GetById(1);
-        //    user.FirstName.Should().Be("Vincent");
-        //}
-        //[TestMethod]
-        //public void GetById_SiObtientAvecParametre0OnRetourneObjetVide()
-        //{
-        //    User user = _daoUser.GetById(0);
-        //    user.Should().Be(null);
-        //}
-        //[TestMethod]
-        //public void GetById_SiObtientAvecParametreQuiRetourne0Rangee_REtourneNull()
-        //{
-        //    User user = _daoUser.GetById(5);
-        //    user.Should().Be(null);
-        //}
-        //[TestMethod]
-        //public void GetAllActive_RetourneSeulementLesActif()
-        //{
-        //    _daoUser.ExecuteSql("DELETE FROM User");
-        //    _daoUser.ExecuteSql("INSERT INTO User (Description, IsActive) VALUES ('TEST', 0)");
-        //    _daoUser.ExecuteSql("INSERT INTO User (Description, IsActive) VALUES ('TEST', 1)");
-        //    IList<User> users = _daoUser.GetAllActive();
-        //    users.Count.Should().Be(1);
-        //}
+        private void ConfigurerAutofac()
+        {
+            _containerBuilder = new ContainerBuilder();
+            _containerBuilder.RegisterType<TTypeTeste>().AsSelf();
 
-        //[TestMethod]
-        //public void Search_EstTourjoursRempliAvecLeModele()
-        //{
-        //    _daoUser.ExecuteSql("DELETE FROM User");
-            
-        //    User user = AutoFixture.Create<User>();
-        //    user.Id = 0;
-        //    _daoUser.Save(user);
-        //    IList<User> users =  _daoUser.GetAll();
-        //    users[0].Search.Should().NotBeNull();
-        //    users[0].Search.Should().Contain(user.FirstName);
-        //    users[0].Search.Should().Contain(user.Image.Description);
-        //    //rtn.Search.Should().NotBeNullOrEmpty();
-        //}
+            //Assembly dataAccess = VerificationEtForcerloadAssembly();
 
+            //if (dataAccess != null)
+            //{
+            //    _containerBuilder.RegisterAssemblyTypes(dataAccess).Where(t => t.Name.Contains("DAO"))
+            //       .AsImplementedInterfaces()
+            //       .PropertiesAutowired();
+            //}
+
+
+            ConfiguerAutoMocking();
+            ConfigurerStateValue();
+            ConfigurerCollectionsGeneriques(_containerBuilder);
+
+            _container = _containerBuilder.Build();
+        }
+        private void ConfigurerStateValue()
+        {
+            _containerBuilder.RegisterGeneric(typeof(MockStateValue<>)).As(typeof(IStateValue<>));
+        }
+        private void ConfiguerAutoMocking()
+        {
+            _mockRepository = new MockRepository(MockBehavior.Loose);
+            _containerBuilder.RegisterInstance(_mockRepository);
+            _containerBuilder.RegisterSource(new MoqRegistrationHandler());
+        }
+        private void ConfigurerCollectionsGeneriques(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterGeneric(typeof(List<>)).As(typeof(ICollection<>));
+            containerBuilder.RegisterGeneric(typeof(List<>)).As(typeof(IList<>));
+            containerBuilder.RegisterGeneric(typeof(Dictionary<,>)).As(typeof(IDictionary<,>));
+            containerBuilder.RegisterGeneric(typeof(HashSet<>)).As(typeof(ISet<>));
+        }
+        private TTypeTeste CreerInstanceTest()
+        {
+            _instanceTest = _container.Resolve<TTypeTeste>();
+            _stateValueInjecteur.Injecter(_instanceTest, _container);
+
+            _container.InjectUnsetProperties(_instanceTest);
+
+
+            return _instanceTest;
+        }
+        public Mock<TMock> ObtenirMock<TMock>() where TMock : class
+        {
+            return ((IMocked<TMock>)_container.Resolve<TMock>()).Mock;
+        }
+
+
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            _container.Dispose();
+        }
     }
 }

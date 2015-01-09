@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ATMTECH.Common
+namespace ATMTECH.Common.Utils
 {
     public class Math
     {

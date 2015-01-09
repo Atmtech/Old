@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.Administration.Services.Interface;
-using ATMTECH.Common.Utilities;
+using ATMTECH.Common.Utils;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.Entities;

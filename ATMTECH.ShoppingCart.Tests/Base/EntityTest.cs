@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using ATMTECH.Common.Utilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ATMTECH.ShoppingCart.Tests.Base

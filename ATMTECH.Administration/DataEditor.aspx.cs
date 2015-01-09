@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using ATMTECH.Administration.Services;
 using ATMTECH.Administration.Views;
 using ATMTECH.Administration.Views.Interface;
-using ATMTECH.Common.Utilities;
+using ATMTECH.Common.Utils;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.Utils.Web;

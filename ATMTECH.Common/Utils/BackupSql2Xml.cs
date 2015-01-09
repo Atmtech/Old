@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.IO;
 using Ionic.Zip;
 
-namespace ATMTECH.Common.Utilities
+namespace ATMTECH.Common.Utils
 {
     public class BackupSql2Xml
     {

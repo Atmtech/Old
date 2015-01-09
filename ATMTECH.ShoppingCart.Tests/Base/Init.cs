@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.Common.Constant;
-using ATMTECH.Common.Utilities;
+using ATMTECH.Common.Utils;
 using ATMTECH.DAO;
 using ATMTECH.DAO.SessionManager;
 using ATMTECH.Entities;

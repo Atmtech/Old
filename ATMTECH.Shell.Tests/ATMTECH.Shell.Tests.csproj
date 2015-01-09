@@ -69,11 +69,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseDaoTest.cs" />
-    <Compile Include="BaseTestShoppingCart.cs" />
-    <Compile Include="MockStateValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BaseTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">

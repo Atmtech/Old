@@ -78,20 +78,17 @@
     <Compile Include="Constant\OrderByType.cs" />
     <Compile Include="Constant\LocalizationLanguage.cs" />
     <Compile Include="Context\ContextSessionManager.cs" />
-    <Compile Include="ConverteurMonnaie.cs" />
-    <Compile Include="Math.cs" />
+    <Compile Include="Utils\Math.cs" />
     <Compile Include="ErrorCode.cs" />
-    <Compile Include="Monnaie.cs" />
     <Compile Include="PresenterBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\BackupSql2Xml.cs" />
-    <Compile Include="Utilities\Debug.cs" />
-    <Compile Include="Utilities\Dynamic.cs">
+    <Compile Include="Utils\BackupSql2Xml.cs" />
+    <Compile Include="Utils\Dynamic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Utilities\ManageClass.cs" />
-    <Compile Include="Utilities\Paging.cs" />
-    <Compile Include="Utilities\Sort.cs" />
+    <Compile Include="Utils\ManageClass.cs" />
+    <Compile Include="Utils\Paging.cs" />
+    <Compile Include="Utils\Sort.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">

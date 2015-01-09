@@ -7,6 +7,7 @@ using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.ErrorCode;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Reports.DTO;
+using ATMTECH.Test;
 using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 using FluentAssertions;

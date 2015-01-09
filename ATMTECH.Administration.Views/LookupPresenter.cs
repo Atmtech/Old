@@ -6,7 +6,6 @@ using ATMTECH.Administration.DAO.Interface;
 using ATMTECH.Administration.Services.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
-using ATMTECH.Common.Utilities;
 
 namespace ATMTECH.Administration.Views
 {

@@ -15,6 +15,7 @@ using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Base;
 using ATMTECH.Web.Services.Interface;
 using System.Web;
+using Math = ATMTECH.Common.Utils.Math;
 
 namespace ATMTECH.ShoppingCart.Services
 {
@@ -808,8 +809,8 @@ namespace ATMTECH.ShoppingCart.Services
             {
                 decimal countryTax = TaxesService.GetCountryTaxes(order.SubTotal, type);
                 decimal regionalTax = TaxesService.GetRegionTaxes(order.SubTotal, type);
-                order.CountryTax = Common.Math.RoundingMoney(countryTax);
-                order.RegionalTax = Common.Math.RoundingMoney(regionalTax);
+                order.CountryTax = Math.RoundingMoney(countryTax);
+                order.RegionalTax = Math.RoundingMoney(regionalTax);
             }
 
             return order;

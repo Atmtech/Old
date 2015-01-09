@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using ATMTECH.Common.Utilities;
 using ATMTECH.DAO.SessionManager;
 using ATMTECH.Entities;
 

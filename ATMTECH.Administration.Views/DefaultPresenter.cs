@@ -1,5 +1,7 @@
 ﻿using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
+using ATMTECH.Common;
+using ATMTECH.Common.Utils;
 using ATMTECH.Entities;
 
 namespace ATMTECH.Administration.Views
@@ -17,7 +19,7 @@ namespace ATMTECH.Administration.Views
         {
             string display = "tabarnak";
 
-            MessageService.ThrowMessage(Common.ErrorCode.ADM_BAD_LOGIN);
+            MessageService.ThrowMessage(ErrorCode.ADM_BAD_LOGIN);
 
             //display += "Début";
             //User user = AuthenticationService.SignIn("riov01", "10crevette011");

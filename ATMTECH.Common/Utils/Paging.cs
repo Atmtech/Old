@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Dynamic;
 using System.Text;
 using ATMTECH.Common.Constant;
 
-namespace ATMTECH.Common.Utilities
+namespace ATMTECH.Common.Utils
 {
     /// <summary>
     /// 
@@ -20,7 +19,7 @@ namespace ATMTECH.Common.Utilities
             {
                 lst = lst.OrderBy(parametreTri);
             }
-            return lst.Skip(indexDebutRangee).Take(nbEnreg).ToList();
+            return Queryable.Take(Queryable.Skip(lst, indexDebutRangee), nbEnreg).ToList();
         }
 
 
@@ -37,8 +36,7 @@ namespace ATMTECH.Common.Utilities
             }
 
             lstATrie =
-                lstATrie.AsQueryable().OrderBy(stringBuilder.ToString().TrimEnd(',')).Skip(indexDebutRangee).Take(
-                    nbEnreg).ToList();
+                Queryable.Take(Queryable.Skip(lstATrie.AsQueryable().OrderBy(stringBuilder.ToString().TrimEnd(',')), indexDebutRangee), nbEnreg).ToList();
 
             return lstATrie;
         }
@@ -61,15 +59,14 @@ namespace ATMTECH.Common.Utilities
             }
 
             lstATrie =
-                lstATrie.AsQueryable().OrderBy(stringBuilder.ToString().TrimEnd(',')).Skip(indexDebutRangee).Take(
-                    nbEnreg).ToList();
+                Queryable.Take(Queryable.Skip(lstATrie.AsQueryable().OrderBy(stringBuilder.ToString().TrimEnd(',')), indexDebutRangee), nbEnreg).ToList();
 
             return lstATrie;
         }
 
         public static IList<TModel> PagingSansTri(IList<TModel> lstATrie, int nbEnreg, int indexDebutRangee)
         {
-            lstATrie = lstATrie.AsQueryable().Skip(indexDebutRangee).Take(nbEnreg).ToList();
+            lstATrie = Queryable.Take(Queryable.Skip(lstATrie.AsQueryable(), indexDebutRangee), nbEnreg).ToList();
 
             return lstATrie;
         }
@@ -99,7 +96,7 @@ namespace ATMTECH.Common.Utilities
             {
                 lst = lst.OrderBy(ordre);
             }
-            return lst.Skip(indexDebut).Take(nbEnregMax).ToList();
+            return Queryable.Take(Queryable.Skip(lst, indexDebut), nbEnregMax).ToList();
         }
     }
 }

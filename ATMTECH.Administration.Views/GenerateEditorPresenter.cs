@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using ATMTECH.Administration.Services.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
-using ATMTECH.Common.Utilities;
+using ATMTECH.Common.Utils;
 using ATMTECH.Entities;
 
 namespace ATMTECH.Administration.Views

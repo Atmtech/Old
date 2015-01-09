@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
-using ATMTECH.Exception;
+using ATMTECH.Shell.Tests;
 using ATMTECH.Web;
 using ATMTECH.Web.Services.Interface;
 using ATMTECH.Web.Session;
 using Autofac;
-using Autofac.Builder;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ploeh.AutoFixture;
 
-namespace ATMTECH.Shell.Tests
+namespace ATMTECH.Test
 {
     /// <summary>
     /// Classe de base pour tous les tests unitaires

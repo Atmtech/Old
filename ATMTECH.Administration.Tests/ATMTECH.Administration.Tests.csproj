@@ -72,10 +72,6 @@
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Shell.Tests\ATMTECH.Shell.Tests.csproj">
-      <Project>{3C7F363D-C78A-4745-971E-F128E68C2C56}</Project>
-      <Name>ATMTECH.Shell.Tests</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Test\ATMTECH.Test.csproj">
       <Project>{EA2A92A8-C48A-4979-BF6A-6B1AD86E23FD}</Project>
       <Name>ATMTECH.Test</Name>
