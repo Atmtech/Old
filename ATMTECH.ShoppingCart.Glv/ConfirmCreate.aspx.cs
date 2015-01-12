@@ -1,5 +1,4 @@
 ﻿using System;
-using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.ShoppingCart.Views.Pages;
@@ -31,10 +30,5 @@ namespace ATMTECH.ShoppingCart.Glv
             }
         }
 
-        protected void ConfirmCreate_click(object sender, EventArgs e)
-        {
-            Presenter.ConfirmCreate();
-            
-        }
     }
 }

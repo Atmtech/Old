@@ -8,13 +8,12 @@
         <div class="title">
             <strong>
                 <div style="font-size: 16px;">
-                    <asp:Label runat="server" ID="lblConfirmPassword" Text="Confirmation de la création de votre utilisateur"></asp:Label>
+                    <asp:Label runat="server" ID="lblConfirmPasswordTitle" Text="Confirmation de la création de votre utilisateur"></asp:Label>
                 </div>
             </strong>
         </div>
         <asp:Panel runat="server" ID="pnlNotConfirmed">
-            <asp:Button runat="server" ID="btnConfirmCreate" OnClick="ConfirmCreate_click"
-                Text="Je confirme la création de mon compte utilisateur" />
+           
         </asp:Panel>
         <asp:Panel runat="server" ID="pnlConfirmed" Visible="False">
             <asp:Label runat="server" ID="lblCreateConfirmed" Text="Merci d'avoir confirmé votre création."></asp:Label>

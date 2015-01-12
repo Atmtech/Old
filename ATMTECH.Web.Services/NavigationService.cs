@@ -57,8 +57,6 @@ namespace ATMTECH.Web.Services
                             };
                         return countryIp;
                     }
-
-                   
                 }
             }
             catch (System.Exception)

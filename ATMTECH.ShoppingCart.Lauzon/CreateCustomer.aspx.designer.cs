@@ -139,42 +139,6 @@ namespace ATMTECH.ShoppingCart.Lauzon {
         protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
         
         /// <summary>
-        /// Contrôle imgCaptcha.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgCaptcha;
-        
-        /// <summary>
-        /// Contrôle btnReloadCaptcha.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReloadCaptcha;
-        
-        /// <summary>
-        /// Contrôle lblCaptcha.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCaptcha;
-        
-        /// <summary>
-        /// Contrôle txtCaptcha.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCaptcha;
-        
-        /// <summary>
         /// Contrôle btnCreate.
         /// </summary>
         /// <remarks>

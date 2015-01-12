@@ -12,10 +12,11 @@ namespace ATMTECH.ShoppingCart.Views
         {
         }
 
-        public void ConfirmCreate()
+        public override void OnViewInitialized()
         {
+            base.OnViewInitialized();
             View.IsConfirmed = CustomerService.ConfirmCreate(View.IdConfirm);
-
         }
+
     }
 }

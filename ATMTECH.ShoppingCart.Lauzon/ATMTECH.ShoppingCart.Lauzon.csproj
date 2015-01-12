@@ -189,9 +189,6 @@
     <Compile Include="Basket.aspx.designer.cs">
       <DependentUpon>Basket.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Captcha.ashx.cs">
-      <DependentUpon>Captcha.ashx</DependentUpon>
-    </Compile>
     <Compile Include="ConfirmCreate.aspx.cs">
       <DependentUpon>ConfirmCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -278,7 +275,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Captcha.ashx" />
     <Content Include="Default.Master" />
     <Content Include="fonts\iconFont.eot">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

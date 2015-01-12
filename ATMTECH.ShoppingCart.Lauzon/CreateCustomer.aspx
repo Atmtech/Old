@@ -74,24 +74,6 @@
                     </td>
 
                 </tr>
-                <tr>
-                    <td>
-                        <asp:Image ID="imgCaptcha" ImageUrl="Captcha.ashx" runat="server" />
-                    </td>
-                    <td>
-                        <asp:Button runat="server" ID="btnReloadCaptcha" OnClick="ReloadCaptcha_click"
-                            Text="Recharger l'image" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblCaptcha" Text="Saisir les chiffres que vous voyez dans l'image:"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtCaptcha"
-                            ValidationGroup="CreateCustomer" Width="400px"></asp:TextBox>
-                    </td>
-                </tr>
             </table>
             <asp:Button runat="server" ID="btnCreate" OnClick="CreateCustomer_click" Text="Créer"
                 ValidationGroup="CreateCustomer" />

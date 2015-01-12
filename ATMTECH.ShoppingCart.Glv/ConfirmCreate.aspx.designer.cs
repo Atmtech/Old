@@ -13,13 +13,13 @@ namespace ATMTECH.ShoppingCart.Glv {
     public partial class ConfirmCreate {
         
         /// <summary>
-        /// Contrôle lblConfirmPassword.
+        /// Contrôle lblConfirmPasswordTitle.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConfirmPassword;
+        protected global::System.Web.UI.WebControls.Label lblConfirmPasswordTitle;
         
         /// <summary>
         /// Contrôle pnlNotConfirmed.
@@ -29,15 +29,6 @@ namespace ATMTECH.ShoppingCart.Glv {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlNotConfirmed;
-        
-        /// <summary>
-        /// Contrôle btnConfirmCreate.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConfirmCreate;
         
         /// <summary>
         /// Contrôle pnlConfirmed.

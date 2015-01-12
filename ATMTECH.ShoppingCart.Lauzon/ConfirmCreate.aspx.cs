@@ -30,10 +30,5 @@ namespace ATMTECH.ShoppingCart.Lauzon
             }
         }
 
-        protected void ConfirmCreate_click(object sender, EventArgs e)
-        {
-            Presenter.ConfirmCreate();
-            
-        }
     }
 }

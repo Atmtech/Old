@@ -169,9 +169,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Data\" />
-    <Folder Include="Files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Default\Default.css" />
@@ -532,9 +530,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Default\Default.skin" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Administration.pubxml" />
