@@ -66,7 +66,6 @@ namespace ATMTECH.ShoppingCart.Tests.Base
             Message message21 = new Message { InnerId = Web.Services.ErrorCode.ADM_BAD_LOGIN, Language = "fr", Description = "Vos informations d'identification ne sont pas valide." };
             Message message22 = new Message { InnerId = ErrorCode.SC_SHIPPING_PARAMETER_CANNOT_BE_NULL, Language = "fr", Description = "Le parametre de shipping ne peut être null, message destiné aux développeurs" };
             Message message23 = new Message { InnerId = ErrorCode.SC_USER_NOT_EXIST_ON_CONFIRM, Language = "fr", Description = "Vous ne pouvez pas confirmer cet utilisateur" };
-            Message message24 = new Message { InnerId = ErrorCode.SC_CAPTCHA_INVALID, Language = "fr", Description = "Veuillez saisir les chiffres dans l'image." };
             Message message25 = new Message { InnerId = Web.Services.ErrorCode.ADM_UPS_EMPTY_ERROR, Language = "fr", Description = "Aucune donnée envoyé de UPS" };
             Message message26 = new Message { InnerId = Web.Services.ErrorCode.ADM_UPS_ERROR, Language = "fr", Description = "Erreur avec UPS" };
             Message message27 = new Message { InnerId = Web.Services.ErrorCode.ADM_UPS_TIMEOUT_ERROR, Language = "fr", Description = "Erreur de connection avec UPS" };
@@ -96,7 +95,6 @@ namespace ATMTECH.ShoppingCart.Tests.Base
             dao.Save(message21);
             dao.Save(message22);
             dao.Save(message23);
-            dao.Save(message24);
             dao.Save(message25);
             dao.Save(message26);
             dao.Save(message27);

@@ -6,21 +6,7 @@ namespace ATMTECH.ShoppingCart.Glv
 {
     public partial class CreateCustomer : PageBaseShoppingCart<CreateCustomerPresenter, ICreateCustomerPresenter>, ICreateCustomerPresenter
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                SetCaptchaText();
-            }
-        }
-
-        private void SetCaptchaText()
-        {
-            Random oRandom = new Random();
-            int iNumber = oRandom.Next(100000, 999999);
-            Session["Captcha"] = iNumber.ToString();
-        }
-
+     
         public string FirstName
         {
             get { return txtFirstName.Text; }
@@ -74,17 +60,6 @@ namespace ATMTECH.ShoppingCart.Glv
             }
         }
 
-        public string CaptchaTextBox
-        {
-            get { return txtCaptcha.Text; }
-            set { txtCaptcha.Text = value; }
-        }
-
-        public string CaptchaSession
-        {
-            get { return Session["Captcha"].ToString(); }
-        }
-
         protected void CreateCustomer_click(object sender, EventArgs e)
         {
             Presenter.CreateCustomer();
@@ -97,13 +72,7 @@ namespace ATMTECH.ShoppingCart.Glv
             txtFirstName.Text = "";
             txtLogin.Text = "";
             txtPassword.Text = "";
-            txtCaptcha.Text = "";
             txtConfirmPassword.Text = "";
-        }
-
-        protected void ReloadCaptcha_click(object sender, EventArgs e)
-        {
-            SetCaptchaText();
         }
 
     }

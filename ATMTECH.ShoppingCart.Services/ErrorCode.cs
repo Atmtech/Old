@@ -30,7 +30,6 @@ namespace ATMTECH.ShoppingCart.Services
         public const string SC_CUSTOMER_IS_NULL = "SC0020";
         public const string SC_SHIPPING_PARAMETER_CANNOT_BE_NULL = "SC0021";
         public const string SC_USER_NOT_EXIST_ON_CONFIRM = "SC0022";
-        public const string SC_CAPTCHA_INVALID = "SC0023";
         public const string SC_SHIPPING_CODE_DONT_EXIST = "SC0024";
         public const string SC_STOCK_INSUFICIENT = "SC0025";
         public const string SC_WEIGHT_EQUAL_ZERO_CANNOT_EVALUATE_SHIPPING_COST = "SC0026";

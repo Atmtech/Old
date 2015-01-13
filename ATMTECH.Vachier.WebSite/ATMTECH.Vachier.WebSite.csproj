@@ -111,9 +111,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Captcha.ashx.cs">
-      <DependentUpon>Captcha.ashx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -137,7 +134,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Captcha.ashx" />
     <Content Include="App_Themes\Default\Default.skin" />
     <Content Include="Images\Dev\Vachier.psd" />
     <None Include="Properties\PublishProfiles\Vachier.pubxml" />

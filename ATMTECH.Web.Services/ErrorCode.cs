@@ -12,5 +12,6 @@
         public const string ADM_SEND_MAIL_FAILED = "ADM0012";
         public const string ADM_PAYPAL_SEND_FAILED = "ADM0013";
         public const string ADM_PAYPAL_FINISH_FAILED = "ADM0014";
+        public const string ADM_CREATE_USER_MANDATORY = "ADM0015";
     }
 }

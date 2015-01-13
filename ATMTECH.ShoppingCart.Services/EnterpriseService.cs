@@ -43,7 +43,7 @@ namespace ATMTECH.ShoppingCart.Services
                 if (address != null)
                 {
                     address.City = DAOCity.GetCity(address.City.Id);
-                    address.Country = DAOCountry.GetCountry(address.Country.Id);
+                    address.Country = address.Country == null ? null : DAOCountry.GetCountry(address.Country.Id);
                 }
             }
 
