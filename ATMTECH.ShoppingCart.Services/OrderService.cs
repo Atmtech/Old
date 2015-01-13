@@ -138,8 +138,8 @@ namespace ATMTECH.ShoppingCart.Services
 
             foreach (OrderLine orderLine in order.OrderLines.Where(orderLine => !orderLine.Stock.IsWithoutStock))
             {
-                StockService.StockTransaction(orderLine.Stock.Id, orderLine.Quantity, order, Services.StockService.TransactionType.Remove);
                 SendWarningOnLowStock(orderLine.Stock, order);
+                StockService.StockTransaction(orderLine.Stock.Id, orderLine.Quantity, order, Services.StockService.TransactionType.Remove);
             }
 
             ContextSessionManager.Context.Session["CurrentOrder"] = null;
@@ -474,7 +474,7 @@ namespace ATMTECH.ShoppingCart.Services
 
             if (productPriceHistoryReportLines.Count == 0)
             {
-                productPriceHistoryReportLines.Add(new ProductPriceHistoryReportLine() { Product = "Aucun changement de prix pour la période" });
+                productPriceHistoryReportLines.Add(new ProductPriceHistoryReportLine { Product = "Aucun changement de prix pour la période" });
             }
             return productPriceHistoryReportLines;
         }
@@ -668,7 +668,7 @@ namespace ATMTECH.ShoppingCart.Services
         {
             IList<StockTransaction> stockTransactions = StockService.GetStockTransaction();
             IList<Stock> stocks = StockService.GetAllStock();
-            IList<Order> orders = GetAll().Where(x => x.IsActive == true).ToList();
+            IList<Order> orders = GetAll().Where(x => x.IsActive).ToList();
             IList<OrderLine> orderLines = GetAllOrderLine().Where(x => x.IsActive).ToList();
             IList<StockControlReportLine> stockControlReportLines = new List<StockControlReportLine>();
 
