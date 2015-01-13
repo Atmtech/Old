@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
-using ATMTECH.Common;
-using ATMTECH.Common.Utils;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
@@ -94,7 +91,6 @@ namespace ATMTECH.Administration.Views
             EnterpriseService.CreateEnterpriseFromAnother(id, newName, AuthenticationService.AuthenticateUser);
             MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_SAVE_IS_CORRECT);
         }
-
         public string BalanceStock()
         {
             string result = "Résultat des lignes de commande sans transaction d'inventaires<br><br>";
@@ -111,20 +107,22 @@ namespace ATMTECH.Administration.Views
                     if (orderLine.Stock != null && orderLine.Stock.IsWithoutStock) continue;
                     if (stockTransactions.Count(x => x.Stock.Id == orderLine.Stock.Id && x.Order.Id == orderLine.Order.Id) == 0)
                     {
-                        result += "Commande: " + orderLine.Order.Id + " Inventaire: " + orderLine.Stock.Id + " " +
-                                  orderLine.Stock.FeatureFrench + "<br>";
-                        DAOStockTransaction.StockTransaction(orderLine.Stock, orderLine.Quantity * -1, orderLine.Order, (DateTime)orderLine.Order.FinalizedDate);
+                        if (orderLine.Stock != null)
+                        {
+                            result += "Commande: " + orderLine.Order.Id + " Inventaire: " + orderLine.Stock.Id + " " +
+                                      orderLine.Stock.FeatureFrench + "<br>";
+                            if (orderLine.Order.FinalizedDate != null)
+                                DAOStockTransaction.StockTransaction(orderLine.Stock, orderLine.Quantity * -1, orderLine.Order, (DateTime)orderLine.Order.FinalizedDate);
+                        }
                         //StockServices.StockTransaction(orderLine.Stock.Id, orderLine.Quantity, orderLine.Order, StockService.TransactionType.Remove);
                     }
                 }
             }
             return result;
         }
-
         public string BalanceSearch(string objet)
         {
-            string rtn = string.Empty;
-
+          
             switch (objet)
             {
                 case "Address": return Save<Address>();
@@ -155,7 +153,6 @@ namespace ATMTECH.Administration.Views
 
             return "Aucune transaction";
         }
-
         private string Save<TModel>()
         {
 
@@ -206,12 +203,10 @@ namespace ATMTECH.Administration.Views
 
             return typeof(TModel).FullName + " Exécuté !!!<br>";
         }
-
         public string CreateBackup(string path)
         {
             return DatabaseService.CreateMssqlBackup(path, "ShoppingCart.bak", "ShoppingCart");
         }
-
         public string AdjustOrderline(int id, int quantite)
         {
             OrderLine orderLine = OrderService.GetAllOrderLine().Where(x => x.Id == id).ToList()[0];
@@ -230,7 +225,7 @@ namespace ATMTECH.Administration.Views
 
 
             IList<StockTransaction> stockTransactionTrouve = stockTransactions.Where(x => x.Stock.Id == orderLine.Stock.Id).ToList();
-            StockTransaction stockTransaction = stockTransactionTrouve.Count == 0 ? new StockTransaction() { Stock = orderLine.Stock, IsActive = true, Order = order } : stockTransactionTrouve[0];
+            StockTransaction stockTransaction = stockTransactionTrouve.Count == 0 ? new StockTransaction { Stock = orderLine.Stock, IsActive = true, Order = order } : stockTransactionTrouve[0];
 
             if (quantite == 0)
             {
@@ -249,17 +244,14 @@ namespace ATMTECH.Administration.Views
 
             return "Ok";
         }
-
         public string RestoreBackup(string mapPath)
         {
             return DatabaseService.RestoreMssqlBackup(mapPath, "ShoppingCart.bak", "ShoppingCart");
         }
-
         public void CloseApplication()
         {
             ParameterService.SetValue("IsOffline", "1");
         }
-
         public void OpenApplication()
         {
             ParameterService.SetValue("IsOffline", "0");

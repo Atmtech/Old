@@ -156,10 +156,10 @@ namespace ATMTECH.ShoppingCart.Services
                 IList<EnterpriseEmail> enterpriseEmails = DAOEnterpriseEmail.GetEnterpriseEmail(order.Enterprise);
                 foreach (EnterpriseEmail enterpriseEmail in enterpriseEmails)
                 {
-                    
-                   MailService.SendEmail(enterpriseEmail.Email, ParameterService.GetValue(Constant.ADMIN_MAIL),
-                                          string.Format(ParameterService.GetValue(Constant.MAIL_LOW_STOCK_SUBJECT), order.EnterpriseName, order.Id),
-                                          string.Format(ParameterService.GetValue(Constant.MAIL_LOW_STOCK_BODY), "(" + stock.ComboboxDescription + ") l'état initial de l'inventaire était de: " + stock.InitialState.ToString() + " l'état actuel est de: " + stockStatut.ToString() + " et l'alarme mis à: " + stock.MinimumAccept.ToString() ));
+
+                    MailService.SendEmail(enterpriseEmail.Email, ParameterService.GetValue(Constant.ADMIN_MAIL),
+                                           string.Format(ParameterService.GetValue(Constant.MAIL_LOW_STOCK_SUBJECT), order.EnterpriseName, order.Id),
+                                           string.Format(ParameterService.GetValue(Constant.MAIL_LOW_STOCK_BODY), "(" + stock.ComboboxDescription + ") l'état initial de l'inventaire était de: " + stock.InitialState.ToString() + " l'état actuel est de: " + stockStatut.ToString() + " et l'alarme mis à: " + stock.MinimumAccept.ToString()));
                 }
             }
         }
@@ -346,36 +346,30 @@ namespace ATMTECH.ShoppingCart.Services
         }
         public IList<SalesReportLine> GetSalesReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
-            IList<SalesReportLine> salesReportLines = new List<SalesReportLine>();
             IList<Product> products = ProductService.GetProductsWithoutLanguage(enterprise.Id);
             IList<Order> orders = DAOOrder.GetAllFinalized(enterprise, dateStart, dateEnd);
             IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).ToList();
             IList<Stock> stocks = products.SelectMany(product => product.Stocks).ToList();
 
-            foreach (OrderLine orderLine in orderLines)
-            {
-                if (orderLine.Order.FinalizedDate != null)
-                {
-                    SalesReportLine salesReportLine = new SalesReportLine
-                        {
-                            OrderId = orderLine.Order.Id,
-                            Quantity = orderLine.Quantity,
-                            Total = orderLine.SubTotal,
-                            ClientName = HttpUtility.HtmlDecode(orderLine.Order.Customer.User.FirstNameLastName),
-                            Enterprise = enterprise.Name,
-                            ProductId = orderLine.Stock.Product.Id,
-                            Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.NameFrench + " " + orderLine.Stock.FeatureFrench),
-                            StockActualState = StockService.GetCurrentStockStatus(orderLine.Stock, new DateTime(1990, 01, 01), dateEnd),
-                            StockInitialState = orderLine.Stock.InitialState,
-                            UnitPrice = orderLine.Stock.Product.UnitPrice,
-                            UnitPriceOrderLine = orderLine.UnitPrice,
-                            FinalizedDate = (DateTime)orderLine.Order.FinalizedDate,
-                            DateStart = dateStart,
-                            DateEnd = dateEnd
-                        };
-                    salesReportLines.Add(salesReportLine);
-                }
-            }
+            IList<SalesReportLine> salesReportLines = (from orderLine in orderLines
+                                                       where orderLine.Order.FinalizedDate != null
+                                                       select new SalesReportLine
+                                                           {
+                                                               OrderId = orderLine.Order.Id,
+                                                               Quantity = orderLine.Quantity,
+                                                               Total = orderLine.SubTotal,
+                                                               ClientName = HttpUtility.HtmlDecode(orderLine.Order.Customer.User.FirstNameLastName),
+                                                               Enterprise = enterprise.Name,
+                                                               ProductId = orderLine.Stock.Product.Id,
+                                                               Product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.NameFrench + " " + orderLine.Stock.FeatureFrench),
+                                                               StockActualState = StockService.GetCurrentStockStatus(orderLine.Stock, new DateTime(1990, 01, 01), dateEnd),
+                                                               StockInitialState = orderLine.Stock.InitialState,
+                                                               UnitPrice = orderLine.Stock.Product.UnitPrice,
+                                                               UnitPriceOrderLine = orderLine.UnitPrice,
+                                                               FinalizedDate = (DateTime)orderLine.Order.FinalizedDate,
+                                                               DateStart = dateStart,
+                                                               DateEnd = dateEnd
+                                                           }).ToList();
 
             salesReportLines = RemoveLinkedStock(salesReportLines);
 

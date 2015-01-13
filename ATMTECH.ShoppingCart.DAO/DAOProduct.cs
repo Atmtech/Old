@@ -67,13 +67,15 @@ namespace ATMTECH.ShoppingCart.DAO
             OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
+            IList<Stock> stockAll = DAOStock.GetAllStock();
+            
             foreach (Product product in products)
             {
                 product.ProductFiles = DAOProductFile.GetProductFile(product.Id);
-                IList<Stock> stocks = DAOStock.GetProductStock(product.Id);
+                IList<Stock> stocks = stockAll.Where(x => x.Product.Id == product.Id).ToList();// DAOStock.GetProductStock(product.Id);
                 foreach (Stock stock in stocks)
                 {
-                    stock.Product = GetProductSimple(stock.Product.Id);
+                    stock.Product = product; //GetProductSimple(stock.Product.Id);
                 }
                 product.Stocks = stocks;
             }
