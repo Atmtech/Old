@@ -48,25 +48,6 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             IList<Address> addresses = Addresses.Where(x => x.Way == address.Way || x.PostalCode == address.PostalCode || x.Country == address.Country || x.City == address.City).ToList();
             return addresses.Count > 0 ? addresses[0] : null;
-
-
-            //IList<Criteria> criterias = new List<Criteria>();
-            //Criteria criteria1 = new Criteria() { Column = Address.WAY, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = address.Way };
-            //Criteria criteria2 = new Criteria() { Column = Address.POSTAL_CODE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = address.PostalCode };
-            //Criteria criteria3 = new Criteria() { Column = Address.COUNTRY, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = address.Country.Id.ToString() };
-            //Criteria criteria4 = new Criteria() { Column = Address.CITY, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = address.City.Id.ToString() };
-            //criterias.Add(criteria1);
-            //criterias.Add(criteria2);
-            //criterias.Add(criteria3);
-            //criterias.Add(criteria4);
-            //criterias.Add(IsActive());
-
-            //IList<Address> addresses = GetByCriteria(criterias);
-            //if (addresses.Count > 0)
-            //{
-            //    return addresses[0];
-            //}
-            //return null;
         }
     }
 }

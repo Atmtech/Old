@@ -28,6 +28,9 @@ namespace ATMTECH.ShoppingCart.PubJL
         {
             set
             {
+
+                
+
                 foreach (Product product in value)
                 {
                     string header = "<a href='AddProductToBasket.aspx?" + PagesId.PRODUCT_ID + "=" + product.Id + "'><div class='tile image outline-color-white'>";

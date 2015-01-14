@@ -35,7 +35,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services
 
 
         [TestMethod]
-        public void GetOrderInformationDoitRetournerUneListeAvecUnBlancEnPremier()
+        public void GetOrderInformation_DoitRetournerUneListeAvecUnBlancEnPremier()
         {
             IList<EnumOrderInformation> enumOrderInformations = new List<EnumOrderInformation>();
             enumOrderInformations.Add(new EnumOrderInformation { Code = "A" });

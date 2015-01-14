@@ -352,7 +352,9 @@ namespace ATMTECH.ShoppingCart.Services
             IList<Stock> stocks = products.SelectMany(product => product.Stocks).ToList();
 
             IList<SalesReportLine> salesReportLines = (from orderLine in orderLines
-                                                       where orderLine.Order.FinalizedDate != null
+                                                       let finalizedDate = orderLine.Order.FinalizedDate
+                                                       where finalizedDate != null
+                                                       where finalizedDate != null
                                                        select new SalesReportLine
                                                            {
                                                                OrderId = orderLine.Order.Id,
@@ -366,7 +368,7 @@ namespace ATMTECH.ShoppingCart.Services
                                                                StockInitialState = orderLine.Stock.InitialState,
                                                                UnitPrice = orderLine.Stock.Product.UnitPrice,
                                                                UnitPriceOrderLine = orderLine.UnitPrice,
-                                                               FinalizedDate = (DateTime)orderLine.Order.FinalizedDate,
+                                                               FinalizedDate = (DateTime)finalizedDate,
                                                                DateStart = dateStart,
                                                                DateEnd = dateEnd
                                                            }).ToList();
