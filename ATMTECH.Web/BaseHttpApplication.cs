@@ -5,6 +5,7 @@ using System.Web;
 using ATMTECH.Common;
 using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO;
+using ATMTECH.DAO.SessionManager;
 using ATMTECH.Entities;
 using Autofac;
 using Autofac.Configuration;
@@ -115,24 +116,25 @@ namespace ATMTECH.Web
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            //StartDate = DateTime.Now;
-            //Start = DateTime.Now + " " + DateTime.Now.Millisecond;
-            //DatabaseSessionManager.DatabaseTransactionCount = 0;
+            StartDate = DateTime.Now;
+            Start = DateTime.Now + " " + DateTime.Now.Millisecond;
+            DatabaseSessionManager.DatabaseTransactionCount = 0;
         }
 
         protected void Application_EndRequest(object sender, EventArgs e)
         {
-            //DateTime endDate = DateTime.Now;
-            //string end = DateTime.Now + " " + DateTime.Now.Millisecond;
-            //TimeSpan diffResult = endDate - Convert.ToDateTime(StartDate);
+            DateTime endDate = DateTime.Now;
+            string end = DateTime.Now + " " + DateTime.Now.Millisecond;
+            TimeSpan diffResult = endDate - Convert.ToDateTime(StartDate);
 
-            //Utils.Debug.WriteDebug("********************************************************************************************************");
-            //Utils.Debug.WriteDebug("Session-Start: " + Start);
-            //Utils.Debug.WriteDebug("Session-End: " + end);
-            //Utils.Debug.WriteDebug("Difference: " + diffResult.Milliseconds.ToString() + "ms");
-            //Utils.Debug.WriteDebug("DatabaseTransactionCount: " + DatabaseSessionManager.DatabaseTransactionCount);
-            //Utils.Debug.WriteDebug("ConnectionString: " + DatabaseSessionManager.ConnectionString);
-            //Utils.Debug.WriteDebug("********************************************************************************************************");
+            
+            Common.Utils.Debug.WriteDebug("********************************************************************************************************");
+            Common.Utils.Debug.WriteDebug("Session-Start: " + Start);
+            Common.Utils.Debug.WriteDebug("Session-End: " + end);
+            Common.Utils.Debug.WriteDebug("Difference: " + diffResult.Milliseconds.ToString() + "ms");
+            Common.Utils.Debug.WriteDebug("DatabaseTransactionCount: " + DatabaseSessionManager.DatabaseTransactionCount);
+            Common.Utils.Debug.WriteDebug("ConnectionString: " + DatabaseSessionManager.ConnectionString);
+            Common.Utils.Debug.WriteDebug("********************************************************************************************************");
 
             //if (DatabaseSessionManager.Session.State == System.Data.ConnectionState.Open)
             //    DatabaseSessionManager.Session.Close();

@@ -1,4 +1,5 @@
-﻿using ATMTECH.ShoppingCart.Entities;
+﻿using System.Collections.Generic;
+using ATMTECH.ShoppingCart.Entities;
 
 namespace ATMTECH.ShoppingCart.DAO.Interface
 {
@@ -7,5 +8,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
         City GetCity(int id);
         City FindCity(string city);
         int CreateCity(City city);
+        IList<City> GetAll();
     }
 }

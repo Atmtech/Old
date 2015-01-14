@@ -3,6 +3,7 @@ using System.Linq;
 using ATMTECH.Common.Context;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
+using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
@@ -17,6 +18,7 @@ namespace ATMTECH.ShoppingCart.DAO
         public IDAOProductFile DAOProductFile { get; set; }
         public IDAOStock DAOStock { get; set; }
         public IDAOGroupProduct DAOGroupProduct { get; set; }
+        public IDAOFile DAOFile { get; set; }
 
         public string CurrentLanguage
         {
@@ -68,10 +70,16 @@ namespace ATMTECH.ShoppingCart.DAO
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
             IList<Stock> stockAll = DAOStock.GetAllStock();
-            
+            IList<ProductFile> productFiles = DAOProductFile.GetAll();
+            IList<File> files = DAOFile.GetAllFile();
+            foreach (ProductFile productFile in productFiles)
+            {
+                productFile.File = files.FirstOrDefault(x => x.Id == productFile.File.Id);
+            }
+
             foreach (Product product in products)
             {
-                product.ProductFiles = DAOProductFile.GetProductFile(product.Id);
+                product.ProductFiles = productFiles.Where(x => x.Product.Id == product.Id).ToList();
                 IList<Stock> stocks = stockAll.Where(x => x.Product.Id == product.Id).ToList();// DAOStock.GetProductStock(product.Id);
                 foreach (Stock stock in stocks)
                 {

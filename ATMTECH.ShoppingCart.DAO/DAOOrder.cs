@@ -167,17 +167,20 @@ namespace ATMTECH.ShoppingCart.DAO
             criterias.Add(criteriaEnterprise);
             criterias.Add(IsActive());
             IList<Order> orders = GetByCriteria(criterias);
-
             orders = orders.Where(x => x.FinalizedDate >= dateStart && x.FinalizedDate <= dateEnd).ToList();
+            IList<OrderLine> orderLinesAll = DAOOrderLine.GetAll();
+            IList<Stock> stocks = DAOStock.GetAllStock();
+
             foreach (Order order in orders)
             {
                 order.Customer = DAOCustomer.GetCustomer(order.Customer.Id);
-                IList<OrderLine> orderLines = DAOOrderLine.GetOrderLine(order.Id);
+                IList<OrderLine> orderLines = orderLinesAll.Where(x => x.Order.Id == order.Id).ToList();
                 foreach (OrderLine orderLine in orderLines)
                 {
                     orderLine.Order = order;
-                    orderLine.Stock = DAOStock.GetStock(orderLine.Stock.Id);
-                    orderLine.Stock.Product = DAOProduct.GetProduct(orderLine.Stock.Product.Id);
+                    orderLine.Stock = stocks.FirstOrDefault(x => x.Id == orderLine.Stock.Id);
+                    if (orderLine.Stock != null)
+                        orderLine.Stock.Product = DAOProduct.GetProduct(orderLine.Stock.Product.Id);
                 }
                 order.OrderLines = orderLines;
 

@@ -27,9 +27,7 @@ namespace ATMTECH.ShoppingCart.DAO
 
         public Stock GetStock(int idStock)
         {
-            Stock stock = GetById(idStock);
-            
-            return stock;
+            return GetById(idStock);
         }
 
         public void UpdateStock(Stock stock)
