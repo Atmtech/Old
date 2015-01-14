@@ -8,6 +8,7 @@ using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.Web;
+using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.ShoppingCart.Views
 {
@@ -16,6 +17,7 @@ namespace ATMTECH.ShoppingCart.Views
 
         public ICustomerService CustomerService { get; set; }
         public IProductService ProductService { get; set; }
+        
 
         public ProductCatalogPresenter(IProductCatalogPresenter view)
             : base(view)
@@ -27,6 +29,8 @@ namespace ATMTECH.ShoppingCart.Views
             IList<ProductCategory> productCategories = CustomerService.AuthenticateCustomer != null ? 
                 ProductService.GetProductCategory(CustomerService.AuthenticateCustomer.Enterprise.Id).OrderBy(x => x.OrderId).ToList() : 
                 ProductService.GetProductCategory(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED))).OrderBy(x => x.OrderId).ToList();
+
+            productCategories = productCategories.Where(x => x.Language == LocalizationService.CurrentLanguage).ToList();
 
             string idProductCategory = NavigationService.GetQueryStringValue(Pages.PagesId.PRODUCT_CATEGORY);
 

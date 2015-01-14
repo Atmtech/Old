@@ -34,18 +34,20 @@
             this.site = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.repertoireFtp = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.repertoireLocal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFtpServeur = new System.Windows.Forms.TextBox();
-            this.txtFtpUtilisateur = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFtpMotPasse = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Resultat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lsvResultat = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Utilisateur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MotDePasse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ftp = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lstResultatVisible = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // btnPublier
@@ -66,14 +68,17 @@
             this.lsvFtp.CheckBoxes = true;
             this.lsvFtp.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.checkbox,
+            this.ftp,
             this.site,
             this.repertoireFtp,
             this.repertoireLocal,
-            this.columnHeader1});
+            this.Utilisateur,
+            this.MotDePasse,
+            this.Resultat});
             this.lsvFtp.ForeColor = System.Drawing.Color.White;
-            this.lsvFtp.Location = new System.Drawing.Point(12, 45);
+            this.lsvFtp.Location = new System.Drawing.Point(12, 12);
             this.lsvFtp.Name = "lsvFtp";
-            this.lsvFtp.Size = new System.Drawing.Size(1059, 195);
+            this.lsvFtp.Size = new System.Drawing.Size(1145, 228);
             this.lsvFtp.TabIndex = 1;
             this.lsvFtp.UseCompatibleStateImageBehavior = false;
             this.lsvFtp.View = System.Windows.Forms.View.Details;
@@ -86,7 +91,7 @@
             // site
             // 
             this.site.Text = "Site";
-            this.site.Width = 400;
+            this.site.Width = 300;
             // 
             // repertoireFtp
             // 
@@ -98,59 +103,10 @@
             this.repertoireLocal.Text = "Répertoire local";
             this.repertoireLocal.Width = 200;
             // 
-            // label1
+            // Resultat
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(14, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "FTP:";
-            // 
-            // txtFtpServeur
-            // 
-            this.txtFtpServeur.Location = new System.Drawing.Point(50, 13);
-            this.txtFtpServeur.Name = "txtFtpServeur";
-            this.txtFtpServeur.Size = new System.Drawing.Size(220, 20);
-            this.txtFtpServeur.TabIndex = 4;
-            this.txtFtpServeur.Text = "108.60.212.40";
-            // 
-            // txtFtpUtilisateur
-            // 
-            this.txtFtpUtilisateur.Location = new System.Drawing.Point(341, 12);
-            this.txtFtpUtilisateur.Name = "txtFtpUtilisateur";
-            this.txtFtpUtilisateur.Size = new System.Drawing.Size(220, 20);
-            this.txtFtpUtilisateur.TabIndex = 6;
-            this.txtFtpUtilisateur.Text = "Administrator";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(279, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Utilisateur:";
-            // 
-            // txtFtpMotPasse
-            // 
-            this.txtFtpMotPasse.Location = new System.Drawing.Point(649, 12);
-            this.txtFtpMotPasse.Name = "txtFtpMotPasse";
-            this.txtFtpMotPasse.Size = new System.Drawing.Size(220, 20);
-            this.txtFtpMotPasse.TabIndex = 8;
-            this.txtFtpMotPasse.Text = "Crevette01@";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(569, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Mot de passe:";
+            this.Resultat.Text = "Résultat";
+            this.Resultat.Width = 200;
             // 
             // lsvResultat
             // 
@@ -166,7 +122,7 @@
             this.lsvResultat.ForeColor = System.Drawing.Color.White;
             this.lsvResultat.Location = new System.Drawing.Point(12, 275);
             this.lsvResultat.Name = "lsvResultat";
-            this.lsvResultat.Size = new System.Drawing.Size(1059, 242);
+            this.lsvResultat.Size = new System.Drawing.Size(1145, 280);
             this.lsvResultat.TabIndex = 9;
             this.lsvResultat.UseCompatibleStateImageBehavior = false;
             this.lsvResultat.View = System.Windows.Forms.View.Details;
@@ -181,34 +137,76 @@
             this.columnHeader6.Text = "Fichier local";
             this.columnHeader6.Width = 400;
             // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Résultat";
-            this.columnHeader7.Width = 200;
-            // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Repertoire ftp";
             this.columnHeader8.Width = 400;
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Résultat";
+            this.columnHeader7.Width = 200;
+            // 
+            // Utilisateur
+            // 
+            this.Utilisateur.Text = "Utilisateur";
+            // 
+            // MotDePasse
+            // 
+            this.MotDePasse.Text = "Mot de passe";
+            // 
+            // ftp
+            // 
+            this.ftp.Text = "FTP / IP";
+            this.ftp.Width = 100;
+            // 
+            // lstResultatVisible
+            // 
+            this.lstResultatVisible.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstResultatVisible.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lstResultatVisible.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.lstResultatVisible.ForeColor = System.Drawing.Color.White;
+            this.lstResultatVisible.Location = new System.Drawing.Point(12, 275);
+            this.lstResultatVisible.Name = "lstResultatVisible";
+            this.lstResultatVisible.Size = new System.Drawing.Size(1145, 280);
+            this.lstResultatVisible.TabIndex = 10;
+            this.lstResultatVisible.UseCompatibleStateImageBehavior = false;
+            this.lstResultatVisible.View = System.Windows.Forms.View.Details;
+            // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Résultat";
-            this.columnHeader1.Width = 200;
+            this.columnHeader1.Text = "";
+            this.columnHeader1.Width = 10;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Fichier local";
+            this.columnHeader2.Width = 400;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Repertoire ftp";
+            this.columnHeader3.Width = 400;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Résultat";
+            this.columnHeader4.Width = 200;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1083, 529);
+            this.ClientSize = new System.Drawing.Size(1169, 567);
+            this.Controls.Add(this.lstResultatVisible);
             this.Controls.Add(this.lsvResultat);
-            this.Controls.Add(this.txtFtpMotPasse);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtFtpUtilisateur);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtFtpServeur);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lsvFtp);
             this.Controls.Add(this.btnPublier);
             this.Name = "FormMain";
@@ -216,7 +214,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -228,18 +225,20 @@
         private System.Windows.Forms.ColumnHeader site;
         private System.Windows.Forms.ColumnHeader repertoireFtp;
         private System.Windows.Forms.ColumnHeader repertoireLocal;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFtpServeur;
-        private System.Windows.Forms.TextBox txtFtpUtilisateur;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtFtpMotPasse;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView lsvResultat;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader Resultat;
+        private System.Windows.Forms.ColumnHeader Utilisateur;
+        private System.Windows.Forms.ColumnHeader MotDePasse;
+        private System.Windows.Forms.ColumnHeader ftp;
+        private System.Windows.Forms.ListView lstResultatVisible;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
 

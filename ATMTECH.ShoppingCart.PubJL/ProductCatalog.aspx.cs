@@ -25,6 +25,8 @@ namespace ATMTECH.ShoppingCart.PubJL
                 foreach (ProductCategory productCategory in value)
                 {
 
+
+
                     Literal htmlCategoryName = new Literal();
                     htmlCategoryName.Text = "<div class='titleProduct'><strong>" + productCategory.Description + "</strong></div>";
                     placeHolderProduct.Controls.Add(htmlCategoryName);
