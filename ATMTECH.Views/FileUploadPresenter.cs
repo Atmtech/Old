@@ -12,7 +12,7 @@ namespace ATMTECH.Views
     {
         public IAuthenticationService AuthenticationService { get; set; }
         public IFileService FileService { get; set; }
-
+        
         public FileUploadPresenter(IFileUploadPresenter view)
             : base(view)
         {

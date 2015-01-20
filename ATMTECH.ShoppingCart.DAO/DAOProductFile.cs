@@ -37,5 +37,12 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             return Save(productFile);
         }
+
+        public void DeleteProductFile(ProductFile productFile)
+        {
+            productFile.IsActive = false;
+            Save(productFile);
+
+        }
     }
 }

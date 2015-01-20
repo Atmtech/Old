@@ -320,6 +320,11 @@ namespace ATMTECH.Administration.Services
                 isEnabled = false;
             }
 
+            if (propertyInfo.Name == "InitialState" && isInserting == false)
+            {
+                isEnabled = false;
+            }
+
             if (propertyInfo.Name == "AddressType")
             {
                 ListItem listItem1 = new ListItem("Facturation", EnterpriseAddress.CODE_ADRESS_TYPE_BILLING);

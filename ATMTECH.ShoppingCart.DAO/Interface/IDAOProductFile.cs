@@ -9,5 +9,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
         IList<ProductFile> GetProductFile();
         int SaveProductFile(ProductFile productFile);
         IList<ProductFile> GetAll();
+        void DeleteProductFile(ProductFile productFile);
     }
 }

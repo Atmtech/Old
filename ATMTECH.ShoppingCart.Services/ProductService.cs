@@ -107,5 +107,10 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return DAOProduct.SaveProduct(product);
         }
+
+        public void DeleteProductFile(ProductFile productFile)
+        {
+            DAOProductFile.DeleteProductFile(productFile);
+        }
     }
 }

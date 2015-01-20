@@ -26,6 +26,8 @@ namespace ATMTECH.Services
         {
             return DAOFile.GetFile(file);
         }
+        
+
         public IList<File> GetAllFile(string rootImagePath)
         {
             return DAOFile.GetAllFile().Where(x => x.RootImagePath == rootImagePath).ToList();

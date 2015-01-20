@@ -18,7 +18,7 @@
         }
     </style>
     <div class="title">
-        Les images
+        Gestion des fichiers
     </div>
 
     Sélectionner un emplacement à visualiser: 

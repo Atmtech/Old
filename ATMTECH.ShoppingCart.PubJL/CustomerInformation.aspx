@@ -9,11 +9,10 @@
             <strong>
                 <asp:Label runat="server" ID="lblCustomerInformation" Text="Information du client"></asp:Label></strong>
         </div>
-
         <table width="100%">
             <tr>
                 <td>
-                    <asp:Label runat="server" ID="lblName"></asp:Label>
+                    <asp:Label runat="server" ID="lblName" Text="Nom complet:"></asp:Label>
                 </td>
                 <td>
                     <asp:TextBox runat="server" ID="txtName" Enabled="False" Width="400px"></asp:TextBox>
@@ -63,6 +62,36 @@
             <asp:Button runat="server" ID="btnChangePassword" OnClick="ChangePassword_click"
                 Text="Changer mon mot de passe" />
         </div>
+
+        <asp:Panel runat="server" ID="pnlChangePassword" Visible="False">
+            <div class="title">
+                <strong>
+                    <asp:Label runat="server" ID="lblChangementDeMotDePasse" Text="Changement de mot de passe"></asp:Label></strong>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <asp:Label runat="server" ID="lblPassword" Text="Mot de passe:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox runat="server" ID="txtPassword" ValidationGroup="CreateCustomer"
+                            Width="400px" TextMode="Password"></asp:TextBox>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server" ID="lblConfirmPassword" Text="Confirmation:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox runat="server" ID="txtConfirmPassword"
+                            Width="400px" ValidationGroup="CreateCustomer" TextMode="Password"></asp:TextBox>
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
+
+
 
         <asp:Panel runat="server" ID="pnlSuperUser" Visible="False">
             <div class="title">
@@ -126,34 +155,6 @@
                         CausesValidation="True" CssClass="button" />
                 </div>
             </asp:Panel>
-        </asp:Panel>
-
-        <asp:Panel runat="server" ID="pnlChangePassword" Visible="False">
-            <div class="title">
-                <strong>
-                    <asp:Label runat="server" ID="lblChangementDeMotDePasse" Text="Changement de mot de passe"></asp:Label></strong>
-            </div>
-            <table>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblPassword" Text="Mot de passe:"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtPassword" ValidationGroup="CreateCustomer"
-                            Width="400px" TextMode="Password"></asp:TextBox>
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblConfirmPassword" Text="Confirmation:"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtConfirmPassword"
-                            Width="400px" ValidationGroup="CreateCustomer" TextMode="Password"></asp:TextBox>
-                    </td>
-                </tr>
-            </table>
         </asp:Panel>
 
 
