@@ -157,6 +157,13 @@
     <Compile Include="StockReport.aspx.designer.cs">
       <DependentUpon>StockReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StockTransaction.aspx.cs">
+      <DependentUpon>StockTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StockTransaction.aspx.designer.cs">
+      <DependentUpon>StockTransaction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tools.aspx.cs">
       <DependentUpon>Tools.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,6 +468,7 @@
     <Content Include="Javascript\supprimer.gif" />
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="Site.css" />
+    <Content Include="StockTransaction.aspx" />
     <Content Include="Tools.aspx" />
     <Content Include="Videos\AjouterImageProduit.mp4" />
   </ItemGroup>

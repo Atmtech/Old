@@ -25,5 +25,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         IList<Product> GetProductsSimple(int idEnterprise);
         void DeleteProductFile(ProductFile productFile);
         IList<ProductFile> GetProductFile(File file);
+        IList<Product> GetAllActive();
     }
 }

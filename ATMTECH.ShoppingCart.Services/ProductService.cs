@@ -118,5 +118,9 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return DAOProductFile.GetProductFile(file);
         }
+        public IList<Product> GetAllActive()
+        {
+            return DAOProduct.GetAllActive();
+        }
     }
 }

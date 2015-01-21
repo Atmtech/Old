@@ -18,7 +18,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    <a href="Images/Product/Charte.jpg" data-lightbox="Charte" data-title="My caption">Image #1</a>
+    <a href="Images/Product/Charte.jpg" data-lightbox="Chartex" data-title="My caption">Image #1</a>
     </div>
     </form>
 </body>

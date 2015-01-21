@@ -109,6 +109,8 @@
                                     <ul>
                                         <li><a href="DataEditor.aspx?Entity=Stock">Les inventaires</a> </li>
                                         <li><a href="DataEditor.aspx?Entity=StockTransaction">Les transactions inventaires</a></li>
+                                        <li><a href="StockTransaction.aspx">Consulter un inventaire avec ses transactions</a></li>
+
                                     </ul>
 
                                     <div style="text-transform: uppercase; color: white; font-size: 16px; padding-left: 4px; background-color: goldenrod">

@@ -211,6 +211,24 @@ namespace ATMTECH.Administration {
         protected global::System.Web.UI.WebControls.Label lblResultBalance;
         
         /// <summary>
+        /// Contrôle btnBalanceOrder.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBalanceOrder;
+        
+        /// <summary>
+        /// Contrôle lblResultBalanceOrder.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultBalanceOrder;
+        
+        /// <summary>
         /// Contrôle ddlBalanceSearch.
         /// </summary>
         /// <remarks>

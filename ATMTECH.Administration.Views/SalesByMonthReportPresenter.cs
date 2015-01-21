@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
 using ATMTECH.Entities;

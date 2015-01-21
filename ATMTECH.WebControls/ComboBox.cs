@@ -20,6 +20,7 @@ namespace ATMTECH.WebControls
         public string DataTextField { get { return _dropDownList.DataTextField; } set { _dropDownList.DataTextField = value; } }
         public string DataValueField { get { return _dropDownList.DataValueField; } set { _dropDownList.DataValueField = value; } }
         public ListItemCollection Items { get { return _dropDownList.Items; } }
+        public bool AutoPostBack { get { return _dropDownList.AutoPostBack; } set { _dropDownList.AutoPostBack = value; } }
 
         protected readonly DropDownList _dropDownList;
 

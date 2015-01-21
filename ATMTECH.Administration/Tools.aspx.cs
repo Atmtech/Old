@@ -155,5 +155,10 @@ namespace ATMTECH.Administration
         {
             Presenter.OpenApplication();
         }
+
+        protected void btnBalanceOrderClick(object sender, EventArgs e)
+        {
+            lblResultBalanceOrder.Text = Presenter.BalanceOrder();
+        }
     }
 }

@@ -51,7 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseAdministrationPresenter.cs" />
+    <Compile Include="StockTransactionPresenter.cs" />
     <Compile Include="FileUploadAdminPresenter.cs" />
+    <Compile Include="Interface\IStockTransactionPresenter.cs" />
     <Compile Include="ToolsPresenter.cs" />
     <Compile Include="ImportExcelPresenter.cs" />
     <Compile Include="Interface\IToolsPresenter.cs" />

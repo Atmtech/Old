@@ -12,7 +12,7 @@ namespace ATMTECH.DAO
     public class BaseDao<TModel, TId>
     {
         public DatabaseOperation<TModel, TId> DatabaseOperation { get { return new DatabaseOperation<TModel, TId>(); } }
-          public Model<TModel, TId> Model { get { return new Model<TModel, TId>(); } }
+        public Model<TModel, TId> Model { get { return new Model<TModel, TId>(); } }
 
         public Criteria IsActive()
         {
@@ -119,11 +119,11 @@ namespace ATMTECH.DAO
                 {
                     if (criteria.Operator != DatabaseOperator.OPERATOR_IS_NOT_NULL)
                     {
-                        where += "[" + criteria.Column + "]" + criteria.Operator + "@" + criteria.Column + " and ";    
+                        where += "[" + criteria.Column + "]" + criteria.Operator + "@" + criteria.Column + " and ";
                     }
                     else
                     {
-                         where += " " + criteria.Column + " " + DatabaseOperator.OPERATOR_IS_NOT_NULL + " and ";
+                        where += " " + criteria.Column + " " + DatabaseOperator.OPERATOR_IS_NOT_NULL + " and ";
                     }
                 }
             }
@@ -151,6 +151,8 @@ namespace ATMTECH.DAO
         {
             SetSearchValue(model);
             SetComboboxValue(model);
+            SetLogin(model);
+
             int rtn;
             if (Convert.ToInt64(Model.GetValueProperty(Model.GetIdKeyColumnFromModel(), model)) != 0)
             {
@@ -182,11 +184,11 @@ namespace ATMTECH.DAO
         }
         public void BackupToXml(string zipFile, bool allTableFromDatabase)
         {
-           
+
         }
         public void RestoreFromXml(string zipFile)
         {
-           
+
         }
 
         public Object GetValueProperty(string property, TModel model)
@@ -208,6 +210,15 @@ namespace ATMTECH.DAO
             Model.SetValueProperty("DateModified", DateTime.Now.ToString(), model);
         }
 
+        private void SetLogin(TModel model)
+        {
+            string login = "Inconnu";
+            if (HttpContext.Current.Session["Internal_LoggedUser"] != null)
+            {
+                login = ((User)HttpContext.Current.Session["Internal_LoggedUser"]).Login;
+            }
+            Model.SetValueProperty("UserLoginModified", login, model);
+        }
         private bool ExclusionSearch(PropertyInfo propertyInfo)
         {
             if (propertyInfo.PropertyType.FullName == "ATMTECH.ShoppingCart.Entities.Enterprise" && typeof(TModel).FullName == "ATMTECH.ShoppingCart.Entities.Order")

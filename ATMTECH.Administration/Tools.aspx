@@ -125,6 +125,11 @@
         <asp:Button runat="server" ID="btnBalanceStock" OnClick="btnBalanceStockClick" CausesValidation="False" CssClass="button" Text="Balancer" />
         <asp:Label runat="server" ID="lblResultBalance"></asp:Label>
 
+        <div class="EnteteOutils">
+            Rebalancer les totaux des commandes
+        </div>
+        <asp:Button runat="server" ID="btnBalanceOrder" OnClick="btnBalanceOrderClick" CausesValidation="False" CssClass="button" Text="Balancer" />
+        <asp:Label runat="server" ID="lblResultBalanceOrder"></asp:Label>
 
         <div class="EnteteOutils">
             Rebalancer les colonnes de recherches

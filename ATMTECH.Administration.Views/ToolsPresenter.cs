@@ -122,7 +122,7 @@ namespace ATMTECH.Administration.Views
         }
         public string BalanceSearch(string objet)
         {
-          
+
             switch (objet)
             {
                 case "Address": return Save<Address>();
@@ -172,11 +172,15 @@ namespace ATMTECH.Administration.Views
                     }
                     break;
                 case "ATMTECH.ShoppingCart.Entities.Stock":
+
+                    IList<Product> allActive = ProductService.GetAllActive();
                     foreach (Stock stock in StockService.GetAllStock())
                     {
-                        if (ProductService.GetProductSimple(stock.Product.Id) != null)
+                        Product product = allActive.FirstOrDefault(x => x.Id == stock.Product.Id);
+                        if (product != null)
                         {
-                            StockService.Save(StockService.GetStock(stock.Id));
+                            stock.Product = product;
+                            StockService.Save(stock);
                         }
                     }
                     break;
@@ -256,6 +260,23 @@ namespace ATMTECH.Administration.Views
         public void OpenApplication()
         {
             ParameterService.SetValue("IsOffline", "0");
+        }
+
+        public string BalanceOrder()
+        {
+            IList<Order> orders = OrderService.GetAllWithCustomer().Where(x => x.IsActive == true && x.FinalizedDate != null).ToList();
+            IList<OrderLine> orderLines = OrderService.GetAllOrderLine();
+            IList<Stock> stocks = StockService.GetAllStock();
+            foreach (OrderLine orderLine in orderLines)
+            {
+                orderLine.Stock = stocks.FirstOrDefault(x => x.Id == orderLine.Stock.Id);
+            }
+            foreach (Order order in orders)
+            {
+                order.OrderLines = orderLines.Where(x => x.Order.Id == order.Id).ToList();
+                OrderService.UpdateOrder(order, null);
+            }
+            return "ok";
         }
     }
 }

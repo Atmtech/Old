@@ -25,6 +25,7 @@ namespace ATMTECH.Entities
         public const string COMBOBOX_DESCRIPTION = "ComboboxDescription";
         public const string DATE_CREATED = "DateCreated";
         public const string DATE_MODIFIED = "DateModified";
+        public const string LOGIN = "UserLoginModified";
 
         private DateTime? _dateCreated = null;
         private DateTime? _dateModified = null;
@@ -62,6 +63,7 @@ namespace ATMTECH.Entities
         public int OrderId { get; set; }
         public string Search { get; set; }
         public string ComboboxDescription { get; set; }
+        public string UserLoginModified { get; set; }
 
         public object Clone()
         {

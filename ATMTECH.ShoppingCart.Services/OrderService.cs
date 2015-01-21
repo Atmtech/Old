@@ -696,6 +696,18 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return DAOOrderLine.GetOrderLine(idOrder);
         }
+
+        public IList<Order> GetAllWithCustomer()
+        {
+            IList<Order> orders = DAOOrder.GetAll();
+            IList<Customer> customers = CustomerService.GetAll();
+            foreach (Order order in orders)
+            {
+                order.Customer = customers.FirstOrDefault(x => x.Id == order.Customer.Id);
+            }
+            return orders;
+        }
+
         private StockControlReportLine AddStockControlReportLine(IList<Stock> stocks, IList<Order> orders, OrderLine orderLine, string stockTransactionQuantity, string message)
         {
 
@@ -859,6 +871,7 @@ namespace ATMTECH.ShoppingCart.Services
             }
             return orders;
         }
+
 
 
     }

@@ -98,6 +98,12 @@ namespace ATMTECH.ShoppingCart.PubJL
                 {
                     lblStockNotPresent.Visible = true;
                 }
+
+                lnkDisplay.NavigateUrl = imgProductPrincipal.ImageUrl;
+                lnkDisplay.Attributes.Clear();
+                lnkDisplay.Attributes.Add("data-lightbox", imgProductPrincipal.ImageUrl);
+                lnkDisplay.Attributes.Add("data-title", name);
+
             }
         }
         public bool IsOrderable
@@ -249,7 +255,9 @@ namespace ATMTECH.ShoppingCart.PubJL
                             imgProductPrincipal.ImageUrl = "../images/product/" + productFile.File.FileName;
                         }
 
-                        lnkDisplay.ImageUrl = imgProductPrincipal.ImageUrl;
+                        lnkDisplay.NavigateUrl = imgProductPrincipal.ImageUrl;
+                        lnkDisplay.Attributes.Clear();
+                        lnkDisplay.Attributes.Add("data-lightbox", imgProductPrincipal.ImageUrl);
                     }
                     break;
             }
@@ -287,6 +295,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                 Presenter.GetLinkedProduct(productFile.ProductLinked);
             }
         }
-      
+
     }
 }
