@@ -24,9 +24,26 @@ namespace ATMTECH.WebControls
 
         protected override void CreateChildControls()
         {
+
             _textBox.ID = ID;
             _textBox.Visible = true;
             _textBox.ViewStateMode = ViewStateMode.Enabled;
+            if (NoDecimal)
+            {
+                _textBox.Attributes.Add("data-v-min", "-99999999999");
+                _textBox.Attributes.Add("data-v-max", "99999999999");
+                _textBox.Attributes.Add("data-m-dec", "0");
+            }
+            else
+            {
+                _textBox.Attributes.Add("data-v-min", "-99999999999");
+                _textBox.Attributes.Add("data-v-max", "99999999999");
+                _textBox.Attributes.Add("data-m-dec", "4");
+            }
+            
+            _textBox.Attributes.Add("data-a-sep"," ");
+            _textBox.Attributes.Add("data-w-empty","zero");
+
             Controls.Add(_textBox);
             base.CreateChildControls();
         }
@@ -42,16 +59,20 @@ namespace ATMTECH.WebControls
         {
             string js = string.Empty;
 
-            js = NoDecimal
-                     ? "$(function () {  " +
-                       "$(\"input[name*='$" + _textBox.ID +
-                       "']\").priceFormat({prefix: '',thousandsSeparator: '',allowNegative: true, centsLimit:0})" +
-                       "});"
-                     : "$(function () {  " +
-                       "$(\"input[name*='$" + _textBox.ID +
-                       "']\").priceFormat({prefix: '',thousandsSeparator: '',allowNegative: true})" +
-                       "});";
+            //js = NoDecimal
+            //         ? "$(function () {  " +
+            //           "$(\"input[name*='$" + _textBox.ID +
+            //           "']\").priceFormat({prefix: '',thousandsSeparator: '',allowNegative: true, centsLimit:0})" +
+            //           "});"
+            //         : "$(function () {  " +
+            //           "$(\"input[name*='$" + _textBox.ID +
+            //           "']\").priceFormat({prefix: '',thousandsSeparator: '',allowNegative: true})" +
+            //           "});";
 
+            js = "$(function () {  " +
+                       "$(\"input[name*='$" + _textBox.ID +
+                       "']\").autoNumeric('init')" +
+                       "});";
 
             Page.ClientScript.RegisterClientScriptBlock(typeof(Page), _textBox.ID, js, true);
             base.OnPreRender(e);

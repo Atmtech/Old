@@ -13,6 +13,7 @@
     <script src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>
     <script src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
     <script src="JQuery/jquery-ui-1.11.2/PriceFormat.js"></script>
+    <script src="JQuery/jquery-ui-1.11.2/autoNumeric.js"></script>
 </head>
 <body>
     <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>

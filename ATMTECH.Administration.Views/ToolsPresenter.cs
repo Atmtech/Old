@@ -240,6 +240,7 @@ namespace ATMTECH.Administration.Views
             }
 
             OrderService.UpdateOrder(order, null);
+            stockTransaction.Stock = StockService.GetStock(stockTransaction.Stock.Id);
             StockService.SaveStockTransaction(stockTransaction);
 
             return "Ok";

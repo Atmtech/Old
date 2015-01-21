@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 
 namespace ATMTECH.ShoppingCart.Services.Interface
@@ -23,5 +24,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         int Save(Product product);
         IList<Product> GetProductsSimple(int idEnterprise);
         void DeleteProductFile(ProductFile productFile);
+        IList<ProductFile> GetProductFile(File file);
     }
 }

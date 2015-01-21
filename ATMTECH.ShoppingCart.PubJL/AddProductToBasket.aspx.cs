@@ -34,7 +34,6 @@ namespace ATMTECH.ShoppingCart.PubJL
 
             }
         }
-
         public string IdProduct
         {
             get
@@ -48,7 +47,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                 Presenter.Redirect(Pages.ADD_PRODUCT_TO_BASKET, queryStrings);
             }
         }
-
         public Product Product
         {
             get { return (Product)Session["Product"]; }
@@ -102,7 +100,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
-
         public bool IsOrderable
         {
             set
@@ -120,7 +117,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
-
         public int IsSuccesfullyAdded
         {
             set
@@ -131,7 +127,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                 //}
             }
         }
-
         public bool IsOrderableAgainstSecurity
         {
             get { return lblCannotOrderBecauseSecurity.Visible; }
@@ -152,7 +147,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
-
         public bool IsOrderLocked
         {
             set
@@ -163,7 +157,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
-
         protected void StockAddCommand(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName == "Add")
@@ -171,7 +164,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                 Presenter.AddToBasket(Convert.ToInt32(e.CommandArgument), Convert.ToInt32(e.Item.FindControl("txtQuantity")));
             }
         }
-
         protected void StockDataBound(object sender, DataListItemEventArgs e)
         {
             switch (e.Item.ItemType)
@@ -240,7 +232,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                     break;
             }
         }
-
         protected void ProductFileCommand(object source, DataListCommandEventArgs e)
         {
             switch (e.CommandName)
@@ -257,16 +248,16 @@ namespace ATMTECH.ShoppingCart.PubJL
                             Presenter.RefreshInformation();
                             imgProductPrincipal.ImageUrl = "../images/product/" + productFile.File.FileName;
                         }
+
+                        lnkDisplay.ImageUrl = imgProductPrincipal.ImageUrl;
                     }
                     break;
             }
         }
-
         protected void RedirectProductCatalog(object sender, EventArgs e)
         {
             Presenter.RedirectProductCatalog();
         }
-
         protected void AddToBasketClick(object sender, EventArgs e)
         {
             foreach (DataListItem dataListItem in DataListStockOrderable.Items)
@@ -288,7 +279,6 @@ namespace ATMTECH.ShoppingCart.PubJL
             Presenter.RedirectBasket();
 
         }
-
         protected void imgProductPrincipalClick(object sender, ImageClickEventArgs e)
         {
             ProductFile productFile = Presenter.GetProductFile(Convert.ToInt32(imgProductPrincipal.CommandArgument));
@@ -297,5 +287,6 @@ namespace ATMTECH.ShoppingCart.PubJL
                 Presenter.GetLinkedProduct(productFile.ProductLinked);
             }
         }
+      
     }
 }

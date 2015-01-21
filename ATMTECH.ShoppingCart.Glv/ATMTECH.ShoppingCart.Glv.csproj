@@ -241,8 +241,11 @@
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="Css\modern-responsive.css" />
     <Content Include="Css\modern.css" />
+    <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\css\lightbox.css" />
+    <Content Include="JQuery\jquery-ui-1.11.2\css\screen.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\external\jquery\jquery.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -258,6 +261,10 @@
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-icons_ef8c08_256x240.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\close.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\loading.gif" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\next.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\prev.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\index.html" />
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.js" />
@@ -267,7 +274,8 @@
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.structure.min.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.theme.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.theme.min.css" />
-    <Content Include="JQuery\jquery-ui-1.11.2\PriceFormat.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="ProductCatalog.aspx" />
     <Content Include="ProductSearch.aspx" />
@@ -312,7 +320,7 @@
       <Name>ATMTECH.Web.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.WebControls\ATMTECH.WebControls.csproj">
-      <Project>{ffe0d22c-fe79-4e43-9a65-1ca2edf14e9a}</Project>
+      <Project>{FFE0D22C-FE79-4E43-9A65-1CA2EDF14E9A}</Project>
       <Name>ATMTECH.WebControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Web\ATMTECH.Web.csproj">
@@ -320,7 +328,6 @@
       <Name>ATMTECH.Web</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="fonts\iconFont.eot">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -332,6 +339,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="packages.config" />
+    <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
+    <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />
     <None Include="Properties\PublishProfiles\Atmtech-GLV.pubxml" />
   </ItemGroup>
   <PropertyGroup>

@@ -8,6 +8,7 @@ namespace ATMTECH.ShoppingCart.Entities
     {
 
         public const string PRODUCT = "Product";
+        public const string FILE = "File";
 
         public Product Product { get; set; }
         public File File { get; set; }

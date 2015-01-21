@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ATMTECH.PublierFtp
@@ -34,6 +32,7 @@ namespace ATMTECH.PublierFtp
             AjouterLignePublication("108.60.212.40", "glv.boutiquecorpo.com", "glv.boutiquecorpo.com", @"C:\Publication\ShoppingCart-GLV", "Administrator", "Crevette01@");
             AjouterLignePublication("108.60.212.40", "lauzon.boutiquecorpo.com", "lauzon.boutiquecorpo.com", @"C:\Publication\Lauzon", "Administrator", "Crevette01@");
             AjouterLignePublication("108.60.212.40", "ursulines.boutiquecorpo.com", "ursulines.boutiquecorpo.com", @"C:\Publication\ShoppingCart-Pubjl", "Administrator", "Crevette01@");
+            AjouterLignePublication("108.60.212.40", "dev.boutiquecorpo.com", "dev.boutiquecorpo.com", @"C:\Publication\ShoppingCart-Pubjl", "Administrator", "Crevette01@");
             
         }
 

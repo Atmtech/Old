@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace ATMTECH.PublierFtp
 {
@@ -19,7 +14,7 @@ namespace ATMTECH.PublierFtp
         private class PaintMessageFilter : IMessageFilter
         {
             static public IMessageFilter Instance = new PaintMessageFilter();
-            public bool PreFilterMessage(ref System.Windows.Forms.Message m)
+            public bool PreFilterMessage(ref Message m)
             {
                 return (m.Msg != 0x000F);
             }

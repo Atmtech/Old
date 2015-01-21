@@ -33,20 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=2.5.2.830, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ATMTECH.ShoppingCart.Lauzon\Bin\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="FluentAssertions">
-      <HintPath>..\Library\FluentAssertions.dll</HintPath>
+    <Reference Include="Autofac">
+      <HintPath>..\Library\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ATMTECH.ShoppingCart.Lauzon\Bin\Moq.dll</HintPath>
+    <Reference Include="Moq">
+      <HintPath>..\Library\Moq.dll</HintPath>
     </Reference>
-    <Reference Include="Ploeh.AutoFixture, Version=3.16.4.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Ploeh.AutoFixture">
       <HintPath>..\Library\Ploeh.AutoFixture.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -89,10 +83,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
-      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
-      <Name>ATMTECH.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
       <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
       <Name>ATMTECH.DAO</Name>

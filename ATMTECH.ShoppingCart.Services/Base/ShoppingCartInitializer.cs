@@ -1,6 +1,8 @@
-﻿using ATMTECH.DAO;
+﻿using ATMTECH.BaseModule;
+using ATMTECH.DAO;
 using ATMTECH.DAO.Interface;
-using ATMTECH.Shell;
+using ATMTECH.Services;
+using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Services.Interface;
@@ -32,7 +34,7 @@ namespace ATMTECH.ShoppingCart.Services.Base
             AddDependency<ILocalizationService, LocalizationService>();
             AddDependency<IUpsService, UpsService>();
             AddDependency<IPaypalService, PaypalService>();
-            AddDependency<ATMTECH.Services.Interface.IReportService, ATMTECH.Services.ReportService>();
+            AddDependency<IReportService, ReportService>();
             
             AddDependency<IDAOFile, DAOFile>();
             AddDependency<IDAOLocalization, DAOLocalization>();

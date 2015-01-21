@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseAdministrationPresenter.cs" />
+    <Compile Include="FileUploadAdminPresenter.cs" />
     <Compile Include="ToolsPresenter.cs" />
     <Compile Include="ImportExcelPresenter.cs" />
     <Compile Include="Interface\IToolsPresenter.cs" />

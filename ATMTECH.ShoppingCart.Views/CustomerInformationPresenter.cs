@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using ATMTECH.Entities;
 using ATMTECH.Services;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
@@ -10,7 +9,6 @@ using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Reports.DTO;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface;
-using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.ShoppingCart.Views
 {

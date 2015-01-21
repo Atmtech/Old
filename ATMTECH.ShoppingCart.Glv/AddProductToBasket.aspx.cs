@@ -84,6 +84,8 @@ namespace ATMTECH.ShoppingCart.Glv
                 if (firstOrDefault != null)
                     imgProductPrincipal.CommandArgument = firstOrDefault.Id.ToString();
 
+              //  lnkDisplay.text = "TEXT";
+
                 if (product.ProductFiles.Count > 1)
                 {
                     DataListProductFile.DataSource = product.ProductFiles;

@@ -90,14 +90,6 @@
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Exception\ATMTECH.Exception.csproj">
-      <Project>{8FB02184-36DE-4C31-836F-B6712B7A22C8}</Project>
-      <Name>ATMTECH.Exception</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Shell\ATMTECH.BaseModule.csproj">
-      <Project>{3EB5628F-B1C8-4EE4-8376-2AF463BDD782}</Project>
-      <Name>ATMTECH.BaseModule</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.ShoppingCart.DAO\ATMTECH.ShoppingCart.DAO.csproj">
       <Project>{F5879683-61B6-42D4-B62C-3904BECD62BD}</Project>
       <Name>ATMTECH.ShoppingCart.DAO</Name>
@@ -110,28 +102,15 @@
       <Project>{D226BF01-2BD8-4206-A576-F9F929518A01}</Project>
       <Name>ATMTECH.ShoppingCart.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.ShoppingCart.Views\ATMTECH.ShoppingCart.Views.csproj">
-      <Project>{43B7ED27-782C-4574-96F5-1E433403E3FF}</Project>
-      <Name>ATMTECH.ShoppingCart.Views</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Test\ATMTECH.Test.csproj">
       <Project>{EA2A92A8-C48A-4979-BF6A-6B1AD86E23FD}</Project>
       <Name>ATMTECH.Test</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
-      <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
-      <Name>ATMTECH.Views</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
       <Name>ATMTECH.Web.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Web\ATMTECH.Web.csproj">
-      <Project>{F4ED3261-CB00-4C89-B481-56806262BFCF}</Project>
-      <Name>ATMTECH.Web</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

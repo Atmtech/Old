@@ -153,6 +153,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMTECH.PublierFtp", "ATMTE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMTECH.WebControls", "ATMTECH.WebControls\ATMTECH.WebControls.csproj", "{FFE0D22C-FE79-4E43-9A65-1CA2EDF14E9A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SupprimerDLLDeLaSolution", "SupprimerDLLDeLaSolution", "{BCDC9343-6822-4AB4-8297-77735EA71B7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupprimerDLLDeLaSolution", "WindowsFormsApplication1\SupprimerDLLDeLaSolution.csproj", "{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ATMTECH.vsmdi
@@ -1288,6 +1292,31 @@ Global
 		{FFE0D22C-FE79-4E43-9A65-1CA2EDF14E9A}.TFS_BUILD_Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{FFE0D22C-FE79-4E43-9A65-1CA2EDF14E9A}.TFS_BUILD_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{FFE0D22C-FE79-4E43-9A65-1CA2EDF14E9A}.TFS_BUILD_Debug|x86.ActiveCfg = Debug|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.AvecTestSansAnalyse|Any CPU.ActiveCfg = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.AvecTestSansAnalyse|Any CPU.Build.0 = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.AvecTestSansAnalyse|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.AvecTestSansAnalyse|Mixed Platforms.Build.0 = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.AvecTestSansAnalyse|x86.ActiveCfg = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.Release|x86.ActiveCfg = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.SansTestNiAnalyse|Any CPU.ActiveCfg = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.SansTestNiAnalyse|Any CPU.Build.0 = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.SansTestNiAnalyse|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.SansTestNiAnalyse|Mixed Platforms.Build.0 = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.SansTestNiAnalyse|x86.ActiveCfg = Release|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.TFS_BUILD_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.TFS_BUILD_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.TFS_BUILD_Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.TFS_BUILD_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E}.TFS_BUILD_Debug|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1340,5 +1369,6 @@ Global
 		{B0C5A62A-B976-4D27-B21D-1DADA58E92F3} = {3934F86F-C956-45DD-9F82-DD34EE19EBDE}
 		{1A248C05-11E6-4DC8-929F-F0036E8D9F8C} = {54E37560-B6EB-45C5-B925-A4EE5ECD510A}
 		{D88E9399-6A0F-4D18-8014-65E897E43605} = {97477D43-E5D4-403A-A13D-328DA6E2FE8F}
+		{7A9E19D0-B9C7-4392-83A8-B2DE8F102E0E} = {BCDC9343-6822-4AB4-8297-77735EA71B7F}
 	EndGlobalSection
 EndGlobal

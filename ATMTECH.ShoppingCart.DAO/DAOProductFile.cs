@@ -2,6 +2,7 @@
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.DAO.Interface;
+using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 
@@ -32,6 +33,20 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             return GetAllActive();
         }
+
+        public IList<ProductFile> GetProductFile(File file)
+        {
+            IList<Criteria> criterias = new List<Criteria>();
+            Criteria criteriaProduct = new Criteria { Column = ProductFile.FILE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = file.Id.ToString() };
+            criterias.Add(criteriaProduct);
+            criterias.Add(IsActive());
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = ProductFile.PRODUCT, OrderByType = OrderBy.Type.Descending };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+
+            return GetByCriteria(criterias, pagingOperation, orderOperation);
+        }
+
+
 
         public int SaveProductFile(ProductFile productFile)
         {

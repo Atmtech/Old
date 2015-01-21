@@ -84,10 +84,6 @@
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Mediator.Client\ATMTECH.Mediator.Client.csproj">
-      <Project>{9FB7F2B4-E751-42BA-8B55-DBFDDEB9E13F}</Project>
-      <Name>ATMTECH.Mediator.Client</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Mediator.Entities\ATMTECH.Mediator.Entities.csproj">
       <Project>{52798362-2848-4E27-BAE3-2DF0E813881C}</Project>
       <Name>ATMTECH.Mediator.Entities</Name>

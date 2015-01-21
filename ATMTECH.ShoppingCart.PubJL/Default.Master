@@ -8,10 +8,12 @@
     </asp:ContentPlaceHolder>
     <link href="css/Site.css" rel="stylesheet" type="text/css" />
     <link href="css/modern.css" rel="stylesheet" type="text/css" />
+    <link href="JQuery/jquery-ui-1.11.2/css/lightbox.css" rel="stylesheet" />
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/PriceFormat.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/autoNumeric.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/lightbox.min.js"></script>
 </head>
 <body class="metrouicss">
     <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>

@@ -51,12 +51,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
-      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
-      <Name>ATMTECH.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
-      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
+      <Project>{4f1532ff-3954-4c57-be5e-30e0c4c458cb}</Project>
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Vachier.DAO\ATMTECH.Vachier.DAO.csproj">
@@ -64,7 +60,7 @@
       <Name>ATMTECH.Vachier.DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Vachier.Entities\ATMTECH.Vachier.Entities.csproj">
-      <Project>{01286B71-550D-40C8-9051-5D31429B2FD9}</Project>
+      <Project>{01286b71-550d-40c8-9051-5d31429b2fd9}</Project>
       <Name>ATMTECH.Vachier.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">

@@ -106,12 +106,6 @@
     <Compile Include="Utils\WPF\Finding.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
-      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
-      <Name>ATMTECH.Entities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>

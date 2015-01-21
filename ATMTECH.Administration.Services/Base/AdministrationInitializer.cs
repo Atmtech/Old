@@ -1,11 +1,11 @@
 ﻿using ATMTECH.Administration.DAO;
 using ATMTECH.Administration.DAO.Interface;
 using ATMTECH.Administration.Services.Interface;
+using ATMTECH.BaseModule;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Services;
 using ATMTECH.Services.Interface;
-using ATMTECH.Shell;
 using ATMTECH.ShoppingCart.DAO;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Services;

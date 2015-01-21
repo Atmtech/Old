@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.Common.Utils.Web;
+using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
@@ -63,7 +64,7 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return DAOProduct.GetProductsWithoutStock(idEnterprise);
         }
-        
+
         public IList<Product> GetProducts(int idEnterprise, int idUser, string search)
         {
             return idEnterprise != 0 ? DAOProduct.GetProducts(idEnterprise, idUser, search) : null;
@@ -111,6 +112,11 @@ namespace ATMTECH.ShoppingCart.Services
         public void DeleteProductFile(ProductFile productFile)
         {
             DAOProductFile.DeleteProductFile(productFile);
+        }
+
+        public IList<ProductFile> GetProductFile(File file)
+        {
+            return DAOProductFile.GetProductFile(file);
         }
     }
 }

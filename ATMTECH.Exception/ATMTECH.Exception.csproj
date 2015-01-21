@@ -44,10 +44,6 @@
     <Compile Include="BaseException.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
-      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
-      <Name>ATMTECH.DAO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>

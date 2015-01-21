@@ -7,7 +7,8 @@
     <div class="tile triple-vertical triple bg-color-darken">
         <div class="tile-content">
             <div style="float: left; text-align: center; padding-left: 20px; padding-top: 20px;">
-                <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" OnClick="imgProductPrincipalClick" />
+                <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" OnClick="imgProductPrincipalClick" /><br/>
+                <asp:Hyperlink runat="server" ID="lnkDisplay"><img src="Images/WebSite/search-icon.png" style="width:20px;height: 20px;" alt="R" /></asp:Hyperlink>
             </div>
             <div style="float: left; padding-left: 20px; padding-top: 20px;">
                 <asp:DataList ID="DataListProductFile" RepeatDirection="Vertical" runat="server"

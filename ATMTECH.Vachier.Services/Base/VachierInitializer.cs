@@ -1,6 +1,6 @@
-﻿using ATMTECH.DAO;
+﻿using ATMTECH.BaseModule;
+using ATMTECH.DAO;
 using ATMTECH.DAO.Interface;
-using ATMTECH.Shell;
 using ATMTECH.Vachier.DAO;
 using ATMTECH.Vachier.DAO.Interface;
 using ATMTECH.Web.Services;

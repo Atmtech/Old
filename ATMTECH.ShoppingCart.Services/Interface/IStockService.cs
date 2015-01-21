@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services.Reports.DTO;
 
 namespace ATMTECH.ShoppingCart.Services.Interface
 {

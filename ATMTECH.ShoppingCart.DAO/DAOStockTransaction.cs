@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
-using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 
@@ -64,7 +63,6 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             return GetAll();
         }
-
 
         public IList<StockTransaction> GetStockTransactions()
         {

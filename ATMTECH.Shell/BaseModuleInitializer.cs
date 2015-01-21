@@ -8,7 +8,7 @@ using ATMTECH.Web.Services.Interface;
 using Autofac;
 using Module = Autofac.Module;
 
-namespace ATMTECH.Shell
+namespace ATMTECH.BaseModule
 {
     public abstract class BaseModuleInitializer : Module
     {

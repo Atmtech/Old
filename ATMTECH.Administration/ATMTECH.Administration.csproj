@@ -409,6 +409,7 @@
     <Content Include="Images\WebSite\error-icon.png" />
     <Content Include="Images\WebSite\success-icon.png" />
     <Content Include="ImportExcel.aspx" />
+    <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\external\jquery\jquery.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -426,7 +427,6 @@
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-icons_ffffff_256x240.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\index.html" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.js" />
-    <Content Include="JQuery\jquery-ui-1.11.2\PriceFormat.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.min.css" />

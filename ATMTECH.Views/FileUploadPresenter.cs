@@ -12,6 +12,8 @@ namespace ATMTECH.Views
     {
         public IAuthenticationService AuthenticationService { get; set; }
         public IFileService FileService { get; set; }
+
+       // public IProductService ProductService { get; set; }
         
         public FileUploadPresenter(IFileUploadPresenter view)
             : base(view)
@@ -61,13 +63,14 @@ namespace ATMTECH.Views
             return FileService.SaveFile(httpPostedFile, type, View.RootImagePath);
         }
 
-        public int SaveFile(Entities.File file)
+        public int SaveFile(File file)
         {
             return FileService.SaveFile(file);
         }
 
         public void DeleteFile(int id)
         {
+            //ProductService.
             FileService.DeleteFile(FileService.GetFile(id));
             View.AllFiles = FileService.GetAllFile(View.RootImagePath);
         }

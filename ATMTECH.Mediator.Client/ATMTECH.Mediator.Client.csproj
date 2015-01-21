@@ -111,20 +111,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
-      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
-      <Name>ATMTECH.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Mediator.Entities\ATMTECH.Mediator.Entities.csproj">
-      <Project>{52798362-2848-4E27-BAE3-2DF0E813881C}</Project>
-      <Name>ATMTECH.Mediator.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Mediator.Services\ATMTECH.Mediator.Services.csproj">
-      <Project>{CB8ECB54-D1A8-425C-8E86-D570DA3401B9}</Project>
-      <Name>ATMTECH.Mediator.Services</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 et x64%29</ProductName>
@@ -140,6 +126,20 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
+      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
+      <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Mediator.Entities\ATMTECH.Mediator.Entities.csproj">
+      <Project>{52798362-2848-4E27-BAE3-2DF0E813881C}</Project>
+      <Name>ATMTECH.Mediator.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Mediator.Services\ATMTECH.Mediator.Services.csproj">
+      <Project>{CB8ECB54-D1A8-425C-8E86-D570DA3401B9}</Project>
+      <Name>ATMTECH.Mediator.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

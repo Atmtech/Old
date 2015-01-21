@@ -5,7 +5,6 @@ using ATMTECH.DAO;
 using ATMTECH.DAO.SessionManager;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.Web.Services;
 using ErrorCode = ATMTECH.ShoppingCart.Services.ErrorCode;
 
 namespace ATMTECH.ShoppingCart.Tests.Base

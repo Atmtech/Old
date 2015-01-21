@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI.WebControls;
-using ATMTECH.Views;
+using ATMTECH.Administration.Views;
 using ATMTECH.Views.Interface;
 using File = ATMTECH.Entities.File;
 
@@ -11,7 +11,7 @@ namespace ATMTECH.Administration
     public partial class FileUpload : PageBaseAdministration, IFileUploadPresenter
     {
 
-        public FileUploadPresenter Presenter { get; set; }
+        public FileUploadAdminPresenter Presenter { get; set; }
 
         public string RootImagePath
         {

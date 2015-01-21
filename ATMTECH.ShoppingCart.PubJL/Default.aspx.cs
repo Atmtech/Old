@@ -47,15 +47,6 @@ namespace ATMTECH.ShoppingCart.PubJL
             }
         }
 
-        public Enterprise Enterprise
-        {
-            set
-            {
-                if (value.Id == 1)
-                {
-                    Presenter.Redirect(Views.Pages.Pages.LOGIN);
-                }
-            }
-        }
+        public Enterprise Enterprise { get; set; }
     }
 }
