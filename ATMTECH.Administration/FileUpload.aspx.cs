@@ -39,11 +39,7 @@ namespace ATMTECH.Administration
             SaveImageFile();
         }
 
-        public void ResizeAll()
-        {
-            Presenter.ResizeAll(RootImagePath + "\\Product");
-        }
-
+      
         public void SaveImageFile()
         {
             try
@@ -112,7 +108,7 @@ namespace ATMTECH.Administration
 
         protected void btnResizeClick(object sender, EventArgs e)
         {
-            Presenter.ResizeAll(RootImagePath + @"\Product");
+            Presenter.ResizeAll(RootImagePath + @"\Product", Convert.ToInt32(txtRatio.Text), Convert.ToInt32(txtRatio.Text));
         }
 
 

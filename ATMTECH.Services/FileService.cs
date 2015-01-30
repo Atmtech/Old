@@ -45,7 +45,7 @@ namespace ATMTECH.Services
                 System.IO.File.Delete(file.ServerPath);
             }
         }
-        public void ResizeFile(string directory)
+        public void ResizeFile(string directory, int width, int height)
         {
             string[] strings = Directory.GetFiles(directory);
             bool saved = false;
@@ -53,10 +53,10 @@ namespace ATMTECH.Services
             {
                 using (Image image = new Bitmap(file))
                 {
-                    if (image.Height > 300 || image.Width > 300)
+                    if (image.Height > 100 || image.Width > 100)
                     {
                         saved = true;
-                        SaveJpeg(file + "z", resizeImage(image, new Size(300, 300)), 85);
+                        SaveJpeg(file + "z", resizeImage(image, new Size(width, height)), 85);
                     }
                 }
 

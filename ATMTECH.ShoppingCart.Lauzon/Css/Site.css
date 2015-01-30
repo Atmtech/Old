@@ -4,6 +4,12 @@
     color: white;
 }
 
+.imageAddBasket {
+    width: 300px;
+    height: 300px;
+}
+
+
 input[type="text"], input[type="password"], img
 {
     outline: none;

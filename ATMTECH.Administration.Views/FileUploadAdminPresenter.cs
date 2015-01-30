@@ -45,9 +45,9 @@ namespace ATMTECH.Administration.Views
             View.AllFiles = !string.IsNullOrEmpty(View.Filter) ? FileService.GetAllFile(View.RootImagePath).Where(x => x.ComboboxDescription.Contains(View.Filter)).ToList() : FileService.GetAllFile(View.RootImagePath);
         }
 
-        public void ResizeAll(string directory)
+        public void ResizeAll(string directory, int width, int height)
         {
-            FileService.ResizeFile(directory);
+            FileService.ResizeFile(directory, width, height);
         }
 
 

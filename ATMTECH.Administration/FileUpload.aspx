@@ -60,21 +60,29 @@
                     <div style="background-color: lightgray; border: solid 1px gray; padding: 5px 5px 5px 5px;">
                         <asp:Button runat="server" ID="btnUpload" Text="Transférer tout les fichiers" OnClick="BtnUploadClick"
                             CausesValidation="False" CssClass="button" />
-                        <asp:Button runat="server" ID="btnResize" Text="Reformater tout les fichiers de produits" OnClick="btnResizeClick"
-                            CausesValidation="False" CssClass="button" />
+
+
+
                     </div>
                     <br />
                     <fieldset style="padding: 7px; border-radius: 5px; -moz-border-radius: 5px;">
                         <legend><b>Liste des fichiers transférés</b></legend>
                         <asp:Label runat="server" ID="lblTransferedFile"></asp:Label>
                     </fieldset>
+
+                    <div style="background-color: lightgray; border: solid 1px gray; padding: 5px 5px 5px 5px;margin-top: 10px;">
+                        Saisir votre ratio:
+                        <asp:TextBox runat="server" ID="txtRatio"></asp:TextBox>px <br />
+                        <asp:Button runat="server" ID="btnResize" Text="Reformater tout les fichiers de produits" OnClick="btnResizeClick"
+                            CausesValidation="False" CssClass="button" />
+                    </div>
                 </td>
                 <td style="width: 70%;" valign="top">
 
                     <fieldset style="padding: 7px; border-radius: 5px; -moz-border-radius: 5px;">
                         <legend><b>Liste des fichiers sur le serveur pour les produits</b></legend>
                         <asp:TextBox runat="server" ID="txtFilter"></asp:TextBox>
-                        <asp:Button runat="server" ID="btnFilter" Text="Filtrer" OnClick="btnFilterClick"/>
+                        <asp:Button runat="server" ID="btnFilter" Text="Filtrer" OnClick="btnFilterClick" />
                         <asp:GridView runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" ID="grdFile"
                             AllowPaging="True" AutoGenerateColumns="False" PageSize="10"
                             OnPageIndexChanging="PageIndexChanging" Font-Size="11px" EmptyDataText="Aucune données ..." OnRowCommand="RowCommand">
@@ -122,5 +130,5 @@
             </tr>
         </table>
     </div>
-    
+
 </asp:Content>

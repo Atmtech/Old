@@ -58,15 +58,6 @@ namespace ATMTECH.Administration {
         protected global::System.Web.UI.WebControls.Button btnUpload;
         
         /// <summary>
-        /// Contrôle btnResize.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnResize;
-        
-        /// <summary>
         /// Contrôle lblTransferedFile.
         /// </summary>
         /// <remarks>
@@ -74,6 +65,24 @@ namespace ATMTECH.Administration {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTransferedFile;
+        
+        /// <summary>
+        /// Contrôle txtRatio.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRatio;
+        
+        /// <summary>
+        /// Contrôle btnResize.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnResize;
         
         /// <summary>
         /// Contrôle txtFilter.

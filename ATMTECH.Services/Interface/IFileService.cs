@@ -9,7 +9,7 @@ namespace ATMTECH.Services.Interface
         File GetFile(File file);
         IList<File> GetAllFile();
         void DeleteFile(File file);
-        void ResizeFile(string directory);
+        void ResizeFile(string directory, int width, int height);
         int SaveFile(File file);
         int SaveFile(HttpPostedFile httpPostedFile, string type, string rootImagePath);
         File GetFile(int id);
