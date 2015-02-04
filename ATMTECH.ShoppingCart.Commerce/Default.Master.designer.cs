@@ -7,135 +7,180 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace ATMTECH.ShoppingCart.Glv {
+namespace ATMTECH.ShoppingCart.Commerce {
     
     
-    public partial class Login {
+    public partial class Default {
         
         /// <summary>
-        /// Contrôle pnlLogin.
+        /// Contrôle head.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlLogin;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// Contrôle lblSignIn.
+        /// Contrôle form1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSignIn;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle lblUserNameLabel.
+        /// Contrôle ScriptManager1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserNameLabel;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// Contrôle txtUser.
+        /// Contrôle imgRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUser;
+        protected global::System.Web.UI.WebControls.ImageButton imgRecherche;
         
         /// <summary>
-        /// Contrôle lblPasswordLabel.
+        /// Contrôle txtRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPasswordLabel;
+        protected global::System.Web.UI.WebControls.TextBox txtRecherche;
         
         /// <summary>
-        /// Contrôle txtPassword.
+        /// Contrôle btnConnecter.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.Button btnConnecter;
         
         /// <summary>
-        /// Contrôle btnSignIn.
+        /// Contrôle btnCategorie.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSignIn;
+        protected global::System.Web.UI.WebControls.Button btnCategorie;
         
         /// <summary>
-        /// Contrôle btnCreateCustomer.
+        /// Contrôle btnPromotion.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateCustomer;
+        protected global::System.Web.UI.WebControls.Button btnPromotion;
         
         /// <summary>
-        /// Contrôle btnForgetPassword.
+        /// Contrôle btnContacterNous.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnForgetPassword;
+        protected global::System.Web.UI.WebControls.Button btnContacterNous;
         
         /// <summary>
-        /// Contrôle pnlWelcome.
+        /// Contrôle pnlError.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlWelcome;
+        protected global::System.Web.UI.WebControls.Panel pnlError;
         
         /// <summary>
-        /// Contrôle lblName.
+        /// Contrôle lblError.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// Contrôle lnkCustomerInformation.
+        /// Contrôle pnlSuccess.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkCustomerInformation;
+        protected global::System.Web.UI.WebControls.Panel pnlSuccess;
         
         /// <summary>
-        /// Contrôle lnkSignOut.
+        /// Contrôle lblSuccess.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSignOut;
+        protected global::System.Web.UI.WebControls.Label lblSuccess;
         
         /// <summary>
-        /// Contrôle lnkAdministration.
+        /// Contrôle ContentPlaceHolder1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkAdministration;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        
+        /// <summary>
+        /// Contrôle btnCondition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCondition;
+        
+        /// <summary>
+        /// Contrôle btnRetour.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRetour;
+        
+        /// <summary>
+        /// Contrôle btnLivraison.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLivraison;
+        
+        /// <summary>
+        /// Contrôle txtListeDiffusion.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtListeDiffusion;
+        
+        /// <summary>
+        /// Contrôle btnRejoindreListeDiffusion.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRejoindreListeDiffusion;
     }
 }

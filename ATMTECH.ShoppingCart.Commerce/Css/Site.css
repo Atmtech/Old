@@ -1,0 +1,340 @@
+﻿body
+{
+    margin: 0 0 0 0;
+    background: #111;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    color: #ffffff;
+    line-height: 1.6em;
+    font-weight: 300;
+}
+
+.textBoxRecherche
+{
+    margin-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    padding: 5px 0!important;
+    color: #ffffff;
+    text-indent: 5px;
+    background: transparent;
+    padding: 10px 5px;
+    color: #ffffff;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+}
+
+.textBox
+{
+    border: solid 1px rgb(75, 75, 75);
+    color: #ffffff;
+    text-indent: 5px;
+    background: transparent;
+    color: #ffffff;
+    height: 25px;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+}
+
+.boutonLien
+{
+    border: none;
+    background: #111;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    color: #ffffff;
+    line-height: 1.6em;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+    .boutonLien:hover
+    {
+        color: darkgray;
+    }
+
+.boutonLienMenu
+{
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+}
+
+    .boutonLienMenu:hover
+    {
+        color: darkgray;
+    }
+
+
+.boutonAction
+{
+    position: relative;
+    left: -5px;
+    top: 1px;
+    border: none;
+    background-color: rgb(75, 75, 75);
+    color: white;
+    height: 29px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+.boutonAction:hover
+{
+    background-color: rgb(129, 129, 129);
+}
+
+.boutonActionRond
+{
+    border: none;
+    height: 35px;
+    background-color: rgb(75, 75, 75);
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+    cursor: pointer;
+}
+
+.boutonAjouterPanier:hover
+{
+    background-color: rgb(129, 129, 129);
+}
+
+
+.center
+{
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 1000px;
+    color: white;
+}
+
+.recherche
+{
+   
+    float: left;
+    width: 20%;
+}
+
+.logo
+{
+   
+    float: left;
+    width: 60%;
+    text-align: center;
+}
+
+.lienAuthentification
+{
+   
+    float: left;
+    width: 20%;
+}
+
+.menu
+{
+    text-align: center;
+    margin-top: 20px;
+    border-bottom: solid 8px rgb(75, 75, 75);
+    padding-bottom: 10px;
+}
+
+.categorie
+{
+    margin-top: 20px;
+}
+
+.vente
+{
+    margin-top: 20px;
+    border-bottom: solid 1px rgb(75, 75, 75);
+    border-top: solid 1px rgb(75, 75, 75);
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.listeObjetEnPromo
+{
+    margin-top: 20px;
+}
+
+.menuBas
+{
+    margin-top: 100px;
+    padding-bottom: 20px;
+    background-color: black;
+}
+
+.informationBasPage
+{
+    margin: 0 auto;
+    width: 1000px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+
+.imageProduit
+{
+    float: left;
+    padding-top: 20px;
+}
+
+.descriptionProduit
+{
+    padding-left: 15px;
+    float: left;
+    width: 485px;
+}
+
+.titreDescriptionProduit
+{
+    padding-top: 20px;
+    font-size: 20px;
+    border-bottom: solid 1px rgb(75, 75, 75);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.prixDescriptionProduit
+{
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+.quantiteDescriptionProduit
+{
+    padding-top: 10px;
+    font-weight: bold;
+    border-bottom: solid 1px rgb(75, 75, 75);
+    padding-bottom: 20px;
+}
+
+
+.detailDescriptionProduit
+{
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.navigation
+{
+    text-align: center;
+    float: left;
+    width: 33%;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.listeCourriel
+{
+    text-align: center;
+    float: left;
+    width: 33%;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.reseauSociaux
+{
+    text-align: center;
+    float: left;
+    width: 33%;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.copyRight
+{
+    border-top: solid 1px rgb(75, 75, 75);
+    margin: 0 auto;
+    width: 1000px;
+    margin-top: 40px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.imageProduitAfficher
+{
+    width: 500px;
+    height: 600px;
+}
+
+.loginConnecter {
+    font-weight: bold;
+    padding-top: 20px;
+    float: left;
+    text-transform: uppercase;  
+}
+.labelLogin {
+    font-size: 12px;
+    text-transform: none;
+}
+
+
+
+.errorMessage
+{
+    padding: 10px 10px 10px 10px;
+    border: solid 1px gray;
+    background-color: whitesmoke;
+    color: red;
+    width: 950px;
+    margin-bottom: 10px;
+}
+
+.successMessage
+{
+    padding: 10px 10px 10px 10px;
+    border: solid 1px gray;
+    background-color: whitesmoke;
+    color: green;
+    width: 950px;
+    margin-bottom: 10px;
+}
+
+
+
+.askShippingBox
+{
+    color: rgb(33, 0, 255);
+    width: 100%;
+    border: solid 2px gray;
+    background-color: rgb(231, 231, 187);
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 10px;
+}
+
+.addToBasketOrderList
+{
+    font-size: 12px;
+}
+
+.orderGrid
+{
+    font-size: 10px;
+}
