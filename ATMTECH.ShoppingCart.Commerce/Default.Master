@@ -32,7 +32,8 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
             EnableScriptLocalization="true">
         </asp:ScriptManager>
-
+        
+        <asp:Button runat="server" ID="btnLocaliser" OnClick="btnLocaliserClick" Text="Localiser"/>
 
         <div class="center">
             <div class="recherche">
@@ -45,9 +46,9 @@
             </div>
             <div style="clear: both;"></div>
             <div class="menu">
-                <asp:Button runat="server" ID="btnCategorie" Text="Shop" CssClass="boutonLienMenu" />
-                <asp:Button ID="btnPromotion" runat="server" Text="Sale" CssClass="boutonLienMenu" />
-                <asp:Button ID="btnContacterNous" runat="server" Text="Contact us" CssClass="boutonLienMenu" />
+                <asp:Button runat="server" ID="btnCategorieProduit" Text="Magasiner par catégorie" CssClass="boutonLienMenu" />
+                <asp:Button ID="btnPromotion" runat="server" Text="Promotions" CssClass="boutonLienMenu" />
+                <asp:Button ID="btnContacterNous" runat="server" Text="Contacter-nous" CssClass="boutonLienMenu" />
             </div>
             <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" BorderStyle="Solid" Visible="False">
                 <img src="Images/WebSite/error-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" alt="Erreur" />
@@ -67,7 +68,7 @@
 
             <div class="informationBasPage">
                 <div class="navigation">
-                    Navigation
+                    <asp:Label runat="server" ID="lblNavigation" Text="Navigation"></asp:Label> 
                     <br />
                     <br />
                     <asp:Button ID="btnCondition" runat="server" Text="Conditions" CssClass="boutonLien" />
@@ -78,14 +79,15 @@
                 </div>
 
                 <div class="listeCourriel">
-                    Liste de diffusion<br />
+                    <asp:Label runat="server" ID="lblListeDiffusion" Text="Liste de diffusion"></asp:Label> 
+                    <br />
                     <br />
                     <asp:TextBox runat="server" CssClass="textBox" ID="txtListeDiffusion" PlaceHolder="Entrer votre courriel" Width="170px"></asp:TextBox>
                     <asp:Button ID="btnRejoindreListeDiffusion" runat="server" Text="Rejoindre" CssClass="boutonAction" />
                 </div>
 
                 <div class="reseauSociaux">
-                    Suivez nous ...
+                    <asp:Label runat="server" ID="lblSuivezNous" Text="Suivez nous ..."></asp:Label> 
                     <br />
                     <br />
                     <img src="Images/WebSite/reseauSociaux.png" />

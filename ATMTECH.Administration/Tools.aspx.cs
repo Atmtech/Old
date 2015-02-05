@@ -118,44 +118,36 @@ namespace ATMTECH.Administration
             Presenter.AssociateUser(Convert.ToInt32(cboUser.SelectedValue),
                                     Convert.ToInt32(cboEnterprise1.SelectedValue));
         }
-
         protected void btnBalanceStockClick(object sender, EventArgs e)
         {
             lblResultBalance.Text = Presenter.BalanceStock();
         }
-
         protected void btnBalanceSearchColumnClick(object sender, EventArgs e)
         {
             lblResultatBalanceSearch.Text = Presenter.BalanceSearch(ddlBalanceSearch.SelectedValue);
         }
-
         protected void btnCreateBackupClick(object sender, EventArgs e)
         {
             
             lblResultBackup.Text = Presenter.CreateBackup(Server.MapPath("data"));
         }
-
         protected void btnAdjustOrderlineClick(object sender, EventArgs e)
         {
             lblAdjustOrderline.Text = Presenter.AdjustOrderline(Convert.ToInt32(txtAdjustOrderlineId.Text),
                                                                 Convert.ToInt32(txtAdjustOrderlineQuantite.Text));
         }
-
         protected void btnRestoreClick(object sender, EventArgs e)
         {
             lblResultRestore.Text = Presenter.RestoreBackup(Server.MapPath("data"));
         }
-
         protected void btnCloseApplicationClick(object sender, EventArgs e)
         {
             Presenter.CloseApplication();
         }
-
         protected void btnOpenApplicationClick(object sender, EventArgs e)
         {
             Presenter.OpenApplication();
         }
-
         protected void btnBalanceOrderClick(object sender, EventArgs e)
         {
             lblResultBalanceOrder.Text = Presenter.BalanceOrder();

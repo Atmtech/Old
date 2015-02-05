@@ -101,22 +101,14 @@ namespace ATMTECH.Administration
 
         protected void BtnGenerateColumns(object sender, EventArgs e)
         {
-            //Presenter.GenerateEntityInformation();
+            Presenter.SetAllEntityInformation();
         }
-        protected void btnInitialiserColonneRechercheClick(object sender, EventArgs e)
-        {
-            lblResultat.Text = "";
-
-            lblResultat.Text += Presenter.InitialiserColonneRecherche();
-        }
+       
         protected void btnGenererRapportControlStockClick(object sender, EventArgs e)
         {
             Presenter.GenerateStockControlReport();
         }
-        protected void lnkExportClick(object sender, EventArgs e)
-        {
-            Presenter.Export();
-        }
+       
         
     }
 }

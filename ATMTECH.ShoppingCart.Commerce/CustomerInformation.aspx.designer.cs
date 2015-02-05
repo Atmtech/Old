@@ -13,579 +13,354 @@ namespace ATMTECH.ShoppingCart.Commerce {
     public partial class CustomerInformation {
         
         /// <summary>
-        /// Contrôle lblCustomerInformation.
+        /// Contrôle lblInformationSurLeCompte.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerInformation;
+        protected global::System.Web.UI.WebControls.Label lblInformationSurLeCompte;
         
         /// <summary>
-        /// Contrôle lblName.
+        /// Contrôle lblPrenom.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.WebControls.Label lblPrenom;
         
         /// <summary>
-        /// Contrôle txtName.
+        /// Contrôle txtPrenom.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.TextBox txtPrenom;
         
         /// <summary>
-        /// Contrôle lblLogin.
+        /// Contrôle lblNom.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLogin;
+        protected global::System.Web.UI.WebControls.Label lblNom;
         
         /// <summary>
-        /// Contrôle txtLogin.
+        /// Contrôle txtNom.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLogin;
+        protected global::System.Web.UI.WebControls.TextBox txtNom;
         
         /// <summary>
-        /// Contrôle lblFirstName.
+        /// Contrôle lblCourrielCreer.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFirstName;
+        protected global::System.Web.UI.WebControls.Label lblCourrielCreer;
         
         /// <summary>
-        /// Contrôle txtFirstName.
+        /// Contrôle txtCourrielCreer.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
+        protected global::System.Web.UI.WebControls.TextBox txtCourrielCreer;
         
         /// <summary>
-        /// Contrôle lblLastName.
+        /// Contrôle lblMotDePasseCreer.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLastName;
+        protected global::System.Web.UI.WebControls.Label lblMotDePasseCreer;
         
         /// <summary>
-        /// Contrôle txtLastName.
+        /// Contrôle txtMotDePasseCreer.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        protected global::System.Web.UI.WebControls.TextBox txtMotDePasseCreer;
         
         /// <summary>
-        /// Contrôle lblEmail.
+        /// Contrôle lblMotDePasseCreerConfirmation.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
+        protected global::System.Web.UI.WebControls.Label lblMotDePasseCreerConfirmation;
         
         /// <summary>
-        /// Contrôle txtEmail.
+        /// Contrôle txtMotDePasseCreerConfirmation.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtMotDePasseCreerConfirmation;
         
         /// <summary>
-        /// Contrôle btnSave.
+        /// Contrôle lblAdresseLivraisonClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Label lblAdresseLivraisonClient;
         
         /// <summary>
-        /// Contrôle btnChangePassword.
+        /// Contrôle lblNoCiviqueLivraisonInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnChangePassword;
+        protected global::System.Web.UI.WebControls.Label lblNoCiviqueLivraisonInformationClient;
         
         /// <summary>
-        /// Contrôle pnlChangePassword.
+        /// Contrôle txtNoCiviqueClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlChangePassword;
+        protected global::System.Web.UI.WebControls.TextBox txtNoCiviqueClient;
         
         /// <summary>
-        /// Contrôle lblChangementDeMotDePasse.
+        /// Contrôle lblRueLivraisonInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblChangementDeMotDePasse;
+        protected global::System.Web.UI.WebControls.Label lblRueLivraisonInformationClient;
         
         /// <summary>
-        /// Contrôle lblPassword.
+        /// Contrôle txtRueClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtRueClient;
         
         /// <summary>
-        /// Contrôle txtPassword.
+        /// Contrôle lblCodePostalLivraisonInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.Label lblCodePostalLivraisonInformationClient;
         
         /// <summary>
-        /// Contrôle lblConfirmPassword.
+        /// Contrôle txtCodePostalLivraisonInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConfirmPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtCodePostalLivraisonInformationClient;
         
         /// <summary>
-        /// Contrôle txtConfirmPassword.
+        /// Contrôle lblPaysLivraisonInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        protected global::System.Web.UI.WebControls.Label lblPaysLivraisonInformationClient;
         
         /// <summary>
-        /// Contrôle pnlSuperUser.
+        /// Contrôle ddlPaysClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSuperUser;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPaysClient;
         
         /// <summary>
-        /// Contrôle lblSuperUserTitle.
+        /// Contrôle lblAdresseFacturationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSuperUserTitle;
+        protected global::System.Web.UI.WebControls.Label lblAdresseFacturationClient;
         
         /// <summary>
-        /// Contrôle btnSalesByMonthReport.
+        /// Contrôle chkUtiliserMemeAdresseQueLivraison.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSalesByMonthReport;
+        protected global::System.Web.UI.WebControls.CheckBox chkUtiliserMemeAdresseQueLivraison;
         
         /// <summary>
-        /// Contrôle btnSalesByOrderInformationReport.
+        /// Contrôle UtiliserMemeAdresseQueLivraison.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSalesByOrderInformationReport;
+        protected global::System.Web.UI.WebControls.Label UtiliserMemeAdresseQueLivraison;
         
         /// <summary>
-        /// Contrôle pnlSalesByOrderInformationReport.
+        /// Contrôle lblNoCiviqueFacturationInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSalesByOrderInformationReport;
+        protected global::System.Web.UI.WebControls.Label lblNoCiviqueFacturationInformationClient;
         
         /// <summary>
-        /// Contrôle lblDateStartSalesByOrderInformationReport.
+        /// Contrôle TextBox1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateStartSalesByOrderInformationReport;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// Contrôle txtDateStartSalesByOrderInformationReport.
+        /// Contrôle lblRueFacturationInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.WebControls.DatePicker txtDateStartSalesByOrderInformationReport;
+        protected global::System.Web.UI.WebControls.Label lblRueFacturationInformationClient;
         
         /// <summary>
-        /// Contrôle lblDateEndSalesByOrderInformationReport.
+        /// Contrôle TextBox2.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateEndSalesByOrderInformationReport;
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
         
         /// <summary>
-        /// Contrôle txtDateEndSalesByOrderInformationReport.
+        /// Contrôle lblCodePostalFacturationInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.WebControls.DatePicker txtDateEndSalesByOrderInformationReport;
+        protected global::System.Web.UI.WebControls.Label lblCodePostalFacturationInformationClient;
         
         /// <summary>
-        /// Contrôle btnGenerateSalesByOrderInformationReport.
+        /// Contrôle TextBox3.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGenerateSalesByOrderInformationReport;
+        protected global::System.Web.UI.WebControls.TextBox TextBox3;
         
         /// <summary>
-        /// Contrôle pnlSalesByMonthReport.
+        /// Contrôle lblPaysFacturationInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSalesByMonthReport;
+        protected global::System.Web.UI.WebControls.Label lblPaysFacturationInformationClient;
         
         /// <summary>
-        /// Contrôle lblDateStartReport.
+        /// Contrôle ddlPaysInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateStartReport;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPaysInformationClient;
         
         /// <summary>
-        /// Contrôle txtDateStartReport.
+        /// Contrôle btnEnregistrerInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.WebControls.DatePicker txtDateStartReport;
+        protected global::System.Web.UI.WebControls.Button btnEnregistrerInformationClient;
         
         /// <summary>
-        /// Contrôle lblDateEndReport.
+        /// Contrôle lblHistoriqueDeVosCommandesInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateEndReport;
+        protected global::System.Web.UI.WebControls.Label lblHistoriqueDeVosCommandesInformationClient;
         
         /// <summary>
-        /// Contrôle txtDateEndReport.
+        /// Contrôle lblNoCommandeInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.WebControls.DatePicker txtDateEndReport;
+        protected global::System.Web.UI.WebControls.Label lblNoCommandeInformationClient;
         
         /// <summary>
-        /// Contrôle btnGenerateSalesByMonthReport.
+        /// Contrôle lblDateCommandeInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGenerateSalesByMonthReport;
+        protected global::System.Web.UI.WebControls.Label lblDateCommandeInformationClient;
         
         /// <summary>
-        /// Contrôle lblModificationAdresse.
+        /// Contrôle lblEnvoyeLeInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModificationAdresse;
+        protected global::System.Web.UI.WebControls.Label lblEnvoyeLeInformationClient;
         
         /// <summary>
-        /// Contrôle pnlChangeAddressBilling.
+        /// Contrôle lblGrandTotalInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlChangeAddressBilling;
+        protected global::System.Web.UI.WebControls.Label lblGrandTotalInformationClient;
         
         /// <summary>
-        /// Contrôle lblBillingLabel.
+        /// Contrôle lblNumeroExpeditionInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBillingLabel;
+        protected global::System.Web.UI.WebControls.Label lblNumeroExpeditionInformationClient;
         
         /// <summary>
-        /// Contrôle lblModifyBillingWay.
+        /// Contrôle lblVisualiserInformationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModifyBillingWay;
-        
-        /// <summary>
-        /// Contrôle txtModifyBillingWay.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtModifyBillingWay;
-        
-        /// <summary>
-        /// Contrôle lblModifyBillingCountry.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModifyBillingCountry;
-        
-        /// <summary>
-        /// Contrôle ddlModifyBillingCountry.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlModifyBillingCountry;
-        
-        /// <summary>
-        /// Contrôle lblModifyBillingCity.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModifyBillingCity;
-        
-        /// <summary>
-        /// Contrôle txtModifyBillingCity.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtModifyBillingCity;
-        
-        /// <summary>
-        /// Contrôle lblModifyBillingPostalCode.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModifyBillingPostalCode;
-        
-        /// <summary>
-        /// Contrôle txtModifyBillingPostalCode.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtModifyBillingPostalCode;
-        
-        /// <summary>
-        /// Contrôle btnSaveAddressBilling.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveAddressBilling;
-        
-        /// <summary>
-        /// Contrôle btnCopyAddressBillingToShipping.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCopyAddressBillingToShipping;
-        
-        /// <summary>
-        /// Contrôle pnlChangeAddressShipping.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlChangeAddressShipping;
-        
-        /// <summary>
-        /// Contrôle lblShippingLabel.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShippingLabel;
-        
-        /// <summary>
-        /// Contrôle lblModifyShippingWay.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModifyShippingWay;
-        
-        /// <summary>
-        /// Contrôle txtModifyShippingWay.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtModifyShippingWay;
-        
-        /// <summary>
-        /// Contrôle lblModifyShippingCountry.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModifyShippingCountry;
-        
-        /// <summary>
-        /// Contrôle ddlModifyShippingCountry.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlModifyShippingCountry;
-        
-        /// <summary>
-        /// Contrôle lblModifyShippingCity.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModifyShippingCity;
-        
-        /// <summary>
-        /// Contrôle txtModifyShippingCity.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtModifyShippingCity;
-        
-        /// <summary>
-        /// Contrôle lblModifyShippingPostalCode.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModifyShippingPostalCode;
-        
-        /// <summary>
-        /// Contrôle txtModifyShippingPostalCode.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtModifyShippingPostalCode;
-        
-        /// <summary>
-        /// Contrôle btnSaveAddressShipping.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveAddressShipping;
-        
-        /// <summary>
-        /// Contrôle lblCustomerInformationSaved.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerInformationSaved;
-        
-        /// <summary>
-        /// Contrôle lblCustomerInformationOrderedList.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerInformationOrderedList;
-        
-        /// <summary>
-        /// Contrôle grvOrdered.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvOrdered;
-        
-        /// <summary>
-        /// Contrôle lblCustomerInformationShippedList.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerInformationShippedList;
-        
-        /// <summary>
-        /// Contrôle grvShipped.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvShipped;
+        protected global::System.Web.UI.WebControls.Label lblVisualiserInformationClient;
     }
 }

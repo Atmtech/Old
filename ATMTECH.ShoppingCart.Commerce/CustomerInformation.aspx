@@ -4,381 +4,250 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
-        <div class="title">
-            <strong>
-                <asp:Label runat="server" ID="lblCustomerInformation" Text="Information du client"></asp:Label></strong>
+    <div class="InformationClient">
+        <div class="titreDansPage">
+            <asp:Label runat="server" ID="lblInformationSurLeCompte" Text="Information sur le compte"></asp:Label>
         </div>
-        <table width="100%">
-            <tr>
-                <td>
-                    <asp:Label runat="server" ID="lblName" Text="Nom complet:"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox runat="server" ID="txtName" Enabled="False" Width="400px"></asp:TextBox>
-                </td>
-
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label runat="server" ID="lblLogin" Text="Nom d'utilisateur:"></asp:Label>
-
-                </td>
-                <td>
-                    <asp:TextBox runat="server" ID="txtLogin"
-                        Width="400px" ValidationGroup="CreateCustomer" Enabled="False"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label runat="server" ID="lblFirstName" Text="Prénom"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox runat="server" ID="txtFirstName" ValidationGroup="CreateCustomer"
-                        Width="400px"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <<td>
-                    <asp:Label runat="server" ID="lblLastName" Text="Nom"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox runat="server" ID="txtLastName" ValidationGroup="CreateCustomer"
-                        Width="400px"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label runat="server" ID="lblEmail" Text="Courriel:"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox runat="server" ID="txtEmail" ValidationGroup="CreateCustomer"
-                        Width="400px"></asp:TextBox>
-                </td>
-            </tr>
-        </table>
         <div>
-            <asp:Button runat="server" ID="btnSave" OnClick="SaveCustomer_click" Text="Enregistrer" />
-            <asp:Button runat="server" ID="btnChangePassword" OnClick="ChangePassword_click"
-                Text="Changer mon mot de passe" />
+            <asp:Label runat="server" ID="lblPrenom" Text="Prénom" CssClass="labelLogin"></asp:Label>
+        </div>
+        <div>
+            <asp:TextBox ID="txtPrenom" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+        </div>
+        <div style="padding-top: 20px;">
+            <asp:Label runat="server" ID="lblNom" Text="Nom" CssClass="labelLogin"></asp:Label>
+        </div>
+        <div>
+            <asp:TextBox ID="txtNom" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
         </div>
 
-        <asp:Panel runat="server" ID="pnlChangePassword" Visible="False">
-            <div class="title">
-                <strong>
-                    <asp:Label runat="server" ID="lblChangementDeMotDePasse" Text="Changement de mot de passe"></asp:Label></strong>
-            </div>
-            <table>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblPassword" Text="Mot de passe:"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtPassword" ValidationGroup="CreateCustomer"
-                            Width="400px" TextMode="Password"></asp:TextBox>
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblConfirmPassword" Text="Confirmation:"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtConfirmPassword"
-                            Width="400px" ValidationGroup="CreateCustomer" TextMode="Password"></asp:TextBox>
-                    </td>
-                </tr>
-            </table>
-        </asp:Panel>
-
-
-
-        <asp:Panel runat="server" ID="pnlSuperUser" Visible="False">
-            <div class="title">
-                <strong>
-                    <asp:Label runat="server" ID="lblSuperUserTitle" Text="Vos accès spéciaux"></asp:Label></strong>
-            </div>
-            <asp:Button runat="server" ID="btnSalesByMonthReport" OnClick="btnSalesByMonthReportClick" Text="Rapport des ventes par mois" CausesValidation="False" />
-            <asp:Button runat="server" ID="btnSalesByOrderInformationReport" OnClick="btnSalesByOrderInformationReportClick" Text="Rapport des ventes par imputation" CausesValidation="False" />
-
-            <asp:Panel runat="server" ID="pnlSalesByOrderInformationReport" Visible="False">
-                <table>
-                    <tr>
-                        <td>
-                            <asp:Label runat="server" ID="lblDateStartSalesByOrderInformationReport" Text="Date début:"></asp:Label>
-                        </td>
-                        <td>
-                            <atmtech:DatePicker runat="server" ID="txtDateStartSalesByOrderInformationReport" />
-                        </td>
-
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label runat="server" ID="lblDateEndSalesByOrderInformationReport" Text="Date fin:"></asp:Label>
-                        </td>
-                        <td>
-                            <atmtech:DatePicker runat="server" ID="txtDateEndSalesByOrderInformationReport" Libelle="Date fin:" />
-                        </td>
-
-
-                    </tr>
-                </table>
-                <div style="background-color: lightgray; border: solid 1px gray; padding-top: 10px; padding-left: 5px; margin-bottom: 5px;">
-                    <asp:Button runat="server" ID="btnGenerateSalesByOrderInformationReport" OnClick="brGeneratebtnSalesByOrderInformationReportClick" Text="Générer le rapport"
-                        CausesValidation="True" CssClass="button" />
-                </div>
-            </asp:Panel>
-            <asp:Panel runat="server" ID="pnlSalesByMonthReport" Visible="False">
-                <table>
-                    <tr>
-                        <td>
-                            <asp:Label runat="server" ID="lblDateStartReport" Text="Date début:"></asp:Label>
-                        </td>
-                        <td>
-                            <atmtech:DatePicker runat="server" ID="txtDateStartReport" Libelle="Date début:" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label runat="server" ID="lblDateEndReport" Text="Date fin:"></asp:Label>
-                        </td>
-                        <td>
-                            <atmtech:DatePicker runat="server" ID="txtDateEndReport" />
-                        </td>
-
-
-                    </tr>
-                </table>
-                <div style="background-color: lightgray; border: solid 1px gray; padding-top: 10px; padding-left: 5px; margin-bottom: 5px;">
-                    <asp:Button runat="server" ID="btnGenerateSalesByMonthReport" OnClick="btnGenerateSalesByMonthReportClick" Text="Générer le rapport"
-                        CausesValidation="True" CssClass="button" />
-                </div>
-            </asp:Panel>
-        </asp:Panel>
-
-
-
-        <div class="title">
-            <strong>
-                <asp:Label runat="server" ID="lblModificationAdresse" Text="Mdoification d'adresses"></asp:Label></strong>
+        <div style="padding-top: 20px;">
+            <asp:Label runat="server" ID="lblCourrielCreer" Text="Courriel" CssClass="labelLogin"></asp:Label>
         </div>
-        <asp:Panel runat="server" Visible="True" ID="pnlChangeAddressBilling">
-            <strong>
-                <asp:Label runat="server" ID="lblBillingLabel" Text="Adresse de facturation" /></strong>
-            <table>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblModifyBillingWay" Text="Rue:"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtModifyBillingWay" ValidationGroup="ModifyBilling" Width="350px" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblModifyBillingCountry" Text="Pays"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:DropDownList runat="server" ID="ddlModifyBillingCountry" ValidationGroup="ModifyBilling" Width="350px" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblModifyBillingCity" Text="Ville"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtModifyBillingCity" ValidationGroup="ModifyBilling" Width="350px" />
-                    </td>
+        <div>
+            <asp:TextBox ID="txtCourrielCreer" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+        </div>
 
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblModifyBillingPostalCode" Text="Code postal"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtModifyBillingPostalCode" ValidationGroup="ModifyBilling" Width="350px" />
-                    </td>
-                </tr>
-            </table>
+        <div style="padding-top: 20px;">
+            <asp:Label runat="server" ID="lblMotDePasseCreer" Text="Mot de passe" CssClass="labelLogin"></asp:Label>
+        </div>
+        <div>
+            <asp:TextBox ID="txtMotDePasseCreer" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+        </div>
+        <div style="padding-top: 20px;">
+            <asp:Label runat="server" ID="lblMotDePasseCreerConfirmation" Text="Confirmation" CssClass="labelLogin"></asp:Label>
+        </div>
+        <div>
+            <asp:TextBox ID="txtMotDePasseCreerConfirmation" runat="server" CssClass="textBox" Width="400px" TextMode="Password"></asp:TextBox>
+        </div>
+
+
+        <div class="adresseLivraisonClient">
+            <div class="titreDansPage">
+                <asp:Label runat="server" ID="lblAdresseLivraisonClient" Text="Adresse de livraison"></asp:Label>
+            </div>
+
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblNoCiviqueLivraisonInformationClient" Text="Numéro civique" CssClass="labelLogin"></asp:Label>
+            </div>
             <div>
-                <asp:Button runat="server" ID="btnSaveAddressBilling" OnClick="SaveAddressBillingClick" Text="Enregistrer" ValidationGroup="ModifyBilling" />
-                <asp:Button runat="server" ID="btnCopyAddressBillingToShipping" OnClick="CopyAddressBillingToShippingClick" Text="Enregistrer" ValidationGroup="ModifyBilling" />
+                <asp:TextBox ID="txtNoCiviqueClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
             </div>
-        </asp:Panel>
-        <asp:Panel runat="server" Visible="True" ID="pnlChangeAddressShipping">
-            <strong>
-                <asp:Label runat="server" ID="lblShippingLabel" Text="Adresse d'envoi" /></strong>
 
-            <table style="width: 100%;">
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblModifyShippingWay" Text="Rue"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtModifyShippingWay" ValidationGroup="ModifyShipping" Width="350px" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblModifyShippingCountry" Text="Pays"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:DropDownList runat="server" ID="ddlModifyShippingCountry" ValidationGroup="ModifyShipping" Width="350px" />
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server" ID="lblModifyShippingCity" Text="Ville"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtModifyShippingCity" ValidationGroup="ModifyShipping" Width="350px" />
-                    </td>
-
-
-                </tr>
-                <tr>
-
-                    <td>
-                        <asp:Label runat="server" ID="lblModifyShippingPostalCode" Text="Code postal"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox runat="server" ID="txtModifyShippingPostalCode" ValidationGroup="ModifyShipping" Width="350px" />
-                    </td>
-
-
-                </tr>
-            </table>
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblRueLivraisonInformationClient" Text="Rue" CssClass="labelLogin"></asp:Label>
+            </div>
             <div>
-                <asp:Button runat="server" ID="btnSaveAddressShipping" OnClick="SaveAddressShippingClick" Text="Enregistrer" ValidationGroup="ModifyShipping" />
+                <asp:TextBox ID="txtRueClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
             </div>
 
-        </asp:Panel>
-
-
-
-        <asp:Label runat="server" ID="lblCustomerInformationSaved" Text="Enregistrement confirmé"
-            Visible="False"></asp:Label>
-
-
-        <div style="padding-top: 15px;">
-            <div class="title">
-                <strong>
-                    <asp:Label runat="server" ID="lblCustomerInformationOrderedList" Text="Historique des commandes passées:"></asp:Label></strong>
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblCodePostalLivraisonInformationClient" Text="Code postal" CssClass="labelLogin"></asp:Label>
             </div>
-            <asp:GridView runat="server" ID="grvOrdered" AutoGenerateColumns="false" CssClass="orderGrid"
-                OnRowCommand="OnRowCommandOrdered" EmptyDataText="Aucune commande passée" ShowHeader="True">
-                <HeaderStyle CssClass="orderGridHeader" HorizontalAlign="Left" />
-                <FooterStyle CssClass="orderGridFooter" />
-                <Columns>
-                    <asp:TemplateField HeaderText="No.">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblId" Text='<%#Eval("Id")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Date de commande">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblOrderedDate" Text='<%#Eval("DateModified")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Sous-total">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblSubTotal" Text='<%#Eval("SubTotal","{0:c}")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="TVQ">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblRegionTax" Text='<%#Eval("RegionalTax","{0:c}")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="TPS">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblCountryTax" Text='<%#Eval("CountryTax","{0:c}")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Livraison">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblShippingTotal" Text='<%#Eval("ShippingTotal","{0:c}")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Grand total">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblGrandTotal" Text='<%#Eval("GrandTotal","{0:c}")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:Button runat="server" ID="lnkLookupOrder" Text="+" CommandArgument='<%#Eval("Id")%>' CommandName="lookup" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
+            <div>
+                <asp:TextBox ID="txtCodePostalLivraisonInformationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+            </div>
+
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblPaysLivraisonInformationClient" Text="Pays" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div>
+                <asp:DropDownList ID="ddlPaysClient" runat="server" CssClass="dropDownList" Width="400px"></asp:DropDownList>
+            </div>
         </div>
-        <div style="padding-top: 15px;">
-            <div class="title">
-                <strong>
-                    <asp:Label runat="server" ID="lblCustomerInformationShippedList" Text="Historique des commandes envoyées:"></asp:Label>
-                </strong>
+        <div class="adresseFacturationClient">
+            <div class="titreDansPage">
+                <asp:Label runat="server" ID="lblAdresseFacturationClient" Text="Adresse de facturation"></asp:Label>
+                
             </div>
-            <asp:GridView runat="server" ID="grvShipped" AutoGenerateColumns="false"
-                EmptyDataText="Aucune commande en envoi" ShowHeader="True" OnRowCommand="OnRowCommandOrdered">
-                <HeaderStyle CssClass="orderGridHeader" />
-                <FooterStyle CssClass="orderGridFooter" />
+            <div>
+                <asp:CheckBox runat="server" ID="chkUtiliserMemeAdresseQueLivraison"/>
+                <asp:Label runat="server" ID="UtiliserMemeAdresseQueLivraison" Text="Utiliser la même adresse que celle de livraison" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblNoCiviqueFacturationInformationClient" Text="Numéro civique" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div>
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+            </div>
 
-                <Columns>
-                    <asp:TemplateField HeaderText="No.">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblId" Text='<%#Eval("Id")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Date de commande">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblOrderedDate" Text='<%#Eval("DateModified")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Date d'envoi">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblShippedDate" Text='<%#Eval("ShippingDate")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Sous-total">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblSubTotal" Text='<%#Eval("SubTotal","{0:c}")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="TVQ">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblRegionTax" Text='<%#Eval("RegionalTax","{0:c}")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="TPS">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblCountryTax" Text='<%#Eval("CountryTax","{0:c}")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Livraison">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblShippingTotal" Text='<%#Eval("ShippingTotal","{0:c}")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Grand total">
-                        <ItemTemplate>
-                            <asp:Label runat="server" ID="lblGrandTotal" Text='<%#Eval("GrandTotal","{0:c}")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Numéro de suivi">
-                        <ItemTemplate>
-                            <asp:Button runat="server" ID="lblTrackingNumber" Text='<%#Eval("TrackingNumber")%>' CssClass="buttonTrackingNumber" CommandArgument='<%#Eval("Id")%>' CommandName="Tracking"></asp:Button>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:Button runat="server" ID="lnkLookupOrder" Text="+" CommandArgument='<%#Eval("Id")%>' CommandName="lookup" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblRueFacturationInformationClient" Text="Rue" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div>
+                <asp:TextBox ID="TextBox2" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+            </div>
+
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblCodePostalFacturationInformationClient" Text="Code postal" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div>
+                <asp:TextBox ID="TextBox3" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+            </div>
+
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblPaysFacturationInformationClient" Text="Pays" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div>
+                <asp:DropDownList ID="ddlPaysInformationClient" runat="server" CssClass="dropDownList" Width="400px"></asp:DropDownList>
+            </div>
+        </div>
+
+        <div style="padding-top: 20px;">
+            <asp:Button runat="server" ID="btnEnregistrerInformationClient" Text="Enregistrer" CssClass="boutonActionRond" Width="400px"></asp:Button>
         </div>
     </div>
+    <div class="HistoriqueCommandeClient">
+
+        <div class="titreDansPage">
+            <asp:Label runat="server" ID="lblHistoriqueDeVosCommandesInformationClient" Text="Historique de vos commandes"></asp:Label>
+        </div>
+
+        <div class="Table">
+            <div class="Heading">
+                <div class="Cell">
+                    <asp:Label runat="server" ID="lblNoCommandeInformationClient" Text="No."></asp:Label>
+                </div>
+                <div class="Cell">
+                    <asp:Label runat="server" ID="lblDateCommandeInformationClient" Text="Commandé le"></asp:Label>
+                </div>
+                <div class="Cell">
+                    <asp:Label runat="server" ID="lblEnvoyeLeInformationClient" Text="Envoyé le"></asp:Label>
+                </div>
+                <div class="Cell">
+                    <asp:Label runat="server" ID="lblGrandTotalInformationClient" Text="Grand total"></asp:Label>
+                </div>
+                <div class="Cell">
+                    <asp:Label runat="server" ID="lblNumeroExpeditionInformationClient" Text="Numéro d'expédition"></asp:Label>
+                </div>
+                <div class="Cell">
+                    <asp:Label runat="server" ID="lblVisualiserInformationClient" Text="Visualiser"></asp:Label>
+                </div>
+            </div>
+            <div class="Row">
+                <div class="Cell">
+                    <p>1</p>
+                </div>
+                <div class="Cell">
+                    <p>2015-01-01</p>
+                </div>
+                <div class="Cell">
+                    <p>2015-02-01</p>
+                </div>
+                <div class="Cell">
+                    <p>$ 100.19</p>
+                </div>
+                <div class="Cell">
+                    <p># 3462525522</p>
+                </div>
+                <div class="Cell">
+                    <img src="Images/WebSite/Rechercher.png" />
+                </div>
+            </div>
+             <div class="Row">
+                <div class="Cell">
+                    <p>1</p>
+                </div>
+                <div class="Cell">
+                    <p>2015-01-01</p>
+                </div>
+                <div class="Cell">
+                    <p>2015-02-01</p>
+                </div>
+                <div class="Cell">
+                    <p>$ 100.19</p>
+                </div>
+                <div class="Cell">
+                    <p># 3462525522</p>
+                </div>
+                <div class="Cell">
+                    <img src="Images/WebSite/Rechercher.png" />
+                </div>
+            </div>
+             <div class="Row">
+                <div class="Cell">
+                    <p>1</p>
+                </div>
+                <div class="Cell">
+                    <p>2015-01-01</p>
+                </div>
+                <div class="Cell">
+                    <p>2015-02-01</p>
+                </div>
+                <div class="Cell">
+                    <p>$ 100.19</p>
+                </div>
+                <div class="Cell">
+                    <p># 3462525522</p>
+                </div>
+                <div class="Cell">
+                    <img src="Images/WebSite/Rechercher.png" />
+                </div>
+            </div>
+             <div class="Row">
+                <div class="Cell">
+                    <p>1</p>
+                </div>
+                <div class="Cell">
+                    <p>2015-01-01</p>
+                </div>
+                <div class="Cell">
+                    <p>2015-02-01</p>
+                </div>
+                <div class="Cell">
+                    <p>$ 100.19</p>
+                </div>
+                <div class="Cell">
+                    <p># 3462525522</p>
+                </div>
+                <div class="Cell">
+                    <img src="Images/WebSite/Rechercher.png" />
+                </div>
+            </div>
+             <div class="Row">
+                <div class="Cell">
+                    <p>1</p>
+                </div>
+                <div class="Cell">
+                    <p>2015-01-01</p>
+                </div>
+                <div class="Cell">
+                    <p>2015-02-01</p>
+                </div>
+                <div class="Cell">
+                    <p>$ 100.19</p>
+                </div>
+                <div class="Cell">
+                    <p># 3462525522</p>
+                </div>
+                <div class="Cell">
+                    <img src="Images/WebSite/Rechercher.png" />
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div style="clear: both;"></div>
 </asp:Content>

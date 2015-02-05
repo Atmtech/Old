@@ -40,6 +40,15 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// Contrôle btnLocaliser.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLocaliser;
+        
+        /// <summary>
         /// Contrôle imgRecherche.
         /// </summary>
         /// <remarks>
@@ -67,13 +76,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Button btnConnecter;
         
         /// <summary>
-        /// Contrôle btnCategorie.
+        /// Contrôle btnCategorieProduit.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCategorie;
+        protected global::System.Web.UI.WebControls.Button btnCategorieProduit;
         
         /// <summary>
         /// Contrôle btnPromotion.
@@ -139,6 +148,15 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
         
         /// <summary>
+        /// Contrôle lblNavigation.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNavigation;
+        
+        /// <summary>
         /// Contrôle btnCondition.
         /// </summary>
         /// <remarks>
@@ -166,6 +184,15 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Button btnLivraison;
         
         /// <summary>
+        /// Contrôle lblListeDiffusion.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblListeDiffusion;
+        
+        /// <summary>
         /// Contrôle txtListeDiffusion.
         /// </summary>
         /// <remarks>
@@ -182,5 +209,14 @@ namespace ATMTECH.ShoppingCart.Commerce {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRejoindreListeDiffusion;
+        
+        /// <summary>
+        /// Contrôle lblSuivezNous.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSuivezNous;
     }
 }

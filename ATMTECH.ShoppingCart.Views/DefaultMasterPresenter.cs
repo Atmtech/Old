@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ATMTECH.Common.Constant;
+using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
@@ -136,5 +137,12 @@ namespace ATMTECH.ShoppingCart.Views
 
             NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
+
+        public void SaveLocalization(IList<Localization> localizations)
+        {
+            LocalizationService.SaveLocalization(localizations);
+        }
+
+       
     }
 }

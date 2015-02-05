@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views;
@@ -20,161 +23,93 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
             Presenter.OnViewLoaded();
         }
+      
 
-        public void RefreshTotal()
+        private void GetControlList<T>(ControlCollection controlCollection, List<T> resultCollection) where T : Control
         {
-            Presenter.OnViewLoaded();
+            foreach (Control control in controlCollection)
+            {
+                if (control is T)
+                    resultCollection.Add((T)control);
+
+                if (control.HasControls())
+                    GetControlList(control.Controls, resultCollection);
+            }
         }
 
-        public bool ThrowExceptionIfNoPresenterBound { get; set; }
+        protected void btnLocaliserClick(object sender, EventArgs e)
+        {
+            IList<Localization> localizations = new List<Localization>();
+            List<Control> allControls = new List<Control>();
+            GetControlList(Page.Controls, allControls);
+            foreach (Control control in allControls)
+            {
+                Localization localization = new Localization();
+                if (control is GridView)
+                {
+                    for (int i = 0; i < (control as GridView).Columns.Count - 1; i++)
+                    {
+                        localization.ObjectId = (control as GridView).ID + "[" + i + "]";
+                        localization.French = (control as GridView).ID + "[" + i + "]";
+                        localization.English = (control as GridView).ID + "[" + i + "]";
+                        localizations.Add(localization);
+                    }
+                }
+                else
+                {
+                    if (control is Label)
+                    {
+                        localization.ObjectId = control.ID;
+                        localization.French = (control as Label).Text.Replace(" (*Loc)", "");
+                        localization.English = (control as Label).Text.Replace(" (*Loc)", "");
+                        localizations.Add(localization);
+                    }
+                    if (control is Button)
+                    {
+                        localization.ObjectId = control.ID;
+                        localization.French = (control as Button).Text.Replace(" (*Loc)", "");
+                        localization.English = (control as Button).Text.Replace(" (*Loc)", "");
+                        localizations.Add(localization);
+                    }
 
+                    if (control is TextBox)
+                    {
+                        if (!string.IsNullOrEmpty((control as TextBox).Attributes["placeholder"]))
+                        {
+                            localization.ObjectId = control.ID;
+                            localization.French = (control as TextBox).Attributes["placeholder"];
+                            localization.English = (control as TextBox).Attributes["placeholder"];
+                            localizations.Add(localization);
+                        }
+
+                        if (!string.IsNullOrEmpty((control as TextBox).ToolTip))
+                        {
+                            localization.ObjectId = control.ID;
+                            localization.French = (control as TextBox).ToolTip;
+                            localization.English = (control as TextBox).ToolTip;
+                            localizations.Add(localization);
+                        }
+                    }
+                }
+            }
+            Presenter.SaveLocalization(localizations);
+            Presenter.NavigationService.Refresh();
+        }
+
+        public bool ThrowExceptionIfNoPresenterBound { get; private set; }
         public void ShowMessage(Message message)
         {
-
-        }
-        public int NumberOfItemInBasket
-        {
-            set
-            {
-               // if (value > 0)
-                //{
-                //    lblNumberArticle.Visible = true;
-                //    lblArticle.Visible = true;
-                //    lblTotalPrice.Visible = true;
-                //}
-                //else
-                //{
-                //    lblNumberArticle.Visible = false;
-                //    lblArticle.Visible = false;
-                //    lblTotalPrice.Visible = false;
-                //}
-
-                //lblNumberArticle.Text = value.ToString();
-            }
+            throw new NotImplementedException();
         }
 
-        public string ImageCorp
-        {
-            set
-            {
-                //if (System.IO.File.Exists(Server.MapPath("Images/Enterprise/" + value)))
-                //{
-                //    imageCorporative.ImageUrl = "Images/Enterprise/" + value;    
-                //}
-                //else
-                //{
-                //    imageCorporative.Visible = false;
-                //}
-            }
-        }
-
-        public int ProductCount
-        {
-            set
-            {
-                //lblProductCount.Text = value.ToString();
-            }
-        }
-
-        public string Welcome
-        {
-            set { /*lblWelcomeMessageHome.Text = value; */}
-        }
-
-        public decimal TotalPrice
-        {
-            set
-            {
-                //lblTotalPrice.Text = String.Format("{0:C}", value);
-            }
-        }
-
-        public string Language
-        {
-            set
-            {
-                //lnkLanguage.Text = value;
-            }
-        }
-
-        public Enterprise Enterprise
-        {
-            set
-            {
-                //lblEnterprise.Text = value.Name;
-                //if (value.Id == 1)
-                //{
-                //    pnlMenuBottom.Visible = false;
-                //}
-            }
-        }
-
-        public string Name
-        {
-            set
-            {
-                //btnAccount.Text = value;
-            }
-        }
-        public bool IsLogged
-        {
-            set
-            {
-                //if (value)
-                //{
-                //    btnSignIn.Visible = false;
-                //    btnSignOut.Visible = true;
-                //    pnlAccount.Visible = true;
-                //}
-                //else
-                //{
-                //    btnSignIn.Visible = true;
-                //    btnSignOut.Visible = false;
-                //    pnlAccount.Visible = false;
-                //}
-            }
-        }
-        protected void RedirectBasket(object sender, EventArgs e)
-        {
-            //Presenter.Redirect(btnSignOut.Visible ? Pages.BASKET : Pages.LOGIN);
-        }
-
-        protected void RedirectProductCatalog(object sender, EventArgs e)
-        {
-            Presenter.Redirect(Pages.PRODUCT_CATALOG);
-        }
-        protected void RedirectCustomerInformation(object sender, EventArgs e)
-        {
-            Presenter.Redirect(Pages.CUSTOMER_INFORMATION);
-        }
-        protected void RedirectProductSearch(object sender, EventArgs e)
-        {
-            //if (!String.IsNullOrEmpty(txtSearch.Text))
-            //{
-            //    IList<QueryString> queryStrings = new List<QueryString>();
-            //    queryStrings.Add(new QueryString("Search", txtSearch.Text));
-            //    Presenter.Redirect(Pages.PRODUCT_SEARCH, queryStrings);
-            //}
-        }
-
-        protected void CloseSessionClick(object sender, EventArgs e)
-        {
-            Presenter.CloseSession();
-        }
-
-        protected void RedirectLanguage(object sender, EventArgs e)
-        {
-            Presenter.SetLanguage();
-        }
-
-        protected void RedirectHome(object sender, EventArgs e)
-        {
-            Presenter.Redirect(Pages.DEFAULT);
-        }
-
-        protected void OpenSession(object sender, EventArgs e)
-        {
-            Presenter.Redirect(Pages.LOGIN);
-        }
+        public bool IsLogged { set; private get; }
+        public string Name { set; private get; }
+        public int NumberOfItemInBasket { set; private get; }
+        public string ImageCorp { set; private get; }
+        public int ProductCount { set; private get; }
+        public string Welcome { set; private get; }
+        public decimal TotalPrice { set; private get; }
+        public string Language { set; private get; }
+        public Enterprise Enterprise { set; private get; }
     }
 }

@@ -103,7 +103,7 @@
     <Content Include="App_Themes\Default\jquery-ui.custom.css" />
     <Content Include="Basket.aspx" />
     <Content Include="ConfirmCreate.aspx" />
-    <Content Include="CreateCustomer.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="Css\Site.css" />
     <Content Include="CustomerInformation.aspx" />
     <Content Include="Default.aspx" />
@@ -115,6 +115,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\Enterprise\BoutiqueCorporative.jpg" />
     <Content Include="Images\Product\NoImageForThisProduct.jpg" />
+    <Content Include="Images\WebSite\dropdown.png" />
     <Content Include="Images\WebSite\error-icon.png" />
     <Content Include="Images\WebSite\paypal-transparent-logo.png" />
     <Content Include="Images\WebSite\Rechercher.png" />
@@ -188,8 +189,6 @@
     <Content Include="Login.aspx" />
     <Content Include="ProductCatalog.aspx" />
     <Content Include="ProductSearch.aspx" />
-    <Content Include="Test.aspx" />
-    <Content Include="ThumbNail.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -216,12 +215,12 @@
     <Compile Include="ConfirmCreate.aspx.designer.cs">
       <DependentUpon>ConfirmCreate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CreateCustomer.aspx.cs">
-      <DependentUpon>CreateCustomer.aspx</DependentUpon>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateCustomer.aspx.designer.cs">
-      <DependentUpon>CreateCustomer.aspx</DependentUpon>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerInformation.aspx.cs">
       <DependentUpon>CustomerInformation.aspx</DependentUpon>
@@ -286,20 +285,6 @@
       <DependentUpon>ProductSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ThumbNail.aspx.cs">
-      <DependentUpon>ThumbNail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ThumbNail.aspx.designer.cs">
-      <DependentUpon>ThumbNail.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Default\Default.skin" />

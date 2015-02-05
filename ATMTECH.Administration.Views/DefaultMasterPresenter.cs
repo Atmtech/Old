@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using ATMTECH.Administration.DAO.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
-using ATMTECH.DAO;
+using ATMTECH.Common.Utils;
 using ATMTECH.Entities;
 using ATMTECH.Services;
 using ATMTECH.Services.Interface;
-using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Reports.DTO;
 
@@ -13,13 +15,16 @@ namespace ATMTECH.Administration.Views
 {
     public class DefaultMasterPresenter : BaseAdministrationPresenter<IDefaultMasterPresenter>
     {
-        
+
         public IReportService ReportService { get; set; }
         public ICustomerService CustomerService { get; set; }
         public IOrderService OrderService { get; set; }
         public IEnterpriseService EnterpriseService { get; set; }
         public IProductService ProductService { get; set; }
         public IStockService StockService { get; set; }
+
+        public IDAOEntityInformation DAOEntityInformation { get; set; }
+        public IDAOEntityProperty DAOEntityProperty { get; set; }
 
         public DefaultMasterPresenter(IDefaultMasterPresenter view)
             : base(view)
@@ -57,33 +62,6 @@ namespace ATMTECH.Administration.Views
                 NavigationService.Redirect(homePage);
             }
         }
-        public string InitialiserColonneRecherche()
-        {
-            string rtn = string.Empty;
-            //rtn += Save<Country>();
-            rtn += Save<City>();
-            rtn += Save<User>();
-            rtn += Save<Customer>();
-            //rtn += Save<CustomerType>();
-            rtn += Save<Enterprise>();
-            rtn += Save<EnterpriseAddress>();
-            //rtn += Save<EnterpriseEmail>();
-            //rtn += Save<EnumOrderInformation>();
-            //rtn += Save<GroupProduct>();
-            //rtn += Save<Order>();
-            //rtn += Save<OrderLine>();
-            //rtn += Save<Product>();
-            //rtn += Save<ProductCategory>();
-            //rtn += Save<ProductFile>();
-            //rtn += Save<File>();
-            //rtn += Save<ProductPriceHistory>();
-            //rtn += Save<Stock>();
-            //rtn += Save<StockLink>();
-            //rtn += Save<StockTemplate>();
-            //rtn += Save<Supplier>();
-            //rtn += Save<Taxes>();
-            return rtn;
-        }
         public void GenerateStockControlReport()
         {
 
@@ -107,51 +85,69 @@ namespace ATMTECH.Administration.Views
             AuthenticationService.SignOut();
             NavigationService.Redirect(homePage);
         }
-        public void Export()
+
+
+        private void SetEntityInformation(string nameSpace)
         {
-
-        }
-        private string Save<TModel>()
-        {
-
-
-            switch (typeof(TModel).FullName)
+            ManageClass manageClass = new ManageClass();
+            List<string> allClassesFromNameSpace = manageClass.GetAllClassesFromNameSpace(nameSpace);
+            IList<EntityInformation> allEntityInformation = DAOEntityInformation.GetAllEntityInformation();
+            foreach (string classe in allClassesFromNameSpace)
             {
-                case "ATMTECH.ShoppingCart.Entities.Enterprise":
-                    foreach (Enterprise enterprise in EnterpriseService.GetAll())
+                if (allEntityInformation.FirstOrDefault(x => x.Entity == classe) == null)
+                {
+                    EntityInformation entityInformation = new EntityInformation
                     {
-                        EnterpriseService.Save(EnterpriseService.GetEnterprise(enterprise.Id));
-                    }
-                    break;
-                case "ATMTECH.ShoppingCart.Entities.Order":
-                    foreach (Order order in OrderService.GetAll())
+                        IsActive = true,
+                        Description = classe,
+                        PageTitle = classe,
+                        PageAspx = classe,
+                        NameSpace = nameSpace + "." + classe,
+                        Entity = classe
+
+                    };
+                    DAOEntityInformation.SaveEntity(entityInformation);
+                }
+            }
+        }
+
+        private void SetEntityProperty(string nameSpace)
+        {
+            ManageClass manageClass = new ManageClass();
+            IList<EntityInformation> allEntitySaved = DAOEntityInformation.GetAllEntityInformation();
+            IList<EntityProperty> gEtAllEntityProperty = DAOEntityProperty.GEtAllEntityProperty();
+            foreach (EntityInformation entityInformation in allEntitySaved)
+            {
+                PropertyInfo[] propertyEntities = manageClass.GetPropertiesFromClass(nameSpace, entityInformation.Entity);
+                if (propertyEntities != null)
+                {
+                    foreach (PropertyInfo propertyEntity in propertyEntities)
                     {
-                        OrderService.Save(OrderService.GetOrder(order.Id));
-                    }
-                    break;
-                case "ATMTECH.ShoppingCart.Entities.Stock":
-                    foreach (Stock stock in StockService.GetAllStock())
-                    {
-                        if (ProductService.GetProductSimple(stock.Product.Id) != null)
+                        int id = entityInformation.Id;
+                        if (gEtAllEntityProperty.FirstOrDefault(x => x.EntityInformation.Id == id && x.PropertyName == propertyEntity.Name) == null)
                         {
-                            StockService.Save(StockService.GetStock(stock.Id));
+                            EntityInformation entitySave = new EntityInformation { Id = id };
+                            EntityProperty entityProperty = new EntityProperty
+                            {
+                                IsActive = true,
+                                EntityInformation = entitySave,
+                                Label = propertyEntity.Name,
+                                PropertyName = propertyEntity.Name
+                            };
+                            DAOEntityProperty.SaveEntityProperty(entityProperty);
                         }
                     }
-                    break;
-                default:
-                    BaseDao<TModel, int> daoModel = new BaseDao<TModel, int>();
-                    IList<TModel> model = daoModel.GetAll();
-                    foreach (TModel model1 in model)
-                    {
-                        daoModel.Save(model1);
-                    }
-                    break;
+                }
             }
-
-
-
-            return typeof(TModel).FullName + " Exécuté !!!<br>";
         }
+        public void SetAllEntityInformation()
+        {
+            SetEntityInformation("ATMTECH.Entities");
+            SetEntityInformation("ATMTECH.ShoppingCart.Entities");
+            SetEntityProperty("ATMTECH.Entities");
+            //SetEntityProperty("ATMTECH.ShoppingCart.Entities");
+        }
+
     }
 }
 

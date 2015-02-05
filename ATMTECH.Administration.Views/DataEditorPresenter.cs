@@ -69,6 +69,9 @@ namespace ATMTECH.Administration.Views
 
         private void SetEntityInformationAndProperty()
         {
+
+
+
             View.EntityInformations = DAOEntityInformation.GetAllEntityInformationSimple();
             View.EntityProperties = DAOEntityProperty.GEtAllEntityProperty();
         }

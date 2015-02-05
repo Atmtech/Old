@@ -17,6 +17,7 @@ namespace ATMTECH.Web.Services
     {
         public IDAOLocalization DAOLocalization { get; set; }
         public IDAOParameter DAOParameter { get; set; }
+        public INavigationService NavigationService { get; set; }
 
         public const string ENABLED_LOCALIZATION = "EnabledLocalization";
 
@@ -37,6 +38,20 @@ namespace ATMTECH.Web.Services
             {
                 ContextSessionManager.Session["currentLanguage"] = value;
             }
+        }
+
+        public void SaveLocalization(IList<Localization> localizations)
+        {
+            IList<Localization> list = DAOLocalization.GetAll();
+            foreach (Localization localization in localizations)
+            {
+                if (list.Count(x => x.ObjectId == localization.ObjectId) == 0)
+                {
+                    DAOLocalization.Save(localization);
+                }
+            }
+
+            NavigationService.Refresh();
         }
 
         public string Localize(string controlId, string currentLanguage)
@@ -86,10 +101,11 @@ namespace ATMTECH.Web.Services
                         {
                             (control as Label).Text = localizeString;
                         }
-                       
+
                         if (control is TextBox)
                         {
                             (control as TextBox).ToolTip = localizeString;
+                            (control as TextBox).Attributes["placeholder"] = localizeString;
                         }
                         if (control is Button)
                         {
@@ -109,7 +125,7 @@ namespace ATMTECH.Web.Services
                         {
                             (control as Label).Text += " (*Loc)";
                         }
-                       
+
                         if (control is Button)
                         {
                             (control as Button).Text += " (*Loc)";
@@ -135,7 +151,7 @@ namespace ATMTECH.Web.Services
             {
                 return true;
             }
-            
+
             if (control is TextBox)
             {
                 return true;

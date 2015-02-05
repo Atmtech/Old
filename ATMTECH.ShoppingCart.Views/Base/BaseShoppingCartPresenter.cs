@@ -17,7 +17,5 @@ namespace ATMTECH.ShoppingCart.Views.Base
 
         }
 
-
-
     }
 }

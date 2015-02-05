@@ -39,6 +39,35 @@
     font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
 }
 
+.textBoxMultiligne
+{
+    border: solid 1px rgb(75, 75, 75);
+    color: #ffffff;
+    text-indent: 5px;
+    background: transparent;
+    color: #ffffff;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+}
+
+
+.dropDownList
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    
+    border: solid 1px rgb(75, 75, 75);
+    color: #ffffff;
+    text-indent: 5px;
+    background: transparent;
+    color: #ffffff;
+    height: 25px;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+    overflow: hidden;
+    background: url(/Images/WebSite/dropdown.png) no-repeat right;
+}
+
+
 .boutonLien
 {
     border: none;
@@ -92,10 +121,10 @@
     font-size: 12px;
 }
 
-.boutonAction:hover
-{
-    background-color: rgb(129, 129, 129);
-}
+    .boutonAction:hover
+    {
+        background-color: rgb(129, 129, 129);
+    }
 
 .boutonActionRond
 {
@@ -109,6 +138,11 @@
     font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
     cursor: pointer;
 }
+
+    .boutonActionRond:hover
+    {
+        background-color: rgb(129, 129, 129);
+    }
 
 .boutonAjouterPanier:hover
 {
@@ -126,14 +160,12 @@
 
 .recherche
 {
-   
     float: left;
     width: 20%;
 }
 
 .logo
 {
-   
     float: left;
     width: 60%;
     text-align: center;
@@ -141,7 +173,6 @@
 
 .lienAuthentification
 {
-   
     float: left;
     width: 20%;
 }
@@ -284,18 +315,51 @@
     height: 600px;
 }
 
-.loginConnecter {
+.loginConnecter
+{
     font-weight: bold;
     padding-top: 20px;
     float: left;
-    text-transform: uppercase;  
+    text-transform: uppercase;
 }
-.labelLogin {
+
+.labelLogin
+{
     font-size: 12px;
     text-transform: none;
 }
 
+.loginCreerLogin
+{
+    padding-left: 200px;
+    font-weight: bold;
+    padding-top: 20px;
+    float: left;
+    text-transform: uppercase;
+}
 
+.InformationClient
+{
+    font-weight: bold;
+    padding-top: 20px;
+    float: left;
+    text-transform: uppercase;
+    border-right: solid 1px gray;
+    padding-right: 20px;
+}
+
+.confirmationCreationCompte
+{
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.HistoriqueCommandeClient
+{
+    padding-top: 20px;
+    float: left;
+    padding-left: 20px;
+}
 
 .errorMessage
 {
@@ -305,6 +369,30 @@
     color: red;
     width: 950px;
     margin-bottom: 10px;
+}
+
+.adresseLivraisonClient
+{
+    padding-top: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.adresseFacturationClient
+{
+    padding-top: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.titreDansPage
+{
+    text-transform: uppercase;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(236, 191, 140);
+    padding-bottom: 10px;
+    
 }
 
 .successMessage
@@ -337,4 +425,35 @@
 .orderGrid
 {
     font-size: 10px;
+}
+
+
+
+.Table
+{
+    display: table;
+}
+
+.Heading
+{
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(52, 52, 52);
+}
+
+.Row
+{
+    display: table-row;
+}
+
+.Cell
+{
+    text-align: center;
+    font-weight: normal;
+    display: table-cell;
+    border: solid gray;
+    border-width: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
 }

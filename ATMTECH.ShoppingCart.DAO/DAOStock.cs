@@ -14,7 +14,7 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             return
                 GetBySql(
-                    "SELECT STOCK.Id as Id, STOCK.[Description], STOCK.[IsActive], STOCK.[DateCreated], STOCK.[DateModified],STOCK.[Language],STOCK.[OrderId],STOCK.[Search],STOCK.[ComboboxDescription],[Product],[InitialState],[MinimumAccept],[IsWarningOnLow],[FeatureFrench],[FeatureEnglish],[AdjustPrice],[IsWithoutStock] FROM STOCK INNER JOIN PRODUCT ON STOCK.Product = Product.Id and Product.Enterprise = " + idEnterprise + "  INNER JOIN ENTERPRISE ON Product.[Enterprise] = ENTERPRISE.ID");
+                    "SELECT STOCK.Id as Id, STOCK.[Description], STOCK.[IsActive], STOCK.[DateCreated], STOCK.[DateModified],STOCK.[Language],STOCK.[OrderId],STOCK.[Search],STOCK.[ComboboxDescription],[Product],[InitialState],[MinimumAccept],[IsWarningOnLow],[FeatureFrench],[FeatureEnglish],[AdjustPrice],[IsWithoutStock], STOCK.[UserLoginModified] FROM STOCK INNER JOIN PRODUCT ON STOCK.Product = Product.Id and Product.Enterprise = " + idEnterprise + "  INNER JOIN ENTERPRISE ON Product.[Enterprise] = ENTERPRISE.ID");
         }
 
         
