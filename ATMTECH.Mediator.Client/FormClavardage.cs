@@ -161,7 +161,7 @@ namespace ATMTECH.Mediator.Client
                         e.ToolTipText = GestionPresentation.ObtenirDateClavardage(noLigneToolTip).ToString();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

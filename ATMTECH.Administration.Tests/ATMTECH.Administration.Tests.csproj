@@ -33,12 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="WebFormsMvp, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -52,37 +50,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ATMTECH.Administration.Services\ATMTECH.Administration.Services.csproj">
-      <Project>{E65AA330-7391-45DF-9EA4-DE0AC9599F6D}</Project>
-      <Name>ATMTECH.Administration.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Administration.Views\ATMTECH.Administration.Views.csproj">
-      <Project>{FE405DF0-462B-4F5A-90BE-3EB5C5749E0B}</Project>
-      <Name>ATMTECH.Administration.Views</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
-      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
-      <Name>ATMTECH.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
-      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
-      <Name>ATMTECH.DAO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Test\ATMTECH.Test.csproj">
-      <Project>{EA2A92A8-C48A-4979-BF6A-6B1AD86E23FD}</Project>
-      <Name>ATMTECH.Test</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
-      <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
-      <Name>ATMTECH.Views</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
-      <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
-      <Name>ATMTECH.Web.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

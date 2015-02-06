@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace ATMTECH.ShoppingCart.Entities
+﻿namespace ATMTECH.ShoppingCart.Entities
 {
     public partial class Stock
     {

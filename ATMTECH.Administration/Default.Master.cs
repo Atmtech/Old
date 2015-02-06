@@ -158,7 +158,7 @@ namespace ATMTECH.Administration
                         importProduits.Add(importProduit);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                 }

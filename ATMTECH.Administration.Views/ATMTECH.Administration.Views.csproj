@@ -31,18 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ploeh.AutoFixture, Version=3.16.4.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Library\Ploeh.AutoFixture.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WebFormsMvp">
@@ -119,10 +110,6 @@
       <Project>{D226BF01-2BD8-4206-A576-F9F929518A01}</Project>
       <Name>ATMTECH.ShoppingCart.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Test\ATMTECH.Test.csproj">
-      <Project>{EA2A92A8-C48A-4979-BF6A-6B1AD86E23FD}</Project>
-      <Name>ATMTECH.Test</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
       <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
       <Name>ATMTECH.Views</Name>
@@ -130,10 +117,6 @@
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
       <Name>ATMTECH.Web.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Web\ATMTECH.Web.csproj">
-      <Project>{F4ED3261-CB00-4C89-B481-56806262BFCF}</Project>
-      <Name>ATMTECH.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
