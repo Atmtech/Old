@@ -157,7 +157,7 @@ namespace ATMTECH.Mediator.Client
             try
             {
                 if (noLigneToolTip >= 0)
-                    if (fastColoredTextBoxClavardage[e.Place].style.ToString() == "Style0")
+                    //if (fastColoredTextBoxClavardage[e.Place].style.ToString() == "Style0")
                         e.ToolTipText = GestionPresentation.ObtenirDateClavardage(noLigneToolTip).ToString();
 
             }
