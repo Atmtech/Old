@@ -213,11 +213,14 @@ namespace ATMTECH.DAO
         private void SetLogin(TModel model)
         {
             string login = "Inconnu";
-            if (HttpContext.Current.Session["Internal_LoggedUser"] != null)
+            if (HttpContext.Current != null)
             {
-                login = ((User)HttpContext.Current.Session["Internal_LoggedUser"]).Login;
+                if (HttpContext.Current.Session["Internal_LoggedUser"] != null)
+                {
+                    login = ((User)HttpContext.Current.Session["Internal_LoggedUser"]).Login;
+                }
+                Model.SetValueProperty("UserLoginModified", login, model);
             }
-            Model.SetValueProperty("UserLoginModified", login, model);
         }
         private bool ExclusionSearch(PropertyInfo propertyInfo)
         {

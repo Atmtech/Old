@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.OleDb;
 using ATMTECH.Administration.Views;
 using ATMTECH.Administration.Views.Interface;
 
@@ -10,15 +12,13 @@ namespace ATMTECH.Administration
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Trace.Write("Avant PostBack");
             if (!IsPostBack)
             {
                 Presenter.OnViewInitialized();
-                Trace.Write("Apres PostBack");
             }
-            Trace.Write("Avant Loaded");
             Presenter.OnViewLoaded();
-            Trace.Write("Apres Loaded");
         }
+
+   
     }
 }

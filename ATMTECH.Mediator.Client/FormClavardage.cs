@@ -5,6 +5,8 @@ using System.Linq;
 using System.Windows.Forms;
 using ATMTECH.Mediator.Entities;
 using ATMTECH.Mediator.Services;
+using FastColoredTextBoxNS;
+using Char = FastColoredTextBoxNS.Char;
 
 namespace ATMTECH.Mediator.Client
 {
@@ -152,9 +154,21 @@ namespace ATMTECH.Mediator.Client
         {
             int noLigneToolTip = fastColoredTextBoxClavardage.LinesCount - e.Place.iLine - 2;
 
-            if (noLigneToolTip >= 0)
-                if (fastColoredTextBoxClavardage[e.Place].style.ToString() == "Style0")
-                    e.ToolTipText = GestionPresentation.ObtenirDateClavardage(noLigneToolTip).ToString();
+            try
+            {
+                if (noLigneToolTip >= 0)
+                    if (fastColoredTextBoxClavardage[e.Place].style.ToString() == "Style0")
+                        e.ToolTipText = GestionPresentation.ObtenirDateClavardage(noLigneToolTip).ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+
+
+
         }
     }
 }
