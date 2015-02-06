@@ -6,7 +6,6 @@ namespace ATMTECH.Entities
     [Serializable]
     public partial class User : BaseEntity
     {
-        public const string LOGIN = "Login";
         public const string PASSWORD = "Password";
         public const string EMAIL = "Email";
 

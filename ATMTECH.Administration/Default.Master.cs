@@ -113,7 +113,7 @@ namespace ATMTECH.Administration
         }
 
 
-        protected void btnTestClick(object sender, EventArgs e)
+        private void ImportTest()
         {
             using (OleDbConnection conn = new OleDbConnection(("provider=Microsoft.Jet.OLEDB.4.0; " + (@"data source=C:\Dev\Atmtech\ATMTECH.Administration\Data\Products.xls; " + "Extended Properties=Excel 8.0;"))))
             {
@@ -155,6 +155,7 @@ namespace ATMTECH.Administration
                                 Category4 = tableauDernierePartie[4],
                                 Category5 = tableauDernierePartie[5],
                             };
+                        importProduits.Add(importProduit);
                     }
                 }
                 catch (Exception ex)

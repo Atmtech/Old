@@ -348,6 +348,25 @@
     padding-right: 20px;
 }
 
+.motPasseOublie
+{
+    font-weight: bold;
+    padding-top: 20px;
+    float: left;
+    text-transform: uppercase;
+    padding-right: 20px;
+}
+
+.confirmationPaypal
+{
+    font-weight: bold;
+    padding-top: 20px;
+    float: left;
+    text-transform: uppercase;
+    padding-right: 20px;
+}
+
+
 .confirmationCreationCompte
 {
     padding-top: 20px;

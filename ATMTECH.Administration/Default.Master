@@ -208,8 +208,7 @@
             </asp:Panel>
         </div>
         Version: 20150109
-        <asp:Button runat="server" ID="btnTest" OnClick="btnTestClick" Text="Test" /><br />
-        <asp:Label ID="lblTest" runat="server" Text="Label"></asp:Label>
+       
 
         <input type="hidden" id="EstFenetreModal" value="0" />
         <input type="hidden" id="StatutExpiration" value="1" />

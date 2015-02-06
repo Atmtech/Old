@@ -12,5 +12,6 @@ namespace ATMTECH.ShoppingCart.Commerce
         public int IsSuccesfullyAdded { set; private get; }
         public bool IsOrderableAgainstSecurity { get; set; }
         public bool IsOrderLocked { set; private get; }
+       
     }
 }
