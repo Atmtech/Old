@@ -55,7 +55,6 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     text-indent: 1px;
-    
     border: solid 1px rgb(75, 75, 75);
     color: #ffffff;
     text-indent: 5px;
@@ -160,15 +159,16 @@
 
 .recherche
 {
-    float: left;
-    width: 20%;
 }
 
 .logo
 {
     float: left;
-    width: 60%;
+    width: 100%;
     text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .lienAuthentification
@@ -179,7 +179,6 @@
 
 .menu
 {
-    text-align: center;
     margin-top: 20px;
     border-bottom: solid 8px rgb(75, 75, 75);
     padding-bottom: 10px;
@@ -383,11 +382,23 @@
 .errorMessage
 {
     padding: 10px 10px 10px 10px;
-    border: solid 1px gray;
+    border: solid 5px gray;
     background-color: whitesmoke;
     color: red;
-    width: 950px;
+    width: 970px;
     margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.successMessage
+{
+    padding: 10px 10px 10px 10px;
+    border: solid 5px gray;
+    background-color: whitesmoke;
+    color: green;
+    width: 970px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .adresseLivraisonClient
@@ -411,18 +422,9 @@
     text-transform: uppercase;
     color: rgb(236, 191, 140);
     padding-bottom: 10px;
-    
 }
 
-.successMessage
-{
-    padding: 10px 10px 10px 10px;
-    border: solid 1px gray;
-    background-color: whitesmoke;
-    color: green;
-    width: 950px;
-    margin-bottom: 10px;
-}
+
 
 
 

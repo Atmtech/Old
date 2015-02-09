@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Web.UI;
 using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.ShoppingCart.Views.Pages;
@@ -66,6 +64,13 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
+
+        public string FirstNameCreate { get; set; }
+        public string LastNameCreate { get; set; }
+        public string EmailCreate { get; set; }
+        public string PasswordCreate { get; set; }
+        public string PasswordConfirmation { get; set; }
+        public bool CreateSuccess { get; set; }
 
         protected void CreateCustomerClick(object sender, EventArgs e)
         {

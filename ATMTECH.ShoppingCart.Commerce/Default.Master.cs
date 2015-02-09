@@ -6,6 +6,7 @@ using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Interface;
+using ATMTECH.ShoppingCart.Views.Pages;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
@@ -109,5 +110,15 @@ namespace ATMTECH.ShoppingCart.Commerce
         public decimal TotalPrice { set; private get; }
         public string Language { set; private get; }
         public Enterprise Enterprise { set; private get; }
+
+        protected void btnConnecterClick(object sender, EventArgs e)
+        {
+            Presenter.Redirect(Pages.LOGIN);
+        }
+
+        protected void btnContacterNousClick(object sender, EventArgs e)
+        {
+            Presenter.Redirect(Pages.CONTACT);
+        }
     }
 }

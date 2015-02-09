@@ -22,11 +22,11 @@
             <asp:TextBox ID="txtMotDePasse" runat="server" CssClass="textBox" Width="300px" TextMode="Password"></asp:TextBox>
         </div>
         <div style="padding-top: 20px;">
-            <asp:Button runat="server" ID="btnOublieMotDePasse" Text="J'ai oublié mon mot de passe ?" CssClass="boutonLien" />
+            <asp:Button runat="server" ID="btnOublieMotDePasse" Text="J'ai oublié mon mot de passe ?" CssClass="boutonLien" OnClick="btnOublieMotDePasseClick" />
         </div>
 
         <div style="padding-top: 20px;">
-            <asp:Button runat="server" ID="btnConnecterLogin" Text="Se connecter" CssClass="boutonActionRond" Width="200px"></asp:Button>
+            <asp:Button runat="server" ID="btnConnecterLogin" Text="Se connecter" CssClass="boutonActionRond" Width="200px" OnClick="btnConnecterLoginClick"></asp:Button>
         </div>
     </div>
 
@@ -67,7 +67,7 @@
         </div>
 
         <div style="padding-top: 20px;">
-            <asp:Button runat="server" ID="btnCreerLogin" Text="Créer" CssClass="boutonActionRond" Width="200px"></asp:Button>
+            <asp:Button runat="server" ID="btnCreerLogin" Text="Créer" CssClass="boutonActionRond" Width="200px" OnClick="btnCreerLoginClick"></asp:Button>
         </div>
 
 

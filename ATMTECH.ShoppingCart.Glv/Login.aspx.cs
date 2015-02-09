@@ -67,6 +67,13 @@ namespace ATMTECH.ShoppingCart.Glv
             }
         }
 
+        public string FirstNameCreate { get; set; }
+        public string LastNameCreate { get; set; }
+        public string EmailCreate { get; set; }
+        public string PasswordCreate { get; set; }
+        public string PasswordConfirmation { get; set; }
+        public bool CreateSuccess { get; set; }
+
         protected void CreateCustomerClick(object sender, EventArgs e)
         {
             Presenter.Redirect(Pages.CREATE_CUSTOMER);

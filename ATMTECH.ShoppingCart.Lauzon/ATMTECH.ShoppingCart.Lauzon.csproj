@@ -276,7 +276,6 @@
     <Content Include="fonts\iconFont.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="packages.config" />
     <Content Include="App_Themes\Default\Default.skin" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />

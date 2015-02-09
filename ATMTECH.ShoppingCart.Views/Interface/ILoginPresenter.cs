@@ -10,5 +10,11 @@ namespace ATMTECH.ShoppingCart.Views.Interface
         bool IsLogged { set; }
         bool IsAdministrator { set; }
         bool IsCreateCustomerPossible { set; }
+
+        string FirstNameCreate { get; set; }
+        string LastNameCreate { get; set; }
+        string EmailCreate { get; set; }
+        string PasswordCreate { get; set; }
+        string PasswordConfirmation { get; set; }
     }
 }

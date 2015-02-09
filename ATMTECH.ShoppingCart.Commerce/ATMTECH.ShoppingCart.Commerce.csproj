@@ -267,7 +267,6 @@
     </Content>
     <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />
-    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

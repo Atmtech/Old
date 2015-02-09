@@ -12,13 +12,13 @@
             <b>
                 <asp:Label runat="server" ID="lblVotreCommande"></asp:Label></b><br />
             <asp:Label runat="server" ID="lblDisplayOrder"></asp:Label><br />
-            <asp:Button runat="server" ID="btnAccepterPaiementPaypal" Text="Accepter la commande" />
+            <asp:Button runat="server" ID="btnAccepterPaiementPaypal" Text="Accepter la commande"   CssClass="boutonActionRond"/>
         </asp:Panel>
         <asp:Panel runat="server" ID="pnlOrderFinalized" Visible="False">
             <asp:Label runat="server" ID="lblCommandeFinalisee" Text="Merci de votre commande"></asp:Label><br />
-            <asp:Button runat="server" ID="btnImprimerCommande" Text="Imprimer le détail de votre commande" />
+            <asp:Button runat="server" ID="btnImprimerCommande" Text="Imprimer le détail de votre commande" CssClass="boutonActionRond" />
         </asp:Panel>
     </div>
 
-
+     <div style="clear: both;"></div>
 </asp:Content>

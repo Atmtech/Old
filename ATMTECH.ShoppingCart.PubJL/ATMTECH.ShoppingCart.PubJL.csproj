@@ -145,13 +145,6 @@
       <DependentUpon>ProductSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ThumbNail.aspx.cs">
       <DependentUpon>ThumbNail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -267,7 +260,6 @@
     <Content Include="ProductSearch.aspx" />
     <Content Include="Css\Site.css" />
     <Content Include="Css\theme-dark.css" />
-    <Content Include="Test.aspx" />
     <Content Include="ThumbNail.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -325,7 +317,6 @@
     <None Include="fonts\iconFont.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="packages.config" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />
     <None Include="Properties\PublishProfiles\Atmtech PUBJL.pubxml" />
