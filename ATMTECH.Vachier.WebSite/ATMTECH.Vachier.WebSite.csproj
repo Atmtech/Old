@@ -80,7 +80,6 @@
     <Content Include="Images\Dev\images\Vachier_03.jpg" />
     <Content Include="Images\Dev\MerdeRecherche.jpg" />
     <Content Include="Images\Dev\ProposerMerde.jpg" />
-    <Content Include="Images\Dev\Vachier.html" />
     <Content Include="Images\like.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Javascript\jquery-combobox.js" />
@@ -122,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Default\Default.skin" />
-    <Content Include="Images\Dev\Vachier.psd" />
     <None Include="Properties\PublishProfiles\Vachier.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

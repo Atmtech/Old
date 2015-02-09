@@ -25,7 +25,7 @@ namespace ATMTECH.Entities
         public const string COMBOBOX_DESCRIPTION = "ComboboxDescription";
         public const string DATE_CREATED = "DateCreated";
         public const string DATE_MODIFIED = "DateModified";
-        public const string LOGIN = "UserLoginModified";
+        public const string LOGIN = "Login";
 
         private DateTime? _dateCreated = null;
         private DateTime? _dateModified = null;
