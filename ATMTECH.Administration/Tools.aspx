@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <asp:Button runat="server" ID="btnChargerXmlProduit" Text="Charger les produits du XML" OnClick="btnChargerXmlProduitClick"/>
     <div>
         <div class="EnteteOutils" style="margin-top: 0px;">
             Confirmation d'une commande à un client (Envoi d'un courriel et changement du status de la commande)

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Xml;
 using ATMTECH.Administration.DAO.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
@@ -8,6 +9,7 @@ using ATMTECH.Common.Utils;
 using ATMTECH.Entities;
 using ATMTECH.Services;
 using ATMTECH.Services.Interface;
+using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Reports.DTO;
 
@@ -85,6 +87,15 @@ namespace ATMTECH.Administration.Views
             AuthenticationService.SignOut();
             NavigationService.Redirect(homePage);
         }
+        public void SetAllEntityInformation()
+        {
+            SetEntityInformation("ATMTECH.Entities");
+            SetEntityInformation("ATMTECH.ShoppingCart.Entities");
+            SetEntityProperty("ATMTECH.Entities");
+            //SetEntityProperty("ATMTECH.ShoppingCart.Entities");
+        }
+
+    
 
 
         private void SetEntityInformation(string nameSpace)
@@ -110,7 +121,6 @@ namespace ATMTECH.Administration.Views
                 }
             }
         }
-
         private void SetEntityProperty(string nameSpace)
         {
             ManageClass manageClass = new ManageClass();
@@ -140,14 +150,9 @@ namespace ATMTECH.Administration.Views
                 }
             }
         }
-        public void SetAllEntityInformation()
-        {
-            SetEntityInformation("ATMTECH.Entities");
-            SetEntityInformation("ATMTECH.ShoppingCart.Entities");
-            SetEntityProperty("ATMTECH.Entities");
-            //SetEntityProperty("ATMTECH.ShoppingCart.Entities");
-        }
 
     }
+
+  
 }
 

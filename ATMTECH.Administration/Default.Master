@@ -34,7 +34,7 @@
             EnableScriptLocalization="true">
         </asp:ScriptManager>
         <div>
-
+          
             <div style="background-color: goldenrod; border: solid 1px gray; margin-bottom: 10px;">
                 <div style="float: left; color: white; font-weight: bold; font-size: 25px; width: 50%; padding-left: 10px; padding-top: 5px; padding-bottom: 5px; text-transform: uppercase;">
                     Administration

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ATMTECH.Administration.Services.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
 using ATMTECH.DAO;
@@ -25,6 +26,8 @@ namespace ATMTECH.Administration.Views
         public ICustomerService CustomerService { get; set; }
         public IDAOUser DAOUser { get; set; }
         public IParameterService ParameterService { get; set; }
+        public IImportXmlService ImportXmlService { get; set; }
+
         public ToolsPresenter(IToolsPresenter view)
             : base(view)
         {
@@ -277,6 +280,11 @@ namespace ATMTECH.Administration.Views
                 OrderService.UpdateOrder(order, null);
             }
             return "ok";
+        }
+
+        public void ImportProductFromXml()
+        {
+            ImportXmlService.ImportProductAndStockXml(new Enterprise { Id = 1 }, @"C:\Dev\Atmtech\ATMTECH.Administration\Data\Products.xml");
         }
     }
 }

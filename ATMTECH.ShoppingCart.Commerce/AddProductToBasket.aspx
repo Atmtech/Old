@@ -64,44 +64,5 @@
     </div>
     <div style="clear: both;"></div>
 
-    <%--  <div class="tile triple-vertical triple bg-color-darken">
-        <div class="tile-content">
-            <div style="float: left; text-align: center; padding-left: 20px; padding-top: 20px;">
-                <br/>
-               
-            </div>
-            <div style="float: left; padding-left: 20px; padding-top: 20px;">
-                
-            </div>
-        </div>
-    </div>
-    <div class="tile triple-vertical triple bg-color-grayDark">
-        <div class="tile-content" style="overflow: auto; overflow-x: hidden;">
-            <h4>
-                
-                
-            </h4>
-            <br />
-            <h4>
-                </h4>
-            <br />
-            <asp:Label runat="server" ID="lblDescription"></asp:Label>
-            <asp:Label runat="server" ID="lblAddToBasketSucessfull" Visible="false" Text="Ajouté avec succès..."></asp:Label>
-            <br />
-            <br />
-           
-            <asp:Label runat="server" ID="lblStockNotPresent" Visible="False"></asp:Label>
-           
-            <asp:Button runat="server" ID="btnContinueShopping" OnClick="RedirectProductCatalog"
-                Text="Continuer le magasinage"></asp:Button>
-            <br />
-            <b>
-                <asp:Label runat="server" ID="lblCannotOrderBecauseSecurity" Visible="False" ForeColor="Red"></asp:Label></b>
-        </div>
-    </div>
-    <asp:Label runat="server" ID="lblCostPrice" Visible="False"></asp:Label>
-    <asp:Label runat="server" ID="lblDisplayWeight" Visible="False"></asp:Label>
-    <asp:Label runat="server" ID="lblWeight" Visible="False"></asp:Label>
-    <asp:Label runat="server" ID="lblUnitWeight" Visible="False"></asp:Label>
-    <asp:Label runat="server" ID="lblProductCategoryDescription" Visible="False"> </asp:Label>--%>
+   
 </asp:Content>

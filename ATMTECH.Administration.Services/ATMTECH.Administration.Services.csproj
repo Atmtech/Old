@@ -37,10 +37,14 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\AdministrationInitializer.cs" />
+    <Compile Include="ImportProduit.cs" />
+    <Compile Include="ImportXmlService.cs" />
     <Compile Include="GenerateControlsService.cs" />
+    <Compile Include="Interface\IImportXmlService.cs" />
     <Compile Include="Interface\IGenerateControlsService.cs" />
     <Compile Include="DataEditorService.cs" />
     <Compile Include="Interface\IDataEditorService.cs" />

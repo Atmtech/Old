@@ -128,7 +128,7 @@ namespace ATMTECH.Administration
         }
         protected void btnCreateBackupClick(object sender, EventArgs e)
         {
-            
+
             lblResultBackup.Text = Presenter.CreateBackup(Server.MapPath("data"));
         }
         protected void btnAdjustOrderlineClick(object sender, EventArgs e)
@@ -151,6 +151,11 @@ namespace ATMTECH.Administration
         protected void btnBalanceOrderClick(object sender, EventArgs e)
         {
             lblResultBalanceOrder.Text = Presenter.BalanceOrder();
+        }
+
+        protected void btnChargerXmlProduitClick(object sender, EventArgs e)
+        {
+            Presenter.ImportProductFromXml();
         }
     }
 }
