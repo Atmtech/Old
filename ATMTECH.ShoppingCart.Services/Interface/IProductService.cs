@@ -18,7 +18,7 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         IList<ProductFile> GetProductFile(int idEnterprise);
         IList<Product> GetProductsWithoutStock(int idEnterprise);
         IList<Product> GetProductsWithoutLanguage(int idEnterprise);
-        void UpdateProductPriceHistory(Product product, decimal priceBefore, decimal priceAfter);
+        void UpdateProductPriceHistory(int idProduct, decimal priceBefore, decimal priceAfter);
         bool GetProductAccessOrderable(Product product, int idUser);
         void SaveProductFile(ProductFile productFile);
         int Save(Product product);

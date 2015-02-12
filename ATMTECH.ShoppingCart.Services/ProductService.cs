@@ -21,8 +21,9 @@ namespace ATMTECH.ShoppingCart.Services
         public IParameterService ParameterService { get; set; }
         public IDAOProductFile DAOProductFile { get; set; }
 
-        public void UpdateProductPriceHistory(Product product, decimal priceBefore, decimal priceAfter)
+        public void UpdateProductPriceHistory(int idProduct, decimal priceBefore, decimal priceAfter)
         {
+            Product product = GetProduct(idProduct);
             DAOProductPriceHistory.UpdateProductPriceHistory(product, priceBefore, priceAfter);
         }
         public bool GetProductAccessOrderable(Product product, int idUser)

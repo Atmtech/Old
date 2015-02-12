@@ -69,9 +69,6 @@ namespace ATMTECH.Administration.Views
 
         private void SetEntityInformationAndProperty()
         {
-
-
-
             View.EntityInformations = DAOEntityInformation.GetAllEntityInformationSimple();
             View.EntityProperties = DAOEntityProperty.GEtAllEntityProperty();
         }
@@ -154,10 +151,9 @@ namespace ATMTECH.Administration.Views
                 DataEditorService.GetByCriteria(NameSpace, Entity, 5000, pageIndex, "Enterprise", View.Enterprise, recherche) :
                 DataEditorService.GetByCriteria(NameSpace, Entity, 5000, pageIndex, recherche);
         }
-        public void UpdateProductPriceHistory(int idProduct, decimal priceAfter)
+        public void UpdateProductPriceHistory(int idProduct,decimal priceBefore, decimal priceAfter)
         {
-            Product product = ProductService.GetProduct(idProduct);
-            ProductService.UpdateProductPriceHistory(product, product.UnitPrice, priceAfter);
+            ProductService.UpdateProductPriceHistory(idProduct, priceBefore, priceAfter);
         }
         private bool IsEnterpriseRuled(string nameSpace, string className)
         {
@@ -201,8 +197,11 @@ namespace ATMTECH.Administration.Views
             if (Entity == "Product")
             {
                 Product product = (Product)entite;
+                decimal priceBefore = 0;
+                if (product.Id != 0)
+                    priceBefore = ProductService.GetProduct(product.Id).UnitPrice;
                 int id = ProductService.Save(product);
-                UpdateProductPriceHistory(id, product.UnitPrice);
+                UpdateProductPriceHistory(id, priceBefore, product.UnitPrice);
                 return;
             }
 
