@@ -13,15 +13,6 @@ namespace ATMTECH.Administration {
     public partial class Tools {
         
         /// <summary>
-        /// Contrôle btnChargerXmlProduit.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnChargerXmlProduit;
-        
-        /// <summary>
         /// Contrôle txtOrder1.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace ATMTECH.Administration {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDisplayOrder;
+        
+        /// <summary>
+        /// Contrôle btnChargerXmlProduit.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChargerXmlProduit;
         
         /// <summary>
         /// Contrôle cboUser.
@@ -236,6 +236,33 @@ namespace ATMTECH.Administration {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultBalanceOrder;
+        
+        /// <summary>
+        /// Contrôle ddlSiteList.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSiteList;
+        
+        /// <summary>
+        /// Contrôle btnSynchroniserFichierImage.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSynchroniserFichierImage;
+        
+        /// <summary>
+        /// Contrôle Label1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// Contrôle ddlBalanceSearch.

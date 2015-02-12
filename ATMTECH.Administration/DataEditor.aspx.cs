@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -305,7 +306,7 @@ namespace ATMTECH.Administration
                 var numeric = control as Numeric;
                 if (numeric != null)
                 {
-                    manageClass.AssignValue(type, entity, numeric.Text.Replace(".", ","), numeric.ID);
+                    manageClass.AssignValue(type, entity, numeric.Text.Replace(".", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator), numeric.ID);
                 }
             }
 

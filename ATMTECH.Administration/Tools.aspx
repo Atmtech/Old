@@ -3,8 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Button runat="server" ID="btnChargerXmlProduit" Text="Charger les produits du XML" OnClick="btnChargerXmlProduitClick"/>
+
     <div>
+
+        
+
         <div class="EnteteOutils" style="margin-top: 0px;">
             Confirmation d'une commande à un client (Envoi d'un courriel et changement du status de la commande)
         </div>
@@ -19,8 +22,8 @@
         Numéro de commande: 
         <asp:TextBox runat="server" ID="txtOrder2"></asp:TextBox>
         <asp:Button runat="server" ID="btnDisplayOrder" OnClick="DisplayOrderClick" Text="Afficher" CausesValidation="False" CssClass="button" />
-
-
+        
+       
         <div class="EnteteOutils">
             Associer un utilisateur qui n'est pas un client à une entreprise
         </div>
@@ -131,6 +134,31 @@
         <asp:Button runat="server" ID="btnBalanceOrder" OnClick="btnBalanceOrderClick" CausesValidation="False" CssClass="button" Text="Balancer" />
         <asp:Label runat="server" ID="lblResultBalanceOrder"></asp:Label>
 
+
+        <div class="EnteteOutils">
+            Synchroniser les fichiers images avec la base de données.
+        </div>
+        <asp:DropDownList runat="server" ID="ddlSiteList" AutoPostBack="True">
+            <asp:ListItem Value="C:\WebSite\cima-directeur.boutiquecorpo.com\Images">cima-directeur.boutiquecorpo.com</asp:ListItem>
+            <asp:ListItem Value="C:\WebSite\cima-employe.boutiquecorpo.com\Images">cima-employe.boutiquecorpo.com</asp:ListItem>
+            <asp:ListItem Value="C:\WebSite\ursulines.boutiquecorpo.com\Images">ursuline.boutiquecorpo.com</asp:ListItem>
+            <asp:ListItem Value="C:\WebSite\glv.boutiquecorpo.com\Images">glv.boutiquecorpo.com</asp:ListItem>
+            <asp:ListItem Value="C:\WebSite\glv-an.boutiquecorpo.com\Images">glv-an.boutiquecorpo.com</asp:ListItem>
+            <asp:ListItem Value="C:\WebSite\lauzon.boutiquecorpo.com\Images">lauzon.boutiquecorpo.com</asp:ListItem>
+            <asp:ListItem Value="C:\WebSite\dev.boutiquecorpo.com\Images">dev.boutiquecorpo.com</asp:ListItem>
+
+            <%--<asp:ListItem Value="C:\Domains\cima-directeur.boutiquecorpo.com\www\Images">cima-directeur.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\cima-employe.boutiquecorpo.com\www\Images">cima-employe.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\ursulines.boutiquecorpo.com\www\Images">ursuline.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\glv.boutiquecorpo.com\www\Images">glv.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\glv-an.boutiquecorpo.com\www\Images">glv-an.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\Domains\lauzon.boutiquecorpo.com\www\Images">lauzon.boutiquecorpo.com</asp:ListItem>--%>
+            <asp:ListItem Value="C:\dev\Atmtech\ATMTECH.ShoppingCart.PubJL\Images">Développement</asp:ListItem>
+        </asp:DropDownList>
+
+        <asp:Button runat="server" ID="btnSynchroniserFichierImage" OnClick="btnSynchroniserFichierImageClick" CausesValidation="False" CssClass="button" Text="Synchroniser" />
+        <asp:Label runat="server" ID="Label1"></asp:Label>
+
         <div class="EnteteOutils">
             Rebalancer les colonnes de recherches
         </div>
@@ -180,14 +208,19 @@
         <asp:Button runat="server" ID="btnRestore" OnClick="btnRestoreClick" CausesValidation="False" CssClass="button" Text="Restaurer" />
         <br />
         <asp:Label runat="server" ID="lblResultRestore"></asp:Label>
-        
-        
+
+
         <div class="EnteteOutils">
-           Ouvrir ou fermer le système
+            Ouvrir ou fermer le système
         </div>
         <asp:Button runat="server" ID="btnOpenApplication" OnClick="btnOpenApplicationClick" CausesValidation="False" CssClass="button" Text="Ouvrir l'application" />
         <asp:Button runat="server" ID="btnCloseApplication" OnClick="btnCloseApplicationClick" CausesValidation="False" CssClass="button" Text="Fermer l'application" />
-       
+
+         <div class="EnteteOutils">
+            Chargement massif (Ne pas utiliser si vous ne savez pas ce que vous faites)
+        </div>
+        <asp:Button runat="server" ID="btnChargerXmlProduit" Text="Charger les produits d'un fichier kXML" OnClick="btnChargerXmlProduitClick" CssClass="button" />
+
 
     </div>
 </asp:Content>

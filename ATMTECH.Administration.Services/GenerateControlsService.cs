@@ -413,7 +413,7 @@ namespace ATMTECH.Administration.Services
                                 Width = Unit.Percentage(90),
                                 Enabled = isEnabled,
                                 Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
-                                Height = Unit.Pixel(50)
+                                Height = Unit.Pixel(150)
 
                             };
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ATMTECH.Administration.Services.Interface;
 using ATMTECH.Administration.Views.Base;
@@ -12,6 +13,7 @@ using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.Web.Services.Interface;
+using File = ATMTECH.Entities.File;
 
 namespace ATMTECH.Administration.Views
 {
@@ -27,7 +29,7 @@ namespace ATMTECH.Administration.Views
         public IDAOUser DAOUser { get; set; }
         public IParameterService ParameterService { get; set; }
         public IImportXmlService ImportXmlService { get; set; }
-
+        public IFileService FileService { get; set; }
         public ToolsPresenter(IToolsPresenter view)
             : base(view)
         {
@@ -267,7 +269,7 @@ namespace ATMTECH.Administration.Views
 
         public string BalanceOrder()
         {
-            IList<Order> orders = OrderService.GetAllWithCustomer().Where(x => x.IsActive == true && x.FinalizedDate != null).ToList();
+            IList<Order> orders = OrderService.GetAllWithCustomer().Where(x => x.IsActive && x.FinalizedDate != null).ToList();
             IList<OrderLine> orderLines = OrderService.GetAllOrderLine();
             IList<Stock> stocks = StockService.GetAllStock();
             foreach (OrderLine orderLine in orderLines)
@@ -285,6 +287,33 @@ namespace ATMTECH.Administration.Views
         public void ImportProductFromXml()
         {
             ImportXmlService.ImportProductAndStockXml(new Enterprise { Id = 1 }, @"C:\Dev\Atmtech\ATMTECH.Administration\Data\Products.xml");
+        }
+
+        public void SynchronizeImage(string directory)
+        {
+            string[] files = Directory.GetFiles(directory + @"\product");
+            IList<File> filesDatabase = FileService.GetAllFile();
+
+            foreach (string file in files)
+            {
+                long fileSize;
+                using (var fichier = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                {
+                    fileSize = fichier.Length;
+                }
+                if (filesDatabase.FirstOrDefault(x => x.FileName == Path.GetFileName(file) && x.RootImagePath == directory) == null)
+                {
+                    File fileToSave = new File
+                        {
+                            Category = "Product",
+                            Size = (int)fileSize,
+                            RootImagePath = directory,
+                            FileName = Path.GetFileName(file)
+                        };
+                    FileService.SaveFile(fileToSave);
+                }
+
+            }
         }
     }
 }

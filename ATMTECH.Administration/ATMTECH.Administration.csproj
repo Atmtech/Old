@@ -46,6 +46,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -154,6 +155,13 @@
     </Compile>
     <Compile Include="StockTransaction.aspx.designer.cs">
       <DependentUpon>StockTransaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tools.aspx.cs">
       <DependentUpon>Tools.aspx</DependentUpon>
@@ -460,6 +468,7 @@
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="Site.css" />
     <Content Include="StockTransaction.aspx" />
+    <Content Include="test.aspx" />
     <Content Include="Tools.aspx" />
     <Content Include="Videos\AjouterImageProduit.mp4" />
   </ItemGroup>
