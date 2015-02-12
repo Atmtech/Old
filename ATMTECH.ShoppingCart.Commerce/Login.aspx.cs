@@ -29,6 +29,11 @@ namespace ATMTECH.ShoppingCart.Commerce
         protected void btnCreerLoginClick(object sender, EventArgs e)
         {
             Presenter.CreateCustomer();
+            FirstNameCreate = "";
+            LastNameCreate = "";
+            EmailCreate = "";
+            PasswordCreate = "";
+            PasswordConfirmation = "";
         }
 
         protected void btnOublieMotDePasseClick(object sender, EventArgs e)

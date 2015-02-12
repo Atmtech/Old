@@ -5,6 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+
+
     <div class="imageProduit">
         <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" OnClick="imgProductPrincipalClick" CssClass="imageProduitAfficher" />
         <asp:DataList ID="DataListProductFile" RepeatDirection="Horizontal" runat="server"
@@ -16,35 +18,41 @@
     </div>
     <div class="descriptionProduit">
         <div class="titreDescriptionProduit">
-            <asp:Label runat="server" ID="lblIdent" Visible="True" Text="Test"></asp:Label><asp:Label runat="server" ID="lblName" Text="test"></asp:Label>
+            <asp:Label runat="server" ID="lblIdent" Visible="True" Text="Test"></asp:Label>
+            -
+            <asp:Label runat="server" ID="lblName" Text="test"></asp:Label>
         </div>
         <div class="prixDescriptionProduit">
             <asp:Label runat="server" ID="lblUnitPrice" Text="$ 100.00"></asp:Label>
         </div>
 
         <div class="quantiteDescriptionProduit">
-            <asp:Label runat="server" ID="lblQuantiteTitre" Text="Quantité"></asp:Label>
 
-            <div style="padding-top: 20px;">
-
-                <asp:DataList runat="server" ID="DataListStockOrderable" OnItemDataBound="StockDataBound"
-                    Visible="false" OnItemCommand="StockAddCommand">
-                    <ItemTemplate>
-                        <div style="font-size: 12px;">
-                            <atmtech:Numeric runat="server" ID="txtQuantity" Width="50px" ForeColor="Black" NoDecimal="True"></atmtech:Numeric>
-                            <asp:Label runat="server" ID="lblStockId" Visible="False"></asp:Label>
-                            <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
-                            <asp:Label runat="server" ID="lblQuantityDisplay"></asp:Label>
-                            <td>
-                                <asp:Label runat="server" ID="lblStock"></asp:Label>
-                                <asp:Label runat="server" ID="lblStockQuantity" Text=""></asp:Label>
-                            </td>
+            <div>
+                <div class="Table">
+                    <div class="Heading">
+                        <div class="Cell">
+                            <asp:Label runat="server" ID="lblItemsAddProduct" Text="Choisir une caractéristique"></asp:Label>
                         </div>
-                    </ItemTemplate>
-                </asp:DataList>
+                        <div class="Cell">
+                            <asp:Label runat="server" ID="lblQuantiteAddProduct" Text="Quantité"></asp:Label>
+                        </div>
+                    </div>
+
+                    <div class="Row" style="">
+                        <div class="Cell" style="padding-top: 5px;padding-bottom:5px; width:300px;text-align: left;">
+                            <atmtech:ComboBox runat="server" ID="ddlStock" />
+                        </div>
+                        <div class="Cell">
+                            <atmtech:Numeric runat="server" NoDecimal="True" ID="txtQuantite" />
+                        </div>
+                    </div>
 
 
+                </div>
 
+
+                <br/>
                 <asp:Button runat="server" ID="btnAddAllToBasket" OnClick="AddToBasketClick" CssClass="boutonActionRond"
                     Text="Ajouter au panier"></asp:Button>
             </div>
@@ -57,12 +65,16 @@
                 <iframe src="//www.facebook.com/plugins/like.php?href=http://rutherford-romaguera2611.myshopify.com/products/breitling-transocean&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 80px; height: 30px" allowtransparency="true"></iframe>
             </div>
             <div style="clear: both;"></div>
+            <div style="padding-bottom: 10px;">
+                <asp:Label runat="server" ID="lblDetail" Text="Détails"></asp:Label>
+            </div>
             <div>
-                Détails
+                <asp:Label runat="server" ID="lblDescription"></asp:Label>
             </div>
         </div>
     </div>
     <div style="clear: both;"></div>
 
-   
+
+
 </asp:Content>

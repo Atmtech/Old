@@ -65,21 +65,21 @@ namespace ATMTECH.ShoppingCart.Views
         }
         public void CreateCustomer()
         {
-            if (String.IsNullOrEmpty(View.UserName))
+            if (String.IsNullOrEmpty(View.EmailCreate))
             {
                 MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY);
             }
 
-            if (String.IsNullOrEmpty(View.Password))
+            if (String.IsNullOrEmpty(View.PasswordCreate))
             {
                 MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY);
             }
 
-            if (View.Password != View.PasswordConfirmation)
+            if (View.PasswordCreate != View.PasswordConfirmation)
             {
                 MessageService.ThrowMessage(ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM);
             }
-            User user = new User { FirstName = View.FirstNameCreate, LastName = View.LastNameCreate, Password = View.PasswordCreate, Login = View.UserName, Email = View.EmailCreate };
+            User user = new User { FirstName = View.FirstNameCreate, LastName = View.LastNameCreate, Password = View.PasswordCreate, Login = View.EmailCreate, Email = View.EmailCreate };
             Customer customer = new Customer
             {
                 User = user,

@@ -122,5 +122,10 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return DAOProduct.GetAllActive();
         }
+
+        public int SaveProductCategory(ProductCategory productCategory)
+        {
+            return DAOProductCategory.Save(productCategory);
+        }
     }
 }

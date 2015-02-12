@@ -11,10 +11,10 @@ namespace ATMTECH.ShoppingCart.Commerce
 
         public string Name { get; set; }
         public string Login { get; set; }
-        public string Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Password { get; set; }
+        public string Email { get { return txtCourrielCreer.Text; } set { txtCourrielCreer.Text = value; } }
+        public string FirstName { get { return txtPrenom.Text; } set { txtPrenom.Text = value; } }
+        public string LastName { get { return txtNom.Text; } set { txtNom.Text = value; } }
+        public string Password { get { return txtMotDePasseCreer.Text; } set { txtMotDePasseCreer.Text = value; } }
         public string PasswordConfirmation { get; set; }
         public IList<Order> OrdersOrdered { set; private get; }
         public IList<Order> OrdersShipped { set; private get; }

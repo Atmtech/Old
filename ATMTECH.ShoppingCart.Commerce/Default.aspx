@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <img src="Images/WebSite/slideTest1.jpg"  width="1000px"/>
+    <img src="Images/WebSite/slideTest1.jpg" width="1000px" />
     <div class="categorie">
         <img src="Images/WebSite/test1Promo.jpg" width="321px" />
         <img src="Images/WebSite/test1Promo.jpg" width="321px" style="padding-left: 15px; padding-right: 15px;" />
@@ -16,13 +16,17 @@
         Items en vente actuellement
     </div>
     <div class="listeObjetEnPromo">
-        <div style="float: left; text-align: center;">
-            <img src="Images/WebSite/TestSale1.png" width="160px" style="border: solid 1px gray" />
-            <br />
-            Montre en métal
+        <a href="AddProductToBasket.aspx?ProductId=439">
+            <div style="float: left; text-align: center;">
+
+                <img src="Images/WebSite/TestSale1.png" width="160px" style="border: solid 1px gray" />
+                <br />
+                Montre en métal
                     <br />
-            <strike>$ 100.00</strike>$ 75.00
-        </div>
+                <strike>$ 100.00</strike>$ 75.00
+               
+            </div>
+        </a>
         <div style="float: left; text-align: center;">
             <img src="Images/WebSite/TestSale1.png" width="160px" style="border: solid 1px gray" />
             <br />

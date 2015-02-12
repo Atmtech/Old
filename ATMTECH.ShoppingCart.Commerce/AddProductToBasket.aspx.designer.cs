@@ -58,22 +58,40 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblUnitPrice;
         
         /// <summary>
-        /// Contrôle lblQuantiteTitre.
+        /// Contrôle lblItemsAddProduct.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQuantiteTitre;
+        protected global::System.Web.UI.WebControls.Label lblItemsAddProduct;
         
         /// <summary>
-        /// Contrôle DataListStockOrderable.
+        /// Contrôle lblQuantiteAddProduct.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListStockOrderable;
+        protected global::System.Web.UI.WebControls.Label lblQuantiteAddProduct;
+        
+        /// <summary>
+        /// Contrôle ddlStock.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::ATMTECH.WebControls.ComboBox ddlStock;
+        
+        /// <summary>
+        /// Contrôle txtQuantite.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::ATMTECH.WebControls.Numeric txtQuantite;
         
         /// <summary>
         /// Contrôle btnAddAllToBasket.
@@ -83,5 +101,23 @@ namespace ATMTECH.ShoppingCart.Commerce {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddAllToBasket;
+        
+        /// <summary>
+        /// Contrôle lblDetail.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDetail;
+        
+        /// <summary>
+        /// Contrôle lblDescription.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescription;
     }
 }

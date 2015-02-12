@@ -22,7 +22,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
             Presenter.OnViewLoaded();
         }
-      
+
 
         private void GetControlList<T>(ControlCollection controlCollection, List<T> resultCollection) where T : Control
         {
@@ -101,8 +101,23 @@ namespace ATMTECH.ShoppingCart.Commerce
             throw new NotImplementedException();
         }
 
-        public bool IsLogged { set; private get; }
-        public string Name { set; private get; }
+        public bool IsLogged
+        {
+            set
+            {
+                if (value)
+                {
+                    pnlConnecte.Visible = true;
+                    pnlDeconnecte.Visible = false;
+                }
+                else
+                {
+                    pnlConnecte.Visible = false;
+                    pnlDeconnecte.Visible = true;
+                }
+            }
+        }
+        public string Name { set { btnNomClient.Text = value; } }
         public int NumberOfItemInBasket { set; private get; }
         public string ImageCorp { set; private get; }
         public int ProductCount { set; private get; }
@@ -119,6 +134,16 @@ namespace ATMTECH.ShoppingCart.Commerce
         protected void btnContacterNousClick(object sender, EventArgs e)
         {
             Presenter.Redirect(Pages.CONTACT);
+        }
+
+        protected void btnDeconnecterClick(object sender, EventArgs e)
+        {
+            Presenter.CloseSession();
+        }
+
+        protected void btnNomClientClick(object sender, EventArgs e)
+        {
+            Presenter.Redirect(Pages.CUSTOMER_INFORMATION);
         }
     }
 }

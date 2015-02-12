@@ -17,7 +17,6 @@ namespace ATMTECH.Administration.Services
         {
             IList<ImportProduit> importProduits = new List<ImportProduit>();
             XmlDocument xmlDoc = new XmlDocument();
-            //xmlDoc.Load(@"C:\Dev\Atmtech\ATMTECH.Administration\Data\Products.xml");
             xmlDoc.Load(fileXml);
 
             if (xmlDoc.DocumentElement != null)
@@ -51,9 +50,61 @@ namespace ATMTECH.Administration.Services
                         importProduits.Add(importProduit);
                     }
 
+                // Générer les catégories
+                IList<ProductCategory> categories = ProductService.GetProductCategoryWithoutLanguage(enterprise.Id);
+                IList<ProductCategory> categoriesTraite = new List<ProductCategory>();
+
+                foreach (ImportProduit importProduit in importProduits)
+                {
+                    string concatCategorie = importProduit.Category1;
+                    if (!string.IsNullOrEmpty(importProduit.Category2) && importProduit.Category2 != "ZCatalog")
+                    {
+                        concatCategorie += "-" + importProduit.Category2;
+                    }
+                    if (!string.IsNullOrEmpty(importProduit.Category3) && importProduit.Category3 != "ZCatalog")
+                    {
+                        concatCategorie += "-" + importProduit.Category3;
+                    }
+                    if (!string.IsNullOrEmpty(importProduit.Category4) && importProduit.Category4 != "ZCatalog")
+                    {
+                        concatCategorie += "-" + importProduit.Category4;
+                    }
+                    if (!string.IsNullOrEmpty(importProduit.Category5) && importProduit.Category5 != "ZCatalog")
+                    {
+                        concatCategorie += "-" + importProduit.Category5;
+                    }
+
+                    ProductCategory productCategory =
+                        categories.FirstOrDefault(
+                            x => x.Description == importProduit.Category1 && x.Enterprise.Id == enterprise.Id);
+                    if (productCategory == null && categoriesTraite.Count(x => x.Description == concatCategorie && x.Enterprise.Id == enterprise.Id) == 0)
+                    {
+                        productCategory = new ProductCategory
+                        {
+                            Description = concatCategorie,
+                            Enterprise = enterprise,
+                            Language = "fr"
+                        };
+                        categoriesTraite.Add(productCategory);
+                        ProductService.SaveProductCategory(productCategory);
+                    }
+                    else
+                    {
+                        if (productCategory != null)
+                        {
+                            productCategory.Description = concatCategorie;
+                            categoriesTraite.Add(productCategory);
+                            ProductService.SaveProductCategory(productCategory);
+                        }
+                    }
+                }
+
+
                 // Générer les produits
                 IList<Product> products = ProductService.GetAllActive().Where(x => x.Enterprise.Id == enterprise.Id).ToList();
                 IList<Product> productsTraite = new List<Product>();
+                IList<ProductCategory> productCategories =
+                    ProductService.GetProductCategoryWithoutLanguage(enterprise.Id);
                 foreach (ImportProduit importProduit in importProduits)
                 {
                     Product product = products.FirstOrDefault(x => x.Ident == importProduit.ItemID);
@@ -68,6 +119,8 @@ namespace ATMTECH.Administration.Services
                             NameEnglish = importProduit.Title_EN,
                             NameFrench = importProduit.Title_FR,
                             Enterprise = enterprise,
+                            ProductCategoryEnglish = productCategories.FirstOrDefault(x => x.Description == importProduit.Category1),
+                            ProductCategoryFrench = productCategories.FirstOrDefault(x => x.Description == importProduit.Category1),
                             Weight = 1
                         };
                         productsTraite.Add(product);
@@ -81,14 +134,16 @@ namespace ATMTECH.Administration.Services
                             product.DescriptionFrench = importProduit.Desc_FR;
                             product.NameEnglish = importProduit.Title_EN;
                             product.NameFrench = importProduit.Title_FR;
+                            product.ProductCategoryEnglish =
+                                productCategories.FirstOrDefault(x => x.Description == importProduit.Category1);
+                            product.ProductCategoryFrench =
+                                productCategories.FirstOrDefault(x => x.Description == importProduit.Category1);
                             productsTraite.Add(product);
                             ProductService.Save(product);
                         }
                     }
-
-
-
                 }
+
                 // Générer les stock // caracteristique
                 products = ProductService.GetAllActive().Where(x => x.Enterprise.Id == enterprise.Id).ToList();
                 IList<Stock> stocks = StockService.GetAllStockByEnterprise(enterprise.Id);

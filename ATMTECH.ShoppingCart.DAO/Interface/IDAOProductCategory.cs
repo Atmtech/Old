@@ -8,5 +8,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
         ProductCategory GetProductCategory(int id);
         IList<ProductCategory> GetProductCategoryFromEnterprise(int idEnterprise);
         IList<ProductCategory> GetProductCategoryFromEnterpriseWithoutLanguage(int idEnterprise);
+        int Save(ProductCategory productCategory);
     }
 }

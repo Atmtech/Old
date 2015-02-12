@@ -9,6 +9,8 @@ namespace ATMTECH.ShoppingCart.Entities
     {
         public const string PRODUCT = "Product";
         public const string FEATURE = "Feature";
+        public const string FEATURE_FRENCH = "ComboboxDescriptionWithoutProductNameFrench";
+        public const string FEATURE_ENGLISH = "ComboboxDescriptionWithoutProductNameEnglish";
 
         public Product Product { get; set; }
         public int InitialState { get; set; }
@@ -21,5 +23,15 @@ namespace ATMTECH.ShoppingCart.Entities
         public bool IsWithoutStock { get; set; }
 
         public string ComboboxDescriptionUpdate { get { return Product == null ? "" : Product.NameFrench + " " + FeatureFrench + " " + Product.Ident; } }
+
+        public string ComboboxDescriptionWithoutProductNameFrench
+        {
+            get { return FeatureFrench; }
+        }
+
+        public string ComboboxDescriptionWithoutProductNameEnglish
+        {
+            get { return FeatureEnglish; }
+        }
     }
 }

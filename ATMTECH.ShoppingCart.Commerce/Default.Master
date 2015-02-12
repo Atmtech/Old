@@ -9,6 +9,8 @@
     <link href="css/Site.css" rel="stylesheet" type="text/css" />
 
     <link href="JQuery/jquery-ui-1.11.2/css/lightbox.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/ComboBox.css" rel="stylesheet" />
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
@@ -32,7 +34,8 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
             EnableScriptLocalization="true">
         </asp:ScriptManager>
-
+        
+      
         <asp:Button runat="server" ID="btnLocaliser" OnClick="btnLocaliserClick" Text="Localiser" />
 
         <div class="center">
@@ -50,14 +53,22 @@
                 <div style="float: left">
                     <asp:Button runat="server" ID="btnCategorieProduit" Text="Magasiner par catégorie" CssClass="boutonLienMenu" />
                 </div>
-                <div style="float: left;border-left: solid 1px white;">
+                <div style="float: left; border-left: solid 1px white;">
                     <asp:Button ID="btnPromotion" runat="server" Text="Promotions" CssClass="boutonLienMenu" />
                 </div>
-                <div style="float: left;border-left: solid 1px white;">
+                <div style="float: left; border-left: solid 1px white;">
                     <asp:Button ID="btnContacterNous" runat="server" Text="Contacter-nous" CssClass="boutonLienMenu" OnClick="btnContacterNousClick" />
                 </div>
-                <div style="float: left; width: 485px; text-align: right; ">
-                    <asp:Button runat="server" ID="btnConnecter" Text="Se connecter ou créer un compte" CssClass="boutonLien" OnClick="btnConnecterClick" />
+                <div style="float: left; width: 485px; text-align: right;">
+                    <asp:Panel runat="server" ID="pnlDeconnecte">
+                        <asp:Button runat="server" ID="btnConnecter" Text="Se connecter ou créer un compte" CssClass="boutonLien" OnClick="btnConnecterClick" />
+                    </asp:Panel>
+                    <asp:Panel runat="server" ID="pnlConnecte" Visible="False">
+                        <asp:button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonLien" ></asp:button>
+                        |
+                        <asp:Button runat="server" ID="btnDeconnecter" Text="Se déconnecter" CssClass="boutonLien" OnClick="btnDeconnecterClick" />
+                    </asp:Panel>
+
                 </div>
                 <div style="float: left; border-left: solid 1px white;">
                     <asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonLien" />
