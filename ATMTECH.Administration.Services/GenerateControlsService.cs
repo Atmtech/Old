@@ -168,7 +168,6 @@ namespace ATMTECH.Administration.Services
         {
             switch (propertyInfo.PropertyType.Name.ToLower())
             {
-
                 case "product":
                     return ProductService.GetProductsSimple(idEnterprise);
                 case "enterprise":
@@ -291,9 +290,7 @@ namespace ATMTECH.Administration.Services
             {
                 comboBoxSimple.Items.Add(item);
             }
-
-            // comboBoxSimple.AjouterItemsNull();
-
+        
             if (selectedValue != "0")
             {
                 if (!string.IsNullOrEmpty(selectedValue))
@@ -327,18 +324,95 @@ namespace ATMTECH.Administration.Services
 
             if (propertyInfo.Name == "AddressType")
             {
-                ListItem listItem1 = new ListItem("Facturation", EnterpriseAddress.CODE_ADRESS_TYPE_BILLING);
-                ListItem listItem2 = new ListItem("Livraison", EnterpriseAddress.CODE_ADRESS_TYPE_SHIPPING);
 
-                ComboBox comboBoxAvance = new ComboBox
+                ComboBox comboBoxSimple = new ComboBox
                 {
                     ID = propertyInfo.Name,
-
                 };
-                comboBoxAvance.Items.Add(listItem1);
-                comboBoxAvance.Items.Add(listItem2);
-                comboBoxAvance.SelectedValue = value;
-                return comboBoxAvance;
+                DropDownList dropDownList = new DropDownList();
+                ListItem listItem1 = new ListItem("Facturation", EnterpriseAddress.CODE_ADRESS_TYPE_BILLING);
+                ListItem listItem2 = new ListItem("Livraison", EnterpriseAddress.CODE_ADRESS_TYPE_SHIPPING);
+                dropDownList.Items.Add(listItem1);
+                dropDownList.Items.Add(listItem2);
+
+                comboBoxSimple.AjouterItemsNull();
+
+                foreach (ListItem item in dropDownList.Items)
+                {
+                    comboBoxSimple.Items.Add(item);
+                }
+                
+                if (value != "0")
+                {
+                    if (!string.IsNullOrEmpty(value))
+                        comboBoxSimple.SelectedValue = value;
+                }
+
+
+                return comboBoxSimple;
+
+
+
+                ////IList<ListItem> listItems =  new List<ListItem>();
+                //IList<BaseEntity> baseEntities = new List<BaseEntity>();
+                //baseEntities.Add(new BaseEntity{});
+                ////ListItem listItem1 = new ListItem("Facturation", EnterpriseAddress.CODE_ADRESS_TYPE_BILLING);
+                ////ListItem listItem2 = new ListItem("Livraison", EnterpriseAddress.CODE_ADRESS_TYPE_SHIPPING);
+                ////listItems.Add(listItem1);
+                ////listItems.Add(listItem2);
+                //ComboBox comboBox = CreateComboBox(propertyInfo, value, listItems);
+
+
+
+                //Editor editor = new Editor
+                //{
+                //    ID = propertyInfo.Name,
+                //    Text = value,
+                //    Width = Unit.Percentage(90),
+                //    Enabled = isEnabled,
+                //    Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
+                //    Height = Unit.Pixel(150)
+
+                //};
+
+                //if (DataEditorService.IsSystemColumn(propertyInfo.Name))
+                //{
+                //    editor.Enabled = false;
+                //}
+                //return editor;
+
+
+                //ComboBox comboBoxSimple = new ComboBox
+                //{
+                //    ID = propertyInfo.Name,
+                //};
+                //comboBoxSimple.AjouterItemsNull();
+
+                //DropDownList dropDownList = new DropDownList();
+                //ListItem listItem1 = new ListItem("Facturation", EnterpriseAddress.CODE_ADRESS_TYPE_BILLING);
+                //ListItem listItem2 = new ListItem("Livraison", EnterpriseAddress.CODE_ADRESS_TYPE_SHIPPING);
+                //dropDownList.Items.Add(listItem1);
+                //dropDownList.Items.Add(listItem2);
+
+
+
+
+
+                //if (value != "0")
+                //{
+                //    if (!string.IsNullOrEmpty(value))
+                //        comboBoxSimple.SelectedValue = value;
+                //}
+
+
+
+
+                //comboBoxAvance.AjouterItemsNull();
+
+                //comboBoxAvance.Items.Add(listItem1);
+                //comboBoxAvance.Items.Add(listItem2);
+                //comboBoxAvance.SelectedValue = value;
+                //return comboBoxAvance;
             }
 
             switch (propertyInfo.PropertyType.FullName)
