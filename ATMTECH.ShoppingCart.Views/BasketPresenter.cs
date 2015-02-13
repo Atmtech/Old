@@ -27,6 +27,11 @@ namespace ATMTECH.ShoppingCart.Views
         {
         }
 
+        public override void OnViewLoaded()
+        {
+            base.OnViewLoaded();
+            View.CurrentOrder = OrderService.GetWishListFromCustomer(CustomerService.AuthenticateCustomer);
+        }
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
