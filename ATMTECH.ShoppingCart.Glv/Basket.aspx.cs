@@ -13,10 +13,6 @@ namespace ATMTECH.ShoppingCart.Glv
 {
     public partial class Basket : PageBaseShoppingCart<BasketPresenter, IBasketPresenter>, IBasketPresenter
     {
-        public bool IsDontAddPersonnalAddressShipping { set { if (value) btnModifyShippingAddress.Visible = false; } }
-        public bool IsDontAddPersonnalAddressBilling { set { if (value) btnModifyBillingAddress.Visible = false; } }
-
-
         public IList<EnumOrderInformation> EnumOrderInformation1
         {
             set
@@ -37,7 +33,11 @@ namespace ATMTECH.ShoppingCart.Glv
                 ddlOrderInformation2.DataBind();
             }
         }
-        public string OrderInformation1Value { get { return ddlOrderInformation1.SelectedValue.ToString(); } }
+
+        public bool IsDontAddPersonnalAddressShipping { set { if (value) btnModifyShippingAddress.Visible = false; } }
+        public bool IsDontAddPersonnalAddressBilling { set { if (value) btnModifyBillingAddress.Visible = false; } }
+
+        public string OrderInformation1Value { get { return ddlOrderInformation1.SelectedValue; } }
         public string OrderInformation2Value { get { return ddlOrderInformation2.SelectedValue; } }
         public string NoAddressFound
         {
@@ -195,10 +195,12 @@ namespace ATMTECH.ShoppingCart.Glv
         public int ShippingAddressSelected
         {
             get { return Convert.ToInt32(ddlShipping.SelectedValue); }
+            set { ddlShipping.SelectedValue = value.ToString(); }
         }
         public int BillingAddressSelected
         {
             get { return Convert.ToInt32(ddlBilling.SelectedValue); }
+            set { ddlBilling.SelectedValue = value.ToString(); }
         }
         public bool IsPaypal
         {
@@ -284,7 +286,8 @@ namespace ATMTECH.ShoppingCart.Glv
 
             Presenter.RecalculateBasket();
 
-            ((Default)Master).RefreshTotal();
+            var @default = (Default)Master;
+            if (@default != null) @default.RefreshTotal();
         }
         protected void GrvBasketCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -316,6 +319,18 @@ namespace ATMTECH.ShoppingCart.Glv
         protected void btnModifyBillingAddressClick(object sender, EventArgs e)
         {
             Presenter.GotoAccount();
+        }
+
+        protected void ddlBillingIndexSelectedChanged(object sender, EventArgs e)
+        {
+            Presenter.SetBillingAddress(ddlBilling.SelectedValue);
+            Presenter.RecalculateBasket();
+        }
+
+        protected void ddlShippingIndexSelectedChanged(object sender, EventArgs e)
+        {
+            Presenter.SetShippingAddress(ddlShipping.SelectedValue);
+            Presenter.RecalculateBasket();
         }
     }
 }

@@ -27,11 +27,7 @@ namespace ATMTECH.ShoppingCart.Views
         {
         }
 
-        public override void OnViewLoaded()
-        {
-            base.OnViewLoaded();
-            View.CurrentOrder = OrderService.GetWishListFromCustomer(CustomerService.AuthenticateCustomer);
-        }
+
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
@@ -70,20 +66,28 @@ namespace ATMTECH.ShoppingCart.Views
                     View.IsOrderLocked = View.CurrentOrder.IsOrderLocked;
                     DisplayShipping();
 
+
                     if (View.CurrentOrder.OrderLines.Count(x => x.IsActive) > 0)
                     {
                         RecalculateBasket();
                     }
+
+
+
                 }
             }
         }
-
-
         public void DisplayShipping()
         {
             View.IsShippingNotIncluded = !View.CurrentOrder.Enterprise.IsShippingIncluded;
             View.IsShippingManaged = View.CurrentOrder.Enterprise.IsShippingManaged;
             View.ShippingWeight = View.CurrentOrder.TotalWeight;
+
+            if (View.CurrentOrder.Enterprise.ShippingCostFixed != 0)
+            {
+                View.ShippingTotal = View.CurrentOrder.Enterprise.ShippingCostFixed;
+            }
+
             View.ShippingTotal = View.CurrentOrder.ShippingTotal;
         }
         public void RecalculateBasket()
@@ -120,7 +124,7 @@ namespace ATMTECH.ShoppingCart.Views
             View.CurrentOrder.Project = View.Project;
             View.CurrentOrder.OrderInformation1 = View.OrderInformation1Value;
             View.CurrentOrder.OrderInformation2 = View.OrderInformation2Value;
-          
+
             if (isPaypal)
             {
                 View.CurrentOrder.IsPayPal = true;
@@ -176,6 +180,12 @@ namespace ATMTECH.ShoppingCart.Views
             View.ShippingAddress = addressesShipping;
             View.IsBillingAddressFixed = CustomerService.AuthenticateCustomer.Enterprise.IsBillingAddressFixed;
             View.IsShippingAddressFixed = CustomerService.AuthenticateCustomer.Enterprise.IsShippingAddressFixed;
+
+            if (View.CurrentOrder.BillingAddress != null)
+            {
+                View.BillingAddressSelected = View.CurrentOrder.BillingAddress.Id;
+            }
+
 
             View.NoAddressFound = MessageService.GetMessage(ErrorCode.SC_NO_ADRESSE).Description;
         }
@@ -233,6 +243,24 @@ namespace ATMTECH.ShoppingCart.Views
         public void GotoAccount()
         {
             NavigationService.Redirect(Pages.Pages.CUSTOMER_INFORMATION);
+        }
+
+        public void SetBillingAddress(string selectedValue)
+        {
+            View.CurrentOrder.BillingAddress.Id = Convert.ToInt32(selectedValue);
+            OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
+            View.BillingAddressSelected = Convert.ToInt32(selectedValue);
+        }
+
+        public void SetShippingAddress(string selectedValue)
+        {
+            View.CurrentOrder.BillingAddress.Id = Convert.ToInt32(selectedValue);
+            OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
+        }
+
+        public void DisplayMandatoryAddress()
+        {
+            MessageService.ThrowMessage(ErrorCode.SC_NO_ADRESSE);
         }
     }
 }

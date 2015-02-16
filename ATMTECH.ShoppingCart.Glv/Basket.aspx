@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
+    <div style="width: 950px; padding: 10px 10px 10px 10px; color: black; border: solid 1px gray; background-color: white; margin-bottom: 10px;">
 
         <asp:Panel runat="server" ID="pnlAskShipping" Visible="False" CssClass="askShippingBox">
             <asp:Label runat="server" ID="lblAskShipping" Font-Bold="True"></asp:Label>
@@ -85,16 +85,6 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label runat="server" ID="lblShippingTotalLabel" Text="Livraison:"></asp:Label>
-                            <asp:Label runat="server" ID="lblShippingWeight" Text=""></asp:Label>
-                            <asp:Label runat="server" ID="lblShippingNotIncluded" Visible="False" Text="Envoi non inclus." ForeColor="red" Font-Size="10px"></asp:Label>
-                        </td>
-                        <td style="text-align: right;">
-                            <asp:Label runat="server" ID="lblShippingTotal" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <asp:Label runat="server" ID="lblSubTotalTaxesRegionLabel" Text="TVQ:"></asp:Label>
                         </td>
                         <td style="text-align: right;">
@@ -107,6 +97,16 @@
                         </td>
                         <td style="text-align: right;">
                             <asp:Label runat="server" ID="lblSubTotalTaxesCountry" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label runat="server" ID="lblShippingTotalLabel" Text="Livraison:"></asp:Label>
+                            <asp:Label runat="server" ID="lblShippingWeight" Text=""></asp:Label>
+                            <asp:Label runat="server" ID="lblShippingNotIncluded" Visible="False" Text="Envoi non inclus." ForeColor="red" Font-Size="10px"></asp:Label>
+                        </td>
+                        <td style="text-align: right;">
+                            <asp:Label runat="server" ID="lblShippingTotal" />
                         </td>
                     </tr>
                     <tr>
@@ -154,10 +154,10 @@
                     <asp:Label runat="server" ID="lblShippingLabel" Text="Adresse d'envoi" />
                 </strong>
             </div>
-            <asp:DropDownList runat="server" ID="ddlShipping" AutoPostBack="True" />
+            <asp:DropDownList runat="server" ID="ddlShipping" AutoPostBack="True" OnSelectedIndexChanged="ddlShippingIndexSelectedChanged" />
             <asp:Button runat="server" ID="btnModifyShippingAddress" OnClick="btnModifyShippingAddressClick"
                 Text="Modifier" />
-            <asp:Label runat="server" ID="lblNoShippingAddress"  Visible="False" ForeColor="red"></asp:Label>
+            <asp:Label runat="server" ID="lblNoShippingAddress" Visible="False" ForeColor="red"></asp:Label>
             <br />
             <br />
             <div class="title">
@@ -165,7 +165,7 @@
                     <asp:Label runat="server" ID="lblBillingLabel" Text="Adresse de facturation" />
                 </strong>
             </div>
-            <asp:DropDownList runat="server" ID="ddlBilling" AutoPostBack="True" />
+            <asp:DropDownList runat="server" ID="ddlBilling" AutoPostBack="True" OnSelectedIndexChanged="ddlBillingIndexSelectedChanged" />
             <asp:Button runat="server" ID="btnModifyBillingAddress" OnClick="btnModifyBillingAddressClick"
                 Text="Modifier" />
             <asp:Label runat="server" ID="lblNoBillingAddress" Visible="False" ForeColor="red"></asp:Label>

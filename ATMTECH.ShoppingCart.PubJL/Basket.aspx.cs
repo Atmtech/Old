@@ -195,10 +195,12 @@ namespace ATMTECH.ShoppingCart.PubJL
         public int ShippingAddressSelected
         {
             get { return Convert.ToInt32(ddlShipping.SelectedValue); }
+            set { ddlShipping.SelectedValue = value.ToString(); }
         }
         public int BillingAddressSelected
         {
             get { return Convert.ToInt32(ddlBilling.SelectedValue); }
+            set { ddlBilling.SelectedValue = value.ToString(); }
         }
         public bool IsPaypal
         {
@@ -284,7 +286,7 @@ namespace ATMTECH.ShoppingCart.PubJL
 
             Presenter.RecalculateBasket();
 
-            var @default = (Default) Master;
+            var @default = (Default)Master;
             if (@default != null) @default.RefreshTotal();
         }
         protected void GrvBasketCommand(object sender, GridViewCommandEventArgs e)
@@ -317,6 +319,18 @@ namespace ATMTECH.ShoppingCart.PubJL
         protected void btnModifyBillingAddressClick(object sender, EventArgs e)
         {
             Presenter.GotoAccount();
+        }
+
+        protected void ddlBillingIndexSelectedChanged(object sender, EventArgs e)
+        {
+            Presenter.SetBillingAddress(ddlBilling.SelectedValue);
+            Presenter.RecalculateBasket();
+        }
+
+        protected void ddlShippingIndexSelectedChanged(object sender, EventArgs e)
+        {
+            Presenter.SetShippingAddress(ddlShipping.SelectedValue);
+            Presenter.RecalculateBasket();
         }
     }
 }

@@ -196,10 +196,12 @@ namespace ATMTECH.ShoppingCart.Lauzon
         public int ShippingAddressSelected
         {
             get { return Convert.ToInt32(ddlShipping.SelectedValue); }
+            set { ddlShipping.SelectedValue = value.ToString(); }
         }
         public int BillingAddressSelected
         {
             get { return Convert.ToInt32(ddlBilling.SelectedValue); }
+            set { ddlBilling.SelectedValue = value.ToString(); }
         }
         public bool IsPaypal
         {
@@ -250,6 +252,9 @@ namespace ATMTECH.ShoppingCart.Lauzon
         {
             set
             {
+                IList<Address> addresses = value;
+                addresses.Insert(0, new Address());
+
                 ddlBilling.DataSource = value;
                 ddlBilling.DataTextField = Address.DISPLAY_ADDRESS;
                 ddlBilling.DataValueField = BaseEntity.ID;
@@ -272,7 +277,15 @@ namespace ATMTECH.ShoppingCart.Lauzon
 
         protected void FinalizeOrderClick(object sender, EventArgs e)
         {
-            Presenter.FinalizeOrder(false);
+            if (ddlBilling.SelectedValue != "0")
+            {
+                Presenter.FinalizeOrder(false);    
+            }
+            else
+            {
+                Presenter.DisplayMandatoryAddress();
+            }
+            
         }
         protected void RecalculerClick(object sender, EventArgs e)
         {
@@ -285,7 +298,7 @@ namespace ATMTECH.ShoppingCart.Lauzon
 
             Presenter.RecalculateBasket();
 
-            var @default = (Default) Master;
+            var @default = (Default)Master;
             if (@default != null) @default.RefreshTotal();
         }
         protected void GrvBasketCommand(object sender, GridViewCommandEventArgs e)
@@ -318,6 +331,18 @@ namespace ATMTECH.ShoppingCart.Lauzon
         protected void btnModifyBillingAddressClick(object sender, EventArgs e)
         {
             Presenter.GotoAccount();
+        }
+
+        protected void ddlBillingIndexSelectedChanged(object sender, EventArgs e)
+        {
+            Presenter.SetBillingAddress(ddlBilling.SelectedValue);
+            Presenter.RecalculateBasket();
+        }
+
+        protected void ddlShippingIndexSelectedChanged(object sender, EventArgs e)
+        {
+            Presenter.SetShippingAddress(ddlShipping.SelectedValue);
+            Presenter.RecalculateBasket();
         }
     }
 }

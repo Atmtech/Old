@@ -130,6 +130,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             orderTaxesShippingParameterTest.Order.Enterprise.IsShippingManaged = true;
             orderTaxesShippingParameterTest.Order.Enterprise.IsShippingIncluded = true;
             orderTaxesShippingParameterTest.Order.Enterprise.IsShippingQuotationRequired = false;
+            orderTaxesShippingParameterTest.Order.Enterprise.ShippingCostFixed = 0;
             MockShippingService.Setup(test => test.GetShippingTotal(It.IsAny<Order>(), It.IsAny<ShippingParameter>()))
                                .Returns(123);
 
@@ -138,6 +139,24 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             rtn.GrandTotal.Should().Be(323);
 
         }
+
+        [TestMethod]
+        public void CalculateTotal_SiCoutShippingFixeShippingTotal()
+        {
+            OrderTaxesShippingParameterTest orderTaxesShippingParameterTest = CalculateTotalBasic();
+
+            orderTaxesShippingParameterTest.Order.Enterprise.IsShippingManaged = true;
+            orderTaxesShippingParameterTest.Order.Enterprise.IsShippingIncluded = true;
+            orderTaxesShippingParameterTest.Order.Enterprise.IsShippingQuotationRequired = false;
+            orderTaxesShippingParameterTest.Order.Enterprise.ShippingCostFixed = 20;
+          
+
+            Order rtn = InstanceTest.CalculateTotal(orderTaxesShippingParameterTest.Order, orderTaxesShippingParameterTest.Taxes.Type, orderTaxesShippingParameterTest.ShippingParameter);
+
+            rtn.GrandTotal.Should().Be(220);
+
+        }
+
 
         [TestMethod]
         public void CalculateTotal_CalculTaxeTotal()
@@ -286,7 +305,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services
             orderLine.IsActive = true;
             orderLine.Quantity = 1;
             product.UnitPrice = 10;
-            
+            order.Enterprise.ShippingCostFixed = 0;
             
             orderLine.Stock.AdjustPrice = 1;
             order.OrderLines.Clear();

@@ -9,7 +9,7 @@
         <div class="tile-content">
             <div style="float: left; text-align: center; padding-left: 20px; padding-top: 20px;">
                 <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" OnClick="imgProductPrincipalClick"  CssClass="imageAddBasket" />
-                <asp:Hyperlink runat="server" ID="lnkDisplay"><img src="Images/WebSite/search-icon.png" style="margin-top: 10px; width:25px;height:25px;" alt="R" /></asp:Hyperlink>
+                <asp:Hyperlink runat="server" ID="lnkDisplay" Visible="False"><img src="Images/WebSite/search-icon.png" style="margin-top: 10px; width:25px;height:25px;" alt="R" /></asp:Hyperlink>
             </div>
             <div style="float: left; padding-left: 20px; padding-top: 20px;">
                 <asp:DataList ID="DataListProductFile" RepeatDirection="Vertical" runat="server"

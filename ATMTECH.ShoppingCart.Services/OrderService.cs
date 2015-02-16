@@ -230,6 +230,8 @@ namespace ATMTECH.ShoppingCart.Services
         }
         public decimal GetShippingTotal(Order order, ShippingParameter shippingParameter)
         {
+            if (order.Enterprise.ShippingCostFixed != 0)
+                return order.Enterprise.ShippingCostFixed;
             return order.Enterprise.IsShippingManaged ? ShippingService.GetShippingTotal(order, shippingParameter) : 0;
         }
         public void UpdateOrderLine(OrderLine orderLine)

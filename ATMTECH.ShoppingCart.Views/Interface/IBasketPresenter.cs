@@ -24,8 +24,8 @@ namespace ATMTECH.ShoppingCart.Views.Interface
         void RefreshOrderDisplay(Order value);
         bool IsBillingAddressFixed { set; }
         bool IsShippingAddressFixed { set; }
-        int ShippingAddressSelected { get; }
-        int BillingAddressSelected { get; }
+        int ShippingAddressSelected { get; set; }
+        int BillingAddressSelected { get; set; }
         bool IsPaypalRequired { set; }
         bool IsManageOrderInformation1 { set; }
         bool IsManageOrderInformation2 { set; }

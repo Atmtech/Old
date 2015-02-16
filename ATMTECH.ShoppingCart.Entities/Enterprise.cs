@@ -53,5 +53,7 @@ namespace ATMTECH.ShoppingCart.Entities
 
         public bool IsShippingQuotationRequired { get; set; }
 
+        public decimal ShippingCostFixed { get; set; }
+
     }
 }

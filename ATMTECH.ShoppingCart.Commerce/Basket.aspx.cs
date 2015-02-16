@@ -30,8 +30,8 @@ namespace ATMTECH.ShoppingCart.Commerce
 
         public bool IsBillingAddressFixed { set; private get; }
         public bool IsShippingAddressFixed { set; private get; }
-        public int ShippingAddressSelected { get; private set; }
-        public int BillingAddressSelected { get; private set; }
+        public int ShippingAddressSelected { get; set; }
+        public int BillingAddressSelected { get; set; }
         public bool IsPaypalRequired { set; private get; }
         public bool IsManageOrderInformation1 { set; private get; }
         public bool IsManageOrderInformation2 { set; private get; }
