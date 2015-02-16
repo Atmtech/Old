@@ -10,6 +10,7 @@
 
     <link href="JQuery/jquery-ui-1.11.2/css/lightbox.css" rel="stylesheet" />
     <link href="JQuery/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.custom.css" rel="stylesheet" />
     <link href="JQuery/jquery-ui-1.11.2/ComboBox.css" rel="stylesheet" />
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>

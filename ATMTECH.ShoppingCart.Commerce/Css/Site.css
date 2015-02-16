@@ -53,24 +53,6 @@ a {
     font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
 }
 
-
-.dropDownList
-{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    text-indent: 1px;
-    border: solid 1px rgb(75, 75, 75);
-    color: black;
-    text-indent: 5px;
-    background: black;
-    color: #ffffff;
-    height: 25px;
-    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
-    overflow: hidden;
-    background: url(/Images/WebSite/dropdown.png) no-repeat right;
-}
-
-
 .boutonLien
 {
     border: none;
