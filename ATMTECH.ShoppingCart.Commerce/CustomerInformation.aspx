@@ -32,7 +32,7 @@
             <asp:Label runat="server" ID="lblMotDePasseCreer" Text="Mot de passe" CssClass="labelLogin"></asp:Label>
         </div>
         <div>
-            <asp:TextBox ID="txtMotDePasseCreer" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+            <asp:TextBox ID="txtMotDePasseCreer" runat="server" CssClass="textBox" Width="400px" TextMode="Password"></asp:TextBox>
         </div>
         <div style="padding-top: 20px;">
             <asp:Label runat="server" ID="lblMotDePasseCreerConfirmation" Text="Confirmation" CssClass="labelLogin"></asp:Label>
@@ -51,14 +51,14 @@
                 <asp:Label runat="server" ID="lblNoCiviqueLivraisonInformationClient" Text="Numéro civique" CssClass="labelLogin"></asp:Label>
             </div>
             <div>
-                <asp:TextBox ID="txtNoCiviqueClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+                <asp:TextBox ID="txtNoCiviqueLivraisonClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
             </div>
 
             <div style="padding-top: 20px;">
                 <asp:Label runat="server" ID="lblRueLivraisonInformationClient" Text="Rue" CssClass="labelLogin"></asp:Label>
             </div>
             <div>
-                <asp:TextBox ID="txtRueClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+                <asp:TextBox ID="txtRueLivraisonClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
             </div>
 
             <div style="padding-top: 20px;">
@@ -67,12 +67,20 @@
             <div>
                 <asp:TextBox ID="txtCodePostalLivraisonInformationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
             </div>
+            
+                <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblVilleLivraisonClient" Text="Ville" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div>
+                <asp:TextBox ID="txtVilleLivraisonClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+            </div>
+
 
             <div style="padding-top: 20px;">
                 <asp:Label runat="server" ID="lblPaysLivraisonInformationClient" Text="Pays" CssClass="labelLogin"></asp:Label>
             </div>
             <div>
-                <asp:DropDownList ID="ddlPaysClient" runat="server" CssClass="dropDownList" Width="400px"></asp:DropDownList>
+                <atmtech:ComboBox ID="ddlPaysLivraisonClient" runat="server" CssClass="dropDownList" Width="400px"></atmtech:ComboBox>
             </div>
         </div>
         <div class="adresseFacturationClient">
@@ -88,28 +96,36 @@
                 <asp:Label runat="server" ID="lblNoCiviqueFacturationInformationClient" Text="Numéro civique" CssClass="labelLogin"></asp:Label>
             </div>
             <div>
-                <asp:TextBox ID="TextBox1" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+                <asp:TextBox ID="txtNoCiviqueFacturationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
             </div>
 
             <div style="padding-top: 20px;">
                 <asp:Label runat="server" ID="lblRueFacturationInformationClient" Text="Rue" CssClass="labelLogin"></asp:Label>
             </div>
             <div>
-                <asp:TextBox ID="TextBox2" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+                <asp:TextBox ID="txtRueFacturationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
             </div>
 
             <div style="padding-top: 20px;">
                 <asp:Label runat="server" ID="lblCodePostalFacturationInformationClient" Text="Code postal" CssClass="labelLogin"></asp:Label>
             </div>
             <div>
-                <asp:TextBox ID="TextBox3" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+                <asp:TextBox ID="txtCodePostalFacturationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
             </div>
+            
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblVilleFacturationInformationClient" Text="Ville" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div>
+                <asp:TextBox ID="txtVilleFacturationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+            </div>
+
 
             <div style="padding-top: 20px;">
                 <asp:Label runat="server" ID="lblPaysFacturationInformationClient" Text="Pays" CssClass="labelLogin"></asp:Label>
             </div>
             <div>
-                <asp:DropDownList ID="ddlPaysInformationClient" runat="server" CssClass="dropDownList" Width="400px"></asp:DropDownList>
+                <atmtech:ComboBox ID="ddlPaysFacturationClient" runat="server" CssClass="dropDownList" Width="400px"></atmtech:ComboBox>
             </div>
         </div>
 

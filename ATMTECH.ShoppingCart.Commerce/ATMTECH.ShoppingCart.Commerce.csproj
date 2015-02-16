@@ -93,30 +93,7 @@
     <Content Include="Images\WebSite\success-icon.png" />
     <Content Include="Images\WebSite\test1Promo.jpg" />
     <Content Include="Images\WebSite\TestSale1.png" />
-    <Content Include="Javascript\accordion.js" />
-    <Content Include="Javascript\buttonset.js" />
-    <Content Include="Javascript\calendar.js" />
-    <Content Include="Javascript\carousel.js" />
-    <Content Include="Javascript\CSS\images\icon-close.png" />
-    <Content Include="Javascript\CSS\images\icon-print.png" />
-    <Content Include="Javascript\CSS\print-preview.css" />
-    <Content Include="Javascript\dialog.js" />
-    <Content Include="Javascript\dropdown.js" />
-    <Content Include="Javascript\input-control.js" />
-    <Content Include="Javascript\jquery-combobox.js" />
-    <Content Include="Javascript\jquery-ui.custom.min.js" />
-    <Content Include="Javascript\jquery.jqprint.0.3.js" />
-    <Content Include="Javascript\jquery.min.js" />
-    <Content Include="Javascript\jquery.print-preview.js" />
-    <Content Include="Javascript\jquery.scrollTo-min.js" />
-    <Content Include="Javascript\pagecontrol.js" />
-    <Content Include="Javascript\PilotageEnum.js" />
-    <Content Include="Javascript\rating.js" />
     <Content Include="Javascript\Redirection.js" />
-    <Content Include="Javascript\slider.js" />
-    <Content Include="Javascript\start-menu.js" />
-    <Content Include="Javascript\tile-drag.js" />
-    <Content Include="Javascript\tile-slider.js" />
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.css" />
@@ -156,6 +133,7 @@
     <Content Include="Login.aspx" />
     <Content Include="ProductCatalog.aspx" />
     <Content Include="ProductSearch.aspx" />
+    <Content Include="Test.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -252,6 +230,13 @@
       <DependentUpon>ProductSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Default\Default.skin" />
@@ -278,13 +263,25 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
+      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
+      <Name>ATMTECH.DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.ShoppingCart.DAO\ATMTECH.ShoppingCart.DAO.csproj">
+      <Project>{F5879683-61B6-42D4-B62C-3904BECD62BD}</Project>
+      <Name>ATMTECH.ShoppingCart.DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.ShoppingCart.Entities\ATMTECH.ShoppingCart.Entities.csproj">
       <Project>{F2B35967-8009-4AD0-9B21-78A2EE6C1E36}</Project>
       <Name>ATMTECH.ShoppingCart.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.ShoppingCart.Services\ATMTECH.ShoppingCart.Services.csproj">
+      <Project>{D226BF01-2BD8-4206-A576-F9F929518A01}</Project>
+      <Name>ATMTECH.ShoppingCart.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.ShoppingCart.Views\ATMTECH.ShoppingCart.Views.csproj">
       <Project>{43B7ED27-782C-4574-96F5-1E433403E3FF}</Project>

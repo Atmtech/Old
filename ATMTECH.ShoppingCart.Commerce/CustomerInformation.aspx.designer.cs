@@ -130,13 +130,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblNoCiviqueLivraisonInformationClient;
         
         /// <summary>
-        /// Contrôle txtNoCiviqueClient.
+        /// Contrôle txtNoCiviqueLivraisonClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNoCiviqueClient;
+        protected global::System.Web.UI.WebControls.TextBox txtNoCiviqueLivraisonClient;
         
         /// <summary>
         /// Contrôle lblRueLivraisonInformationClient.
@@ -148,13 +148,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblRueLivraisonInformationClient;
         
         /// <summary>
-        /// Contrôle txtRueClient.
+        /// Contrôle txtRueLivraisonClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRueClient;
+        protected global::System.Web.UI.WebControls.TextBox txtRueLivraisonClient;
         
         /// <summary>
         /// Contrôle lblCodePostalLivraisonInformationClient.
@@ -175,6 +175,24 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.TextBox txtCodePostalLivraisonInformationClient;
         
         /// <summary>
+        /// Contrôle lblVilleLivraisonClient.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVilleLivraisonClient;
+        
+        /// <summary>
+        /// Contrôle txtVilleLivraisonClient.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtVilleLivraisonClient;
+        
+        /// <summary>
         /// Contrôle lblPaysLivraisonInformationClient.
         /// </summary>
         /// <remarks>
@@ -184,13 +202,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblPaysLivraisonInformationClient;
         
         /// <summary>
-        /// Contrôle ddlPaysClient.
+        /// Contrôle ddlPaysLivraisonClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPaysClient;
+        protected global::ATMTECH.WebControls.ComboBox ddlPaysLivraisonClient;
         
         /// <summary>
         /// Contrôle lblAdresseFacturationClient.
@@ -229,13 +247,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblNoCiviqueFacturationInformationClient;
         
         /// <summary>
-        /// Contrôle TextBox1.
+        /// Contrôle txtNoCiviqueFacturationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtNoCiviqueFacturationClient;
         
         /// <summary>
         /// Contrôle lblRueFacturationInformationClient.
@@ -247,13 +265,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblRueFacturationInformationClient;
         
         /// <summary>
-        /// Contrôle TextBox2.
+        /// Contrôle txtRueFacturationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtRueFacturationClient;
         
         /// <summary>
         /// Contrôle lblCodePostalFacturationInformationClient.
@@ -265,13 +283,31 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblCodePostalFacturationInformationClient;
         
         /// <summary>
-        /// Contrôle TextBox3.
+        /// Contrôle txtCodePostalFacturationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtCodePostalFacturationClient;
+        
+        /// <summary>
+        /// Contrôle lblVilleFacturationInformationClient.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVilleFacturationInformationClient;
+        
+        /// <summary>
+        /// Contrôle txtVilleFacturationClient.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtVilleFacturationClient;
         
         /// <summary>
         /// Contrôle lblPaysFacturationInformationClient.
@@ -283,13 +319,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblPaysFacturationInformationClient;
         
         /// <summary>
-        /// Contrôle ddlPaysInformationClient.
+        /// Contrôle ddlPaysFacturationClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPaysInformationClient;
+        protected global::ATMTECH.WebControls.ComboBox ddlPaysFacturationClient;
         
         /// <summary>
         /// Contrôle btnEnregistrerInformationClient.

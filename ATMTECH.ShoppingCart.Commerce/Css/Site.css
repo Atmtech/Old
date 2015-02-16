@@ -60,9 +60,9 @@ a {
     -moz-appearance: none;
     text-indent: 1px;
     border: solid 1px rgb(75, 75, 75);
-    color: #ffffff;
+    color: black;
     text-indent: 5px;
-    background: transparent;
+    background: black;
     color: #ffffff;
     height: 25px;
     font-family: 'Century Gothic', Helvetica, Arial, sans-serif;

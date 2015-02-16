@@ -22,5 +22,6 @@
     padding: 3px 5px;
 }
 .ui-widget-content {
-    font-size: 10px
+    font-size: 10px;
+    background-color: black;
 }
