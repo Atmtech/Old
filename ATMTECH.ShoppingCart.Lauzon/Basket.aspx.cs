@@ -252,8 +252,6 @@ namespace ATMTECH.ShoppingCart.Lauzon
         {
             set
             {
-                IList<Address> addresses = value;
-                addresses.Insert(0, new Address());
 
                 ddlBilling.DataSource = value;
                 ddlBilling.DataTextField = Address.DISPLAY_ADDRESS;

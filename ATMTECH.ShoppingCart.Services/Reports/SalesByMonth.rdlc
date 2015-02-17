@@ -2746,7 +2746,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!GrandTotalSales.Value)</Value>
+                              <Value>=First(Fields!GrandTotalWithTaxes.Value, "dsSalesByMonthReport")</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <Format>0.00'$';(0.00'$')</Format>
@@ -3235,6 +3235,7 @@
                               <Value />
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <Format>0.00'$';(0.00'$')</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -3265,7 +3266,21 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=First(Fields!GrandTotalWithTaxes.Value, "dsSalesByMonthReport")</Value>
+                              <Value>=Sum(Fields!GrandTotalSales.Value)</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <Format>0.00'$';(0.00'$')</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <Format>0.00'$';(0.00'$')</Format>
@@ -3326,6 +3341,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>

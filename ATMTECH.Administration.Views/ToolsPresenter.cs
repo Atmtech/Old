@@ -130,6 +130,7 @@ namespace ATMTECH.Administration.Views
 
             switch (objet)
             {
+                case "Localization": return Save<Localization>();   
                 case "Address": return Save<Address>();
                 case "Country": return Save<Country>();
                 case "City": return Save<City>();

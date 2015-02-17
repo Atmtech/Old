@@ -102,19 +102,6 @@ namespace ATMTECH.ShoppingCart.Views
         }
         public void FinalizeOrder(bool isPaypal)
         {
-            if (View.CurrentOrder.BillingAddress == null)
-            {
-                View.CurrentOrder.BillingAddress = new Address();
-            }
-
-            View.CurrentOrder.BillingAddress.Id = View.BillingAddressSelected;
-
-            if (View.CurrentOrder.ShippingAddress == null)
-            {
-                View.CurrentOrder.ShippingAddress = new Address();
-            }
-            View.CurrentOrder.ShippingAddress.Id = View.ShippingAddressSelected;
-
             if (View.CurrentOrder != null)
             {
                 OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
@@ -247,7 +234,15 @@ namespace ATMTECH.ShoppingCart.Views
 
         public void SetBillingAddress(string selectedValue)
         {
-            View.CurrentOrder.BillingAddress.Id = Convert.ToInt32(selectedValue);
+            if (View.CurrentOrder.BillingAddress == null)
+            {
+                View.CurrentOrder.BillingAddress = new Address { Id = Convert.ToInt32(selectedValue) };
+            }
+            else
+            {
+                View.CurrentOrder.BillingAddress.Id = Convert.ToInt32(selectedValue);    
+            }
+            
             OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
             View.BillingAddressSelected = Convert.ToInt32(selectedValue);
         }

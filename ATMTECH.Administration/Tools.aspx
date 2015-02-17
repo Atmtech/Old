@@ -188,6 +188,7 @@
             <asp:ListItem Text="Supplier" Value="Supplier"></asp:ListItem>
             <asp:ListItem Text="Taxes" Value="Taxes"></asp:ListItem>
             <asp:ListItem Text="StockTransaction" Value="StockTransaction"></asp:ListItem>
+            <asp:ListItem Text="Localization" Value="Localization"></asp:ListItem>
 
         </asp:DropDownList>
         <asp:Button runat="server" ID="btnBalanceSearchColumn" OnClick="btnBalanceSearchColumnClick" CausesValidation="False" CssClass="button" Text="Balancer" />

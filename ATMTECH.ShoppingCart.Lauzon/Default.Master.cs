@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI;
+using ATMTECH.Common.Constant;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views;
@@ -93,7 +94,31 @@ namespace ATMTECH.ShoppingCart.Lauzon
 
         public string Language
         {
-            set { lnkLanguage.Text = value; }
+            set
+            {
+                SetObjectFromLanguage();
+                lnkLanguage.Text = value;
+            }
+        }
+
+        private void SetObjectFromLanguage()
+        {
+            if (Presenter.ReturnLanguage() == LocalizationLanguage.FRENCH)
+            {
+                imgVetement.ImageUrl = "Images/WebSite/VetementsFr.png";
+                imgArticlePromotionnel.ImageUrl = "Images/WebSite/ArticlePromoFr.png";
+                imgConditionUtilisation.ImageUrl = "Images/WebSite/ConditionUtilisationFr.png";
+                imgEtapePourCommander.ImageUrl = "Images/WebSite/EtapePourCommanderFr.png";
+                imgServiceClientele.ImageUrl = "Images/WebSite/ServiceClienteleFr.png";
+            }
+            else
+            {
+                imgVetement.ImageUrl = "Images/WebSite/VetementsEn.png";
+                imgArticlePromotionnel.ImageUrl = "Images/WebSite/ArticlePromoEn.png";
+                imgConditionUtilisation.ImageUrl = "Images/WebSite/ConditionUtilisationEn.png";
+                imgEtapePourCommander.ImageUrl = "Images/WebSite/EtapePourCommanderEn.png";
+                imgServiceClientele.ImageUrl = "Images/WebSite/ServiceClienteleEn.png";
+            }   
         }
 
         public Enterprise Enterprise
@@ -109,10 +134,12 @@ namespace ATMTECH.ShoppingCart.Lauzon
                 if (Presenter.CurrentLanguage == "fr")
                 {
                     lnkVetement.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=92";
+                    lnkArticlePromotionnel.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=96";
                 }
                 else
                 {
                     lnkVetement.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=94";
+                    lnkArticlePromotionnel.NavigateUrl = "ProductCatalog.aspx?ProductCategoryId=97";
                 }
 
             }

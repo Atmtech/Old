@@ -91,7 +91,11 @@ namespace ATMTECH.ShoppingCart.Services
         public int UpdateOrder(Order order, ShippingParameter shippingParameter)
         {
             Taxes taxes = DAOTaxes.GetTaxes(order.Customer.Taxes.Id);
-            order = CalculateTotal(order, taxes.Type, shippingParameter);
+            if (taxes != null)
+            {
+                order = CalculateTotal(order, taxes.Type, shippingParameter);    
+            }
+            
             return DAOOrder.UpdateOrder(order);
         }
         public void FinalizeOrderPaypal(Order order, ShippingParameter shippingParameter)

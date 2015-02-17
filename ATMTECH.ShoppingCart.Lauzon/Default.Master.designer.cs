@@ -211,15 +211,6 @@ namespace ATMTECH.ShoppingCart.Lauzon {
         protected global::System.Web.UI.WebControls.Panel pnlMenuBottom;
         
         /// <summary>
-        /// Contrôle lnkVetement.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkVetement;
-        
-        /// <summary>
         /// Contrôle lblProductCount.
         /// </summary>
         /// <remarks>
@@ -229,31 +220,67 @@ namespace ATMTECH.ShoppingCart.Lauzon {
         protected global::System.Web.UI.WebControls.Label lblProductCount;
         
         /// <summary>
-        /// Contrôle lblProductList.
+        /// Contrôle lnkVetement.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductList;
+        protected global::System.Web.UI.WebControls.HyperLink lnkVetement;
         
         /// <summary>
-        /// Contrôle lblInstruction.
+        /// Contrôle imgVetement.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInstruction;
+        protected global::System.Web.UI.WebControls.Image imgVetement;
         
         /// <summary>
-        /// Contrôle lblCustomerCare.
+        /// Contrôle lnkArticlePromotionnel.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerCare;
+        protected global::System.Web.UI.WebControls.HyperLink lnkArticlePromotionnel;
+        
+        /// <summary>
+        /// Contrôle imgArticlePromotionnel.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgArticlePromotionnel;
+        
+        /// <summary>
+        /// Contrôle imgConditionUtilisation.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgConditionUtilisation;
+        
+        /// <summary>
+        /// Contrôle imgEtapePourCommander.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgEtapePourCommander;
+        
+        /// <summary>
+        /// Contrôle imgServiceClientele.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgServiceClientele;
         
         /// <summary>
         /// Contrôle lblContact.

@@ -17,12 +17,12 @@ namespace ATMTECH.ShoppingCart.DAO
                     "SELECT STOCK.Id as Id, STOCK.[Description], STOCK.[IsActive], STOCK.[DateCreated], STOCK.[DateModified],STOCK.[Language],STOCK.[OrderId],STOCK.[Search],STOCK.[ComboboxDescription],[Product],[InitialState],[MinimumAccept],[IsWarningOnLow],[FeatureFrench],[FeatureEnglish],[AdjustPrice],[IsWithoutStock], STOCK.[UserLoginModified] FROM STOCK INNER JOIN PRODUCT ON STOCK.Product = Product.Id and Product.Enterprise = " + idEnterprise + "  INNER JOIN ENTERPRISE ON Product.[Enterprise] = ENTERPRISE.ID");
         }
 
-        
+
 
         public IList<Stock> GetProductStock(int idProduct)
         {
             IList<Stock> listStock = GetAllOneCriteria(Stock.PRODUCT, idProduct.ToString());
-            return listStock.Where(x => x.IsActive).ToList();
+            return listStock.Where(x => x.IsActive).OrderBy(x => x.OrderId).ToList();
         }
 
         public Stock GetStock(int idStock)
@@ -36,7 +36,7 @@ namespace ATMTECH.ShoppingCart.DAO
         }
 
 
-  
+
 
         public IList<Stock> GetAllStock(int pageSize, int pageIndex)
         {
