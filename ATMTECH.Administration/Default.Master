@@ -119,6 +119,7 @@
                                     <ul>
                                         <li><a href="DataEditor.aspx?Entity=Order">Les commandes</a> </li>
                                         <li><a href="DataEditor.aspx?Entity=OrderLine">Les ligne de commandes</a> </li>
+                                        <li><a href="ValidatePaypal.aspx">Valider les commandes paypal</a> </li>
                                     </ul>
                                     <div style="text-transform: uppercase; color: white; font-size: 16px; padding-left: 4px; background-color: goldenrod">
                                         Les entreprises
@@ -183,7 +184,6 @@
                                                 OnClick="BtnGenerateColumns" /></li>
                                         <li><a href="ImportExcel.aspx">Importer des données</a> </li>
 
-                                        </li>
                                     </ul>
 
                                     <div style="text-transform: uppercase; color: white; font-size: 16px; background-color: goldenrod">

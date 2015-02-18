@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseAdministrationPresenter.cs" />
+    <Compile Include="ValidatePaypalPresenter.cs" />
+    <Compile Include="Interface\IValidatePaypalPresenter.cs" />
     <Compile Include="StockTransactionPresenter.cs" />
     <Compile Include="FileUploadAdminPresenter.cs" />
     <Compile Include="Interface\IStockTransactionPresenter.cs" />

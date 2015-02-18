@@ -170,6 +170,13 @@
     <Compile Include="Tools.aspx.designer.cs">
       <DependentUpon>Tools.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ValidatePaypal.aspx.cs">
+      <DependentUpon>ValidatePaypal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ValidatePaypal.aspx.designer.cs">
+      <DependentUpon>ValidatePaypal.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -470,6 +477,7 @@
     <Content Include="StockTransaction.aspx" />
     <Content Include="test.aspx" />
     <Content Include="Tools.aspx" />
+    <Content Include="ValidatePaypal.aspx" />
     <Content Include="Videos\AjouterImageProduit.mp4" />
   </ItemGroup>
   <ItemGroup>

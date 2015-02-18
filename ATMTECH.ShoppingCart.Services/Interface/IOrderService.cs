@@ -51,5 +51,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         IList<StockControlReportLine> GetStockControlReport();
         IList<OrderLine> GetOrderLine(int idOrder);
         IList<Order> GetAllWithCustomer();
+        IList<Order> GetAllToValidatePaypal(Enterprise enterprise, DateTime dateStart, DateTime dateEnd);
     }
 }

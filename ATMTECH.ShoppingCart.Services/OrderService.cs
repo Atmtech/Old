@@ -350,6 +350,11 @@ namespace ATMTECH.ShoppingCart.Services
             }
             return productses;
         }
+        public IList<Order> GetAllToValidatePaypal(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
+        {
+            return DAOOrder.GetAllFinalized(enterprise, dateStart, dateEnd);
+             
+        }
         public IList<SalesReportLine> GetSalesReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
             IList<Product> products = ProductService.GetProductsWithoutLanguage(enterprise.Id);
