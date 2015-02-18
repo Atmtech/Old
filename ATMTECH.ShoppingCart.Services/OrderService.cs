@@ -93,9 +93,9 @@ namespace ATMTECH.ShoppingCart.Services
             Taxes taxes = DAOTaxes.GetTaxes(order.Customer.Taxes.Id);
             if (taxes != null)
             {
-                order = CalculateTotal(order, taxes.Type, shippingParameter);    
+                order = CalculateTotal(order, taxes.Type, shippingParameter);
             }
-            
+
             return DAOOrder.UpdateOrder(order);
         }
         public void FinalizeOrderPaypal(Order order, ShippingParameter shippingParameter)
@@ -353,7 +353,7 @@ namespace ATMTECH.ShoppingCart.Services
         public IList<Order> GetAllToValidatePaypal(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
             return DAOOrder.GetAllFinalized(enterprise, dateStart, dateEnd);
-             
+
         }
         public IList<SalesReportLine> GetSalesReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
@@ -495,7 +495,12 @@ namespace ATMTECH.ShoppingCart.Services
             IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).ToList();
             IList<Stock> stocks = products.SelectMany(product => product.Stocks).Where(x => x.IsActive).Distinct().ToList();
 
-            decimal grandTotalWithTaxes = orders.Sum(x => x.GrandTotal);
+            decimal sumGrandTotal = orders.Sum(x => x.GrandTotal);
+            decimal sumSubTotal = orders.Sum(x => x.SubTotal);
+            decimal sumTaxesCountry = orders.Sum(x => x.CountryTax);
+            decimal sumTaxesRegional = orders.Sum(x => x.RegionalTax);
+            decimal sumTaxes = sumTaxesCountry + sumTaxesRegional;
+
             foreach (Stock stock in stocks)
             {
                 int januarySales = 0;
@@ -592,7 +597,9 @@ namespace ATMTECH.ShoppingCart.Services
                             UnitPrice = unitPrice,
                             TotalValueStockActualState = stockActualState * stock.Product.UnitPrice,
                             TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice,
-                            GrandTotalWithTaxes = grandTotalWithTaxes,
+                            SumGrandTotal = sumGrandTotal,
+                            SumSubTotal = sumSubTotal,
+                            SumTaxes = sumTaxes,
                             MinimumAccept = stock.MinimumAccept
                         };
                     salesByMonthReportLines.Add(salesByMonthReportLine);
@@ -624,7 +631,9 @@ namespace ATMTECH.ShoppingCart.Services
                         UnitPrice = stock.Product.UnitPrice,
                         TotalValueStockActualState = stockActualState * stock.Product.UnitPrice,
                         TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice,
-                        GrandTotalWithTaxes = grandTotalWithTaxes,
+                        SumGrandTotal = sumGrandTotal,
+                        SumSubTotal = sumSubTotal,
+                        SumTaxes = sumTaxes,
                         MinimumAccept = stock.MinimumAccept
                     };
                     salesByMonthReportLines.Add(salesByMonthReportLine);
