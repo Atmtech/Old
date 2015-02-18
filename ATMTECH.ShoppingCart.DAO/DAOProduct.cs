@@ -29,14 +29,12 @@ namespace ATMTECH.ShoppingCart.DAO
                            : ContextSessionManager.Session["currentLanguage"].ToString();
             }
         }
-
         public IList<Product> GetProductsWithoutStock(int id)
         {
             return
                 GetBySql(
             "select Product.Id,Product.Description,Product.IsActive,Product.DateCreated,Product.DateModified,Product.Language,Product.OrderId,Product.Search,Product.ComboboxDescription,Product.Ident,Product.UnitPrice,Product.CostPrice,Product.Enterprise,Product.Weight,Product.Supplier,Product.InternalIdent,Product.DescriptionFrench,Product.DescriptionEnglish,Product.ProductCategoryFrench,Product.ProductCategoryEnglish,Product.NameFrench,Product.NameEnglish,Product.IsNotOrderable from Product Where Id not in (SELECT Product From Stock) and Enterprise = " + id);
         }
-
         public Product GetProduct(int id)
         {
             Product product = GetById(id);
@@ -56,8 +54,6 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             return GetById(id);
         }
-    
-
         public IList<Product> GetProductsWithoutLanguage(int idEnterprise)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -80,16 +76,15 @@ namespace ATMTECH.ShoppingCart.DAO
             foreach (Product product in products)
             {
                 product.ProductFiles = productFiles.Where(x => x.Product.Id == product.Id).ToList();
-                IList<Stock> stocks = stockAll.Where(x => x.Product.Id == product.Id).ToList();// DAOStock.GetProductStock(product.Id);
+                IList<Stock> stocks = stockAll.Where(x => x.Product.Id == product.Id).ToList();
                 foreach (Stock stock in stocks)
                 {
-                    stock.Product = product; //GetProductSimple(stock.Product.Id);
+                    stock.Product = product;
                 }
                 product.Stocks = stocks;
             }
             return products;
         }
-
         public IList<Product> GetProductsSimple(int idEnterprise)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -102,8 +97,6 @@ namespace ATMTECH.ShoppingCart.DAO
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             return GetByCriteria(criterias, pagingOperation, orderOperation);
         }
-
-     
         public IList<Product> GetProducts(int idEnterprise)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -115,13 +108,14 @@ namespace ATMTECH.ShoppingCart.DAO
             OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
+            
             foreach (Product product in products)
             {
                 product.ProductFiles = DAOProductFile.GetProductFile(product.Id);
                 IList<Stock> stocks = DAOStock.GetProductStock(product.Id);
                 foreach (Stock stock in stocks)
                 {
-                    stock.Product = GetProductSimple(stock.Product.Id);
+                    stock.Product = product;
                 }
                 product.Stocks = stocks;
             }
@@ -150,14 +144,10 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             IList<Criteria> criterias = new List<Criteria>();
             Criteria criteriaEnterprise = new Criteria { Column = Product.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idEnterprise.ToString() };
-
             Criteria criteriaProductCategory = CurrentLanguage == "fr" ? new Criteria { Column = Product.PRODUCT_CATEGORY_FRENCH, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() } : new Criteria { Column = Product.PRODUCT_CATEGORY_ENGLISH, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = idProductCategory.ToString() };
-            
-
             criterias.Add(criteriaProductCategory);
             criterias.Add(criteriaEnterprise);
             criterias.Add(IsActive());
-
             OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
@@ -170,21 +160,6 @@ namespace ATMTECH.ShoppingCart.DAO
         public bool GetProductAccessOrderable(Product product, int idUser)
         {
             return !product.Enterprise.IsSecure || DAOGroupProduct.GetProductAccess(product, idUser).IsOrderable;
-        }
-
-        public int SaveProduct(Product product)
-        {
-            return Save(product);
-        }
-
-        private IList<Product> FillProductWithSecurity(int idUser, IList<Product> products)
-        {
-            IList<Product> productsReturn = idUser != 0 ? products.Where(product => DAOGroupProduct.GetProductAccess(product, idUser).IsRead).ToList() : products;
-            foreach (Product product in productsReturn)
-            {
-                product.ProductFiles = DAOProductFile.GetProductFile(product.Id);
-            }
-            return productsReturn;
         }
         public IList<Product> GetProducts(int idEnterprise, int idProductCategory)
         {
@@ -219,6 +194,15 @@ namespace ATMTECH.ShoppingCart.DAO
 
             IList<Product> products = GetByCriteria(criterias);
             return products.Count;
+        }
+        private IList<Product> FillProductWithSecurity(int idUser, IList<Product> products)
+        {
+            IList<Product> productsReturn = idUser != 0 ? products.Where(product => DAOGroupProduct.GetProductAccess(product, idUser).IsRead).ToList() : products;
+            foreach (Product product in productsReturn)
+            {
+                product.ProductFiles = DAOProductFile.GetProductFile(product.Id);
+            }
+            return productsReturn;
         }
     }
 }

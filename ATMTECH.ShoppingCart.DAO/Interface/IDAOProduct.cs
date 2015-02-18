@@ -15,9 +15,9 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
         IList<Product> GetProducts(int idEnterprise);
         IList<Product> GetProductsWithoutLanguage(int idEnterprise);
         bool GetProductAccessOrderable(Product product, int idUser);
-        int SaveProduct(Product product);
         IList<Product> GetProductsSimple(int idEnterprise);
         IList<Product> GetProductsWithoutStock(int id);
         IList<Product> GetAllActive();
+        int Save(Product product);
     }
 }

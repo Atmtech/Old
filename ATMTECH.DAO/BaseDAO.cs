@@ -209,7 +209,6 @@ namespace ATMTECH.DAO
         {
             Model.SetValueProperty("DateModified", DateTime.Now.ToString(), model);
         }
-
         private void SetLogin(TModel model)
         {
             string login = "Inconnu";

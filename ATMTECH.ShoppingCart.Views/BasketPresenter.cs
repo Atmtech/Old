@@ -8,7 +8,6 @@ using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Web;
 using ATMTECH.Web.Services;
-using ATMTECH.Web.Services.Interface;
 using System.Linq;
 using ErrorCode = ATMTECH.ShoppingCart.Services.ErrorCode;
 
@@ -158,6 +157,33 @@ namespace ATMTECH.ShoppingCart.Views
             OrderService.AskForShipping(View.CurrentOrder);
         }
 
+        public void GotoAccount()
+        {
+            NavigationService.Redirect(Pages.Pages.CUSTOMER_INFORMATION);
+        }
+        public void SetBillingAddress(string selectedValue)
+        {
+            if (View.CurrentOrder.BillingAddress == null)
+            {
+                View.CurrentOrder.BillingAddress = new Address { Id = Convert.ToInt32(selectedValue) };
+            }
+            else
+            {
+                View.CurrentOrder.BillingAddress.Id = Convert.ToInt32(selectedValue);    
+            }
+            
+            OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
+            View.BillingAddressSelected = Convert.ToInt32(selectedValue);
+        }
+        public void SetShippingAddress(string selectedValue)
+        {
+            View.CurrentOrder.BillingAddress.Id = Convert.ToInt32(selectedValue);
+            OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
+        }
+        public void DisplayMandatoryAddress()
+        {
+            MessageService.ThrowMessage(ErrorCode.SC_NO_ADRESSE);
+        }
 
         private void FillAddress()
         {
@@ -175,23 +201,6 @@ namespace ATMTECH.ShoppingCart.Views
 
 
             View.NoAddressFound = MessageService.GetMessage(ErrorCode.SC_NO_ADRESSE).Description;
-        }
-        private ShippingParameter GetShippingParameterUps()
-        {
-            ShippingParameter shippingParameter = new ShippingParameter
-            {
-                CountryReceiverCode = View.CurrentOrder.ShippingAddress.Country.Code,
-                PackageType = ((int)UpsService.PackageType.Package).ToString(),
-                SenderPostalCode = ParameterService.GetValue("SenderPostalCode"),
-                ShippingType = ShippingType.Ups,
-                ServiceCode = ((int)UpsService.ServiceCode.UpsWorldWidExpedited).ToString(),
-                WeightType = ShippingParameter.WeightTypes.Lbs,
-                AccountId = ParameterService.GetValue("UpsAccessLicenceNumber"),
-                Login = ParameterService.GetValue("UpsUserId"),
-                Password = ParameterService.GetValue("UpsPassword")
-            };
-
-            return shippingParameter;
         }
         private ShippingParameter GetShippingParameterPurolator()
         {
@@ -226,36 +235,5 @@ namespace ATMTECH.ShoppingCart.Views
             // return View.CurrentOrder.ShippingAddress.Country.Code == "CAN" ? GetShippingParameterPurolator() : GetShippingParameterUps();
         }
 
-
-        public void GotoAccount()
-        {
-            NavigationService.Redirect(Pages.Pages.CUSTOMER_INFORMATION);
-        }
-
-        public void SetBillingAddress(string selectedValue)
-        {
-            if (View.CurrentOrder.BillingAddress == null)
-            {
-                View.CurrentOrder.BillingAddress = new Address { Id = Convert.ToInt32(selectedValue) };
-            }
-            else
-            {
-                View.CurrentOrder.BillingAddress.Id = Convert.ToInt32(selectedValue);    
-            }
-            
-            OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
-            View.BillingAddressSelected = Convert.ToInt32(selectedValue);
-        }
-
-        public void SetShippingAddress(string selectedValue)
-        {
-            View.CurrentOrder.BillingAddress.Id = Convert.ToInt32(selectedValue);
-            OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
-        }
-
-        public void DisplayMandatoryAddress()
-        {
-            MessageService.ThrowMessage(ErrorCode.SC_NO_ADRESSE);
-        }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
+using ATMTECH.DAO.Interface;
+using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 
@@ -12,6 +14,7 @@ namespace ATMTECH.ShoppingCart.DAO
     {
         public IDAOEnterprise DAOEntreprise { get; set; }
         public IDAOCustomer DAOCustomer { get; set; }
+        public IDAOUser DAOUser { get; set; }
         public IDAOAddress DAOAddress { get; set; }
         public IDAOStock DAOStock { get; set; }
         public IDAOProduct DAOProduct { get; set; }
@@ -158,6 +161,27 @@ namespace ATMTECH.ShoppingCart.DAO
             return orders.SelectMany(order => order.OrderLines).ToList();
         }
 
+        public IList<Order> GetAllFinalizedSimple(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
+        {
+            Criteria criteriaEnterprise = new Criteria { Column = Order.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = enterprise.Id.ToString() };
+            Criteria criteriaDateFinalizedNotNull = new Criteria { Column = Order.FINALIZED_DATE, Operator = DatabaseOperator.OPERATOR_IS_NOT_NULL };
+            IList<Criteria> criterias = new List<Criteria>();
+            criterias.Add(criteriaDateFinalizedNotNull);
+            criterias.Add(criteriaEnterprise);
+            criterias.Add(IsActive());
+            IList<Order> orders = GetByCriteria(criterias);
+            IList<Customer> customers = DAOCustomer.GetAll();
+            IList<User> users = DAOUser.GetAllUser();
+
+            orders = orders.Where(x => x.FinalizedDate >= dateStart && x.FinalizedDate <= dateEnd).ToList();
+            foreach (Order order in orders)
+            {
+                order.Customer = customers.FirstOrDefault(x => x.Id == order.Customer.Id);
+                order.Customer.User = users.FirstOrDefault(x => x.Id == order.Customer.User.Id);
+            }
+            return orders;
+        }
+
         public IList<Order> GetAllFinalized(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
             Criteria criteriaEnterprise = new Criteria { Column = Order.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = enterprise.Id.ToString() };
@@ -170,17 +194,22 @@ namespace ATMTECH.ShoppingCart.DAO
             orders = orders.Where(x => x.FinalizedDate >= dateStart && x.FinalizedDate <= dateEnd).ToList();
             IList<OrderLine> orderLinesAll = DAOOrderLine.GetAll();
             IList<Stock> stocks = DAOStock.GetAllStock();
-
+            IList<Customer> customers = DAOCustomer.GetAll();
+            IList<User> users = DAOUser.GetAllUser();
+            IList<Product> products = DAOProduct.GetProducts(enterprise.Id);
             foreach (Order order in orders)
             {
-                order.Customer = DAOCustomer.GetCustomer(order.Customer.Id);
+                order.Customer = customers.FirstOrDefault(x => x.Id == order.Customer.Id);
+                order.Customer.User = users.FirstOrDefault(x => x.Id == order.Customer.User.Id);
+
                 IList<OrderLine> orderLines = orderLinesAll.Where(x => x.Order.Id == order.Id).ToList();
                 foreach (OrderLine orderLine in orderLines)
                 {
                     orderLine.Order = order;
                     orderLine.Stock = stocks.FirstOrDefault(x => x.Id == orderLine.Stock.Id);
                     if (orderLine.Stock != null)
-                        orderLine.Stock.Product = DAOProduct.GetProduct(orderLine.Stock.Product.Id);
+                        orderLine.Stock.Product = products.FirstOrDefault(x => x.Id == orderLine.Stock.Product.Id);
+                            //DAOProduct.GetProduct(orderLine.Stock.Product.Id);
                 }
                 order.OrderLines = orderLines;
 

@@ -200,7 +200,11 @@ namespace ATMTECH.ShoppingCart.PubJL
         public int BillingAddressSelected
         {
             get { return Convert.ToInt32(ddlBilling.SelectedValue); }
-            set { ddlBilling.SelectedValue = value.ToString(); }
+            set
+            {
+                
+                ddlBilling.SelectedValue = value.ToString();
+            }
         }
         public bool IsPaypal
         {

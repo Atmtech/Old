@@ -81,7 +81,7 @@ namespace ATMTECH.ShoppingCart.Services
             {
                 product.Id = 0;
                 product.Enterprise = newEnterprise;
-                DAOProduct.SaveProduct(product);
+                DAOProduct.Save(product);
             }
         }
     }

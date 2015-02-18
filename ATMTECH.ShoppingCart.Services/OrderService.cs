@@ -352,7 +352,7 @@ namespace ATMTECH.ShoppingCart.Services
         }
         public IList<Order> GetAllToValidatePaypal(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
-            return DAOOrder.GetAllFinalized(enterprise, dateStart, dateEnd);
+            return DAOOrder.GetAllFinalizedSimple(enterprise, dateStart, dateEnd);
 
         }
         public IList<SalesReportLine> GetSalesReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
