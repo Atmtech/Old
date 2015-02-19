@@ -4,9 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-
-
     <div class="imageProduit">
         <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" OnClick="imgProductPrincipalClick" CssClass="imageProduitAfficher" />
         <asp:DataList ID="DataListProductFile" RepeatDirection="Horizontal" runat="server"
@@ -18,21 +15,19 @@
     </div>
     <div class="descriptionProduit">
         <div class="titreDescriptionProduit">
-            <asp:Label runat="server" ID="lblIdent" Visible="True" Text="Test"></asp:Label>
+            <asp:Label runat="server" ID="lblIdent" Visible="True" ></asp:Label>
             -
-            <asp:Label runat="server" ID="lblName" Text="test"></asp:Label>
+            <asp:Label runat="server" ID="lblNom"></asp:Label>
         </div>
         <div class="prixDescriptionProduit">
-            <asp:Label runat="server" ID="lblUnitPrice" Text="$ 100.00"></asp:Label>
+            <asp:Label runat="server" ID="lblPrixUnitaire" Text="$ 100.00"></asp:Label>
         </div>
-
         <div class="quantiteDescriptionProduit">
-
             <div>
                 <div class="Table">
                     <div class="Heading">
                         <div class="Cell">
-                            <asp:Label runat="server" ID="lblItemsAddProduct" Text="Choisir une caractéristique"></asp:Label>
+                            <asp:Label runat="server" ID="lblCaracteristiqueAddProduct" Text="Choisir une caractéristique"></asp:Label>
                         </div>
                         <div class="Cell">
                             <asp:Label runat="server" ID="lblQuantiteAddProduct" Text="Quantité"></asp:Label>
@@ -40,20 +35,16 @@
                     </div>
 
                     <div class="Row" style="">
-                        <div class="Cell" style="padding-top: 5px;padding-bottom:5px; width:300px;text-align: left;">
+                        <div class="Cell" style="padding-top: 5px; padding-bottom: 5px; width: 300px; text-align: left;">
                             <atmtech:ComboBox runat="server" ID="ddlStock" />
                         </div>
                         <div class="Cell">
                             <atmtech:Numeric runat="server" NoDecimal="True" ID="txtQuantite" />
                         </div>
                     </div>
-
-
                 </div>
-
-
-                <br/>
-                <asp:Button runat="server" ID="btnAddAllToBasket" OnClick="AddToBasketClick" CssClass="boutonActionRond"
+                <br />
+                <asp:Button runat="server" ID="btnAjouterLigneCommande" OnClick="btnAjouterLigneCommandeClick" CssClass="boutonActionRond"
                     Text="Ajouter au panier"></asp:Button>
             </div>
         </div>

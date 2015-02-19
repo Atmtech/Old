@@ -38,11 +38,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjouterProduitAuPanierPresenter.cs" />
     <Compile Include="Base\BaseShoppingCartPresenter.cs" />
     <Compile Include="BasketPresenter.cs" />
     <Compile Include="ConfirmCreatePresenter.cs" />
     <Compile Include="ContactPresenter.cs" />
     <Compile Include="InformationsPresenter.cs" />
+    <Compile Include="Interface\IAjouterProduitAuPanierPresenter.cs" />
     <Compile Include="Interface\IContactPresenter.cs" />
     <Compile Include="Interface\IInformationsPresenter.cs" />
     <Compile Include="Interface\ILoginPresenter.cs" />

@@ -32,6 +32,7 @@ namespace ATMTECH.ShoppingCart.Views
             base.OnViewInitialized();
 
             Enterprise enterprise = CustomerService.AuthenticateCustomer.Enterprise;
+            
 
             View.AskShippingLabel = MessageService.GetMessage(ErrorCode.SC_ASK_SHIPPING_QUOTATION).Description;
             View.IsDontAddPersonnalAddressBilling = enterprise.IsDontAddPersonnalAddressBilling;
@@ -59,20 +60,16 @@ namespace ATMTECH.ShoppingCart.Views
 
                 if (View.CurrentOrder != null)
                 {
+                    AfficherAdresse(enterprise);
                     View.IsPaypal = View.CurrentOrder.Enterprise.IsPaypal;
                     View.IsPaypalRequired = View.CurrentOrder.Enterprise.IsPaypalRequired;
                     View.IsAskShipping = View.CurrentOrder.IsAskShipping;
                     View.IsOrderLocked = View.CurrentOrder.IsOrderLocked;
                     DisplayShipping();
-
-
                     if (View.CurrentOrder.OrderLines.Count(x => x.IsActive) > 0)
                     {
                         RecalculateBasket();
                     }
-
-
-
                 }
             }
         }
@@ -93,7 +90,6 @@ namespace ATMTECH.ShoppingCart.Views
         {
             if (View.CurrentOrder != null)
             {
-                FillAddress();
                 OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
                 View.RefreshOrderDisplay(View.CurrentOrder);
                 DisplayShipping();
@@ -177,7 +173,7 @@ namespace ATMTECH.ShoppingCart.Views
         }
         public void SetShippingAddress(string selectedValue)
         {
-            View.CurrentOrder.BillingAddress.Id = Convert.ToInt32(selectedValue);
+            View.CurrentOrder.ShippingAddress.Id = Convert.ToInt32(selectedValue);
             OrderService.UpdateOrder(View.CurrentOrder, GetShippingParameter());
         }
         public void DisplayMandatoryAddress()
@@ -185,23 +181,6 @@ namespace ATMTECH.ShoppingCart.Views
             MessageService.ThrowMessage(ErrorCode.SC_NO_ADRESSE);
         }
 
-        private void FillAddress()
-        {
-            IList<Address> addressesBilling = AddressService.GetBillingAddress(CustomerService.AuthenticateCustomer);
-            IList<Address> addressesShipping = AddressService.GetShippingAddress(CustomerService.AuthenticateCustomer);
-            View.BillingAddress = addressesBilling;
-            View.ShippingAddress = addressesShipping;
-            View.IsBillingAddressFixed = CustomerService.AuthenticateCustomer.Enterprise.IsBillingAddressFixed;
-            View.IsShippingAddressFixed = CustomerService.AuthenticateCustomer.Enterprise.IsShippingAddressFixed;
-
-            if (View.CurrentOrder.BillingAddress != null)
-            {
-                View.BillingAddressSelected = View.CurrentOrder.BillingAddress.Id;
-            }
-
-
-            View.NoAddressFound = MessageService.GetMessage(ErrorCode.SC_NO_ADRESSE).Description;
-        }
         private ShippingParameter GetShippingParameterPurolator()
         {
             ShippingParameter shippingParameter = new ShippingParameter
@@ -233,6 +212,29 @@ namespace ATMTECH.ShoppingCart.Views
 
             return GetShippingParameterPurolator();
             // return View.CurrentOrder.ShippingAddress.Country.Code == "CAN" ? GetShippingParameterPurolator() : GetShippingParameterUps();
+        }
+
+        public void AfficherAdresse(Enterprise enterprise)
+        {
+            View.IsDontAddPersonnalAddressBilling = enterprise.IsDontAddPersonnalAddressBilling;
+            View.IsDontAddPersonnalAddressShipping = enterprise.IsDontAddPersonnalAddressShipping;
+            View.IsBillingAddressFixed = CustomerService.AuthenticateCustomer.Enterprise.IsBillingAddressFixed;
+            View.IsShippingAddressFixed = CustomerService.AuthenticateCustomer.Enterprise.IsShippingAddressFixed;
+
+            View.BillingAddress = AddressService.GetBillingAddress(CustomerService.AuthenticateCustomer);
+            View.ShippingAddress = AddressService.GetShippingAddress(CustomerService.AuthenticateCustomer);
+
+            //if (View.CurrentOrder.BillingAddress != null)
+            //{
+            //    View.BillingAddressSelected = View.CurrentOrder.BillingAddress.Id;
+            //}
+
+            //if (View.CurrentOrder.ShippingAddress != null)
+            //{
+            //    View.BillingAddressSelected = View.CurrentOrder.ShippingAddress.Id;
+            //}
+
+            View.NoAddressFound = MessageService.GetMessage(ErrorCode.SC_NO_ADRESSE).Description;
         }
 
     }

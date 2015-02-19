@@ -49,6 +49,10 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="WebFormsMvp, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ATMTECH.Web\bin\Debug\WebFormsMvp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -65,6 +69,7 @@
     <Compile Include="Services\ShippingServiceTest.cs" />
     <Compile Include="Services\StockServiceTest.cs" />
     <Compile Include="Services\TaxesServiceTest.cs" />
+    <Compile Include="View\AjouterProduitAuPanierPresenterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
@@ -91,9 +96,17 @@
       <Project>{D226BF01-2BD8-4206-A576-F9F929518A01}</Project>
       <Name>ATMTECH.ShoppingCart.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.ShoppingCart.Views\ATMTECH.ShoppingCart.Views.csproj">
+      <Project>{43B7ED27-782C-4574-96F5-1E433403E3FF}</Project>
+      <Name>ATMTECH.ShoppingCart.Views</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Test\ATMTECH.Test.csproj">
       <Project>{EA2A92A8-C48A-4979-BF6A-6B1AD86E23FD}</Project>
       <Name>ATMTECH.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
+      <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
+      <Name>ATMTECH.Views</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
