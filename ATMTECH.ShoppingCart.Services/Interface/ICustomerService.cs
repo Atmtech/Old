@@ -9,6 +9,7 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         Customer GetCustomer(int id);
         bool CreateCustomer(Customer customer);
         void SaveCustomer(Customer customer);
+        void Save(Customer customer);
         bool ConfirmCreate(int idUser);
         bool SendForgetPassword(string email);
         IList<Customer> GetCustomerByEnterprise(int idEnterprise);

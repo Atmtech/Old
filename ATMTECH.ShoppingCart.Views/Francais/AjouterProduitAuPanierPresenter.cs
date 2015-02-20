@@ -3,9 +3,9 @@ using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
-using ATMTECH.ShoppingCart.Views.Interface;
+using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
-namespace ATMTECH.ShoppingCart.Views
+namespace ATMTECH.ShoppingCart.Views.Francais
 {
     public class AjouterProduitAuPanierPresenter : BaseShoppingCartPresenter<IAjouterProduitAuPanierPresenter>
     {
@@ -24,11 +24,21 @@ namespace ATMTECH.ShoppingCart.Views
         {
             base.OnViewInitialized();
             AfficherProduit(View.IdProduit);
+            GererAffichage();
         }
 
         public void AfficherProduit(int idProduit)
         {
+            if (idProduit == 0)
+            {
+                NavigationService.Redirect(Pages.Pages.DEFAULT);
+            }
             View.Produit = ProductService.GetProduct(idProduit);
+        }
+
+        public void GererAffichage()
+        {
+            View.EstPossibleDeCommander = CustomerService.AuthenticateCustomer != null;
         }
 
         public void AjouterLigneCommande()

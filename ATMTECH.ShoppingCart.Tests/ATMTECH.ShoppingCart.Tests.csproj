@@ -70,6 +70,13 @@
     <Compile Include="Services\StockServiceTest.cs" />
     <Compile Include="Services\TaxesServiceTest.cs" />
     <Compile Include="View\AjouterProduitAuPanierPresenterTest.cs" />
+    <Compile Include="View\ConfirmationCreationUtilisateurPresenterTest.cs" />
+    <Compile Include="View\ContacterNousPresenterTest.cs" />
+    <Compile Include="View\CatalogueProduitPresenterTest.cs" />
+    <Compile Include="View\PanierPresenterTest.cs" />
+    <Compile Include="View\MotPasseOubliePresenterTest.cs" />
+    <Compile Include="View\InformationClientPresenterTest.cs" />
+    <Compile Include="View\IdentificationPresenterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">

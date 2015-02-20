@@ -11,5 +11,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
         IList<Customer> GetCustomerByEnterprise(int idEnterprise);
         Customer GetCustomerFromUser(int idUser);
         IList<Customer> GetAll();
+        int Save(Customer customer);
     }
 }

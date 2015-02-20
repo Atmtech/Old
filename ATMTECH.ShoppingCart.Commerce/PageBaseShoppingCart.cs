@@ -6,6 +6,7 @@ using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.Views.Interface;
 using ATMTECH.Web;
+using ATMTECH.WebControls;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
@@ -14,44 +15,6 @@ namespace ATMTECH.ShoppingCart.Commerce
         where TPresenter : BaseShoppingCartPresenter<TView>
     {
         public TPresenter Presenter { get; set; }
-
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            if (!IsPostBack)
-            {
-                List<Control> allControls = new List<Control>();
-                GetControlList(Page.Controls, allControls);
-                Presenter.Controls = allControls;
-                Presenter.Localize();
-                Presenter.OnViewInitialized();
-            }
-            Presenter.OnViewLoaded();
-
-            ResetErrorMessage();
-        }
-
-        private void ResetErrorMessage()
-        {
-            if (Master != null)
-            {
-                Panel panel = (Panel)Master.FindControl("pnlError");
-                panel.Visible = false;
-            }
-        }
-
-        private void GetControlList<T>(ControlCollection controlCollection, List<T> resultCollection) where T : Control
-        {
-            foreach (Control control in controlCollection)
-            {
-                if (control is T)
-                    resultCollection.Add((T)control);
-
-                if (control.HasControls())
-                    GetControlList(control.Controls, resultCollection);
-            }
-        }
-
         public void ShowMessage(Message message)
         {
             if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
@@ -73,6 +36,64 @@ namespace ATMTECH.ShoppingCart.Commerce
                     literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
                     panel.Visible = true;
                 }
+            }
+        }
+        public void FillDropDown(DropDownList dropDownList, object Source)
+        {
+            dropDownList.DataSource = Source;
+            dropDownList.DataTextField = BaseEntity.COMBOBOX_DESCRIPTION;
+            dropDownList.DataValueField = BaseEntity.ID;
+            dropDownList.DataBind();
+        }
+
+        public void FillDropDown(ComboBox dropDownList, object Source)
+        {
+            dropDownList.DataSource = Source;
+            dropDownList.DataTextField = BaseEntity.COMBOBOX_DESCRIPTION;
+            dropDownList.DataValueField = BaseEntity.ID;
+            dropDownList.DataBind();
+        }
+
+        public void FillDropDown(ComboBox dropDownList, object Source, string DisplayText)
+        {
+            dropDownList.DataSource = Source;
+            dropDownList.DataTextField = DisplayText;
+            dropDownList.DataValueField = BaseEntity.ID;
+            dropDownList.DataBind();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            if (!IsPostBack)
+            {
+                List<Control> allControls = new List<Control>();
+                GetControlList(Page.Controls, allControls);
+                Presenter.Controls = allControls;
+                Presenter.Localize();
+                Presenter.OnViewInitialized();
+            }
+            Presenter.OnViewLoaded();
+
+            ResetErrorMessage();
+        }
+        private void ResetErrorMessage()
+        {
+            if (Master != null)
+            {
+                Panel panel = (Panel)Master.FindControl("pnlError");
+                panel.Visible = false;
+            }
+        }
+        private void GetControlList<T>(ControlCollection controlCollection, List<T> resultCollection) where T : Control
+        {
+            foreach (Control control in controlCollection)
+            {
+                if (control is T)
+                    resultCollection.Add((T)control);
+
+                if (control.HasControls())
+                    GetControlList(control.Controls, resultCollection);
             }
         }
 

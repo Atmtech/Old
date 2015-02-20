@@ -1,10 +1,10 @@
-﻿using ATMTECH.ShoppingCart.Views;
-using ATMTECH.ShoppingCart.Views.Interface;
+﻿using ATMTECH.ShoppingCart.Views.Francais;
+using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class ForgetPassword : PageBaseShoppingCart<ForgetPasswordPresenter, IForgetPasswordPresenter>,IForgetPasswordPresenter
+    public partial class ForgetPassword : PageBaseShoppingCart<MotPasseOubliePresenter, IMotPasseOubliePresenter>, IMotPasseOubliePresenter
     {
-        public string Email { get; set; }
+        public string Courriel { get; set; }
     }
 }

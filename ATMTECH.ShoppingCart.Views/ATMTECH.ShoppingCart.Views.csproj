@@ -38,13 +38,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AjouterProduitAuPanierPresenter.cs" />
+    <Compile Include="Francais\AjouterProduitAuPanierPresenter.cs" />
     <Compile Include="Base\BaseShoppingCartPresenter.cs" />
     <Compile Include="BasketPresenter.cs" />
     <Compile Include="ConfirmCreatePresenter.cs" />
     <Compile Include="ContactPresenter.cs" />
+    <Compile Include="Francais\AccueilPresenter.cs" />
+    <Compile Include="Francais\ConfirmationCreationUtilisateurPresenter.cs" />
+    <Compile Include="Francais\ContacterNousPresenter.cs" />
+    <Compile Include="Francais\CatalogueProduitPresenter.cs" />
+    <Compile Include="Francais\MotPasseOubliePresenter.cs" />
+    <Compile Include="Francais\PanierPresenter.cs" />
+    <Compile Include="Francais\InformationClientPresenter.cs" />
+    <Compile Include="Francais\IdentificationPresenter.cs" />
     <Compile Include="InformationsPresenter.cs" />
-    <Compile Include="Interface\IAjouterProduitAuPanierPresenter.cs" />
+    <Compile Include="Interface\Francais\ICatalogueProduitPresenter.cs" />
+    <Compile Include="Interface\Francais\IMotPasseOubliePresenter.cs" />
+    <Compile Include="Interface\Francais\IContacterNousPresenter.cs" />
+    <Compile Include="Interface\Francais\IConfirmationCreationUtilisateurPresenter.cs" />
+    <Compile Include="Interface\Francais\IPanierPresenter.cs" />
+    <Compile Include="Interface\Francais\IAccueilPresenter.cs" />
+    <Compile Include="Interface\Francais\IInformationClientPresenter.cs" />
+    <Compile Include="Interface\Francais\IIdentificationPresenter.cs" />
+    <Compile Include="Interface\Francais\IAjouterProduitAuPanierPresenter.cs" />
     <Compile Include="Interface\IContactPresenter.cs" />
     <Compile Include="Interface\IInformationsPresenter.cs" />
     <Compile Include="Interface\ILoginPresenter.cs" />

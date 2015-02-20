@@ -116,7 +116,7 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="ProductCatalog.aspx" />
-    <Content Include="ProductSearch.aspx" />
+    <Content Include="ThumbNail.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -205,14 +205,14 @@
     <Compile Include="ProductCatalog.aspx.designer.cs">
       <DependentUpon>ProductCatalog.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProductSearch.aspx.cs">
-      <DependentUpon>ProductSearch.aspx</DependentUpon>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThumbNail.aspx.cs">
+      <DependentUpon>ThumbNail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ProductSearch.aspx.designer.cs">
-      <DependentUpon>ProductSearch.aspx</DependentUpon>
+    <Compile Include="ThumbNail.aspx.designer.cs">
+      <DependentUpon>ThumbNail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.Master" />

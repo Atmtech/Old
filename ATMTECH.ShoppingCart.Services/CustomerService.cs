@@ -109,6 +109,13 @@ namespace ATMTECH.ShoppingCart.Services
             ValidateCustomerService.IsValidCustomerOnUpdate(customer);
             DAOCustomer.SaveCustomer(customer);
         }
+
+        public void Save(Customer customer)
+        {
+            ValidateCustomerService.IsValidCustomerOnUpdate(customer);
+            DAOCustomer.Save(customer);
+        }
+
         public bool SendForgetPassword(string email)
         {
             User user = DAOUser.GetUserByEmail(email);

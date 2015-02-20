@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Views;
-using ATMTECH.ShoppingCart.Views.Interface;
+using ATMTECH.ShoppingCart.Views.Francais;
+using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class ProductCatalog : PageBaseShoppingCart<ProductCatalogPresenter, IProductCatalogPresenter>, IProductCatalogPresenter
+    public partial class ProductCatalog : PageBaseShoppingCart<CatalogueProduitPresenter, ICatalogueProduitPresenter>, ICatalogueProduitPresenter
     {
-        public IList<ProductCategory> ProductCategories { set; private get; }
+        public IList<Product> Produits { set; private get; }
+        public string Recherche { get; set; }
     }
 }

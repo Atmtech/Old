@@ -121,15 +121,13 @@ namespace ATMTECH.Administration.Views
                     return rtn.Where(x => x.Search != null && x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
                 case "stock":
                     IList<Stock> stocks = StockService.GetAllStockByEnterprise(Convert.ToInt32(View.Enterprise)).Where(x => x.Product != null).ToList();
-                    stocks = stocks.Where(x => x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList().Take(10).Skip(pageIndex).ToList();
-
+                    stocks = stocks.Where(x => x.Search.IndexOf(recherche, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                    IList<Product> products = ProductService.GetAllActive();
                     foreach (Stock stock in stocks)
                     {
-                        stock.Product = ProductService.GetProductSimple(stock.Product.Id);
+                        stock.Product = products.FirstOrDefault(x => x.Id == stock.Product.Id);
                     }
-
-
-
+                    
                     return stocks;
                 case "stocklink":
                     return StockService.GetStockLink(Convert.ToInt32(View.Enterprise));
@@ -151,7 +149,7 @@ namespace ATMTECH.Administration.Views
                 DataEditorService.GetByCriteria(NameSpace, Entity, 5000, pageIndex, "Enterprise", View.Enterprise, recherche) :
                 DataEditorService.GetByCriteria(NameSpace, Entity, 5000, pageIndex, recherche);
         }
-        public void UpdateProductPriceHistory(int idProduct,decimal priceBefore, decimal priceAfter)
+        public void UpdateProductPriceHistory(int idProduct, decimal priceBefore, decimal priceAfter)
         {
             ProductService.UpdateProductPriceHistory(idProduct, priceBefore, priceAfter);
         }

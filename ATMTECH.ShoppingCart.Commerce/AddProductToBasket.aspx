@@ -39,7 +39,7 @@
                             <atmtech:ComboBox runat="server" ID="ddlStock" />
                         </div>
                         <div class="Cell">
-                            <atmtech:Numeric runat="server" NoDecimal="True" ID="txtQuantite" />
+                            <atmtech:Numeric runat="server" NoDecimal="True" ID="txtQuantite" CssClass="textBox" />
                         </div>
                     </div>
                 </div>

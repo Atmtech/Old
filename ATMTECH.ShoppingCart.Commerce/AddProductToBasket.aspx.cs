@@ -3,8 +3,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.Common.Constant;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Views;
-using ATMTECH.ShoppingCart.Views.Interface;
+using ATMTECH.ShoppingCart.Views.Francais;
+using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Web;
 
@@ -27,19 +27,34 @@ namespace ATMTECH.ShoppingCart.Commerce
                     case LocalizationLanguage.FRENCH:
                         lblDescription.Text = value.DescriptionFrench;
                         lblNom.Text = value.NameFrench;
+                        FillDropDown(ddlStock, value.Stocks, Stock.FEATURE_FRENCH);
                         break;
                     case LocalizationLanguage.ENGLISH:
                         lblDescription.Text = value.DescriptionEnglish;
                         lblNom.Text = value.NameEnglish;
+                        FillDropDown(ddlStock, value.Stocks, Stock.FEATURE_ENGLISH);
                         break;
                 }
 
                 lblPrixUnitaire.Text = value.UnitPrice.ToString("C");
                 imgProductPrincipal.ImageUrl = value.PrincipalFileUrl;
+                
             }
         }
         public int Inventaire { get { return Convert.ToInt32(ddlStock.SelectedValue); } set { ddlStock.SelectedValue = value.ToString(); } }
         public int Quantite { get { return Convert.ToInt32(txtQuantite.Text); } set { txtQuantite.Text = value.ToString(); } }
+        public bool EstPossibleDeCommander
+        {
+            get
+            {
+                return btnAjouterLigneCommande.Visible;
+            }
+            set
+            {
+                btnAjouterLigneCommande.Visible = value;
+                txtQuantite.Visible = value;
+            }
+        }
 
         protected void imgProductPrincipalClick(object sender, ImageClickEventArgs e)
         {

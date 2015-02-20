@@ -1,14 +1,14 @@
 ﻿using System;
-using ATMTECH.ShoppingCart.Views;
-using ATMTECH.ShoppingCart.Views.Interface;
+using ATMTECH.ShoppingCart.Views.Francais;
+using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Web;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class ConfirmCreate : PageBaseShoppingCart<ConfirmCreatePresenter, IConfirmCreatePresenter>, IConfirmCreatePresenter
+    public partial class ConfirmCreate : PageBaseShoppingCart<ConfirmationCreationUtilisateurPresenter, IConfirmationCreationUtilisateurPresenter>, IConfirmationCreationUtilisateurPresenter
     {
-        public int IdConfirm { get { return Convert.ToInt32(QueryString.GetQueryStringValue(PagesId.CONFIRM_CREATE)); } }
-        public bool IsConfirmed { set { lblCreationCompteConfirme.Visible = value; } }
+        public int IdConfirmationUtilisateur { get { return Convert.ToInt32(QueryString.GetQueryStringValue(PagesId.CONFIRM_CREATE)); } }
+        public bool EstConfirme { set { lblCreationCompteConfirme.Visible = value; } }
     }
 }

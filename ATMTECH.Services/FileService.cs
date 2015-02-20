@@ -26,7 +26,7 @@ namespace ATMTECH.Services
         {
             return DAOFile.GetFile(file);
         }
-        
+
 
         public IList<File> GetAllFile(string rootImagePath)
         {
@@ -40,9 +40,9 @@ namespace ATMTECH.Services
         {
             DAOFile.DeleteFile(file);
 
-            if (System.IO.File.Exists(file.ServerPath))
+            if (System.IO.File.Exists(file.RootImagePath + @"\" + file.FileName))
             {
-                System.IO.File.Delete(file.ServerPath);
+                System.IO.File.Delete(file.RootImagePath + @"\" + file.FileName);
             }
         }
         public void ResizeFile(string directory, int width, int height)
@@ -102,7 +102,7 @@ namespace ATMTECH.Services
             string serverPath = string.Format(@"{0}\{1}\{2}", root, filename);
             httpPostedFile.SaveAs(serverPath);
         }
-      
+
         private FileType GetFileType(File file)
         {
             string fileName = file.ServerPath == null ? file.FileName.ToLower() : file.ServerPath.ToLower();

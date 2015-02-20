@@ -3,8 +3,12 @@ using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views;
+using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface;
+using ATMTECH.ShoppingCart.Views.Interface.Francais;
+using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Test;
+using ATMTECH.Web.Services.Interface;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ploeh.AutoFixture;
@@ -21,12 +25,12 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
 
         [TestMethod]
-        public void OnViewInitialized_DevraitFaireAppelAfficherProduit()
+        public void AfficherProduit_QuandAucunIdProduitOnRedirigeALaccueil()
         {
+            ViewMock.Setup(x => x.IdProduit).Returns(0);
             InstanceTest.OnViewInitialized();
-            ObtenirMock<IProductService>().Verify(s => s.GetProduct(It.IsAny<int>()));
+            ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.DEFAULT), Times.Once());
         }
-
 
         [TestMethod]
         public void AfficherProduit_DevraitFaireAppelAGetProduct()
@@ -163,6 +167,14 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             ObtenirMock<IOrderService>().Verify(test => test.AddOrderLine(It.Is<OrderLine>(a => a.Quantity == 101), order), Times.Once());
             ObtenirMock<IOrderService>().Verify(test => test.AddOrderLine(It.Is<OrderLine>(a => a.Stock == stock), order), Times.Once());
+        }
+
+        [TestMethod]
+        public void GererAffichage_SiAucunUtilisateurConnecteImpossibleDeCommander()
+        {
+            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns((Customer) null);
+            InstanceTest.GererAffichage();
+            ViewMock.VerifySet(v => v.EstPossibleDeCommander = false);
         }
 
     }
