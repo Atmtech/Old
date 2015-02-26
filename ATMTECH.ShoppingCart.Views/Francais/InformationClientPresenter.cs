@@ -81,6 +81,8 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             customer.User.Password = View.MotPasse;
 
             CustomerService.SaveCustomer(customer);
+
+            MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_SAVE_IS_CORRECT);
         }
 
         public Address EnregistrerAdresse(Address adresse, string noCivique, string rue, string CodePostal, string ville, int pays)

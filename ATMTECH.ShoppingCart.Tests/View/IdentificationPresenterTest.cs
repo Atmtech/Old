@@ -64,6 +64,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
         [TestMethod]
         public void CreationUtilisateur_SiCourrielEstInexistantLancerErreur()
         {
+            ViewMock.Setup(x => x.MotPasseCreation).Returns("zzz");
             InstanceTest.CreerUtilisateur();
             ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
         }
@@ -123,6 +124,12 @@ namespace ATMTECH.ShoppingCart.Tests.View
             ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_SUCCESS), Times.Once());
         }
 
+        [TestMethod]
+        public void EstUtilisateurExistant_DoitAppelerMethodeIsUserExists()
+        {
+            InstanceTest.EstUtilisateurExistant("tapoche");
 
+            ObtenirMock<ICustomerService>().Verify(x=>x.IsUserExists("tapoche"));
+        }
     }
 }

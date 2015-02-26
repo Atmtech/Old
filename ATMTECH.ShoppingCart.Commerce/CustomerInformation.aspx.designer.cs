@@ -67,13 +67,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblCourrielCreer;
         
         /// <summary>
-        /// Contrôle txtCourrielCreer.
+        /// Contrôle txtCourriel.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCourrielCreer;
+        protected global::System.Web.UI.WebControls.TextBox txtCourriel;
         
         /// <summary>
         /// Contrôle lblMotDePasseCreer.
@@ -85,13 +85,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblMotDePasseCreer;
         
         /// <summary>
-        /// Contrôle txtMotDePasseCreer.
+        /// Contrôle txtMotDePasse.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMotDePasseCreer;
+        protected global::System.Web.UI.WebControls.TextBox txtMotDePasse;
         
         /// <summary>
         /// Contrôle lblMotDePasseCreerConfirmation.
@@ -103,13 +103,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblMotDePasseCreerConfirmation;
         
         /// <summary>
-        /// Contrôle txtMotDePasseCreerConfirmation.
+        /// Contrôle txtMotDePasseConfirmation.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMotDePasseCreerConfirmation;
+        protected global::System.Web.UI.WebControls.TextBox txtMotDePasseConfirmation;
         
         /// <summary>
         /// Contrôle lblAdresseLivraisonClient.

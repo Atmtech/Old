@@ -23,6 +23,7 @@ namespace ATMTECH.PublierFtp
             AjouterLignePublication("WEB16.astralinternet.com", "glv.boutiquecorpo.com", "www", @"C:\Publication\ShoppingCart-GLV", "glv-an", "10crevette01");
             AjouterLignePublication("WEB16.astralinternet.com", "lauzon.boutiquecorpo.com", "www", @"C:\Publication\Lauzon", "lauzon", "10crevette01");
             AjouterLignePublication("WEB16.astralinternet.com", "ursulines.boutiquecorpo.com", "www", @"C:\Publication\ShoppingCart-Pubjl", "ursulines", "10crevette01");
+            AjouterLignePublication("108.60.212.40", "commerce.boutiquecorpo.com", "commerce.boutiquecorpo.com", @"C:\Publication\Commerce", "Administrator", "Crevette01@");
             AjouterLignePublication("108.60.212.40", "admin.boutiquecorpo.com", "admin.boutiquecorpo.com", @"C:\Publication\Administration", "Administrator", "Crevette01@");
             AjouterLignePublication("108.60.212.40", "cima-directeur.boutiquecorpo.com", "cima-directeur.boutiquecorpo.com", @"C:\Publication\ShoppingCart-Pubjl", "Administrator", "Crevette01@");
             AjouterLignePublication("108.60.212.40", "cima-director.boutiquecorpo.com", "cima-director.boutiquecorpo.com", @"C:\Publication\ShoppingCart-Pubjl", "Administrator", "Crevette01@");

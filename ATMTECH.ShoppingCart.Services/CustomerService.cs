@@ -158,6 +158,16 @@ namespace ATMTECH.ShoppingCart.Services
             return false;
         }
 
+        public bool IsUserExists(string login)
+        {
+            User user = DAOUser.GetUser(login);
+            if (user != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void SetUserInactive(int id)
         {
             User user = DAOUser.GetUser(id);

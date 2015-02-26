@@ -14,6 +14,7 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         bool SendForgetPassword(string email);
         IList<Customer> GetCustomerByEnterprise(int idEnterprise);
         IList<Customer> GetAll();
+        bool IsUserExists(string login);
 
     }
 }

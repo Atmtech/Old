@@ -15,6 +15,7 @@ namespace ATMTECH.ShoppingCart.Views
         public IAuthenticationService AuthenticationService { get; set; }
         public ICustomerService CustomerService { get; set; }
 
+
         public IdentificationPresenter(IIdentificationPresenter view)
             : base(view)
         {
@@ -34,19 +35,16 @@ namespace ATMTECH.ShoppingCart.Views
             if (string.IsNullOrEmpty(View.CourrielCreation))
             {
                 MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY);
-                return;
             }
 
             if (string.IsNullOrEmpty(View.MotPasseCreation))
             {
                 MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY);
-                return;
             }
 
             if (View.MotPasseCreation != View.MotPasseConfirmationCreation)
             {
                 MessageService.ThrowMessage(ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM);
-                return;
             }
 
             User user = new User
@@ -70,6 +68,11 @@ namespace ATMTECH.ShoppingCart.Views
             {
                 MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_SUCCESS);
             }
+        }
+
+        public bool EstUtilisateurExistant(string courriel)
+        {
+            return CustomerService.IsUserExists(courriel);
         }
     }
 }

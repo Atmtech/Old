@@ -117,7 +117,7 @@ namespace ATMTECH.Web.Services
             //{
             //    file.WriteLine(DateTime.Now.ToString() + " :: " + logException.InnerId + " - " +  logException.Description);
             //}
-            //DAOLogException.CreateLog(logException);
+            DAOLogException.CreateLog(logException);
         }
 
         public void LogMail(MailMessage mailMessage)

@@ -25,20 +25,20 @@
             <asp:Label runat="server" ID="lblCourrielCreer" Text="Courriel" CssClass="labelLogin"></asp:Label>
         </div>
         <div>
-            <asp:TextBox ID="txtCourrielCreer" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
+            <asp:TextBox ID="txtCourriel" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
         </div>
 
         <div style="padding-top: 20px;">
             <asp:Label runat="server" ID="lblMotDePasseCreer" Text="Mot de passe" CssClass="labelLogin"></asp:Label>
         </div>
         <div>
-            <asp:TextBox ID="txtMotDePasseCreer" runat="server" CssClass="textBox" Width="400px" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="txtMotDePasse" runat="server" CssClass="textBox" Width="400px" TextMode="Password"></asp:TextBox>
         </div>
         <div style="padding-top: 20px;">
             <asp:Label runat="server" ID="lblMotDePasseCreerConfirmation" Text="Confirmation" CssClass="labelLogin"></asp:Label>
         </div>
         <div>
-            <asp:TextBox ID="txtMotDePasseCreerConfirmation" runat="server" CssClass="textBox" Width="400px" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="txtMotDePasseConfirmation" runat="server" CssClass="textBox" Width="400px" TextMode="Password"></asp:TextBox>
         </div>
 
 
@@ -130,7 +130,7 @@
         </div>
 
         <div style="padding-top: 20px;">
-            <asp:Button runat="server" ID="btnEnregistrerInformationClient" Text="Enregistrer" CssClass="boutonActionRond" Width="400px"></asp:Button>
+            <asp:Button runat="server" ID="btnEnregistrerInformationClient" Text="Enregistrer" CssClass="boutonActionRond" Width="400px" OnClick="btnEnregistrerInformationClientClick"></asp:Button>
         </div>
     </div>
     <div class="HistoriqueCommandeClient">

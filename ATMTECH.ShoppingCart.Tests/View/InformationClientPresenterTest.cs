@@ -169,10 +169,34 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.Enregistrer();
 
-            ObtenirMock<ICustomerService>().Setup(x => x.SaveCustomer(It.Is<Customer>(a => a.User.FirstName == customer.User.FirstName)));
-            ObtenirMock<ICustomerService>().Setup(x => x.SaveCustomer(It.Is<Customer>(a => a.User.LastName == customer.User.LastName)));
-            ObtenirMock<ICustomerService>().Setup(x => x.SaveCustomer(It.Is<Customer>(a => a.User.Email == customer.User.Email)));
-            ObtenirMock<ICustomerService>().Setup(x => x.SaveCustomer(It.Is<Customer>(a => a.User.Password == customer.User.Password)));
+            ObtenirMock<ICustomerService>().Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.FirstName == customer.User.FirstName)));
+            ObtenirMock<ICustomerService>().Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.LastName == customer.User.LastName)));
+            ObtenirMock<ICustomerService>().Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.Email == customer.User.Email)));
+            ObtenirMock<ICustomerService>().Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.Password == customer.User.Password)));
+        }
+
+        [TestMethod]
+        public void Enregistrer_SiToutEstOkOnDoitAvoirUnMessageDeConfirmation()
+        {
+            Customer customer = AutoFixture.Create<Customer>();
+            Address address = AutoFixture.Create<Address>();
+
+            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            ObtenirMock<IDAOCity>().Setup(x => x.FindCity(address.City.Description)).Returns(address.City);
+
+            ViewMock.Setup(x => x.Nom).Returns(customer.User.LastName);
+            ViewMock.Setup(x => x.Courriel).Returns(customer.User.Email);
+            ViewMock.Setup(x => x.Prenom).Returns(customer.User.LastName);
+            ViewMock.Setup(x => x.MotPasse).Returns(customer.User.Password);
+            ViewMock.Setup(x => x.MotPasseConfirmation).Returns(customer.User.Password);
+
+            ObtenirMock<IAddressService>().Setup(x => x.GetShippingAddress(customer)[0]).Returns(address);
+            ObtenirMock<IAddressService>().Setup(x => x.GetBillingAddress(customer)[0]).Returns(address);
+
+
+            InstanceTest.Enregistrer();
+
+            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(Web.Services.ErrorCode.ADM_SAVE_IS_CORRECT), Times.Once());
         }
 
     }
