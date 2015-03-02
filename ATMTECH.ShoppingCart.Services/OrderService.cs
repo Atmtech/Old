@@ -400,7 +400,7 @@ namespace ATMTECH.ShoppingCart.Services
             IList<SalesByOrderInformationReportLine> salesReportLines = new List<SalesByOrderInformationReportLine>();
             IList<Product> products = ProductService.GetProductsWithoutLanguage(enterprise.Id);
             IList<Order> orders = DAOOrder.GetAllFinalized(enterprise, dateStart, dateEnd);
-            IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).ToList();
+            IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).Where(x => x.IsActive).ToList();
             IList<Stock> stocks = products.SelectMany(product => product.Stocks).ToList();
 
             decimal grandTotalAllOrder = orders.Sum(x => x.GrandTotal);
