@@ -32,13 +32,13 @@
             <asp:Label runat="server" ID="lblMotDePasseCreer" Text="Mot de passe" CssClass="labelLogin"></asp:Label>
         </div>
         <div>
-            <asp:TextBox ID="txtMotDePasse" runat="server" CssClass="textBox" Width="400px" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="txtMotDePasse" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
         </div>
         <div style="padding-top: 20px;">
             <asp:Label runat="server" ID="lblMotDePasseCreerConfirmation" Text="Confirmation" CssClass="labelLogin"></asp:Label>
         </div>
         <div>
-            <asp:TextBox ID="txtMotDePasseConfirmation" runat="server" CssClass="textBox" Width="400px" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="txtMotDePasseConfirmation" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
         </div>
 
 
@@ -67,8 +67,8 @@
             <div>
                 <asp:TextBox ID="txtCodePostalLivraisonInformationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
             </div>
-            
-                <div style="padding-top: 20px;">
+
+            <div style="padding-top: 20px;">
                 <asp:Label runat="server" ID="lblVilleLivraisonClient" Text="Ville" CssClass="labelLogin"></asp:Label>
             </div>
             <div>
@@ -86,10 +86,10 @@
         <div class="adresseFacturationClient">
             <div class="titreDansPage">
                 <asp:Label runat="server" ID="lblAdresseFacturationClient" Text="Adresse de facturation"></asp:Label>
-                
+
             </div>
             <div>
-                <asp:CheckBox runat="server" ID="chkUtiliserMemeAdresseQueLivraison"/>
+                <asp:Button runat="server" ID="btnUtiliserMemeAdresseQueLivraison" OnClick="btnUtiliserMemeAdresseQueLivraisonClick" Text="Utiliser la même adresse que livraison" CssClass="boutonLien"/>
                 <asp:Label runat="server" ID="UtiliserMemeAdresseQueLivraison" Text="Utiliser la même adresse que celle de livraison" CssClass="labelLogin"></asp:Label>
             </div>
             <div style="padding-top: 20px;">
@@ -112,7 +112,7 @@
             <div>
                 <asp:TextBox ID="txtCodePostalFacturationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
             </div>
-            
+
             <div style="padding-top: 20px;">
                 <asp:Label runat="server" ID="lblVilleFacturationInformationClient" Text="Ville" CssClass="labelLogin"></asp:Label>
             </div>
@@ -180,7 +180,7 @@
                     <img src="Images/WebSite/Rechercher.png" />
                 </div>
             </div>
-             <div class="Row">
+            <div class="Row">
                 <div class="Cell">
                     <p>1</p>
                 </div>
@@ -200,7 +200,7 @@
                     <img src="Images/WebSite/Rechercher.png" />
                 </div>
             </div>
-             <div class="Row">
+            <div class="Row">
                 <div class="Cell">
                     <p>1</p>
                 </div>
@@ -220,7 +220,7 @@
                     <img src="Images/WebSite/Rechercher.png" />
                 </div>
             </div>
-             <div class="Row">
+            <div class="Row">
                 <div class="Cell">
                     <p>1</p>
                 </div>
@@ -240,7 +240,7 @@
                     <img src="Images/WebSite/Rechercher.png" />
                 </div>
             </div>
-             <div class="Row">
+            <div class="Row">
                 <div class="Cell">
                     <p>1</p>
                 </div>

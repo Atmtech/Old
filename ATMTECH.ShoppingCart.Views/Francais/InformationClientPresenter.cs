@@ -1,4 +1,5 @@
-﻿using ATMTECH.ShoppingCart.DAO.Interface;
+﻿using System.Collections.Generic;
+using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.Interface;
@@ -12,10 +13,29 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public ICustomerService CustomerService { get; set; }
         public IAddressService AddressService { get; set; }
         public IDAOCity DAOCity { get; set; }
+        public IDAOCountry DAOCountry { get; set; }
 
         public InformationClientPresenter(IInformationClientPresenter view)
             : base(view)
         {
+        }
+
+        public override void OnViewInitialized()
+        {
+            base.OnViewInitialized();
+            AfficherListePays();
+        }
+        public override void OnViewLoaded()
+        {
+            base.OnViewLoaded();
+            AfficherInformationClient();
+        }
+
+        public void AfficherListePays()
+        {
+            IList<Country> allCountries = DAOCountry.GetAllCountries();
+            View.ListePaysLivraison = allCountries;
+            View.ListePaysFacturation = allCountries;
         }
 
         public void AfficherInformationClient()
@@ -29,17 +49,31 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 View.MotPasse = customer.User.Password;
                 View.MotPasseConfirmation = customer.User.Password;
 
-                View.NoCiviqueLivraison = customer.ShippingAddress.No;
-                View.RueLivraison = customer.ShippingAddress.Way;
-                View.CodePostalLivraison = customer.ShippingAddress.PostalCode;
-                View.PaysLivraison = customer.ShippingAddress.Country.Id;
-                View.VilleLivraison = customer.ShippingAddress.City.Description;
+                if (customer.ShippingAddress.No != null)
+                {
+                    View.NoCiviqueLivraison = customer.ShippingAddress.No;
+                    View.RueLivraison = customer.ShippingAddress.Way;
+                    View.CodePostalLivraison = customer.ShippingAddress.PostalCode;
+                    View.PaysLivraison = customer.ShippingAddress.Country.Id;
+                    View.VilleLivraison = customer.ShippingAddress.City.Description;
+                }
+                else
+                {
+                    View.EstAucuneAdresseLivraison = true;
+                }
 
-                View.NoCiviqueFacturation = customer.BillingAddress.No;
-                View.RueFacturation = customer.BillingAddress.Way;
-                View.CodePostalFacturation = customer.BillingAddress.PostalCode;
-                View.PaysFacturation = customer.BillingAddress.Country.Id;
-                View.VilleFacturation = customer.BillingAddress.City.Description;
+                if (customer.BillingAddress.No != null)
+                {
+                    View.NoCiviqueFacturation = customer.BillingAddress.No;
+                    View.RueFacturation = customer.BillingAddress.Way;
+                    View.CodePostalFacturation = customer.BillingAddress.PostalCode;
+                    View.PaysFacturation = customer.BillingAddress.Country.Id;
+                    View.VilleFacturation = customer.BillingAddress.City.Description;
+                }
+                else
+                {
+                    View.EstAucuneAdresseFacturation = true;
+                }
             }
             else
             {
@@ -69,25 +103,19 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             }
 
             Customer customer = CustomerService.AuthenticateCustomer;
-            Address adresseLivraison = AddressService.GetShippingAddress(customer)[0];
-            Address adresseFacturation = AddressService.GetBillingAddress(customer)[0];
-
-            EnregistrerAdresse(adresseLivraison, View.NoCiviqueLivraison, View.RueLivraison, View.CodePostalLivraison, View.VilleLivraison, View.PaysLivraison);
-            EnregistrerAdresse(adresseFacturation, View.NoCiviqueFacturation, View.RueFacturation, View.CodePostalFacturation, View.VilleFacturation, View.PaysFacturation);
-
+            customer.ShippingAddress = EnregistrerAdresse(customer.ShippingAddress, View.NoCiviqueLivraison, View.RueLivraison, View.CodePostalLivraison, View.VilleLivraison, View.PaysLivraison);
+            customer.BillingAddress = EnregistrerAdresse(customer.BillingAddress, View.NoCiviqueFacturation, View.RueFacturation, View.CodePostalFacturation, View.VilleFacturation, View.PaysFacturation);
             customer.User.FirstName = View.Prenom;
             customer.User.LastName = View.Nom;
             customer.User.Email = View.Courriel;
             customer.User.Password = View.MotPasse;
-
             CustomerService.SaveCustomer(customer);
-
             MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_SAVE_IS_CORRECT);
         }
 
         public Address EnregistrerAdresse(Address adresse, string noCivique, string rue, string CodePostal, string ville, int pays)
         {
-            if (adresse == null)
+            if (adresse == null || adresse.Id == 0)
             {
                 adresse = new Address
                     {
@@ -123,5 +151,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
     }
 }
+
+
 
 

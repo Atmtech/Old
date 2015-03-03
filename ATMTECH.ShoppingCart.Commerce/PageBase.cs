@@ -10,7 +10,7 @@ using ATMTECH.WebControls;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public class PageBaseShoppingCart<TPresenter, TView> : PageBase
+    public class PageBase<TPresenter, TView> : PageBase
         where TView : class, IViewBase
         where TPresenter : BaseShoppingCartPresenter<TView>
     {
@@ -45,7 +45,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             dropDownList.DataValueField = BaseEntity.ID;
             dropDownList.DataBind();
         }
-
         public void FillDropDown(ComboBox dropDownList, object Source)
         {
             dropDownList.DataSource = Source;
@@ -53,7 +52,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             dropDownList.DataValueField = BaseEntity.ID;
             dropDownList.DataBind();
         }
-
         public void FillDropDown(ComboBox dropDownList, object Source, string DisplayText)
         {
             dropDownList.DataSource = Source;
@@ -61,7 +59,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             dropDownList.DataValueField = BaseEntity.ID;
             dropDownList.DataBind();
         }
-
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);

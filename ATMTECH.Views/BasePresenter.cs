@@ -55,6 +55,11 @@ namespace ATMTECH.Views
             return message.Description + "(" + message.Id.ToString() + ")";
         }
 
+        public void SaveLocalization(IList<Localization> localizations)
+        {
+            LocalizationService.SaveLocalization(localizations);
+        }
+
 
 
     }

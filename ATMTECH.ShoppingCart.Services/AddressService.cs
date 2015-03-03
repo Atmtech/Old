@@ -24,13 +24,13 @@ namespace ATMTECH.ShoppingCart.Services
                 {
                     if (address.Country != null)
                     {
-                        address.Country = GetCountry(address.Country.Id);    
+                        address.Country = GetCountry(address.Country.Id);
                     }
                     if (address.City != null)
                     {
                         address.City = DAOCity.GetCity(address.City.Id);
                     }
-                    
+
                     return address;
                 }
             }
@@ -68,6 +68,9 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return DAOAddress.FindAddress(address);
         }
+
+      
+
         public IList<Address> GetShippingAddress(Customer customer)
         {
             IList<Address> addresses = customer.Enterprise.ShippingAddress;
@@ -96,16 +99,19 @@ namespace ATMTECH.ShoppingCart.Services
         {
             ContextSessionManager.Context.Session["Cities"] = null;
 
-            City cityFind = FindCity(address.City.Description);
-            if (cityFind != null)
+            if (address.City != null)
             {
-                address.City = cityFind;
-            }
-            else
-            {
-                City cityCreate = new City { Code = address.City.Description, Description = address.City.Description };
-                int id = CreateCity(cityCreate);
-                address.City = new City { Id = id };
+                City cityFind = FindCity(address.City.Description);
+                if (cityFind != null)
+                {
+                    address.City = cityFind;
+                }
+                else
+                {
+                    City cityCreate = new City { Code = address.City.Description, Description = address.City.Description };
+                    int id = CreateCity(cityCreate);
+                    address.City = new City { Id = id };
+                }
             }
 
             address.PostalCode = address.PostalCode;

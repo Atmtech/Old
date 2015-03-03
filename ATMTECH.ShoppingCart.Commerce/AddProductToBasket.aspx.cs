@@ -10,7 +10,7 @@ using ATMTECH.Web;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class AddProductToBasket : PageBaseShoppingCart<AjouterProduitAuPanierPresenter, IAjouterProduitAuPanierPresenter>, IAjouterProduitAuPanierPresenter
+    public partial class AddProductToBasket : PageBase<AjouterProduitAuPanierPresenter, IAjouterProduitAuPanierPresenter>, IAjouterProduitAuPanierPresenter
     {
         public int IdProduit { get { return Convert.ToInt32(QueryString.GetQueryStringValue(PagesId.PRODUCT_ID)); } }
 

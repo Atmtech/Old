@@ -5,7 +5,7 @@ using ATMTECH.ShoppingCart.Views.Pages;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class Login : PageBaseShoppingCart<IdentificationPresenter, IIdentificationPresenter>, IIdentificationPresenter
+    public partial class Login : PageBase<IdentificationPresenter, IIdentificationPresenter>, IIdentificationPresenter
     {
 
         protected void btnConnecterLoginClick(object sender, EventArgs e)

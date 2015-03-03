@@ -35,10 +35,7 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
             EnableScriptLocalization="true">
         </asp:ScriptManager>
-        
-      
-        <asp:Button runat="server" ID="btnLocaliser" OnClick="btnLocaliserClick" Text="Localiser" />
-
+ 
         <div class="center">
 
             <div class="logo">Placer ici l'image du LOGO</div>

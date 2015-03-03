@@ -50,8 +50,6 @@ namespace ATMTECH.Web.Services
                     DAOLocalization.Save(localization);
                 }
             }
-
-            NavigationService.Refresh();
         }
 
         public string Localize(string controlId, string currentLanguage)

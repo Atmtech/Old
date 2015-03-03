@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class CustomerInformation : PageBaseShoppingCart<InformationClientPresenter, IInformationClientPresenter>, IInformationClientPresenter
+    public partial class CustomerInformation : PageBase<InformationClientPresenter, IInformationClientPresenter>, IInformationClientPresenter
     {
         public string Nom { get { return txtNom.Text; } set { txtNom.Text = value; } }
         public string Prenom { get { return txtPrenom.Text; } set { txtPrenom.Text = value; } }
@@ -21,10 +23,23 @@ namespace ATMTECH.ShoppingCart.Commerce
         public string CodePostalFacturation { get { return txtCodePostalFacturationClient.Text; } set { txtCodePostalFacturationClient.Text = value; } }
         public string VilleFacturation { get { return txtVilleFacturationClient.Text; } set { txtVilleFacturationClient.Text = value; } }
         public int PaysFacturation { get { return Convert.ToInt32(ddlPaysFacturationClient.SelectedValue); } set { ddlPaysFacturationClient.SelectedValue = value.ToString(); } }
+        public bool EstAucuneAdresseLivraison { get; set; }
+        public bool EstAucuneAdresseFacturation { get; set; }
+        public IList<Country> ListePaysLivraison { set { FillDropDown(ddlPaysLivraisonClient, value); } }
+        public IList<Country> ListePaysFacturation { set { FillDropDown(ddlPaysFacturationClient, value); } }
 
         protected void btnEnregistrerInformationClientClick(object sender, EventArgs e)
         {
             Presenter.Enregistrer();
+        }
+
+        protected void btnUtiliserMemeAdresseQueLivraisonClick(object sender, EventArgs e)
+        {
+            txtNoCiviqueFacturationClient.Text = txtNoCiviqueLivraisonClient.Text;
+            txtRueFacturationClient.Text = txtRueLivraisonClient.Text;
+            txtVilleFacturationClient.Text = txtVilleLivraisonClient.Text;
+            txtCodePostalFacturationClient.Text = txtCodePostalLivraisonInformationClient.Text;
+            ddlPaysFacturationClient.SelectedValue = ddlPaysLivraisonClient.SelectedValue;
         }
     }
 }

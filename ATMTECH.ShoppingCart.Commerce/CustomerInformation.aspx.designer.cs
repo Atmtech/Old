@@ -220,13 +220,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblAdresseFacturationClient;
         
         /// <summary>
-        /// Contrôle chkUtiliserMemeAdresseQueLivraison.
+        /// Contrôle btnUtiliserMemeAdresseQueLivraison.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkUtiliserMemeAdresseQueLivraison;
+        protected global::System.Web.UI.WebControls.Button btnUtiliserMemeAdresseQueLivraison;
         
         /// <summary>
         /// Contrôle UtiliserMemeAdresseQueLivraison.

@@ -4,7 +4,7 @@ using ATMTECH.Web.Services;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class ExpressCheckoutPaypal : PageBaseShoppingCart<ExpressCheckoutPaypalPresenter, IExpressCheckoutPaypalPresenter>, IExpressCheckoutPaypalPresenter
+    public partial class ExpressCheckoutPaypal : PageBase<ExpressCheckoutPaypalPresenter, IExpressCheckoutPaypalPresenter>, IExpressCheckoutPaypalPresenter
     {
         public PaypalReturn PaypalReturn { get; set; }
         public bool IsOrderFinalized { set; private get; }

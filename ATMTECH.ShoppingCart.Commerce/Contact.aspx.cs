@@ -3,7 +3,7 @@ using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class Contact : PageBaseShoppingCart<ContacterNousPresenter, IContacterNousPresenter>, IContacterNousPresenter
+    public partial class Contact : PageBase<ContacterNousPresenter, IContacterNousPresenter>, IContacterNousPresenter
     {
         public string Courriel { get; set; }
         public string Telephone { get; set; }

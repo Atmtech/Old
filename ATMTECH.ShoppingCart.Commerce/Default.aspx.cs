@@ -4,7 +4,7 @@ using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class Default1 : PageBaseShoppingCart<AccueilPresenter, IAccueilPresenter>, IAccueilPresenter
+    public partial class Default1 : PageBase<AccueilPresenter, IAccueilPresenter>, IAccueilPresenter
     {
        
     }

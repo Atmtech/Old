@@ -5,7 +5,7 @@ using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class Basket : PageBaseShoppingCart<PanierPresenter, IPanierPresenter>, IPanierPresenter
+    public partial class Basket : PageBase<PanierPresenter, IPanierPresenter>, IPanierPresenter
     {
         public Order Commande
         {

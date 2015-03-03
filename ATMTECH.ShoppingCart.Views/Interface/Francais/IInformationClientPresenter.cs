@@ -1,4 +1,6 @@
-﻿using ATMTECH.Views.Interface;
+﻿using System.Collections.Generic;
+using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.Views.Interface;
 
 namespace ATMTECH.ShoppingCart.Views.Interface.Francais
 {
@@ -21,5 +23,11 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
         string CodePostalFacturation { get; set; }
         string VilleFacturation { get; set; }
         int PaysFacturation { get; set; }
+
+        bool EstAucuneAdresseLivraison { get; set; }
+        bool EstAucuneAdresseFacturation { get; set; }
+
+        IList<Country> ListePaysLivraison {  set; }
+        IList<Country> ListePaysFacturation {  set; }
     }
 }
