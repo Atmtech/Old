@@ -29,5 +29,7 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
 
         IList<Country> ListePaysLivraison {  set; }
         IList<Country> ListePaysFacturation {  set; }
+
+        IList<Order> ListeCommandePasse { set; }
     }
 }

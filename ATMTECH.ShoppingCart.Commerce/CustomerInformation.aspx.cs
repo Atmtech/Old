@@ -27,6 +27,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         public bool EstAucuneAdresseFacturation { get; set; }
         public IList<Country> ListePaysLivraison { set { FillDropDown(ddlPaysLivraisonClient, value); } }
         public IList<Country> ListePaysFacturation { set { FillDropDown(ddlPaysFacturationClient, value); } }
+        public IList<Order> ListeCommandePasse { set; private get; }
 
         protected void btnEnregistrerInformationClientClick(object sender, EventArgs e)
         {
