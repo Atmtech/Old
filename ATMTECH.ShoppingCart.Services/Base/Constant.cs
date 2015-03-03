@@ -2,6 +2,8 @@
 {
     public class Constant
     {
+        public const string IS_OFFLINE = "IsOffline";
+
         public const string DETAIL_ORDER = "DetailOrder";
         public const string ADMIN_MAIL = "AdminMail";
 

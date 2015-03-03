@@ -80,7 +80,7 @@
                 <asp:Label runat="server" ID="lblPaysLivraisonInformationClient" Text="Pays" CssClass="labelLogin"></asp:Label>
             </div>
             <div>
-                <atmtech:ComboBox ID="ddlPaysLivraisonClient" runat="server" CssClass="dropDownList" Width="400px"></atmtech:ComboBox>
+                <atmtech:ComboBox ID="ddlPaysLivraisonClient" runat="server" Width="400px"  AutoPostBack="True"></atmtech:ComboBox>
             </div>
         </div>
         <div class="adresseFacturationClient">
@@ -89,8 +89,7 @@
 
             </div>
             <div>
-                <asp:Button runat="server" ID="btnUtiliserMemeAdresseQueLivraison" OnClick="btnUtiliserMemeAdresseQueLivraisonClick" Text="Utiliser la même adresse que livraison" CssClass="boutonLien"/>
-                <asp:Label runat="server" ID="UtiliserMemeAdresseQueLivraison" Text="Utiliser la même adresse que celle de livraison" CssClass="labelLogin"></asp:Label>
+                <asp:Button runat="server" ID="btnUtiliserMemeAdresseQueLivraison" OnClick="btnUtiliserMemeAdresseQueLivraisonClick" Text="Utiliser la même adresse que celle de livraison" CssClass="boutonLien" />
             </div>
             <div style="padding-top: 20px;">
                 <asp:Label runat="server" ID="lblNoCiviqueFacturationInformationClient" Text="Numéro civique" CssClass="labelLogin"></asp:Label>
@@ -125,7 +124,7 @@
                 <asp:Label runat="server" ID="lblPaysFacturationInformationClient" Text="Pays" CssClass="labelLogin"></asp:Label>
             </div>
             <div>
-                <atmtech:ComboBox ID="ddlPaysFacturationClient" runat="server" CssClass="dropDownList" Width="400px"></atmtech:ComboBox>
+                <atmtech:ComboBox ID="ddlPaysFacturationClient" runat="server" Width="400px" AutoPostBack="True"></atmtech:ComboBox>
             </div>
         </div>
 

@@ -137,12 +137,6 @@ namespace ATMTECH.ShoppingCart.Views
 
             NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
-
-        public void SaveLocalization(IList<Localization> localizations)
-        {
-            LocalizationService.SaveLocalization(localizations);
-        }
-
        
     }
 }

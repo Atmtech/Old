@@ -73,6 +73,7 @@
     <Compile Include="View\ConfirmationCreationUtilisateurPresenterTest.cs" />
     <Compile Include="View\ContacterNousPresenterTest.cs" />
     <Compile Include="View\CatalogueProduitPresenterTest.cs" />
+    <Compile Include="View\PageMaitrePresenterTest.cs" />
     <Compile Include="View\PanierPresenterTest.cs" />
     <Compile Include="View\MotPasseOubliePresenterTest.cs" />
     <Compile Include="View\InformationClientPresenterTest.cs" />

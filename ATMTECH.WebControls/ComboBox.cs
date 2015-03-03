@@ -24,7 +24,6 @@ namespace ATMTECH.WebControls
 
         protected readonly DropDownList _dropDownList;
 
-
         public ComboBox()
         {
             _dropDownList = new DropDownList();
@@ -44,6 +43,13 @@ namespace ATMTECH.WebControls
             Controls.Add(_dropDownList);
             base.CreateChildControls();
         }
+
+        public event EventHandler SelectedIndexChanged
+        {
+            add { _dropDownList.SelectedIndexChanged += value; }
+            remove { _dropDownList.SelectedIndexChanged -= value; }
+        }
+
 
         public override void RenderBeginTag(HtmlTextWriter writer)
         {

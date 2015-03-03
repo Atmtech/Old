@@ -57,21 +57,16 @@
                 <div style="float: left; border-left: solid 1px white;">
                     <asp:Button ID="btnContacterNous" runat="server" Text="Contacter-nous" CssClass="boutonLienMenu" OnClick="btnContacterNousClick" />
                 </div>
-                <div style="float: left; width: 485px; text-align: right;">
+                <div style="float: left; width: 475px; text-align: right;">
                     <asp:Panel runat="server" ID="pnlDeconnecte">
                         <asp:Button runat="server" ID="btnConnecter" Text="Se connecter ou créer un compte" CssClass="boutonLien" OnClick="btnConnecterClick" />
                     </asp:Panel>
                     <asp:Panel runat="server" ID="pnlConnecte" Visible="False">
-                        <asp:button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonLien" ></asp:button>
-                        |
-                        <asp:Button runat="server" ID="btnDeconnecter" Text="Se déconnecter" CssClass="boutonLien" OnClick="btnDeconnecterClick" />
+                        <asp:button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonLien" ></asp:button>|<asp:Button runat="server" ID="btnDeconnecter" Text="Se déconnecter" CssClass="boutonLien" OnClick="btnDeconnecterClick" />
                     </asp:Panel>
 
                 </div>
-                <div style="float: left; border-left: solid 1px white;">
-                    <asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonLien" />
-                    <asp:Button runat="server" ID="btnAnglais" Text="Anglais" CssClass="boutonLien" Visible="False" />
-                </div>
+                <div style="float: left;">|<asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonLien" /><asp:Button runat="server" ID="btnAnglais" Text="Anglais" CssClass="boutonLien" Visible="False" /></div>
                 <div style="clear: both;"></div>
             </div>
             <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" Visible="False">
