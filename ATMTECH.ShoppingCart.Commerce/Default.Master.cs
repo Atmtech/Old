@@ -7,7 +7,12 @@ namespace ATMTECH.ShoppingCart.Commerce
 {
     public partial class Default : PageMaitreBase<PageMaitrePresenter, IPageMaitrePresenter>, IPageMaitrePresenter
     {
-        public string NomClient { get { return btnNomClient.Text; } set { btnNomClient.Text = value; } }
+        public string NomClient
+        {
+            get { return btnNomClient.Text; }
+            set { btnNomClient.Text = value; }
+        }
+
         public bool EstConnecte
         {
             set
@@ -24,26 +29,29 @@ namespace ATMTECH.ShoppingCart.Commerce
                 }
             }
         }
+
         public decimal GrandTotalPanier { set; private get; }
         public decimal NombreTotalItemPanier { set; private get; }
+        public bool ThrowExceptionIfNoPresenterBound { get; private set; }
 
         protected void btnConnecterClick(object sender, EventArgs e)
         {
             Presenter.NavigationService.Redirect(Pages.LOGIN);
         }
+
         protected void btnContacterNousClick(object sender, EventArgs e)
         {
             Presenter.NavigationService.Redirect(Pages.CONTACT);
         }
+
         protected void btnDeconnecterClick(object sender, EventArgs e)
         {
             Presenter.FermerSession();
         }
+
         protected void btnNomClientClick(object sender, EventArgs e)
         {
             Presenter.NavigationService.Redirect(Pages.CUSTOMER_INFORMATION);
         }
-        public bool ThrowExceptionIfNoPresenterBound { get; private set; }
-       
     }
 }

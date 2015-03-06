@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
-    CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.AddProductToBasket" %>
+         CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.AddProductToBasket" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -7,7 +7,7 @@
     <div class="imageProduit">
         <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" OnClick="imgProductPrincipalClick" CssClass="imageProduitAfficher" />
         <asp:DataList ID="DataListProductFile" RepeatDirection="Horizontal" runat="server"
-            OnItemDataBound="ProductFileDataBound" OnItemCommand="ProductFileCommand">
+                      OnItemDataBound="ProductFileDataBound" OnItemCommand="ProductFileCommand">
             <ItemTemplate>
                 <asp:ImageButton runat="server" ID="imgProductFile" CommandName="ChangeImage" Width="50px" Height="50px" />
             </ItemTemplate>
@@ -45,7 +45,7 @@
                 </div>
                 <br />
                 <asp:Button runat="server" ID="btnAjouterLigneCommande" OnClick="btnAjouterLigneCommandeClick" CssClass="boutonActionRond"
-                    Text="Ajouter au panier"></asp:Button>
+                            Text="Ajouter au panier"></asp:Button>
             </div>
         </div>
         <div class="detailDescriptionProduit">

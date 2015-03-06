@@ -67,7 +67,7 @@
                             <p>Sous-Total</p>
                         </div>
                         <div class="Cell">
-                            <p>1000$</p>
+                            <p><asp:Label runat="server" ID="lblSousTotal"></asp:Label></p>
                         </div>
                     </div>
                     <div class="Row">
@@ -75,7 +75,7 @@
                             <p>TVQ</p>
                         </div>
                         <div class="Cell">
-                            <p>10$</p>
+                            <p><asp:Label runat="server" ID="lblTaxeProvinciale"></asp:Label></p>
                         </div>
                     </div>
                     <div class="Row">
@@ -83,7 +83,7 @@
                             <p>TPS</p>
                         </div>
                         <div class="Cell">
-                            <p>10$</p>
+                            <p><asp:Label runat="server" ID="lblTaxeFederale"></asp:Label></p>
                         </div>
                     </div>
 
@@ -92,7 +92,7 @@
                             <p>Grand-Total</p>
                         </div>
                         <div class="Cell">
-                            <p>1020$</p>
+                            <p><asp:Label runat="server" ID="lblGrandTotal"></asp:Label></p>
                         </div>
                     </div>
                 </div>

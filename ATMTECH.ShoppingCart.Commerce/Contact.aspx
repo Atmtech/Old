@@ -34,7 +34,7 @@
             <asp:TextBox ID="txtMessageContacterNous" runat="server" CssClass="textBoxMultiligne" Width="400px" TextMode="MultiLine" Rows="15"></asp:TextBox>
         </div>
         <div style="padding-top: 20px;">
-            <asp:Button runat="server" ID="btnEnvoyerCommentaire" Text="Envoyer" CssClass="boutonActionRond" Width="400px"></asp:Button>
+            <asp:Button runat="server" ID="btnEnvoyerCommentaire" Text="Envoyer" CssClass="boutonActionRond" Width="400px" OnClick="btnEnvoyerCommentaireClick"></asp:Button>
         </div>
     </div>
      <div style="clear: both;"></div>

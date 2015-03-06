@@ -29,7 +29,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
         public void EnvoyerMessage()
         {
-            MailService.SendEmail(ParameterService.GetValue(Constant.ADMIN_MAIL), View.Courriel, "Une question du site web", View.Message);
+            MailService.SendEmail(ParameterService.GetValue(Constant.ADMIN_MAIL), View.Courriel, "Une question en provenance du site web site web.", View.Message);
         }
     }
 }

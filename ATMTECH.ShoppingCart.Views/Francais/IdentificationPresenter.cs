@@ -1,25 +1,25 @@
 ﻿using System;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
+using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 
-namespace ATMTECH.ShoppingCart.Views
+namespace ATMTECH.ShoppingCart.Views.Francais
 {
     public class IdentificationPresenter : BaseShoppingCartPresenter<IIdentificationPresenter>
     {
-        public IAuthenticationService AuthenticationService { get; set; }
-        public ICustomerService CustomerService { get; set; }
-
-
         public IdentificationPresenter(IIdentificationPresenter view)
             : base(view)
         {
         }
+
+        public IAuthenticationService AuthenticationService { get; set; }
+        public ICustomerService CustomerService { get; set; }
+
 
         public void Identification()
         {
@@ -34,17 +34,17 @@ namespace ATMTECH.ShoppingCart.Views
         {
             if (string.IsNullOrEmpty(View.CourrielCreation))
             {
-                MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY);
+                MessageService.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY);
             }
 
             if (string.IsNullOrEmpty(View.MotPasseCreation))
             {
-                MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY);
+                MessageService.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY);
             }
 
             if (View.MotPasseCreation != View.MotPasseConfirmationCreation)
             {
-                MessageService.ThrowMessage(ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM);
+                MessageService.ThrowMessage(Services.ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM);
             }
 
             User user = new User
@@ -60,13 +60,14 @@ namespace ATMTECH.ShoppingCart.Views
                     User = user,
                     Enterprise = new Enterprise
                         {
-                            Id = Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED))
+                            Id =
+                                Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED))
                         }
                 };
 
             if (CustomerService.CreateCustomer(customer))
             {
-                MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_SUCCESS);
+                MessageService.ThrowMessage(ErrorCode.ADM_CREATE_SUCCESS);
             }
         }
 

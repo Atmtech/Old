@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Test;
+using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -26,7 +26,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
         [TestMethod]
         public void AfficherInformationClient_SiAucunClientIdentifierOnRedirigeALAccueil()
         {
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns((Customer)null);
+            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns((Customer) null);
             InstanceTest.AfficherInformationClient();
             ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.DEFAULT), Times.Once());
         }
@@ -87,12 +87,13 @@ namespace ATMTECH.ShoppingCart.Tests.View
         [TestMethod]
         public void EnregistrerAdresse_SiAucuneVilleIlFautLaCreer()
         {
-            ObtenirMock<IDAOCity>().Setup(test => test.FindCity("Montréal")).Returns((City)null);
+            ObtenirMock<IDAOCity>().Setup(test => test.FindCity("Montréal")).Returns((City) null);
 
             InstanceTest.EnregistrerAdresse(null, "1", "Rue du havre", "G6H1A7", "Montréal", 1);
 
             ObtenirMock<IDAOCity>().Verify(x => x.CreateCity(It.Is<City>(a => a.Code == "Montréal")), Times.Once());
-            ObtenirMock<IDAOCity>().Verify(x => x.CreateCity(It.Is<City>(a => a.Description == "Montréal")), Times.Once());
+            ObtenirMock<IDAOCity>()
+                .Verify(x => x.CreateCity(It.Is<City>(a => a.Description == "Montréal")), Times.Once());
         }
 
         [TestMethod]
@@ -104,7 +105,8 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.EnregistrerAdresse(null, "1", "Rue du havre", "G6H1A7", "Montréal", 1);
 
-            ObtenirMock<IAddressService>().Verify(x => x.SaveNewAddress(It.Is<Address>(a => a.City.Description == city.Description)));
+            ObtenirMock<IAddressService>()
+                .Verify(x => x.SaveNewAddress(It.Is<Address>(a => a.City.Description == city.Description)));
         }
 
         [TestMethod]
@@ -125,7 +127,8 @@ namespace ATMTECH.ShoppingCart.Tests.View
         public void Enregistrer_SiCourrielEstInexistantLancerErreur()
         {
             InstanceTest.Enregistrer();
-            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
+            ObtenirMock<IMessageService>()
+                .Verify(x => x.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
         }
 
         [TestMethod]
@@ -134,7 +137,8 @@ namespace ATMTECH.ShoppingCart.Tests.View
             ViewMock.Setup(x => x.Courriel).Returns("test");
             ViewMock.Setup(x => x.MotPasse).Returns("");
             InstanceTest.Enregistrer();
-            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
+            ObtenirMock<IMessageService>()
+                .Verify(x => x.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
         }
 
         [TestMethod]
@@ -144,7 +148,9 @@ namespace ATMTECH.ShoppingCart.Tests.View
             ViewMock.Setup(x => x.MotPasse).Returns("test");
             ViewMock.Setup(x => x.MotPasseConfirmation).Returns("xna");
             InstanceTest.Enregistrer();
-            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM), Times.Once());
+            ObtenirMock<IMessageService>()
+                .Verify(x => x.ThrowMessage(ShoppingCart.Services.ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM),
+                        Times.Once());
         }
 
         [TestMethod]
@@ -163,7 +169,6 @@ namespace ATMTECH.ShoppingCart.Tests.View
             InstanceTest.Enregistrer();
 
             ObtenirMock<IAddressService>().Verify(x => x.SaveAddress(It.IsAny<Address>()), Times.Exactly(2));
-
         }
 
 
@@ -186,11 +191,14 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.Enregistrer();
 
-            ObtenirMock<ICustomerService>().Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.FirstName == customer.User.FirstName)));
-            ObtenirMock<ICustomerService>().Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.LastName == customer.User.LastName)));
-            ObtenirMock<ICustomerService>().Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.Email == customer.User.Email)));
-            ObtenirMock<ICustomerService>().Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.Password == customer.User.Password)));
-
+            ObtenirMock<ICustomerService>()
+                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.FirstName == customer.User.FirstName)));
+            ObtenirMock<ICustomerService>()
+                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.LastName == customer.User.LastName)));
+            ObtenirMock<ICustomerService>()
+                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.Email == customer.User.Email)));
+            ObtenirMock<ICustomerService>()
+                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.Password == customer.User.Password)));
         }
 
         [TestMethod]
@@ -213,7 +221,8 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.Enregistrer();
 
-            ObtenirMock<ICustomerService>().Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.BillingAddress.No == "10")));
+            ObtenirMock<ICustomerService>()
+                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.BillingAddress.No == "10")));
         }
 
         [TestMethod]
@@ -236,8 +245,8 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.Enregistrer();
 
-            ObtenirMock<ICustomerService>().Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.ShippingAddress.No == "10")));
-
+            ObtenirMock<ICustomerService>()
+                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.ShippingAddress.No == "10")));
         }
 
 
@@ -255,10 +264,10 @@ namespace ATMTECH.ShoppingCart.Tests.View
             ViewMock.Setup(x => x.Prenom).Returns(customer.User.LastName);
             ViewMock.Setup(x => x.MotPasse).Returns(customer.User.Password);
             ViewMock.Setup(x => x.MotPasseConfirmation).Returns(customer.User.Password);
-            
+
             InstanceTest.Enregistrer();
 
-            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(Web.Services.ErrorCode.ADM_SAVE_IS_CORRECT), Times.Once());
+            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(ErrorCode.ADM_SAVE_IS_CORRECT), Times.Once());
         }
 
         [TestMethod]
@@ -271,7 +280,5 @@ namespace ATMTECH.ShoppingCart.Tests.View
             ViewMock.VerifySet(x => x.ListePaysFacturation = countries);
             ViewMock.VerifySet(x => x.ListePaysLivraison = countries);
         }
-
-
     }
 }

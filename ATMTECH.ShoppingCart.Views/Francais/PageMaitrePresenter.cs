@@ -9,13 +9,14 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 {
     public class PageMaitrePresenter : BaseShoppingCartPresenter<IPageMaitrePresenter>
     {
-        public IAuthenticationService AuthenticationService { get; set; }
-        public ICustomerService CustomerService { get; set; }
-        public IOrderService OrderService { get; set; }
         public PageMaitrePresenter(IPageMaitrePresenter view)
             : base(view)
         {
         }
+
+        public IAuthenticationService AuthenticationService { get; set; }
+        public ICustomerService CustomerService { get; set; }
+        public IOrderService OrderService { get; set; }
 
         public override void OnViewLoaded()
         {
@@ -42,7 +43,10 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             View.NomClient = customer.User.FirstNameLastName;
             decimal grandTotal = OrderService.GetGrandTotalFromOrderWishList(CustomerService.AuthenticateCustomer);
             View.GrandTotalPanier = grandTotal;
-            View.NombreTotalItemPanier = grandTotal == 0 ? 0 : OrderService.GetCountNumberOfItemInBasket(CustomerService.AuthenticateCustomer);
+            View.NombreTotalItemPanier = grandTotal == 0
+                                             ? 0
+                                             : OrderService.GetCountNumberOfItemInBasket(
+                                                 CustomerService.AuthenticateCustomer);
         }
 
         public void FermerSession()
@@ -50,7 +54,5 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             AuthenticationService.SignOut();
             NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
-
-
     }
 }

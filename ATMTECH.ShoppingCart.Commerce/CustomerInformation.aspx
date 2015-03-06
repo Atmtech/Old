@@ -80,7 +80,7 @@
                 <asp:Label runat="server" ID="lblPaysLivraisonInformationClient" Text="Pays" CssClass="labelLogin"></asp:Label>
             </div>
             <div>
-                <atmtech:ComboBox ID="ddlPaysLivraisonClient" runat="server" Width="400px"  AutoPostBack="True"></atmtech:ComboBox>
+                <atmtech:ComboBox ID="ddlPaysLivraisonClient" runat="server" Width="400px" AutoPostBack="True"></atmtech:ComboBox>
             </div>
         </div>
         <div class="adresseFacturationClient">
@@ -159,107 +159,8 @@
                     <asp:Label runat="server" ID="lblVisualiserInformationClient" Text="Visualiser"></asp:Label>
                 </div>
             </div>
-            <div class="Row">
-                <div class="Cell">
-                    <p>1</p>
-                </div>
-                <div class="Cell">
-                    <p>2015-01-01</p>
-                </div>
-                <div class="Cell">
-                    <p>2015-02-01</p>
-                </div>
-                <div class="Cell">
-                    <p>$ 100.19</p>
-                </div>
-                <div class="Cell">
-                    <p># 3462525522</p>
-                </div>
-                <div class="Cell">
-                    <img src="Images/WebSite/Rechercher.png" />
-                </div>
-            </div>
-            <div class="Row">
-                <div class="Cell">
-                    <p>1</p>
-                </div>
-                <div class="Cell">
-                    <p>2015-01-01</p>
-                </div>
-                <div class="Cell">
-                    <p>2015-02-01</p>
-                </div>
-                <div class="Cell">
-                    <p>$ 100.19</p>
-                </div>
-                <div class="Cell">
-                    <p># 3462525522</p>
-                </div>
-                <div class="Cell">
-                    <img src="Images/WebSite/Rechercher.png" />
-                </div>
-            </div>
-            <div class="Row">
-                <div class="Cell">
-                    <p>1</p>
-                </div>
-                <div class="Cell">
-                    <p>2015-01-01</p>
-                </div>
-                <div class="Cell">
-                    <p>2015-02-01</p>
-                </div>
-                <div class="Cell">
-                    <p>$ 100.19</p>
-                </div>
-                <div class="Cell">
-                    <p># 3462525522</p>
-                </div>
-                <div class="Cell">
-                    <img src="Images/WebSite/Rechercher.png" />
-                </div>
-            </div>
-            <div class="Row">
-                <div class="Cell">
-                    <p>1</p>
-                </div>
-                <div class="Cell">
-                    <p>2015-01-01</p>
-                </div>
-                <div class="Cell">
-                    <p>2015-02-01</p>
-                </div>
-                <div class="Cell">
-                    <p>$ 100.19</p>
-                </div>
-                <div class="Cell">
-                    <p># 3462525522</p>
-                </div>
-                <div class="Cell">
-                    <img src="Images/WebSite/Rechercher.png" />
-                </div>
-            </div>
-            <div class="Row">
-                <div class="Cell">
-                    <p>1</p>
-                </div>
-                <div class="Cell">
-                    <p>2015-01-01</p>
-                </div>
-                <div class="Cell">
-                    <p>2015-02-01</p>
-                </div>
-                <div class="Cell">
-                    <p>$ 100.19</p>
-                </div>
-                <div class="Cell">
-                    <p># 3462525522</p>
-                </div>
-                <div class="Cell">
-                    <img src="Images/WebSite/Rechercher.png" />
-                </div>
-            </div>
-
+            <asp:PlaceHolder runat="server" ID="placeHolderListeCommandePasse"></asp:PlaceHolder>
+            <asp:Label runat="server" ID="lblAucuneCommandePasseACeJour" Text="Aucune commande passé à ce jour"></asp:Label>
 
         </div>
 

@@ -6,12 +6,12 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 {
     public class MotPasseOubliePresenter : BaseShoppingCartPresenter<IMotPasseOubliePresenter>
     {
-        public ICustomerService CustomerService { get; set; }
-
         public MotPasseOubliePresenter(IMotPasseOubliePresenter view)
             : base(view)
         {
         }
+
+        public ICustomerService CustomerService { get; set; }
 
         public void EnvoyerMotPasseOublie()
         {

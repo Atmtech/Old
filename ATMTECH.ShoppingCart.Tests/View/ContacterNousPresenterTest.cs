@@ -1,5 +1,4 @@
-﻿using ATMTECH.Entities;
-using ATMTECH.ShoppingCart.Entities;
+﻿using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Francais;
@@ -40,9 +39,10 @@ namespace ATMTECH.ShoppingCart.Tests.View
             InstanceTest.EnvoyerMessage();
 
             ObtenirMock<IMailService>().Verify(x => x.SendEmail(It.Is<string>(a => a == "admin@admin.com"),
-                It.Is<string>(a => a == "test@test.com"), It.IsAny<string>(), It.Is<string>(a => a == "Je ne suis pas satisfait du tout !")));
+                                                                It.Is<string>(a => a == "test@test.com"),
+                                                                It.IsAny<string>(),
+                                                                It.Is<string>(
+                                                                    a => a == "Je ne suis pas satisfait du tout !")));
         }
-
-
     }
 }

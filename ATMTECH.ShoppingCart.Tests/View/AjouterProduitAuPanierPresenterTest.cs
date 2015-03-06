@@ -2,9 +2,7 @@
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
-using ATMTECH.ShoppingCart.Views;
 using ATMTECH.ShoppingCart.Views.Francais;
-using ATMTECH.ShoppingCart.Views.Interface;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Test;
@@ -53,12 +51,16 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             Customer customer = AutoFixture.Create<Customer>();
             IList<Order> orders = new List<Order>();
-            ObtenirMock<IDAOOrder>().Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList)).Returns(orders);
+            ObtenirMock<IDAOOrder>()
+                .Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList))
+                .Returns(orders);
             ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
 
             InstanceTest.AjouterLigneCommande();
 
-            ObtenirMock<IOrderService>().Verify(test => test.CreateOrder(It.Is<Order>(a => a.OrderStatus == OrderStatus.IsWishList), null), Times.Once());
+            ObtenirMock<IOrderService>()
+                .Verify(test => test.CreateOrder(It.Is<Order>(a => a.OrderStatus == OrderStatus.IsWishList), null),
+                        Times.Once());
         }
 
         [TestMethod]
@@ -66,10 +68,13 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             Customer customer = AutoFixture.Create<Customer>();
             IList<Order> orders = new List<Order>();
-            ObtenirMock<IDAOOrder>().Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList)).Returns(orders);
+            ObtenirMock<IDAOOrder>()
+                .Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList))
+                .Returns(orders);
             ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
             InstanceTest.AjouterLigneCommande();
-            ObtenirMock<IOrderService>().Verify(test => test.CreateOrder(It.Is<Order>(a => a.Customer == customer), null), Times.Once());
+            ObtenirMock<IOrderService>()
+                .Verify(test => test.CreateOrder(It.Is<Order>(a => a.Customer == customer), null), Times.Once());
         }
 
         [TestMethod]
@@ -77,10 +82,14 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             Customer customer = AutoFixture.Create<Customer>();
             IList<Order> orders = new List<Order>();
-            ObtenirMock<IDAOOrder>().Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList)).Returns(orders);
+            ObtenirMock<IDAOOrder>()
+                .Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList))
+                .Returns(orders);
             ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
             InstanceTest.AjouterLigneCommande();
-            ObtenirMock<IOrderService>().Verify(test => test.CreateOrder(It.Is<Order>(a => a.Enterprise == customer.Enterprise), null), Times.Once());
+            ObtenirMock<IOrderService>()
+                .Verify(test => test.CreateOrder(It.Is<Order>(a => a.Enterprise == customer.Enterprise), null),
+                        Times.Once());
         }
 
         [TestMethod]
@@ -88,15 +97,22 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             Customer customer = AutoFixture.Create<Customer>();
             IList<Order> orders = new List<Order>();
-            ObtenirMock<IDAOOrder>().Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList)).Returns(orders);
+            ObtenirMock<IDAOOrder>()
+                .Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList))
+                .Returns(orders);
             ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
             InstanceTest.AjouterLigneCommande();
-            ObtenirMock<IOrderService>().Verify(test => test.CreateOrder(It.Is<Order>(a => a.ShippingAddress == customer.ShippingAddress), null), Times.Once());
+            ObtenirMock<IOrderService>()
+                .Verify(
+                    test => test.CreateOrder(It.Is<Order>(a => a.ShippingAddress == customer.ShippingAddress), null),
+                    Times.Once());
         }
 
 
         [TestMethod]
-        public void AjouterLigneCommande_SiAucuneCommandeActiveCreerUneCommandeAvecUneLigneCommandeAssocieAInventaireSelectionne()
+        public void
+            AjouterLigneCommande_SiAucuneCommandeActiveCreerUneCommandeAvecUneLigneCommandeAssocieAInventaireSelectionne
+            ()
         {
             IList<OrderLine> orderLines = new List<OrderLine>();
             IList<Order> orders = new List<Order>();
@@ -106,7 +122,9 @@ namespace ATMTECH.ShoppingCart.Tests.View
             Order order = AutoFixture.Create<Order>();
 
             ViewMock.Setup(x => x.Inventaire).Returns(10);
-            ObtenirMock<IDAOOrder>().Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList)).Returns(orders);
+            ObtenirMock<IDAOOrder>()
+                .Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList))
+                .Returns(orders);
             ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
             ObtenirMock<IStockService>().Setup(x => x.GetStock(10)).Returns(stock);
             ObtenirMock<IOrderService>().Setup(x => x.GetOrder(It.IsAny<int>())).Returns(order);
@@ -115,7 +133,8 @@ namespace ATMTECH.ShoppingCart.Tests.View
             orderLines.Add(orderLine);
 
             InstanceTest.AjouterLigneCommande();
-            ObtenirMock<IOrderService>().Verify(test => test.AddOrderLine(It.Is<OrderLine>(a => a.Stock == stock), order), Times.Once());
+            ObtenirMock<IOrderService>()
+                .Verify(test => test.AddOrderLine(It.Is<OrderLine>(a => a.Stock == stock), order), Times.Once());
         }
 
         [TestMethod]
@@ -132,7 +151,9 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             ViewMock.Setup(x => x.Quantite).Returns(101);
 
-            ObtenirMock<IDAOOrder>().Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList)).Returns(orders);
+            ObtenirMock<IDAOOrder>()
+                .Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList))
+                .Returns(orders);
             ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
             ObtenirMock<IStockService>().Setup(x => x.GetStock(10)).Returns(stock);
             ObtenirMock<IOrderService>().Setup(x => x.GetOrder(It.IsAny<int>())).Returns(order);
@@ -141,7 +162,8 @@ namespace ATMTECH.ShoppingCart.Tests.View
             orderLines.Add(orderLine);
 
             InstanceTest.AjouterLigneCommande();
-            ObtenirMock<IOrderService>().Verify(test => test.AddOrderLine(It.Is<OrderLine>(a => a.Quantity == 101), order), Times.Once());
+            ObtenirMock<IOrderService>()
+                .Verify(test => test.AddOrderLine(It.Is<OrderLine>(a => a.Quantity == 101), order), Times.Once());
         }
 
         [TestMethod]
@@ -158,15 +180,19 @@ namespace ATMTECH.ShoppingCart.Tests.View
             ViewMock.Setup(x => x.Quantite).Returns(101);
 
             orders.Add(order);
-            ObtenirMock<IDAOOrder>().Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList)).Returns(orders);
+            ObtenirMock<IDAOOrder>()
+                .Setup(x => x.GetOrderFromCustomer(customer, OrderStatus.IsWishList))
+                .Returns(orders);
             ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
             ObtenirMock<IOrderService>().Setup(x => x.GetOrder(It.IsAny<int>())).Returns(order);
             ObtenirMock<IStockService>().Setup(x => x.GetStock(10)).Returns(stock);
 
             InstanceTest.AjouterLigneCommande();
 
-            ObtenirMock<IOrderService>().Verify(test => test.AddOrderLine(It.Is<OrderLine>(a => a.Quantity == 101), order), Times.Once());
-            ObtenirMock<IOrderService>().Verify(test => test.AddOrderLine(It.Is<OrderLine>(a => a.Stock == stock), order), Times.Once());
+            ObtenirMock<IOrderService>()
+                .Verify(test => test.AddOrderLine(It.Is<OrderLine>(a => a.Quantity == 101), order), Times.Once());
+            ObtenirMock<IOrderService>()
+                .Verify(test => test.AddOrderLine(It.Is<OrderLine>(a => a.Stock == stock), order), Times.Once());
         }
 
         [TestMethod]
@@ -176,6 +202,5 @@ namespace ATMTECH.ShoppingCart.Tests.View
             InstanceTest.GererAffichage();
             ViewMock.VerifySet(v => v.EstPossibleDeCommander = false);
         }
-
     }
 }

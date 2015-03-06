@@ -1,5 +1,4 @@
-﻿using ATMTECH.Entities;
-using ATMTECH.ShoppingCart.Entities;
+﻿using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Francais;
@@ -34,7 +33,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
         [TestMethod]
         public void EstSiteHorsLigne_SINullOuRienOnFaitRien()
         {
-            ObtenirMock<IParameterService>().Setup(x => x.GetValue(Constant.IS_OFFLINE)).Returns((string)null);
+            ObtenirMock<IParameterService>().Setup(x => x.GetValue(Constant.IS_OFFLINE)).Returns((string) null);
 
             InstanceTest.EstSiteHorsLigne();
 
@@ -55,7 +54,8 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             InstanceTest.AfficherInformation();
 
-            ObtenirMock<IOrderService>().Verify(x => x.GetGrandTotalFromOrderWishList(It.IsAny<Customer>()), Times.Never());
+            ObtenirMock<IOrderService>()
+                .Verify(x => x.GetGrandTotalFromOrderWishList(It.IsAny<Customer>()), Times.Never());
         }
 
 

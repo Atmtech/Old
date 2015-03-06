@@ -4,13 +4,15 @@ using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
 namespace ATMTECH.ShoppingCart.Views.Francais
 {
-    public class ConfirmationCreationUtilisateurPresenter : BaseShoppingCartPresenter<IConfirmationCreationUtilisateurPresenter>
+    public class ConfirmationCreationUtilisateurPresenter :
+        BaseShoppingCartPresenter<IConfirmationCreationUtilisateurPresenter>
     {
-        public ICustomerService CustomerService { get; set; }
         public ConfirmationCreationUtilisateurPresenter(IConfirmationCreationUtilisateurPresenter view)
             : base(view)
         {
         }
+
+        public ICustomerService CustomerService { get; set; }
 
         public override void OnViewInitialized()
         {

@@ -13,33 +13,12 @@ using ATMTECH.WebControls;
 
 namespace ATMTECH.ShoppingCart.PubJL
 {
-    public partial class AddProductToBasket : PageBaseShoppingCart<AddProductToBasketPresenter, IAddProductToBasketPresenter>, IAddProductToBasketPresenter
+    public partial class AddProductToBasket :
+        PageBaseShoppingCart<AddProductToBasketPresenter, IAddProductToBasketPresenter>, IAddProductToBasketPresenter
     {
-        protected void ProductFileDataBound(object sender, DataListItemEventArgs e)
-        {
-            if ((e.Item.ItemType == ListItemType.Item) || (e.Item.ItemType == ListItemType.AlternatingItem))
-            {
-                ProductFile dataItem = (ProductFile)e.Item.DataItem;
-                if (dataItem.File != null)
-                {
-                    ((ImageButton)e.Item.FindControl("imgProductFile")).ImageUrl = "../images/product/" + dataItem.File.FileName;
-                    ((ImageButton)e.Item.FindControl("imgProductFile")).Attributes.Add("onmouseover", "changeImage('../images/product/" + dataItem.File.FileName + "')");
-                }
-                else
-                {
-                    ((ImageButton)e.Item.FindControl("imgProductFile")).ImageUrl = "../images/product/NoImageForThisProduct.jpg";
-                }
-
-                ((ImageButton)e.Item.FindControl("imgProductFile")).CommandArgument = dataItem.Id.ToString();
-
-            }
-        }
         public string IdProduct
         {
-            get
-            {
-                return QueryString.GetQueryStringValue(PagesId.PRODUCT_ID);
-            }
+            get { return QueryString.GetQueryStringValue(PagesId.PRODUCT_ID); }
             set
             {
                 IList<QueryString> queryStrings = new List<QueryString>();
@@ -47,19 +26,20 @@ namespace ATMTECH.ShoppingCart.PubJL
                 Presenter.Redirect(Pages.ADD_PRODUCT_TO_BASKET, queryStrings);
             }
         }
+
         public Product Product
         {
-            get { return (Product)Session["Product"]; }
+            get { return (Product) Session["Product"]; }
             set
             {
                 Session["Product"] = value;
 
-                Product product = (Product)Session["Product"];
+                Product product = (Product) Session["Product"];
                 lblCostPrice.Text = product.CostPrice.ToString();
                 lblIdent.Text = product.Ident;
                 string name = Session["currentLanguage"].ToString().Equals("fr")
-                                     ? product.NameFrench
-                                     : product.NameEnglish;
+                                  ? product.NameFrench
+                                  : product.NameEnglish;
 
                 lblName.Text = name;
                 lblUnitPrice.Text = product.UnitPrice.ToString("C");
@@ -103,9 +83,9 @@ namespace ATMTECH.ShoppingCart.PubJL
                 lnkDisplay.Attributes.Clear();
                 lnkDisplay.Attributes.Add("data-lightbox", imgProductPrincipal.ImageUrl);
                 lnkDisplay.Attributes.Add("data-title", name);
-
             }
         }
+
         public bool IsOrderable
         {
             set
@@ -123,6 +103,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
+
         public int IsSuccesfullyAdded
         {
             set
@@ -133,6 +114,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                 //}
             }
         }
+
         public bool IsOrderableAgainstSecurity
         {
             get { return lblCannotOrderBecauseSecurity.Visible; }
@@ -153,6 +135,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
+
         public bool IsOrderLocked
         {
             set
@@ -163,13 +146,39 @@ namespace ATMTECH.ShoppingCart.PubJL
                 }
             }
         }
+
+        protected void ProductFileDataBound(object sender, DataListItemEventArgs e)
+        {
+            if ((e.Item.ItemType == ListItemType.Item) || (e.Item.ItemType == ListItemType.AlternatingItem))
+            {
+                ProductFile dataItem = (ProductFile) e.Item.DataItem;
+                if (dataItem.File != null)
+                {
+                    ((ImageButton) e.Item.FindControl("imgProductFile")).ImageUrl = "../images/product/" +
+                                                                                    dataItem.File.FileName;
+                    ((ImageButton) e.Item.FindControl("imgProductFile")).Attributes.Add("onmouseover",
+                                                                                        "changeImage('../images/product/" +
+                                                                                        dataItem.File.FileName + "')");
+                }
+                else
+                {
+                    ((ImageButton) e.Item.FindControl("imgProductFile")).ImageUrl =
+                        "../images/product/NoImageForThisProduct.jpg";
+                }
+
+                ((ImageButton) e.Item.FindControl("imgProductFile")).CommandArgument = dataItem.Id.ToString();
+            }
+        }
+
         protected void StockAddCommand(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName == "Add")
             {
-                Presenter.AddToBasket(Convert.ToInt32(e.CommandArgument), Convert.ToInt32(e.Item.FindControl("txtQuantity")));
+                Presenter.AddToBasket(Convert.ToInt32(e.CommandArgument),
+                                      Convert.ToInt32(e.Item.FindControl("txtQuantity")));
             }
         }
+
         protected void StockDataBound(object sender, DataListItemEventArgs e)
         {
             switch (e.Item.ItemType)
@@ -177,7 +186,7 @@ namespace ATMTECH.ShoppingCart.PubJL
                 case ListItemType.AlternatingItem:
                 case ListItemType.Item:
                     {
-                        Stock dataItem = (Stock)e.Item.DataItem;
+                        Stock dataItem = (Stock) e.Item.DataItem;
                         string id = dataItem.Id.ToString();
                         string feature = string.Empty;
                         switch (Presenter.CurrentLanguage)
@@ -191,27 +200,26 @@ namespace ATMTECH.ShoppingCart.PubJL
                         }
 
 
-
                         if (dataItem.AdjustPrice != 0)
                         {
                             feature += " (+" + dataItem.AdjustPrice.ToString("c") + ")";
                         }
-                        ((Label)e.Item.FindControl("lblDescription")).Text = feature;
+                        ((Label) e.Item.FindControl("lblDescription")).Text = feature;
                         Control lblStockId = e.Item.FindControl("lblStockId");
                         if (lblStockId != null)
                         {
                             var label = lblStockId as Label;
                             if (label != null) label.Text = id;
                         }
-                        Numeric alpha = ((Numeric)e.Item.FindControl("txtQuantity"));
+                        Numeric alpha = ((Numeric) e.Item.FindControl("txtQuantity"));
 
                         if (alpha != null)
                         {
                             alpha.ValidationGroup = "AddBasket" + dataItem.Id.ToString();
                         }
 
-                        Label lblStockQuantity = ((Label)e.Item.FindControl("lblStockQuantity"));
-                        Label lblStock = ((Label)e.Item.FindControl("lblStock"));
+                        Label lblStockQuantity = ((Label) e.Item.FindControl("lblStockQuantity"));
+                        Label lblStock = ((Label) e.Item.FindControl("lblStock"));
 
                         if (lblStockQuantity != null)
                         {
@@ -230,14 +238,13 @@ namespace ATMTECH.ShoppingCart.PubJL
                                     if (alpha != null) alpha.Visible = false;
                                 }
                                 lblStockQuantity.Text += quantityInStock;
-
                             }
                         }
-
                     }
                     break;
             }
         }
+
         protected void ProductFileCommand(object source, DataListCommandEventArgs e)
         {
             switch (e.CommandName)
@@ -262,10 +269,12 @@ namespace ATMTECH.ShoppingCart.PubJL
                     break;
             }
         }
+
         protected void RedirectProductCatalog(object sender, EventArgs e)
         {
             Presenter.RedirectProductCatalog();
         }
+
         protected void AddToBasketClick(object sender, EventArgs e)
         {
             foreach (DataListItem dataListItem in DataListStockOrderable.Items)
@@ -285,8 +294,8 @@ namespace ATMTECH.ShoppingCart.PubJL
             }
 
             Presenter.RedirectBasket();
-
         }
+
         protected void imgProductPrincipalClick(object sender, ImageClickEventArgs e)
         {
             ProductFile productFile = Presenter.GetProductFile(Convert.ToInt32(imgProductPrincipal.CommandArgument));
@@ -295,6 +304,5 @@ namespace ATMTECH.ShoppingCart.PubJL
                 Presenter.GetLinkedProduct(productFile.ProductLinked);
             }
         }
-
     }
 }

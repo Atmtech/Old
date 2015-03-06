@@ -1,12 +1,32 @@
-﻿using ATMTECH.ShoppingCart.Views.Francais;
+﻿using System;
+using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
     public partial class Contact : PageBase<ContacterNousPresenter, IContacterNousPresenter>, IContacterNousPresenter
     {
-        public string Courriel { get; set; }
-        public string Telephone { get; set; }
-        public string Message { get; set; }
+        public string Courriel
+        {
+            get { return txtCourrielContacterNous.Text; }
+            set { txtCourrielContacterNous.Text = value; }
+        }
+
+        public string Telephone
+        {
+            get { return txtNoTelephoneContacterNous.Text; }
+            set { txtNoTelephoneContacterNous.Text = value; }
+        }
+
+        public string Message
+        {
+            get { return txtMessageContacterNous.Text; }
+            set { txtMessageContacterNous.Text = value; }
+        }
+
+        protected void btnEnvoyerCommentaireClick(object sender, EventArgs e)
+        {
+            Presenter.EnvoyerMessage();
+        }
     }
 }

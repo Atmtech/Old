@@ -1,4 +1,5 @@
-﻿using ATMTECH.ShoppingCart.Entities;
+﻿using System.Collections.Generic;
+using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
@@ -59,5 +60,61 @@ namespace ATMTECH.ShoppingCart.Tests.View
             ObtenirMock<IOrderService>().Verify(x => x.PrintOrder(order));
         }
 
+        [TestMethod]
+        public void FinaliserCommande_EnToutTempsFinalizeOrder()
+        {
+            Order order = AutoFixture.Create<Order>();
+
+            ViewMock.Setup(x => x.Commande).Returns(order);
+
+            InstanceTest.FinaliserCommande();
+
+            ObtenirMock<IOrderService>().Verify(x => x.FinalizeOrder(order, null), Times.Once());
+        }
+
+        [TestMethod]
+        public void FinaliserCommande_EnToutTempsRempliCommandeFinalise()
+        {
+            Order order = AutoFixture.Create<Order>();
+
+            ViewMock.Setup(x => x.Commande).Returns(order);
+            InstanceTest.FinaliserCommande();
+
+            ViewMock.VerifySet(v => v.CommandeFinalise = order);
+        }
+
+        [TestMethod]
+        public void RecalculerPanier_EnToutTempsSauvegardeLePanier()
+        {
+            Order order = AutoFixture.Create<Order>();
+            Dictionary<int, int> listeQuantite = new Dictionary<int, int>();
+            ViewMock.Setup(x => x.Commande).Returns(order);
+
+            InstanceTest.RecalculerPanier(listeQuantite);
+
+            ObtenirMock<IOrderService>().Verify(x => x.UpdateOrder(order, null), Times.Once());
+        }
+
+        [TestMethod]
+        public void RecalculerPanier_EnToutTempsLanceAffichePanier()
+        {
+            Dictionary<int, int> listeQuantite = new Dictionary<int, int>();
+            InstanceTest.RecalculerPanier(listeQuantite);
+            ObtenirMock<ICustomerService>().Verify(x => x.AuthenticateCustomer, Times.Once());
+        }
+
+        [TestMethod]
+        public void RecalculerPanier_EnToutTempsDevraitReajusterLesQuantitesCommandeAvecLeNouveauChiffre()
+        {
+            Dictionary<int, int> listeQuantite = new Dictionary<int, int>();
+            listeQuantite.Add(0, 10);
+            Order order = AutoFixture.Create<Order>();
+            ViewMock.Setup(x => x.Commande).Returns(order);
+
+            InstanceTest.RecalculerPanier(listeQuantite);
+
+            ObtenirMock<IOrderService>()
+                .Verify(x => x.UpdateOrder(It.Is<Order>(a => a.OrderLines[0].Quantity == 10), null));
+        }
     }
 }

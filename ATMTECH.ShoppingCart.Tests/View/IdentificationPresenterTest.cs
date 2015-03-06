@@ -1,12 +1,12 @@
 ﻿using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
-using ATMTECH.ShoppingCart.Views;
+using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Test;
+using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -25,7 +25,6 @@ namespace ATMTECH.ShoppingCart.Tests.View
         [TestMethod]
         public void Identification_DoitLancerSignInAvecUtilisateurIdentificationEtMotPasseIdentification()
         {
-
             ViewMock.Setup(x => x.NomUtilisateurIdentification).Returns("Test");
             ViewMock.Setup(x => x.MotPasseIdentification).Returns("Test");
 
@@ -37,10 +36,9 @@ namespace ATMTECH.ShoppingCart.Tests.View
         [TestMethod]
         public void Identification_DoitNeRienFaireSurEchecIdentification()
         {
-
             ObtenirMock<IAuthenticationService>()
                 .Setup(x => x.SignIn(It.IsAny<string>(), It.IsAny<string>()))
-                .Returns((User)null);
+                .Returns((User) null);
 
             InstanceTest.Identification();
 
@@ -66,7 +64,8 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             ViewMock.Setup(x => x.MotPasseCreation).Returns("zzz");
             InstanceTest.CreerUtilisateur();
-            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
+            ObtenirMock<IMessageService>()
+                .Verify(x => x.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
         }
 
         [TestMethod]
@@ -75,7 +74,8 @@ namespace ATMTECH.ShoppingCart.Tests.View
             ViewMock.Setup(x => x.CourrielCreation).Returns("test");
             ViewMock.Setup(x => x.MotPasseCreation).Returns("");
             InstanceTest.CreerUtilisateur();
-            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
+            ObtenirMock<IMessageService>()
+                .Verify(x => x.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
         }
 
         [TestMethod]
@@ -85,7 +85,9 @@ namespace ATMTECH.ShoppingCart.Tests.View
             ViewMock.Setup(x => x.MotPasseCreation).Returns("test");
             ViewMock.Setup(x => x.MotPasseConfirmationCreation).Returns("xna");
             InstanceTest.CreerUtilisateur();
-            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM), Times.Once());
+            ObtenirMock<IMessageService>()
+                .Verify(x => x.ThrowMessage(ShoppingCart.Services.ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM),
+                        Times.Once());
         }
 
         [TestMethod]
@@ -102,9 +104,12 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.CreerUtilisateur();
 
-            ObtenirMock<ICustomerService>().Verify(test => test.CreateCustomer(It.Is<Customer>(a => a.Enterprise.Id == 1)), Times.Once());
-            ObtenirMock<ICustomerService>().Verify(test => test.CreateCustomer(It.Is<Customer>(a => a.User.FirstName == "test")), Times.Once());
-            ObtenirMock<ICustomerService>().Verify(test => test.CreateCustomer(It.Is<Customer>(a => a.User.Password == "test")), Times.Once());
+            ObtenirMock<ICustomerService>()
+                .Verify(test => test.CreateCustomer(It.Is<Customer>(a => a.Enterprise.Id == 1)), Times.Once());
+            ObtenirMock<ICustomerService>()
+                .Verify(test => test.CreateCustomer(It.Is<Customer>(a => a.User.FirstName == "test")), Times.Once());
+            ObtenirMock<ICustomerService>()
+                .Verify(test => test.CreateCustomer(It.Is<Customer>(a => a.User.Password == "test")), Times.Once());
         }
 
         [TestMethod]
@@ -121,7 +126,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.CreerUtilisateur();
 
-            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_SUCCESS), Times.Once());
+            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(ErrorCode.ADM_CREATE_SUCCESS), Times.Once());
         }
 
         [TestMethod]
@@ -129,7 +134,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             InstanceTest.EstUtilisateurExistant("tapoche");
 
-            ObtenirMock<ICustomerService>().Verify(x=>x.IsUserExists("tapoche"));
+            ObtenirMock<ICustomerService>().Verify(x => x.IsUserExists("tapoche"));
         }
     }
 }

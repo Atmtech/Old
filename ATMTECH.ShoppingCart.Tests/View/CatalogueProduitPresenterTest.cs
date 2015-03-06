@@ -35,6 +35,5 @@ namespace ATMTECH.ShoppingCart.Tests.View
             InstanceTest.AfficherListeProduit();
             ObtenirMock<IProductService>().Verify(x => x.GetProducts(customer.Enterprise.Id, customer.User.Id));
         }
-
     }
 }

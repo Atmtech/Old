@@ -1,4 +1,5 @@
-﻿using ATMTECH.ShoppingCart.Entities;
+﻿using System.Collections.Generic;
+using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
@@ -7,13 +8,13 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 {
     public class PanierPresenter : BaseShoppingCartPresenter<IPanierPresenter>
     {
-        public IOrderService OrderService { get; set; }
-        public ICustomerService CustomerService { get; set; }
-
         public PanierPresenter(IPanierPresenter view)
             : base(view)
         {
         }
+
+        public IOrderService OrderService { get; set; }
+        public ICustomerService CustomerService { get; set; }
 
         public void AfficherPanier()
         {
@@ -35,8 +36,12 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             OrderService.FinalizeOrder(View.Commande, null);
         }
 
-        public void RecalculerPanier()
+        public void RecalculerPanier(Dictionary<int, int> listeQuantite)
         {
+            foreach (var keyValuePair in listeQuantite)
+            {
+                View.Commande.OrderLines[keyValuePair.Key].Quantity = keyValuePair.Value;
+            }
             OrderService.UpdateOrder(View.Commande, null);
             AfficherPanier();
         }

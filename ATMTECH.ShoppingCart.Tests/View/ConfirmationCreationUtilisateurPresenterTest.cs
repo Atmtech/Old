@@ -24,7 +24,5 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             ObtenirMock<ICustomerService>().Verify(x => x.ConfirmCreate(10217271), Times.Once());
         }
-
-
     }
 }

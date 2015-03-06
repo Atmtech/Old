@@ -9,16 +9,16 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 {
     public class AjouterProduitAuPanierPresenter : BaseShoppingCartPresenter<IAjouterProduitAuPanierPresenter>
     {
+        public AjouterProduitAuPanierPresenter(IAjouterProduitAuPanierPresenter view)
+            : base(view)
+        {
+        }
+
         public IProductService ProductService { get; set; }
         public IDAOOrder DAOOrder { get; set; }
         public ICustomerService CustomerService { get; set; }
         public IOrderService OrderService { get; set; }
         public IStockService StockService { get; set; }
-
-        public AjouterProduitAuPanierPresenter(IAjouterProduitAuPanierPresenter view)
-            : base(view)
-        {
-        }
 
         public override void OnViewInitialized()
         {
@@ -43,7 +43,8 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
         public void AjouterLigneCommande()
         {
-            IList<Order> orderFromCustomer = DAOOrder.GetOrderFromCustomer(CustomerService.AuthenticateCustomer, OrderStatus.IsWishList);
+            IList<Order> orderFromCustomer = DAOOrder.GetOrderFromCustomer(CustomerService.AuthenticateCustomer,
+                                                                           OrderStatus.IsWishList);
             if (orderFromCustomer.Count == 0)
             {
                 Order order = new Order
@@ -79,4 +80,3 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         }
     }
 }
-
