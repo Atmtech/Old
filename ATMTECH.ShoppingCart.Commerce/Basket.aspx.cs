@@ -38,9 +38,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             int i = 0;
             var listeQuantite = new Dictionary<int, int>();
-            foreach (
-                Numeric textBox in
-                    from GridViewRow row in grdPanier.Rows select (Numeric) row.FindControl("txtQuantite"))
+            foreach (Numeric textBox in from GridViewRow row in grdPanier.Rows select (Numeric) row.FindControl("txtQuantite"))
             {
                 listeQuantite.Add(i, Convert.ToInt32(textBox.Text));
                 i++;

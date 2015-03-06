@@ -13,56 +13,10 @@
     </div>
 
     <div class="vente">
-        Items en vente actuellement
+        <asp:Label runat="server" ID="lblItemEnVenteActuellement" Text="Items en vente actuellement"></asp:Label>
     </div>
     <div class="listeObjetEnPromo">
-        <a href="AddProductToBasket.aspx?ProductId=439">
-            <div style="float: left; text-align: center;">
-
-                <img src="Images/WebSite/TestSale1.png" width="160px" style="border: solid 1px gray" />
-                <br />
-                Montre en métal
-                    <br />
-                <strike>$ 100.00</strike>$ 75.00
-               
-            </div>
-        </a>
-        <div style="float: left; text-align: center;">
-            <img src="Images/WebSite/TestSale1.png" width="160px" style="border: solid 1px gray" />
-            <br />
-            Montre en métal
-                    <br />
-            <strike>$ 100.00</strike>$ 75.00
-        </div>
-        <div style="float: left; text-align: center;">
-            <img src="Images/WebSite/TestSale1.png" width="160px" style="border: solid 1px gray" />
-            <br />
-            Montre en métal
-                    <br />
-            <strike>$ 100.00</strike>$ 75.00
-        </div>
-        <div style="float: left; text-align: center;">
-            <img src="Images/WebSite/TestSale1.png" width="160px" style="border: solid 1px gray" />
-            <br />
-            Montre en métal
-                    <br />
-            <strike>$ 100.00</strike>$ 75.00
-        </div>
-
-        <div style="float: left; text-align: center;">
-            <img src="Images/WebSite/TestSale1.png" width="160px" style="border: solid 1px gray" />
-            <br />
-            Montre en métal
-                    <br />
-            <strike>$ 100.00</strike>$ 75.00
-        </div>
-        <div style="float: left; text-align: center;">
-            <img src="Images/WebSite/TestSale1.png" width="160px" style="border: solid 1px gray" />
-            <br />
-            Montre en métal
-                    <br />
-            <strike>$ 100.00</strike>$ 75.00
-        </div>
+        <asp:PlaceHolder runat="server" ID="placeHolderListeProduitEnVente"></asp:PlaceHolder>
         <div style="clear: both;">
         </div>
     </div>

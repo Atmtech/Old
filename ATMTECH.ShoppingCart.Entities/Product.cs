@@ -17,13 +17,14 @@ namespace ATMTECH.ShoppingCart.Entities
         public string NameFrench { get; set; }
         public string NameEnglish { get; set; }
         public decimal UnitPrice { get; set; }
+        public decimal SalePrice { get; set; }
         public decimal CostPrice { get; set; }
         public Enterprise Enterprise { get; set; }
         public IList<Stock> Stocks { get; set; }
         public IList<ProductFile> ProductFiles { get; set; }
         public decimal Weight { get; set; }
         public Supplier Supplier { get; set; }
-       
+
         public string InternalIdent { get; set; }
         public bool IsNotOrderable { get; set; }
 
@@ -34,7 +35,11 @@ namespace ATMTECH.ShoppingCart.Entities
         public ProductCategory ProductCategoryFrench { get; set; }
 
 
-        public string ComboboxDescriptionUpdate { get { return Ident + " " + NameFrench; } }
+        public string ComboboxDescriptionUpdate
+        {
+            get { return Ident + " " + NameFrench; }
+        }
+
         public string PrincipalFileUrl
         {
             get
@@ -59,6 +64,7 @@ namespace ATMTECH.ShoppingCart.Entities
                 return "images/product/NoImageForThisProduct.jpg";
             }
         }
+
         public string PrincipalFileUrlWithoutDirectory
         {
             get
@@ -69,13 +75,14 @@ namespace ATMTECH.ShoppingCart.Entities
                     {
                         if (productFile.IsPrincipal)
                         {
-                            return productFile.File != null ? productFile.File.FileName : "images/product/NoImageForThisProduct.jpg";
+                            return productFile.File != null
+                                       ? productFile.File.FileName
+                                       : "images/product/NoImageForThisProduct.jpg";
                         }
                     }
                 }
                 return "images/product/NoImageForThisProduct.jpg";
             }
         }
-
     }
 }
