@@ -1,6 +1,7 @@
 ﻿using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Pages;
@@ -10,7 +11,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ploeh.AutoFixture;
 
-namespace ATMTECH.ShoppingCart.Tests.View
+namespace ATMTECH.ShoppingCart.Tests.View.Francais
 {
     [TestClass]
     public class PageMaitrePresenterTest : BaseTest<PageMaitrePresenter>
@@ -33,7 +34,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
         [TestMethod]
         public void EstSiteHorsLigne_SINullOuRienOnFaitRien()
         {
-            ObtenirMock<IParameterService>().Setup(x => x.GetValue(Constant.IS_OFFLINE)).Returns((string) null);
+            ObtenirMock<IParameterService>().Setup(x => x.GetValue(Constant.IS_OFFLINE)).Returns((string)null);
 
             InstanceTest.EstSiteHorsLigne();
 
@@ -63,8 +64,9 @@ namespace ATMTECH.ShoppingCart.Tests.View
         public void AfficherInformation_SiClientEstAuthentifieOnRempliSonNom()
         {
             Customer customer = AutoFixture.Create<Customer>();
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
-
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+            Order order = AutoFixture.Create<Order>();
+            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
             InstanceTest.AfficherInformation();
             ViewMock.VerifySet(x => x.NomClient = customer.User.FirstNameLastName);
         }
@@ -73,7 +75,9 @@ namespace ATMTECH.ShoppingCart.Tests.View
         public void AfficherInformation_SiClientEstAuthentifieOnRempliEstConnecteAVrai()
         {
             Customer customer = AutoFixture.Create<Customer>();
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            Order order = AutoFixture.Create<Order>();
+            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
 
             InstanceTest.AfficherInformation();
             ViewMock.VerifySet(x => x.EstConnecte = true);
@@ -84,10 +88,11 @@ namespace ATMTECH.ShoppingCart.Tests.View
         public void AfficherInformation_SiClientEstAuthentifieOnRempliGrandTotal()
         {
             Customer customer = AutoFixture.Create<Customer>();
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
-            ObtenirMock<IOrderService>().Setup(x => x.GetGrandTotalFromOrderWishList(customer)).Returns(2000);
+            Order order = AutoFixture.Create<Order>();
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
             InstanceTest.AfficherInformation();
-            ViewMock.VerifySet(x => x.GrandTotalPanier = 2000);
+            ViewMock.VerifySet(x => x.GrandTotalPanier = order.GrandTotal);
         }
 
 
@@ -95,20 +100,35 @@ namespace ATMTECH.ShoppingCart.Tests.View
         public void AfficherInformation_SiClientEstAuthentifieOnRempliNombreItem()
         {
             Customer customer = AutoFixture.Create<Customer>();
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
-            ObtenirMock<IOrderService>().Setup(x => x.GetGrandTotalFromOrderWishList(customer)).Returns(2000);
-            ObtenirMock<IOrderService>().Setup(x => x.GetCountNumberOfItemInBasket(customer)).Returns(11);
+            Order order = AutoFixture.Create<Order>();
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
             InstanceTest.AfficherInformation();
-            ViewMock.VerifySet(x => x.NombreTotalItemPanier = 11);
+            ViewMock.VerifySet(x => x.NombreTotalItemPanier = order.OrderLines.Count);
         }
 
         [TestMethod]
         public void AfficherInformation_SiClientEstAuthentifieSiGrandTotal0NombreItem0()
         {
             Customer customer = AutoFixture.Create<Customer>();
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            Order order = AutoFixture.Create<Order>();
+            order.GrandTotal = 0;
+            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             InstanceTest.AfficherInformation();
             ViewMock.VerifySet(x => x.NombreTotalItemPanier = 0);
+        }
+
+        [TestMethod]
+        public void AfficherInformation_SiAucuneCommandeToutEstNull()
+        {
+            Customer customer = AutoFixture.Create<Customer>();
+            Order order = AutoFixture.Create<Order>();
+            order.GrandTotal = 0;
+            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns((Order) null);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+            InstanceTest.AfficherInformation();
+            ViewMock.VerifySet(x => x.NombreTotalItemPanier = 0,Times.Never());
         }
     }
 }

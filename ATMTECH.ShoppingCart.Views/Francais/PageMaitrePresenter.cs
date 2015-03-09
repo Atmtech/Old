@@ -1,6 +1,7 @@
 ﻿using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.Web.Services.Interface;
@@ -15,8 +16,8 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         }
 
         public IAuthenticationService AuthenticationService { get; set; }
-        public ICustomerService CustomerService { get; set; }
-        public IOrderService OrderService { get; set; }
+        public IClientService ClientService { get; set; }
+        public ICommandeService CommandeService { get; set; }
 
         public override void OnViewLoaded()
         {
@@ -37,16 +38,18 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
         public void AfficherInformation()
         {
-            Customer customer = CustomerService.AuthenticateCustomer;
+            Customer customer = ClientService.ClientAuthentifie;
             if (customer == null) return;
             View.EstConnecte = true;
             View.NomClient = customer.User.FirstNameLastName;
-            decimal grandTotal = OrderService.GetGrandTotalFromOrderWishList(CustomerService.AuthenticateCustomer);
-            View.GrandTotalPanier = grandTotal;
-            View.NombreTotalItemPanier = grandTotal == 0
+
+            Order order = CommandeService.ObtenirCommandeSouhaite(customer);
+
+            if (order == null) return;
+            View.GrandTotalPanier = order.GrandTotal;
+            View.NombreTotalItemPanier = order.GrandTotal == 0
                                              ? 0
-                                             : OrderService.GetCountNumberOfItemInBasket(
-                                                 CustomerService.AuthenticateCustomer);
+                                             : order.OrderLines.Count;
         }
 
         public void FermerSession()

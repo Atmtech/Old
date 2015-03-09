@@ -12,8 +12,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ploeh.AutoFixture;
 
-namespace ATMTECH.ShoppingCart.Tests.View
+namespace ATMTECH.ShoppingCart.Tests.View.Francais
 {
+    [Ignore]
     [TestClass]
     public class IdentificationPresenterTest : BaseTest<IdentificationPresenter>
     {
@@ -129,12 +130,6 @@ namespace ATMTECH.ShoppingCart.Tests.View
             ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(ErrorCode.ADM_CREATE_SUCCESS), Times.Once());
         }
 
-        [TestMethod]
-        public void EstUtilisateurExistant_DoitAppelerMethodeIsUserExists()
-        {
-            InstanceTest.EstUtilisateurExistant("tapoche");
-
-            ObtenirMock<ICustomerService>().Verify(x => x.IsUserExists("tapoche"));
-        }
+       
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ploeh.AutoFixture;
 
-namespace ATMTECH.ShoppingCart.Tests.View
+namespace ATMTECH.ShoppingCart.Tests.View.Francais
 {
     [TestClass]
     public class ContacterNousPresenterTest : BaseTest<ContacterNousPresenter>

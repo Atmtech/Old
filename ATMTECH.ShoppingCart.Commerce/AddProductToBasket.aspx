@@ -15,7 +15,7 @@
     </div>
     <div class="descriptionProduit">
         <div class="titreDescriptionProduit">
-            <asp:Label runat="server" ID="lblIdent" Visible="True" ></asp:Label>
+            <asp:Label runat="server" ID="lblIdent" ></asp:Label>
             -
             <asp:Label runat="server" ID="lblNom"></asp:Label>
         </div>
@@ -39,6 +39,7 @@
                             <atmtech:ComboBox runat="server" ID="ddlStock" />
                         </div>
                         <div class="Cell">
+                            <asp:button runat="server" ID="btnVousDevezEtreConnectePourAjouterQuantite" Text="Identifier vous" OnClick="btnVousDevezEtreConnectePourAjouterQuantiteClick" CssClass="boutonLien"></asp:button>
                             <atmtech:Numeric runat="server" NoDecimal="True" ID="txtQuantite" CssClass="textBox" />
                         </div>
                     </div>

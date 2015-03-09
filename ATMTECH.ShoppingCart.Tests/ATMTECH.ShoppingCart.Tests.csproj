@@ -61,6 +61,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Services\Francais\ClientServiceTest.cs" />
+    <Compile Include="Services\Francais\CommandeServiceTest.cs" />
     <Compile Include="Services\ValidateCustomerServiceTest.cs" />
     <Compile Include="Services\CustomerServiceTest.cs" />
     <Compile Include="Base\Init.cs" />
@@ -70,16 +72,16 @@
     <Compile Include="Services\ShippingServiceTest.cs" />
     <Compile Include="Services\StockServiceTest.cs" />
     <Compile Include="Services\TaxesServiceTest.cs" />
-    <Compile Include="View\AjouterProduitAuPanierPresenterTest.cs" />
-    <Compile Include="View\ConfirmationCreationUtilisateurPresenterTest.cs" />
-    <Compile Include="View\ContacterNousPresenterTest.cs" />
-    <Compile Include="View\CatalogueProduitPresenterTest.cs" />
-    <Compile Include="View\AccueilPresenterTest.cs" />
-    <Compile Include="View\PageMaitrePresenterTest.cs" />
-    <Compile Include="View\PanierPresenterTest.cs" />
-    <Compile Include="View\MotPasseOubliePresenterTest.cs" />
-    <Compile Include="View\InformationClientPresenterTest.cs" />
-    <Compile Include="View\IdentificationPresenterTest.cs" />
+    <Compile Include="View\Francais\AjouterProduitAuPanierPresenterTest.cs" />
+    <Compile Include="View\Francais\ConfirmationCreationUtilisateurPresenterTest.cs" />
+    <Compile Include="View\Francais\ContacterNousPresenterTest.cs" />
+    <Compile Include="View\Francais\CatalogueProduitPresenterTest.cs" />
+    <Compile Include="View\Francais\AccueilPresenterTest.cs" />
+    <Compile Include="View\Francais\PageMaitrePresenterTest.cs" />
+    <Compile Include="View\Francais\PanierPresenterTest.cs" />
+    <Compile Include="View\Francais\MotPasseOubliePresenterTest.cs" />
+    <Compile Include="View\Francais\InformationClientPresenterTest.cs" />
+    <Compile Include="View\Francais\IdentificationPresenterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
@@ -123,6 +125,7 @@
       <Name>ATMTECH.Web.Services</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

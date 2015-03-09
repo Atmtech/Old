@@ -58,14 +58,12 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             Presenter.CreerUtilisateur();
 
-            if (Presenter.EstUtilisateurExistant(txtCourrielCreer.Text))
-            {
-                PrenomCreation = "";
-                NomCreation = "";
-                CourrielCreation = "";
-                MotPasseCreation = "";
-                MotPasseConfirmationCreation = "";
-            }
+            PrenomCreation = "";
+            NomCreation = "";
+            CourrielCreation = "";
+            MotPasseCreation = "";
+            MotPasseConfirmationCreation = "";
+
         }
 
         protected void btnOublieMotDePasseClick(object sender, EventArgs e)

@@ -195,6 +195,24 @@ namespace ATMTECH.ShoppingCart.DAO
             IList<Product> products = GetByCriteria(criterias);
             return products.Count;
         }
+
+        public IList<Product> ObtenirListeProduitEnVente(int id)
+        {
+            IList<Criteria> criterias = new List<Criteria>();
+            Criteria criteriaEnterprise = new Criteria { Column = Product.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = id.ToString() };
+            Criteria criteriaSaleNotNull = new Criteria { Column = Product.SALE_PRICE, Operator = DatabaseOperator.OPERATOR_IS_NOT_NULL };
+            criterias.Add(criteriaEnterprise);
+            criterias.Add(criteriaSaleNotNull);
+            criterias.Add(IsActive());
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
+            foreach (Product product in products)
+            {
+                product.ProductFiles = DAOProductFile.GetProductFile(product.Id);
+            }
+            return products;
+        }
         private IList<Product> FillProductWithSecurity(int idUser, IList<Product> products)
         {
             IList<Product> productsReturn = idUser != 0 ? products.Where(product => DAOGroupProduct.GetProductAccess(product, idUser).IsRead).ToList() : products;
@@ -204,5 +222,7 @@ namespace ATMTECH.ShoppingCart.DAO
             }
             return productsReturn;
         }
+
+
     }
 }

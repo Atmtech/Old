@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using ATMTECH.ShoppingCart.DAO.Interface;
-using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services.Interface;
+﻿using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
@@ -14,11 +11,9 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
         }
 
-        public IProductService ProductService { get; set; }
-        public IDAOOrder DAOOrder { get; set; }
-        public ICustomerService CustomerService { get; set; }
-        public IOrderService OrderService { get; set; }
-        public IStockService StockService { get; set; }
+        public IProduitService ProduitService { get; set; }
+        public IClientService ClientService { get; set; }
+        public ICommandeService CommandeService { get; set; }
 
         public override void OnViewInitialized()
         {
@@ -27,56 +22,24 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             GererAffichage();
         }
 
-        public void AfficherProduit(int idProduit)
+        public void AfficherProduit(int id)
         {
-            if (idProduit == 0)
+            if (id == 0)
             {
                 NavigationService.Redirect(Pages.Pages.DEFAULT);
             }
-            View.Produit = ProductService.GetProduct(idProduit);
+            View.Produit = ProduitService.ObtenirProduit(id);
         }
 
         public void GererAffichage()
         {
-            View.EstPossibleDeCommander = CustomerService.AuthenticateCustomer != null;
+            View.EstPossibleDeCommander = ClientService.ClientAuthentifie != null;
         }
 
         public void AjouterLigneCommande()
         {
-            IList<Order> orderFromCustomer = DAOOrder.GetOrderFromCustomer(CustomerService.AuthenticateCustomer,
-                                                                           OrderStatus.IsWishList);
-            if (orderFromCustomer.Count == 0)
-            {
-                Order order = new Order
-                    {
-                        OrderStatus = OrderStatus.IsWishList,
-                        Customer = CustomerService.AuthenticateCustomer,
-                        Enterprise = CustomerService.AuthenticateCustomer.Enterprise,
-                        ShippingAddress = CustomerService.AuthenticateCustomer.ShippingAddress,
-                        BillingAddress = CustomerService.AuthenticateCustomer.BillingAddress,
-                        OrderLines = new List<OrderLine>()
-                    };
-
-                SauvegarderAvecLigneCommande(order);
-            }
-            else
-            {
-                Order order = OrderService.GetOrder(orderFromCustomer[0].Id);
-                SauvegarderAvecLigneCommande(order);
-            }
+            CommandeService.AjouterLigneCommande(View.Inventaire, View.Quantite);
         }
 
-        private void SauvegarderAvecLigneCommande(Order order)
-        {
-            Order commandeObtenu = OrderService.GetOrder(OrderService.CreateOrder(order, null));
-            OrderLine orderLine = new OrderLine
-                {
-                    Stock = StockService.GetStock(View.Inventaire),
-                    Quantity = View.Quantite
-                };
-
-            OrderService.AddOrderLine(orderLine, commandeObtenu);
-            OrderService.UpdateOrder(commandeObtenu, null);
-        }
     }
 }

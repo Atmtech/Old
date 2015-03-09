@@ -4,6 +4,7 @@ using System.Data;
 using System.Reflection;
 using System.Runtime.Remoting;
 using System.Web;
+using ATMTECH.Common.Context;
 using ATMTECH.DAO.Database;
 using ATMTECH.Entities;
 
@@ -11,6 +12,16 @@ namespace ATMTECH.DAO
 {
     public class BaseDao<TModel, TId>
     {
+        public string CurrentLanguage
+        {
+            get
+            {
+                return ContextSessionManager.Session["currentLanguage"] == null
+                           ? "fr"
+                           : ContextSessionManager.Session["currentLanguage"].ToString();
+            }
+        }
+
         public DatabaseOperation<TModel, TId> DatabaseOperation { get { return new DatabaseOperation<TModel, TId>(); } }
         public Model<TModel, TId> Model { get { return new Model<TModel, TId>(); } }
 

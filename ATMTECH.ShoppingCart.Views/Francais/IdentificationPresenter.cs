@@ -2,7 +2,7 @@
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
-using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.Web.Services;
@@ -18,8 +18,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         }
 
         public IAuthenticationService AuthenticationService { get; set; }
-        public ICustomerService CustomerService { get; set; }
-
+        public IClientService ClientService { get; set; }
 
         public void Identification()
         {
@@ -32,16 +31,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
         public void CreerUtilisateur()
         {
-            if (string.IsNullOrEmpty(View.CourrielCreation))
-            {
-                MessageService.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY);
-            }
-
-            if (string.IsNullOrEmpty(View.MotPasseCreation))
-            {
-                MessageService.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY);
-            }
-
             if (View.MotPasseCreation != View.MotPasseConfirmationCreation)
             {
                 MessageService.ThrowMessage(Services.ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM);
@@ -58,22 +47,15 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             Customer customer = new Customer
                 {
                     User = user,
-                    Enterprise = new Enterprise
-                        {
-                            Id =
-                                Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED))
-                        }
+                    Enterprise = new Enterprise { Id = Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)) }
                 };
 
-            if (CustomerService.CreateCustomer(customer))
+            if (ClientService.Creer(customer) != null)
             {
                 MessageService.ThrowMessage(ErrorCode.ADM_CREATE_SUCCESS);
             }
         }
 
-        public bool EstUtilisateurExistant(string courriel)
-        {
-            return CustomerService.IsUserExists(courriel);
-        }
+
     }
 }

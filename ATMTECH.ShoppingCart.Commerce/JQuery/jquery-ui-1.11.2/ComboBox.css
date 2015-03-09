@@ -28,3 +28,10 @@
 .ui-widget-content {
     font-size: 10px;
 }
+
+.ui-autocomplete {
+    max-height: 400px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+  }

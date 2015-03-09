@@ -5,7 +5,7 @@ using ATMTECH.Test;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace ATMTECH.ShoppingCart.Tests.View
+namespace ATMTECH.ShoppingCart.Tests.View.Francais
 {
     [TestClass]
     public class MotPasseOubliePresenterTest : BaseTest<MotPasseOubliePresenter>

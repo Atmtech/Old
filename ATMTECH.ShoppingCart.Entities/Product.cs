@@ -12,6 +12,7 @@ namespace ATMTECH.ShoppingCart.Entities
         public const string ENTERPRISE = "Enterprise";
         public const string IDENT = "Ident";
         public const string NAME = "Name";
+        public const string SALE_PRICE = "SalePrice";
 
         public string Ident { get; set; }
         public string NameFrench { get; set; }

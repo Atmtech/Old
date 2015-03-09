@@ -2,6 +2,7 @@
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Pages;
@@ -12,7 +13,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ploeh.AutoFixture;
 
-namespace ATMTECH.ShoppingCart.Tests.View
+namespace ATMTECH.ShoppingCart.Tests.View.Francais
 {
     [TestClass]
     public class InformationClientPresenterTest : BaseTest<InformationClientPresenter>
@@ -36,7 +37,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             Customer customer = AutoFixture.Create<Customer>();
 
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             InstanceTest.AfficherInformationClient();
 
             ViewMock.VerifySet(x => x.Prenom = customer.User.FirstName);
@@ -61,7 +62,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             Customer customer = AutoFixture.Create<Customer>();
             customer.ShippingAddress.No = null;
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             InstanceTest.AfficherInformationClient();
             ViewMock.VerifySet(x => x.EstAucuneAdresseLivraison = true);
         }
@@ -71,7 +72,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             Customer customer = AutoFixture.Create<Customer>();
             customer.BillingAddress.No = null;
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             InstanceTest.AfficherInformationClient();
             ViewMock.VerifySet(x => x.EstAucuneAdresseFacturation = true);
         }
@@ -159,7 +160,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
             Customer customer = AutoFixture.Create<Customer>();
             Address address = AutoFixture.Create<Address>();
 
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             ObtenirMock<IDAOCity>().Setup(x => x.FindCity(address.City.Description)).Returns(address.City);
 
             ViewMock.Setup(x => x.Courriel).Returns("test");
@@ -180,7 +181,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
             customer.BillingAddress = address;
             customer.ShippingAddress = address;
 
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             ObtenirMock<IDAOCity>().Setup(x => x.FindCity(address.City.Description)).Returns(address.City);
 
             ViewMock.Setup(x => x.Nom).Returns(customer.User.LastName);
@@ -191,21 +192,21 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.Enregistrer();
 
-            ObtenirMock<ICustomerService>()
-                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.FirstName == customer.User.FirstName)));
-            ObtenirMock<ICustomerService>()
-                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.LastName == customer.User.LastName)));
-            ObtenirMock<ICustomerService>()
-                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.Email == customer.User.Email)));
-            ObtenirMock<ICustomerService>()
-                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.User.Password == customer.User.Password)));
+            ObtenirMock<IClientService>()
+                .Verify(x => x.Enregistrer(It.Is<Customer>(a => a.User.FirstName == customer.User.FirstName)));
+            ObtenirMock<IClientService>()
+                .Verify(x => x.Enregistrer(It.Is<Customer>(a => a.User.LastName == customer.User.LastName)));
+            ObtenirMock<IClientService>()
+                .Verify(x => x.Enregistrer(It.Is<Customer>(a => a.User.Email == customer.User.Email)));
+            ObtenirMock<IClientService>()
+                .Verify(x => x.Enregistrer(It.Is<Customer>(a => a.User.Password == customer.User.Password)));
         }
 
         [TestMethod]
         public void Enregistrer_SurEnregistrementOnDoitSauvegarderLadresseFacturation()
         {
             Customer customer = AutoFixture.Create<Customer>();
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
 
             ViewMock.Setup(x => x.Nom).Returns(customer.User.LastName);
             ViewMock.Setup(x => x.Courriel).Returns(customer.User.Email);
@@ -221,15 +222,15 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.Enregistrer();
 
-            ObtenirMock<ICustomerService>()
-                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.BillingAddress.No == "10")));
+            ObtenirMock<IClientService>()
+                .Verify(x => x.Enregistrer(It.Is<Customer>(a => a.BillingAddress.No == "10")));
         }
 
         [TestMethod]
         public void Enregistrer_SurEnregistrementOnDoitSauvegarderLadresseLivraison()
         {
             Customer customer = AutoFixture.Create<Customer>();
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
 
             ViewMock.Setup(x => x.Nom).Returns(customer.User.LastName);
             ViewMock.Setup(x => x.Courriel).Returns(customer.User.Email);
@@ -245,8 +246,8 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.Enregistrer();
 
-            ObtenirMock<ICustomerService>()
-                .Verify(x => x.SaveCustomer(It.Is<Customer>(a => a.ShippingAddress.No == "10")));
+            ObtenirMock<IClientService>()
+                .Verify(x => x.Enregistrer(It.Is<Customer>(a => a.ShippingAddress.No == "10")));
         }
 
 
@@ -256,7 +257,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
             Customer customer = AutoFixture.Create<Customer>();
             Address address = AutoFixture.Create<Address>();
 
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             ObtenirMock<IDAOCity>().Setup(x => x.FindCity(address.City.Description)).Returns(address.City);
 
             ViewMock.Setup(x => x.Nom).Returns(customer.User.LastName);

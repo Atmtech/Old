@@ -27,5 +27,9 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         IList<ProductFile> GetProductFile(File file);
         IList<Product> GetAllActive();
         int SaveProductCategory(ProductCategory productCategory);
+
+        IList<Product> ObtenirListeProduitEnVente(int id);
+
+
     }
 }

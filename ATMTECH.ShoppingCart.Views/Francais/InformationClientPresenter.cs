@@ -2,6 +2,7 @@
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.Web.Services;
@@ -15,7 +16,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
         }
 
-        public ICustomerService CustomerService { get; set; }
+        public IClientService ClientService { get; set; }
         public IAddressService AddressService { get; set; }
         public IDAOCity DAOCity { get; set; }
         public IDAOCountry DAOCountry { get; set; }
@@ -41,7 +42,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
         public void AfficherInformationClient()
         {
-            Customer customer = CustomerService.AuthenticateCustomer;
+            Customer customer = ClientService.ClientAuthentifie;
             if (customer != null)
             {
                 View.Prenom = customer.User.FirstName;
@@ -102,7 +103,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 return;
             }
 
-            Customer customer = CustomerService.AuthenticateCustomer;
+            Customer customer = ClientService.ClientAuthentifie;
             customer.ShippingAddress = EnregistrerAdresse(customer.ShippingAddress, View.NoCiviqueLivraison,
                                                           View.RueLivraison, View.CodePostalLivraison,
                                                           View.VilleLivraison, View.PaysLivraison);
@@ -113,7 +114,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             customer.User.LastName = View.Nom;
             customer.User.Email = View.Courriel;
             customer.User.Password = View.MotPasse;
-            CustomerService.SaveCustomer(customer);
+            ClientService.Enregistrer(customer);
             MessageService.ThrowMessage(ErrorCode.ADM_SAVE_IS_CORRECT);
         }
 

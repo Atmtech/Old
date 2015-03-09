@@ -128,5 +128,10 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return DAOProductCategory.Save(productCategory);
         }
+
+        public IList<Product> ObtenirListeProduitEnVente(int id)
+        {
+            return DAOProduct.ObtenirListeProduitEnVente(id);
+        }
     }
 }

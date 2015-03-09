@@ -220,7 +220,7 @@
          <div class="EnteteOutils">
             Chargement massif (Ne pas utiliser si vous ne savez pas ce que vous faites)
         </div>
-        <asp:Button runat="server" ID="btnChargerXmlProduit" Text="Charger les produits d'un fichier kXML" OnClick="btnChargerXmlProduitClick" CssClass="button" />
+        <asp:Button runat="server" ID="btnChargerXmlProduit" Text="Charger les produits d'un fichier XML" OnClick="btnChargerXmlProduitClick" CssClass="button" />
 
 
     </div>

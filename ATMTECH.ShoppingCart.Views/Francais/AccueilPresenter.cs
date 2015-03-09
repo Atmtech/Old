@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
 using ATMTECH.ShoppingCart.Services.Base;
-using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
@@ -14,12 +13,18 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
         }
 
-        public IProductService ProductService { get; set; }
+
+        public IProduitService ProduitService { get; set; }
+
+        public override void OnViewInitialized()
+        {
+            base.OnViewInitialized();
+            AfficherListeProduitEnVente();
+        }
 
         public void AfficherListeProduitEnVente()
         {
-            int idEnterprise = Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED));
-            View.ListeProduitEnVente = ProductService.GetProducts(idEnterprise).Where(x => x.SalePrice != null).ToList();
+            View.ListeProduitEnVente = ProduitService.ObtenirListeProduitEnVente(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)));
         }
     }
 }
