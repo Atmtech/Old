@@ -17,6 +17,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IDAOUser DAOUser { get; set; }
         public IParameterService ParameterService { get; set; }
         public IMailService MailService { get; set; }
+        public IMessageService MessageService { get; set; }
 
         public Customer ClientAuthentifie
         {
@@ -50,6 +51,48 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 DAOClient.Save(client);
             }
             return client;
+        }
+        public bool EstConfirme(int id)
+        {
+            User user = DAOUser.GetUser(id);
+            if (user != null)
+            {
+                if (user.IsActive == false)
+                {
+                    user.IsActive = true;
+                    DAOUser.UpdateUser(user);
+                    AuthenticationService.SignIn(user.Login, user.Password);
+                    return true;
+                }
+            }
+            else
+            {
+                MessageService.ThrowMessage(ErrorCode.SC_USER_NOT_EXIST_ON_CONFIRM);
+            }
+            return false;
+        }
+        public bool EnvoyerMotPasseOublie(string courriel)
+        {
+            User user = DAOUser.GetUserByEmail(courriel);
+            if (user != null)
+            {
+                string password = user.Password;
+                string login = user.Login;
+                Customer customer = DAOClient.ObtenirClient(user);
+
+                if (customer != null)
+                {
+                    string corpsMessage = string.Format(
+                        ParameterService.GetValue(Constant.MAIL_BODY_FORGET_PASSWORD),
+                        customer.Enterprise.Name, login, password);
+                    return MailService.SendEmail(   courriel, 
+                                                    ParameterService.GetValue(Constant.ADMIN_MAIL),
+                                                    ParameterService.GetValue(Constant.MAIL_SUBJECT_FORGET_PASSWORD),
+                                                    corpsMessage);
+                }
+                return false;
+            }
+            return false;
         }
     }
 }

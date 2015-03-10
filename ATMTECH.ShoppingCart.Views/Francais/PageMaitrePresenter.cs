@@ -1,6 +1,5 @@
 ﻿using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
-using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
@@ -46,10 +45,11 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             Order order = CommandeService.ObtenirCommandeSouhaite(customer);
 
             if (order == null) return;
-            View.GrandTotalPanier = order.GrandTotal;
-            View.NombreTotalItemPanier = order.GrandTotal == 0
-                                             ? 0
-                                             : order.OrderLines.Count;
+            string affichagePanier = string.Format("{0} - {1} item", order.GrandTotal, order.GrandTotal == 0
+                                                                                           ? 0
+
+                                                                                            : order.OrderLines.Count);
+            View.AffichagePanier = affichagePanier;
         }
 
         public void FermerSession()

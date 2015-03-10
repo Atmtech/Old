@@ -3,6 +3,7 @@ using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
+using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 
@@ -11,6 +12,9 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
     public class DAOClient : BaseDao<Customer, int>, IDAOClient
     {
         public IDAOUser DAOUser { get; set; }
+        public IDAOAddress DAOAddress { get; set; }
+        public IDAOCity DAOCity { get; set; }
+
         public Customer ObtenirClient(User user)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -21,6 +25,10 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             if (rtn.Count > 0)
             {
                 rtn[0].User = user;
+                rtn[0].ShippingAddress = DAOAddress.GetAddress(rtn[0].ShippingAddress.Id);
+                rtn[0].ShippingAddress.City = DAOCity.GetCity(rtn[0].ShippingAddress.City.Id);
+                rtn[0].BillingAddress = DAOAddress.GetAddress(rtn[0].BillingAddress.Id);
+                rtn[0].BillingAddress.City = DAOCity.GetCity(rtn[0].BillingAddress.City.Id);
                 return rtn[0];
             }
             return null;

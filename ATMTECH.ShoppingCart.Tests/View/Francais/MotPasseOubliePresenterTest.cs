@@ -1,4 +1,5 @@
 ﻿using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.Test;
@@ -21,7 +22,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             ViewMock.Setup(x => x.Courriel).Returns("test@test.com");
             InstanceTest.EnvoyerMotPasseOublie();
 
-            ObtenirMock<ICustomerService>().Verify(x => x.SendForgetPassword("test@test.com"));
+            ObtenirMock<IClientService>().Verify(x => x.EnvoyerMotPasseOublie("test@test.com"));
         }
     }
 }

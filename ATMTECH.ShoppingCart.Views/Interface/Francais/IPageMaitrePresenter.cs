@@ -6,7 +6,6 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
     {
         string NomClient { get; set; }
         bool EstConnecte { set; }
-        decimal GrandTotalPanier { set; }
-        decimal NombreTotalItemPanier { set; }
+        string AffichagePanier { set; }
     }
 }

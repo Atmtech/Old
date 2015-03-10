@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
@@ -13,16 +13,16 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
         }
 
-        public IOrderService OrderService { get; set; }
-        public ICustomerService CustomerService { get; set; }
+        public ICommandeService CommandeService { get; set; }
+        public IClientService ClientService { get; set; }
 
         public void AfficherPanier()
         {
-            Customer customer = CustomerService.AuthenticateCustomer;
+            Customer customer = ClientService.ClientAuthentifie;
 
             if (customer != null)
             {
-                View.Commande = OrderService.GetWishListFromCustomer(customer);
+                View.Commande = CommandeService.ObtenirCommandeSouhaite(customer);
             }
             else
             {
@@ -33,7 +33,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public void FinaliserCommande()
         {
             View.CommandeFinalise = View.Commande;
-            OrderService.FinalizeOrder(View.Commande, null);
+            CommandeService.FinaliserCommande(View.Commande);
         }
 
         public void RecalculerPanier(Dictionary<int, int> listeQuantite)
@@ -42,13 +42,13 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             {
                 View.Commande.OrderLines[keyValuePair.Key].Quantity = keyValuePair.Value;
             }
-            OrderService.UpdateOrder(View.Commande, null);
+            CommandeService.Enregistrer(View.Commande);
             AfficherPanier();
         }
 
         public void ImprimerCommande()
         {
-            OrderService.PrintOrder(View.CommandeFinalise);
+            CommandeService.ImprimerCommande(View.CommandeFinalise);
         }
 
         public void ModifierAdresse()

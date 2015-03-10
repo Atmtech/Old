@@ -1,4 +1,5 @@
 ﻿using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.Test;
@@ -22,7 +23,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
 
             InstanceTest.OnViewInitialized();
 
-            ObtenirMock<ICustomerService>().Verify(x => x.ConfirmCreate(10217271), Times.Once());
+            ObtenirMock<IClientService>().Verify(x => x.EstConfirme(10217271), Times.Once());
         }
     }
 }

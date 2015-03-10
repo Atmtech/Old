@@ -23,7 +23,7 @@
         <asp:DataList runat="server" ID="dataListListeProduitEnVente" RepeatDirection="Horizontal" RepeatColumns="4">
             <ItemTemplate>
 
-                <div style="padding: 10px 10px 10px 10px;">
+                <div style="padding-left:15px;padding-bottom: 10px;">
                     <div class="wrapper">
                         <div class="ribbon-wrapper-green">
                             <div class="ribbon-green">

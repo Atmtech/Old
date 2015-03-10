@@ -1,6 +1,6 @@
 ﻿using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
-using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.Web.Services.Interface;
@@ -9,7 +9,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 {
     public class ContacterNousPresenter : BaseShoppingCartPresenter<IContacterNousPresenter>
     {
-        public ICustomerService CustomerService { get; set; }
+        public IClientService ClientService { get; set; }
         public IMailService MailService { get; set; }
 
         public ContacterNousPresenter(IContacterNousPresenter view)
@@ -20,7 +20,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
-            Customer authenticateCustomer = CustomerService.AuthenticateCustomer;
+            Customer authenticateCustomer = ClientService.ClientAuthentifie;
             if ( authenticateCustomer!= null)
             {
                 View.Courriel = authenticateCustomer.User.Email;

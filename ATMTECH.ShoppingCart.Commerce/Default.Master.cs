@@ -30,8 +30,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
         }
 
-        public decimal GrandTotalPanier { set; private get; }
-        public decimal NombreTotalItemPanier { set; private get; }
+        public string AffichagePanier { set { btnPanier.Text = value; }}
         public bool ThrowExceptionIfNoPresenterBound { get; private set; }
 
         protected void btnConnecterClick(object sender, EventArgs e)
@@ -52,6 +51,11 @@ namespace ATMTECH.ShoppingCart.Commerce
         protected void btnNomClientClick(object sender, EventArgs e)
         {
             Presenter.NavigationService.Redirect(Pages.CUSTOMER_INFORMATION);
+        }
+
+        protected void btnPanierClick(object sender, EventArgs e)
+        {
+           Presenter.NavigationService.Redirect(Pages.BASKET);
         }
     }
 }

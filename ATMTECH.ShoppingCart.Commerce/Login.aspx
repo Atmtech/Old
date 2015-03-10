@@ -5,34 +5,36 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <asp:Panel runat="server" DefaultButton="btnConnecterLogin">
+        <div class="loginConnecter">
+            <div class="titreDansPage">
+                <asp:Label runat="server" ID="lblEntrerInformationLogin" Text="Information de connection"></asp:Label>
+            </div>
+            <div>
+                <asp:Label runat="server" ID="lblCourriel" Text="Courriel" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div>
+                <asp:TextBox runat="server" ID="txtCourriel" CssClass="textBox" Width="300px"></asp:TextBox>
+            </div>
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblMotDePasse" Text="Mot de passe" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div>
+                <asp:TextBox ID="txtMotDePasse" runat="server" CssClass="textBox" Width="300px" TextMode="Password"></asp:TextBox>
+            </div>
+            <div style="padding-top: 20px;">
+                <asp:Button runat="server" ID="btnOublieMotDePasse" Text="J'ai oublié mon mot de passe ?" CssClass="boutonLien" OnClick="btnOublieMotDePasseClick" />
+            </div>
 
-    <div class="loginConnecter">
-        <div class="titreDansPage">
-            <asp:Label runat="server" ID="lblEntrerInformationLogin" Text="Information de connection"></asp:Label></div>
-        <div>
-            <asp:Label runat="server" ID="lblCourriel" Text="Courriel" CssClass="labelLogin"></asp:Label>
+            <div style="padding-top: 20px;">
+                <asp:Button runat="server" ID="btnConnecterLogin" Text="Se connecter" CssClass="boutonActionRond" Width="200px" OnClick="btnConnecterLoginClick"></asp:Button>
+            </div>
         </div>
-        <div>
-            <asp:TextBox runat="server" ID="txtCourriel" CssClass="textBox" Width="300px"></asp:TextBox>
-        </div>
-        <div style="padding-top: 20px;">
-            <asp:Label runat="server" ID="lblMotDePasse" Text="Mot de passe" CssClass="labelLogin"></asp:Label>
-        </div>
-        <div>
-            <asp:TextBox ID="txtMotDePasse" runat="server" CssClass="textBox" Width="300px" TextMode="Password"></asp:TextBox>
-        </div>
-        <div style="padding-top: 20px;">
-            <asp:Button runat="server" ID="btnOublieMotDePasse" Text="J'ai oublié mon mot de passe ?" CssClass="boutonLien" OnClick="btnOublieMotDePasseClick" />
-        </div>
-
-        <div style="padding-top: 20px;">
-            <asp:Button runat="server" ID="btnConnecterLogin" Text="Se connecter" CssClass="boutonActionRond" Width="200px" OnClick="btnConnecterLoginClick"></asp:Button>
-        </div>
-    </div>
-
+    </asp:Panel>
     <div class="loginCreerLogin">
         <div class="titreDansPage">
-            <asp:Label runat="server" ID="lblCreerCompte" Text="Creer compte"></asp:Label></div>
+            <asp:Label runat="server" ID="lblCreerCompte" Text="Creer compte"></asp:Label>
+        </div>
         <div>
             <asp:Label runat="server" ID="lblPrenom" Text="Prénom" CssClass="labelLogin"></asp:Label>
         </div>

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Pages;
@@ -10,7 +11,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ploeh.AutoFixture;
 
-namespace ATMTECH.ShoppingCart.Tests.View
+namespace ATMTECH.ShoppingCart.Tests.View.Francais
 {
     [TestClass]
     public class PanierPresenterTest : BaseTest<PanierPresenter>
@@ -34,10 +35,10 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             Customer customer = AutoFixture.Create<Customer>();
 
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             InstanceTest.AfficherPanier();
 
-            ObtenirMock<IOrderService>().Verify(x => x.GetWishListFromCustomer(customer));
+            ObtenirMock<ICommandeService>().Verify(x => x.ObtenirCommandeSouhaite(customer));
         }
 
         [TestMethod]
@@ -57,7 +58,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.ImprimerCommande();
 
-            ObtenirMock<IOrderService>().Verify(x => x.PrintOrder(order));
+            ObtenirMock<ICommandeService>().Verify(x => x.ImprimerCommande(order));
         }
 
         [TestMethod]
@@ -69,7 +70,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.FinaliserCommande();
 
-            ObtenirMock<IOrderService>().Verify(x => x.FinalizeOrder(order, null), Times.Once());
+            ObtenirMock<ICommandeService>().Verify(x => x.FinaliserCommande(order), Times.Once());
         }
 
         [TestMethod]
@@ -92,7 +93,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.RecalculerPanier(listeQuantite);
 
-            ObtenirMock<IOrderService>().Verify(x => x.UpdateOrder(order, null), Times.Once());
+            ObtenirMock<ICommandeService>().Verify(x => x.Enregistrer(order), Times.Once());
         }
 
         [TestMethod]
@@ -100,7 +101,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
         {
             Dictionary<int, int> listeQuantite = new Dictionary<int, int>();
             InstanceTest.RecalculerPanier(listeQuantite);
-            ObtenirMock<ICustomerService>().Verify(x => x.AuthenticateCustomer, Times.Once());
+            ObtenirMock<IClientService>().Verify(x => x.ClientAuthentifie, Times.Once());
         }
 
         [TestMethod]
@@ -113,8 +114,7 @@ namespace ATMTECH.ShoppingCart.Tests.View
 
             InstanceTest.RecalculerPanier(listeQuantite);
 
-            ObtenirMock<IOrderService>()
-                .Verify(x => x.UpdateOrder(It.Is<Order>(a => a.OrderLines[0].Quantity == 10), null));
+            ObtenirMock<ICommandeService>().Verify(x => x.Enregistrer(It.Is<Order>(a => a.OrderLines[0].Quantity == 10)));
         }
     }
 }

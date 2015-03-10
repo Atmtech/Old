@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
+using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 
@@ -19,7 +20,7 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             criterias.Add(criteriaEnterprise);
             criterias.Add(criteriaSaleNotNull);
             criterias.Add(IsActive());
-            OrderOperation orderOperation = new OrderOperation { OrderByColumn = Product.PRODUCT_CATEGORY_FRENCH, OrderByType = OrderBy.Type.Descending };
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ORDER_ID, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             return GetByCriteria(criterias, pagingOperation, orderOperation);
         }
@@ -30,6 +31,26 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             product.ProductFiles = DAOProduitFichier.ObtenirListeFichier(product.Id);
             product.Stocks = DAOInventaire.ObtenirStock(product);
             return product;
+        }
+
+        public IList<Product> ObtenirProduit(string recherche)
+        {
+            IList<Criteria> criterias = new List<Criteria>();
+            Criteria criteriaRecherche = new Criteria { Column = BaseEntity.SEARCH, Operator = DatabaseOperator.OPERATOR_LIKE, Value = recherche };
+            criterias.Add(criteriaRecherche);
+            criterias.Add(IsActive());
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ORDER_ID, OrderByType = OrderBy.Type.Descending };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            return GetByCriteria(criterias, pagingOperation, orderOperation);
+        }
+
+        public IList<Product> ObtenirProduit()
+        {
+            IList<Criteria> criterias = new List<Criteria>();
+            criterias.Add(IsActive());
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ORDER_ID, OrderByType = OrderBy.Type.Descending };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            return GetByCriteria(criterias, pagingOperation, orderOperation);
         }
     }
 }

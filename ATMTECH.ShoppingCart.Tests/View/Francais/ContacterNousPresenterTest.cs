@@ -1,6 +1,6 @@
 ﻿using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
-using ATMTECH.ShoppingCart.Services.Interface;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.Test;
@@ -23,7 +23,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
         public void OnViewInitialized_DevraitRemplirCourrielAutomatiquementSiAuthentifie()
         {
             Customer customer = AutoFixture.Create<Customer>();
-            ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns(customer);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
 
             InstanceTest.OnViewInitialized();
 

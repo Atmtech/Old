@@ -192,7 +192,9 @@ a
 
 .listeObjetEnPromo
 {
-    margin-top: 20px;
+    position: relative;
+    top: -10px;
+    padding-left: 20px;
 }
 
 .menuBas

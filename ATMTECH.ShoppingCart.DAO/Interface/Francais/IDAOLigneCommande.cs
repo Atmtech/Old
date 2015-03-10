@@ -3,9 +3,9 @@ using ATMTECH.ShoppingCart.Entities;
 
 namespace ATMTECH.ShoppingCart.DAO.Interface.Francais
 {
-    public interface IDAOCommande
+    public interface IDAOLigneCommande
     {
-        Order ObtenirCommandeSouhaite(Customer customer);
-        int Save(Order order);
+        int Save(OrderLine orderLine);
+
     }
 }

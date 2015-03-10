@@ -62,7 +62,10 @@
                         <asp:Button runat="server" ID="btnConnecter" Text="Identifiez vous ou créer un compte" CssClass="boutonLien" OnClick="btnConnecterClick" />
                     </asp:Panel>
                     <asp:Panel runat="server" ID="pnlConnecte" Visible="False">
-                        <asp:button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonLien" ></asp:button>|<asp:Button runat="server" ID="btnDeconnecter" Text="Se déconnecter" CssClass="boutonLien" OnClick="btnDeconnecterClick" />
+                        <asp:button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonLien"></asp:button>
+                        <asp:Button runat="server" ID="btnPanier" OnClick="btnPanierClick" CssClass="boutonLien"/>
+                        
+                        |<asp:Button runat="server" ID="btnDeconnecter" Text="Se déconnecter" CssClass="boutonLien" OnClick="btnDeconnecterClick" />
                     </asp:Panel>
 
                 </div>

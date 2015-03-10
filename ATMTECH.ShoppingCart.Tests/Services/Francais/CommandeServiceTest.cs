@@ -5,7 +5,6 @@ using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.Test;
-using ATMTECH.Web.Services.Interface;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ploeh.AutoFixture;

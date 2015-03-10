@@ -7,5 +7,7 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
         Order Enregistrer(Order commande);
         Order ObtenirCommandeSouhaite(Customer customer);
         Order AjouterLigneCommande(int idInventaire, int quantite);
+        Order FinaliserCommande(Order commande);
+        Order ImprimerCommande(Order commande);
     }
 }

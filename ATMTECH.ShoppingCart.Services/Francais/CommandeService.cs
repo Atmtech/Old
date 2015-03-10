@@ -15,6 +15,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
     {
         public IProduitService ProduitService { get; set; }
         public IDAOCommande DAOCommande { get; set; }
+        public IDAOLigneCommande DAOLigneCommande { get; set; }
         public IClientService ClientService { get; set; }
         public ITaxesService TaxesService { get; set; }
         public IMessageService MessageService { get; set; }
@@ -46,6 +47,14 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         }
         public Order Enregistrer(Order commande)
         {
+            commande = CalculerTotal(commande);
+            if (commande.OrderLines != null)
+            {
+                foreach (OrderLine orderLine in commande.OrderLines)
+                {
+                    DAOLigneCommande.Save(orderLine);
+                }
+            }
             return commande;
         }
         public Order CalculerTotal(Order commande)
@@ -53,17 +62,19 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             commande.TotalWeight = 0;
             commande.SubTotal = 0;
 
-            foreach (OrderLine orderLine in commande.OrderLines)
+            if (commande.OrderLines != null)
             {
-                if (orderLine.IsActive)
+                foreach (OrderLine orderLine in commande.OrderLines)
                 {
-                    Product product = ProduitService.ObtenirProduit(orderLine.Stock.Product.Id);
-                    orderLine.SubTotal = (product.SalePrice != 0 ? product.SalePrice : product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
-                    commande.TotalWeight += (product.Weight * orderLine.Quantity);
-                    commande.SubTotal += orderLine.SubTotal;
+                    if (orderLine.IsActive)
+                    {
+                        Product product = ProduitService.ObtenirProduit(orderLine.Stock.Product.Id);
+                        orderLine.SubTotal = (product.SalePrice != 0 ? product.SalePrice : product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
+                        commande.TotalWeight += (product.Weight * orderLine.Quantity);
+                        commande.SubTotal += orderLine.SubTotal;
+                    }
                 }
             }
-
             commande = CalculerEnvoiPostal(commande);
             commande = CalculerTaxe(commande);
             commande.GrandTotal = commande.SubTotal + commande.CountryTax + commande.RegionalTax + commande.ShippingTotal;
@@ -114,6 +125,17 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             }
             return null;
         }
+        public Order FinaliserCommande(Order commande)
+        {
+
+            return commande;
+        }
+
+        public Order ImprimerCommande(Order commande)
+        {
+            return commande;
+        }
+
         private Order SauvegarderLigneCommande(Order commande, int idInventaire, int quantite)
         {
             OrderLine orderLine = new OrderLine
@@ -139,6 +161,8 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
             return Enregistrer(commande);
         }
+
+
     }
 }
 
