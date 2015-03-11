@@ -29,7 +29,7 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
         {
             Product product = GetById(id);
             product.ProductFiles = DAOProduitFichier.ObtenirListeFichier(product.Id);
-            product.Stocks = DAOInventaire.ObtenirStock(product);
+            product.Stocks = DAOInventaire.ObtenirInventaire(product);
             return product;
         }
 

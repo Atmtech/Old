@@ -30,7 +30,13 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
         }
 
-        public string AffichagePanier { set { btnPanier.Text = value; }}
+        public string AffichagePanier
+        {
+            set
+            {
+                btnPanier.Text = value;
+            }
+        }
         public bool ThrowExceptionIfNoPresenterBound { get; private set; }
 
         protected void btnConnecterClick(object sender, EventArgs e)
@@ -55,7 +61,7 @@ namespace ATMTECH.ShoppingCart.Commerce
 
         protected void btnPanierClick(object sender, EventArgs e)
         {
-           Presenter.NavigationService.Redirect(Pages.BASKET);
+            Presenter.NavigationService.Redirect(Pages.BASKET);
         }
     }
 }

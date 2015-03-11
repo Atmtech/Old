@@ -45,10 +45,10 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             Order order = CommandeService.ObtenirCommandeSouhaite(customer);
 
             if (order == null) return;
-            string affichagePanier = string.Format("{0} - {1} item", order.GrandTotal, order.GrandTotal == 0
-                                                                                           ? 0
+            string nombreItem = order.OrderLines == null ? "0" : order.OrderLines.Count.ToString();
+            string grandTotal = order.GrandTotal.ToString("C");
+            string affichagePanier = string.Format("{0} - {1} item(s)", grandTotal, nombreItem);
 
-                                                                                            : order.OrderLines.Count);
             View.AffichagePanier = affichagePanier;
         }
 

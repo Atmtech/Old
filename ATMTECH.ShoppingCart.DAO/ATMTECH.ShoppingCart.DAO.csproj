@@ -58,11 +58,13 @@
     <Compile Include="DAOOrder.cs" />
     <Compile Include="DAOProduct.cs" />
     <Compile Include="DAOStock.cs" />
+    <Compile Include="Francais\DAOLigneCommande.cs" />
     <Compile Include="Francais\DAOInventaire.cs" />
     <Compile Include="Francais\DAOClient.cs" />
     <Compile Include="Francais\DAOCommande.cs" />
     <Compile Include="Francais\DAOProduitFichier.cs" />
     <Compile Include="Francais\DAOProduit.cs" />
+    <Compile Include="Interface\Francais\IDAOLigneCommande.cs" />
     <Compile Include="Interface\Francais\IDAOInventaire.cs" />
     <Compile Include="Interface\Francais\IDAOClient.cs" />
     <Compile Include="Interface\Francais\IDAOCommande.cs" />

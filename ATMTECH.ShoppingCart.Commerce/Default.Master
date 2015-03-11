@@ -17,6 +17,9 @@
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/autoNumeric.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.slider.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/SlideShow.js"></script>
 </head>
 <body>
     <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
@@ -35,7 +38,7 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
             EnableScriptLocalization="true">
         </asp:ScriptManager>
- 
+
         <div class="center">
 
             <div class="logo">Placer ici l'image du LOGO</div>
@@ -48,28 +51,27 @@
                     <asp:TextBox ID="txtRecherche" runat="server" CssClass="textBoxRecherche" PlaceHolder="Recherche"></asp:TextBox>
                 </div>
                 <br />
+
                 <div style="float: left">
-                    <asp:Button runat="server" ID="btnCategorieProduit" Text="Magasiner par catégorie" CssClass="boutonLienMenu" />
+                    <asp:Button runat="server" ID="btnCategorieProduit" Text="Magasiner par catégorie" CssClass="boutonLien" />
                 </div>
                 <div style="float: left; border-left: solid 1px white;">
-                    <asp:Button ID="btnPromotion" runat="server" Text="Promotions" CssClass="boutonLienMenu" />
+                    <asp:Button ID="btnPromotion" runat="server" Text="Promotions" CssClass="boutonLien" />
                 </div>
                 <div style="float: left; border-left: solid 1px white;">
-                    <asp:Button ID="btnContacterNous" runat="server" Text="Contacter-nous" CssClass="boutonLienMenu" OnClick="btnContacterNousClick" />
+                    <asp:Button ID="btnContacterNous" runat="server" Text="Contacter-nous" CssClass="boutonLien" OnClick="btnContacterNousClick" />
                 </div>
-                <div style="float: left; width: 475px; text-align: right;">
+                <div style="float: left;border-left: solid 1px white;"><asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonLien" /><asp:Button runat="server" ID="btnAnglais" Text="Anglais" CssClass="boutonLien" Visible="False" /></div>
+                <div style="float: left; width: 525px; text-align: right;">
                     <asp:Panel runat="server" ID="pnlDeconnecte">
                         <asp:Button runat="server" ID="btnConnecter" Text="Identifiez vous ou créer un compte" CssClass="boutonLien" OnClick="btnConnecterClick" />
                     </asp:Panel>
                     <asp:Panel runat="server" ID="pnlConnecte" Visible="False">
-                        <asp:button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonLien"></asp:button>
-                        <asp:Button runat="server" ID="btnPanier" OnClick="btnPanierClick" CssClass="boutonLien"/>
-                        
-                        |<asp:Button runat="server" ID="btnDeconnecter" Text="Se déconnecter" CssClass="boutonLien" OnClick="btnDeconnecterClick" />
+                        <asp:Button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonLien"></asp:Button>|
+                        <img src="Images/WebSite/Shopping-Cart-icon.png" style="width: 20px;height: 20px;vertical-align: text-top"/><asp:Button runat="server" ID="btnPanier" OnClick="btnPanierClick" CssClass="boutonLien" />|
+                        <asp:Button runat="server" ID="btnDeconnecter" Text="Se déconnecter" CssClass="boutonLien" OnClick="btnDeconnecterClick" />
                     </asp:Panel>
-
                 </div>
-                <div style="float: left;">|<asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonLien" /><asp:Button runat="server" ID="btnAnglais" Text="Anglais" CssClass="boutonLien" Visible="False" /></div>
                 <div style="clear: both;"></div>
             </div>
             <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" Visible="False">

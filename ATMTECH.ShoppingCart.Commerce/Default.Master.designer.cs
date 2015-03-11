@@ -85,6 +85,24 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Button btnContacterNous;
         
         /// <summary>
+        /// Contrôle btnFrancais.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFrancais;
+        
+        /// <summary>
+        /// Contrôle btnAnglais.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAnglais;
+        
+        /// <summary>
         /// Contrôle pnlDeconnecte.
         /// </summary>
         /// <remarks>
@@ -137,24 +155,6 @@ namespace ATMTECH.ShoppingCart.Commerce {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDeconnecter;
-        
-        /// <summary>
-        /// Contrôle btnFrancais.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFrancais;
-        
-        /// <summary>
-        /// Contrôle btnAnglais.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAnglais;
         
         /// <summary>
         /// Contrôle pnlError.

@@ -65,7 +65,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return btnAjouterLigneCommande.Visible; }
             set
             {
-                btnVousDevezEtreConnectePourAjouterQuantite.Visible = value;
+                btnVousDevezEtreConnectePourAjouterQuantite.Visible = value == false;
                 btnAjouterLigneCommande.Visible = value;
                 txtQuantite.Visible = value;
             }

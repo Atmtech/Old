@@ -2,6 +2,8 @@
     CodeBehind="Default.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.Default1" %>
 
 <%@ Import Namespace="ATMTECH.Common.Constant" %>
+<%@ Register Src="~/SlideShow.ascx" TagPrefix="uc1" TagName="SlideShow" %>
+
 
 
 
@@ -9,7 +11,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <img src="Images/WebSite/slideTest1.jpg" width="1000px" />
+
+    <uc1:SlideShow runat="server" ID="SlideShow" />
+
+    <%--<img src="Images/WebSite/slideTest1.jpg" width="1000px" />--%>
     <div class="categorie">
         <img src="Images/WebSite/test1Promo.jpg" width="321px" />
         <img src="Images/WebSite/test1Promo.jpg" width="321px" style="padding-left: 15px; padding-right: 15px;" />
@@ -23,7 +28,7 @@
         <asp:DataList runat="server" ID="dataListListeProduitEnVente" RepeatDirection="Horizontal" RepeatColumns="4">
             <ItemTemplate>
 
-                <div style="padding-left:15px;padding-bottom: 10px;">
+                <div style="padding-left: 15px; padding-bottom: 10px;">
                     <div class="wrapper">
                         <div class="ribbon-wrapper-green">
                             <div class="ribbon-green">
@@ -44,29 +49,8 @@
                         <asp:Label runat="server" ID="lblSalePrice" Text='<%#String.Format("{0:C}",Eval("SalePrice"))%>'></asp:Label>
                     </div>
                 </div>
-
-
-
-                <%--                 <div class="wrapper">
-        <div class="ribbon-wrapper-green">
-                
-
-                    
-            
-                <div style="text-align: center;height: 300px;">
-
-                  
-                </div>--%>
-                       
-        </div>
-    </div>
-
             </ItemTemplate>
         </asp:DataList>
-        <%-- <div style="text-align: center;">
-        <asp:PlaceHolder runat="server" ID="placeHolderListeProduitEnVente"></asp:PlaceHolder>
-             <div style="clear: both;">
-        </div>--%>
     </div>
 
 

@@ -5,6 +5,7 @@ namespace ATMTECH.ShoppingCart.DAO.Interface.Francais
 {
     public interface IDAOInventaire
     {
-        IList<Stock> ObtenirStock(Product product);
+        IList<Stock> ObtenirInventaire(Product product);
+        Stock ObtenirInventaire(int id);
     }
 }

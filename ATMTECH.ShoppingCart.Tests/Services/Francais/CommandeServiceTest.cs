@@ -5,6 +5,7 @@ using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.Test;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ploeh.AutoFixture;
@@ -45,9 +46,14 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
         public void AjouterLigneCommande_ObtenirLaCommandeSouhaiteSiEstNullOnCreerUneNouvelleCommande()
         {
             LeClientEstValide();
-            Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(20100, 1);
+            Product produit = AutoFixture.Create<Product>();
+            Stock stock = AutoFixture.Create<Stock>();
+            ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
+            ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
+
+            Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(stock.Id, 1);
             Assert.AreEqual(1, ajouterLigneCommande.OrderLines.Count);
-            Assert.AreEqual(20100, ajouterLigneCommande.OrderLines[0].Stock.Id);
+            Assert.AreEqual(stock.Id, ajouterLigneCommande.OrderLines[0].Stock.Id);
         }
 
         [TestMethod]
@@ -55,13 +61,35 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
         {
             Customer client = LeClientEstValide();
             Order order = AutoFixture.Create<Order>();
+            Product produit = AutoFixture.Create<Product>();
+            Stock stock = AutoFixture.Create<Stock>();
             order.OrderLines.Clear();
             order.Customer = client;
             ObtenirMock<IDAOCommande>().Setup(x => x.ObtenirCommandeSouhaite(client)).Returns(order);
+            ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
+            ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
 
             Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(20100, 1);
             Assert.AreEqual(1, ajouterLigneCommande.OrderLines.Count);
         }
+
+        [TestMethod]
+        public void AjouterLigneCommande_OnAjouteToujoursUneLigneDeCommandeActive()
+        {
+            Customer client = LeClientEstValide();
+            Order order = AutoFixture.Create<Order>();
+            Product produit = AutoFixture.Create<Product>();
+            Stock stock = AutoFixture.Create<Stock>();
+            order.OrderLines.Clear();
+            order.Customer = client;
+            ObtenirMock<IDAOCommande>().Setup(x => x.ObtenirCommandeSouhaite(client)).Returns(order);
+            ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
+            ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
+
+            Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(20100, 1);
+            ajouterLigneCommande.OrderLines[0].IsActive.Should().BeTrue();
+        }
+
 
         [TestMethod]
         public void AjouterLigneCommande_SiLigneCommandeExisteOnChangeLaQuantiteSeulement()
@@ -118,6 +146,22 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
         }
 
         [TestMethod]
+        public void CalculerTotal_DoitObtenirProduitDuStockAssocieALaLigneCommande()
+        {
+            Order order = AutoFixture.Create<Order>();
+            order.OrderLines.Clear();
+            OrderLine orderLine = AutoFixture.Create<OrderLine>();
+            orderLine.IsActive = true;
+            order.OrderLines.Add(orderLine);
+
+            ObtenirMock<IProduitService>()
+                .Setup(x => x.ObtenirProduit(orderLine.Stock.Product.Id))
+                .Returns(orderLine.Stock.Product);
+            Order calculerTotal = InstanceTest.CalculerTotal(order);
+            calculerTotal.OrderLines[0].Stock.Product.Id.Should().Be(orderLine.Stock.Product.Id);
+        }
+
+        [TestMethod]
         public void CalculerEnvoiPostal_DoitAppelerService()
         {
             Order order = AutoFixture.Create<Order>();
@@ -133,6 +177,20 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
                 .Returns(50);
             Order calculerEnvoiPostal = InstanceTest.CalculerEnvoiPostal(order);
             Assert.AreEqual(50, calculerEnvoiPostal.ShippingTotal);
+        }
+
+        [TestMethod]
+        public void Enregistrer_DoitAffecterLeIdALaCommande()
+        {
+            Order order = AutoFixture.Create<Order>();
+            Product produit = AutoFixture.Create<Product>();
+            ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
+            order.Id = 0;
+            ObtenirMock<IDAOCommande>().Setup(x => x.Save(It.IsAny<Order>())).Returns(10);
+
+            Order enregistrer = InstanceTest.Enregistrer(order);
+
+            enregistrer.Id.Should().Be(10);
         }
 
         private Customer LeClientEstValide()

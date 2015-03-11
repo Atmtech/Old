@@ -66,6 +66,9 @@
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\Enterprise\BoutiqueCorporative.jpg" />
+    <Content Include="Images\Product\001.jpg" />
+    <Content Include="Images\Product\002.jpg" />
+    <Content Include="Images\Product\003.jpg" />
     <Content Include="Images\Product\NoImageForThisProduct.jpg" />
     <Content Include="Images\WebSite\error-icon.png" />
     <Content Include="Images\WebSite\paypal-transparent-logo.png" />
@@ -73,6 +76,7 @@
     <Content Include="Images\WebSite\reseauSociaux.png" />
     <Content Include="Images\WebSite\Retirer.png" />
     <Content Include="Images\WebSite\search-icon.png" />
+    <Content Include="Images\WebSite\Shopping-Cart-icon.png" />
     <Content Include="Images\WebSite\slideTest1.jpg" />
     <Content Include="Images\WebSite\success-icon.png" />
     <Content Include="Images\WebSite\test1Promo.jpg" />
@@ -82,6 +86,11 @@
     <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\a21.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\b21.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\blue.jpg" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\purple.jpg" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\red.jpg" />
     <Content Include="JQuery\jquery-ui-1.11.2\css\lightbox.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\css\screen.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\external\jquery\jquery.js" />
@@ -102,6 +111,9 @@
     <Content Include="JQuery\jquery-ui-1.11.2\img\loading.gif" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\next.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\prev.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\a12.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\a17.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\t01.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\index.html" />
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.custom.css" />
@@ -112,10 +124,17 @@
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.structure.min.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.theme.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\jquery-ui.theme.min.css" />
+    <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.player.ytiframe.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.player.ytiframe.min.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.slider.debug.min.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.slider.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="ProductCatalog.aspx" />
+    <Content Include="SlideShow.ascx" />
+    <Content Include="test.html" />
     <Content Include="ThumbNail.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -210,6 +229,13 @@
       <DependentUpon>ProductCatalog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SlideShow.ascx.cs">
+      <DependentUpon>SlideShow.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SlideShow.ascx.designer.cs">
+      <DependentUpon>SlideShow.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ThumbNail.aspx.cs">
       <DependentUpon>ThumbNail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -58,40 +58,19 @@ a
 .boutonLien
 {
     border: none;
-    background: #111;
-    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
-    font-size: 13px;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    color: #ffffff;
-    line-height: 1.6em;
-    font-weight: 300;
-    cursor: pointer;
-}
-
-    .boutonLien:hover
-    {
-        color: darkgray;
-    }
-
-.boutonLienMenu
-{
-    border: none;
     background-color: black;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
     font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
 }
 
-    .boutonLienMenu:hover
+    .boutonLien:hover
     {
         color: darkgray;
     }
-
 
 .boutonAction
 {
@@ -550,3 +529,6 @@ a
     {
         right: 0;
     }
+
+
+

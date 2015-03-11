@@ -16,6 +16,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IProduitService ProduitService { get; set; }
         public IDAOCommande DAOCommande { get; set; }
         public IDAOLigneCommande DAOLigneCommande { get; set; }
+        public IDAOInventaire DAOInventaire { get; set; }
         public IClientService ClientService { get; set; }
         public ITaxesService TaxesService { get; set; }
         public IMessageService MessageService { get; set; }
@@ -55,6 +56,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                     DAOLigneCommande.Save(orderLine);
                 }
             }
+            commande.Id = DAOCommande.Save(commande);
             return commande;
         }
         public Order CalculerTotal(Order commande)
@@ -138,10 +140,12 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
         private Order SauvegarderLigneCommande(Order commande, int idInventaire, int quantite)
         {
+
             OrderLine orderLine = new OrderLine
             {
-                Stock = new Stock { Id = idInventaire },
-                Quantity = quantite
+                Stock = DAOInventaire.ObtenirInventaire(idInventaire),
+                Quantity = quantite,
+                IsActive = true
             };
             if (commande.OrderLines == null)
             {

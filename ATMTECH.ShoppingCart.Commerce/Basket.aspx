@@ -58,7 +58,7 @@
                     </div>
                     <asp:Label runat="server" ID="lblAdresseFacturation"></asp:Label>
                 </div>
-                <asp:Button runat="server" ID="btnModifierAdresse" Text="Modifier mes adresses" OnClick="btnModifierAdresseClick" />
+                <asp:Button runat="server" ID="btnModifierAdresse" Text="Modifier mes adresses" OnClick="btnModifierAdresseClick" CssClass="boutonActionRond" />
             </td>
             <td>
                 <div class="Table">
