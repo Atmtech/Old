@@ -31,22 +31,22 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.DataList DataListProductFile;
         
         /// <summary>
-        /// Contrôle lblIdent.
+        /// Contrôle lblIdentProduit.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdent;
+        protected global::System.Web.UI.WebControls.Label lblIdentProduit;
         
         /// <summary>
-        /// Contrôle lblNom.
+        /// Contrôle lblNomProduit.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNom;
+        protected global::System.Web.UI.WebControls.Label lblNomProduit;
         
         /// <summary>
         /// Contrôle lblPrixUnitaire.

@@ -15,12 +15,12 @@
     </div>
     <div class="descriptionProduit">
         <div class="titreDescriptionProduit">
-            <asp:Label runat="server" ID="lblIdent" ></asp:Label>
+            <asp:Label runat="server" ID="lblIdentProduit" ></asp:Label>
             -
-            <asp:Label runat="server" ID="lblNom"></asp:Label>
+            <asp:Label runat="server" ID="lblNomProduit"></asp:Label>
         </div>
         <div class="prixDescriptionProduit">
-            <asp:Label runat="server" ID="lblPrixUnitaire" Text="$ 100.00"></asp:Label>
+            <asp:Label runat="server" ID="lblPrixUnitaire"></asp:Label>
         </div>
         <div class="quantiteDescriptionProduit">
             <div>

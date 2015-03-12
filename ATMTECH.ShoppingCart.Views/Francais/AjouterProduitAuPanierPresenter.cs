@@ -39,6 +39,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public void AjouterLigneCommande()
         {
             CommandeService.AjouterLigneCommande(View.Inventaire, View.Quantite);
+            NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
 
     }

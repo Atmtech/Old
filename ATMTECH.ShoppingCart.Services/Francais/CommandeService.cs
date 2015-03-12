@@ -35,6 +35,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             {
                 Order order = new Order
                     {
+                        IsActive = true,
                         OrderStatus = OrderStatus.IsWishList,
                         Customer = client,
                         Enterprise = client.Enterprise,
@@ -82,6 +83,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                         if (orderLine.IsActive)
                         {
                             Product product = ProduitService.ObtenirProduit(orderLine.Stock.Product.Id);
+                            orderLine.UnitPrice = product.UnitPrice;
                             orderLine.SubTotal = (product.SalePrice != 0
                                                       ? product.SalePrice
                                                       : product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
@@ -151,9 +153,9 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
         private Order SauvegarderLigneCommande(Order commande, int idInventaire, int quantite)
         {
-
             OrderLine orderLine = new OrderLine
             {
+                Order = new Order { Id = commande.Id },
                 Stock = DAOInventaire.ObtenirInventaire(idInventaire),
                 Quantity = quantite,
                 IsActive = true

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -21,8 +22,8 @@ namespace ATMTECH.ShoppingCart.Commerce
             {
                 if (Master != null)
                 {
-                    Panel panel = (Panel) Master.FindControl("pnlSuccess");
-                    Label literal = (Label) Master.FindControl("lblSuccess");
+                    Panel panel = (Panel)Master.FindControl("pnlSuccess");
+                    Label literal = (Label)Master.FindControl("lblSuccess");
                     literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
                     panel.Visible = true;
                 }
@@ -31,8 +32,8 @@ namespace ATMTECH.ShoppingCart.Commerce
             {
                 if (Master != null)
                 {
-                    Panel panel = (Panel) Master.FindControl("pnlError");
-                    Label literal = (Label) Master.FindControl("lblError");
+                    Panel panel = (Panel)Master.FindControl("pnlError");
+                    Label literal = (Label)Master.FindControl("lblError");
                     literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
                     panel.Visible = true;
                 }
@@ -55,13 +56,23 @@ namespace ATMTECH.ShoppingCart.Commerce
             foreach (Control control in controlCollection)
             {
                 if (control is T)
-                    resultCollection.Add((T) control);
+                    resultCollection.Add((T)control);
 
                 if (control.HasControls())
                     GetControlList(control.Controls, resultCollection);
             }
         }
 
+        private bool EstExclus(string id)
+        {
+            if (id == "lblPrixAvant") return true;
+            if (id == "lblPrixActuel") return true;
+            if (id == "lblPrixMaintenant") return true;
+            if (id == "lblPrixVente") return true;
+            if (id == "lblNomProduit") return true;
+            if (id == "lblVentes") return true;
+            return false;
+        }
         private void Localiser()
         {
             string absoluteUri = HttpContext.Current.Request.Url.AbsoluteUri;
@@ -73,6 +84,8 @@ namespace ATMTECH.ShoppingCart.Commerce
                 foreach (Control control in allControls)
                 {
                     Localization localization = new Localization();
+
+                    if (EstExclus(control.ID)) continue;
                     if (control is GridView)
                     {
                         for (int i = 0; i < (control as GridView).Columns.Count - 1; i++)
@@ -120,6 +133,9 @@ namespace ATMTECH.ShoppingCart.Commerce
                         }
                     }
                 }
+
+
+
                 Presenter.SaveLocalization(localizations);
             }
         }

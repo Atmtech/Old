@@ -8,6 +8,8 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
 {
     public class DAOCommande : BaseDao<Order, int>, IDAOCommande
     {
+        public IDAOLigneCommande DAOLigneCommande { get; set; }
+
         public Order ObtenirCommandeSouhaite(Customer customer)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -17,6 +19,10 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             criterias.Add(criteriaCommandeStatus);
             criterias.Add(IsActive());
             IList<Order> commandes = GetByCriteria(criterias);
+            foreach (Order commande in commandes)
+            {
+                commande.OrderLines = DAOLigneCommande.ObtenirLigneCommande(commande);
+            }
             return commandes.Count > 0 ? commandes[0] : null;
         }
     }

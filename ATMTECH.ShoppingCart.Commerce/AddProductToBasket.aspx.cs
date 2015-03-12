@@ -29,17 +29,17 @@ namespace ATMTECH.ShoppingCart.Commerce
                        
                     case LocalizationLanguage.FRENCH:
                         lblDescription.Text = value.DescriptionFrench;
-                        lblNom.Text = value.NameFrench;
+                        lblNomProduit.Text = value.NameFrench;
                         FillDropDown(ddlStock, value.Stocks, Stock.FEATURE_FRENCH);
                         break;
                     case LocalizationLanguage.ENGLISH:
                         lblDescription.Text = value.DescriptionEnglish;
-                        lblNom.Text = value.NameEnglish;
+                        lblNomProduit.Text = value.NameEnglish;
                         FillDropDown(ddlStock, value.Stocks, Stock.FEATURE_ENGLISH);
                         break;
                 }
 
-                lblIdent.Text = value.Ident;
+                lblIdentProduit.Text = value.Ident;
                 lblPrixUnitaire.Text = value.UnitPrice.ToString("C");
                 imgProductPrincipal.ImageUrl = value.PrincipalFileUrl;
 
