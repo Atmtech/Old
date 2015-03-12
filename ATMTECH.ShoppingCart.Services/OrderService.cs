@@ -357,10 +357,18 @@ namespace ATMTECH.ShoppingCart.Services
         }
         public IList<SalesReportLine> GetSalesReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
-            IList<Product> products = ProductService.GetProductsWithoutLanguage(enterprise.Id);
+           // IList<Product> products = ProductService.GetProductsWithoutLanguage(enterprise.Id).ToList();
             IList<Order> orders = DAOOrder.GetAllFinalized(enterprise, dateStart, dateEnd);
             IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).ToList();
-            IList<Stock> stocks = products.SelectMany(product => product.Stocks).ToList();
+            orderLines = orderLines.Where(x => x.IsActive).ToList();
+
+            //IList<Stock> stocks = products.SelectMany(product => product.Stocks).Where(x => x.IsActive).Distinct().ToList();
+
+            decimal sumGrandTotal = orders.Sum(x => x.GrandTotal);
+            decimal sumSubTotal = orders.Sum(x => x.SubTotal);
+            decimal sumTaxesCountry = orders.Sum(x => x.CountryTax);
+            decimal sumTaxesRegional = orders.Sum(x => x.RegionalTax);
+            decimal sumTaxes = sumTaxesCountry + sumTaxesRegional;
 
             IList<SalesReportLine> salesReportLines = (from orderLine in orderLines
                                                        let finalizedDate = orderLine.Order.FinalizedDate
@@ -381,20 +389,179 @@ namespace ATMTECH.ShoppingCart.Services
                                                                UnitPriceOrderLine = orderLine.UnitPrice,
                                                                FinalizedDate = (DateTime)finalizedDate,
                                                                DateStart = dateStart,
-                                                               DateEnd = dateEnd
+                                                               DateEnd = dateEnd,
+                                                               GrandTotalSales = sumGrandTotal
                                                            }).ToList();
 
             salesReportLines = RemoveLinkedStock(salesReportLines);
 
-            Decimal grandTotalStock = StockWithActualStates(dateStart, dateEnd, stocks).Sum(x => x.ActualValue);
-            Decimal grandTotalSales = salesReportLines.Sum(x => x.UnitPriceOrderLine * x.Quantity);
+            //Decimal grandTotalStock = StockWithActualStates(dateStart, dateEnd, stocks).Sum(x => x.ActualValue);
+            //Decimal grandTotalSales = salesReportLines.Sum(x => x.UnitPriceOrderLine * x.Quantity);
 
-            salesReportLines = salesReportLines.Select(c => { c.GrandTotalStock = grandTotalStock; return c; }).ToList();
-            salesReportLines = salesReportLines.Select(c => { c.GrandTotalSales = grandTotalSales; return c; }).ToList();
+            //salesReportLines = salesReportLines.Select(c => { c.GrandTotalStock = grandTotalStock; return c; }).ToList();
+            //salesReportLines = salesReportLines.Select(c => { c.GrandTotalSales = grandTotalSales; return c; }).ToList();
 
 
             return salesReportLines.OrderBy(x => x.OrderId).Where(x => x.OrderId != 0).ToList();
         }
+        public IList<SalesByMonthReportLine> GetSalesByMonthReportLine(Enterprise enterprise, DateTime dateStart,
+                                                                 DateTime dateEnd)
+        {
+            IList<SalesByMonthReportLine> salesByMonthReportLines = new List<SalesByMonthReportLine>();
+            IList<Product> products = ProductService.GetProductsWithoutLanguage(enterprise.Id).ToList();
+            IList<Order> orders = DAOOrder.GetAllFinalized(enterprise, dateStart, dateEnd);
+            IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).ToList();
+            IList<Stock> stocks = products.SelectMany(product => product.Stocks).Where(x => x.IsActive).Distinct().ToList();
+
+            decimal sumGrandTotal = orders.Sum(x => x.GrandTotal);
+            decimal sumSubTotal = orders.Sum(x => x.SubTotal);
+            decimal sumTaxesCountry = orders.Sum(x => x.CountryTax);
+            decimal sumTaxesRegional = orders.Sum(x => x.RegionalTax);
+            decimal sumTaxes = sumTaxesCountry + sumTaxesRegional;
+
+            foreach (Stock stock in stocks)
+            {
+                int januarySales = 0;
+                int februarySales = 0;
+                int marchSales = 0;
+                int maySales = 0;
+                int aprilSales = 0;
+                int juneSales = 0;
+                int julySales = 0;
+                int augustSales = 0;
+                int septemberSales = 0;
+                int octoberSales = 0;
+                int novemberSales = 0;
+                int decemberSales = 0;
+                decimal grandTotalSales = 0;
+                decimal unitPrice = 0;
+
+                int stockActualState = StockService.GetCurrentStockStatus(stock, new DateTime(1990, 01, 01), dateEnd);
+                int stockInitialState = stock.InitialState;
+
+                if (orderLines.Count(x => x.Stock.Id == stock.Id) > 0)
+                {
+                    string product = string.Empty;
+
+                    foreach (OrderLine orderLine in orderLines.Where(orderLine => orderLine.Stock.Id == stock.Id))
+                    {
+                        grandTotalSales += orderLine.SubTotal;
+
+                        if (orderLine.Order.FinalizedDate != null)
+                            switch (((DateTime)(orderLine.Order.FinalizedDate)).Month)
+                            {
+                                case 1:
+                                    januarySales += orderLine.Quantity;
+                                    break;
+                                case 2:
+                                    februarySales += orderLine.Quantity;
+                                    break;
+                                case 3:
+                                    marchSales += orderLine.Quantity;
+                                    break;
+                                case 4:
+                                    aprilSales += orderLine.Quantity;
+                                    break;
+                                case 5:
+                                    maySales += orderLine.Quantity;
+                                    break;
+                                case 6:
+                                    juneSales += orderLine.Quantity;
+                                    break;
+                                case 7:
+                                    julySales += orderLine.Quantity;
+                                    break;
+                                case 8:
+                                    augustSales += orderLine.Quantity;
+                                    break;
+                                case 9:
+                                    septemberSales += orderLine.Quantity;
+                                    break;
+                                case 10:
+                                    octoberSales += orderLine.Quantity;
+                                    break;
+                                case 11:
+                                    novemberSales += orderLine.Quantity;
+                                    break;
+                                case 12:
+                                    decemberSales += orderLine.Quantity;
+                                    break;
+                            }
+                        product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.NameFrench + " " + orderLine.Stock.FeatureFrench);
+                        unitPrice = orderLine.Stock.Product.UnitPrice;
+                    }
+
+                    SalesByMonthReportLine salesByMonthReportLine = new SalesByMonthReportLine
+                    {
+                        Product = product,
+                        Enterprise = enterprise.Name,
+                        DateStart = dateStart,
+                        DateEnd = dateEnd,
+                        JanuarySales = januarySales,
+                        FebruarySales = februarySales,
+                        MarchSales = marchSales,
+                        MaySales = maySales,
+                        AprilSales = aprilSales,
+                        JuneSales = juneSales,
+                        JulySales = julySales,
+                        AugustSales = augustSales,
+                        SeptemberSales = septemberSales,
+                        OctoberSales = octoberSales,
+                        NovemberSales = novemberSales,
+                        DecemberSales = decemberSales,
+                        StockActualState = stockActualState,
+                        StockInitialState = stockInitialState,
+                        GrandTotalSales = grandTotalSales,
+                        UnitPrice = unitPrice,
+                        TotalValueStockActualState = stockActualState * stock.Product.UnitPrice,
+                        TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice,
+                        SumGrandTotal = sumGrandTotal,
+                        SumSubTotal = sumSubTotal,
+                        SumTaxes = sumTaxes,
+                        MinimumAccept = stock.MinimumAccept
+                    };
+                    salesByMonthReportLines.Add(salesByMonthReportLine);
+
+                }
+                else
+                {
+                    SalesByMonthReportLine salesByMonthReportLine = new SalesByMonthReportLine
+                    {
+                        Product = stock.Product.Ident + " " + stock.Product.NameFrench + " " + stock.FeatureFrench,
+                        Enterprise = enterprise.Name,
+                        DateStart = dateStart,
+                        DateEnd = dateEnd,
+                        JanuarySales = januarySales,
+                        FebruarySales = februarySales,
+                        MarchSales = marchSales,
+                        MaySales = maySales,
+                        AprilSales = aprilSales,
+                        JuneSales = juneSales,
+                        JulySales = julySales,
+                        AugustSales = augustSales,
+                        SeptemberSales = septemberSales,
+                        OctoberSales = octoberSales,
+                        NovemberSales = novemberSales,
+                        DecemberSales = decemberSales,
+                        StockActualState = stockActualState,
+                        StockInitialState = stockInitialState,
+                        GrandTotalSales = 0,
+                        UnitPrice = stock.Product.UnitPrice,
+                        TotalValueStockActualState = stockActualState * stock.Product.UnitPrice,
+                        TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice,
+                        SumGrandTotal = sumGrandTotal,
+                        SumSubTotal = sumSubTotal,
+                        SumTaxes = sumTaxes,
+                        MinimumAccept = stock.MinimumAccept
+                    };
+                    salesByMonthReportLines.Add(salesByMonthReportLine);
+                }
+            }
+
+            return salesByMonthReportLines;
+        }
+
+
         public IList<SalesByOrderInformationReportLine> GetSalesByOrderInformationReportLine(Enterprise enterprise, DateTime dateStart, DateTime dateEnd)
         {
             IList<SalesByOrderInformationReportLine> salesReportLines = new List<SalesByOrderInformationReportLine>();
@@ -486,162 +653,6 @@ namespace ATMTECH.ShoppingCart.Services
             return productPriceHistoryReportLines;
         }
 
-        public IList<SalesByMonthReportLine> GetSalesByMonthReportLine(Enterprise enterprise, DateTime dateStart,
-                                                                       DateTime dateEnd)
-        {
-            IList<SalesByMonthReportLine> salesByMonthReportLines = new List<SalesByMonthReportLine>();
-            IList<Product> products = ProductService.GetProductsWithoutLanguage(enterprise.Id).ToList();
-            IList<Order> orders = DAOOrder.GetAllFinalized(enterprise, dateStart, dateEnd);
-            IList<OrderLine> orderLines = orders.SelectMany(order => order.OrderLines).ToList();
-            IList<Stock> stocks = products.SelectMany(product => product.Stocks).Where(x => x.IsActive).Distinct().ToList();
-
-            decimal sumGrandTotal = orders.Sum(x => x.GrandTotal);
-            decimal sumSubTotal = orders.Sum(x => x.SubTotal);
-            decimal sumTaxesCountry = orders.Sum(x => x.CountryTax);
-            decimal sumTaxesRegional = orders.Sum(x => x.RegionalTax);
-            decimal sumTaxes = sumTaxesCountry + sumTaxesRegional;
-
-            foreach (Stock stock in stocks)
-            {
-                int januarySales = 0;
-                int februarySales = 0;
-                int marchSales = 0;
-                int maySales = 0;
-                int aprilSales = 0;
-                int juneSales = 0;
-                int julySales = 0;
-                int augustSales = 0;
-                int septemberSales = 0;
-                int octoberSales = 0;
-                int novemberSales = 0;
-                int decemberSales = 0;
-                decimal grandTotalSales = 0;
-                decimal unitPrice = 0;
-
-                int stockActualState = StockService.GetCurrentStockStatus(stock, new DateTime(1990, 01, 01), dateEnd);
-                int stockInitialState = stock.InitialState;
-
-                if (orderLines.Count(x => x.Stock.Id == stock.Id) > 0)
-                {
-                    string product = string.Empty;
-
-                    foreach (OrderLine orderLine in orderLines.Where(orderLine => orderLine.Stock.Id == stock.Id))
-                    {
-                        grandTotalSales += orderLine.SubTotal;
-
-                        if (orderLine.Order.FinalizedDate != null)
-                            switch (((DateTime)(orderLine.Order.FinalizedDate)).Month)
-                            {
-                                case 1:
-                                    januarySales += orderLine.Quantity;
-                                    break;
-                                case 2:
-                                    februarySales += orderLine.Quantity;
-                                    break;
-                                case 3:
-                                    marchSales += orderLine.Quantity;
-                                    break;
-                                case 4:
-                                    aprilSales += orderLine.Quantity;
-                                    break;
-                                case 5:
-                                    maySales += orderLine.Quantity;
-                                    break;
-                                case 6:
-                                    juneSales += orderLine.Quantity;
-                                    break;
-                                case 7:
-                                    julySales += orderLine.Quantity;
-                                    break;
-                                case 8:
-                                    augustSales += orderLine.Quantity;
-                                    break;
-                                case 9:
-                                    septemberSales += orderLine.Quantity;
-                                    break;
-                                case 10:
-                                    octoberSales += orderLine.Quantity;
-                                    break;
-                                case 11:
-                                    novemberSales += orderLine.Quantity;
-                                    break;
-                                case 12:
-                                    decemberSales += orderLine.Quantity;
-                                    break;
-                            }
-                        product = HttpUtility.HtmlDecode(orderLine.Stock.Product.Ident + " " + orderLine.Stock.Product.NameFrench + " " + orderLine.Stock.FeatureFrench);
-                        unitPrice = orderLine.Stock.Product.UnitPrice;
-                    }
-
-                    SalesByMonthReportLine salesByMonthReportLine = new SalesByMonthReportLine
-                        {
-                            Product = product,
-                            Enterprise = enterprise.Name,
-                            DateStart = dateStart,
-                            DateEnd = dateEnd,
-                            JanuarySales = januarySales,
-                            FebruarySales = februarySales,
-                            MarchSales = marchSales,
-                            MaySales = maySales,
-                            AprilSales = aprilSales,
-                            JuneSales = juneSales,
-                            JulySales = julySales,
-                            AugustSales = augustSales,
-                            SeptemberSales = septemberSales,
-                            OctoberSales = octoberSales,
-                            NovemberSales = novemberSales,
-                            DecemberSales = decemberSales,
-                            StockActualState = stockActualState,
-                            StockInitialState = stockInitialState,
-                            GrandTotalSales = grandTotalSales,
-                            UnitPrice = unitPrice,
-                            TotalValueStockActualState = stockActualState * stock.Product.UnitPrice,
-                            TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice,
-                            SumGrandTotal = sumGrandTotal,
-                            SumSubTotal = sumSubTotal,
-                            SumTaxes = sumTaxes,
-                            MinimumAccept = stock.MinimumAccept
-                        };
-                    salesByMonthReportLines.Add(salesByMonthReportLine);
-
-                }
-                else
-                {
-                    SalesByMonthReportLine salesByMonthReportLine = new SalesByMonthReportLine
-                    {
-                        Product = stock.Product.Ident + " " + stock.Product.NameFrench + " " + stock.FeatureFrench,
-                        Enterprise = enterprise.Name,
-                        DateStart = dateStart,
-                        DateEnd = dateEnd,
-                        JanuarySales = januarySales,
-                        FebruarySales = februarySales,
-                        MarchSales = marchSales,
-                        MaySales = maySales,
-                        AprilSales = aprilSales,
-                        JuneSales = juneSales,
-                        JulySales = julySales,
-                        AugustSales = augustSales,
-                        SeptemberSales = septemberSales,
-                        OctoberSales = octoberSales,
-                        NovemberSales = novemberSales,
-                        DecemberSales = decemberSales,
-                        StockActualState = stockActualState,
-                        StockInitialState = stockInitialState,
-                        GrandTotalSales = 0,
-                        UnitPrice = stock.Product.UnitPrice,
-                        TotalValueStockActualState = stockActualState * stock.Product.UnitPrice,
-                        TotalValueStockInitialState = stockInitialState * stock.Product.UnitPrice,
-                        SumGrandTotal = sumGrandTotal,
-                        SumSubTotal = sumSubTotal,
-                        SumTaxes = sumTaxes,
-                        MinimumAccept = stock.MinimumAccept
-                    };
-                    salesByMonthReportLines.Add(salesByMonthReportLine);
-                }
-            }
-
-            return salesByMonthReportLines;
-        }
 
         public IList<EnumOrderInformation> GetOrderInformation(Enterprise enterprise, string group)
         {
@@ -804,12 +815,15 @@ namespace ATMTECH.ShoppingCart.Services
             {
                 if (orderLine.IsActive)
                 {
-                    Product product = ProductService.GetProduct(orderLine.Stock.Product.Id);
-                    decimal subTotal = (product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
-                    total += subTotal;
-                    orderLine.SubTotal = subTotal;
-                    orderLine.UnitPrice = product.UnitPrice;
-                    order.TotalWeight += (product.Weight * orderLine.Quantity);
+                    if (order.FinalizedDate == null)
+                    {
+                        Product product = ProductService.GetProduct(orderLine.Stock.Product.Id);
+                        decimal subTotal = (product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
+                        total += subTotal;
+                        orderLine.SubTotal = subTotal;
+                        orderLine.UnitPrice = product.UnitPrice;
+                        order.TotalWeight += (product.Weight * orderLine.Quantity);
+                    }
                 }
             }
             if (!order.Enterprise.IsShippingQuotationRequired)

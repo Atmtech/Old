@@ -1,4 +1,5 @@
-﻿using ATMTECH.ShoppingCart.DAO.Interface.Francais;
+﻿using System;
+using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.Francais;
@@ -122,6 +123,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
         public void CalculerTotal_DoitRecalculerLeGrandTotal()
         {
             Order order = AutoFixture.Create<Order>();
+            order.FinalizedDate = null;
             order.OrderLines.Clear();
             order.GrandTotal = 0;
             order.ShippingTotal = 0;
@@ -191,6 +193,27 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             Order enregistrer = InstanceTest.Enregistrer(order);
 
             enregistrer.Id.Should().Be(10);
+        }
+
+        [TestMethod]
+        public void CalculerTotal_NeDoitPasMettreAJourMontantQuandFinalise()
+        {
+            Order order = AutoFixture.Create<Order>();
+            order.OrderLines.Clear();
+            order.GrandTotal = 0;
+            order.ShippingTotal = 0;
+            order.CountryTax = 0;
+            order.RegionalTax = 0;
+
+            Product produit = AutoFixture.Create<Product>();
+            order.OrderLines.Add(new OrderLine { Stock = new Stock { Product = produit }, Quantity = 1, IsActive = true });
+            produit.UnitPrice = 200;
+            produit.SalePrice = 0;
+            produit.Weight = 12;
+            order.FinalizedDate = DateTime.Now;
+            InstanceTest.CalculerTotal(order);
+
+            ObtenirMock<IProduitService>().Verify(x => x.ObtenirProduit(It.IsAny<int>()), Times.Never());
         }
 
         private Customer LeClientEstValide()

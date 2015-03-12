@@ -17,6 +17,7 @@ using ErrorCode = ATMTECH.ShoppingCart.Services.ErrorCode;
 
 namespace ATMTECH.ShoppingCart.Tests.Services
 {
+    [Ignore]
     [TestClass]
     public class OrderServiceTest : BaseTest<OrderService>
     {

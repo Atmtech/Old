@@ -62,27 +62,38 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public Order CalculerTotal(Order commande)
         {
             commande.TotalWeight = 0;
-            commande.SubTotal = 0;
-
-            if (commande.OrderLines != null)
-            {
-                foreach (OrderLine orderLine in commande.OrderLines)
-                {
-                    if (orderLine.IsActive)
-                    {
-                        Product product = ProduitService.ObtenirProduit(orderLine.Stock.Product.Id);
-                        orderLine.SubTotal = (product.SalePrice != 0 ? product.SalePrice : product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
-                        commande.TotalWeight += (product.Weight * orderLine.Quantity);
-                        commande.SubTotal += orderLine.SubTotal;
-                    }
-                }
-            }
+            commande = CalculerSousTotaux(commande);
             commande = CalculerEnvoiPostal(commande);
             commande = CalculerTaxe(commande);
             commande.GrandTotal = commande.SubTotal + commande.CountryTax + commande.RegionalTax + commande.ShippingTotal;
 
             return commande;
         }
+
+        private Order CalculerSousTotaux(Order commande)
+        {
+            if (commande.FinalizedDate == null)
+            {
+                commande.SubTotal = 0;
+                if (commande.OrderLines != null)
+                {
+                    foreach (OrderLine orderLine in commande.OrderLines)
+                    {
+                        if (orderLine.IsActive)
+                        {
+                            Product product = ProduitService.ObtenirProduit(orderLine.Stock.Product.Id);
+                            orderLine.SubTotal = (product.SalePrice != 0
+                                                      ? product.SalePrice
+                                                      : product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
+                            commande.TotalWeight += (product.Weight * orderLine.Quantity);
+                            commande.SubTotal += orderLine.SubTotal;
+                        }
+                    }
+                }
+            }
+            return commande;
+        }
+
         public Order CalculerTaxe(Order commande)
         {
             decimal countryTax = TaxesService.GetCountryTaxes(commande.SubTotal, "QBC");
