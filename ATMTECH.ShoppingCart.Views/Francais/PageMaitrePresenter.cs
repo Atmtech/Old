@@ -45,6 +45,12 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             Order order = CommandeService.ObtenirCommandeSouhaite(customer);
 
             if (order == null) return;
+            if (order.OrderLines.Count == 0)
+            {
+                View.AffichagePanier = string.Empty;
+                return;
+            }
+
             string nombreItem = order.OrderLines == null ? "0" : order.OrderLines.Count.ToString();
             string grandTotal = order.GrandTotal.ToString("C");
             string affichagePanier = string.Format("{0} - {1} item(s)", grandTotal, nombreItem);

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
+using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 
@@ -9,6 +10,10 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
     public class DAOCommande : BaseDao<Order, int>, IDAOCommande
     {
         public IDAOLigneCommande DAOLigneCommande { get; set; }
+        public IDAOAddress DAOAddress { get; set; }
+        public IDAOInventaire DAOInventaire { get; set; }
+        public IDAOProduit DAOProduit { get; set; }
+        public IDAOCountry DAOCountry { get; set; }
 
         public Order ObtenirCommandeSouhaite(Customer customer)
         {
@@ -22,7 +27,17 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             foreach (Order commande in commandes)
             {
                 commande.OrderLines = DAOLigneCommande.ObtenirLigneCommande(commande);
+                commande.ShippingAddress = DAOAddress.GetAddress(commande.ShippingAddress.Id);
+                commande.BillingAddress = DAOAddress.GetAddress(commande.BillingAddress.Id);
+                commande.ShippingAddress.Country = DAOCountry.GetCountry(commande.ShippingAddress.Country.Id);
+                commande.BillingAddress.Country = DAOCountry.GetCountry(commande.BillingAddress.Country.Id);
+                foreach (OrderLine orderLine in commande.OrderLines)
+                {
+                    orderLine.Stock = DAOInventaire.ObtenirInventaire(orderLine.Stock.Id);
+                    orderLine.Stock.Product = DAOProduit.ObtenirProduit(orderLine.Stock.Product.Id);
+                }
             }
+
             return commandes.Count > 0 ? commandes[0] : null;
         }
     }

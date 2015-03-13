@@ -78,11 +78,11 @@ namespace ATMTECH.ShoppingCart.Entities
                         {
                             return productFile.File != null
                                        ? productFile.File.FileName
-                                       : "images/product/NoImageForThisProduct.jpg";
+                                       : "NoImageForThisProduct.jpg";
                         }
                     }
                 }
-                return "images/product/NoImageForThisProduct.jpg";
+                return "NoImageForThisProduct.jpg";
             }
         }
     }

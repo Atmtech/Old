@@ -34,12 +34,31 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
         public void AfficherPanier_QuandIdentifierRetournerLaCommande()
         {
             Customer customer = AutoFixture.Create<Customer>();
+            Order order = AutoFixture.Create<Order>();
 
+            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
             ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+
             InstanceTest.AfficherPanier();
 
             ObtenirMock<ICommandeService>().Verify(x => x.ObtenirCommandeSouhaite(customer));
         }
+
+        [TestMethod]
+        public void AfficherPanier_RemplirLesAdresses()
+        {
+            Customer customer = AutoFixture.Create<Customer>();
+            Order order = AutoFixture.Create<Order>();
+
+            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+
+            InstanceTest.AfficherPanier();
+
+            ViewMock.VerifySet(x => x.AdresseFacturation = order.BillingAddress.DisplayAddress);
+            ViewMock.VerifySet(x => x.AdresseLivraison = order.ShippingAddress.DisplayAddress);
+        }
+
 
         [TestMethod]
         public void ModifierAdresse_DoitRedirigerVersInformationClient()
@@ -115,6 +134,36 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             InstanceTest.RecalculerPanier(listeQuantite);
 
             ObtenirMock<ICommandeService>().Verify(x => x.Enregistrer(It.Is<Order>(a => a.OrderLines[0].Quantity == 10)));
+        }
+        [TestMethod]
+        public void SupprimerLigneCommande_DoitMettreLeFlagActifAFalse()
+        {
+            Order order = AutoFixture.Create<Order>();
+            OrderLine orderLine = AutoFixture.Create<OrderLine>();
+            orderLine.Id = 1;
+            order.OrderLines.Clear();
+            order.OrderLines.Add(orderLine);
+
+            ViewMock.Setup(x => x.Commande).Returns(order);
+
+            InstanceTest.SupprimerLigneCommande(1);
+
+            ObtenirMock<ICommandeService>().Verify(x => x.Enregistrer(It.Is<Order>(a => a.OrderLines[0].IsActive == false)), Times.Once());
+        }
+
+        [TestMethod]
+        public void AfficherPanier_SiAucuneLigneCommandeOnRedirigeAAccueil()
+        {
+            Customer customer = AutoFixture.Create<Customer>();
+            Order order = AutoFixture.Create<Order>();
+            order.OrderLines.Clear();
+            
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
+
+            InstanceTest.AfficherPanier();
+
+            ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.DEFAULT),Times.Once());
         }
     }
 }

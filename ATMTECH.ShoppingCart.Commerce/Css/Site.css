@@ -110,6 +110,25 @@ a
         background-color: rgb(129, 129, 129);
     }
 
+.boutonActionRondFinaliser
+{
+    border: none;
+    height: 35px;
+    background-color: rgb(0, 150, 31);
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    width: 200px;
+}
+
+    .boutonActionRondFinaliser:hover
+    {
+        background-color: rgb(21, 116, 31);
+    }
+
 .boutonAjouterPanier:hover
 {
     background-color: rgb(129, 129, 129);
@@ -317,6 +336,13 @@ a
     padding-right: 20px;
 }
 
+.Panier
+{
+    font-weight: bold;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
 .motPasseOublie
 {
     font-weight: bold;
@@ -412,11 +438,6 @@ a
 .addToBasketOrderList
 {
     font-size: 12px;
-}
-
-.orderGrid
-{
-    font-size: 10px;
 }
 
 
@@ -529,6 +550,3 @@ a
     {
         right: 0;
     }
-
-
-

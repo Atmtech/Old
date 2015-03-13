@@ -68,8 +68,11 @@
                     </asp:Panel>
                     <asp:Panel runat="server" ID="pnlConnecte" Visible="False">
                         <asp:Button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonLien"></asp:Button>|
-                        <img src="Images/WebSite/Shopping-Cart-icon.png" style="width: 20px;height: 20px;vertical-align: text-top"/><asp:Button runat="server" ID="btnPanier" OnClick="btnPanierClick" CssClass="boutonLien" />|
+                        <asp:Label runat="server" ID="lblAucunItemDansPanier" Text="Aucun article"></asp:Label>
+                        <asp:Image ImageUrl="Images/WebSite/Shopping-Cart-icon.png" style="width: 20px;height: 20px;vertical-align: text-top" runat="server" ID="imgPanier"/>
+                        <asp:Button runat="server" ID="btnPanier" OnClick="btnPanierClick" CssClass="boutonLien" />|
                         <asp:Button runat="server" ID="btnDeconnecter" Text="Se déconnecter" CssClass="boutonLien" OnClick="btnDeconnecterClick" />
+                        
                     </asp:Panel>
                 </div>
                 <div style="clear: both;"></div>

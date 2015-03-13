@@ -134,6 +134,7 @@ namespace ATMTECH.Mediator.Client
                     Forums = FORUMS,
                     Type = EstCommande(texte) ? "COMMAND" : "CHAT"
                 };
+
             ClavardageService.EnvoyerClavardage(clavardage);
         }
        

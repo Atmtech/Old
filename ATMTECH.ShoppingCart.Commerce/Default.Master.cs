@@ -34,6 +34,18 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             set
             {
+                if (string.IsNullOrEmpty(value))
+                {
+                    imgPanier.Visible = false;
+                    btnPanier.Visible = false;
+                    lblAucunItemDansPanier.Visible = true;
+                }
+                else
+                {
+                    imgPanier.Visible = true;
+                    btnPanier.Visible = true;
+                    lblAucunItemDansPanier.Visible = false;
+                }
                 btnPanier.Text = value;
             }
         }

@@ -12,7 +12,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             string directory = Request.QueryString["directory"];
             string strServerPath = Server.MapPath(directory + "/");
-            string strFilename = strServerPath + Server.UrlDecode(Request.QueryString["filename"]);
+            string strFilename = strServerPath + Server.UrlDecode(Request.QueryString["filename"]).Replace("/", @"\");
 
             if (File.Exists(strFilename))
             {
@@ -21,8 +21,8 @@ namespace ATMTECH.ShoppingCart.Commerce
                 Image image = Image.FromFile(strFilename);
                 if (width != "original")
                 {
-                    short widthImage = (short) Convert.ToInt32(width);
-                    short heightImage = (short) Convert.ToInt32(height);
+                    short widthImage = (short)Convert.ToInt32(width);
+                    short heightImage = (short)Convert.ToInt32(height);
                     Image thumbnail = image.GetThumbnailImage(widthImage, heightImage, null, IntPtr.Zero);
                     thumbnail.Save(Response.OutputStream, ImageFormat.Jpeg);
                     thumbnail.Dispose();

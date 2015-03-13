@@ -83,8 +83,19 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             ViewMock.VerifySet(x => x.EstConnecte = true);
         }
 
+        [TestMethod]
+        public void AfficherInformation_SiAucuneLigneCommandeOnAfficheRien()
+        {
+            Customer customer = AutoFixture.Create<Customer>();
+            Order order = AutoFixture.Create<Order>();
+            order.OrderLines.Clear();
+            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
 
-     
+            InstanceTest.AfficherInformation();
+            ViewMock.VerifySet(x => x.AffichagePanier = string.Empty);
+        }
+
 
         [TestMethod]
         public void AfficherInformation_SiAucuneCommandeToutEstNull()
