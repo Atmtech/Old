@@ -10,15 +10,15 @@
 namespace ATMTECH.ShoppingCart.Commerce {
     
     
-    public partial class ThumbNail {
+    public partial class ListeProduit {
         
         /// <summary>
-        /// Contrôle form1.
+        /// Contrôle dataListListeProduitEnVente.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DataList dataListListeProduitEnVente;
     }
 }

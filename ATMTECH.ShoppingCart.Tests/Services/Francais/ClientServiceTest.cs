@@ -52,6 +52,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             Customer client = AutoFixture.Create<Customer>();
             User user = AutoFixture.Create<User>();
             user.IsActive = true;
+            ObtenirMock<IValiderClientService>().Setup(x => x.EstClientExistant(It.IsAny<Customer>())).Returns(false);
             ObtenirMock<IDAOUser>().Setup(x => x.GetUser(It.IsAny<int>())).Returns(user);
             ObtenirMock<IValiderClientService>().Setup(x => x.EstClientValide(It.IsAny<Customer>())).Returns(true);
             ObtenirMock<IParameterService>().Setup(x => x.GetValue(It.IsAny<string>())).Returns("mensacre");
@@ -66,6 +67,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             Customer client = AutoFixture.Create<Customer>();
             User user = AutoFixture.Create<User>();
             user.IsActive = true;
+            ObtenirMock<IValiderClientService>().Setup(x => x.EstClientExistant(It.IsAny<Customer>())).Returns(false);
             ObtenirMock<IDAOUser>().Setup(x => x.GetUser(It.IsAny<int>())).Returns(user);
             ObtenirMock<IValiderClientService>().Setup(x => x.EstClientValide(It.IsAny<Customer>())).Returns(true);
             ObtenirMock<IParameterService>().Setup(x => x.GetValue(It.IsAny<string>())).Returns("mensacre");

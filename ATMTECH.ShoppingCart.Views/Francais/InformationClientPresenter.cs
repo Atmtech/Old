@@ -17,6 +17,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         }
 
         public IClientService ClientService { get; set; }
+        public ICommandeService CommandeService { get; set; }
         public IAddressService AddressService { get; set; }
         public IDAOCity DAOCity { get; set; }
         public IDAOCountry DAOCountry { get; set; }
@@ -25,12 +26,8 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
             base.OnViewInitialized();
             AfficherListePays();
-        }
-
-        public override void OnViewLoaded()
-        {
-            base.OnViewLoaded();
             AfficherInformationClient();
+            AfficherCommandePasse();
         }
 
         public void AfficherListePays()
@@ -40,6 +37,18 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             View.ListePaysFacturation = allCountries;
         }
 
+        public void AfficherCommandePasse()
+        {
+            Customer customer = ClientService.ClientAuthentifie;
+            if (customer != null)
+            {
+                View.ListeCommandePasse = CommandeService.ObtenirCommande(customer);
+            }
+            else
+            {
+                NavigationService.Redirect(Pages.Pages.DEFAULT);
+            }
+        }
         public void AfficherInformationClient()
         {
             Customer customer = ClientService.ClientAuthentifie;
@@ -128,7 +137,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                         No = noCivique,
                         Way = rue,
                         PostalCode = CodePostal,
-                        Country = new Country {Id = pays},
+                        Country = new Country { Id = pays },
                         City = TrouverVille(ville)
                     };
 
@@ -138,7 +147,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             adresse.No = noCivique;
             adresse.Way = rue;
             adresse.PostalCode = CodePostal;
-            adresse.Country = new Country {Id = pays};
+            adresse.Country = new Country { Id = pays };
             adresse.City = TrouverVille(ville);
 
             return AddressService.SaveAddress(adresse);
@@ -149,7 +158,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             City city = DAOCity.FindCity(ville);
             if (city == null)
             {
-                int id = DAOCity.CreateCity(new City {Code = ville, Description = ville});
+                int id = DAOCity.CreateCity(new City { Code = ville, Description = ville });
                 return DAOCity.GetCity(id);
             }
             return city;

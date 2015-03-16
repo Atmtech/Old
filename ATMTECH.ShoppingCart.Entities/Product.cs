@@ -85,5 +85,16 @@ namespace ATMTECH.ShoppingCart.Entities
                 return "NoImageForThisProduct.jpg";
             }
         }
+
+        public decimal SavePrice
+        {
+            get
+            {
+                return UnitPrice > SalePrice
+                           ? UnitPrice - SalePrice
+                           : 0;
+            }
+        }
+
     }
 }

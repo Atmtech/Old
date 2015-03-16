@@ -10,141 +10,141 @@
 namespace ATMTECH.ShoppingCart.Commerce {
     
     
-    public partial class AddProductToBasket {
+    public partial class ThankYouForYourOrder {
         
         /// <summary>
-        /// Contrôle imgProductPrincipal.
+        /// Contrôle lblMerciDeVotreCommande.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgProductPrincipal;
+        protected global::System.Web.UI.WebControls.Label lblMerciDeVotreCommande;
         
         /// <summary>
-        /// Contrôle DataListProductFile.
+        /// Contrôle lblPourLeSuiviDeCommande.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListProductFile;
+        protected global::System.Web.UI.WebControls.Label lblPourLeSuiviDeCommande;
         
         /// <summary>
-        /// Contrôle lblIdentProduit.
+        /// Contrôle lblVotreCommande.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdentProduit;
+        protected global::System.Web.UI.WebControls.Label lblVotreCommande;
         
         /// <summary>
-        /// Contrôle lblNomProduit.
+        /// Contrôle lblNumeroCommande.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNomProduit;
+        protected global::System.Web.UI.WebControls.Label lblNumeroCommande;
         
         /// <summary>
-        /// Contrôle lblPrixUnitaire.
+        /// Contrôle lblSousTotalAffichage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrixUnitaire;
+        protected global::System.Web.UI.WebControls.Label lblSousTotalAffichage;
         
         /// <summary>
-        /// Contrôle lblVousEpargnez.
+        /// Contrôle lblSousTotal.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVousEpargnez;
+        protected global::System.Web.UI.WebControls.Label lblSousTotal;
         
         /// <summary>
-        /// Contrôle lblPrixEpargner.
+        /// Contrôle lblTaxeProvincialeAffichage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrixEpargner;
+        protected global::System.Web.UI.WebControls.Label lblTaxeProvincialeAffichage;
         
         /// <summary>
-        /// Contrôle lblCaracteristiqueAddProduct.
+        /// Contrôle lblTaxeProvinciale.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCaracteristiqueAddProduct;
+        protected global::System.Web.UI.WebControls.Label lblTaxeProvinciale;
         
         /// <summary>
-        /// Contrôle lblQuantiteAddProduct.
+        /// Contrôle lblTaxeFederaleAffichage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQuantiteAddProduct;
+        protected global::System.Web.UI.WebControls.Label lblTaxeFederaleAffichage;
         
         /// <summary>
-        /// Contrôle ddlStock.
+        /// Contrôle lblTaxeFederale.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.WebControls.ComboBox ddlStock;
+        protected global::System.Web.UI.WebControls.Label lblTaxeFederale;
         
         /// <summary>
-        /// Contrôle btnVousDevezEtreConnectePourAjouterQuantite.
+        /// Contrôle lblCoutLivraisonAffichage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVousDevezEtreConnectePourAjouterQuantite;
+        protected global::System.Web.UI.WebControls.Label lblCoutLivraisonAffichage;
         
         /// <summary>
-        /// Contrôle txtQuantite.
+        /// Contrôle lblCoutLivraison.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.WebControls.Numeric txtQuantite;
+        protected global::System.Web.UI.WebControls.Label lblCoutLivraison;
         
         /// <summary>
-        /// Contrôle btnAjouterLigneCommande.
+        /// Contrôle lblGrandTotalAffichage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjouterLigneCommande;
+        protected global::System.Web.UI.WebControls.Label lblGrandTotalAffichage;
         
         /// <summary>
-        /// Contrôle lblDetail.
+        /// Contrôle lblGrandTotal.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDetail;
+        protected global::System.Web.UI.WebControls.Label lblGrandTotal;
         
         /// <summary>
-        /// Contrôle lblDescription.
+        /// Contrôle btnImprimerCommande.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescription;
+        protected global::System.Web.UI.WebControls.Button btnImprimerCommande;
     }
 }

@@ -28,15 +28,8 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
         }
 
-        public Order CommandeFinalise
-        {
-            get { return (Order)Session["CommandeFinalise"]; }
-            set { Session["CommandeFinalise"] = value; }
-        }
-
         public string AdresseLivraison { get { return lblAdresseLivraison.Text; } set { lblAdresseLivraison.Text = value; } }
         public string AdresseFacturation { get { return lblAdresseFacturation.Text; } set { lblAdresseFacturation.Text = value; } }
-
         public void RecalculerPanier()
         {
             int i = 0;
@@ -48,18 +41,14 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
             Presenter.RecalculerPanier(listeQuantite);
         }
-
-
         protected void btnFinaliserCommandeClick(object sender, EventArgs e)
         {
             Presenter.FinaliserCommande();
         }
-
         protected void btnModifierAdresseClick(object sender, EventArgs e)
         {
             Presenter.ModifierAdresse();
         }
-
         protected void dataListeCommande_ItemCommand(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName == "SupprimerLigneCommande")

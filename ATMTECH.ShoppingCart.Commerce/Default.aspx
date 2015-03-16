@@ -7,6 +7,11 @@
 
 
 
+<%@ Register Src="ListeProduit.ascx" TagName="ListeProduit" TagPrefix="uc2" %>
+
+
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -25,32 +30,9 @@
         <asp:Label runat="server" ID="lblItemEnVenteActuellement" Text="Items en vente actuellement"></asp:Label>
     </div>
     <div class="listeObjetEnPromo">
-        <asp:DataList runat="server" ID="dataListListeProduitEnVente" RepeatDirection="Horizontal" RepeatColumns="4">
-            <ItemTemplate>
 
-                <div style="padding-left: 15px; padding-bottom: 10px;">
-                    <div class="wrapper">
-                        <div class="ribbon-wrapper-green">
-                            <div class="ribbon-green">
-                                <asp:Label runat="server" ID="lblVentes" Text='<%#Presenter.CurrentLanguage == LocalizationLanguage.FRENCH ? "VENTES" : "SALES"%>'></asp:Label>
-                            </div>
-                        </div>
-                        <asp:HyperLink ID="imgProduit" runat="server" NavigateUrl='<%# "AddProductToBasket.aspx?ProductId=" + Eval("Id")%>'>
-                            <asp:Image runat="server" ID="tes" ImageUrl='<%#Eval("PrincipalFileUrl")%>' CssClass="thumbnailImageListeProduitEnVente" />
-                        </asp:HyperLink>
+        <uc2:ListeProduit ID="ListeProduit1" runat="server" Langue='<%#Presenter.CurrentLanguage%>' />
 
-                        <br />
-                        <asp:Label runat="server" ID="lblNomProduit" Text='<%#Presenter.CurrentLanguage == LocalizationLanguage.FRENCH ? Eval("NameFrench") : Eval("NameEnglish")%>'></asp:Label>
-                        <br />
-                        <asp:Label runat="server" ID="lblPrixAvant" Text='<%#Presenter.CurrentLanguage == LocalizationLanguage.FRENCH ? "Était" : "Was"%>' />
-                        <asp:Label runat="server" ID="lblPrixActuel" Text='<%#String.Format("{0:C}", Eval("UnitPrice") )%>' Style="text-decoration: line-through;"></asp:Label>
-                        <br />
-                        <asp:Label runat="server" ID="lblPrixMaintenant" Text='<%#Presenter.CurrentLanguage == LocalizationLanguage.FRENCH ? "Maintenant" : "Now"%>' />
-                        <asp:Label runat="server" ID="lblPrixVente" Text='<%#String.Format("{0:C}",Eval("SalePrice"))%>'></asp:Label>
-                    </div>
-                </div>
-            </ItemTemplate>
-        </asp:DataList>
     </div>
 
 

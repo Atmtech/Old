@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Web.UI;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Pages;
+using ATMTECH.Web;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
@@ -39,12 +42,14 @@ namespace ATMTECH.ShoppingCart.Commerce
                     imgPanier.Visible = false;
                     btnPanier.Visible = false;
                     lblAucunItemDansPanier.Visible = true;
+                    btnPanier.Visible = false;
                 }
                 else
                 {
                     imgPanier.Visible = true;
                     btnPanier.Visible = true;
                     lblAucunItemDansPanier.Visible = false;
+                    btnPanier.Visible = true;
                 }
                 btnPanier.Text = value;
             }
@@ -74,6 +79,13 @@ namespace ATMTECH.ShoppingCart.Commerce
         protected void btnPanierClick(object sender, EventArgs e)
         {
             Presenter.NavigationService.Redirect(Pages.BASKET);
+        }
+
+        protected void imgRechercheClick(object sender, ImageClickEventArgs e)
+        {
+            IList<QueryString> queryString = new List<QueryString>();
+            queryString.Add(new QueryString(PagesId.SEARCH, txtRecherche.Text));
+            Presenter.NavigationService.Redirect(Pages.PRODUCT_CATALOG, queryString);
         }
     }
 }

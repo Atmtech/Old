@@ -58,7 +58,7 @@ a
 .boutonLien
 {
     border: none;
-    background-color: black;
+    background-color: #111;
     color: white;
     font-size: 12px;
     font-weight: bold;
@@ -340,7 +340,6 @@ a
 {
     font-weight: bold;
     margin-top: 20px;
-    text-transform: uppercase;
 }
 
 .motPasseOublie
@@ -550,3 +549,55 @@ a
     {
         right: 0;
     }
+
+
+.prixEpargner
+{
+    color: rgb(187, 80, 80);
+}
+
+.prixPaye
+{
+    font-size: 20px;
+}
+
+.totalPanierLigneCommande
+{
+    font-weight: bold;
+    border-bottom: solid 1px gray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.ajustementPrixPanier
+{
+    margin-top: 5px;
+    border-top: solid 1px gray;
+    font-size: 10px;
+}
+
+.totalCommandePanier
+{
+    border-top: solid 1px gray;
+    color: gold;
+    font-size: 15px;
+}
+
+.affichageAdressePanier {
+    text-transform: none;
+    
+}
+
+.merciPourLaCommande {
+    padding-top: 10px;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px gray;
+
+}
+
+.prixRaye {
+    text-decoration: line-through;
+}
+

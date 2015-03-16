@@ -281,5 +281,19 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             ViewMock.VerifySet(x => x.ListePaysFacturation = countries);
             ViewMock.VerifySet(x => x.ListePaysLivraison = countries);
         }
+
+        [TestMethod]
+        public void AfficherCommandePasse_DoitAfficherLesCommandesPasse()
+        {
+            Customer customer = AutoFixture.Create<Customer>();
+            Order order = AutoFixture.Create<Order>();
+            IList<Order> orders = new List<Order>();
+            orders.Add(order);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+            
+            InstanceTest.AfficherCommandePasse();
+
+            ObtenirMock<ICommandeService>().Verify(x => x.ObtenirCommande(customer),Times.Once());
+        }
     }
 }

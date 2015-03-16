@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
-         CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.AddProductToBasket" %>
+    CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.AddProductToBasket" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -7,7 +7,7 @@
     <div class="imageProduit">
         <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" OnClick="imgProductPrincipalClick" CssClass="imageProduitAfficher" />
         <asp:DataList ID="DataListProductFile" RepeatDirection="Horizontal" runat="server"
-                      OnItemDataBound="ProductFileDataBound" OnItemCommand="ProductFileCommand">
+            OnItemDataBound="ProductFileDataBound" OnItemCommand="ProductFileCommand">
             <ItemTemplate>
                 <asp:ImageButton runat="server" ID="imgProductFile" CommandName="ChangeImage" Width="50px" Height="50px" />
             </ItemTemplate>
@@ -15,12 +15,14 @@
     </div>
     <div class="descriptionProduit">
         <div class="titreDescriptionProduit">
-            <asp:Label runat="server" ID="lblIdentProduit" ></asp:Label>
+            <asp:Label runat="server" ID="lblIdentProduit"></asp:Label>
             -
             <asp:Label runat="server" ID="lblNomProduit"></asp:Label>
         </div>
         <div class="prixDescriptionProduit">
-            <asp:Label runat="server" ID="lblPrixUnitaire"></asp:Label>
+            <asp:Label runat="server" ID="lblPrixUnitaire" CssClass="prixPaye"></asp:Label>
+            <br/>
+            <asp:Label runat="server" ID="lblVousEpargnez" Text="Vous épargnez" Visible="False" CssClass="prixEpargner"></asp:Label>  <asp:Label runat="server" ID="lblPrixEpargner" Visible="False" CssClass="prixEpargner"></asp:Label>
         </div>
         <div class="quantiteDescriptionProduit">
             <div>
@@ -39,14 +41,14 @@
                             <atmtech:ComboBox runat="server" ID="ddlStock" />
                         </div>
                         <div class="Cell">
-                            <asp:button runat="server" ID="btnVousDevezEtreConnectePourAjouterQuantite" Text="Identifier vous" OnClick="btnVousDevezEtreConnectePourAjouterQuantiteClick" CssClass="boutonLien"></asp:button>
+                            <asp:Button runat="server" ID="btnVousDevezEtreConnectePourAjouterQuantite" Text="Identifier vous" OnClick="btnVousDevezEtreConnectePourAjouterQuantiteClick" CssClass="boutonLien"></asp:Button>
                             <atmtech:Numeric runat="server" NoDecimal="True" ID="txtQuantite" CssClass="textBox" />
                         </div>
                     </div>
                 </div>
                 <br />
                 <asp:Button runat="server" ID="btnAjouterLigneCommande" OnClick="btnAjouterLigneCommandeClick" CssClass="boutonActionRond"
-                            Text="Ajouter au panier"></asp:Button>
+                    Text="Ajouter au panier"></asp:Button>
             </div>
         </div>
         <div class="detailDescriptionProduit">

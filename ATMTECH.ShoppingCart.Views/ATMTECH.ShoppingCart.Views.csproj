@@ -48,12 +48,14 @@
     <Compile Include="Francais\ConfirmationCreationUtilisateurPresenter.cs" />
     <Compile Include="Francais\ContacterNousPresenter.cs" />
     <Compile Include="Francais\CatalogueProduitPresenter.cs" />
+    <Compile Include="Francais\MerciCommandePresenter.cs" />
     <Compile Include="Francais\PageMaitrePresenter.cs" />
     <Compile Include="Francais\MotPasseOubliePresenter.cs" />
     <Compile Include="Francais\PanierPresenter.cs" />
     <Compile Include="Francais\InformationClientPresenter.cs" />
     <Compile Include="Francais\IdentificationPresenter.cs" />
     <Compile Include="InformationsPresenter.cs" />
+    <Compile Include="Interface\Francais\IMerciCommandePresenter.cs" />
     <Compile Include="Interface\Francais\IPageMaitrePresenter.cs" />
     <Compile Include="Interface\Francais\ICatalogueProduitPresenter.cs" />
     <Compile Include="Interface\Francais\IMotPasseOubliePresenter.cs" />

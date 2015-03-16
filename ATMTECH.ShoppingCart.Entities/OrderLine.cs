@@ -18,5 +18,16 @@ namespace ATMTECH.ShoppingCart.Entities
         {
             get { return Stock == null ? "" : Stock.Product == null ? "" : Stock.Product.NameFrench + "-" + Stock.FeatureFrench; }
         }
+
+        public decimal SavePrice
+        {
+            get
+            {
+                return Stock != null && Stock.Product != null && Stock.Product.UnitPrice > UnitPrice
+                           ? Stock.Product.UnitPrice - UnitPrice
+                           : 0;
+            }
+        }
+
     }
 }

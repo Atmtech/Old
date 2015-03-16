@@ -23,10 +23,10 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return (Product)Session["ProduitCourant"]; }
             set
             {
-                
+
                 switch (Presenter.CurrentLanguage)
                 {
-                       
+
                     case LocalizationLanguage.FRENCH:
                         lblDescription.Text = value.DescriptionFrench;
                         lblNomProduit.Text = value.NameFrench;
@@ -40,7 +40,20 @@ namespace ATMTECH.ShoppingCart.Commerce
                 }
 
                 lblIdentProduit.Text = value.Ident;
-                lblPrixUnitaire.Text = value.UnitPrice.ToString("C");
+
+                lblPrixEpargner.Text = value.SavePrice.ToString("C");
+                if (value.SavePrice > 0)
+                {
+                    lblPrixEpargner.Visible = true;
+                    lblVousEpargnez.Visible = true;
+                    lblPrixUnitaire.Text = value.SalePrice.ToString("C");
+                }
+                else
+                {
+                    lblPrixEpargner.Visible = false;
+                    lblVousEpargnez.Visible = false;
+                    lblPrixUnitaire.Text = value.UnitPrice.ToString("C");
+                }
                 imgProductPrincipal.ImageUrl = value.PrincipalFileUrl;
 
                 DataListProductFile.DataSource = value.ProductFiles;

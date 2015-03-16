@@ -132,11 +132,11 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.slider.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
+    <Content Include="ListeProduit.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="ProductCatalog.aspx" />
     <Content Include="SlideShow.ascx" />
-    <Content Include="test.html" />
-    <Content Include="ThumbNail.aspx" />
+    <Content Include="ThankYouForYourOrder.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -208,6 +208,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ListeProduit.ascx.cs">
+      <DependentUpon>ListeProduit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListeProduit.ascx.designer.cs">
+      <DependentUpon>ListeProduit.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -237,12 +244,12 @@
     <Compile Include="SlideShow.ascx.designer.cs">
       <DependentUpon>SlideShow.ascx</DependentUpon>
     </Compile>
-    <Compile Include="ThumbNail.aspx.cs">
-      <DependentUpon>ThumbNail.aspx</DependentUpon>
+    <Compile Include="ThankYouForYourOrder.aspx.cs">
+      <DependentUpon>ThankYouForYourOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ThumbNail.aspx.designer.cs">
-      <DependentUpon>ThumbNail.aspx</DependentUpon>
+    <Compile Include="ThankYouForYourOrder.aspx.designer.cs">
+      <DependentUpon>ThankYouForYourOrder.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using ATMTECH.Common.Utils;
+using System.Web;
+using ATMTECH.Common.Constant;
+using ATMTECH.Services;
+using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
@@ -8,6 +12,7 @@ using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Base;
 using ATMTECH.Web.Services.Interface;
+using Math = ATMTECH.Common.Utils.Math;
 
 namespace ATMTECH.ShoppingCart.Services.Francais
 {
@@ -23,10 +28,21 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IValiderCommandeService ValiderCommandeService { get; set; }
         public IShippingService ShippingService { get; set; }
         public IParameterService ParameterService { get; set; }
+        public IPaypalService PaypalService { get; set; }
+        public ILocalizationService LocalizationService { get; set; }
+        public IReportService ReportService { get; set; }
 
         public Order ObtenirCommandeSouhaite(Customer client)
         {
             return DAOCommande.ObtenirCommandeSouhaite(client);
+        }
+        public IList<Order> ObtenirCommande(Customer customer)
+        {
+            return DAOCommande.ObtenirCommande(customer);
+        }
+        public Order ObtenirCommande(int id)
+        {
+            return DAOCommande.ObtenirCommande(id);
         }
         public Order CreerCommande()
         {
@@ -83,7 +99,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                         if (orderLine.IsActive)
                         {
                             Product product = ProduitService.ObtenirProduit(orderLine.Stock.Product.Id);
-                            orderLine.UnitPrice = product.UnitPrice;
+                            orderLine.UnitPrice = product.UnitPrice > product.SalePrice ? product.SalePrice : product.UnitPrice;
                             orderLine.SubTotal = (product.SalePrice != 0
                                                       ? product.SalePrice
                                                       : product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
@@ -140,16 +156,53 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             }
             return null;
         }
+
+        public void FinaliserCommandeAvecPaypal(Order commande)
+        {
+            string productName = HttpUtility.HtmlDecode(commande.OrderLines.Aggregate(string.Empty, (current, line) => current + (line.ProductDescription + " (" + line.Quantity + ") , ")));
+            PaypalDto paypalDto = new PaypalDto
+            {
+                OrderDescription = string.Format(ParameterService.GetValue("OrderMessagePaypal"), commande.DateModified.ToString(), commande.Enterprise.Name),
+                Price = (double)commande.GrandTotal,
+                Quantity = 1,
+                OrderId = commande.Id.ToString(),
+                ProductName = productName
+            };
+
+            PaypalService.SendPaypalRequest(paypalDto);
+        }
+
         public Order FinaliserCommande(Order commande)
         {
-
+            commande.FinalizedDate = DateTime.Now;
+            commande.OrderStatus = OrderStatus.IsOrdered;
+            commande = Enregistrer(commande);
             return commande;
         }
 
         public Order ImprimerCommande(Order commande)
         {
+            Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
+            ReportParameter reportParameter = new ReportParameter
+            {
+                Assembly = "ATMTECH.ShoppingCart.Services",
+                PathToReportAssembly = "ATMTECH.ShoppingCart.Services.Reports.Commande_" + LocalizationService.CurrentLanguage + ".rdlc",
+                ReportFormat = ReportFormat.PDF,
+                Parameters = dictionnaire
+            };
+
+            IList<Order> order = new List<Order>();
+            order.Add(commande);
+
+            reportParameter.AddDatasource("dsCommande", order);
+            reportParameter.AddDatasource("dsLigneCommande", commande.OrderLines);
+            ReportService.SaveReport(
+                LocalizationService.CurrentLanguage == LocalizationLanguage.ENGLISH ? "Order.pdf" : "Commande.pdf",
+                ReportService.GetReport(reportParameter));
             return commande;
         }
+
+
 
         private Order SauvegarderLigneCommande(Order commande, int idInventaire, int quantite)
         {

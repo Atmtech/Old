@@ -18,6 +18,7 @@ namespace ATMTECH.ShoppingCart.Views.Pages
         public const string INFORMATIONS = "Informations.aspx";
         public const string CONTACT = "Contact.aspx";
         public const string ADD_PRODUCT_TO_BASKET = "AddProductToBasket.aspx";
+        public const string THANK_YOU_ORDER = "ThankYouForYourOrder.aspx";
         public const string MAINTENANCE = "/Errors/Maintenance.html";
     }
 

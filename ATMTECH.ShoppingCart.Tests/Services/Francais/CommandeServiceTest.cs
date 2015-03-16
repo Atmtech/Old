@@ -1,4 +1,7 @@
 ﻿using System;
+using ATMTECH.Common.Constant;
+using ATMTECH.Services;
+using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services;
@@ -6,6 +9,7 @@ using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.Test;
+using ATMTECH.Web.Services.Interface;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -229,6 +233,65 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             Assert.AreEqual(1, ajouterLigneCommande.OrderLines.Count);
             ajouterLigneCommande.OrderLines[0].Order.Id.Should().Be(ajouterLigneCommande.Id);
             Assert.AreEqual(stock.Id, ajouterLigneCommande.OrderLines[0].Stock.Id);
+        }
+
+        [TestMethod]
+        public void AjouterLigneCommande_SiProduitEstEnRabaisOnPrendLeRabais()
+        {
+            LeClientEstValide();
+            Product produit = AutoFixture.Create<Product>();
+            produit.UnitPrice = 10;
+            produit.SalePrice = 5;
+            Stock stock = AutoFixture.Create<Stock>();
+            ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
+            ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
+
+            Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(stock.Id, 1);
+            Assert.AreEqual(5, ajouterLigneCommande.OrderLines[0].UnitPrice);
+        }
+
+        [TestMethod]
+        public void FinaliserCommande_DoitMettreUneDateFinaliser()
+        {
+            Order order = AutoFixture.Create<Order>();
+            order.FinalizedDate = null;
+            order.OrderStatus = OrderStatus.IsWishList;
+
+            Order finaliserCommande = InstanceTest.FinaliserCommande(order);
+
+            if (finaliserCommande.FinalizedDate != null)
+            {
+                DateTime finalizedDate = (DateTime)finaliserCommande.FinalizedDate;
+                finalizedDate.Year.Should().Be(DateTime.Now.Year);
+            }
+        }
+
+        [TestMethod]
+        public void ImprimerCommande_DevraitAvoirLesBonsParametre()
+        {
+            Order order = AutoFixture.Create<Order>();
+            InstanceTest.ImprimerCommande(order);
+            ObtenirMock<ILocalizationService>().Setup(x => x.CurrentLanguage).Returns(LocalizationLanguage.ENGLISH);
+            ObtenirMock<IReportService>().Verify(x => x.GetReport(It.IsAny<ReportParameter>()));
+
+            ObtenirMock<IReportService>().Verify(test => test.GetReport(It.Is<ReportParameter>(a => a.Assembly == "ATMTECH.ShoppingCart.Services")), Times.Once());
+            ObtenirMock<IReportService>().Verify(test => test.GetReport(It.Is<ReportParameter>(a => a.DataSources.Count == 2)), Times.Once());
+            ObtenirMock<IReportService>().Verify(test => test.GetReport(It.Is<ReportParameter>(a => a.DataSources[0].Nom == "dsCommande")), Times.Once());
+            ObtenirMock<IReportService>().Verify(test => test.GetReport(It.Is<ReportParameter>(a => a.DataSources[1].Nom == "dsLigneCommande")), Times.Once());
+            ObtenirMock<IReportService>().Verify(test => test.GetReport(It.Is<ReportParameter>(a => a.DataSources[1].Valeurs.Equals(order.OrderLines))), Times.Once());
+
+        }
+
+        [TestMethod]
+        public void FinaliserCommande_DevraitMettreStatutAEstCommande()
+        {
+            Order order = AutoFixture.Create<Order>();
+            order.FinalizedDate = null;
+            order.OrderStatus = OrderStatus.IsWishList;
+
+            InstanceTest.FinaliserCommande(order);
+
+            ObtenirMock<IDAOCommande>().Verify(test => test.Save(It.Is<Order>(a => a.OrderStatus == OrderStatus.IsOrdered)), Times.Once());
         }
 
         private Customer LeClientEstValide()

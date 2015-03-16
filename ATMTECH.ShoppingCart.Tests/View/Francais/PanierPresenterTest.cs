@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
@@ -68,17 +67,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.CUSTOMER_INFORMATION));
         }
 
-        [TestMethod]
-        public void ImprimerCommande_DoitImprimerLacommandePasse()
-        {
-            Order order = AutoFixture.Create<Order>();
-            ViewMock.Setup(x => x.CommandeFinalise).Returns(order);
-
-
-            InstanceTest.ImprimerCommande();
-
-            ObtenirMock<ICommandeService>().Verify(x => x.ImprimerCommande(order));
-        }
+       
 
         [TestMethod]
         public void FinaliserCommande_EnToutTempsFinalizeOrder()
@@ -92,16 +81,6 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             ObtenirMock<ICommandeService>().Verify(x => x.FinaliserCommande(order), Times.Once());
         }
 
-        [TestMethod]
-        public void FinaliserCommande_EnToutTempsRempliCommandeFinalise()
-        {
-            Order order = AutoFixture.Create<Order>();
-
-            ViewMock.Setup(x => x.Commande).Returns(order);
-            InstanceTest.FinaliserCommande();
-
-            ViewMock.VerifySet(v => v.CommandeFinalise = order);
-        }
 
         [TestMethod]
         public void RecalculerPanier_EnToutTempsSauvegardeLePanier()

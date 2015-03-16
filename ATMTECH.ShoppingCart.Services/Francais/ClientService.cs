@@ -30,17 +30,20 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             if (ValiderClientService.EstClientValide(client))
             {
-                int id = DAOUser.CreateUser(client.User);
-                User user = DAOUser.GetUser(id);
-                user.IsActive = false;
-                DAOUser.UpdateUser(user);
-                client.User = user;
-                Customer clientCreer = DAOClient.ObtenirClient(DAOClient.Creer(client));
-                MailService.SendEmail(clientCreer.User.Email,
-                    ParameterService.GetValue(Constant.ADMIN_MAIL),
-                    string.Format(ParameterService.GetValue(Constant.MAIL_SUBJECT_CONFIRM_CREATE), clientCreer.Enterprise.Name),
-                    string.Format(ParameterService.GetValue(Constant.MAIL_BODY_CONFIRM_CREATE), clientCreer.Enterprise.Name, clientCreer.Enterprise.SubDomainName, clientCreer.User.Id));
-                return clientCreer;
+                if (!ValiderClientService.EstClientExistant(client))
+                {
+                    int id = DAOUser.CreateUser(client.User);
+                    User user = DAOUser.GetUser(id);
+                    user.IsActive = false;
+                    DAOUser.UpdateUser(user);
+                    client.User = user;
+                    Customer clientCreer = DAOClient.ObtenirClient(DAOClient.Creer(client));
+                    MailService.SendEmail(clientCreer.User.Email,
+                        ParameterService.GetValue(Constant.ADMIN_MAIL),
+                        string.Format(ParameterService.GetValue(Constant.MAIL_SUBJECT_CONFIRM_CREATE), clientCreer.Enterprise.Name),
+                        string.Format(ParameterService.GetValue(Constant.MAIL_BODY_CONFIRM_CREATE), clientCreer.Enterprise.Name, clientCreer.Enterprise.SubDomainName, clientCreer.User.Id));
+                    return clientCreer;
+                }
             }
             return null;
         }
@@ -85,7 +88,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                     string corpsMessage = string.Format(
                         ParameterService.GetValue(Constant.MAIL_BODY_FORGET_PASSWORD),
                         customer.Enterprise.Name, login, password);
-                    return MailService.SendEmail(   courriel, 
+                    return MailService.SendEmail(courriel,
                                                     ParameterService.GetValue(Constant.ADMIN_MAIL),
                                                     ParameterService.GetValue(Constant.MAIL_SUBJECT_FORGET_PASSWORD),
                                                     corpsMessage);

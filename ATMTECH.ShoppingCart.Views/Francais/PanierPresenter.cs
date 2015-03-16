@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
+using ATMTECH.Web;
 
 namespace ATMTECH.ShoppingCart.Views.Francais
 {
@@ -39,7 +41,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 View.Commande = commande;
                 View.AdresseFacturation = commande.BillingAddress.DisplayAddress;
                 View.AdresseLivraison = commande.ShippingAddress.DisplayAddress;
-               
+
             }
             else
             {
@@ -49,8 +51,10 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
         public void FinaliserCommande()
         {
-            View.CommandeFinalise = View.Commande;
             CommandeService.FinaliserCommande(View.Commande);
+            IList<QueryString> queryStrings = new List<QueryString>();
+            queryStrings.Add(new QueryString(Pages.PagesId.ORDER_ID, View.Commande.Id.ToString()));
+            NavigationService.Redirect(Pages.Pages.THANK_YOU_ORDER, queryStrings);
         }
 
         public void SupprimerLigneCommande(int id)
@@ -71,10 +75,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             AfficherPanier();
         }
 
-        public void ImprimerCommande()
-        {
-            CommandeService.ImprimerCommande(View.CommandeFinalise);
-        }
 
         public void ModifierAdresse()
         {

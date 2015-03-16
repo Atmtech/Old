@@ -65,7 +65,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public bool EstClientValide(Customer client)
         {
             if (EstCourrielValide(client) == false) return false;
-            if (EstClientExistant(client) == false) return false;
+           // if (EstClientExistant(client) == false) return false;
             if (EstNomUtilisateurValide(client) == false) return false;
             if (EstMotPasseValide(client) == false) return false;
             return true;

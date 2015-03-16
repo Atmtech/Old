@@ -47,7 +47,7 @@
             <div class="menu">
 
                 <div class="recherche">
-                    <asp:ImageButton runat="server" ID="imgRecherche" ImageUrl="~/Images/WebSite/Rechercher.png" />
+                    <asp:ImageButton runat="server" ID="imgRecherche" ImageUrl="~/Images/WebSite/Rechercher.png" OnClick="imgRechercheClick" />
                     <asp:TextBox ID="txtRecherche" runat="server" CssClass="textBoxRecherche" PlaceHolder="Recherche"></asp:TextBox>
                 </div>
                 <br />
@@ -61,18 +61,19 @@
                 <div style="float: left; border-left: solid 1px white;">
                     <asp:Button ID="btnContacterNous" runat="server" Text="Contacter-nous" CssClass="boutonLien" OnClick="btnContacterNousClick" />
                 </div>
-                <div style="float: left;border-left: solid 1px white;"><asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonLien" /><asp:Button runat="server" ID="btnAnglais" Text="Anglais" CssClass="boutonLien" Visible="False" /></div>
+                <div style="float: left; border-left: solid 1px white;">
+                    <asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonLien" /><asp:Button runat="server" ID="btnAnglais" Text="Anglais" CssClass="boutonLien" Visible="False" /></div>
                 <div style="float: left; width: 525px; text-align: right;">
                     <asp:Panel runat="server" ID="pnlDeconnecte">
                         <asp:Button runat="server" ID="btnConnecter" Text="Identifiez vous ou créer un compte" CssClass="boutonLien" OnClick="btnConnecterClick" />
                     </asp:Panel>
                     <asp:Panel runat="server" ID="pnlConnecte" Visible="False">
                         <asp:Button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonLien"></asp:Button>|
+                        <asp:Image ImageUrl="Images/WebSite/Shopping-Cart-icon.png" Style="width: 20px; height: 20px; vertical-align: text-top" runat="server" ID="imgPanier" />
                         <asp:Label runat="server" ID="lblAucunItemDansPanier" Text="Aucun article"></asp:Label>
-                        <asp:Image ImageUrl="Images/WebSite/Shopping-Cart-icon.png" style="width: 20px;height: 20px;vertical-align: text-top" runat="server" ID="imgPanier"/>
-                        <asp:Button runat="server" ID="btnPanier" OnClick="btnPanierClick" CssClass="boutonLien" />|
+                        <asp:Button runat="server" ID="btnPanier" OnClick="btnPanierClick" CssClass="boutonLien" Visible="False" />|
                         <asp:Button runat="server" ID="btnDeconnecter" Text="Se déconnecter" CssClass="boutonLien" OnClick="btnDeconnecterClick" />
-                        
+
                     </asp:Panel>
                 </div>
                 <div style="clear: both;"></div>
