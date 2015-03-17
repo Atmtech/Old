@@ -157,7 +157,6 @@ namespace ATMTECH.Administration
         {
             Presenter.ImportProductFromXml();
         }
-
         protected void btnSynchroniserFichierImageClick(object sender, EventArgs e)
         {
             Presenter.SynchronizeImage(ddlSiteList.SelectedValue);

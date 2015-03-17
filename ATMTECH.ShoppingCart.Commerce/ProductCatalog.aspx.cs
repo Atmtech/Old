@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
@@ -15,8 +14,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             set
             {
-                dataListProduitTrouve.DataSource = value;
-                dataListProduitTrouve.DataBind();
+                ListeProduit1.Produits = value;
             }
         }
         public string Recherche

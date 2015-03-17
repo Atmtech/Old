@@ -14,6 +14,12 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public IProduitService ProduitService { get; set; }
         public IClientService ClientService { get; set; }
 
+        public override void OnViewInitialized()
+        {
+            base.OnViewInitialized();
+            AfficherListeProduit();
+        }
+
         public void AfficherListeProduit()
         {
             View.Produits = !string.IsNullOrEmpty(View.Recherche)
