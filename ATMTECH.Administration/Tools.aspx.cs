@@ -161,5 +161,10 @@ namespace ATMTECH.Administration
         {
             Presenter.SynchronizeImage(ddlSiteList.SelectedValue);
         }
+
+        protected void btnSynchroniserProduitFichierClick(object sender, EventArgs e)
+        {
+            Presenter.SynchronizeProductFile(1);
+        }
     }
 }

@@ -292,6 +292,24 @@ namespace ATMTECH.Administration {
         protected global::System.Web.UI.WebControls.Label lblResultRestore;
         
         /// <summary>
+        /// Contrôle btnOpenApplication.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOpenApplication;
+        
+        /// <summary>
+        /// Contrôle btnCloseApplication.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCloseApplication;
+        
+        /// <summary>
         /// Contrôle ddlSiteList.
         /// </summary>
         /// <remarks>
@@ -310,31 +328,13 @@ namespace ATMTECH.Administration {
         protected global::System.Web.UI.WebControls.Button btnSynchroniserFichierImage;
         
         /// <summary>
-        /// Contrôle Label1.
+        /// Contrôle btnSynchroniserProduitFichier.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// Contrôle btnOpenApplication.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOpenApplication;
-        
-        /// <summary>
-        /// Contrôle btnCloseApplication.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCloseApplication;
+        protected global::System.Web.UI.WebControls.Button btnSynchroniserProduitFichier;
         
         /// <summary>
         /// Contrôle btnChargerXmlProduit.

@@ -13,6 +13,31 @@ namespace ATMTECH.Administration.Services
         public IProductService ProductService { get; set; }
         public IStockService StockService { get; set; }
 
+        private string TrouverCategorieAnglaise(ImportProduit importProduit)
+        {
+            string categorieAnglaise = string.Empty;
+            if (importProduit.Category1.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category1)) categorieAnglaise = importProduit.Category1;
+            if (importProduit.Category2.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category2)) categorieAnglaise += "/" + importProduit.Category2;
+            if (importProduit.Category3.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category3)) categorieAnglaise += "/" + importProduit.Category3;
+            if (importProduit.Category4.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category4)) categorieAnglaise += "/" + importProduit.Category4;
+            if (importProduit.Category5.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category5)) categorieAnglaise += "/" + importProduit.Category5;
+            return categorieAnglaise;
+        }
+
+
+        private string TrouverCategorieFrancaise(ImportProduit importProduit)
+        {
+            string categorieFrancais = string.Empty;
+            if (importProduit.Category1.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category1)) categorieFrancais = TraductionCategorie(importProduit.Category1);
+            if (importProduit.Category2.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category2)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category2);
+            if (importProduit.Category3.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category3)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category3);
+            if (importProduit.Category4.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category4)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category4);
+            if (importProduit.Category5.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category5)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category5);
+            return categorieFrancais;
+        }
+
+
+
         public void ImportProductAndStockXml(Enterprise enterprise, string fileXml)
         {
             IList<ImportProduit> importProduits = new List<ImportProduit>();
@@ -50,73 +75,52 @@ namespace ATMTECH.Administration.Services
                 }
 
             // Générer les catégories
-            IList<ProductCategory> categories = ProductService.GetProductCategoryWithoutLanguage(enterprise.Id);
             IList<ProductCategory> categoriesTraite = new List<ProductCategory>();
+            IList<ProductCategory> categorieExistante = ProductService.GetProductCategoryWithoutLanguage(enterprise.Id);
 
             foreach (ImportProduit importProduit in importProduits)
             {
-                string concatCategorie = importProduit.Category1;
-                if (!string.IsNullOrEmpty(importProduit.Category2) && importProduit.Category2 != "ZCatalog")
-                {
-                    concatCategorie += "-" + importProduit.Category2;
-                }
-                if (!string.IsNullOrEmpty(importProduit.Category3) && importProduit.Category3 != "ZCatalog")
-                {
-                    concatCategorie += "-" + importProduit.Category3;
-                }
-                if (!string.IsNullOrEmpty(importProduit.Category4) && importProduit.Category4 != "ZCatalog")
-                {
-                    concatCategorie += "-" + importProduit.Category4;
-                }
-                if (!string.IsNullOrEmpty(importProduit.Category5) && importProduit.Category5 != "ZCatalog")
-                {
-                    concatCategorie += "-" + importProduit.Category5;
-                }
+                string categorieAnglaise = TrouverCategorieAnglaise(importProduit);
+                string categorieFrancais = TrouverCategorieFrancaise(importProduit);
 
-                ProductCategory productCategory =
-                    categories.FirstOrDefault(
-                        x => x.Description == importProduit.Category1 && x.Enterprise.Id == enterprise.Id);
-                if (productCategory == null && categoriesTraite.Count(x => x.Description == concatCategorie && x.Enterprise.Id == enterprise.Id) == 0)
+                ProductCategory productCategory;
+                if (!string.IsNullOrEmpty(categorieAnglaise))
                 {
-                    if (!string.IsNullOrEmpty(concatCategorie))
+                    productCategory = new ProductCategory
                     {
-                        productCategory = new ProductCategory
-                            {
-                                Description = concatCategorie,
-                                Enterprise = enterprise,
-                                Language = "en"
-                            };
-                        categoriesTraite.Add(productCategory);
-                        ProductService.SaveProductCategory(productCategory);
-
-                        productCategory = new ProductCategory
-                        {
-                            Description = TraductionCategorie(concatCategorie),
-                            Enterprise = enterprise,
-                            Language = "fr"
-                        };
-                        categoriesTraite.Add(productCategory);
-                        ProductService.SaveProductCategory(productCategory);
-
-                    }
-                }
-                else
-                {
-                    if (productCategory != null)
+                        Description = categorieAnglaise,
+                        Enterprise = enterprise,
+                        Language = "en",
+                        IsActive = true
+                    };
+                    if (categoriesTraite.Count(x => x.Description == categorieAnglaise) == 0 && categorieExistante.Count(x => x.Description == categorieAnglaise) == 0)
                     {
-                        productCategory.Description = concatCategorie;
-                        categoriesTraite.Add(productCategory);
                         ProductService.SaveProductCategory(productCategory);
                     }
+                    categoriesTraite.Add(productCategory);
+                }
+
+                if (!string.IsNullOrEmpty(categorieFrancais))
+                {
+                    productCategory = new ProductCategory
+                    {
+                        Description = categorieFrancais,
+                        Enterprise = enterprise,
+                        Language = "fr",
+                        IsActive = true
+                    };
+                    if (categoriesTraite.Count(x => x.Description == categorieFrancais) == 0 && categorieExistante.Count(x => x.Description == categorieFrancais) == 0)
+                    {
+                        ProductService.SaveProductCategory(productCategory);
+                    }
+                    categoriesTraite.Add(productCategory);
                 }
             }
-
 
             // Générer les produits
             IList<Product> products = ProductService.GetAllActive().Where(x => x.Enterprise.Id == enterprise.Id).ToList();
             IList<Product> productsTraite = new List<Product>();
-            IList<ProductCategory> productCategories =
-                ProductService.GetProductCategoryWithoutLanguage(enterprise.Id);
+            IList<ProductCategory> productCategories = ProductService.GetProductCategoryWithoutLanguage(enterprise.Id);
             foreach (ImportProduit importProduit in importProduits)
             {
                 Product product = products.FirstOrDefault(x => x.Ident == importProduit.ItemID);
@@ -131,8 +135,8 @@ namespace ATMTECH.Administration.Services
                             NameEnglish = importProduit.Title_EN,
                             NameFrench = importProduit.Title_FR,
                             Enterprise = enterprise,
-                            ProductCategoryEnglish = productCategories.FirstOrDefault(x => x.Description == importProduit.Category1),
-                            ProductCategoryFrench = productCategories.FirstOrDefault(x => x.Description == importProduit.Category1),
+                            ProductCategoryEnglish = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieAnglaise(importProduit)),
+                            ProductCategoryFrench = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieFrancaise(importProduit)),
                             Weight = 1
                         };
                     productsTraite.Add(product);
@@ -146,16 +150,14 @@ namespace ATMTECH.Administration.Services
                         product.DescriptionFrench = importProduit.Desc_FR;
                         product.NameEnglish = importProduit.Title_EN;
                         product.NameFrench = importProduit.Title_FR;
-                        product.ProductCategoryEnglish =
-                            productCategories.FirstOrDefault(x => x.Description == importProduit.Category1);
-                        product.ProductCategoryFrench =
-                            productCategories.FirstOrDefault(x => x.Description == importProduit.Category1);
+                        product.ProductCategoryEnglish = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieAnglaise(importProduit));
+                        product.ProductCategoryFrench = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieFrancaise(importProduit));
                         productsTraite.Add(product);
                         ProductService.Save(product);
                     }
                 }
             }
-
+            
             // Générer les stock // caracteristique
             products = ProductService.GetAllActive().Where(x => x.Enterprise.Id == enterprise.Id).ToList();
             IList<Stock> stocks = StockService.GetAllStockByEnterprise(enterprise.Id);
@@ -205,6 +207,31 @@ namespace ATMTECH.Administration.Services
         }
         private string TraductionCategorie(string categorieAnglais)
         {
+
+            if (categorieAnglais == "Fleece") return "Tissus";
+            if (categorieAnglais == "Pants") return "Pantalon";
+            if (categorieAnglais == "accessories") return "Accessoires";
+            if (categorieAnglais == "BathRobes") return "Robe de chambre";
+            if (categorieAnglais == "Shirts") return "Gilet";
+            if (categorieAnglais == "Unisex") return "Unisexe";
+            if (categorieAnglais == "Tshirts") return "Tshirts.";
+            if (categorieAnglais == "LongSlv") return "Gilet long";
+            if (categorieAnglais == "Polos") return "Polos.";
+            if (categorieAnglais == "Shorts") return "Culotte courte";
+            if (categorieAnglais == "Jackets") return "Manteau";
+            if (categorieAnglais == "Caps") return "Casquette";
+            if (categorieAnglais == "Bellacanvas") return "Bellacanvas.";
+            if (categorieAnglais == "TankTop") return "TankTop.";
+            if (categorieAnglais == "Headwears") return "Chapeau";
+            if (categorieAnglais == "Hyp") return "Hyp.";
+            if (categorieAnglais == "Knit") return "Tricot";
+            if (categorieAnglais == "BathRobes-Unisex") return "F";
+            if (categorieAnglais == "Dyenomite") return "Dyenomite.";
+            if (categorieAnglais == "Outdoor") return "Extérieur";
+            if (categorieAnglais == "Bags") return "Sac";
+            if (categorieAnglais == "Oakley") return "Oakley.";
+            if (categorieAnglais == "Horst") return "Horst.";
+            if (categorieAnglais == "Valubag") return "Sac valeur";
             return "";
         }
 

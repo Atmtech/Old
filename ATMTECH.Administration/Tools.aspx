@@ -188,9 +188,16 @@
         <br />
         <asp:Label runat="server" ID="lblResultRestore"></asp:Label>
 
+        <div class="EnteteOutils">
+            Ouvrir ou fermer le système
+        </div>
+        <asp:Button runat="server" ID="btnOpenApplication" OnClick="btnOpenApplicationClick" CausesValidation="False" CssClass="button" Text="Ouvrir l'application" />
+        <asp:Button runat="server" ID="btnCloseApplication" OnClick="btnCloseApplicationClick" CausesValidation="False" CssClass="button" Text="Fermer l'application" />
 
-        <div style="border: solid 1px gray">
-            Outils de la version eCommerce<br/>
+
+        <div style="border: solid 1px gray; padding: 10px 10px 10px 10px; margin-top: 10px;">
+            <b>Outils de la version eCommerce<br />
+            </b>
             <div class="EnteteOutils">
                 Synchroniser les fichiers images avec la base de données.
             </div>
@@ -209,17 +216,12 @@
         <asp:ListItem Value="C:\Domains\glv.boutiquecorpo.com\www\Images">glv.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="C:\Domains\glv-an.boutiquecorpo.com\www\Images">glv-an.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="C:\Domains\lauzon.boutiquecorpo.com\www\Images">lauzon.boutiquecorpo.com</asp:ListItem>--%>
-                <asp:ListItem Value="C:\dev\Atmtech\ATMTECH.ShoppingCart.PubJL\Images">Développement</asp:ListItem>
+                <asp:ListItem Value="C:\dev\Atmtech\ATMTECH.ShoppingCart.Commerce\Images">Développement</asp:ListItem>
             </asp:DropDownList>
 
-            <asp:Button runat="server" ID="btnSynchroniserFichierImage" OnClick="btnSynchroniserFichierImageClick" CausesValidation="False" CssClass="button" Text="Synchroniser" />
-            <asp:Label runat="server" ID="Label1"></asp:Label>
+            <asp:Button runat="server" ID="btnSynchroniserFichierImage" OnClick="btnSynchroniserFichierImageClick" CausesValidation="False" CssClass="button" Text="Inscrire les fichiers du répertoire selectionne dans la BD" />
 
-            <div class="EnteteOutils">
-                Ouvrir ou fermer le système
-            </div>
-            <asp:Button runat="server" ID="btnOpenApplication" OnClick="btnOpenApplicationClick" CausesValidation="False" CssClass="button" Text="Ouvrir l'application" />
-            <asp:Button runat="server" ID="btnCloseApplication" OnClick="btnCloseApplicationClick" CausesValidation="False" CssClass="button" Text="Fermer l'application" />
+            <asp:Button runat="server" ID="btnSynchroniserProduitFichier" OnClick="btnSynchroniserProduitFichierClick" CausesValidation="False" CssClass="button" Text="Associer les produits aux fichiers inscrit dans la BD" />
 
             <div class="EnteteOutils">
                 Chargement massif (Ne pas utiliser si vous ne savez pas ce que vous faites)

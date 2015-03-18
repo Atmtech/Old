@@ -130,7 +130,7 @@ namespace ATMTECH.Administration.Views
 
             switch (objet)
             {
-                case "Localization": return Save<Localization>();   
+                case "Localization": return Save<Localization>();
                 case "Address": return Save<Address>();
                 case "Country": return Save<Country>();
                 case "City": return Save<City>();
@@ -314,6 +314,29 @@ namespace ATMTECH.Administration.Views
                     FileService.SaveFile(fileToSave);
                 }
 
+            }
+        }
+
+        public void SynchronizeProductFile(int idEnterprise)
+        {
+            IList<File> filesDatabase = FileService.GetAllFile();
+
+            IList<ProductFile> productFiles = ProductService.GetProductFile(idEnterprise);
+            IList<Product> products = ProductService.GetAllActive();
+            foreach (File file in filesDatabase)
+            {
+                ProductFile productFile = productFiles.FirstOrDefault(x => x.Product.Ident == file.FileName.Replace(".jpg", ""));
+                if (productFile == null)
+                {
+                    productFile = new ProductFile
+                        {
+                            Product = products.FirstOrDefault(x => x.Ident == file.FileName.Replace(".jpg", "")),
+                            File = file,
+                            IsPrincipal = true,
+                            IsActive = true
+                        };
+                    ProductService.SaveProductFile(productFile);
+                }
             }
         }
     }
