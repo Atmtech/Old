@@ -20,5 +20,14 @@ namespace ATMTECH.ShoppingCart.Commerce
                 SlideShow.Langue = Presenter.CurrentLanguage;
             }
         }
+
+        public IList<ProductCategory> ListeCategorie
+        {
+            get { return (IList<ProductCategory>)Session["ListeCategorie"]; }
+            set
+            {
+                Session["ListeCategorie"] = value;
+            }
+        }
     }
 }

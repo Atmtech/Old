@@ -26,5 +26,10 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
             View.ListeProduitEnVente = ProduitService.ObtenirListeProduitEnVente(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)));
         }
+
+        public void AfficherListeCategorie()
+        {
+            View.ListeCategorie = ProduitService.ObtenirListeCategorie(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)));
+        }
     }
 }

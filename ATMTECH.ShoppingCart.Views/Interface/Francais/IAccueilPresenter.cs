@@ -7,5 +7,6 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
     public interface IAccueilPresenter : IViewBase
     {
         IList<Product> ListeProduitEnVente { get; set; }
+        IList<ProductCategory> ListeCategorie { get; set; }
     }
 }

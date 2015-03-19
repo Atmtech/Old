@@ -68,9 +68,6 @@
     <Content Include="FrameSlideShow.html" />
     <Content Include="Global.asax" />
     <Content Include="Images\Enterprise\BoutiqueCorporative.jpg" />
-    <Content Include="Images\Product\001.jpg" />
-    <Content Include="Images\Product\002.jpg" />
-    <Content Include="Images\Product\003.jpg" />
     <Content Include="Images\Product\NoImageForThisProduct.jpg" />
     <Content Include="Images\WebSite\error-icon.png" />
     <Content Include="Images\WebSite\paypal-transparent-logo.png" />

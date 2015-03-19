@@ -27,7 +27,7 @@ namespace ATMTECH.ShoppingCart.Commerce
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Produits == null) return;
             //dataListeTest.DataSource = Produits;
             //    dataListeTest.DataBind();
             foreach (Product produit in Produits)
