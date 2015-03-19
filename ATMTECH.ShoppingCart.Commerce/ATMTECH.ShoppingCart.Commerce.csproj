@@ -65,6 +65,7 @@
     <Content Include="ExpressCheckoutPaypal.aspx" />
     <Content Include="fonts\license.txt" />
     <Content Include="ForgetPassword.aspx" />
+    <Content Include="FrameSlideShow.html" />
     <Content Include="Global.asax" />
     <Content Include="Images\Enterprise\BoutiqueCorporative.jpg" />
     <Content Include="Images\Product\001.jpg" />

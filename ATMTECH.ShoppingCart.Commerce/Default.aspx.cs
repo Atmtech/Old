@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
@@ -12,8 +13,11 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return (IList<Product>)Session["ListeProduitEnVente"]; }
             set
             {
-                ListeProduit1.Produits = value;
+                ListeProduit.Produits = value;
+                ListeProduit.Langue = Presenter.CurrentLanguage;
                 Session["ListeProduitEnVente"] = value;
+                SlideShow.Produits = value.Where(x => x.PercentageSave > 35).ToList();
+                SlideShow.Langue = Presenter.CurrentLanguage;
             }
         }
     }

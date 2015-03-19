@@ -22,7 +22,12 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             criterias.Add(IsActive());
             OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ORDER_ID, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
-            return GetByCriteria(criterias, pagingOperation, orderOperation);
+            IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
+            foreach (Product product in products)
+            {
+                product.ProductFiles = DAOProduitFichier.ObtenirListeFichier(product.Id);
+            }
+            return products;
         }
 
         public Product ObtenirProduit(int id)

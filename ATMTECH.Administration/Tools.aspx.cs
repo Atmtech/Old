@@ -164,7 +164,7 @@ namespace ATMTECH.Administration
 
         protected void btnSynchroniserProduitFichierClick(object sender, EventArgs e)
         {
-            Presenter.SynchronizeProductFile(1);
+            Presenter.SynchronizeProductFile();
         }
     }
 }

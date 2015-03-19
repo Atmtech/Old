@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SlideShow.ascx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.SlideShow" %>
 
 <script>
-    
+
     jQuery(document).ready(function ($) {
 
         //var _CaptionTransitions = [];
@@ -93,122 +93,65 @@
     <!-- Slides Container -->
     <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1000px; height: 500px; overflow: hidden;">
 
-        <div>
+       <%-- <asp:DataList runat="server" ID="dataListeTest">
+            <ItemTemplate>
+                <div>
+                    <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/purple.jpg" />
+                    <div style="position: absolute; width: 1000px; height: 120px; top: 0px;">
+
+                        <div style="float: left; width: 670px; padding-right: 10px; padding-top: 80px; padding-left: 10px;">
+                            <div style="font-weight: bold; font-size: 30px; padding-bottom: 10px; font-weight: bold; border-bottom: solid 1px white; margin-bottom: 10px;">MOLLETON À COL ARRONDI</div>
+                            50% Coton/ 50% dryblend polyester prérétréci, 15.5 oz.Tissu quiabsorbe l’humidité. Molleton à col arrondi et manchesmontées. Tricot côtelé 1X1 avec Lycra®. Double piqûres aucol, aux manches, et à la taille. Tissu tourné d’un quart detour pour éliminer le pli central. Propriétés « moisture wicking ».Transfert thermique de l’étiquette.(Sport Grey 10% Polyester)
+                        <br />
+                            <br />
+                            <div style="font-weight: bold; font-size: 20px;"><a href="">Acheter dès maintenant !!!!!</a></div>
+                        </div>
+                        <div style="float: left; width: 300px;">
+                            <img src="Images/Product/12000.jpg" style="width: 311px; height: 500px;" />
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:DataList>--%>
+
+        <asp:PlaceHolder runat="server" ID="placeHolder"></asp:PlaceHolder>
+
+        <%--    <div>
             <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/purple.jpg" />
-            <div style="position: absolute; width: 800px; height: 120px; top: 30px; left: 30px; padding: 5px; color: #FFFFFF;">
+            <div style="position: absolute; width: 1000px; height: 120px; top: 0px;">
 
-                <table style="width: 100%">
-                    <tr>
-                        <td>Porsche</td>
-                        <td>
-                            <img src="Images/Product/002.jpg" />you</td>
-                    </tr>
-                </table>
-
-
+                <div style="float: left; width: 670px; padding-right: 10px; padding-top: 80px; padding-left: 10px;">
+                    <div style="font-weight: bold; font-size: 30px; padding-bottom: 10px; font-weight: bold; border-bottom: solid 1px white; margin-bottom: 10px;">MOLLETON À COL ARRONDI</div>
+                    50% Coton/ 50% dryblend polyester prérétréci, 15.5 oz.Tissu quiabsorbe l’humidité. Molleton à col arrondi et manchesmontées. Tricot côtelé 1X1 avec Lycra®. Double piqûres aucol, aux manches, et à la taille. Tissu tourné d’un quart detour pour éliminer le pli central. Propriétés « moisture wicking ».Transfert thermique de l’étiquette.(Sport Grey 10% Polyester)
+                        <br />
+                    <br />
+                    <div style="font-weight: bold; font-size: 20px;"><a href="">Acheter dès maintenant !!!!!</a></div>
+                </div>
+                <div style="float: left; width: 300px;">
+                    <img src="Images/Product/12000.jpg" style="width: 311px; height: 500px;" />
+                </div>
+                <div style="clear: both;"></div>
             </div>
         </div>
 
         <div>
             <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/red.jpg" />
+            <div style="position: absolute; width: 1000px; height: 120px; top: 0px;">
 
-            <div style="position: absolute; border: solid 1px black; width: 480px; height: 120px; top: 30px; left: 30px; padding: 5px; text-align: left; line-height: 60px; text-transform: uppercase; font-size: 50px; color: #FFFFFF;">
-                MOLLETON À COL ARRONDI
-            </div>
-            <div style="position: absolute; width: 480px; height: 120px; top: 300px; left: 30px; padding: 5px; text-align: left; line-height: 36px; font-size: 30px; color: #FFFFFF;">
-                200$
-                <br />
-                C'est beau
-            </div>
-        </div>
-        <div>
-            <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/purple.jpg" />
-            <div style="position: absolute; width: 480px; height: 120px; top: 30px; left: 30px; padding: 5px; text-align: left; line-height: 60px; text-transform: uppercase; font-size: 50px; color: #FFFFFF;">
-                RENAISSANCE SERVIETTE EN RATINE
-            </div>
-            <div style="position: absolute; width: 480px; height: 120px; top: 300px; left: 30px; padding: 5px; text-align: left; line-height: 36px; font-size: 30px; color: #FFFFFF;">
-                <a href="AddProductToBasket.aspx?ProductId=439">100$
+                <div style="float: left; width: 670px; padding-right: 10px; padding-top: 80px; padding-left: 10px;">
+                    <div style="font-weight: bold; font-size: 20px; padding-bottom: 10px; font-weight: bold; border-bottom: solid 1px white; margin-bottom: 10px;">MOLLETON À COL ARRONDI</div>
+                    50% Coton/ 50% dryblend polyester prérétréci, 15.5 oz.Tissu quiabsorbe l’humidité. Molleton à col arrondi et manchesmontées. Tricot côtelé 1X1 avec Lycra®. Double piqûres aucol, aux manches, et à la taille. Tissu tourné d’un quart detour pour éliminer le pli central. Propriétés « moisture wicking ».Transfert thermique de l’étiquette.(Sport Grey 10% Polyester)
+                        <br />
                     <br />
-                    C'est beau</a>
-
+                    <div style="font-weight: bold; font-size: 20px;"><a href="">Acheter dès maintenant !!!!!</a></div>
+                </div>
+                <div style="float: left; width: 300px;">
+                    <img src="Images/Product/12000.jpg" style="width: 311px; height: 500px;" />
+                </div>
+                <div style="clear: both;"></div>
             </div>
-        </div>
-        
-        
-         <div>
-            <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/purple.jpg" />
-            <div style="position: absolute; width: 800px; height: 120px; top: 30px; left: 30px; padding: 5px; color: #FFFFFF;">
-
-                <table style="width: 100%">
-                    <tr>
-                        <td>Porsche</td>
-                        <td>
-                            <img src="Images/Product/002.jpg" />you</td>
-                    </tr>
-                </table>
-
-
-            </div>
-        </div>
-         <div>
-            <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/purple.jpg" />
-            <div style="position: absolute; width: 800px; height: 120px; top: 30px; left: 30px; padding: 5px; color: #FFFFFF;">
-
-                <table style="width: 100%">
-                    <tr>
-                        <td>Porsche</td>
-                        <td>
-                            <img src="Images/Product/002.jpg" />you</td>
-                    </tr>
-                </table>
-
-
-            </div>
-        </div> <div>
-            <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/purple.jpg" />
-            <div style="position: absolute; width: 800px; height: 120px; top: 30px; left: 30px; padding: 5px; color: #FFFFFF;">
-
-                <table style="width: 100%">
-                    <tr>
-                        <td>Porsche</td>
-                        <td>
-                            <img src="Images/Product/002.jpg" />you</td>
-                    </tr>
-                </table>
-
-
-            </div>
-        </div> <div>
-            <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/purple.jpg" />
-            <div style="position: absolute; width: 800px; height: 120px; top: 30px; left: 30px; padding: 5px; color: #FFFFFF;">
-
-                <table style="width: 100%">
-                    <tr>
-                        <td>Porsche</td>
-                        <td>
-                            <img src="Images/Product/002.jpg" />you</td>
-                    </tr>
-                </table>
-
-
-            </div>
-        </div>
-         <div>
-            <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/purple.jpg" />
-            <div style="position: absolute; width: 800px; height: 120px; top: 30px; left: 30px; padding: 5px; color: #FFFFFF;">
-
-                <table style="width: 100%">
-                    <tr>
-                        <td>Porsche</td>
-                        <td>
-                            <img src="Images/Product/002.jpg" />you</td>
-                    </tr>
-                </table>
-
-
-            </div>
-        </div>
-
+        </div>--%>
     </div>
 
     <!-- Bullet Navigator Skin Begin -->

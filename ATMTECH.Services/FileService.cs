@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -11,6 +12,7 @@ using ATMTECH.DAO;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.Services.Interface;
+using ATMTECH.ShoppingCart.DAO.Interface;
 using File = ATMTECH.Entities.File;
 
 namespace ATMTECH.Services
@@ -26,7 +28,7 @@ namespace ATMTECH.Services
         {
             return DAOFile.GetFile(file);
         }
-
+        public IDAOFileType DAOFileType { get; set; }
 
         public IList<File> GetAllFile(string rootImagePath)
         {
@@ -73,7 +75,7 @@ namespace ATMTECH.Services
         }
         public int SaveFile(File file)
         {
-            file.FileType = GetFileType(file);
+           // file.FileType = GetFileType(file);
             file.IsActive = true;
             return DAOFile.UpdateFile(file);
         }
@@ -106,23 +108,24 @@ namespace ATMTECH.Services
         private FileType GetFileType(File file)
         {
             string fileName = file.ServerPath == null ? file.FileName.ToLower() : file.ServerPath.ToLower();
+            IList<FileType> fileTypes = DAOFileType.GetAllActive();
 
-            FileType fileType = null;
+            FileType fileType;
             if (fileName.IndexOf(".jpg") != -1)
             {
-                fileType = new BaseDao<FileType, int>().GetAllOneCriteria(FileType.TYPE, FileType.Codes.JPG)[0];
+                fileType = fileTypes.FirstOrDefault(x => x.Code == FileType.Codes.JPG);
             }
             else if (fileName.IndexOf(".pdf") != -1)
             {
-                fileType = new BaseDao<FileType, int>().GetAllOneCriteria(FileType.TYPE, FileType.Codes.PDF)[0];
+                fileType = fileTypes.FirstOrDefault(x => x.Code == FileType.Codes.PDF);
             }
             else if (fileName.IndexOf(".png") != -1)
             {
-                fileType = new BaseDao<FileType, int>().GetAllOneCriteria(FileType.TYPE, FileType.Codes.PNG)[0];
+                fileType = fileTypes.FirstOrDefault(x => x.Code == FileType.Codes.PNG);
             }
             else
             {
-                fileType = new BaseDao<FileType, int>().GetAllOneCriteria(FileType.TYPE, FileType.Codes.UNKNOWN)[0];
+                fileType = fileTypes.FirstOrDefault(x => x.Code == FileType.Codes.UNKNOWN);
             }
 
             return fileType;

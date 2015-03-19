@@ -36,6 +36,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAOFileType.cs" />
     <Compile Include="DAOEnterpriseAccess.cs" />
     <Compile Include="DAOEnumOrderInformation.cs" />
     <Compile Include="DAOProductPriceHistory.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Francais\DAOCommande.cs" />
     <Compile Include="Francais\DAOProduitFichier.cs" />
     <Compile Include="Francais\DAOProduit.cs" />
+    <Compile Include="Interface\IDAOFileType.cs" />
     <Compile Include="Interface\Francais\IDAOLigneCommande.cs" />
     <Compile Include="Interface\Francais\IDAOInventaire.cs" />
     <Compile Include="Interface\Francais\IDAOClient.cs" />

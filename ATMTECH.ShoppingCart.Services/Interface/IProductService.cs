@@ -16,6 +16,7 @@ namespace ATMTECH.ShoppingCart.Services.Interface
         IList<Product> GetProducts(int idEnterprise);
         IList<ProductCategory> GetProductCategoryWithoutLanguage(int idEnterprise);
         IList<ProductFile> GetProductFile(int idEnterprise);
+        IList<ProductFile> GetProductFile();
         IList<Product> GetProductsWithoutStock(int idEnterprise);
         IList<Product> GetProductsWithoutLanguage(int idEnterprise);
         void UpdateProductPriceHistory(int idProduct, decimal priceBefore, decimal priceAfter);

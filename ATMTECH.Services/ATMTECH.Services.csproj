@@ -65,6 +65,10 @@
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.ShoppingCart.DAO\ATMTECH.ShoppingCart.DAO.csproj">
+      <Project>{F5879683-61B6-42D4-B62C-3904BECD62BD}</Project>
+      <Name>ATMTECH.ShoppingCart.DAO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -42,16 +42,19 @@ namespace ATMTECH.ShoppingCart.Commerce
                 lblIdentProduit.Text = value.Ident;
 
                 lblPrixEpargner.Text = value.SavePrice.ToString("C");
+                lblPrixOriginal.Text = value.UnitPrice.ToString("C");
                 if (value.SavePrice > 0)
                 {
                     lblPrixEpargner.Visible = true;
                     lblVousEpargnez.Visible = true;
+                    lblPrixOriginal.Visible = true;
                     lblPrixUnitaire.Text = value.SalePrice.ToString("C");
                 }
                 else
                 {
                     lblPrixEpargner.Visible = false;
                     lblVousEpargnez.Visible = false;
+                    lblPrixOriginal.Visible = false;
                     lblPrixUnitaire.Text = value.UnitPrice.ToString("C");
                 }
                 imgProductPrincipal.ImageUrl = value.PrincipalFileUrl;
@@ -86,17 +89,17 @@ namespace ATMTECH.ShoppingCart.Commerce
 
         protected void imgProductPrincipalClick(object sender, ImageClickEventArgs e)
         {
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         protected void ProductFileDataBound(object sender, DataListItemEventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         protected void ProductFileCommand(object source, DataListCommandEventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         protected void btnAjouterLigneCommandeClick(object sender, EventArgs e)

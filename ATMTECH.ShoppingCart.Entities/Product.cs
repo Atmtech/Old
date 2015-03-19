@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ATMTECH.Entities;
 
 namespace ATMTECH.ShoppingCart.Entities
@@ -41,25 +42,24 @@ namespace ATMTECH.ShoppingCart.Entities
             get { return Ident + " " + NameFrench; }
         }
 
+        public decimal PercentageSave
+        {
+            get
+            {
+                return Math.Round(((UnitPrice - SalePrice) / UnitPrice) * 100, 0);
+            }
+        }
         public string PrincipalFileUrl
         {
             get
             {
                 if (ProductFiles != null)
                 {
-                    foreach (ProductFile productFile in ProductFiles)
+                    foreach (ProductFile productFile in ProductFiles.Where(productFile => productFile.IsPrincipal))
                     {
-                        if (productFile.IsPrincipal)
-                        {
-                            if (productFile.File != null)
-                            {
-                                return "images/product/" + productFile.File.FileName;
-                            }
-                            else
-                            {
-                                return "images/product/NoImageForThisProduct.jpg";
-                            }
-                        }
+                        return productFile.File != null
+                                   ? "images/product/" + productFile.File.FileName
+                                   : "images/product/NoImageForThisProduct.jpg";
                     }
                 }
                 return "images/product/NoImageForThisProduct.jpg";

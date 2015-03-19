@@ -21,6 +21,7 @@
         </div>
         <div class="prixDescriptionProduit">
             <asp:Label runat="server" ID="lblPrixUnitaire" CssClass="prixPaye"></asp:Label>
+            <br/><asp:Label runat="server" ID="lblPrixOriginal" CssClass="prixRaye" ></asp:Label>
             <br/>
             <asp:Label runat="server" ID="lblVousEpargnez" Text="Vous épargnez" Visible="False" CssClass="prixEpargner"></asp:Label>  <asp:Label runat="server" ID="lblPrixEpargner" Visible="False" CssClass="prixEpargner"></asp:Label>
         </div>

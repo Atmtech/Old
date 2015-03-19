@@ -37,6 +37,7 @@ namespace ATMTECH.ShoppingCart.Services.Base
             AddDependency<IReportService, ReportService>();
             
             AddDependency<IDAOFile, DAOFile>();
+            AddDependency<IDAOFileType, DAOFileType>();
             AddDependency<IDAOLocalization, DAOLocalization>();
             AddDependency<IDAOGroupUser, DAOGroupUser>();
             AddDependency<IDAOGroupProduct, DAOGroupProduct>();

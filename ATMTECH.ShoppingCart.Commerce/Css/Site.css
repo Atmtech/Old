@@ -222,7 +222,7 @@ a
 {
     padding-left: 15px;
     float: left;
-    width: 485px;
+    width: 540px;
 }
 
 .titreDescriptionProduit
@@ -298,8 +298,8 @@ a
 
 .imageProduitAfficher
 {
-    width: 500px;
-    height: 600px;
+    width: 420px;
+    height: 650px;
 }
 
 .loginConnecter
@@ -477,7 +477,8 @@ a
 
 .thumbnailImageListeProduitEnVente
 {
-    width: 220px;
+    width: 125px;
+    height: 200px;
 }
 
 .wrapper
@@ -558,7 +559,8 @@ a
 
 .prixPaye
 {
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .totalPanierLigneCommande
@@ -584,20 +586,72 @@ a
     font-size: 15px;
 }
 
-.affichageAdressePanier {
+.affichageAdressePanier
+{
     text-transform: none;
-    
 }
 
-.merciPourLaCommande {
+.merciPourLaCommande
+{
     padding-top: 10px;
     font-size: 20px;
     padding-bottom: 10px;
     border-bottom: solid 1px gray;
-
 }
 
-.prixRaye {
+.prixRaye
+{
     text-decoration: line-through;
 }
 
+.slideShowTitre
+{
+    font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    border-bottom: solid 1px white;
+    margin-bottom: 10px;
+}
+
+.slideShowLienAcheter
+{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.slideShowCercleEpargne
+{
+    margin-top: 40px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    background: #23295a;
+    border: solid 5px white;
+}
+
+.slideShowCerclePadding
+{
+    padding-top: 25px;
+}
+
+.slideShowCerclePourcentage
+{
+    font-size: 25px;
+}
+
+.slideShowDivisionTexte
+{
+    float: left;
+    width: 670px;
+    padding-right: 10px;
+    padding-top: 80px;
+    padding-left: 10px;
+}
+
+.slideShowDivisionImage {
+    float: left; width: 300px;
+}

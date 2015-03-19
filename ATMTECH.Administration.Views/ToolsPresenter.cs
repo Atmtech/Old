@@ -317,25 +317,28 @@ namespace ATMTECH.Administration.Views
             }
         }
 
-        public void SynchronizeProductFile(int idEnterprise)
+        public void SynchronizeProductFile()
         {
             IList<File> filesDatabase = FileService.GetAllFile();
-
-            IList<ProductFile> productFiles = ProductService.GetProductFile(idEnterprise);
+            IList<ProductFile> productFiles = ProductService.GetProductFile();
             IList<Product> products = ProductService.GetAllActive();
             foreach (File file in filesDatabase)
             {
                 ProductFile productFile = productFiles.FirstOrDefault(x => x.Product.Ident == file.FileName.Replace(".jpg", ""));
                 if (productFile == null)
                 {
-                    productFile = new ProductFile
-                        {
-                            Product = products.FirstOrDefault(x => x.Ident == file.FileName.Replace(".jpg", "")),
-                            File = file,
-                            IsPrincipal = true,
-                            IsActive = true
-                        };
-                    ProductService.SaveProductFile(productFile);
+                    Product product = products.FirstOrDefault(x => x.Ident == file.FileName.Replace(".jpg", ""));
+                    if (product != null)
+                    {
+                        productFile = new ProductFile
+                            {
+                                Product = product,
+                                File = file,
+                                IsPrincipal = true,
+                                IsActive = true
+                            };
+                        ProductService.SaveProductFile(productFile);
+                    }
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using ATMTECH.Administration.Services.Interface;
@@ -36,7 +37,11 @@ namespace ATMTECH.Administration.Services
             return categorieFrancais;
         }
 
-
+        private static double RandomNumberBetween(double minValue, double maxValue)
+        {
+            var next = new Random().NextDouble();
+            return minValue + (next * (maxValue - minValue));
+        }
 
         public void ImportProductAndStockXml(Enterprise enterprise, string fileXml)
         {
@@ -137,7 +142,8 @@ namespace ATMTECH.Administration.Services
                             Enterprise = enterprise,
                             ProductCategoryEnglish = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieAnglaise(importProduit)),
                             ProductCategoryFrench = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieFrancaise(importProduit)),
-                            Weight = 1
+                            Weight = 1,
+                            UnitPrice = (decimal)RandomNumberBetween(1, 100)
                         };
                     productsTraite.Add(product);
                     ProductService.Save(product);
@@ -157,7 +163,7 @@ namespace ATMTECH.Administration.Services
                     }
                 }
             }
-            
+
             // Générer les stock // caracteristique
             products = ProductService.GetAllActive().Where(x => x.Enterprise.Id == enterprise.Id).ToList();
             IList<Stock> stocks = StockService.GetAllStockByEnterprise(enterprise.Id);

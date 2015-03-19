@@ -61,6 +61,12 @@ namespace ATMTECH.ShoppingCart.Services
         {
             return idEnterprise != 0 ? DAOProduct.GetProductsSimple(idEnterprise) : null;
         }
+
+        public IList<ProductFile> GetProductFile()
+        {
+            return DAOProductFile.GetAll();
+        }
+
         public IList<Product> GetProductsWithoutStock(int idEnterprise)
         {
             return DAOProduct.GetProductsWithoutStock(idEnterprise);
@@ -89,7 +95,6 @@ namespace ATMTECH.ShoppingCart.Services
         public IList<ProductFile> GetProductFile(int idEnterprise)
         {
             IList<Product> products = DAOProduct.GetProducts(idEnterprise);
-
             return DAOProductFile.GetProductFile().Where(productFile => products.Count(x => x.Enterprise.Id == idEnterprise && x.Id == productFile.Product.Id) > 0).ToList();
         }
         public Product GetProductSimple(int id)
