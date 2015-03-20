@@ -14,6 +14,8 @@ namespace ATMTECH.ShoppingCart.Entities
         public const string IDENT = "Ident";
         public const string NAME = "Name";
         public const string SALE_PRICE = "SalePrice";
+        public const string IS_SLIDE_SHOW = "IsSlideShow";
+        
 
         public string Ident { get; set; }
         public string NameFrench { get; set; }
@@ -90,11 +92,13 @@ namespace ATMTECH.ShoppingCart.Entities
         {
             get
             {
-                return UnitPrice > SalePrice
+                return UnitPrice > SalePrice && SalePrice != 0
                            ? UnitPrice - SalePrice
                            : 0;
             }
         }
+
+        public bool IsSlideShow { get; set; }
 
     }
 }

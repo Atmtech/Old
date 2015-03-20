@@ -34,6 +34,11 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             return DAOProduit.ObtenirListeProduitEnVente(id);
         }
 
+        public IList<Product> ObtenirListeProduitSlideShow(int id)
+        {
+            return DAOProduit.ObtenirListeProduitSlideShow(id);
+        }
+
         public IList<ProductCategory> ObtenirListeCategorie(int id)
         {
             return DAOCategorieProduit.GetAllActive().Where(x => x.Language == LocalizationService.CurrentLanguage && x.Enterprise.Id == id).ToList();

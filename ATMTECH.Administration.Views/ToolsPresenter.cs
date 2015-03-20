@@ -285,6 +285,10 @@ namespace ATMTECH.Administration.Views
             return "ok";
         }
 
+        public IList<string> DisplayColorFromXml()
+        {
+            return ImportXmlService.DisplayColor(new Enterprise { Id = 1 }, @"C:\Dev\Atmtech\ATMTECH.Administration\Data\Products.xml");
+        }
         public void ImportProductFromXml()
         {
             ImportXmlService.ImportProductAndStockXml(new Enterprise { Id = 1 }, @"C:\Dev\Atmtech\ATMTECH.Administration\Data\Products.xml");

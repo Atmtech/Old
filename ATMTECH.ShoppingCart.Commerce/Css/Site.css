@@ -197,7 +197,7 @@ a
 
 .menuBas
 {
-    margin-top: 100px;
+    margin-top: 20px;
     padding-bottom: 20px;
     background-color: black;
 }
@@ -310,6 +310,16 @@ a
     text-transform: uppercase;
 }
 
+.listeCategorie
+{
+    font-weight: bold;
+    padding-top: 20px;
+    float: left;
+    text-transform: uppercase;
+    padding-right: 20px;
+}
+
+
 .labelLogin
 {
     font-size: 12px;
@@ -374,6 +384,15 @@ a
     float: left;
     padding-left: 10px;
 }
+
+.listeProduitCategorie
+{
+    width: 567px;
+    padding-top: 20px;
+    float: left;
+    padding-left: 10px;
+}
+
 
 .errorMessage
 {

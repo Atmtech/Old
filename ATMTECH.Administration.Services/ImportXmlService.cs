@@ -43,6 +43,52 @@ namespace ATMTECH.Administration.Services
             return minValue + (next * (maxValue - minValue));
         }
 
+        public IList<string> DisplayColor(Enterprise enterprise, string fileXml)
+        {
+            IList<ImportProduit> importProduits = new List<ImportProduit>();
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(fileXml);
+
+            if (xmlDoc.DocumentElement == null) return null;
+            XmlNodeList nodeList = xmlDoc.DocumentElement.SelectNodes("/root/item");
+
+            if (nodeList != null)
+                foreach (ImportProduit importProduit in from XmlNode node in nodeList
+                                                        select new ImportProduit
+                                                        {
+                                                            // ReSharper disable PossibleNullReferenceException
+                                                            ItemID = node.SelectSingleNode("ItemID").InnerText,
+                                                            Brand = node.SelectSingleNode("Brand").InnerText,
+                                                            Size = node.SelectSingleNode("Size").InnerText,
+                                                            ColorId = node.SelectSingleNode("ColorId").InnerText,
+                                                            Color_EN = node.SelectSingleNode("Color_EN").InnerText,
+                                                            Color_FR = node.SelectSingleNode("Color_FR").InnerText,
+                                                            Title_EN = node.SelectSingleNode("Title_EN").InnerText,
+                                                            Title_FR = node.SelectSingleNode("Title_FR").InnerText,
+                                                            Desc_EN = node.SelectSingleNode("Desc_EN").InnerText,
+                                                            Desc_FR = node.SelectSingleNode("Desc_FR").InnerText,
+                                                            Sex = node.SelectSingleNode("Sex").InnerText,
+                                                            Category1 = node.SelectSingleNode("Category1").InnerText,
+                                                            Category2 = node.SelectSingleNode("Category2").InnerText,
+                                                            Category3 = node.SelectSingleNode("Category3").InnerText,
+                                                            Category4 = node.SelectSingleNode("Category4").InnerText,
+                                                            Category5 = node.SelectSingleNode("Category5").InnerText
+                                                            // ReSharper restore PossibleNullReferenceException
+                                                        })
+                {
+                    importProduits.Add(importProduit);
+                }
+
+            IList<string> couleur = new List<string>();
+            foreach (ImportProduit importProduit in importProduits)
+            {
+                if (!couleur.Contains(importProduit.Color_EN.ToLower()))
+                {
+                    couleur.Add(importProduit.Color_EN.ToLower());
+                }
+            }
+            return couleur;
+        }
         public void ImportProductAndStockXml(Enterprise enterprise, string fileXml)
         {
             IList<ImportProduit> importProduits = new List<ImportProduit>();
@@ -172,8 +218,7 @@ namespace ATMTECH.Administration.Services
                 if (importProduits.Count(x => x.ItemID == product.Ident) > 0)
                 {
                     IList<Stock> stocksTraite = new List<Stock>();
-                    IList<ImportProduit> listeProduit =
-                        importProduits.Where(x => x.ItemID == product.Ident).ToList();
+                    IList<ImportProduit> listeProduit = importProduits.Where(x => x.ItemID == product.Ident).ToList();
                     foreach (ImportProduit importProduit in listeProduit)
                     {
                         string featureEnglish = importProduit.Size + " - " + importProduit.Color_EN;
@@ -185,6 +230,8 @@ namespace ATMTECH.Administration.Services
                                 {
                                     FeatureEnglish = featureEnglish,
                                     FeatureFrench = featureFrench,
+                                    ColorEnglish = importProduit.Color_EN,
+                                    ColorFrench = importProduit.Color_FR,
                                     Product = product,
                                     IsWithoutStock = true,
                                     InitialState = 0,

@@ -16,17 +16,17 @@ namespace ATMTECH.ShoppingCart.Commerce
                 ListeProduit.Produits = value;
                 ListeProduit.Langue = Presenter.CurrentLanguage;
                 Session["ListeProduitEnVente"] = value;
-                SlideShow.Produits = value.Where(x => x.PercentageSave > 35).ToList();
-                SlideShow.Langue = Presenter.CurrentLanguage;
             }
         }
 
-        public IList<ProductCategory> ListeCategorie
+        public IList<Product> ListeProduitSlideShow
         {
-            get { return (IList<ProductCategory>)Session["ListeCategorie"]; }
+            get { return (IList<Product>)Session["ListeProduitSlideShow"]; }
             set
             {
-                Session["ListeCategorie"] = value;
+                Session["ListeProduitSlideShow"] = value;
+                SlideShow.Produits = value;
+                SlideShow.Langue = Presenter.CurrentLanguage;
             }
         }
     }

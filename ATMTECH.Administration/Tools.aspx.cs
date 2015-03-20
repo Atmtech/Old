@@ -166,5 +166,15 @@ namespace ATMTECH.Administration
         {
             Presenter.SynchronizeProductFile();
         }
+
+        protected void btnAfficherCouleurXmlClick(object sender, EventArgs e)
+        {
+            IList<string> couleurs = Presenter.DisplayColorFromXml();
+            foreach (string couleur in couleurs)
+            {
+                lblCouleur.Text += "if (stock.ColorEnglish.ToLower().IndexOf(\"" + couleur + "\") > 0) return \"" +
+                                   couleur + "\";" + Environment.NewLine;
+            }
+        }
     }
 }

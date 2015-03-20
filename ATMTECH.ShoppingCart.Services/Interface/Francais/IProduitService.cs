@@ -10,5 +10,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
         IList<Product> ObtenirProduit(string recherche);
         IList<Product> ObtenirListeProduitEnVente(int id);
         IList<ProductCategory> ObtenirListeCategorie(int id);
+        IList<Product> ObtenirListeProduitSlideShow(int id);
     }
 }

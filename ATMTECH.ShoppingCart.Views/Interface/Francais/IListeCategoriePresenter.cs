@@ -4,9 +4,9 @@ using ATMTECH.Views.Interface;
 
 namespace ATMTECH.ShoppingCart.Views.Interface.Francais
 {
-    public interface IAccueilPresenter : IViewBase
+    public interface IListeCategoriePresenter : IViewBase
     {
-        IList<Product> ListeProduitEnVente { get; set; }
-        IList<Product> ListeProduitSlideShow { get; set; }
+        IList<Product> ListeProduitParCategorie { get; set; }
+        
     }
 }

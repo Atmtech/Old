@@ -53,9 +53,9 @@
                 <br />
 
                 <div style="float: left">
-                    <asp:Button runat="server" ID="btnCategorieProduit" Text="Magasiner par catégorie" CssClass="boutonLien" />
+                    <asp:Button runat="server" ID="btnCategorieProduit" Text="Magasiner par catégorie" CssClass="boutonLien" OnClick="btnCategorieProduitClick" />
                 </div>
-                <div style="float: left; border-left: solid 1px white;">
+                <div style="float: left; border-left: solid 1px white;display: none;">
                     <asp:Button ID="btnPromotion" runat="server" Text="Promotions" CssClass="boutonLien" />
                 </div>
                 <div style="float: left; border-left: solid 1px white;">

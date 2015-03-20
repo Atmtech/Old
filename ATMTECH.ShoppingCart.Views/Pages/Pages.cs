@@ -9,6 +9,7 @@ namespace ATMTECH.ShoppingCart.Views.Pages
         public const string DEFAULT = "Default.aspx";
         public const string PRODUCT_INFORMATION = "ProductInformation.aspx";
         public const string PRODUCT_CATALOG = "ProductCatalog.aspx";
+        public const string PRODUCT_CATEGORY = "ListeCategorie.aspx";
         public const string CREATE_CUSTOMER = "CreateCustomer.aspx";
         public const string CUSTOMER_INFORMATION = "CustomerInformation.aspx";
         public const string BASKET = "Basket.aspx";

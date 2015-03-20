@@ -16,7 +16,7 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
         {
             IList<Criteria> criterias = new List<Criteria>();
             Criteria criteriaEnterprise = new Criteria { Column = Product.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = id.ToString() };
-            Criteria criteriaSaleNotNull = new Criteria { Column = Product.SALE_PRICE, Operator = DatabaseOperator.OPERATOR_IS_NOT_NULL };
+            Criteria criteriaSaleNotNull = new Criteria { Column = Product.SALE_PRICE, Operator = DatabaseOperator.OPERATOR_GREATER_THAN, Value = "0" };
             criterias.Add(criteriaEnterprise);
             criterias.Add(criteriaSaleNotNull);
             criterias.Add(IsActive());
@@ -29,6 +29,25 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             }
             return products;
         }
+
+        public IList<Product> ObtenirListeProduitSlideShow(int id)
+        {
+            IList<Criteria> criterias = new List<Criteria>();
+            Criteria criteriaEnterprise = new Criteria { Column = Product.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = id.ToString() };
+            Criteria criteriaSaleNotNull = new Criteria { Column = Product.IS_SLIDE_SHOW, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = "1" };
+            criterias.Add(criteriaEnterprise);
+            criterias.Add(criteriaSaleNotNull);
+            criterias.Add(IsActive());
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ORDER_ID, OrderByType = OrderBy.Type.Descending };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
+            foreach (Product product in products)
+            {
+                product.ProductFiles = DAOProduitFichier.ObtenirListeFichier(product.Id);
+            }
+            return products;
+        }
+
 
         public Product ObtenirProduit(int id)
         {
@@ -46,7 +65,13 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             criterias.Add(IsActive());
             OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ORDER_ID, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
-            return GetByCriteria(criterias, pagingOperation, orderOperation);
+            IList<Product> produits = GetByCriteria(criterias, pagingOperation, orderOperation);
+            foreach (Product product in produits)
+            {
+                product.ProductFiles = DAOProduitFichier.ObtenirListeFichier(product.Id);
+            }
+
+            return produits;
         }
 
         public IList<Product> ObtenirProduit()

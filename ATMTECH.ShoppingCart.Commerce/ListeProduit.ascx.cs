@@ -8,12 +8,17 @@ namespace ATMTECH.ShoppingCart.Commerce
     public partial class ListeProduit : UserControl
     {
         public string Langue { get; set; }
-        public IList<Product> Produits { get; set; }
-
-        protected void Page_Load(object sender, EventArgs e)
+        public int ProduitParRangee { get { return dataListListeProduitEnVente.RepeatColumns; } set { dataListListeProduitEnVente.RepeatColumns = value; } }
+        public IList<Product> Produits
         {
-            dataListListeProduitEnVente.DataSource = Produits;
-            dataListListeProduitEnVente.DataBind();
+            get { return (IList<Product>)dataListListeProduitEnVente.DataSource; }
+            set
+            {
+                dataListListeProduitEnVente.DataSource = value;
+                dataListListeProduitEnVente.DataBind();
+            }
         }
+
+
     }
 }

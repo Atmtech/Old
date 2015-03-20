@@ -87,5 +87,10 @@ namespace ATMTECH.ShoppingCart.Commerce
             queryString.Add(new QueryString(PagesId.SEARCH, txtRecherche.Text));
             Presenter.NavigationService.Redirect(Pages.PRODUCT_CATALOG, queryString);
         }
+
+        protected void btnCategorieProduitClick(object sender, EventArgs e)
+        {
+            Presenter.NavigationService.Redirect(Pages.PRODUCT_CATEGORY);
+        }
     }
 }

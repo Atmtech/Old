@@ -41,8 +41,13 @@ namespace ATMTECH.ShoppingCart.Commerce
                 html += "{1}";
                 html += "<br /><br />";
                 html += "<div style='font-weight: bold; font-size: 20px;'><a href='AddProductToBasket.aspx?ProductId={2}'>{7}</a></div>";
-                html += "<div style='margin-top: 40px;width:120px;height:120px;border-radius:50%;font-size:15px;color:#fff;text-align:center;background:#23295a;border:solid 5px white;'>" +
-                        "<div style='padding-top: 25px;'>{5} <div style='font-size: 25px;'>{4} %</div>{6}</div></div>";
+
+                if (produit.SalePrice != 0)
+                {
+                    html += "<div style='margin-top: 40px;width:120px;height:120px;border-radius:50%;font-size:15px;color:#fff;text-align:center;background:#23295a;border:solid 5px white;'>" +
+                            "<div style='padding-top: 25px;'>{5} <div style='font-size: 25px;'>{4} %</div>{6}</div></div>";
+                    
+                }
                 html += "</div>";
                 html += "<div style='float: left; width: 300px;'>";
                 html += "<img src='{3}' style='width: 311px; height: 500px;' />";

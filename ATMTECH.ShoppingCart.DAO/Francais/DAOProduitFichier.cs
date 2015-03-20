@@ -27,5 +27,8 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             }
             return productFiles;
         }
+
+     
+
     }
 }

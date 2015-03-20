@@ -7,12 +7,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <uc1:SlideShow runat="server" ID="SlideShow" />
-    <div class="categorie">
-        Liste catégorie avec pastille
-        <%--<img src="Images/WebSite/test1Promo.jpg" width="321px" />
-        <img src="Images/WebSite/test1Promo.jpg" width="321px" style="padding-left: 15px; padding-right: 15px;" />
-        <img src="Images/WebSite/test1Promo.jpg" width="320px" />--%>
-    </div>
     <div class="vente">
         <asp:Label runat="server" ID="lblItemEnVenteActuellement" Text="Items en vente actuellement"></asp:Label>
     </div>

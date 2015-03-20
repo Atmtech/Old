@@ -21,7 +21,8 @@ namespace ATMTECH.ShoppingCart.Entities
         public decimal AdjustPrice { get; set; }
         public IList<StockTransaction> Transactions { get; set; }
         public bool IsWithoutStock { get; set; }
-
+        public string ColorEnglish { get; set; }
+        public string ColorFrench { get; set; }
         public string ComboboxDescriptionUpdate { get { return Product == null ? "" : Product.NameFrench + " " + FeatureFrench + " " + Product.Ident; } }
 
         public string ComboboxDescriptionWithoutProductNameFrench

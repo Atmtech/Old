@@ -227,6 +227,12 @@
                 Chargement massif (Ne pas utiliser si vous ne savez pas ce que vous faites)
             </div>
             <asp:Button runat="server" ID="btnChargerXmlProduit" Text="Charger les produits d'un fichier XML" OnClick="btnChargerXmlProduitClick" CssClass="button" />
+            
+             <div class="EnteteOutils">
+               Afficher toutes les couleurs du XML
+            </div>
+            <asp:Button runat="server" ID="btnAfficherCouleurXml" Text="Afficher les couleurs du XML" OnClick="btnAfficherCouleurXmlClick" CssClass="button" />
+            <asp:Label runat="server" ID="lblCouleur"></asp:Label>
         </div>
 
     </div>

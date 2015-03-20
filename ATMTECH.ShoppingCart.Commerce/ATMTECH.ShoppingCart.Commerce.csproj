@@ -130,6 +130,8 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.slider.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
+    <Content Include="ListeCategorie.aspx" />
+    <Content Include="ListeCouleur.ascx" />
     <Content Include="ListeProduit.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="ProductCatalog.aspx" />
@@ -205,6 +207,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ListeCategorie.aspx.cs">
+      <DependentUpon>ListeCategorie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListeCategorie.aspx.designer.cs">
+      <DependentUpon>ListeCategorie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListeCouleur.ascx.cs">
+      <DependentUpon>ListeCouleur.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListeCouleur.ascx.designer.cs">
+      <DependentUpon>ListeCouleur.ascx</DependentUpon>
     </Compile>
     <Compile Include="ListeProduit.ascx.cs">
       <DependentUpon>ListeProduit.ascx</DependentUpon>

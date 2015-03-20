@@ -1,17 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
     CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.AddProductToBasket" %>
 
+<%@ Register Src="ListeCouleur.ascx" TagName="ListeCouleur" TagPrefix="uc2" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="imageProduit">
-        <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" OnClick="imgProductPrincipalClick" CssClass="imageProduitAfficher" />
-        <asp:DataList ID="DataListProductFile" RepeatDirection="Horizontal" runat="server"
-            OnItemDataBound="ProductFileDataBound" OnItemCommand="ProductFileCommand">
-            <ItemTemplate>
-                <asp:ImageButton runat="server" ID="imgProductFile" CommandName="ChangeImage" Width="50px" Height="50px" />
-            </ItemTemplate>
-        </asp:DataList>
+        <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" CssClass="imageProduitAfficher" />
     </div>
     <div class="descriptionProduit">
         <div class="titreDescriptionProduit">
@@ -21,9 +17,11 @@
         </div>
         <div class="prixDescriptionProduit">
             <asp:Label runat="server" ID="lblPrixUnitaire" CssClass="prixPaye"></asp:Label>
-            <br/><asp:Label runat="server" ID="lblPrixOriginal" CssClass="prixRaye" ></asp:Label>
-            <br/>
-            <asp:Label runat="server" ID="lblVousEpargnez" Text="Vous épargnez" Visible="False" CssClass="prixEpargner"></asp:Label>  <asp:Label runat="server" ID="lblPrixEpargner" Visible="False" CssClass="prixEpargner"></asp:Label>
+            <br />
+            <asp:Label runat="server" ID="lblPrixOriginal" CssClass="prixRaye"></asp:Label>
+            <br />
+            <asp:Label runat="server" ID="lblVousEpargnez" Text="Vous épargnez" Visible="False" CssClass="prixEpargner"></asp:Label>
+            <asp:Label runat="server" ID="lblPrixEpargner" Visible="False" CssClass="prixEpargner"></asp:Label>
         </div>
         <div class="quantiteDescriptionProduit">
             <div>
@@ -51,6 +49,7 @@
                 <asp:Button runat="server" ID="btnAjouterLigneCommande" OnClick="btnAjouterLigneCommandeClick" CssClass="boutonActionRond"
                     Text="Ajouter au panier"></asp:Button>
             </div>
+              <uc2:ListeCouleur ID="ListeCouleur" runat="server" />
         </div>
         <div class="detailDescriptionProduit">
             <div style="float: left; padding-right: 10px;">
