@@ -24,6 +24,11 @@
             <asp:Label runat="server" ID="lblPrixEpargner" Visible="False" CssClass="prixEpargner"></asp:Label>
         </div>
         <div class="quantiteDescriptionProduit">
+            <asp:Label runat="server" ID="lblTaille" Text="Taille"></asp:Label>
+              <atmtech:ComboBox runat="server" ID="ddlTaille" />
+            <asp:Label runat="server" ID="lblCouleur" Text="Couleur"></asp:Label>
+              <atmtech:ComboBox runat="server" ID="ddlCouleur" />
+
             <div>
                 <div class="Table">
                     <div class="Heading">
@@ -49,7 +54,7 @@
                 <asp:Button runat="server" ID="btnAjouterLigneCommande" OnClick="btnAjouterLigneCommandeClick" CssClass="boutonActionRond"
                     Text="Ajouter au panier"></asp:Button>
             </div>
-              <uc2:ListeCouleur ID="ListeCouleur" runat="server" />
+            <uc2:ListeCouleur ID="ListeCouleur" runat="server" />
         </div>
         <div class="detailDescriptionProduit">
             <div style="float: left; padding-right: 10px;">

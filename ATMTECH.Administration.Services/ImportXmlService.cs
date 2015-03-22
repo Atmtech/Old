@@ -232,6 +232,7 @@ namespace ATMTECH.Administration.Services
                                     FeatureFrench = featureFrench,
                                     ColorEnglish = importProduit.Color_EN,
                                     ColorFrench = importProduit.Color_FR,
+                                    Size = importProduit.Size,
                                     Product = product,
                                     IsWithoutStock = true,
                                     InitialState = 0,
