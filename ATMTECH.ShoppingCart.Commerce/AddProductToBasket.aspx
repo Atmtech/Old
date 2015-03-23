@@ -24,16 +24,11 @@
             <asp:Label runat="server" ID="lblPrixEpargner" Visible="False" CssClass="prixEpargner"></asp:Label>
         </div>
         <div class="quantiteDescriptionProduit">
-            <asp:Label runat="server" ID="lblTaille" Text="Taille"></asp:Label>
-              <atmtech:ComboBox runat="server" ID="ddlTaille" />
-            <asp:Label runat="server" ID="lblCouleur" Text="Couleur"></asp:Label>
-              <atmtech:ComboBox runat="server" ID="ddlCouleur" />
-
             <div>
                 <div class="Table">
                     <div class="Heading">
                         <div class="Cell">
-                            <asp:Label runat="server" ID="lblCaracteristiqueAddProduct" Text="Choisir une caractéristique"></asp:Label>
+                            <asp:Label runat="server" ID="lblCaracteristiqueAddProduct" Text="Choisir les caractéristiques"></asp:Label>
                         </div>
                         <div class="Cell">
                             <asp:Label runat="server" ID="lblQuantiteAddProduct" Text="Quantité"></asp:Label>
@@ -42,7 +37,12 @@
 
                     <div class="Row" style="">
                         <div class="Cell" style="padding-top: 5px; padding-bottom: 5px; width: 300px; text-align: left;">
-                            <atmtech:ComboBox runat="server" ID="ddlStock" />
+                            <atmtech:ComboBox runat="server" ID="ddlStock" Visible="False" />
+
+                            <asp:Label runat="server" ID="lblCouleur" Text="Couleur"></asp:Label>
+                            <atmtech:ComboBox runat="server" ID="ddlCouleur" />
+                            <asp:Label runat="server" ID="lblTaille" Text="Taille"></asp:Label>
+                            <atmtech:ComboBox runat="server" ID="ddlTaille" />
                         </div>
                         <div class="Cell">
                             <asp:Button runat="server" ID="btnVousDevezEtreConnectePourAjouterQuantite" Text="Identifier vous" OnClick="btnVousDevezEtreConnectePourAjouterQuantiteClick" CssClass="boutonLien"></asp:Button>
@@ -51,10 +51,12 @@
                     </div>
                 </div>
                 <br />
+                <uc2:ListeCouleur ID="ListeCouleur" runat="server" />
+                <br/>
                 <asp:Button runat="server" ID="btnAjouterLigneCommande" OnClick="btnAjouterLigneCommandeClick" CssClass="boutonActionRond"
                     Text="Ajouter au panier"></asp:Button>
             </div>
-            <uc2:ListeCouleur ID="ListeCouleur" runat="server" />
+            
         </div>
         <div class="detailDescriptionProduit">
             <div style="float: left; padding-right: 10px;">

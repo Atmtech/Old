@@ -64,6 +64,12 @@ namespace ATMTECH.ShoppingCart.Commerce
             dropDownList.DataBind();
         }
 
+        public void FillDropDownWithoutEntity(ComboBox dropDownList, object Source)
+        {
+            dropDownList.DataSource = Source;
+            dropDownList.DataBind();
+        }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);

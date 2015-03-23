@@ -11,6 +11,10 @@ namespace ATMTECH.ShoppingCart.Entities
         public const string FEATURE = "Feature";
         public const string FEATURE_FRENCH = "ComboboxDescriptionWithoutProductNameFrench";
         public const string FEATURE_ENGLISH = "ComboboxDescriptionWithoutProductNameEnglish";
+        public const string COLOR_ENGLISH = "ColorEnglish";
+        public const string COLOR_FRENCH = "ColorFrench";
+        public const string SIZE = "Size";
+
 
         public Product Product { get; set; }
         public int InitialState { get; set; }

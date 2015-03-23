@@ -3,6 +3,7 @@ using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
+using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.Web.Services.Base;
 using ATMTECH.Web.Services.Interface;
@@ -18,6 +19,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IParameterService ParameterService { get; set; }
         public IMailService MailService { get; set; }
         public IMessageService MessageService { get; set; }
+        public ITaxesService TaxesService { get; set; }
 
         public Customer ClientAuthentifie
         {
@@ -37,6 +39,9 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                     user.IsActive = false;
                     DAOUser.UpdateUser(user);
                     client.User = user;
+
+                    //TOADO: Code de marde à refaire !!! 
+                    client.Taxes = new Taxes { Id = 1 }; 
                     Customer clientCreer = DAOClient.ObtenirClient(DAOClient.Creer(client));
                     MailService.SendEmail(clientCreer.User.Email,
                         ParameterService.GetValue(Constant.ADMIN_MAIL),

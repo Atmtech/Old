@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ATMTECH.Common.Constant;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views.Francais;
@@ -21,6 +23,25 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return (Product)Session["ProduitCourant"]; }
             set
             {
+                Session["ProduitCourant"] = value;
+                IList<string> couleur = new List<string>();
+                foreach (Stock stock in value.Stocks.Where(stock => !couleur.Contains(stock.ColorFrench)))
+                {
+                    couleur.Add(stock.ColorFrench);
+                }
+
+                IList<string> color = new List<string>();
+                foreach (Stock stock in value.Stocks.Where(stock => !color.Contains(stock.ColorEnglish)))
+                {
+                    color.Add(stock.ColorEnglish);
+                }
+
+                IList<string> taille = new List<string>();
+                foreach (Stock stock in value.Stocks.Where(stock => !taille.Contains(stock.Size)))
+                {
+                    taille.Add(stock.Size);
+                }
+
 
                 switch (Presenter.CurrentLanguage)
                 {
@@ -29,16 +50,18 @@ namespace ATMTECH.ShoppingCart.Commerce
                         lblDescription.Text = value.DescriptionFrench;
                         lblNomProduit.Text = value.NameFrench;
                         FillDropDown(ddlStock, value.Stocks, Stock.FEATURE_FRENCH);
+                        FillDropDownWithoutEntity(ddlCouleur, couleur.OrderBy(x => x.ToLower()));
                         break;
                     case LocalizationLanguage.ENGLISH:
                         lblDescription.Text = value.DescriptionEnglish;
                         lblNomProduit.Text = value.NameEnglish;
                         FillDropDown(ddlStock, value.Stocks, Stock.FEATURE_ENGLISH);
+                        FillDropDownWithoutEntity(ddlCouleur, color.OrderBy(x => x.ToLower()));
                         break;
                 }
 
+                FillDropDownWithoutEntity(ddlTaille, taille.OrderBy(x => x.ToLower()));
                 lblIdentProduit.Text = value.Ident;
-
                 lblPrixEpargner.Text = value.SavePrice.ToString("C");
                 lblPrixOriginal.Text = value.UnitPrice.ToString("C");
                 if (value.SavePrice > 0)
@@ -85,10 +108,29 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
         }
 
-
+        private Stock TrouverLeStockAvecTailleEtCouleur()
+        {
+            Stock stock = null;
+            switch (Presenter.CurrentLanguage)
+            {
+                case LocalizationLanguage.FRENCH:
+                    stock = Produit.Stocks.FirstOrDefault(x => x.FeatureFrench == ddlTaille.SelectedValue + " - " + ddlCouleur.SelectedValue);
+                    break;
+                case LocalizationLanguage.ENGLISH:
+                    stock = Produit.Stocks.FirstOrDefault(x => x.FeatureEnglish == ddlTaille.SelectedValue + " - " + ddlCouleur.SelectedValue);
+                    break;
+            }
+            if (stock == null) return null;
+            return stock;
+        }
         protected void btnAjouterLigneCommandeClick(object sender, EventArgs e)
         {
-            Presenter.AjouterLigneCommande();
+            Stock stock = TrouverLeStockAvecTailleEtCouleur();
+            if (stock != null)
+            {
+                Presenter.AjouterLigneCommande();
+            }
+
         }
 
         protected void btnVousDevezEtreConnectePourAjouterQuantiteClick(object sender, EventArgs e)

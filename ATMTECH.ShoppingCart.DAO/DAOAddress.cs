@@ -30,7 +30,7 @@ namespace ATMTECH.ShoppingCart.DAO
         public Address GetAddress(int id)
         {
             Address address = Addresses.FirstOrDefault(x => x.Id == id);
-            if (address == null)
+            if (address == null || address.City == null)
             {
                 ContextSessionManager.Context.Session["Addresses"] = GetAll();
                 address = Addresses.FirstOrDefault(x => x.Id == id);
