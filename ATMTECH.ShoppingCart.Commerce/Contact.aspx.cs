@@ -6,6 +6,8 @@ namespace ATMTECH.ShoppingCart.Commerce
 {
     public partial class Contact : PageBase<ContacterNousPresenter, IContacterNousPresenter>, IContacterNousPresenter
     {
+        public string Nom { get { return txtVotreNom.Text; } set { txtVotreNom.Text = value; } }
+
         public string Courriel
         {
             get { return txtCourrielContacterNous.Text; }

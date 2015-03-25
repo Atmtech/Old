@@ -92,7 +92,7 @@
             if (ui.item) {
                 return;
             }
-
+           
             // Search for a match (case-insensitive)
             var value = this.input.val(),
                 valueLowerCase = value.toLowerCase(),
@@ -128,9 +128,3 @@
     });
 })(jQuery);
 
-//$(function () {
-//    $("#combobox").combobox();
-//    $("#toggle").click(function () {
-//        $("#combobox").toggle();
-//    });
-//});

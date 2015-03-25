@@ -19,7 +19,6 @@
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/lightbox.min.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.slider.js"></script>
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/SlideShow.js"></script>
 </head>
 <body>
     <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
@@ -50,7 +49,6 @@
                     <asp:ImageButton runat="server" ID="imgRecherche" ImageUrl="~/Images/WebSite/Rechercher.png" OnClick="imgRechercheClick" />
                     <asp:TextBox ID="txtRecherche" runat="server" CssClass="textBoxRecherche" PlaceHolder="Recherche"></asp:TextBox>
                 </div>
-                <br />
 
                 <div style="float: left">
                     <asp:Button runat="server" ID="btnCategorieProduit" Text="Magasiner par catégorie" CssClass="boutonLien" OnClick="btnCategorieProduitClick" />
@@ -63,7 +61,7 @@
                 </div>
                 <div style="float: left; border-left: solid 1px white;">
                     <asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonLien" /><asp:Button runat="server" ID="btnAnglais" Text="Anglais" CssClass="boutonLien" Visible="False" /></div>
-                <div style="float: left; width: 525px; text-align: right;">
+                <div style="float: left; width: 628px; text-align: right; ">
                     <asp:Panel runat="server" ID="pnlDeconnecte">
                         <asp:Button runat="server" ID="btnConnecter" Text="Identifiez vous ou créer un compte" CssClass="boutonLien" OnClick="btnConnecterClick" />
                     </asp:Panel>
@@ -73,7 +71,6 @@
                         <asp:Label runat="server" ID="lblAucunItemDansPanier" Text="Aucun article"></asp:Label>
                         <asp:Button runat="server" ID="btnPanier" OnClick="btnPanierClick" CssClass="boutonLien" Visible="False" />|
                         <asp:Button runat="server" ID="btnDeconnecter" Text="Se déconnecter" CssClass="boutonLien" OnClick="btnDeconnecterClick" />
-
                     </asp:Panel>
                 </div>
                 <div style="clear: both;"></div>
@@ -99,11 +96,11 @@
                     <asp:Label runat="server" ID="lblNavigation" Text="Navigation"></asp:Label>
                     <br />
                     <br />
-                    <asp:Button ID="btnCondition" runat="server" Text="Conditions" CssClass="boutonLien" />
+                    <asp:Button ID="btnCondition" runat="server" Text="Conditions" CssClass="boutonLien" OnClick="btnConditionClick" />
                     |
-                    <asp:Button ID="btnRetour" runat="server" Text="Retours" CssClass="boutonLien" />
+                    <asp:Button ID="btnRetour" runat="server" Text="Retours" CssClass="boutonLien" OnClick="btnRetourClick" />
                     |
-                    <asp:Button ID="btnLivraison" runat="server" Text="Livraison" CssClass="boutonLien" />
+                    <asp:Button ID="btnLivraison" runat="server" Text="Livraison" CssClass="boutonLien" OnClick="btnLivraisonClick" />
                 </div>
 
                 <div class="listeCourriel">

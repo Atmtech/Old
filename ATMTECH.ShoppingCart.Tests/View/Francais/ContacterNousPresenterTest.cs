@@ -33,8 +33,10 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
         [TestMethod]
         public void EnvoyerMessage_EnvoiCourrielAAdministrateurAvecTexteSaisieParClient()
         {
+            ViewMock.Setup(x => x.Nom).Returns("Crevette");
             ViewMock.Setup(x => x.Courriel).Returns("test@test.com");
             ViewMock.Setup(x => x.Message).Returns("Je ne suis pas satisfait du tout !");
+            ObtenirMock<IValiderClientService>().Setup(x => x.EstCourrielValide(It.IsAny<Customer>())).Returns(true);
             ObtenirMock<IParameterService>().Setup(x => x.GetValue(Constant.ADMIN_MAIL)).Returns("admin@admin.com");
             InstanceTest.EnvoyerMessage();
 
@@ -42,7 +44,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
                                                                 It.Is<string>(a => a == "test@test.com"),
                                                                 It.IsAny<string>(),
                                                                 It.Is<string>(
-                                                                    a => a == "Je ne suis pas satisfait du tout !")));
+                                                                    a => a == "Nom: Crevette <br><br> Je ne suis pas satisfait du tout !")));
         }
     }
 }

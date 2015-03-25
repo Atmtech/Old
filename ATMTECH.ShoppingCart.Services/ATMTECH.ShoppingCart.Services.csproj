@@ -46,9 +46,11 @@
     <Compile Include="DTO\ProductBySale.cs" />
     <Compile Include="ErrorCode.cs" />
     <Compile Include="Francais\ClientService.cs" />
+    <Compile Include="Francais\EntrepriseService.cs" />
     <Compile Include="Francais\ValiderClientService.cs" />
     <Compile Include="Francais\ValiderCommandeService.cs" />
     <Compile Include="Francais\ProduitService.cs" />
+    <Compile Include="Interface\Francais\IEntrepriseService.cs" />
     <Compile Include="Interface\Francais\IValiderClientService.cs" />
     <Compile Include="Interface\Francais\IValiderCommandeService.cs" />
     <Compile Include="Interface\Francais\IClientService.cs" />

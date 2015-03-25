@@ -34,6 +34,7 @@ namespace ATMTECH.WebControls
 
         protected override void OnPreRender(EventArgs e)
         {
+            base.OnPreRender(e);
             string js = "$(function () {  " +
                         "$(\"input[name*='$" + _textBox.ID + "']\").datepicker(" +
                         " {" +
@@ -44,7 +45,6 @@ namespace ATMTECH.WebControls
                         "});";
 
             Page.ClientScript.RegisterClientScriptBlock(typeof(Page), _textBox.ID, js, true);
-            base.OnPreRender(e);
         }
 
 

@@ -92,5 +92,26 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             Presenter.NavigationService.Redirect(Pages.PRODUCT_CATEGORY);
         }
+
+        protected void btnConditionClick(object sender, EventArgs e)
+        {
+            IList<QueryString> queryString = new List<QueryString>();
+            queryString.Add(new QueryString(PagesId.CONTENT_ID, "0"));
+            Presenter.NavigationService.Redirect(Pages.CONTENT, queryString);
+        }
+
+        protected void btnRetourClick(object sender, EventArgs e)
+        {
+            IList<QueryString> queryString = new List<QueryString>();
+            queryString.Add(new QueryString(PagesId.CONTENT_ID, "1"));
+            Presenter.NavigationService.Redirect(Pages.CONTENT, queryString);
+        }
+
+        protected void btnLivraisonClick(object sender, EventArgs e)
+        {
+            IList<QueryString> queryString = new List<QueryString>();
+            queryString.Add(new QueryString(PagesId.CONTENT_ID, "2"));
+            Presenter.NavigationService.Redirect(Pages.CONTENT, queryString);
+        }
     }
 }

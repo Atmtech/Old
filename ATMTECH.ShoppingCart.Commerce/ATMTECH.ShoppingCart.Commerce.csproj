@@ -57,6 +57,7 @@
     <Content Include="Basket.aspx" />
     <Content Include="ConfirmCreate.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content.aspx" />
     <Content Include="Css\Site.css" />
     <Content Include="CustomerInformation.aspx" />
     <Content Include="Default.aspx" />
@@ -169,6 +170,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content.aspx.cs">
+      <DependentUpon>Content.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content.aspx.designer.cs">
+      <DependentUpon>Content.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerInformation.aspx.cs">
       <DependentUpon>CustomerInformation.aspx</DependentUpon>

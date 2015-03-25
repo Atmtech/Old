@@ -60,10 +60,10 @@ namespace ATMTECH.WebControls
 
         protected override void OnPreRender(EventArgs e)
         {
-            string js = "$(function () {  $(\"select[name*='$" + _dropDownList.ID + "']\").combobox(); });";
-            Page.ClientScript.RegisterClientScriptBlock(typeof(Page), _dropDownList.ID, js, true);
-
             base.OnPreRender(e);
+            string js = "$(function () {  $(\"select[name*='$" + _dropDownList.ID + "']\").combobox(); });";
+            //string js = "$(\"select[name*='$" + _dropDownList.ID + "']\").combobox();";
+            Page.ClientScript.RegisterClientScriptBlock(typeof(Page), _dropDownList.ID, js, true);
         }
 
 

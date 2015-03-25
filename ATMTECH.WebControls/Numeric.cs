@@ -57,6 +57,7 @@ namespace ATMTECH.WebControls
 
         protected override void OnPreRender(EventArgs e)
         {
+            base.OnPreRender(e);
             string js = string.Empty;
 
             //js = NoDecimal
@@ -75,7 +76,6 @@ namespace ATMTECH.WebControls
                        "});";
 
             Page.ClientScript.RegisterClientScriptBlock(typeof(Page), _textBox.ID, js, true);
-            base.OnPreRender(e);
         }
 
 
