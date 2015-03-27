@@ -331,7 +331,7 @@ namespace ATMTECH.Administration.Views
                 ProductFile productFile = productFiles.FirstOrDefault(x => x.Product.Ident == file.FileName.Replace(".jpg", ""));
                 if (productFile == null)
                 {
-                    Product product = products.FirstOrDefault(x => x.Ident == file.FileName.Replace(".jpg", ""));
+                    Product product = products.FirstOrDefault(x => x.Ident == file.FileName.Replace(".jpg", "") || x.Ident.Contains(file.FileName.Replace(".jpg", "")));
                     if (product != null)
                     {
                         productFile = new ProductFile
@@ -343,6 +343,7 @@ namespace ATMTECH.Administration.Views
                             };
                         ProductService.SaveProductFile(productFile);
                     }
+
                 }
             }
         }
