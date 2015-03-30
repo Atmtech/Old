@@ -64,6 +64,13 @@
     <Compile Include="CsharpEditor.aspx.designer.cs">
       <DependentUpon>CsharpEditor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="eCommerce.aspx.cs">
+      <DependentUpon>eCommerce.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eCommerce.aspx.designer.cs">
+      <DependentUpon>eCommerce.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ImportExcel.aspx.cs">
       <DependentUpon>ImportExcel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -412,6 +419,7 @@
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
     <Content Include="CsharpEditor.aspx" />
+    <Content Include="eCommerce.aspx" />
     <Content Include="Images\WebSite\error-icon.png" />
     <Content Include="Images\WebSite\success-icon.png" />
     <Content Include="ImportExcel.aspx" />

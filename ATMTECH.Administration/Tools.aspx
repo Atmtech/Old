@@ -195,45 +195,7 @@
         <asp:Button runat="server" ID="btnCloseApplication" OnClick="btnCloseApplicationClick" CausesValidation="False" CssClass="button" Text="Fermer l'application" />
 
 
-        <div style="border: solid 1px gray; padding: 10px 10px 10px 10px; margin-top: 10px;">
-            <b>Outils de la version eCommerce<br />
-            </b>
-            <div class="EnteteOutils">
-                Synchroniser les fichiers images avec la base de données.
-            </div>
-            <asp:DropDownList runat="server" ID="ddlSiteList" AutoPostBack="True">
-                <asp:ListItem Value="C:\WebSite\cima-directeur.boutiquecorpo.com\Images">cima-directeur.boutiquecorpo.com</asp:ListItem>
-                <asp:ListItem Value="C:\WebSite\cima-employe.boutiquecorpo.com\Images">cima-employe.boutiquecorpo.com</asp:ListItem>
-                <asp:ListItem Value="C:\WebSite\ursulines.boutiquecorpo.com\Images">ursuline.boutiquecorpo.com</asp:ListItem>
-                <asp:ListItem Value="C:\WebSite\glv.boutiquecorpo.com\Images">glv.boutiquecorpo.com</asp:ListItem>
-                <asp:ListItem Value="C:\WebSite\glv-an.boutiquecorpo.com\Images">glv-an.boutiquecorpo.com</asp:ListItem>
-                <asp:ListItem Value="C:\WebSite\lauzon.boutiquecorpo.com\Images">lauzon.boutiquecorpo.com</asp:ListItem>
-                <asp:ListItem Value="C:\WebSite\dev.boutiquecorpo.com\Images">dev.boutiquecorpo.com</asp:ListItem>
-
-                <%--<asp:ListItem Value="C:\Domains\cima-directeur.boutiquecorpo.com\www\Images">cima-directeur.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="C:\Domains\cima-employe.boutiquecorpo.com\www\Images">cima-employe.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="C:\Domains\ursulines.boutiquecorpo.com\www\Images">ursuline.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="C:\Domains\glv.boutiquecorpo.com\www\Images">glv.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="C:\Domains\glv-an.boutiquecorpo.com\www\Images">glv-an.boutiquecorpo.com</asp:ListItem>
-        <asp:ListItem Value="C:\Domains\lauzon.boutiquecorpo.com\www\Images">lauzon.boutiquecorpo.com</asp:ListItem>--%>
-                <asp:ListItem Value="C:\dev\Atmtech\ATMTECH.ShoppingCart.Commerce\Images">Développement</asp:ListItem>
-            </asp:DropDownList>
-
-            <asp:Button runat="server" ID="btnSynchroniserFichierImage" OnClick="btnSynchroniserFichierImageClick" CausesValidation="False" CssClass="button" Text="Inscrire les fichiers du répertoire selectionne dans la BD" />
-
-            <asp:Button runat="server" ID="btnSynchroniserProduitFichier" OnClick="btnSynchroniserProduitFichierClick" CausesValidation="False" CssClass="button" Text="Associer les produits aux fichiers inscrit dans la BD" />
-
-            <div class="EnteteOutils">
-                Chargement massif (Ne pas utiliser si vous ne savez pas ce que vous faites)
-            </div>
-            <asp:Button runat="server" ID="btnChargerXmlProduit" Text="Charger les produits d'un fichier XML" OnClick="btnChargerXmlProduitClick" CssClass="button" />
-            
-             <div class="EnteteOutils">
-               Afficher toutes les couleurs du XML
-            </div>
-            <asp:Button runat="server" ID="btnAfficherCouleurXml" Text="Afficher les couleurs du XML" OnClick="btnAfficherCouleurXmlClick" CssClass="button" />
-            <asp:Label runat="server" ID="lblCouleur"></asp:Label>
-        </div>
+       
 
     </div>
 </asp:Content>

@@ -153,28 +153,6 @@ namespace ATMTECH.Administration
             lblResultBalanceOrder.Text = Presenter.BalanceOrder();
         }
 
-        protected void btnChargerXmlProduitClick(object sender, EventArgs e)
-        {
-            Presenter.ImportProductFromXml();
-        }
-        protected void btnSynchroniserFichierImageClick(object sender, EventArgs e)
-        {
-            Presenter.SynchronizeImage(ddlSiteList.SelectedValue);
-        }
-
-        protected void btnSynchroniserProduitFichierClick(object sender, EventArgs e)
-        {
-            Presenter.SynchronizeProductFile();
-        }
-
-        protected void btnAfficherCouleurXmlClick(object sender, EventArgs e)
-        {
-            IList<string> couleurs = Presenter.DisplayColorFromXml();
-            foreach (string couleur in couleurs)
-            {
-                lblCouleur.Text += "if (stock.ColorEnglish.ToLower().IndexOf(\"" + couleur + "\") > 0) return \"" +
-                                   couleur + "\";" + Environment.NewLine;
-            }
-        }
+      
     }
 }

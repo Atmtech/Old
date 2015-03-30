@@ -33,8 +33,8 @@ namespace ATMTECH.DAO
         }
         public File GetFile(int id)
         {
-            return Files.FirstOrDefault(x => x.Id == id);
-            //return GetById(id);
+            //return Files.FirstOrDefault(x => x.Id == id);
+            return GetById(id);
         }
 
         public File GetFile(File file)

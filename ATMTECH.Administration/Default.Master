@@ -169,8 +169,8 @@
                                         Outils
                                     </div>
                                     <ul>
-                                        <li><a href="Tools.aspx">Divers</a></li>
-
+                                        <li><a href="Tools.aspx">Outils</a></li>
+                                        <li><a href="eCommerce.aspx">eCommerce</a></li>
                                         <li><a href="DataEditor.aspx?Entity=Task&IsEnterpriseRuled=0">Les demandes de développement</a></li>
                                         <li><a href="ExecuteSql.aspx">Executer du script sql</a></li>
                                         <li><a href="DataEditor.aspx?Entity=StockTemplate&IsEnterpriseRuled=0">Les modèles d'inventaires</a></li>

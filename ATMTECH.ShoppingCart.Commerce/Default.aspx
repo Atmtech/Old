@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.Default1" %>
 
-<%@ Register Src="SlideShow.ascx" TagPrefix="uc1" TagName="SlideShow" %>
+<%@ Register Src="SlideShowProduct.ascx" TagPrefix="uc1" TagName="SlideShow" %>
 <%@ Register Src="ListeProduit.ascx" TagName="ListeProduit" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

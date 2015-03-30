@@ -319,7 +319,23 @@ namespace ATMTECH.Administration.Views
                 }
 
             }
+
+
         }
+
+        public void CopierFichierImageProduitNonFormateVersProduct(string directory)
+        {
+            string[] files = Directory.GetFiles(directory + @"\product\Mixed", "*.*", SearchOption.AllDirectories);
+            foreach (string file in files)
+            {
+                if (file.ToLower().IndexOf("thumbs.db") == -1 && file.ToLower().IndexOf("web.config") == -1)
+                {
+                    string fileToCopy = file.Replace(directory + @"\product\Mixed", "").Replace(@"/", "_").Replace(" ", "_").Replace("\\", "_");
+                    System.IO.File.Copy(file, directory + @"\product\" + fileToCopy);
+                }
+            }
+        }
+
 
         public void SynchronizeProductFile()
         {
@@ -331,21 +347,31 @@ namespace ATMTECH.Administration.Views
                 ProductFile productFile = productFiles.FirstOrDefault(x => x.Product.Ident == file.FileName.Replace(".jpg", ""));
                 if (productFile == null)
                 {
-                    Product product = products.FirstOrDefault(x => x.Ident == file.FileName.Replace(".jpg", "") || x.Ident.Contains(file.FileName.Replace(".jpg", "")));
+                    string identToFind = file.FileName.Replace(".jpg", "").ToLower();
+                    string[] identSplit = identToFind.IndexOf("_item") > 0 ? identToFind.Split('_') : null;
+                    if (identSplit != null)
+                    {
+                        identToFind = identSplit[3];
+                    }
+                    Product product = products.FirstOrDefault(x => x.Ident.ToLower() == identToFind);
                     if (product != null)
                     {
                         productFile = new ProductFile
                             {
                                 Product = product,
                                 File = file,
-                                IsPrincipal = true,
+                                IsPrincipal = identSplit == null,
                                 IsActive = true
                             };
                         ProductService.SaveProductFile(productFile);
                     }
 
+
+
                 }
             }
+
+
         }
     }
 }
