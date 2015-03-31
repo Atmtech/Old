@@ -7,7 +7,6 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="css/Site.css" rel="stylesheet" type="text/css" />
-
     <link href="JQuery/jquery-ui-1.11.2/css/lightbox.css" rel="stylesheet" />
     <link href="JQuery/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
     <link href="JQuery/jquery-ui-1.11.2/jquery-ui.custom.css" rel="stylesheet" />
@@ -108,7 +107,7 @@
                     <br />
                     <br />
                     <asp:TextBox runat="server" CssClass="textBox" ID="txtListeDiffusion" PlaceHolder="Entrer votre courriel" Width="170px"></asp:TextBox>
-                    <asp:Button ID="btnRejoindreListeDiffusion" runat="server" Text="Rejoindre" CssClass="boutonAction" />
+                    <asp:Button ID="btnRejoindreListeDiffusion" runat="server" Text="Rejoindre" CssClass="boutonAction" OnClick="btnRejoindreListeDiffusionClick" />
                 </div>
 
                 <div class="reseauSociaux">

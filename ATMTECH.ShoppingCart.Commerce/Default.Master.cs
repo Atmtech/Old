@@ -16,6 +16,8 @@ namespace ATMTECH.ShoppingCart.Commerce
             set { btnNomClient.Text = value; }
         }
 
+        public string CourrielListeDiffusion { get { return txtListeDiffusion.Text; } set { txtListeDiffusion.Text = value; } }
+
         public bool EstConnecte
         {
             set
@@ -112,6 +114,11 @@ namespace ATMTECH.ShoppingCart.Commerce
             IList<QueryString> queryString = new List<QueryString>();
             queryString.Add(new QueryString(PagesId.CONTENT_ID, "2"));
             Presenter.NavigationService.Redirect(Pages.CONTENT, queryString);
+        }
+
+        protected void btnRejoindreListeDiffusionClick(object sender, EventArgs e)
+        {
+            Presenter.RejoindreListeDiffusion();
         }
     }
 }

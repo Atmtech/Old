@@ -59,6 +59,7 @@
     <Compile Include="DAOOrder.cs" />
     <Compile Include="DAOProduct.cs" />
     <Compile Include="DAOStock.cs" />
+    <Compile Include="Francais\DAOListeDistribution.cs" />
     <Compile Include="Francais\DAOCategorieProduit.cs" />
     <Compile Include="Francais\DAOLigneCommande.cs" />
     <Compile Include="Francais\DAOInventaire.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Francais\DAOCommande.cs" />
     <Compile Include="Francais\DAOProduitFichier.cs" />
     <Compile Include="Francais\DAOProduit.cs" />
+    <Compile Include="Interface\Francais\IDAOListeDistribution.cs" />
     <Compile Include="Interface\Francais\IDAOCategorieProduit.cs" />
     <Compile Include="Interface\IDAOFileType.cs" />
     <Compile Include="Interface\Francais\IDAOLigneCommande.cs" />

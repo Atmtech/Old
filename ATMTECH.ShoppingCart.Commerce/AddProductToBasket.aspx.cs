@@ -78,7 +78,9 @@ namespace ATMTECH.ShoppingCart.Commerce
                     lblPrixOriginal.Visible = false;
                     lblPrixUnitaire.Text = value.UnitPrice.ToString("C");
                 }
-                imgProductPrincipal.ImageUrl = value.PrincipalFileUrl;
+
+                ListeFichier.Fichiers = value.ProductFiles;
+                //imgProductPrincipal.ImageUrl = value.PrincipalFileUrl;
 
                 ListeCouleur.Langue = Presenter.CurrentLanguage;
                 ListeCouleur.Produit = value;

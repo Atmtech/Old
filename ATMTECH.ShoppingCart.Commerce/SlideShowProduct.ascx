@@ -82,62 +82,7 @@
     </div>
     <!-- Slides Container -->
     <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1000px; height: 500px; overflow: hidden;">
-
-       <%-- <asp:DataList runat="server" ID="dataListeTest">
-            <ItemTemplate>
-                <div>
-                    <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/purple.jpg" />
-                    <div style="position: absolute; width: 1000px; height: 120px; top: 0px;">
-                        <div style="float: left; width: 670px; padding-right: 10px; padding-top: 80px; padding-left: 10px;">
-                            <div style="font-weight: bold; font-size: 30px; padding-bottom: 10px; font-weight: bold; border-bottom: solid 1px white; margin-bottom: 10px;">MOLLETON À COL ARRONDI</div>
-                            50% Coton/ 50% dryblend polyester prérétréci, 15.5 oz.Tissu quiabsorbe l’humidité. Molleton à col arrondi et manchesmontées. Tricot côtelé 1X1 avec Lycra®. Double piqûres aucol, aux manches, et à la taille. Tissu tourné d’un quart detour pour éliminer le pli central. Propriétés « moisture wicking ».Transfert thermique de l’étiquette.(Sport Grey 10% Polyester)
-                        <br />
-                            <br />
-                            <div style="font-weight: bold; font-size: 20px;"><a href="">Acheter dès maintenant !!!!!</a></div>
-                        </div>
-                        <div style="float: left; width: 300px;">
-                            <img src="Images/Product/12000.jpg" style="width: 311px; height: 500px;" />
-                        </div>
-                        <div style="clear: both;"></div>
-                    </div>
-                </div>
-            </ItemTemplate>
-        </asp:DataList>--%>
-
         <asp:PlaceHolder runat="server" ID="placeHolder"></asp:PlaceHolder>
-
-        <%--    <div>
-            <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/purple.jpg" />
-            <div style="position: absolute; width: 1000px; height: 120px; top: 0px;">
-                <div style="float: left; width: 670px; padding-right: 10px; padding-top: 80px; padding-left: 10px;">
-                    <div style="font-weight: bold; font-size: 30px; padding-bottom: 10px; font-weight: bold; border-bottom: solid 1px white; margin-bottom: 10px;">MOLLETON À COL ARRONDI</div>
-                    50% Coton/ 50% dryblend polyester prérétréci, 15.5 oz.Tissu quiabsorbe l’humidité. Molleton à col arrondi et manchesmontées. Tricot côtelé 1X1 avec Lycra®. Double piqûres aucol, aux manches, et à la taille. Tissu tourné d’un quart detour pour éliminer le pli central. Propriétés « moisture wicking ».Transfert thermique de l’étiquette.(Sport Grey 10% Polyester)
-                        <br />
-                    <br />
-                    <div style="font-weight: bold; font-size: 20px;"><a href="">Acheter dès maintenant !!!!!</a></div>
-                </div>
-                <div style="float: left; width: 300px;">
-                    <img src="Images/Product/12000.jpg" style="width: 311px; height: 500px;" />
-                </div>
-                <div style="clear: both;"></div>
-            </div>
-        </div>
-        <div>
-            <img u="image" src="JQuery/jquery-ui-1.11.2/img/SlideShow/red.jpg" />
-            <div style="position: absolute; width: 1000px; height: 120px; top: 0px;">
-                <div style="float: left; width: 670px; padding-right: 10px; padding-top: 80px; padding-left: 10px;">
-                    <div style="font-weight: bold; font-size: 20px; padding-bottom: 10px; font-weight: bold; border-bottom: solid 1px white; margin-bottom: 10px;">MOLLETON À COL ARRONDI</div>
-                    50% Coton/ 50% dryblend polyester prérétréci, 15.5 oz.Tissu quiabsorbe l’humidité. Molleton à col arrondi et manchesmontées. Tricot côtelé 1X1 avec Lycra®. Double piqûres aucol, aux manches, et à la taille. Tissu tourné d’un quart detour pour éliminer le pli central. Propriétés « moisture wicking ».Transfert thermique de l’étiquette.(Sport Grey 10% Polyester)
-                        <br />
-                    <br />
-                    <div style="font-weight: bold; font-size: 20px;"><a href="">Acheter dès maintenant !!!!!</a></div>
-                </div>
-                <div style="float: left; width: 300px;">
-                    <img src="Images/Product/12000.jpg" style="width: 311px; height: 500px;" />
-                </div>
-                <div style="clear: both;"></div>
-            </div>
-        </div>--%>
     </div>
 
     <!-- Bullet Navigator Skin Begin -->

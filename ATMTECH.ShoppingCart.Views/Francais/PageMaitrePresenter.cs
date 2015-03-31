@@ -1,4 +1,5 @@
-﻿using ATMTECH.ShoppingCart.Entities;
+﻿using ATMTECH.ShoppingCart.DAO.Interface.Francais;
+using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
@@ -17,6 +18,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public IAuthenticationService AuthenticationService { get; set; }
         public IClientService ClientService { get; set; }
         public ICommandeService CommandeService { get; set; }
+        public IDAOListeDistribution DAOListeDistribution { get; set; }
 
         public override void OnViewLoaded()
         {
@@ -62,6 +64,16 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
             AuthenticationService.SignOut();
             NavigationService.Redirect(Pages.Pages.DEFAULT);
+        }
+
+        public void RejoindreListeDiffusion()
+        {
+            MailingList mailingList = new MailingList
+                {
+                    IsActive = true,
+                    Email = View.CourrielListeDiffusion
+                };
+            DAOListeDistribution.Save(mailingList);
         }
     }
 }

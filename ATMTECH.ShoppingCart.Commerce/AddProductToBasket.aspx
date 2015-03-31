@@ -2,12 +2,14 @@
     CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.AddProductToBasket" %>
 
 <%@ Register Src="ListeCouleur.ascx" TagName="ListeCouleur" TagPrefix="uc2" %>
+<%@ Register src="SlideShowFile.ascx" tagname="SlideShowFile" tagprefix="uc3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
     <div class="imageProduit">
-        <asp:ImageButton runat="server" ID="imgProductPrincipal" ClientIDMode="Static" CssClass="imageProduitAfficher" />
+        <uc3:SlideShowFile ID="ListeFichier" runat="server" Langue='<%#Presenter.CurrentLanguage%>'/>    
     </div>
     <div class="descriptionProduit">
         <div class="titreDescriptionProduit">

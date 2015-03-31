@@ -13,13 +13,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
     public partial class AddProductToBasket {
         
         /// <summary>
-        /// Contrôle imgProductPrincipal.
+        /// Contrôle ListeFichier.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgProductPrincipal;
+        protected global::ATMTECH.ShoppingCart.Commerce.SlideShowFile ListeFichier;
         
         /// <summary>
         /// Contrôle lblIdentProduit.

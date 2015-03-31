@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
+    <Compile Include="MailingList.cs" />
     <Compile Include="OrderStatusDisplay.cs" />
     <Compile Include="EnterpriseAccess.cs" />
     <Compile Include="EnumOrderInformation.cs" />

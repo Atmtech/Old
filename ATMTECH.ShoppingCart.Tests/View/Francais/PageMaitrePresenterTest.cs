@@ -1,4 +1,5 @@
-﻿using ATMTECH.ShoppingCart.Entities;
+﻿using ATMTECH.ShoppingCart.DAO.Interface.Francais;
+using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
@@ -108,6 +109,14 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             InstanceTest.AfficherInformation();
             string format = string.Format("{0} - {1} item", order.GrandTotal, "0");
             ViewMock.VerifySet(x => x.AffichagePanier = format, Times.Never());
+        }
+
+        [TestMethod]
+        public void RejoindreListeDiffusion_DoitSauvegarderAvecLECourrielDeLaCase()
+        {
+            ViewMock.Setup(x => x.CourrielListeDiffusion).Returns("caca");
+            InstanceTest.RejoindreListeDiffusion();
+            ObtenirMock<IDAOListeDistribution>().Verify(x => x.Save(It.Is<MailingList>(a => a.Email == "caca")));
         }
     }
 }
