@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="Row" style="">
-                        <div class="Cell" style="padding-top: 5px; padding-bottom: 5px; width: 300px; text-align: left;">
+                        <div class="Cell" style="padding-bottom: 10px;width: 300px; text-align: left;">
                             <atmtech:ComboBox runat="server" ID="ddlStock" Visible="False" />
 
                             <asp:Label runat="server" ID="lblCouleur" Text="Couleur"></asp:Label>
@@ -46,9 +46,9 @@
                             <asp:Label runat="server" ID="lblTaille" Text="Taille"></asp:Label>
                             <atmtech:ComboBox runat="server" ID="ddlTaille" />
                         </div>
-                        <div class="Cell">
+                        <div class="Cell" style=""><br/>
                             <asp:Button runat="server" ID="btnVousDevezEtreConnectePourAjouterQuantite" Text="Identifier vous" OnClick="btnVousDevezEtreConnectePourAjouterQuantiteClick" CssClass="boutonLien"></asp:Button>
-                            <atmtech:Numeric runat="server" NoDecimal="True" ID="txtQuantite" CssClass="textBox" />
+                            <atmtech:Numeric runat="server" NoDecimal="True" ID="txtQuantite" CssClass="textBox" Width="50px"  />
                         </div>
                     </div>
                 </div>

@@ -59,8 +59,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 View.Courriel = customer.User.Email;
                 View.MotPasse = customer.User.Password;
                 View.MotPasseConfirmation = customer.User.Password;
-
-                if (customer.ShippingAddress.No != null)
+                if (customer.ShippingAddress != null && customer.ShippingAddress.Id != 0)
                 {
                     View.NoCiviqueLivraison = customer.ShippingAddress.No;
                     View.RueLivraison = customer.ShippingAddress.Way;
@@ -73,7 +72,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                     View.EstAucuneAdresseLivraison = true;
                 }
 
-                if (customer.BillingAddress.No != null)
+                if (customer.BillingAddress != null && customer.BillingAddress.Id != 0)
                 {
                     View.NoCiviqueFacturation = customer.BillingAddress.No;
                     View.RueFacturation = customer.BillingAddress.Way;

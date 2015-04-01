@@ -150,23 +150,23 @@
             </div>
 
             <asp:Label runat="server" ID="lblAdressInformationBasket" Visible="False"></asp:Label>
-            <div class="title" style="display: none;">
+            <div class="title">
                 <strong>
                     <asp:Label runat="server" ID="lblShippingLabel" Text="Adresse d'envoi" />
                 </strong>
             </div>
-            <asp:DropDownList runat="server" ID="ddlShipping" AutoPostBack="True" OnSelectedIndexChanged="ddlShippingIndexSelectedChanged" Visible="False"/>
+            <asp:DropDownList runat="server" ID="ddlShipping" AutoPostBack="True" OnSelectedIndexChanged="ddlShippingIndexSelectedChanged" Visible="True"/> * Obligatoire / Required
             <asp:Button runat="server" ID="btnModifyShippingAddress" OnClick="btnModifyShippingAddressClick"
                 Text="Modifier" />
             <asp:Label runat="server" ID="lblNoShippingAddress" Visible="False" ForeColor="red"></asp:Label>
             <br />
             <br />
-            <div class="title">
+            <div class="title" style="display: none;">
                 <strong>
                     <asp:Label runat="server" ID="lblBillingLabel" Text="Adresse de facturation" />
                 </strong>
             </div>
-            <asp:DropDownList runat="server" ID="ddlBilling" AutoPostBack="True" OnSelectedIndexChanged="ddlBillingIndexSelectedChanged" />
+            <asp:DropDownList runat="server" ID="ddlBilling" AutoPostBack="True" OnSelectedIndexChanged="ddlBillingIndexSelectedChanged" Visible="False" />
             <asp:Button runat="server" ID="btnModifyBillingAddress" OnClick="btnModifyBillingAddressClick"
                 Text="Modifier" />
             <asp:Label runat="server" ID="lblNoBillingAddress" Visible="False" ForeColor="red"></asp:Label>

@@ -39,8 +39,20 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 }
 
                 View.Commande = commande;
-                View.AdresseFacturation = commande.BillingAddress.DisplayAddress;
-                View.AdresseLivraison = commande.ShippingAddress.DisplayAddress;
+                if (commande.BillingAddress != null && commande.BillingAddress.Id != 0)
+                    View.AdresseFacturation = commande.BillingAddress.DisplayAddress;
+                else
+                {
+                    View.EstSansAdresseFacturation = true;
+                    View.EstCommandable = false;
+                }
+                if (commande.ShippingAddress != null && commande.ShippingAddress.Id != 0)
+                    View.AdresseLivraison = commande.ShippingAddress.DisplayAddress;
+                else
+                {
+                    View.EstSansAdresseLivraison = true;
+                    View.EstCommandable = false;
+                }
 
             }
             else

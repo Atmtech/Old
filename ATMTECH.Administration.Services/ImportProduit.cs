@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ATMTECH.Administration.Services
+﻿namespace ATMTECH.Administration.Services
 {
    public class ImportProduit
     {
@@ -11,6 +6,7 @@ namespace ATMTECH.Administration.Services
         public string Brand { get; set; }
         public string Size { get; set; }
         public string ColorId { get; set; }
+        public string Price { get; set; }
         public string Color_EN { get; set; }
         public string Color_FR { get; set; }
         public string Title_EN { get; set; }

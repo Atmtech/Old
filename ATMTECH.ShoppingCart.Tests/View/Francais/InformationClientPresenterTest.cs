@@ -61,7 +61,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
         public void AfficherInformationClient_SiAucuneAdresseLivraisonOnAffirmeAvoirAucuneAdresse()
         {
             Customer customer = AutoFixture.Create<Customer>();
-            customer.ShippingAddress.No = null;
+            customer.ShippingAddress = null;
             ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             InstanceTest.AfficherInformationClient();
             ViewMock.VerifySet(x => x.EstAucuneAdresseLivraison = true);
@@ -71,7 +71,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
         public void AfficherInformationClient_SiAucuneAdresseFacturationOnAffirmeAvoirAucuneAdresse()
         {
             Customer customer = AutoFixture.Create<Customer>();
-            customer.BillingAddress.No = null;
+            customer.BillingAddress = null;
             ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             InstanceTest.AfficherInformationClient();
             ViewMock.VerifySet(x => x.EstAucuneAdresseFacturation = true);

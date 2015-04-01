@@ -107,6 +107,7 @@ namespace ATMTECH.Administration.Services
                                                                 Brand = node.SelectSingleNode("Brand").InnerText,
                                                                 Size = node.SelectSingleNode("Size").InnerText,
                                                                 ColorId = node.SelectSingleNode("ColorId").InnerText,
+                                                                Price = node.SelectSingleNode("Price").InnerText,
                                                                 Color_EN = node.SelectSingleNode("Color_EN").InnerText,
                                                                 Color_FR = node.SelectSingleNode("Color_FR").InnerText,
                                                                 Title_EN = node.SelectSingleNode("Title_EN").InnerText,
@@ -178,6 +179,7 @@ namespace ATMTECH.Administration.Services
 
                 if (product == null && productsTraite.Count(x => x.Ident == importProduit.ItemID) == 0)
                 {
+                    
                     product = new Product
                         {
                             Ident = importProduit.ItemID,
@@ -189,7 +191,8 @@ namespace ATMTECH.Administration.Services
                             ProductCategoryEnglish = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieAnglaise(importProduit)),
                             ProductCategoryFrench = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieFrancaise(importProduit)),
                             Weight = 1,
-                            UnitPrice = (decimal)RandomNumberBetween(1, 100)
+                            UnitPrice = Convert.ToDecimal(importProduit.Price.Replace(".",",")),
+                            CostPrice = Convert.ToDecimal(importProduit.Price.Replace(".", ","))
                         };
                     productsTraite.Add(product);
                     ProductService.Save(product);
@@ -204,6 +207,8 @@ namespace ATMTECH.Administration.Services
                         product.NameFrench = importProduit.Title_FR;
                         product.ProductCategoryEnglish = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieAnglaise(importProduit));
                         product.ProductCategoryFrench = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieFrancaise(importProduit));
+                        product.UnitPrice = Convert.ToDecimal(importProduit.Price.Replace(".", ","));
+                        product.CostPrice = Convert.ToDecimal(importProduit.Price.Replace(".", ","));
                         productsTraite.Add(product);
                         ProductService.Save(product);
                     }

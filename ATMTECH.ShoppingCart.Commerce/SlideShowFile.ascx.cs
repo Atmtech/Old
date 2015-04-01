@@ -15,6 +15,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         protected void Page_Load(object sender, EventArgs e)
         {
             string html = string.Empty;
+            if (Fichiers == null) return;
             IList<ProductFile> orderedEnumerable = Fichiers.OrderByDescending(x => x.IsPrincipal).ToList();
             foreach (ProductFile productFile in orderedEnumerable)
             {

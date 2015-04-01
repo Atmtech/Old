@@ -148,6 +148,15 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblAdresseLivraison;
         
         /// <summary>
+        /// Contrôle lblSansAdresseLivraison.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSansAdresseLivraison;
+        
+        /// <summary>
         /// Contrôle lblAdresseFacturationClient.
         /// </summary>
         /// <remarks>
@@ -164,6 +173,15 @@ namespace ATMTECH.ShoppingCart.Commerce {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAdresseFacturation;
+        
+        /// <summary>
+        /// Contrôle lblSansAdresseFacturation.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSansAdresseFacturation;
         
         /// <summary>
         /// Contrôle btnModifierAdresse.

@@ -89,7 +89,7 @@
 
             </div>
             <div>
-                <asp:Button runat="server" ID="btnUtiliserMemeAdresseQueLivraison" OnClick="btnUtiliserMemeAdresseQueLivraisonClick" Text="Utiliser la même adresse que celle de livraison" CssClass="boutonLien" />
+                <asp:Button runat="server" ID="btnUtiliserMemeAdresseQueLivraison" OnClick="btnUtiliserMemeAdresseQueLivraisonClick" Text="Utiliser la même adresse que celle de livraison" CssClass="boutonActionRond" />
             </div>
             <div style="padding-top: 20px;">
                 <asp:Label runat="server" ID="lblNoCiviqueFacturationInformationClient" Text="Numéro civique" CssClass="labelLogin"></asp:Label>
@@ -160,9 +160,8 @@
                 </div>
             </div>
             <asp:PlaceHolder runat="server" ID="placeHolderListeCommandePasse"></asp:PlaceHolder>
-            <asp:Label runat="server" ID="lblAucuneCommandePasseACeJour" Text="Aucune commande passé à ce jour"></asp:Label>
-
         </div>
+        <asp:Label runat="server" ID="lblAucuneCommandePasseACeJour" Text="Aucune commande passé à ce jour"></asp:Label>
 
     </div>
     <div style="clear: both;"></div>

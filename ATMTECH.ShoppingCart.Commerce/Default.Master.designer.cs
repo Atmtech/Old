@@ -139,22 +139,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Button btnNomClient;
         
         /// <summary>
-        /// Contrôle imgPanier.
+        /// Contrôle btnAucunItemDansPanier.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgPanier;
-        
-        /// <summary>
-        /// Contrôle lblAucunItemDansPanier.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAucunItemDansPanier;
+        protected global::System.Web.UI.WebControls.Button btnAucunItemDansPanier;
         
         /// <summary>
         /// Contrôle btnPanier.

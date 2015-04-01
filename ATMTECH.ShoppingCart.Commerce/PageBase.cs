@@ -24,7 +24,7 @@ namespace ATMTECH.ShoppingCart.Commerce
                 {
                     Panel panel = (Panel) Master.FindControl("pnlSuccess");
                     Label literal = (Label) Master.FindControl("lblSuccess");
-                    literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
+                    literal.Text = message.Description;
                     panel.Visible = true;
                 }
             }
@@ -34,7 +34,7 @@ namespace ATMTECH.ShoppingCart.Commerce
                 {
                     Panel panel = (Panel) Master.FindControl("pnlError");
                     Label literal = (Label) Master.FindControl("lblError");
-                    literal.Text = string.Format("{0} - {1}", message.InnerId, message.Description);
+                    literal.Text = message.Description;
                     panel.Visible = true;
                 }
             }

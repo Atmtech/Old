@@ -28,6 +28,11 @@ namespace ATMTECH.ShoppingCart.DAO
 
         public City GetCity(int id)
         {
+            City firstOrDefault = Cities.FirstOrDefault(x => x.Id == id);
+            if (firstOrDefault == null)
+            {
+                ContextSessionManager.Context.Session["Cities"] = GetAll();
+            }
             return Cities.FirstOrDefault(x => x.Id == id);
         }
 

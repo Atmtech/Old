@@ -34,8 +34,15 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
         public Order ObtenirCommandeSouhaite(Customer client)
         {
-            return DAOCommande.ObtenirCommandeSouhaite(client);
+            Order obtenirCommandeSouhaite = DAOCommande.ObtenirCommandeSouhaite(client);
+            if (obtenirCommandeSouhaite == null) return null;
+            if (obtenirCommandeSouhaite.BillingAddress == null)
+                obtenirCommandeSouhaite.BillingAddress = client.BillingAddress;
+            if (obtenirCommandeSouhaite.ShippingAddress == null)
+                obtenirCommandeSouhaite.ShippingAddress = client.ShippingAddress;
+            return obtenirCommandeSouhaite;
         }
+
         public IList<Order> ObtenirCommande(Customer customer)
         {
             return DAOCommande.ObtenirCommande(customer);

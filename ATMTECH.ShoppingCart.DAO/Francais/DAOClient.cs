@@ -28,12 +28,15 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
                 if (rtn[0].ShippingAddress != null && rtn[0].ShippingAddress.Id != 0)
                 {
                     rtn[0].ShippingAddress = DAOAddress.GetAddress(rtn[0].ShippingAddress.Id);
-                    rtn[0].ShippingAddress.City = DAOCity.GetCity(rtn[0].ShippingAddress.City.Id);
+                    if (rtn[0].ShippingAddress != null)
+                        rtn[0].ShippingAddress.City = DAOCity.GetCity(rtn[0].ShippingAddress.City.Id);
                 }
                 if (rtn[0].BillingAddress != null && rtn[0].BillingAddress.Id != 0)
                 {
+
                     rtn[0].BillingAddress = DAOAddress.GetAddress(rtn[0].BillingAddress.Id);
-                    rtn[0].BillingAddress.City = DAOCity.GetCity(rtn[0].BillingAddress.City.Id);
+                    if (rtn[0].BillingAddress != null)
+                        rtn[0].BillingAddress.City = DAOCity.GetCity(rtn[0].BillingAddress.City.Id);
                 }
 
 

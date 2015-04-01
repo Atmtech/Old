@@ -228,7 +228,9 @@ namespace ATMTECH.ShoppingCart.Lauzon
         {
             set
             {
-                ddlShipping.DataSource = value;
+                IList<Address> addresses = value;
+                addresses.Insert(0, new Address());
+                ddlShipping.DataSource = addresses;
                 ddlShipping.DataTextField = Address.DISPLAY_ADDRESS;
                 ddlShipping.DataValueField = BaseEntity.ID;
                 ddlShipping.DataBind();
@@ -277,13 +279,13 @@ namespace ATMTECH.ShoppingCart.Lauzon
         {
             if (ddlBilling.SelectedValue != "0")
             {
-                Presenter.FinalizeOrder(false);    
+                Presenter.FinalizeOrder(false);
             }
             else
             {
                 Presenter.DisplayMandatoryAddress();
             }
-            
+
         }
         protected void RecalculerClick(object sender, EventArgs e)
         {
@@ -312,8 +314,16 @@ namespace ATMTECH.ShoppingCart.Lauzon
         }
         protected void FinalizeOrderPaypal(object sender, EventArgs eventArgs)
         {
-            Presenter.FinalizeOrder(true);
+            if (ddlShipping.SelectedValue != "0")
+            {
+                Presenter.FinalizeOrder(true);
+            }
+            else
+            {
+                Presenter.DisplayMandatoryAddress();
+            }
         }
+
         protected void ContinueShoppingClick(object sender, EventArgs e)
         {
             Presenter.Redirect(Pages.PRODUCT_CATALOG);

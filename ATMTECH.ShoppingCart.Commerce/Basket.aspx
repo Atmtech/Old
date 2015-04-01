@@ -99,18 +99,19 @@
             </table>
 
             <div style="padding-bottom: 20px;">
-
                 <div class="adresseLivraisonClient">
                     <div class="titreDansPage">
                         <asp:Label runat="server" ID="lblAdresseLivraisonClient" Text="Adresse de livraison"></asp:Label>
                     </div>
                     <asp:Label runat="server" ID="lblAdresseLivraison" CssClass="affichageAdressePanier"></asp:Label>
+                    <asp:Label runat="server" ID="lblSansAdresseLivraison" Text="Vous devez configurez votre adresse de livraison pour finaliser la commande" Visible="False"></asp:Label>
                 </div>
                 <div class="adresseFacturationClient">
                     <div class="titreDansPage">
                         <asp:Label runat="server" ID="lblAdresseFacturationClient" Text="Adresse de facturation"></asp:Label>
                     </div>
                     <asp:Label runat="server" ID="lblAdresseFacturation"  CssClass="affichageAdressePanier"></asp:Label>
+                    <asp:Label runat="server" ID="lblSansAdresseFacturation" Text="Vous devez configurez votre adresse de facturation pour finaliser la commande" Visible="False"></asp:Label>
                 </div>
                 <br />
                 <asp:Button runat="server" ID="btnModifierAdresse" Text="Modifier mes adresses" OnClick="btnModifierAdresseClick" CssClass="boutonActionRond" />

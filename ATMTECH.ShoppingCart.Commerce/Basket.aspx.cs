@@ -30,6 +30,22 @@ namespace ATMTECH.ShoppingCart.Commerce
 
         public string AdresseLivraison { get { return lblAdresseLivraison.Text; } set { lblAdresseLivraison.Text = value; } }
         public string AdresseFacturation { get { return lblAdresseFacturation.Text; } set { lblAdresseFacturation.Text = value; } }
+        public bool EstCommandable { get { return btnFinaliserCommande.Enabled; } set { btnFinaliserCommande.Enabled = value; } }
+        public bool EstSansAdresseFacturation
+        {
+            get { return lblSansAdresseFacturation.Visible; }
+            set
+            {
+                lblSansAdresseFacturation.Visible = value;
+                lblAdresseFacturation.Visible = !value;
+            }
+        }
+        public bool EstSansAdresseLivraison { get { return lblSansAdresseLivraison.Visible; } set
+        {
+            lblSansAdresseLivraison.Visible = value;
+            lblAdresseLivraison.Visible = !value;
+        } }
+
         public void RecalculerPanier()
         {
             int i = 0;

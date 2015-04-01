@@ -287,11 +287,11 @@ namespace ATMTECH.Administration.Views
 
         public IList<string> DisplayColorFromXml()
         {
-            return ImportXmlService.DisplayColor(new Enterprise { Id = 1 }, @"C:\Dev\Atmtech\ATMTECH.Administration\Data\Products.xml");
+            return ImportXmlService.DisplayColor(new Enterprise { Id = 1 }, @"C:\Dev\Atmtech\ATMTECH.Administration\Data\Catalogue.xml");
         }
         public void ImportProductFromXml()
         {
-            ImportXmlService.ImportProductAndStockXml(new Enterprise { Id = 1 }, @"C:\Dev\Atmtech\ATMTECH.Administration\Data\Products.xml");
+            ImportXmlService.ImportProductAndStockXml(new Enterprise { Id = 1 }, @"C:\Dev\Atmtech\ATMTECH.Administration\Data\Catalogue.xml");
         }
 
         public void SynchronizeImage(string directory)
