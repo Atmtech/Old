@@ -37,5 +37,6 @@ namespace ATMTECH.ShoppingCart.Services
         public const string SC_ASK_SHIPPING_QUOTATION = "SC0028";
         public const string SC_NO_ADRESSE = "SC0029";
         public const string SC_NO_CATEGORY = "SC0030";
+        public const string SC_INVALID_COUPON = "SC0031";
     }
 }

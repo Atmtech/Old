@@ -17,14 +17,16 @@ namespace ATMTECH.ShoppingCart.Commerce
             set
             {
                 Session["CommandeActuel"] = value;
-                dataListeCommande.DataSource = value.OrderLines;
-                dataListeCommande.DataBind();
+
+                AffichagePanier();
 
                 lblCoutLivraison.Text = value.ShippingTotal.ToString("c");
                 lblSousTotal.Text = value.SubTotal.ToString("c");
                 lblTaxeFederale.Text = value.CountryTax.ToString("c");
                 lblTaxeProvinciale.Text = value.RegionalTax.ToString("c");
                 lblGrandTotal.Text = value.GrandTotal.ToString("c");
+
+                AffichageValeurCoupon(value);
             }
         }
 
@@ -40,12 +42,16 @@ namespace ATMTECH.ShoppingCart.Commerce
                 lblAdresseFacturation.Visible = !value;
             }
         }
-        public bool EstSansAdresseLivraison { get { return lblSansAdresseLivraison.Visible; } set
+        public bool EstSansAdresseLivraison
         {
-            lblSansAdresseLivraison.Visible = value;
-            lblAdresseLivraison.Visible = !value;
-        } }
-
+            get { return lblSansAdresseLivraison.Visible; }
+            set
+            {
+                lblSansAdresseLivraison.Visible = value;
+                lblAdresseLivraison.Visible = !value;
+            }
+        }
+        public string Coupon { get { return txtCoupon.Text; } set { txtCoupon.Text = value; } }
         public void RecalculerPanier()
         {
             int i = 0;
@@ -57,6 +63,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
             Presenter.RecalculerPanier(listeQuantite);
         }
+
         protected void btnFinaliserCommandeClick(object sender, EventArgs e)
         {
             Presenter.FinaliserCommande();
@@ -75,6 +82,31 @@ namespace ATMTECH.ShoppingCart.Commerce
             if (e.CommandName == "RecalculerCommande")
             {
                 RecalculerPanier();
+            }
+        }
+        protected void btnValiderCouponClick(object sender, EventArgs e)
+        {
+            Presenter.ValiderCoupon();
+            AffichagePanier();
+        }
+
+        private void AffichagePanier()
+        {
+            dataListeCommande.DataSource = ((Order)Session["CommandeActuel"]).OrderLines;
+            dataListeCommande.DataBind();
+        }
+        private void AffichageValeurCoupon(Order commande)
+        {
+            if (commande.Coupon != null && commande.Coupon.PercentageSave != 0)
+            {
+                lblGrandTotalApresCoupon.Text = commande.GrandTotalWithCoupon.ToString("c");
+                lblGrandTotalApresCoupon.Visible = true;
+                lblGrandTotal.Font.Strikeout = true;
+            }
+            else
+            {
+                lblGrandTotalApresCoupon.Visible = false;
+                lblGrandTotal.Font.Strikeout = false;
             }
         }
     }

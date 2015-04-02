@@ -40,6 +40,8 @@ namespace ATMTECH.ShoppingCart.Entities
         public bool IsMailConfirmingOrderSent { get; set; }
         public bool IsAskShipping { get; set; }
         public bool IsOrderLocked { get; set; }
+        public Coupon Coupon { get; set; }
+        public decimal GrandTotalWithCoupon { get; set; }
 
         public string ComboboxDescriptionUpdate
         {

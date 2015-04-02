@@ -63,6 +63,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
         public void FinaliserCommande()
         {
+            CommandeService.ValiderCoupon(View.Commande, View.Coupon);
             CommandeService.FinaliserCommande(View.Commande);
             IList<QueryString> queryStrings = new List<QueryString>();
             queryStrings.Add(new QueryString(Pages.PagesId.ORDER_ID, View.Commande.Id.ToString()));
@@ -91,6 +92,14 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public void ModifierAdresse()
         {
             NavigationService.Redirect(Pages.Pages.CUSTOMER_INFORMATION);
+        }
+
+        public void ValiderCoupon()
+        {
+            if (!string.IsNullOrEmpty(View.Coupon))
+            {
+                CommandeService.ValiderCoupon(View.Commande, View.Coupon);
+            }
         }
     }
 }

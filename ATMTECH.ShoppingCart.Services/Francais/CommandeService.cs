@@ -31,6 +31,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IPaypalService PaypalService { get; set; }
         public ILocalizationService LocalizationService { get; set; }
         public IReportService ReportService { get; set; }
+        public IDAOCoupon DAOCoupon { get; set; }
 
         public Order ObtenirCommandeSouhaite(Customer client)
         {
@@ -42,10 +43,25 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 obtenirCommandeSouhaite.ShippingAddress = client.ShippingAddress;
             return obtenirCommandeSouhaite;
         }
-
         public IList<Order> ObtenirCommande(Customer customer)
         {
             return DAOCommande.ObtenirCommande(customer);
+        }
+        public Order ValiderCoupon(Order commande, string coupon)
+        {
+            Coupon couponValider = DAOCoupon.ObtenirCoupon(coupon);
+            if (!string.IsNullOrEmpty(coupon))
+            {
+                if (couponValider != null)
+                {
+                    commande.Coupon = couponValider;
+                    return Enregistrer(commande);
+                }
+
+                MessageService.ThrowMessage(ErrorCode.SC_INVALID_COUPON);
+                return commande;
+            }
+            return commande;
         }
         public Order ObtenirCommande(int id)
         {
@@ -89,36 +105,11 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             commande = CalculerSousTotaux(commande);
             commande = CalculerEnvoiPostal(commande);
             commande = CalculerTaxe(commande);
+            commande = CalculerCoupon(commande);
             commande.GrandTotal = commande.SubTotal + commande.CountryTax + commande.RegionalTax + commande.ShippingTotal;
 
             return commande;
         }
-
-        private Order CalculerSousTotaux(Order commande)
-        {
-            if (commande.FinalizedDate == null)
-            {
-                commande.SubTotal = 0;
-                if (commande.OrderLines != null)
-                {
-                    foreach (OrderLine orderLine in commande.OrderLines)
-                    {
-                        if (orderLine.IsActive)
-                        {
-                            Product product = ProduitService.ObtenirProduit(orderLine.Stock.Product.Id);
-                            orderLine.UnitPrice = product.UnitPrice > product.SalePrice ? product.SalePrice : product.UnitPrice;
-                            orderLine.SubTotal = (product.SalePrice != 0
-                                                      ? product.SalePrice
-                                                      : product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
-                            commande.TotalWeight += (product.Weight * orderLine.Quantity);
-                            commande.SubTotal += orderLine.SubTotal;
-                        }
-                    }
-                }
-            }
-            return commande;
-        }
-
         public Order CalculerTaxe(Order commande)
         {
             decimal countryTax = TaxesService.GetCountryTaxes(commande.SubTotal, "QBC");
@@ -129,22 +120,30 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         }
         public Order CalculerEnvoiPostal(Order commande)
         {
-            ShippingParameter shippingParameter = new ShippingParameter
+            if (commande.Coupon != null && commande.Coupon.IsShippingSave)
             {
-                BillingAccount = "99999999",
-                CountryReceiverCode = ParameterService.GetValue("CountryReceiverCode"),
-                PackageType = PurolatorPackageType.EXPRESS_BOX,
-                ServiceType = PurolatorServiceType.EXPRESS_BOX,
-                SenderPostalCode = ParameterService.GetValue("SenderPostalCode"),
-                ShippingType = ShippingType.Purolator,
-                WeightType = ShippingParameter.WeightTypes.Lbs,
-                AccountId = ParameterService.GetValue("PurolatorBillingAccount"),
-                Login = ParameterService.GetValue("PurolatorUserName"),
-                Password = ParameterService.GetValue("PurolatorPassword"),
-                Url = ParameterService.GetValue("PurolatorWebServiceUrl")
-            };
+                commande.ShippingTotal = 0;
+            }
+            else
+            {
+                ShippingParameter shippingParameter = new ShippingParameter
+                {
+                    BillingAccount = "99999999",
+                    CountryReceiverCode = ParameterService.GetValue("CountryReceiverCode"),
+                    PackageType = PurolatorPackageType.EXPRESS_BOX,
+                    ServiceType = PurolatorServiceType.EXPRESS_BOX,
+                    SenderPostalCode = ParameterService.GetValue("SenderPostalCode"),
+                    ShippingType = ShippingType.Purolator,
+                    WeightType = ShippingParameter.WeightTypes.Lbs,
+                    AccountId = ParameterService.GetValue("PurolatorBillingAccount"),
+                    Login = ParameterService.GetValue("PurolatorUserName"),
+                    Password = ParameterService.GetValue("PurolatorPassword"),
+                    Url = ParameterService.GetValue("PurolatorWebServiceUrl")
+                };
 
-            commande.ShippingTotal = ShippingService.GetShippingTotal(commande, shippingParameter);
+                commande.ShippingTotal = ShippingService.GetShippingTotal(commande, shippingParameter);
+            }
+
             return commande;
         }
         public Order AjouterLigneCommande(int idInventaire, int quantite)
@@ -163,14 +162,13 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             }
             return null;
         }
-
         public void FinaliserCommandeAvecPaypal(Order commande)
         {
             string productName = HttpUtility.HtmlDecode(commande.OrderLines.Aggregate(string.Empty, (current, line) => current + (line.ProductDescription + " (" + line.Quantity + ") , ")));
             PaypalDto paypalDto = new PaypalDto
             {
                 OrderDescription = string.Format(ParameterService.GetValue("OrderMessagePaypal"), commande.DateModified.ToString(), commande.Enterprise.Name),
-                Price = (double)commande.GrandTotal,
+                Price = commande.Coupon != null ? (double)commande.GrandTotalWithCoupon : (double)commande.GrandTotal,
                 Quantity = 1,
                 OrderId = commande.Id.ToString(),
                 ProductName = productName
@@ -178,7 +176,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
             PaypalService.SendPaypalRequest(paypalDto);
         }
-
         public Order FinaliserCommande(Order commande)
         {
             commande.FinalizedDate = DateTime.Now;
@@ -186,7 +183,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             commande = Enregistrer(commande);
             return commande;
         }
-
         public Order ImprimerCommande(Order commande)
         {
             Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
@@ -208,8 +204,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 ReportService.GetReport(reportParameter));
             return commande;
         }
-
-
 
         private Order SauvegarderLigneCommande(Order commande, int idInventaire, int quantite)
         {
@@ -238,7 +232,38 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
             return Enregistrer(commande);
         }
-
+        private Order CalculerSousTotaux(Order commande)
+        {
+            if (commande.FinalizedDate == null)
+            {
+                commande.SubTotal = 0;
+                if (commande.OrderLines != null)
+                {
+                    foreach (OrderLine orderLine in commande.OrderLines)
+                    {
+                        if (orderLine.IsActive)
+                        {
+                            Product product = ProduitService.ObtenirProduit(orderLine.Stock.Product.Id);
+                            orderLine.UnitPrice = product.UnitPrice > product.SalePrice ? product.SalePrice : product.UnitPrice;
+                            orderLine.SubTotal = (product.SalePrice != 0
+                                                      ? product.SalePrice
+                                                      : product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
+                            commande.TotalWeight += (product.Weight * orderLine.Quantity);
+                            commande.SubTotal += orderLine.SubTotal;
+                        }
+                    }
+                }
+            }
+            return commande;
+        }
+        private Order CalculerCoupon(Order commande)
+        {
+            if (commande.Coupon != null && !commande.Coupon.IsShippingSave)
+            {
+                commande.GrandTotalWithCoupon = commande.SubTotal - (commande.SubTotal * commande.Coupon.PercentageSave / 100) + commande.CountryTax + commande.RegionalTax + commande.ShippingTotal;
+            }
+            return commande;
+        }
 
     }
 }

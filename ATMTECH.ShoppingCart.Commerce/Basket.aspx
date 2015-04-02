@@ -14,11 +14,11 @@
                 <ItemTemplate>
                     <div style="border-bottom: solid 2px lightGray; margin-bottom: 10px; width: 750px;">
                         <div style="float: left; text-align: center">
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# "images/product/" +Eval("Stock.Product.PrincipalFileUrlWithoutDirectory")  %>' Width="100px" Height="100px"></asp:Image>
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# "images/product/" +Eval("Stock.Product.PrincipalFileUrlWithoutDirectory")  %>' CssClass="imageThumbNailPanier"></asp:Image>
                             <br />
                             <asp:Button runat="server" ID="btnRetirerArticle" Text="Retirer" CssClass="boutonLien" CommandName="SupprimerLigneCommande" CommandArgument='<%# Eval("Id") %>' />
                         </div>
-                        <div style="float: left; padding-left: 10px;padding-top: 10px; width: 400px;">
+                        <div style="float: left; padding-left: 10px; padding-top: 10px; width: 400px;">
                             <div style="font-weight: bold;">
                                 <asp:Label runat="server" ID="lblIdent" Text='<%#Eval("Stock.Product.Ident")%>'></asp:Label>
                                 <asp:Label runat="server" ID="lblNom" Text='<%# Session["currentLanguage"].ToString().Equals("fr") ?  Eval("Stock.Product.NameFrench") : Eval("Stock.Product.NameEnglish")%>'></asp:Label>
@@ -34,7 +34,9 @@
                     </div>
                     <div style="float: left; padding-left: 30px; width: 200px; padding-bottom: 20px">
                         <div style="font-weight: bold; border-bottom: solid 1px gray; padding-bottom: 20px;">
-                            <asp:Label runat="server" ID="lblPrixUnitairePaye" Text='<%# Eval("UnitPrice","{0:c}")  %>' CssClass="prixPaye"></asp:Label>
+                            <asp:Label runat="server" ID="lblPrixUnitaire" Text='<%# Eval("UnitPrice","{0:c}")  %>' CssClass="prixPaye"></asp:Label>
+                            <br />
+                            <asp:Label runat="server" ID="lblPrixOriginal" Text='<%# Eval("Stock.Product.UnitPrice","{0:c}")  %>' Visible='<%# Convert.ToDecimal(Eval("Stock.Product.UnitPrice")) > Convert.ToDecimal(Eval("UnitPrice")) %>' CssClass="prixRaye"></asp:Label>
                             <br />
                             <asp:Label runat="server" ID="lblVousEpargnez" Text="Vous épargnez: " Visible='<%# Convert.ToDecimal(Eval("Stock.Product.UnitPrice")) > Convert.ToDecimal(Eval("UnitPrice")) %>' CssClass="prixEpargner"></asp:Label>
                             <asp:Label runat="server" ID="lblPrixVente" Text='<%# Eval("SavePrice","{0:c}")  %>' Visible='<%# Convert.ToInt32(Eval("Stock.Product.UnitPrice")) > Convert.ToInt32(Eval("UnitPrice")) %>' CssClass="prixEpargner"></asp:Label>
@@ -56,7 +58,7 @@
                 </ItemTemplate>
             </asp:DataList>
         </div>
-        <div style="float: left; padding-left: 20px; border-left: solid 1px gray; margin-left: 10px;width: 200px">
+        <div style="float: left; padding-left: 20px; border-left: solid 1px gray; margin-left: 10px; width: 200px">
             <div class="titreDansPage">
                 <asp:Label runat="server" ID="lblVotreCommande" Text="La commande"></asp:Label>
             </div>
@@ -93,10 +95,24 @@
                 <tr>
                     <td class="totalCommandePanier">
                         <asp:Label runat="server" ID="lblGrandTotalAffichage" Text="Total: "></asp:Label></td>
-                     <td class="totalCommandePanier">
-                        <asp:Label runat="server" ID="lblGrandTotal"></asp:Label></td>
+                    <td class="totalCommandePanier">
+                        <asp:Label runat="server" ID="lblGrandTotal"></asp:Label>
+                        <asp:Label runat="server" ID="lblGrandTotalApresCoupon" Visible="False"></asp:Label>
+                    </td>
                 </tr>
             </table>
+
+            <div>
+                <div class="adresseLivraisonClient">
+                    <div class="titreDansPage">
+                        <asp:Label runat="server" ID="lblCoupon" Text="Entrer votre coupon"></asp:Label>
+                    </div>
+                    <div style="padding-bottom: 10px;">
+                        <asp:TextBox runat="server" ID="txtCoupon" CssClass="textBox"></asp:TextBox>
+                    </div>
+                    <asp:Button runat="server" ID="btnValiderCoupon" Text="Valider" OnClick="btnValiderCouponClick" CssClass="boutonActionRond" />
+                </div>
+            </div>
 
             <div style="padding-bottom: 20px;">
                 <div class="adresseLivraisonClient">
@@ -110,7 +126,7 @@
                     <div class="titreDansPage">
                         <asp:Label runat="server" ID="lblAdresseFacturationClient" Text="Adresse de facturation"></asp:Label>
                     </div>
-                    <asp:Label runat="server" ID="lblAdresseFacturation"  CssClass="affichageAdressePanier"></asp:Label>
+                    <asp:Label runat="server" ID="lblAdresseFacturation" CssClass="affichageAdressePanier"></asp:Label>
                     <asp:Label runat="server" ID="lblSansAdresseFacturation" Text="Vous devez configurez votre adresse de facturation pour finaliser la commande" Visible="False"></asp:Label>
                 </div>
                 <br />

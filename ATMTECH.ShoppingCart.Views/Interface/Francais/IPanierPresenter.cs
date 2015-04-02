@@ -11,5 +11,6 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
         bool EstCommandable { get; set; }
         bool EstSansAdresseFacturation { get; set; }
         bool EstSansAdresseLivraison { get; set; }
+        string Coupon { get; set; }
     }
 }

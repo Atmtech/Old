@@ -133,6 +133,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             order.ShippingTotal = 0;
             order.CountryTax = 0;
             order.RegionalTax = 0;
+            order.Coupon = null;
 
             Product produit = AutoFixture.Create<Product>();
             order.OrderLines.Add(new OrderLine { Stock = new Stock { Product = produit }, Quantity = 1, IsActive = true });
@@ -149,6 +150,36 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
 
             Assert.AreEqual(261, calculerTotal.GrandTotal);
             Assert.AreEqual(12, calculerTotal.TotalWeight);
+        }
+
+        [TestMethod]
+        public void CalculerTotal_RemplirGrandTotalAvecCouponQuandCouponExistantAvecPercentageSave()
+        {
+            Order order = AutoFixture.Create<Order>();
+            order.FinalizedDate = null;
+            order.OrderLines.Clear();
+            order.GrandTotal = 0;
+            order.ShippingTotal = 0;
+            order.CountryTax = 0;
+            order.RegionalTax = 0;
+            order.Coupon.IsShippingSave = false;
+            order.Coupon.PercentageSave = 10;
+
+            Product produit = AutoFixture.Create<Product>();
+            order.OrderLines.Add(new OrderLine { Stock = new Stock { Product = produit }, Quantity = 1, IsActive = true });
+            produit.UnitPrice = 200;
+            produit.SalePrice = 0;
+            produit.Weight = 0;
+
+            ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
+            ObtenirMock<ITaxesService>().Setup(x => x.GetCountryTaxes(It.IsAny<decimal>(), "QBC")).Returns(0);
+            ObtenirMock<ITaxesService>().Setup(x => x.GetRegionTaxes(It.IsAny<decimal>(), "QBC")).Returns(0);
+            ObtenirMock<IShippingService>().Setup(x => x.GetShippingTotal(order, It.IsAny<ShippingParameter>())).Returns(0);
+
+            Order calculerTotal = InstanceTest.CalculerTotal(order);
+
+            Assert.AreEqual(180, calculerTotal.GrandTotalWithCoupon);
+            
         }
 
         [TestMethod]
@@ -177,6 +208,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             order.ShippingTotal = 0;
             order.CountryTax = 0;
             order.RegionalTax = 0;
+            order.Coupon = null;
 
             ObtenirMock<IShippingService>()
                 .Setup(x => x.GetShippingTotal(order, It.IsAny<ShippingParameter>()))
@@ -184,6 +216,26 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             Order calculerEnvoiPostal = InstanceTest.CalculerEnvoiPostal(order);
             Assert.AreEqual(50, calculerEnvoiPostal.ShippingTotal);
         }
+
+        [TestMethod]
+        public void CalculerEnvoiPostal_SiUnCouponDitDannulerShippingOnMet0()
+        {
+            Order order = AutoFixture.Create<Order>();
+            order.OrderLines.Clear();
+            order.GrandTotal = 0;
+            order.SubTotal = 0;
+            order.ShippingTotal = 0;
+            order.CountryTax = 0;
+            order.RegionalTax = 0;
+            order.Coupon.IsShippingSave = true;
+
+            ObtenirMock<IShippingService>()
+                .Setup(x => x.GetShippingTotal(order, It.IsAny<ShippingParameter>()))
+                .Returns(50);
+            Order calculerEnvoiPostal = InstanceTest.CalculerEnvoiPostal(order);
+            Assert.AreEqual(0, calculerEnvoiPostal.ShippingTotal);
+        }
+
 
         [TestMethod]
         public void Enregistrer_DoitAffecterLeIdALaCommande()

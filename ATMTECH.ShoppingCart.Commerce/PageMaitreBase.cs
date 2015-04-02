@@ -92,6 +92,8 @@ namespace ATMTECH.ShoppingCart.Commerce
             if (id == "lblPrixEpargner") return true;
             if (id == "lblNumeroCommande") return true;
             if (id == "lblContenu") return true;
+            if (id == "lblGrandTotalApresCoupon") return true;
+            
             
             return false;
         }
