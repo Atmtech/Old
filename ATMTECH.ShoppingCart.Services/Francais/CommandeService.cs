@@ -26,7 +26,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public ITaxesService TaxesService { get; set; }
         public IMessageService MessageService { get; set; }
         public IValiderCommandeService ValiderCommandeService { get; set; }
-        public IShippingService ShippingService { get; set; }
+        public IEnvoiPostalService EnvoiPostalService { get; set; }
         public IParameterService ParameterService { get; set; }
         public IPaypalService PaypalService { get; set; }
         public ILocalizationService LocalizationService { get; set; }
@@ -126,22 +126,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             }
             else
             {
-                ShippingParameter shippingParameter = new ShippingParameter
-                {
-                    BillingAccount = "99999999",
-                    CountryReceiverCode = ParameterService.GetValue("CountryReceiverCode"),
-                    PackageType = PurolatorPackageType.EXPRESS_BOX,
-                    ServiceType = PurolatorServiceType.EXPRESS_BOX,
-                    SenderPostalCode = ParameterService.GetValue("SenderPostalCode"),
-                    ShippingType = ShippingType.Purolator,
-                    WeightType = ShippingParameter.WeightTypes.Lbs,
-                    AccountId = ParameterService.GetValue("PurolatorBillingAccount"),
-                    Login = ParameterService.GetValue("PurolatorUserName"),
-                    Password = ParameterService.GetValue("PurolatorPassword"),
-                    Url = ParameterService.GetValue("PurolatorWebServiceUrl")
-                };
-
-                commande.ShippingTotal = ShippingService.GetShippingTotal(commande, shippingParameter);
+                commande.ShippingTotal = EnvoiPostalService.ObtenirCotationPurolator(commande);
             }
 
             return commande;

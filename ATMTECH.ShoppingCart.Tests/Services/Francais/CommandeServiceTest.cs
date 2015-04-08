@@ -144,7 +144,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
             ObtenirMock<ITaxesService>().Setup(x => x.GetCountryTaxes(It.IsAny<decimal>(), "QBC")).Returns(5);
             ObtenirMock<ITaxesService>().Setup(x => x.GetRegionTaxes(It.IsAny<decimal>(), "QBC")).Returns(6);
-            ObtenirMock<IShippingService>().Setup(x => x.GetShippingTotal(order, It.IsAny<ShippingParameter>())).Returns(50);
+            ObtenirMock<IEnvoiPostalService>().Setup(x => x.ObtenirCotationPurolator(order)).Returns(50);
 
             Order calculerTotal = InstanceTest.CalculerTotal(order);
 
@@ -210,8 +210,8 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             order.RegionalTax = 0;
             order.Coupon = null;
 
-            ObtenirMock<IShippingService>()
-                .Setup(x => x.GetShippingTotal(order, It.IsAny<ShippingParameter>()))
+            ObtenirMock<IEnvoiPostalService>()
+                .Setup(x => x.ObtenirCotationPurolator(order))
                 .Returns(50);
             Order calculerEnvoiPostal = InstanceTest.CalculerEnvoiPostal(order);
             Assert.AreEqual(50, calculerEnvoiPostal.ShippingTotal);

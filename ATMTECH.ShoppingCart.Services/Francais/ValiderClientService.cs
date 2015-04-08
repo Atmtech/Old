@@ -62,6 +62,8 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             return true;
         }
 
+        
+
         public bool EstClientValide(Customer client)
         {
             if (EstCourrielValide(client) == false) return false;

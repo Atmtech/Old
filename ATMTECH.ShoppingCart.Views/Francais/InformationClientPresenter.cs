@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
@@ -21,6 +22,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public IAddressService AddressService { get; set; }
         public IDAOCity DAOCity { get; set; }
         public IDAOCountry DAOCountry { get; set; }
+        public IEnvoiPostalService EnvoiPostalService { get; set; }
 
         public override void OnViewInitialized()
         {
@@ -32,7 +34,11 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
         public void AfficherListePays()
         {
-            IList<Country> allCountries = DAOCountry.GetAllCountries();
+            //IList<Country> allCountries = new List<Country>();
+            //Country country = new Country {Code = "CANADA", Description = "Canada"};
+            //allCountries.Add(country);
+
+            IList<Country> allCountries = DAOCountry.GetAllCountries().Where(x => x.Code == "CAN").ToList();
             View.ListePaysLivraison = allCountries;
             View.ListePaysFacturation = allCountries;
         }
@@ -111,6 +117,13 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 return;
             }
 
+            if (EnvoiPostalService.EstCodePostalValideAvecPurolator(View.CodePostalLivraison) == false)
+            {
+                MessageService.ThrowMessage(Services.ErrorCode.SC_INVALID_POSTAL_CODE);
+                return;
+            }
+
+
             Customer customer = ClientService.ClientAuthentifie;
             customer.ShippingAddress = EnregistrerAdresse(customer.ShippingAddress, View.NoCiviqueLivraison,
                                                           View.RueLivraison, View.CodePostalLivraison,
@@ -129,6 +142,10 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public Address EnregistrerAdresse(Address adresse, string noCivique, string rue, string CodePostal, string ville,
                                           int pays)
         {
+
+
+
+
             if (adresse == null || adresse.Id == 0)
             {
                 adresse = new Address
