@@ -55,7 +55,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         public void RecalculerPanier()
         {
             int i = 0;
-            var listeQuantite = new Dictionary<int, int>();
+            Dictionary<int, int> listeQuantite = new Dictionary<int, int>();
             foreach (Numeric textBox in from DataListItem row in dataListeCommande.Items select (Numeric)row.FindControl("txtQuantite"))
             {
                 listeQuantite.Add(i, Convert.ToInt32(textBox.Text));
@@ -100,13 +100,33 @@ namespace ATMTECH.ShoppingCart.Commerce
             if (commande.Coupon != null && commande.Coupon.PercentageSave != 0)
             {
                 lblGrandTotalApresCoupon.Text = commande.GrandTotalWithCoupon.ToString("c");
+                string valeurTexteCoupon = commande.Coupon.PercentageSave != 0
+                    ? " - " + commande.Coupon.PercentageSave + "%"
+                    : "";
+                if (commande.Coupon.IsShippingSave)
+                {
+                    lblCouponAucunFraisLivraison.Visible = true;
+                    lblCouponValeur.Visible = false;
+                }
+                else
+                {
+                    lblCouponValeur.Visible = true;
+                    lblCouponValeur.Text = "( Coupon: " + commande.Coupon.Ident + valeurTexteCoupon + " )";
+                }
+
                 lblGrandTotalApresCoupon.Visible = true;
+                lblGrandTotalAffichageAvecCoupon.Visible = true;
+                lblGrandTotalAffichage.Font.Strikeout = true;
                 lblGrandTotal.Font.Strikeout = true;
             }
             else
             {
                 lblGrandTotalApresCoupon.Visible = false;
+                lblGrandTotalAffichageAvecCoupon.Visible = false;
                 lblGrandTotal.Font.Strikeout = false;
+                lblGrandTotalAffichage.Font.Strikeout = false;
+                lblCouponAucunFraisLivraison.Visible = false;
+                lblCouponValeur.Visible = false;
             }
         }
     }

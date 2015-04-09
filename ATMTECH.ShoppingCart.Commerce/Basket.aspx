@@ -97,8 +97,23 @@
                         <asp:Label runat="server" ID="lblGrandTotalAffichage" Text="Total: "></asp:Label></td>
                     <td class="totalCommandePanier">
                         <asp:Label runat="server" ID="lblGrandTotal"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="totalCommandePanier">
+                        <asp:Label runat="server" ID="lblGrandTotalAffichageAvecCoupon" Text="Total avec coupon: " Visible="false"></asp:Label></td>
+                    <td class="totalCommandePanier">
                         <asp:Label runat="server" ID="lblGrandTotalApresCoupon" Visible="False"></asp:Label>
                     </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="affichageValeurCoupon">
+                        <asp:Label runat="server" ID="lblCouponValeur" Text="" Visible="false"></asp:Label>
+                        <asp:Label runat="server" ID="lblCouponAucunFraisLivraison" Text="(Coupon: Aucun frais livraison)" Visible="false"></asp:Label>
+
+                    </td>
+
                 </tr>
             </table>
 

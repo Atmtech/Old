@@ -1,4 +1,5 @@
-﻿using ATMTECH.ShoppingCart.DAO.Interface.Francais;
+﻿using ATMTECH.Common.Constant;
+using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
@@ -44,18 +45,30 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             View.EstConnecte = true;
             View.NomClient = customer.User.FirstNameLastName;
 
-            Order order = CommandeService.ObtenirCommandeSouhaite(customer);
+            Order commande = CommandeService.ObtenirCommandeSouhaite(customer);
 
-            if (order == null) return;
-            if (order.OrderLines.Count == 0)
+            if (commande == null) return;
+            if (commande.OrderLines.Count == 0)
             {
                 View.AffichagePanier = string.Empty;
                 return;
             }
 
-            string nombreItem = order.OrderLines == null ? "0" : order.OrderLines.Count.ToString();
-            string grandTotal = order.GrandTotal.ToString("C");
-            string affichagePanier = string.Format("{0} - {1} item(s)", grandTotal, nombreItem);
+            string nombreItem = commande.OrderLines == null ? "0" : commande.OrderLines.Count.ToString();
+            string grandTotal = commande.GrandTotal.ToString("C");
+
+            string affichagePanier;
+            if (commande.Coupon != null)
+            {
+                string grandTotalAvecCoupon = commande.GrandTotalWithCoupon.ToString("C");
+                affichagePanier = string.Format("{0} - {1} item(s)", grandTotalAvecCoupon, nombreItem);
+            }
+            else
+            {
+                affichagePanier = string.Format("{0} - {1} item(s)", grandTotal, nombreItem);
+            }
+
+
 
             View.AffichagePanier = affichagePanier;
         }
@@ -74,6 +87,19 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                     Email = View.CourrielListeDiffusion
                 };
             DAOListeDistribution.Save(mailingList);
+            NavigationService.Redirect(Pages.Pages.MAILING_LIST);
+        }
+
+        public void MettreSiteEnFrancais()
+        {
+            LocalizationService.CurrentLanguage = LocalizationLanguage.FRENCH;
+            NavigationService.Redirect(Pages.Pages.DEFAULT);
+        }
+
+        public void MettreSiteEnAnglais()
+        {
+            LocalizationService.CurrentLanguage = LocalizationLanguage.ENGLISH;
+            NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
     }
 }

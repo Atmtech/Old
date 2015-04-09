@@ -689,3 +689,10 @@ a
     width: 100px;
     height: 124px;
 }
+
+.affichageValeurCoupon {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+    color: #bfdc7a;
+}

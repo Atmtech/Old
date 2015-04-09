@@ -146,7 +146,11 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             };
 
             IList<PurolatorEstimateReturn> purolatorEstimateReturns = PurolatorService.GetQuickEstimate(purolatorPackage, configurationPurolatorWebService);
-
+            foreach (PurolatorEstimateReturn purolatorEstimateReturn in purolatorEstimateReturns)
+            {
+                if (purolatorEstimateReturn.FailMessage != null && purolatorEstimateReturn.FailMessage.IndexOf("1100594") >= 0)
+                    return false;
+            }
             return true;
         }
     }

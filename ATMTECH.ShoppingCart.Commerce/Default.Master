@@ -59,7 +59,8 @@
                     <asp:Button ID="btnContacterNous" runat="server" Text="Contacter-nous" CssClass="boutonLien" OnClick="btnContacterNousClick" />
                 </div>
                 <div style="float: left; border-left: solid 1px white;">
-                    <asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonLien" Visible="False" /><asp:Button runat="server" ID="btnAnglais" Text="Anglais" CssClass="boutonLien" Visible="True" />
+                    <asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonLien" Visible="False" OnClick="btnFrancaisClick" />
+                    <asp:Button runat="server" ID="btnAnglais" Text="Anglais" CssClass="boutonLien" Visible="True" OnClick="btnAnglaisClick" />
                 </div>
                 <div style="float: left; border-left: solid 1px white;">
                     <asp:Panel runat="server" ID="pnlDeconnecte">

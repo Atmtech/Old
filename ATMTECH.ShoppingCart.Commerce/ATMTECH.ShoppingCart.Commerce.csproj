@@ -59,6 +59,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content.aspx" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\a11.png" />
+    <Content Include="MailingList.aspx" />
     <Content Include="TestSlideShow.html" />
     <Content Include="SlideShowFile.ascx" />
     <Content Include="Css\Site.css" />
@@ -180,6 +181,13 @@
     </Compile>
     <Compile Include="Content.aspx.designer.cs">
       <DependentUpon>Content.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MailingList.aspx.cs">
+      <DependentUpon>MailingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MailingList.aspx.designer.cs">
+      <DependentUpon>MailingList.aspx</DependentUpon>
     </Compile>
     <Compile Include="SlideShowFile.ascx.cs">
       <DependentUpon>SlideShowFile.ascx</DependentUpon>

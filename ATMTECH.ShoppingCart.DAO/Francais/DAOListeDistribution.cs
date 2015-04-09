@@ -4,11 +4,8 @@ using ATMTECH.ShoppingCart.Entities;
 
 namespace ATMTECH.ShoppingCart.DAO.Francais
 {
-    public class DAOListeDistribution : BaseDao<ProductCategory, int>, IDAOListeDistribution
+    public class DAOListeDistribution : BaseDao<MailingList, int>, IDAOListeDistribution
     {
-        public int Save(MailingList mailingList)
-        {
-            return Save(mailingList);
-        }
+      
     }
 }

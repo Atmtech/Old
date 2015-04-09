@@ -130,6 +130,15 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Label lblGrandTotal;
         
         /// <summary>
+        /// Contrôle lblGrandTotalAffichageAvecCoupon.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGrandTotalAffichageAvecCoupon;
+        
+        /// <summary>
         /// Contrôle lblGrandTotalApresCoupon.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,24 @@ namespace ATMTECH.ShoppingCart.Commerce {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGrandTotalApresCoupon;
+        
+        /// <summary>
+        /// Contrôle lblCouponValeur.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCouponValeur;
+        
+        /// <summary>
+        /// Contrôle lblCouponAucunFraisLivraison.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCouponAucunFraisLivraison;
         
         /// <summary>
         /// Contrôle lblCoupon.

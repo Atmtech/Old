@@ -118,5 +118,19 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             Presenter.RejoindreListeDiffusion();
         }
+
+        protected void btnFrancaisClick(object sender, EventArgs e)
+        {
+            Presenter.MettreSiteEnFrancais();
+            btnAnglais.Visible = true;
+            btnFrancais.Visible = false;
+        }
+
+        protected void btnAnglaisClick(object sender, EventArgs e)
+        {
+            Presenter.MettreSiteEnAnglais();
+            btnAnglais.Visible = false;
+            btnFrancais.Visible = true;
+        }
     }
 }

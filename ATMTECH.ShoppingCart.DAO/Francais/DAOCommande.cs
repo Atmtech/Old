@@ -17,6 +17,7 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
         public IDAOCountry DAOCountry { get; set; }
         public IDAOClient DAOClient { get; set; }
         public IDAOEnterprise DAOEnterprise { get; set; }
+        public IDAOCoupon DAOCoupon { get; set; }
 
         public Order ObtenirCommandeSouhaite(Customer customer)
         {
@@ -41,6 +42,7 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
                     orderLine.Stock = DAOInventaire.ObtenirInventaire(orderLine.Stock.Id);
                     orderLine.Stock.Product = DAOProduit.ObtenirProduit(orderLine.Stock.Product.Id);
                 }
+                commande.Coupon = DAOCoupon.GetById(commande.Coupon.Id);
             }
 
             return commandes.Count > 0 ? commandes[0] : null;

@@ -22,6 +22,7 @@ namespace ATMTECH.ShoppingCart.Views.Pages
         public const string THANK_YOU_ORDER = "ThankYouForYourOrder.aspx";
         public const string CONTENT = "Content.aspx";
         public const string MAINTENANCE = "/Errors/Maintenance.html";
+        public const string MAILING_LIST = "MailingList.aspx";
     }
 
     public class PagesId
@@ -34,7 +35,7 @@ namespace ATMTECH.ShoppingCart.Views.Pages
         public const string CONTENT_ID = "ContentId";
         public const string PRODUCT_CATEGORY = "ProductCategoryId";
         public const string SEARCH = "Search";
-
+        public const string REMOVE_MAILING_LIST = "RemoveEmail";
     }
 
     public class ContentIdValue

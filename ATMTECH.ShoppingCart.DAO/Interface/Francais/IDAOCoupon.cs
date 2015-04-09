@@ -6,5 +6,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface.Francais
     public interface IDAOCoupon
     {
         Coupon ObtenirCoupon(string coupon);
+        Coupon GetById(int id);
     }
 }

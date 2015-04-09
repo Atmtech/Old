@@ -93,8 +93,9 @@ namespace ATMTECH.ShoppingCart.Commerce
             if (id == "lblNumeroCommande") return true;
             if (id == "lblContenu") return true;
             if (id == "lblGrandTotalApresCoupon") return true;
-            
-            
+            if (id == "lblCouponValeur") return true;
+
+
             return false;
         }
         private void Localiser()
@@ -126,14 +127,14 @@ namespace ATMTECH.ShoppingCart.Commerce
                         {
                             localization.ObjectId = control.ID;
                             localization.French = (control as Label).Text.Replace(" (*Loc)", "");
-                            localization.English = (control as Label).Text.Replace(" (*Loc)", "");
+                            localization.English = (control as Label).Text.Replace(" (*Loc)", "(en)");
                             localizations.Add(localization);
                         }
                         if (control is Button)
                         {
                             localization.ObjectId = control.ID;
                             localization.French = (control as Button).Text.Replace(" (*Loc)", "");
-                            localization.English = (control as Button).Text.Replace(" (*Loc)", "");
+                            localization.English = (control as Button).Text.Replace(" (*Loc)", "(en)");
                             localizations.Add(localization);
                         }
 
@@ -143,7 +144,7 @@ namespace ATMTECH.ShoppingCart.Commerce
                             {
                                 localization.ObjectId = control.ID;
                                 localization.French = (control as TextBox).Attributes["placeholder"];
-                                localization.English = (control as TextBox).Attributes["placeholder"];
+                                localization.English = (control as TextBox).Attributes["placeholder"] + "(en)";
                                 localizations.Add(localization);
                             }
 

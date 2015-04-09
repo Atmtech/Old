@@ -49,6 +49,7 @@
     <Compile Include="Francais\ContacterNousPresenter.cs" />
     <Compile Include="Francais\CatalogueProduitPresenter.cs" />
     <Compile Include="Francais\ContenuPresenter.cs" />
+    <Compile Include="Francais\PublicationCourrielPresenter.cs" />
     <Compile Include="Francais\ListeCategoriePresenter.cs" />
     <Compile Include="Francais\MerciCommandePresenter.cs" />
     <Compile Include="Francais\PageMaitrePresenter.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Francais\InformationClientPresenter.cs" />
     <Compile Include="Francais\IdentificationPresenter.cs" />
     <Compile Include="InformationsPresenter.cs" />
+    <Compile Include="Interface\Francais\IPublicationCourrielPresenter.cs" />
     <Compile Include="Interface\Francais\IContenuPresenter.cs" />
     <Compile Include="Interface\Francais\IListeCategoriePresenter.cs" />
     <Compile Include="Interface\Francais\IMerciCommandePresenter.cs" />
