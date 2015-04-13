@@ -32,6 +32,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public ILocalizationService LocalizationService { get; set; }
         public IReportService ReportService { get; set; }
         public IDAOCoupon DAOCoupon { get; set; }
+        public IDAOProduit DAOProduit { get; set; }
 
         public Order ObtenirCommandeSouhaite(Customer client)
         {
@@ -108,9 +109,9 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         }
         public Order Enregistrer(Order commande)
         {
-            commande = CalculerTotal(commande);
-            if (commande.OrderLines != null)
+            if (commande.OrderLines != null && commande.OrderLines.Count(x => x.IsActive) > 0)
             {
+                commande = CalculerTotal(commande);
                 foreach (OrderLine orderLine in commande.OrderLines)
                 {
                     DAOLigneCommande.Save(orderLine);
@@ -121,6 +122,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         }
         public Order CalculerTotal(Order commande)
         {
+
             commande.TotalWeight = 0;
             commande = CalculerSousTotaux(commande);
             commande = CalculerEnvoiPostal(commande);
@@ -212,10 +214,14 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
         private Order SauvegarderLigneCommande(Order commande, int idInventaire, int quantite)
         {
+            Stock stock = DAOInventaire.ObtenirInventaire(idInventaire);
+            stock.Product = DAOProduit.ObtenirProduit(stock.Product.Id);
+
             OrderLine orderLine = new OrderLine
             {
                 Order = new Order { Id = commande.Id },
-                Stock = DAOInventaire.ObtenirInventaire(idInventaire),
+                Stock = stock,
+                UnitPrice = stock.Product.UnitPrice,
                 Quantity = quantite,
                 IsActive = true
             };

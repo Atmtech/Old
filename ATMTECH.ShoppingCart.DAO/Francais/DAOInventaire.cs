@@ -9,6 +9,8 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
 {
     public class DAOInventaire : BaseDao<Stock, int>, IDAOInventaire
     {
+     
+
         public IList<Stock> ObtenirInventaire(Product product)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -27,6 +29,7 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             criterias.Add(criteria);
             criterias.Add(IsActive());
             IList<Stock> inventaire = GetByCriteria(criterias);
+          
             return inventaire.Count > 0 ? inventaire[0] : null;
         }
     }
