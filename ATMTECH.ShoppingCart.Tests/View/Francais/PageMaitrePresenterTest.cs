@@ -117,6 +117,21 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             ViewMock.VerifySet(x => x.AffichagePanier = format, Times.Never());
         }
 
+        [TestMethod]
+        public void AfficherInformation_DoitAfficheLangue()
+        {
+            Customer customer = AutoFixture.Create<Customer>();
+            Order order = AutoFixture.Create<Order>();
+            order.GrandTotal = 0;
+            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns((Order)null);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+            ObtenirMock<ILocalizationService>().Setup(x => x.CurrentLanguage).Returns("SWAAA");
+            InstanceTest.AfficherInformation();
+            
+            ViewMock.VerifySet(x => x.AffichageLangue = "SWAAA", Times.Once());
+        }
+
+
 
         [TestMethod]
         public void AfficherInformation_SiCouponOnAfficheCoupon()

@@ -1,6 +1,6 @@
 ﻿using System;
+using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
@@ -13,7 +13,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
     {
         public IPaypalService PayPalService { get; set; }
         public ICommandeService CommandeService { get; set; }
-        public ATMTECH.Services.Interface.IReportService ReportService { get; set; }
+        public IReportService ReportService { get; set; }
 
         public ConfirmationPaypalPresenter(IConfirmationPaypalPresenter view)
             : base(view)
@@ -22,36 +22,38 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
         public override void OnViewInitialized()
         {
-            //base.OnViewInitialized();
-            //View.PaypalReturn = PayPalService.GetReplyFromPaypal();
-            //int orderId = Convert.ToInt32(View.PaypalReturn.ResponseDetails.InvoiceID);
-            //View.AffichageCommande = OrderService.GetOrderWithFormat(orderId);
+            base.OnViewInitialized();
+            AfficherCommande();
+        }
+
+        public void AfficherCommande()
+        {
+            View.PaypalReturn = PayPalService.GetReplyFromPaypal();
+            int id = Convert.ToInt32(View.PaypalReturn.ResponseDetails.InvoiceID);
+            View.AffichageCommande = CommandeService.AfficherCommande(id);
         }
 
         public void FinaliserCommande()
         {
-            //if (PayPalService.FinishPaypalTransaction(View.PaypalReturn))
-            //{
-            //    int orderId = Convert.ToInt32(View.PaypalReturn.ResponseDetails.InvoiceID);
-            //    Order order = OrderService.GetOrder(orderId);
+            if (PayPalService.FinishPaypalTransaction(View.PaypalReturn))
+            {
+                int orderId = Convert.ToInt32(View.PaypalReturn.ResponseDetails.InvoiceID);
+                Order order = CommandeService.ObtenirCommande(orderId);
+                CommandeService.FinaliserCommande(order);
+                View.EstFinalise = true;
+                return;
+            }
 
-            //    if (OrderService.FinalizeOrder(order, null) != -1)
-            //    {
-            //        View.EstFinalise = true;
-            //        return;
-            //    }
-            //}
-
-            //View.EstFinalise = false;
-            //MessageService.ThrowMessage(ErrorCode.ADM_PAYPAL_FINISH_FAILED);
+            View.EstFinalise = false;
+            MessageService.ThrowMessage(ErrorCode.ADM_PAYPAL_FINISH_FAILED);
         }
 
 
         public void ImprimerCommande()
         {
-            //int orderId = Convert.ToInt32(View.PaypalReturn.ResponseDetails.InvoiceID);
-            //Order order = OrderService.GetOrder(orderId);
-            //OrderService.PrintOrder(order);
+            int orderId = Convert.ToInt32(View.PaypalReturn.ResponseDetails.InvoiceID);
+            Order order = CommandeService.ObtenirCommande(orderId);
+            CommandeService.ImprimerCommande(order);
         }
     }
 }

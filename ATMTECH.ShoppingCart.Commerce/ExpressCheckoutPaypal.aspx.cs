@@ -1,13 +1,49 @@
-﻿using ATMTECH.ShoppingCart.Views;
-using ATMTECH.ShoppingCart.Views.Interface;
+﻿using System;
+using ATMTECH.ShoppingCart.Views.Francais;
+using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.Web.Services;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class ExpressCheckoutPaypal : PageBase<ExpressCheckoutPaypalPresenter, IExpressCheckoutPaypalPresenter>, IExpressCheckoutPaypalPresenter
+    public partial class ExpressCheckoutPaypal : PageBase<ConfirmationPaypalPresenter, IConfirmationPaypalPresenter>, IConfirmationPaypalPresenter
     {
-        public PaypalReturn PaypalReturn { get; set; }
-        public bool IsOrderFinalized { set; private get; }
-        public string OrderDisplay { set; private get; }
+        public PaypalReturn PaypalReturn
+        {
+            get { return (PaypalReturn)Session["PaypalReturn"]; }
+            set { Session["PaypalReturn"] = value; }
+        }
+
+        public bool EstFinalise
+        {
+            set
+            {
+                if (value)
+                {
+                    pnlOrderFinalized.Visible = true;
+                    pnlAcceptPaypalPayment.Visible = false;
+                }
+                else
+                {
+                    pnlOrderFinalized.Visible = false;
+                    pnlAcceptPaypalPayment.Visible = true;
+                }
+                
+            }
+        }
+
+        public string AffichageCommande
+        {
+            set { lblAffichageCommande.Text = value; }
+        }
+
+        protected void btnAccepterPaiementPaypalClick(object sender, EventArgs e)
+        {
+            Presenter.FinaliserCommande();
+        }
+
+        protected void btnImprimerCommandeClick(object sender, EventArgs e)
+        {
+            Presenter.ImprimerCommande();
+        }
     }
 }

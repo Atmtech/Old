@@ -78,6 +78,7 @@
     <Compile Include="View\Francais\ContacterNousPresenterTest.cs" />
     <Compile Include="View\Francais\CatalogueProduitPresenterTest.cs" />
     <Compile Include="View\Francais\AccueilPresenterTest.cs" />
+    <Compile Include="View\Francais\ConfirmationPaypalPresenterTest.cs" />
     <Compile Include="View\Francais\MerciCommandePresenterTest.cs" />
     <Compile Include="View\Francais\PageMaitrePresenterTest.cs" />
     <Compile Include="View\Francais\PanierPresenterTest.cs" />

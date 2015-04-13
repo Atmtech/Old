@@ -70,17 +70,30 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
        
 
         [TestMethod]
-        public void FinaliserCommande_EnToutTempsFinalizeOrder()
+        public void FinaliserCommande_SiPasPayPalOnFinaliseStandard()
         {
             Order order = AutoFixture.Create<Order>();
-
+            order.Customer.Enterprise.IsPaypal = false;
             ViewMock.Setup(x => x.Commande).Returns(order);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(order.Customer);
 
             InstanceTest.FinaliserCommande();
 
             ObtenirMock<ICommandeService>().Verify(x => x.FinaliserCommande(order), Times.Once());
         }
 
+        [TestMethod]
+        public void FinaliserCommande_SiPaypalOnFinaliseAvecPaypal()
+        {
+            Order order = AutoFixture.Create<Order>();
+            order.Customer.Enterprise.IsPaypal = true;
+            ViewMock.Setup(x => x.Commande).Returns(order);
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(order.Customer);
+
+            InstanceTest.FinaliserCommande();
+
+            ObtenirMock<ICommandeService>().Verify(x => x.FinaliserCommandeAvecPaypal(order), Times.Once());
+        }
 
         [TestMethod]
         public void RecalculerPanier_EnToutTempsSauvegardeLePanier()

@@ -44,7 +44,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (customer == null) return;
             View.EstConnecte = true;
             View.NomClient = customer.User.FirstNameLastName;
-
+            View.AffichageLangue = LocalizationService.CurrentLanguage;
             Order commande = CommandeService.ObtenirCommandeSouhaite(customer);
 
             if (commande == null) return;

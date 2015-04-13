@@ -56,7 +56,7 @@ namespace ATMTECH.Web.Services
 
             CustomSecurityHeaderType type = GetCustomSecurityHeaderType();
             PayPalAPIAAInterfaceClient paypalAAInt = new PayPalAPIAAInterfaceClient();
-            var resp = paypalAAInt.SetExpressCheckout(ref type, req);
+            SetExpressCheckoutResponseType resp = paypalAAInt.SetExpressCheckout(ref type, req);
             if (resp.Errors != null && resp.Errors.Length > 0)
             {
                 MessageService.ThrowMessage(ErrorCode.ADM_PAYPAL_SEND_FAILED, resp.Errors[0].LongMessage);
@@ -151,24 +151,13 @@ namespace ATMTECH.Web.Services
         private CustomSecurityHeaderType GetCustomSecurityHeaderType()
         {
             CustomSecurityHeaderType type = new CustomSecurityHeaderType();
-            if (ParameterService.GetValue("Environment") != "PROD")
+            type.Credentials = new UserIdPasswordType()
             {
-                type.Credentials = new UserIdPasswordType()
-                {
-                    Username = "louise_api1.pubjl.com",
-                    Password = "BNCVURP73DC6Y74S",
-                    Signature = "AFcWxV21C7fd0v3bYYYRCpSSRl31AgyJ2t3pDKSd8PcS5xlZCHYLtkxV"
-                };
-            }
-            else
-            {
-                type.Credentials = new UserIdPasswordType()
-                {
-                    Username = "louise_api1.pubjl.com",
-                    Password = "BNCVURP73DC6Y74S",
-                    Signature = "AFcWxV21C7fd0v3bYYYRCpSSRl31AgyJ2t3pDKSd8PcS5xlZCHYLtkxV"
-                };
-            }
+                Username = ParameterService.GetValue("PaypalUserName"),
+                Password = ParameterService.GetValue("PaypalPassword"),
+                Signature = ParameterService.GetValue("PaypalSignature")
+            };
+
             return type;
         }
     }

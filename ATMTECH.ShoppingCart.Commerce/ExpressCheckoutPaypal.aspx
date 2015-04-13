@@ -8,17 +8,19 @@
 
         <asp:Label runat="server" ID="lblAccepterPaiementPaypal" Text="Vous devez approuver la commande par paypal"></asp:Label>
         <asp:Panel runat="server" ID="pnlAcceptPaypalPayment">
-            Afficher un petit visuelle récapitulatif de la commande.
-            <b>
-                <asp:Label runat="server" ID="lblVotreCommande"></asp:Label></b><br />
-            <asp:Label runat="server" ID="lblDisplayOrder"></asp:Label><br />
-            <asp:Button runat="server" ID="btnAccepterPaiementPaypal" Text="Accepter la commande"   CssClass="boutonActionRond"/>
+            <div class="titreDansPage">
+                <asp:Label runat="server" ID="lblVotreCommande" Text="Votre commande"></asp:Label>
+            </div>
+            <asp:Label runat="server" ID="lblAffichageCommande"></asp:Label><br />
+            <asp:Button runat="server" ID="btnAccepterPaiementPaypal" Text="Accepter la commande" CssClass="boutonActionRond" OnClick="btnAccepterPaiementPaypalClick"/>
         </asp:Panel>
         <asp:Panel runat="server" ID="pnlOrderFinalized" Visible="False">
-            <asp:Label runat="server" ID="lblCommandeFinalisee" Text="Merci de votre commande"></asp:Label><br />
-            <asp:Button runat="server" ID="btnImprimerCommande" Text="Imprimer le détail de votre commande" CssClass="boutonActionRond" />
+            <div class="titreDansPage">
+                <asp:Label runat="server" ID="lblCommandeFinalisee" Text="Merci de votre commande"></asp:Label>
+            </div>
+            <asp:Button runat="server" ID="btnImprimerCommande" Text="Imprimer le détail de votre commande" OnClick="btnImprimerCommandeClick" CssClass="boutonActionRond" />
         </asp:Panel>
     </div>
 
-     <div style="clear: both;"></div>
+    <div style="clear: both;"></div>
 </asp:Content>

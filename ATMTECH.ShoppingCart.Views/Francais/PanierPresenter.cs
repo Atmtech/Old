@@ -19,6 +19,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public ICommandeService CommandeService { get; set; }
         public IClientService ClientService { get; set; }
 
+
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
@@ -64,10 +65,18 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public void FinaliserCommande()
         {
             CommandeService.ValiderCoupon(View.Commande, View.Coupon);
-            CommandeService.FinaliserCommande(View.Commande);
-            IList<QueryString> queryStrings = new List<QueryString>();
-            queryStrings.Add(new QueryString(Pages.PagesId.ORDER_ID, View.Commande.Id.ToString()));
-            NavigationService.Redirect(Pages.Pages.THANK_YOU_ORDER, queryStrings);
+
+            if (ClientService.ClientAuthentifie.Enterprise.IsPaypal)
+            {
+                CommandeService.FinaliserCommandeAvecPaypal(View.Commande);
+            }
+            else
+            {
+                CommandeService.FinaliserCommande(View.Commande);
+                IList<QueryString> queryStrings = new List<QueryString>();
+                queryStrings.Add(new QueryString(Pages.PagesId.ORDER_ID, View.Commande.Id.ToString()));
+                NavigationService.Redirect(Pages.Pages.THANK_YOU_ORDER, queryStrings);
+            }
         }
 
         public void SupprimerLigneCommande(int id)

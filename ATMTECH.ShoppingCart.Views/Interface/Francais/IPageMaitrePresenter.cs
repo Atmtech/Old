@@ -8,5 +8,6 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
         string CourrielListeDiffusion { get; set; }
         bool EstConnecte { set; }
         string AffichagePanier { set; }
+        string AffichageLangue { set; }
     }
 }

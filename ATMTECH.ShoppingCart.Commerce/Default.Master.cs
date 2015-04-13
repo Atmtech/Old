@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI;
+using ATMTECH.Common.Constant;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Web;
+using ATMTECH.Web.Services;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
@@ -54,6 +56,24 @@ namespace ATMTECH.ShoppingCart.Commerce
                 btnPanier.Text = value;
             }
         }
+
+        public string AffichageLangue
+        {
+            set
+            {
+                if (value == LocalizationLanguage.ENGLISH)
+                {
+                    btnAnglais.Visible = false;
+                    btnFrancais.Visible = true;
+                }
+                else
+                {
+                    btnAnglais.Visible = true;
+                    btnFrancais.Visible = false;
+                }
+            }
+        }
+
         public bool ThrowExceptionIfNoPresenterBound { get; private set; }
 
         protected void btnConnecterClick(object sender, EventArgs e)
@@ -122,15 +142,11 @@ namespace ATMTECH.ShoppingCart.Commerce
         protected void btnFrancaisClick(object sender, EventArgs e)
         {
             Presenter.MettreSiteEnFrancais();
-            btnAnglais.Visible = true;
-            btnFrancais.Visible = false;
         }
 
         protected void btnAnglaisClick(object sender, EventArgs e)
         {
             Presenter.MettreSiteEnAnglais();
-            btnAnglais.Visible = false;
-            btnFrancais.Visible = true;
         }
     }
 }

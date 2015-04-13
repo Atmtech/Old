@@ -7,8 +7,10 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
     {
         Order Enregistrer(Order commande);
         Order ObtenirCommandeSouhaite(Customer customer);
+        string AfficherCommande(int id);
         Order AjouterLigneCommande(int idInventaire, int quantite);
         Order FinaliserCommande(Order commande);
+        void FinaliserCommandeAvecPaypal(Order commande);
         Order ImprimerCommande(Order commande);
         Order ObtenirCommande(int id);
         IList<Order> ObtenirCommande(Customer customer);

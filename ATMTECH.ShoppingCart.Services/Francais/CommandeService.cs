@@ -43,6 +43,26 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 obtenirCommandeSouhaite.ShippingAddress = client.ShippingAddress;
             return obtenirCommandeSouhaite;
         }
+
+        public string AfficherCommande(int id)
+        {
+            Order order = ObtenirCommande(id);
+            String html = "<table>";
+            html += "<td></td><td>Qte</td><td></td>";
+            foreach (OrderLine orderLine in order.OrderLines)
+            {
+                html += "<tr>";
+                html += "<td>" + orderLine.ProductDescription + "</td><td>" + orderLine.Quantity + "</td><td>" + orderLine.SubTotal.ToString("C") + "</td>";
+                html += "</tr>";
+            }
+
+            html += "<tr><td></td><td>S-Total:</td><td>" + order.SubTotal.ToString("C") + "</td></tr>";
+            html += "<tr><td></td><td><b>G-Total:</td><td>" + order.GrandTotal.ToString("C") + "</b></td></tr>";
+            html += "</table>";
+
+            return html;
+        }
+
         public IList<Order> ObtenirCommande(Customer customer)
         {
             return DAOCommande.ObtenirCommande(customer);
