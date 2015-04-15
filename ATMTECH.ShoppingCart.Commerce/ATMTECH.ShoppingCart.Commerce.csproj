@@ -58,6 +58,8 @@
     <Content Include="ConfirmCreate.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content.aspx" />
+    <Content Include="Images\WebSite\EnSavoirPlus.png" />
+    <Content Include="Images\WebSite\logo.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\a11.png" />
     <Content Include="MailingList.aspx" />
     <Content Include="TestSlideShow.html" />
@@ -81,10 +83,7 @@
     <Content Include="Images\WebSite\Retirer.png" />
     <Content Include="Images\WebSite\search-icon.png" />
     <Content Include="Images\WebSite\Shopping-Cart-icon.png" />
-    <Content Include="Images\WebSite\slideTest1.jpg" />
     <Content Include="Images\WebSite\success-icon.png" />
-    <Content Include="Images\WebSite\test1Promo.jpg" />
-    <Content Include="Images\WebSite\TestSale1.png" />
     <Content Include="Javascript\Redirection.js" />
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.js" />

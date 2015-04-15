@@ -1,7 +1,7 @@
 ﻿body
 {
     margin: 0 0 0 0;
-    background: #111;
+    background: black;
     font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
     font-size: 13px;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
@@ -18,21 +18,7 @@ a
     color: white;
 }
 
-.textBoxRecherche
-{
-    margin-bottom: 0;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    border-bottom: 0;
-    padding: 5px 0!important;
-    color: #ffffff;
-    text-indent: 5px;
-    background: transparent;
-    padding: 10px 5px;
-    color: #ffffff;
-    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
-}
+
 
 .textBox
 {
@@ -71,6 +57,91 @@ a
     {
         color: darkgray;
     }
+
+.textBoxRecherche
+{
+    margin-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    background: transparent;
+    text-indent: 5px;
+    color: #ffffff;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+    /*
+    
+    
+    
+    padding: 10px 5px;
+    */
+}
+
+
+::-webkit-input-placeholder {
+   color: rgb(174, 174, 174);
+    font-weight: bold;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: rgb(174, 174, 174);
+    font-weight: bold;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: rgb(174, 174, 174);
+    font-weight: bold;
+}
+
+:-ms-input-placeholder {  
+   color: rgb(174, 174, 174);
+    font-weight: bold;
+}
+
+
+.boutonItemMenu
+{
+    border: none;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+    background-color: #4a4949;
+    color: white;
+    cursor: pointer;
+}
+.boutonItemMenu:hover
+    {
+        background-color: rgb(129, 129, 129);
+    }
+
+.itemMenuRecherche
+{
+    background-color: #3f3f3f;
+    padding-left: 10px;
+    float: left;
+    height: 30px;
+}
+
+.itemMenuEspace
+{
+    padding-left: 250px;
+    float: left;
+}
+
+.itemMenu
+{
+    float: left;
+}
+ 
+
+.menuHaut
+{
+    margin-top: 10px;
+    background-color: #4a4949;
+}
+
 
 .boutonAction
 {
@@ -149,14 +220,9 @@ a
     color: white;
 }
 
-.recherche
-{
-    padding-bottom: 10px;
-}
 
 .logo
 {
-    float: left;
     width: 100%;
     text-align: center;
     font-size: 30px;
@@ -164,18 +230,8 @@ a
     text-transform: uppercase;
 }
 
-.lienAuthentification
-{
-    float: left;
-    width: 20%;
-}
 
-.menu
-{
-    margin-top: 20px;
-    border-bottom: solid 8px rgb(75, 75, 75);
-    padding-bottom: 10px;
-}
+
 
 .categorie
 {
@@ -184,6 +240,7 @@ a
 
 .vente
 {
+    font-size: 20px;
     margin-top: 20px;
     border-bottom: solid 1px rgb(75, 75, 75);
     border-top: solid 1px rgb(75, 75, 75);
@@ -206,7 +263,7 @@ a
 {
     margin-top: 20px;
     padding-bottom: 20px;
-    background-color: black;
+    background-color: #1a1a1a;
 }
 
 .informationBasPage
@@ -507,17 +564,28 @@ a
     height: 200px;
 }
 
-.wrapper
+.thumbnailImageListeProduitEnVente:hover {
+     opacity : 0.1;
+}
+
+.wrapperListeProduit
 {
     margin: 50px auto;
     width: 220px;
     height: 200px;
     text-align: center;
+    background-color: white;
     -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
     -moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
     box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
     position: relative;
     z-index: 90;
+}
+.wrapperListeProduit:hover {
+    background: url(../Images/WebSite/EnSavoirPlus.png);
+     opacity : 0.5;
+    z-index: 0;
+
 }
 
 .ribbon-wrapper-green
@@ -690,7 +758,8 @@ a
     height: 124px;
 }
 
-.affichageValeurCoupon {
+.affichageValeurCoupon
+{
     font-size: 12px;
     font-style: italic;
     font-weight: bold;
