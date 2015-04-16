@@ -9,6 +9,7 @@ using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Reports.DTO;
+using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.Administration.Views
 {
@@ -17,6 +18,8 @@ namespace ATMTECH.Administration.Views
         public IEnterpriseService EnterpriseService { get; set; }
         public IOrderService OrderService { get; set; }
         public IReportService ReportService { get; set; }
+        public IAuthenticationService AuthenticationService { get; set; }
+
 
         public StockReportPresenter(IStockReportPresenter view)
             : base(view)

@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseAdministrationPresenter.cs" />
+    <Compile Include="Francais\AccueilPresenter.cs" />
+    <Compile Include="Francais\PageMaitrePresenter.cs" />
+    <Compile Include="Interface\Francais\IAccueilPresenter.cs" />
+    <Compile Include="Interface\Francais\IPageMaitrePresenter.cs" />
     <Compile Include="ValidatePaypalPresenter.cs" />
     <Compile Include="Interface\IValidatePaypalPresenter.cs" />
     <Compile Include="StockTransactionPresenter.cs" />
@@ -111,6 +115,10 @@
     <ProjectReference Include="..\ATMTECH.ShoppingCart.Services\ATMTECH.ShoppingCart.Services.csproj">
       <Project>{D226BF01-2BD8-4206-A576-F9F929518A01}</Project>
       <Name>ATMTECH.ShoppingCart.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.ShoppingCart.Views\ATMTECH.ShoppingCart.Views.csproj">
+      <Project>{43B7ED27-782C-4574-96F5-1E433403E3FF}</Project>
+      <Name>ATMTECH.ShoppingCart.Views</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
       <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>

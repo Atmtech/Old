@@ -1,0 +1,120 @@
+﻿body
+{
+    font-family: 'calibri', 'Segoe UI', 'Verdana';
+}
+
+
+.boiteEntete
+{
+    background-color: goldenrod;
+    border: solid 1px gray;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.titreSite
+{
+    float: left;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    width: 50%;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-family: 'calibri', 'Segoe UI', 'Verdana';
+}
+
+.bouton
+{
+    border: none;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    background-color: rgb(134, 96, 0);
+}
+
+.titreMenu
+{
+    text-transform: uppercase;
+    color: white;
+    font-size: 16px;
+    padding-left: 4px;
+    background-color: goldenrod;
+}
+
+.titrePage
+{
+    font-size: 16px;
+    padding: 5px 5px 5px 5px;
+    border: solid 1px gray;
+    text-transform: uppercase;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=rgb(99, 87, 59), endColorstr=rgb(74, 56, 50)); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(99, 87, 59)), to(rgb(74, 56, 50))); /* for webkit browsers */
+    background: -moz-linear-gradient(top, #607695, #8ca1be); /* for firefox 3.6+ */
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+}
+
+#list4
+{
+    width: 250px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+    #list4 ul
+    {
+        list-style: none;
+        margin-top: 0px;
+        margin-left: -40px;
+    }
+
+        #list4 ul li a
+        {
+            display: block;
+            text-decoration: none;
+            color: #000000;
+            background-color: #FFFFFF;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: #CCCCCC;
+            cursor: pointer;
+        }
+
+            #list4 ul li a:hover
+            {
+                color: white;
+                margin: 0 0 0 0;
+                background-image: url(../images/hover.png);
+                background-repeat: repeat-x;
+            }
+
+.boutonMenu
+{
+    width: 250px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    color: #000000;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #CCCCCC;
+    cursor: pointer;
+}
+
+    .boutonMenu:hover
+    {
+        display: block;
+        color: white;
+        background-image: url(../images/hover.png);
+        background-repeat: repeat-x;
+    }

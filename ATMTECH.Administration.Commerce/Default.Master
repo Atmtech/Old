@@ -1,0 +1,146 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ATMTECH.Administration.Commerce.Default" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Site.css" rel="stylesheet" type="text/css" />
+    <link href="JQuery/jquery-ui-1.11.2/css/lightbox.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.custom.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/ComboBox.css" rel="stylesheet" />
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/autoNumeric.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.slider.js"></script>
+</head>
+<body>
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
+
+    <%-- Envoyer true à la fonction GererExpiration pour l'affichage du temps restant en bas de page. --%>
+    <script type="text/javascript">
+        $(function () {
+            InitialiserExpiration(20, '<%=ResolveUrl("~/Errors/SessionTimeout.htm")%>', false);
+            $("#lnkImprimer").click(function () {
+                $('#impression').jqprint();
+                return false;
+            });
+        });
+    </script>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
+            EnableScriptLocalization="true">
+        </asp:ScriptManager>
+        <div>
+
+            <div class="boiteEntete">
+                <div class="titreSite">
+                    Administration
+                </div>
+                <div style="float: right; padding-top: 5px; padding-bottom: 5px; padding-right: 10px;">
+                    <asp:Panel runat="server" ID="pnlDeconnecte" Visible="True" DefaultButton="btnSignIn">
+                        <table>
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="lblCourriel" Text="Courriel:"></asp:Label></td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="txtCourriel" /></td>
+
+                                <td>
+                                    <asp:Label runat="server" ID="lblMotDePasse" Text="Mot de passe:"></asp:Label></td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="txtMotDePasse" TextMode="Password" />
+                                </td>
+
+                                <td>
+                                    <asp:Button runat="server" ID="btnSignIn" Text="Entrer" OnClick="SignInClick" CssClass="bouton" />
+                                </td>
+                            </tr>
+                        </table>
+                    </asp:Panel>
+                    <asp:Panel runat="server" ID="pnlConnecte" Visible="False">
+                        Vous êtes connecté |
+                        <asp:Button runat="server" ID="lnkSignOut" OnClick="SignOutClick" Text="Fermer la session" CssClass="bouton"></asp:Button>
+                    </asp:Panel>
+
+                </div>
+                <div style="clear: both;">
+                </div>
+            </div>
+            <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" BorderStyle="Solid" Visible="False">
+                <img src="Images/WebSite/error-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
+                <strong>
+                    <asp:Label runat="server" ID="lblError"></asp:Label></strong>
+            </asp:Panel>
+            <asp:Panel runat="server" ID="pnlSuccess" CssClass="successMessage" BorderStyle="Solid" Visible="False">
+                <img src="Images/WebSite/success-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
+                <strong>
+                    <asp:Label runat="server" ID="lblSuccess"></asp:Label></strong>
+            </asp:Panel>
+            <asp:Panel runat="server" ID="pnlConnecteSite" Visible="false">
+                <table style="width: 100%; border-bottom: solid 1px gray;" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style="width: 260px; padding-right: 5px; border-right: solid 2px gray;" valign="top">
+                            <div class="titrePage">
+                                Menu
+                            </div>
+
+                            <div id="list4">
+                                <div class="titreMenu">
+                                    Les entités
+                                </div>
+                                <ul>
+                                    <li><a href="Edition.aspx?Entite=Product">Les produits</a></li>
+                                    <li><a href="Edition.aspx?Entite=Stock">Les inventaires de produits</a></li>
+                                    <li><a href="Edition.aspx?Entite=ProductCategory">Les catégories de produit</a></li>
+                                    <li><a href="Edition.aspx?Entite=ProductFile">Les images des produits</a> </li>
+                                    <li><a href="Edition.aspx?Entite=Order">Les commandes</a> </li>
+                                    <li><a href="Edition.aspx?Entite=OrderLine">Les lignes de commandes</a> </li>
+                                    <li><a href="Edition.aspx?Entite=User">Les utilisateurs</a> </li>
+                                    <li><a href="Edition.aspx?Entite=Customer">Les clients</a> </li>
+                                </ul>
+                                 <div class="titreMenu">
+                                    Les rapports
+                                </div>
+                                <ul>
+                                    <li>Les commandes</li>
+                                    <li>Une commande</li>
+                                    <li>Liste de ventes par produit</li>
+                                </ul>
+
+                                 <div class="titreMenu">
+                                    Outils
+                                </div>
+                                <ul>
+                                    <li><asp:Button runat="server" Text="Ajuster colonne recherche" ID="btnAjusterColonneRecherche" OnClick="btnAjusterColonneRechercheClick" CssClass="boutonMenu"> </asp:Button></li>    
+                                    <li><asp:Button runat="server" Text="Importer les produits XML" ID="btnImporterProduitXml" OnClick="btnImporterProduitXmlClick" CssClass="boutonMenu"> </asp:Button></li>
+                                    <li>Importer les images de produits</li>
+                                    <li>Fermer le système</li>
+                                    <li>Ouvrir le système</li>
+                                    <li>Creer une copie de sauvegarde</li>
+                                    <li>Executer du SQL</li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td valign="top" style="padding-left: 4px;">
+                            <asp:Label runat="server" ID="lblResultat" ForeColor="green"></asp:Label>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+        </div>
+        Version: 20150416
+       
+
+        <input type="hidden" id="EstFenetreModal" value="0" />
+        <input type="hidden" id="StatutExpiration" value="1" />
+    </form>
+</body>
+</html>
