@@ -63,6 +63,7 @@
     <Content Include="Edition.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Default.Master" />
+    <Content Include="ExecuteSql.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\ajouter.png" />
     <Content Include="Images\arrow.png" />
@@ -74,6 +75,12 @@
     <Content Include="Images\supprimer.gif" />
     <Content Include="Images\WebSite\error-icon.png" />
     <Content Include="Images\WebSite\success-icon.png" />
+    <Content Include="Javascript\CSS\images\icon-close.png" />
+    <Content Include="Javascript\CSS\images\icon-print.png" />
+    <Content Include="Javascript\jquery.MultiFile.js" />
+    <Content Include="Javascript\Redirection.js" />
+    <Content Include="Javascript\supprimer.gif" />
+    <Content Include="Javascript\Utilitaires.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.js" />
@@ -123,6 +130,7 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.slider.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
+    <Content Include="Rapport.aspx" />
     <Content Include="Site.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />
@@ -152,6 +160,13 @@
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
     </Compile>
+    <Compile Include="ExecuteSql.aspx.cs">
+      <DependentUpon>ExecuteSql.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExecuteSql.aspx.designer.cs">
+      <DependentUpon>ExecuteSql.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -166,8 +181,16 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rapport.aspx.cs">
+      <DependentUpon>Rapport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rapport.aspx.designer.cs">
+      <DependentUpon>Rapport.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\AdminCommerce.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

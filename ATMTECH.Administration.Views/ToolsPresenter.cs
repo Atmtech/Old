@@ -322,7 +322,6 @@ namespace ATMTECH.Administration.Views
 
 
         }
-
         public void CopierFichierImageProduitNonFormateVersProduct(string directory)
         {
             string[] files = Directory.GetFiles(directory + @"\product\Mixed", "*.*", SearchOption.AllDirectories);
@@ -335,8 +334,6 @@ namespace ATMTECH.Administration.Views
                 }
             }
         }
-
-
         public void SynchronizeProductFile()
         {
             IList<File> filesDatabase = FileService.GetAllFile();

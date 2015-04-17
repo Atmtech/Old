@@ -175,6 +175,42 @@ namespace ATMTECH.Administration.Commerce {
         protected global::System.Web.UI.WebControls.Button btnImporterProduitXml;
         
         /// <summary>
+        /// Contrôle btnImporterImageProduit.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnImporterImageProduit;
+        
+        /// <summary>
+        /// Contrôle btnFermerSysteme.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFermerSysteme;
+        
+        /// <summary>
+        /// Contrôle btnOuvrirSysteme.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOuvrirSysteme;
+        
+        /// <summary>
+        /// Contrôle btnCopierSauvegarde.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCopierSauvegarde;
+        
+        /// <summary>
         /// Contrôle lblResultat.
         /// </summary>
         /// <remarks>

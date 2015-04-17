@@ -92,7 +92,7 @@
 
                             <div id="list4">
                                 <div class="titreMenu">
-                                    Les entités
+                                    Éditions des entités
                                 </div>
                                 <ul>
                                     <li><a href="Edition.aspx?Entite=Product">Les produits</a></li>
@@ -104,26 +104,41 @@
                                     <li><a href="Edition.aspx?Entite=User">Les utilisateurs</a> </li>
                                     <li><a href="Edition.aspx?Entite=Customer">Les clients</a> </li>
                                 </ul>
-                                 <div class="titreMenu">
+                                <div class="titreMenu">
+                                    Action à prendre
+                                </div>
+                                <ul>
+                                    <li><a href="Action.aspx?action=ConfirmerCommande">Confirmer la commande</a></li>
+                                    <li><a href="Action.aspx?action=AjusterCommande">Ajuster une commande</a></li>
+                                </ul>
+
+                                <div class="titreMenu">
                                     Les rapports
                                 </div>
                                 <ul>
-                                    <li>Les commandes</li>
-                                    <li>Une commande</li>
-                                    <li>Liste de ventes par produit</li>
+                                    <li><a href="Rapport.aspx?rapport=ListeCommande">Les commandes</a></li>
+                                    <li><a href="Rapport.aspx?rapport=UneCommande">Une commande</a></li>
+                                    <li><a href="Rapport.aspx?rapport=VenteParProduit">Liste de ventes par produit</a></li>
                                 </ul>
 
-                                 <div class="titreMenu">
+                                <div class="titreMenu">
                                     Outils
                                 </div>
                                 <ul>
-                                    <li><asp:Button runat="server" Text="Ajuster colonne recherche" ID="btnAjusterColonneRecherche" OnClick="btnAjusterColonneRechercheClick" CssClass="boutonMenu"> </asp:Button></li>    
-                                    <li><asp:Button runat="server" Text="Importer les produits XML" ID="btnImporterProduitXml" OnClick="btnImporterProduitXmlClick" CssClass="boutonMenu"> </asp:Button></li>
-                                    <li>Importer les images de produits</li>
-                                    <li>Fermer le système</li>
-                                    <li>Ouvrir le système</li>
-                                    <li>Creer une copie de sauvegarde</li>
-                                    <li>Executer du SQL</li>
+                                    <li>
+                                        <asp:Button runat="server" Text="Ajuster colonne recherche" ID="btnAjusterColonneRecherche" OnClick="btnAjusterColonneRechercheClick" CssClass="boutonMenu"></asp:Button></li>
+                                    <li>
+                                        <asp:Button runat="server" Text="Importer les produits XML" ID="btnImporterProduitXml" OnClick="btnImporterProduitXmlClick" CssClass="boutonMenu"></asp:Button></li>
+                                    <li>
+                                        <asp:Button runat="server" Text="Importer les images de produits" ID="btnImporterImageProduit" OnClick="btnImporterImageProduitClick" CssClass="boutonMenu"></asp:Button></li>
+                                    <li>
+                                        <asp:Button runat="server" Text="Fermer le système" ID="btnFermerSysteme" OnClick="btnFermerSystemeClick" CssClass="boutonMenu"></asp:Button></li>
+                                    <li>
+                                        <asp:Button runat="server" Text="Ouvrir le système" ID="btnOuvrirSysteme" OnClick="btnOuvrirSystemeClick" CssClass="boutonMenu"></asp:Button></li>
+                                    <li>
+                                        <asp:Button runat="server" Text="Creer une copie de sauvegarde BD" ID="btnCopierSauvegarde" OnClick="btnCopierSauvegardeClick" CssClass="boutonMenu"></asp:Button></li>
+                                    <li><a href="ExecuteSql.aspx">Exécuter du SQL</a> </li>
+                                    
                                 </ul>
                             </div>
                         </td>

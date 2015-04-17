@@ -65,6 +65,32 @@ namespace ATMTECH.Administration.Commerce
             Presenter.ImporterXml();
             ShowMessage(new Message { Description = "Importation terminé", MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
+
+        protected void btnImporterImageProduitClick(object sender, EventArgs e)
+        {
+            Presenter.CopierFichierImageProduitNonFormateVersProduct(@"C:\dev\Atmtech\ATMTECH.ShoppingCart.Commerce\Images");
+            Presenter.SynchronizeImage(@"C:\dev\Atmtech\ATMTECH.ShoppingCart.Commerce\Images");
+            Presenter.SynchronizeProductFile();
+            ShowMessage(new Message { Description = "Images synchronisé", MessageType = Message.MESSAGE_TYPE_SUCCESS });
+        }
+
+        protected void btnFermerSystemeClick(object sender, EventArgs e)
+        {
+            Presenter.FermerSysteme();
+            ShowMessage(new Message { Description = "Système fermé", MessageType = Message.MESSAGE_TYPE_SUCCESS });
+        }
+
+        protected void btnOuvrirSystemeClick(object sender, EventArgs e)
+        {
+            Presenter.OuvrirSysteme();
+            ShowMessage(new Message { Description = "Système ouvert", MessageType = Message.MESSAGE_TYPE_SUCCESS });
+        }
+
+        protected void btnCopierSauvegardeClick(object sender, EventArgs e)
+        {
+            string resultat = Presenter.CreationCopieSauvegarde(Server.MapPath("data"));
+            ShowMessage(new Message { Description = resultat, MessageType = Message.MESSAGE_TYPE_SUCCESS });
+        }
     }
 
 

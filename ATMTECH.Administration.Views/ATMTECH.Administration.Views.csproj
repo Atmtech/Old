@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="Base\BaseAdministrationPresenter.cs" />
     <Compile Include="Francais\AccueilPresenter.cs" />
+    <Compile Include="Francais\RapportPresenter.cs" />
     <Compile Include="Francais\PageMaitrePresenter.cs" />
+    <Compile Include="Interface\Francais\IRapportPresenter.cs" />
     <Compile Include="Interface\Francais\IAccueilPresenter.cs" />
     <Compile Include="Interface\Francais\IPageMaitrePresenter.cs" />
     <Compile Include="ValidatePaypalPresenter.cs" />
