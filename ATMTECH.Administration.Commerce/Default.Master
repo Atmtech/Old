@@ -72,16 +72,18 @@
                 <div style="clear: both;">
                 </div>
             </div>
-            <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" BorderStyle="Solid" Visible="False">
-                <img src="Images/WebSite/error-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
-                <strong>
-                    <asp:Label runat="server" ID="lblError"></asp:Label></strong>
-            </asp:Panel>
-            <asp:Panel runat="server" ID="pnlSuccess" CssClass="successMessage" BorderStyle="Solid" Visible="False">
-                <img src="Images/WebSite/success-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
-                <strong>
-                    <asp:Label runat="server" ID="lblSuccess"></asp:Label></strong>
-            </asp:Panel>
+            <div style="margin-bottom: 10px;">
+                <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" BorderStyle="Solid" Visible="False">
+                    <img src="Images/WebSite/error-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
+                    <strong>
+                        <asp:Label runat="server" ID="lblError"></asp:Label></strong>
+                </asp:Panel>
+                <asp:Panel runat="server" ID="pnlSuccess" CssClass="successMessage" BorderStyle="Solid" Visible="False">
+                    <img src="Images/WebSite/success-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" />
+                    <strong>
+                        <asp:Label runat="server" ID="lblSuccess"></asp:Label></strong>
+                </asp:Panel>
+            </div>
             <asp:Panel runat="server" ID="pnlConnecteSite" Visible="false">
                 <table style="width: 100%; border-bottom: solid 1px gray;" cellpadding="0" cellspacing="0">
                     <tr>
@@ -108,8 +110,12 @@
                                     Action à prendre
                                 </div>
                                 <ul>
+                                    <li><a href="Action.aspx?action=EditionCourriel">Editer les courriels</a></li>
                                     <li><a href="Action.aspx?action=ConfirmerCommande">Confirmer la commande</a></li>
                                     <li><a href="Action.aspx?action=AjusterCommande">Ajuster une commande</a></li>
+                                    <li><a href="Action.aspx?action=RestaureCopie">Restaurer une copie de sauvegarde</a></li>
+                                    <li>
+                                        <asp:Button runat="server" Text="Faire une copie de sauvegarde" ID="btnCopierSauvegarde" OnClick="btnCopierSauvegardeClick" CssClass="boutonMenu"></asp:Button></li>
                                 </ul>
 
                                 <div class="titreMenu">
@@ -135,10 +141,9 @@
                                         <asp:Button runat="server" Text="Fermer le système" ID="btnFermerSysteme" OnClick="btnFermerSystemeClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>
                                         <asp:Button runat="server" Text="Ouvrir le système" ID="btnOuvrirSysteme" OnClick="btnOuvrirSystemeClick" CssClass="boutonMenu"></asp:Button></li>
-                                    <li>
-                                        <asp:Button runat="server" Text="Creer une copie de sauvegarde BD" ID="btnCopierSauvegarde" OnClick="btnCopierSauvegardeClick" CssClass="boutonMenu"></asp:Button></li>
+
                                     <li><a href="ExecuteSql.aspx">Exécuter du SQL</a> </li>
-                                    
+
                                 </ul>
                             </div>
                         </td>

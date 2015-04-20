@@ -33,6 +33,8 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IReportService ReportService { get; set; }
         public IDAOCoupon DAOCoupon { get; set; }
         public IDAOProduit DAOProduit { get; set; }
+        public IMailService MailService { get; set; }
+        public ICourrielService CourrielService { get; set; }
 
         public Order ObtenirCommandeSouhaite(Customer client)
         {
@@ -44,7 +46,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 obtenirCommandeSouhaite.ShippingAddress = client.ShippingAddress;
             return obtenirCommandeSouhaite;
         }
-
         public string AfficherCommande(int id)
         {
             Order order = ObtenirCommande(id);
@@ -63,7 +64,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
             return html;
         }
-
         public IList<Order> ObtenirCommande(Customer customer)
         {
             return DAOCommande.ObtenirCommande(customer);
@@ -83,6 +83,19 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 return commande;
             }
             return commande;
+        }
+        public bool ConfirmerCommande(int id)
+        {
+            Order commande = ObtenirCommande(id);
+            if (commande != null)
+            {
+                commande.OrderStatus = OrderStatus.IsShipped;
+                commande.ShippingDate = DateTime.Now;
+                Enregistrer(commande);
+                CourrielService.EnvoyerConfirmationCommande(commande);
+                return true;
+            }
+            return false;
         }
         public Order ObtenirCommande(int id)
         {

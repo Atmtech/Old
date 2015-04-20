@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Coupon.cs" />
+    <Compile Include="Mail.cs" />
     <Compile Include="MailingList.cs" />
     <Compile Include="OrderStatusDisplay.cs" />
     <Compile Include="EnterpriseAccess.cs" />

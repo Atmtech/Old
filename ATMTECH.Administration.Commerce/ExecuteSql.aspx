@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="ExecuteSql.aspx.cs" Inherits="ATMTECH.Administration.ExecuteSql" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="ExecuteSql.aspx.cs" Inherits="ATMTECH.Administration.Commerce.ExecuteSql" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

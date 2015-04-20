@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
-using ATMTECH.DAO;
-using ATMTECH.DAO.Interface;
+using ATMTECH.Services;
+using ATMTECH.Services.Interface;
 using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 using Autofac;
+using Autofac.Builder;
+using Autofac.Features.Scanning;
 using Module = Autofac.Module;
 
 namespace ATMTECH.BaseModule
@@ -41,29 +45,57 @@ namespace ATMTECH.BaseModule
         }
         private void InitializeFramework()
         {
-            AddDependency<IParameterService, ParameterService>();
-            AddDependency<IAuthenticationService, AuthenticationService>();
-            AddDependency<IMailService, MailService>();
-            AddDependency<IMessageService, MessageService>();
-            AddDependency<INavigationService, NavigationService>();
-            AddDependency<ILogService, LogService>();
-            AddDependency<IDAOGroupUser, DAOGroupUser>();
-            AddDependency<IDAOUser, DAOUser>();
-            AddDependency<IDAOLogVisit, DAOLogVisit>();
-            AddDependency<IDAOLogException, DAOLogException>();
-            AddDependency<IDAOLogMail, DAOLogMail>();
-            AddDependency<IDAOMessage, DAOMessage>();
-            AddDependency<IDAOParameter, DAOParameter>();
-            AddDependency<IWeatherService, WeatherService>();
+            EnregistrerParAssembly("ATMTECH.Web.Services");
+            EnregistrerParAssembly("ATMTECH.DAO");
+            EnregistrerParAssembly("ATMTECH.Services");
         }
-        private Assembly VerificationEtForcerloadAssembly()
+
+        public Assembly VerificationEtForcerloadAssembly()
         {
             string assemblyName = (GetType().Assembly.GetName().Name).Replace(".Services", "") + ".DAO";
             return
                 AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == assemblyName) ??
                 ChercherAssemblyReferencer(assemblyName);
         }
-        private Assembly ChercherAssemblyReferencer(string assemblyName)
+
+        public Assembly VerificationEtForcerloadAssembly(string assembly)
+        {
+            string assemblyName = (GetType().Assembly.GetName().Name).Replace(".Services", "") + ".DAO";
+            return
+                AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == assemblyName) ??
+                ChercherAssemblyReferencer(assemblyName);
+        }
+
+        public void EnregistrerParAssembly(string nomAssembly)
+        {
+
+            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == nomAssembly) ?? ChercherAssemblyReferencer(nomAssembly);
+
+            if (assembly == null)
+            {
+                assembly = Assembly.Load(nomAssembly);
+            }
+            if (nomAssembly.IndexOf("DAO") > 0)
+            {
+
+                if (assembly != null)
+                {
+                    Container.RegisterAssemblyTypes(assembly).Where(t => t.Name.Contains("DAO"))
+                       .AsImplementedInterfaces()
+                       .PropertiesAutowired();
+                }
+            }
+            else
+            {
+                Container.RegisterAssemblyTypes(assembly).Where(t => t.Name.EndsWith("Service"))
+                    .AsImplementedInterfaces()
+                    .PropertiesAutowired()
+                    .SingleInstance();
+            }
+        }
+
+
+        public Assembly ChercherAssemblyReferencer(string assemblyName)
         {
             AssemblyName assemblyReferencer =
                 GetType().Assembly.GetReferencedAssemblies().FirstOrDefault(a => a.Name == assemblyName);
@@ -75,11 +107,12 @@ namespace ATMTECH.BaseModule
         {
             base.Load(builder);
             Container = builder;
-            InitDependency();
             InitializeFramework();
-            InitDao();
+            InitDependency();
             InitService();
+            InitDao();
         }
+
     }
 
 

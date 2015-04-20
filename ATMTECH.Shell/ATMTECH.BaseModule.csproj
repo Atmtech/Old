@@ -47,6 +47,10 @@
       <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
       <Name>ATMTECH.DAO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Services\ATMTECH.Services.csproj">
+      <Project>{C9D4E476-745E-4FF4-AD7B-43B223B29F39}</Project>
+      <Name>ATMTECH.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
       <Name>ATMTECH.Web.Services</Name>

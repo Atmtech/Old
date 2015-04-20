@@ -15,5 +15,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
         Order ObtenirCommande(int id);
         IList<Order> ObtenirCommande(Customer customer);
         Order ValiderCoupon(Order commande, string coupon);
+        bool ConfirmerCommande(int id);
     }
 }

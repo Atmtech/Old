@@ -157,6 +157,15 @@ namespace ATMTECH.Administration.Commerce {
         protected global::System.Web.UI.WebControls.Panel pnlConnecteSite;
         
         /// <summary>
+        /// Contrôle btnCopierSauvegarde.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCopierSauvegarde;
+        
+        /// <summary>
         /// Contrôle btnAjusterColonneRecherche.
         /// </summary>
         /// <remarks>
@@ -200,15 +209,6 @@ namespace ATMTECH.Administration.Commerce {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnOuvrirSysteme;
-        
-        /// <summary>
-        /// Contrôle btnCopierSauvegarde.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCopierSauvegarde;
         
         /// <summary>
         /// Contrôle lblResultat.

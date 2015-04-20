@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ATMTECH.Services.Interface
+﻿namespace ATMTECH.Services.Interface
 {
     public interface IDatabaseService
     {
@@ -11,6 +6,8 @@ namespace ATMTECH.Services.Interface
         string CreateMssqlBackup(string BackUpLocation, string BackUpFileName, string DatabaseName);
         string RestoreMssqlBackup(string BackUpLocation, string BackUpFileName, string DatabaseName);
         string GetServerName();
+        string RestaurerFichierSauvegarde(string fichier, string nomBaseDonnee);
+        string CreationFichierSauvegarde(string repertoireSauvegarde, string nomBaseDonnee);
     }
     public enum EnumDatabaseVendor
     {

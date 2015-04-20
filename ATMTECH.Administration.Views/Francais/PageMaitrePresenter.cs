@@ -251,7 +251,7 @@ namespace ATMTECH.Administration.Views.Francais
 
         public string CreationCopieSauvegarde(string path)
         {
-            return DatabaseService.CreateMssqlBackup(path, "ShoppingCart.bak", "ShoppingCart");
+            return DatabaseService.CreationFichierSauvegarde(path, "eCommerce");
         }
     }
 }

@@ -74,7 +74,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IDAOClient>().Setup(x => x.ObtenirClient(It.IsAny<int>())).Returns(client);
 
             InstanceTest.Creer(client);
-            ObtenirMock<IMailService>().Verify(x => x.SendEmail(user.Email, "mensacre", "mensacre", "mensacre"), Times.Once());
+            ObtenirMock<ICourrielService>().Verify(x => x.EnvoyerConfirmationCreationClient(client), Times.Once());
         }
 
         [TestMethod]
@@ -165,7 +165,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
 
             bool envoyerMotPasseOublie = InstanceTest.EnvoyerMotPasseOublie("test");
 
-            ObtenirMock<IMailService>().Verify(x => x.SendEmail("test", It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()));
+            ObtenirMock<ICourrielService>().Verify(x => x.EnvoyerMotPasseOublie(customer), Times.Once());
         }
     }
 }

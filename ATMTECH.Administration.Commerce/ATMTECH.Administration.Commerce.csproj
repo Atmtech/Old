@@ -60,9 +60,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Action.aspx" />
     <Content Include="Edition.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Default.Master" />
+    <Content Include="Errors\SessionTimeout.htm" />
     <Content Include="ExecuteSql.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\ajouter.png" />
@@ -134,11 +136,19 @@
     <Content Include="Site.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />
+    <Content Include="TemplateCourriel.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.aspx.cs">
+      <DependentUpon>Action.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Action.aspx.designer.cs">
+      <DependentUpon>Action.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Edition.aspx.cs">
       <DependentUpon>Edition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -239,6 +249,9 @@
       <Project>{f4ed3261-cb00-4c89-b481-56806262bfcf}</Project>
       <Name>ATMTECH.Web</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

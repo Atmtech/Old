@@ -56,7 +56,7 @@ namespace ATMTECH.Services
             {
                 switch (enumDatabaseVendor)
                 {
-                   
+
                     case EnumDatabaseVendor.Mssql:
                         using (SqlCommand commandCreate = new SqlCommand(sql, (SqlConnection)DatabaseSessionManager.Session))
                         {
@@ -72,7 +72,7 @@ namespace ATMTECH.Services
                             {
                                 html = ex.Message;
                             }
-                            
+
                         }
                         break;
                 }
@@ -80,40 +80,112 @@ namespace ATMTECH.Services
             return html;
         }
 
-        public string RestoreMssqlBackup(string BackUpLocation, string BackUpFileName, string DatabaseName)
+        public string CreationFichierSauvegarde(string repertoireSauvegarde, string nomBaseDonnee)
         {
-            string ServerName = GetServerName();
-            string rtn;
-            
-            const string SQLRestore = @"ALTER DATABASE [ShoppingCart] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [ShoppingCart] FROM  DISK = N'C:\Website\admin.boutiquecorpo.com\Data\ShoppingCartRestore.bak' WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 5;ALTER DATABASE [ShoppingCart] SET MULTI_USER";
-            string svr = "Server=" + ServerName + ";Database=master;Integrated Security=True";
 
-            SqlConnection cnBk = new SqlConnection(svr);
-            SqlCommand cmdBkUp = new SqlCommand(SQLRestore, cnBk);
+            string nomServeur = GetServerName();
+            string dateFichier = string.Format("{0}_{1}_{2}_{3}_{4}_{5}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+            string nomFichier = string.Format("{0}_{1}.bak", nomBaseDonnee, dateFichier);
+            string sqlBackup = string.Format("BACKUP DATABASE [{0}] TO DISK = N'{1}\\{2}'", nomBaseDonnee, repertoireSauvegarde, nomFichier);
+            string serveur = "Server=" + nomServeur + ";Database=master;Integrated Security=True";
+            string retour = string.Empty;
+
+
+            SqlConnection connectionServeur = new SqlConnection(serveur);
+            SqlCommand commandeRestaure = new SqlCommand(sqlBackup, connectionServeur);
 
             try
             {
-                cnBk.Open();
-                cmdBkUp.ExecuteNonQuery();
-                rtn = "SQLRestore ######## Server name " + ServerName + " Database [ShoppingCart] Restore\n Date : " + DateTime.Now.ToString();
+                connectionServeur.Open();
+                commandeRestaure.ExecuteNonQuery();
+                retour = "Création de la copie de sauvegarde sur " + nomServeur + " de la base [" + nomBaseDonnee + "] en date du: " + DateTime.Now + " avec succès";
             }
 
             catch (Exception ex)
             {
 
-                rtn = "Erreur " + ex.ToString();
+                retour = "Erreur " + ex;
             }
 
             finally
             {
-                if (cnBk.State == ConnectionState.Open)
+                if (connectionServeur.State == ConnectionState.Open)
                 {
-
-                    cnBk.Close();
+                    connectionServeur.Close();
                 }
             }
 
-            return rtn;
+
+            return retour;
+        }
+        public string RestaurerFichierSauvegarde(string fichier, string nomBaseDonnee)
+        {
+            string nomServeur = GetServerName();
+            string sqlRestaure = string.Format("ALTER DATABASE [{0}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [{0}] FROM  DISK = N'{1}' WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 5;ALTER DATABASE [{0}] SET MULTI_USER ", nomBaseDonnee, fichier);
+            string serveur = string.Format("Server={0};Database=master;Integrated Security=True", nomServeur);
+            string retour = string.Empty;
+
+            SqlConnection connectionServeur = new SqlConnection(serveur);
+            SqlCommand commandeRestaure = new SqlCommand(sqlRestaure, connectionServeur);
+
+            try
+            {
+                connectionServeur.Open();
+                commandeRestaure.ExecuteNonQuery();
+                retour = "Restauration sur " + nomServeur + " de la base [" + nomBaseDonnee + "] en date du: " + DateTime.Now + " avec succès";
+            }
+
+            catch (Exception ex)
+            {
+
+                retour = "Erreur " + ex;
+            }
+
+            finally
+            {
+                if (connectionServeur.State == ConnectionState.Open)
+                {
+                    connectionServeur.Close();
+                }
+            }
+
+            return retour;
+        }
+
+        public string RestoreMssqlBackup(string BackUpLocation, string BackUpFileName, string DatabaseName)
+        {
+            //string ServerName = GetServerName();
+            //string rtn;
+
+            //const string SQLRestore = @"ALTER DATABASE [" + DatabaseName + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [" + DatabaseName + "] FROM  DISK = N'C:\Website\admin.boutiquecorpo.com\Data\ShoppingCartRestore.bak' WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 5;ALTER DATABASE [" + DatabaseName + "] SET MULTI_USER";
+            //string svr = "Server=" + ServerName + ";Database=master;Integrated Security=True";
+
+            //SqlConnection cnBk = new SqlConnection(svr);
+            //SqlCommand cmdBkUp = new SqlCommand(SQLRestore, cnBk);
+
+            //try
+            //{
+            //    cnBk.Open();
+            //    cmdBkUp.ExecuteNonQuery();
+            //    rtn = "SQLRestore ######## Server name " + ServerName + " Database [" + DatabaseName + "] Restore\n Date : " + DateTime.Now.ToString();
+            //}
+
+            //catch (Exception ex)
+            //{
+
+            //    rtn = "Erreur " + ex.ToString();
+            //}
+
+            //finally
+            //{
+            //    if (cnBk.State == ConnectionState.Open)
+            //    {
+
+            //        cnBk.Close();
+            //    }
+            //}
+
+            return string.Empty;
         }
 
         public string GetServerName()

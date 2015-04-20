@@ -59,10 +59,12 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
                 commande.Enterprise = DAOEnterprise.GetEnterprise(commande.Enterprise.Id);
                 commande.Customer = DAOClient.ObtenirClient(commande.Customer.Id);
                 commande.OrderLines = DAOLigneCommande.ObtenirLigneCommande(commande);
+
                 commande.ShippingAddress = DAOAddress.GetAddress(commande.ShippingAddress.Id);
-                commande.BillingAddress = DAOAddress.GetAddress(commande.BillingAddress.Id);
                 commande.ShippingAddress.Country = DAOCountry.GetCountry(commande.ShippingAddress.Country.Id);
+                commande.BillingAddress = DAOAddress.GetAddress(commande.BillingAddress.Id);
                 commande.BillingAddress.Country = DAOCountry.GetCountry(commande.BillingAddress.Country.Id);
+
                 foreach (OrderLine orderLine in commande.OrderLines)
                 {
                     orderLine.Stock = DAOInventaire.ObtenirInventaire(orderLine.Stock.Id);
