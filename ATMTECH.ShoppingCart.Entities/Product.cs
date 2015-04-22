@@ -34,7 +34,7 @@ namespace ATMTECH.ShoppingCart.Entities
 
         public string DescriptionEnglish { get; set; }
         public string DescriptionFrench { get; set; }
-
+        public string Brand { get; set; }
         public ProductCategory ProductCategoryEnglish { get; set; }
         public ProductCategory ProductCategoryFrench { get; set; }
 

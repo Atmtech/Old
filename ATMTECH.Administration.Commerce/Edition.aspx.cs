@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -7,7 +8,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.Administration.Services;
 using ATMTECH.Administration.Views;
+using ATMTECH.Administration.Views.Francais;
 using ATMTECH.Administration.Views.Interface;
+using ATMTECH.Administration.Views.Interface.Francais;
 using ATMTECH.Common.Utils;
 using ATMTECH.Common.Utils.Web;
 using ATMTECH.Entities;
@@ -17,7 +20,7 @@ using ATMTECH.WebControls;
 
 namespace ATMTECH.Administration.Commerce
 {
-    public partial class DataEditor :  PageBase<DataEditorPresenter, IDataEditorPresenter>, IDataEditorPresenter
+    public partial class DataEditor : PageBase<EditionPresenter, IEditionPresenter>, IEditionPresenter
     {
         public IList<EntityInformation> EntityInformations
         {
@@ -115,20 +118,8 @@ namespace ATMTECH.Administration.Commerce
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-
-            //if (IsEnterpriseRuled == "0")
-            //{
-            //    pnlEnterprise.Visible = false;
-            //}
-
-
             GenererControles(Convert.ToInt32(Session["IdSelectionner"]));
-
-            if (IsEnterpriseRuled == "0")
-            {
-                Search();
-            }
+            Rechercher();
         }
         private void FindGridViewField(GridView gridView, string nameSpace, string entity)
         {
@@ -139,6 +130,7 @@ namespace ATMTECH.Administration.Commerce
             DataControlField dataControlField3 = gridView.Columns[2];
             DataControlField dataControlField4 = gridView.Columns[3];
 
+            dataControlField3.HeaderText = "";
 
             gridView.Columns.Clear();
             gridView.Columns.Add(dataControlField1);
@@ -186,17 +178,19 @@ namespace ATMTECH.Administration.Commerce
                 }
             }
         }
-        private void Search()
+        private void Rechercher()
         {
             FindGridViewField(grdData, NameSpace, Entity);
-            grdData.DataSource = Presenter.RechercheInformation(txtSearch.Text, 0);
+            object rechercheInformation = Presenter.RechercheInformation(txtSearch.Text, 0);
+            grdData.DataSource = rechercheInformation;
             grdData.DataBind();
+            lblNombreElementTrouve.Text = Presenter.NombreRangeeRetrouve.ToString();
             pnlSaveDone.Visible = false;
             IsInserting = false;
         }
         protected void SearchClick(object sender, EventArgs e)
         {
-            Search();
+            Rechercher();
         }
         private void EditData(int? id)
         {
@@ -222,7 +216,7 @@ namespace ATMTECH.Administration.Commerce
                 switch (e.CommandName)
                 {
                     case "Copie":
-                        Presenter.Copy(Convert.ToInt32(id.Text));
+                        Presenter.CopierLigne(Convert.ToInt32(id.Text));
                         break;
                     case "Edition":
                         {
@@ -232,7 +226,7 @@ namespace ATMTECH.Administration.Commerce
                     case "Inactive":
                         {
                             Presenter.Inactivate(Convert.ToInt32(id.Text));
-                            Search();
+                            Rechercher();
                         }
                         break;
                 }
@@ -272,12 +266,12 @@ namespace ATMTECH.Administration.Commerce
 
             foreach (Control control in type.GetProperties().Select(propertyInfo => Pages.FindControlRecursive(pnlControl, propertyInfo.Name)))
             {
-                var editor = control as Editor;
+                Editor editor = control as Editor;
                 if (editor != null)
                 {
                     manageClass.AssignValue(type, entity, editor.Text, editor.ID);
                 }
-                var combobox = control as ComboBox;
+                ComboBox combobox = control as ComboBox;
                 if (combobox != null)
                 {
                     if (!string.IsNullOrEmpty(combobox.SelectedValue))
@@ -285,27 +279,25 @@ namespace ATMTECH.Administration.Commerce
                         manageClass.AssignValue(type, entity, combobox.SelectedValue, combobox.ID);
                     }
                 }
-                var checkbox = control as CheckBox;
+                CheckBox checkbox = control as CheckBox;
                 if (checkbox != null)
                 {
                     manageClass.AssignValue(type, entity, checkbox.Checked ? "True" : "False", checkbox.ID);
                 }
-                var datePicker = control as DatePicker;
+                DatePicker datePicker = control as DatePicker;
                 if (datePicker != null)
                 {
                     manageClass.AssignValue(type, entity, datePicker.Text, datePicker.ID);
                 }
-                var numeric = control as Numeric;
+                Numeric numeric = control as Numeric;
                 if (numeric != null)
                 {
                     manageClass.AssignValue(type, entity, numeric.Text.Replace(".", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator), numeric.ID);
                 }
             }
 
-           // string entreprise = Enterprise;
             Presenter.Save(entity);
-            //Enterprise = entreprise;
-            Search();
+            Rechercher();
             GenererControles(Convert.ToInt32(Session["IdSelectionner"]));
             IsInserting = false;
         }
@@ -334,7 +326,7 @@ namespace ATMTECH.Administration.Commerce
         {
             grdData.PageIndex = e.NewPageIndex;
             grdData.DataBind();
-            Search();
+            Rechercher();
         }
         protected void RowDataBound(object sender, GridViewRowEventArgs e)
         {

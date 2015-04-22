@@ -1,4 +1,5 @@
-﻿using ATMTECH.Entities;
+﻿using System.Collections.Generic;
+using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 
 namespace ATMTECH.ShoppingCart.DAO.Interface.Francais
@@ -9,5 +10,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface.Francais
         Customer ObtenirClient(int id);
         int Creer(Customer customer);
         int Save(Customer customer);
+        IList<Customer> GetAllActive();
     }
 }

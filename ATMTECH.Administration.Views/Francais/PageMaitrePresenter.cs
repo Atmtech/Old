@@ -28,7 +28,6 @@ namespace ATMTECH.Administration.Views.Francais
         {
         }
 
-        public IAuthenticationService AuthenticationService { get; set; }
         public IClientService ClientService { get; set; }
         public ICommandeService CommandeService { get; set; }
         public IDAOListeDistribution DAOListeDistribution { get; set; }
@@ -41,7 +40,6 @@ namespace ATMTECH.Administration.Views.Francais
         public IDatabaseService DatabaseService { get; set; }
         public ICustomerService CustomerService { get; set; }
         public IDAOUser DAOUser { get; set; }
-        public IParameterService ParameterService { get; set; }
         public IImportXmlService ImportXmlService { get; set; }
         public IFileService FileService { get; set; }
 
@@ -60,7 +58,6 @@ namespace ATMTECH.Administration.Views.Francais
             }
 
         }
-
         public void EstSiteHorsLigne()
         {
             string isOffline = ParameterService.GetValue(Constant.IS_OFFLINE);
@@ -70,42 +67,146 @@ namespace ATMTECH.Administration.Views.Francais
                 NavigationService.Redirect("Offline.htm");
             }
         }
-
-
         public void OuvrirSession()
         {
             AuthenticationService.SignIn(View.NomUtilisateur, View.MotDePasse);
             NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
-
         public void FermerSession()
         {
             AuthenticationService.SignOut();
             NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
-
         public void MettreSiteEnFrancais()
         {
             LocalizationService.CurrentLanguage = LocalizationLanguage.FRENCH;
             NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
-
         public void MettreSiteEnAnglais()
         {
             LocalizationService.CurrentLanguage = LocalizationLanguage.ENGLISH;
             NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
-
         public string AjusterRecherche()
         {
             string retour = Enregistrer<User>();
             retour += Enregistrer<Stock>();
             return retour;
         }
+        public void ImporterXml()
+        {
+            ImportXmlService.ImportProductAndStockXml(new Enterprise { Id = 1 }, Server.MapPath("Data") + @"\Catalogue.xml");
+        }
+        public void SynchronizerImage()
+        {
+            string directory = @"C:\dev\Atmtech\ATMTECH.ShoppingCart.Commerce\Images";
+            string[] files = Directory.GetFiles(directory + @"\product");
+            IList<File> filesDatabase = FileService.GetAllFile();
+
+            foreach (string file in files)
+            {
+                long fileSize;
+                using (var fichier = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                {
+                    fileSize = fichier.Length;
+                }
+                if (filesDatabase.FirstOrDefault(x => x.FileName == Path.GetFileName(file) && x.RootImagePath == directory) == null)
+                {
+                    File fileToSave = new File
+                    {
+                        Category = "Product",
+                        Size = (int)fileSize,
+                        RootImagePath = directory,
+                        FileName = Path.GetFileName(file)
+                    };
+                    FileService.SaveFile(fileToSave);
+                }
+
+            }
+
+
+        }
+        public void CopierFichierImageProduitNonFormateVersProduct()
+        {
+            string directory = @"C:\dev\Atmtech\ATMTECH.ShoppingCart.Commerce\Images";
+            string[] files = Directory.GetFiles(directory + @"\product\Mixed", "*.*", SearchOption.AllDirectories);
+            foreach (string file in files)
+            {
+                if (file.ToLower().IndexOf("thumbs.db") == -1 && file.ToLower().IndexOf("web.config") == -1)
+                {
+                    string fileToCopy = file.Replace(directory + @"\product\Mixed", "").Replace(@"/", "_").Replace(" ", "_").Replace("\\", "_");
+                    System.IO.File.Copy(file, directory + @"\product\" + fileToCopy);
+                }
+            }
+        }
+        public void SynchronizeProductFile()
+        {
+            IList<File> filesDatabase = FileService.GetAllFile();
+            IList<ProductFile> productFiles = ProductService.GetProductFile();
+            IList<Product> products = ProductService.GetAllActive();
+            foreach (File file in filesDatabase)
+            {
+                ProductFile productFile = productFiles.FirstOrDefault(x => x.Product.Ident == file.FileName.Replace(".jpg", ""));
+                if (productFile == null)
+                {
+                    string identToFind = file.FileName.Replace(".jpg", "").ToLower();
+                    string[] identSplit = identToFind.IndexOf("_item") > 0 ? identToFind.Split('_') : null;
+                    if (identSplit != null)
+                    {
+                        identToFind = identSplit[3];
+                    }
+                    Product product = products.FirstOrDefault(x => x.Ident.ToLower() == identToFind);
+                    if (product != null)
+                    {
+                        productFile = new ProductFile
+                        {
+                            Product = product,
+                            File = file,
+                            IsPrincipal = identSplit == null,
+                            IsActive = true
+                        };
+                        ProductService.SaveProductFile(productFile);
+                    }
+
+
+
+                }
+            }
+
+
+        }
+        public void OuvrirSysteme()
+        {
+            ParameterService.SetValue("IsOffline", "0");
+        }
+        public void FermerSysteme()
+        {
+            ParameterService.SetValue("IsOffline", "1");
+        }
+        public string CreationCopieSauvegarde(string path)
+        {
+            return DatabaseService.CreationFichierSauvegarde(path, "eCommerce");
+        }
+        public void InitialiserSysteme()
+        {
+            DatabaseService.ExecuteSql("DELETE FROM PRODUCT", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DELETE FROM PRODUCTCATEGORY", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DELETE FROM STOCK", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DELETE FROM [FILE]", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DELETE FROM [PRODUCTFILE]", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DELETE FROM TRANSACTIONLOG", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DELETE FROM LogException", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DELETE FROM LogMail", EnumDatabaseVendor.Mssql);
+
+            DatabaseService.ExecuteSql("DBCC CHECKIDENT (PRODUCT, RESEED, 0)", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DBCC CHECKIDENT (PRODUCTCATEGORY, RESEED, 0)", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DBCC CHECKIDENT (STOCK, RESEED, 0)", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DBCC CHECKIDENT ([FILE], RESEED, 0)", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DBCC CHECKIDENT ([PRODUCTFILE], RESEED, 0)", EnumDatabaseVendor.Mssql);
+
+        }
         private string Enregistrer<TModel>()
         {
-
-
             switch (typeof(TModel).FullName)
             {
                 case "ATMTECH.ShoppingCart.Entities.Enterprise":
@@ -155,103 +256,6 @@ namespace ATMTECH.Administration.Views.Francais
 
 
             return typeof(TModel).FullName + " Exécuté !!!<br>";
-        }
-
-        public void ImporterXml()
-        {
-            ImportXmlService.ImportProductAndStockXml(new Enterprise { Id = 1 }, @"C:\Dev\Atmtech\ATMTECH.Administration\Data\Catalogue.xml");
-        }
-
-        public void SynchronizeImage(string directory)
-        {
-            string[] files = Directory.GetFiles(directory + @"\product");
-            IList<File> filesDatabase = FileService.GetAllFile();
-
-            foreach (string file in files)
-            {
-                long fileSize;
-                using (var fichier = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-                {
-                    fileSize = fichier.Length;
-                }
-                if (filesDatabase.FirstOrDefault(x => x.FileName == Path.GetFileName(file) && x.RootImagePath == directory) == null)
-                {
-                    File fileToSave = new File
-                    {
-                        Category = "Product",
-                        Size = (int)fileSize,
-                        RootImagePath = directory,
-                        FileName = Path.GetFileName(file)
-                    };
-                    FileService.SaveFile(fileToSave);
-                }
-
-            }
-
-
-        }
-        public void CopierFichierImageProduitNonFormateVersProduct(string directory)
-        {
-            string[] files = Directory.GetFiles(directory + @"\product\Mixed", "*.*", SearchOption.AllDirectories);
-            foreach (string file in files)
-            {
-                if (file.ToLower().IndexOf("thumbs.db") == -1 && file.ToLower().IndexOf("web.config") == -1)
-                {
-                    string fileToCopy = file.Replace(directory + @"\product\Mixed", "").Replace(@"/", "_").Replace(" ", "_").Replace("\\", "_");
-                    System.IO.File.Copy(file, directory + @"\product\" + fileToCopy);
-                }
-            }
-        }
-        public void SynchronizeProductFile()
-        {
-            IList<File> filesDatabase = FileService.GetAllFile();
-            IList<ProductFile> productFiles = ProductService.GetProductFile();
-            IList<Product> products = ProductService.GetAllActive();
-            foreach (File file in filesDatabase)
-            {
-                ProductFile productFile = productFiles.FirstOrDefault(x => x.Product.Ident == file.FileName.Replace(".jpg", ""));
-                if (productFile == null)
-                {
-                    string identToFind = file.FileName.Replace(".jpg", "").ToLower();
-                    string[] identSplit = identToFind.IndexOf("_item") > 0 ? identToFind.Split('_') : null;
-                    if (identSplit != null)
-                    {
-                        identToFind = identSplit[3];
-                    }
-                    Product product = products.FirstOrDefault(x => x.Ident.ToLower() == identToFind);
-                    if (product != null)
-                    {
-                        productFile = new ProductFile
-                        {
-                            Product = product,
-                            File = file,
-                            IsPrincipal = identSplit == null,
-                            IsActive = true
-                        };
-                        ProductService.SaveProductFile(productFile);
-                    }
-
-
-
-                }
-            }
-
-
-        }
-
-        public void OuvrirSysteme()
-        {
-            ParameterService.SetValue("IsOffline", "0");
-        }
-
-        public void FermerSysteme()
-        {
-            ParameterService.SetValue("IsOffline", "1");
-        }
-
-        public string CreationCopieSauvegarde(string path)
-        {
-            return DatabaseService.CreationFichierSauvegarde(path, "eCommerce");
         }
     }
 }

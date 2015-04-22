@@ -49,6 +49,7 @@
                                 </td>
                             </tr>
                         </table>
+                        Nombre d'éléments trouvés: <b><asp:Label runat="server" ID="lblNombreElementTrouve" Text=""></asp:Label></b>
                     </asp:Panel>
                 </fieldset>
             </asp:Panel>
@@ -72,16 +73,17 @@
                                 ButtonType="Image" />
                             <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                         </Columns>
-                        <FooterStyle BackColor="GoldenRod" Font-Bold="True" ForeColor="White" />
+                        <FooterStyle BackColor="GoldenRod" Font-Bold="True" ForeColor="White"/>
                         <HeaderStyle BackColor="GoldenRod" Font-Bold="True" ForeColor="White" Font-Size="15px" />
-                        <PagerStyle BackColor="GoldenRod" ForeColor="White" Font-Bold="True" Font-Size="20px" HorizontalAlign="Center" />
+                        <PagerSettings Position="TopAndBottom" />
+                        <PagerStyle BackColor="GoldenRod" ForeColor="White" Font-Bold="True" Font-Size="15px" HorizontalAlign="Left" />
 
                         <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <AlternatingRowStyle BackColor="#FFE1E1E1" ForeColor="#284775" />
                     </asp:GridView>
                 </div>
             </fieldset>

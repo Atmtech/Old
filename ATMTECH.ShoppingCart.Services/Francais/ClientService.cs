@@ -1,8 +1,8 @@
-﻿using ATMTECH.DAO.Interface;
+﻿using System.Collections.Generic;
+using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.Web.Services.Base;
@@ -90,6 +90,15 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 return false;
             }
             return false;
+        }
+        public IList<Customer> ObtenirClient()
+        {
+            return DAOClient.GetAllActive();
+        }
+
+        public IList<User> ObtenirUtilisateur()
+        {
+            return DAOUser.GetAllUser();
         }
     }
 }

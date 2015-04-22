@@ -9,5 +9,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface.Francais
         Order ObtenirCommande(int id);
         IList<Order> ObtenirCommande(Customer customer);
         int Save(Order order);
+        IList<Order> GetAllActive();
     }
 }

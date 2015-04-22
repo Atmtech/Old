@@ -7,5 +7,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface.Francais
     {
         int Save(OrderLine orderLine);
         IList<OrderLine> ObtenirLigneCommande(Order commande);
+        IList<OrderLine> GetAllActive();
     }
 }

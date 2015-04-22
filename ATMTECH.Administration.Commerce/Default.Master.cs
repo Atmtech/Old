@@ -68,8 +68,8 @@ namespace ATMTECH.Administration.Commerce
 
         protected void btnImporterImageProduitClick(object sender, EventArgs e)
         {
-            Presenter.CopierFichierImageProduitNonFormateVersProduct(@"C:\dev\Atmtech\ATMTECH.ShoppingCart.Commerce\Images");
-            Presenter.SynchronizeImage(@"C:\dev\Atmtech\ATMTECH.ShoppingCart.Commerce\Images");
+            Presenter.CopierFichierImageProduitNonFormateVersProduct();
+            Presenter.SynchronizerImage();
             Presenter.SynchronizeProductFile();
             ShowMessage(new Message { Description = "Images synchronisé", MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
@@ -90,6 +90,12 @@ namespace ATMTECH.Administration.Commerce
         {
             string resultat = Presenter.CreationCopieSauvegarde(Server.MapPath("data"));
             ShowMessage(new Message { Description = resultat, MessageType = Message.MESSAGE_TYPE_SUCCESS });
+        }
+
+        protected void btnInitialiserSystemeClick(object sender, EventArgs e)
+        {
+            Presenter.InitialiserSysteme();
+            ShowMessage(new Message { Description = "Initialisation complétée", MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
     }
 

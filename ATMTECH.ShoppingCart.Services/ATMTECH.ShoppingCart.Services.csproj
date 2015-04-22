@@ -46,12 +46,14 @@
     <Compile Include="DTO\ProductBySale.cs" />
     <Compile Include="ErrorCode.cs" />
     <Compile Include="Francais\ClientService.cs" />
+    <Compile Include="Francais\InventaireService.cs" />
     <Compile Include="Francais\CourrielService.cs" />
     <Compile Include="Francais\EnvoiPostalService.cs" />
     <Compile Include="Francais\EntrepriseService.cs" />
     <Compile Include="Francais\ValiderClientService.cs" />
     <Compile Include="Francais\ValiderCommandeService.cs" />
     <Compile Include="Francais\ProduitService.cs" />
+    <Compile Include="Interface\Francais\IInventaireService.cs" />
     <Compile Include="Interface\Francais\ICourrielService.cs" />
     <Compile Include="Interface\Francais\IEnvoiPostalService.cs" />
     <Compile Include="Interface\Francais\IEntrepriseService.cs" />

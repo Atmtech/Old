@@ -134,13 +134,15 @@
                                     <li>
                                         <asp:Button runat="server" Text="Ajuster colonne recherche" ID="btnAjusterColonneRecherche" OnClick="btnAjusterColonneRechercheClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>
-                                        <asp:Button runat="server" Text="Importer les produits XML" ID="btnImporterProduitXml" OnClick="btnImporterProduitXmlClick" CssClass="boutonMenu"></asp:Button></li>
+                                        <asp:Button runat="server" Text="Importer Catalogue.xml" ID="btnImporterProduitXml" OnClick="btnImporterProduitXmlClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>
                                         <asp:Button runat="server" Text="Importer les images de produits" ID="btnImporterImageProduit" OnClick="btnImporterImageProduitClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>
                                         <asp:Button runat="server" Text="Fermer le système" ID="btnFermerSysteme" OnClick="btnFermerSystemeClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>
                                         <asp:Button runat="server" Text="Ouvrir le système" ID="btnOuvrirSysteme" OnClick="btnOuvrirSystemeClick" CssClass="boutonMenu"></asp:Button></li>
+                                    <li>
+                                        <asp:Button runat="server" Text="Initialiser le système" ID="btnInitialiserSysteme" OnClick="btnInitialiserSystemeClick" CssClass="boutonMenu"></asp:Button></li>
 
                                     <li><a href="ExecuteSql.aspx">Exécuter du SQL</a> </li>
 

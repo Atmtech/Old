@@ -97,6 +97,16 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             }
             return false;
         }
+
+        public IList<Order> ObtenirCommande()
+        {
+            return DAOCommande.GetAllActive();
+        }
+
+        public IList<OrderLine> ObtenirLigneCommande()
+        {
+            return DAOLigneCommande.GetAllActive();
+        }
         public Order ObtenirCommande(int id)
         {
             return DAOCommande.ObtenirCommande(id);

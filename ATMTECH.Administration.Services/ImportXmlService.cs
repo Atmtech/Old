@@ -14,35 +14,7 @@ namespace ATMTECH.Administration.Services
         public IProductService ProductService { get; set; }
         public IStockService StockService { get; set; }
 
-        private string TrouverCategorieAnglaise(ImportProduit importProduit)
-        {
-            string categorieAnglaise = string.Empty;
-            if (importProduit.Category1.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category1)) categorieAnglaise = importProduit.Category1;
-            if (importProduit.Category2.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category2)) categorieAnglaise += "/" + importProduit.Category2;
-            if (importProduit.Category3.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category3)) categorieAnglaise += "/" + importProduit.Category3;
-            if (importProduit.Category4.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category4)) categorieAnglaise += "/" + importProduit.Category4;
-            if (importProduit.Category5.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category5)) categorieAnglaise += "/" + importProduit.Category5;
-            return categorieAnglaise;
-        }
-
-
-        private string TrouverCategorieFrancaise(ImportProduit importProduit)
-        {
-            string categorieFrancais = string.Empty;
-            if (importProduit.Category1.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category1)) categorieFrancais = TraductionCategorie(importProduit.Category1);
-            if (importProduit.Category2.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category2)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category2);
-            if (importProduit.Category3.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category3)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category3);
-            if (importProduit.Category4.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category4)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category4);
-            if (importProduit.Category5.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category5)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category5);
-            return categorieFrancais;
-        }
-
-        private static double RandomNumberBetween(double minValue, double maxValue)
-        {
-            var next = new Random().NextDouble();
-            return minValue + (next * (maxValue - minValue));
-        }
-
+      
         public IList<string> DisplayColor(Enterprise enterprise, string fileXml)
         {
             IList<ImportProduit> importProduits = new List<ImportProduit>();
@@ -182,6 +154,7 @@ namespace ATMTECH.Administration.Services
                     
                     product = new Product
                         {
+                            Brand = importProduit.Brand,
                             Ident = importProduit.ItemID,
                             DescriptionEnglish = importProduit.Desc_EN,
                             DescriptionFrench = importProduit.Desc_FR,
@@ -201,6 +174,7 @@ namespace ATMTECH.Administration.Services
                 {
                     if (product != null)
                     {
+                        product.Brand = importProduit.Brand;
                         product.DescriptionEnglish = importProduit.Desc_EN;
                         product.DescriptionFrench = importProduit.Desc_FR;
                         product.NameEnglish = importProduit.Title_EN;
@@ -263,6 +237,31 @@ namespace ATMTECH.Administration.Services
                     }
                 }
             }
+        }
+        private string TrouverCategorieAnglaise(ImportProduit importProduit)
+        {
+            string categorieAnglaise = string.Empty;
+            if (importProduit.Category1.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category1)) categorieAnglaise = importProduit.Category1;
+            if (importProduit.Category2.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category2)) categorieAnglaise += "/" + importProduit.Category2;
+            if (importProduit.Category3.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category3)) categorieAnglaise += "/" + importProduit.Category3;
+            if (importProduit.Category4.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category4)) categorieAnglaise += "/" + importProduit.Category4;
+            if (importProduit.Category5.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category5)) categorieAnglaise += "/" + importProduit.Category5;
+            return categorieAnglaise;
+        }
+        private string TrouverCategorieFrancaise(ImportProduit importProduit)
+        {
+            string categorieFrancais = string.Empty;
+            if (importProduit.Category1.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category1)) categorieFrancais = TraductionCategorie(importProduit.Category1);
+            if (importProduit.Category2.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category2)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category2);
+            if (importProduit.Category3.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category3)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category3);
+            if (importProduit.Category4.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category4)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category4);
+            if (importProduit.Category5.ToLower() != "zcatalog" && !string.IsNullOrEmpty(importProduit.Category5)) categorieFrancais += "/" + TraductionCategorie(importProduit.Category5);
+            return categorieFrancais;
+        }
+        private static double RandomNumberBetween(double minValue, double maxValue)
+        {
+            var next = new Random().NextDouble();
+            return minValue + (next * (maxValue - minValue));
         }
         private string TraductionCategorie(string categorieAnglais)
         {
