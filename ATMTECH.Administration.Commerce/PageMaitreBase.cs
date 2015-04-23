@@ -19,21 +19,21 @@ namespace ATMTECH.Administration.Commerce
         {
             if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
             {
-               
-                    Panel panel = (Panel)FindControl("pnlSuccess");
-                    Label literal = (Label)FindControl("lblSuccess");
-                    literal.Text = message.Description;
-                    panel.Visible = true;
-             
+
+                Panel panel = (Panel)FindControl("pnlSuccess");
+                Label literal = (Label)FindControl("lblSuccess");
+                literal.Text = message.Description;
+                panel.Visible = true;
+
             }
             else
             {
-               
-                    Panel panel = (Panel)FindControl("pnlError");
-                    Label literal = (Label)FindControl("lblError");
-                    literal.Text = message.Description;
-                    panel.Visible = true;
-               
+
+                Panel panel = (Panel)FindControl("pnlError");
+                Label literal = (Label)FindControl("lblError");
+                literal.Text = message.Description;
+                panel.Visible = true;
+
             }
         }
 
@@ -42,7 +42,6 @@ namespace ATMTECH.Administration.Commerce
             base.OnLoad(e);
             if (!IsPostBack)
             {
-                Localiser();
                 Presenter.OnViewInitialized();
             }
             Presenter.OnViewLoaded();
@@ -92,76 +91,11 @@ namespace ATMTECH.Administration.Commerce
             if (id == "lblGrandTotalApresCoupon") return true;
             if (id == "lblCouponValeur") return true;
             if (id == "lblAffichageCommande") return true;
-            
+
 
 
             return false;
         }
-        private void Localiser()
-        {
-            string absoluteUri = HttpContext.Current.Request.Url.AbsoluteUri;
-            if (absoluteUri.IndexOf("localhost") > 0)
-            {
-                IList<Localization> localizations = new List<Localization>();
-                List<Control> allControls = new List<Control>();
-                GetControlList(Page.Controls, allControls);
-                foreach (Control control in allControls)
-                {
-                    Localization localization = new Localization();
 
-                    if (EstExclus(control.ID)) continue;
-                    if (control is GridView)
-                    {
-                        for (int i = 0; i < (control as GridView).Columns.Count - 1; i++)
-                        {
-                            localization.ObjectId = (control as GridView).ID + "[" + i + "]";
-                            localization.French = (control as GridView).ID + "[" + i + "]";
-                            localization.English = (control as GridView).ID + "[" + i + "]";
-                            localizations.Add(localization);
-                        }
-                    }
-                    else
-                    {
-                        if (control is Label)
-                        {
-                            localization.ObjectId = control.ID;
-                            localization.French = (control as Label).Text.Replace(" (*Loc)", "");
-                            localization.English = (control as Label).Text.Replace(" (*Loc)", "(en)");
-                            localizations.Add(localization);
-                        }
-                        if (control is Button)
-                        {
-                            localization.ObjectId = control.ID;
-                            localization.French = (control as Button).Text.Replace(" (*Loc)", "");
-                            localization.English = (control as Button).Text.Replace(" (*Loc)", "(en)");
-                            localizations.Add(localization);
-                        }
-
-                        if (control is TextBox)
-                        {
-                            if (!string.IsNullOrEmpty((control as TextBox).Attributes["placeholder"]))
-                            {
-                                localization.ObjectId = control.ID;
-                                localization.French = (control as TextBox).Attributes["placeholder"];
-                                localization.English = (control as TextBox).Attributes["placeholder"] + "(en)";
-                                localizations.Add(localization);
-                            }
-
-                            if (!string.IsNullOrEmpty((control as TextBox).ToolTip))
-                            {
-                                localization.ObjectId = control.ID;
-                                localization.French = (control as TextBox).ToolTip;
-                                localization.English = (control as TextBox).ToolTip;
-                                localizations.Add(localization);
-                            }
-                        }
-                    }
-                }
-
-
-
-                Presenter.SaveLocalization(localizations);
-            }
-        }
     }
 }

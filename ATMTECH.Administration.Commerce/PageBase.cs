@@ -87,7 +87,6 @@ namespace ATMTECH.Administration.Commerce
                 List<Control> allControls = new List<Control>();
                 GetControlList(Page.Controls, allControls);
                 Presenter.Controls = allControls;
-                Presenter.Localize();
                 Presenter.OnViewInitialized();
             }
             Presenter.OnViewLoaded();

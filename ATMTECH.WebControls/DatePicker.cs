@@ -8,7 +8,7 @@ namespace ATMTECH.WebControls
     public class DatePicker : CompositeControl
     {
         public string Text { get { return _textBox.Text; } set { _textBox.Text = value; } }
-     
+
         protected readonly TextBox _textBox;
 
         public DatePicker()
@@ -42,6 +42,7 @@ namespace ATMTECH.WebControls
                         "monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']" +
                         "}); " +
                         "$(\"input[name*='$" + _textBox.ID + "']\").datepicker(\"option\", \"dateFormat\", \"yy-mm-dd\"); " +
+                        "$(\"input[name*='$" + _textBox.ID + "']\").datepicker('setDate', '" + _textBox.Text + "'); " +
                         "});";
 
             Page.ClientScript.RegisterClientScriptBlock(typeof(Page), _textBox.ID, js, true);

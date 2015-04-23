@@ -291,17 +291,13 @@ namespace ATMTECH.Common.Utils
                             {
                                 if (propertyValue != "null")
                                 {
-                                    pi.SetValue(instance, Convert.ChangeType(HtmlDecode(propertyValue), pi.PropertyType), null);
+                                    if (pi.GetSetMethod() != null)
+                                    {
+                                        pi.SetValue(instance, Convert.ChangeType(HtmlDecode(propertyValue), pi.PropertyType), null);
+                                    }
                                 }
-                             
-
-
                             }
-
                         }
-
-
-
                     }
                 }
                 catch (Exception ex)

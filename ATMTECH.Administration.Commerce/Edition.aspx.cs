@@ -1,379 +1,187 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Globalization;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ATMTECH.Administration.Services;
-using ATMTECH.Administration.Views;
 using ATMTECH.Administration.Views.Francais;
-using ATMTECH.Administration.Views.Interface;
 using ATMTECH.Administration.Views.Interface.Francais;
-using ATMTECH.Common.Utils;
 using ATMTECH.Common.Utils.Web;
 using ATMTECH.Entities;
-using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.Web;
-using ATMTECH.WebControls;
 
 namespace ATMTECH.Administration.Commerce
 {
     public partial class DataEditor : PageBase<EditionPresenter, IEditionPresenter>, IEditionPresenter
     {
-        public IList<EntityInformation> EntityInformations
+        public string NomEntite
         {
-            get { return (IList<EntityInformation>)Session["EntityInformations"]; }
-            set
+            get
             {
-                if (Session["EntityInformations"] == null)
-                    Session["EntityInformations"] = value;
-            }
-        }
-        public IList<EntityProperty> EntityProperties
-        {
-            get { return (IList<EntityProperty>)Session["EntityProperties"]; }
-            set
-            {
-                if (Session["EntityProperties"] == null)
-                    Session["EntityProperties"] = value;
+                string nomEntite = QueryString.GetQueryStringValue("NomEntite");
+                lblTitre.Text = nomEntite;
+                return nomEntite;
             }
         }
 
-        public string Entity
+        public int ValeurId
         {
             get
             {
-                string val = QueryString.GetQueryStringValue("Entite");
-                if (String.IsNullOrEmpty(val))
+                if (Session["IdEntite"] == null)
                 {
-                    val = "Product";
+                    Session["IdEntite"] = 0;
                 }
-                return val;
+                return Convert.ToInt32(Session["IdEntite"]);
             }
+            set { Session["IdEntite"] = value; }
         }
-        public string IsEnterpriseRuled
-        {
-            get
-            {
-                string val = QueryString.GetQueryStringValue("IsEnterpriseRuled");
-                if (String.IsNullOrEmpty(val))
-                {
-                    val = "1";
-                }
-                return val;
-            }
-        }
-        public string NameSpace
-        {
-            get
-            {
-                ManageClass manageClass = new ManageClass();
-                if (manageClass.IsExistInNameSpace("ATMTECH.ShoppingCart.Entities", Entity))
-                {
-                    return "ATMTECH.ShoppingCart.Entities";
-                }
-                if (manageClass.IsExistInNameSpace("ATMTECH.Entities", Entity))
-                {
-                    return "ATMTECH.Entities";
-                }
 
-                return "ATMTECH.ShoppingCart.Entities";
-            }
+        public string CritereRecherche
+        {
+            get { return txtCritereRecherche.Text; }
+            set { txtCritereRecherche.Text = value; }
         }
-        public object EnterpriseList
+        public object ValeurRetrouve
         {
             set
             {
-                //cboSelectionEnterprise.DataSource = value;
-                //cboSelectionEnterprise.DataTextField = BaseEntity.COMBOBOX_DESCRIPTION;
-                //cboSelectionEnterprise.DataValueField = BaseEntity.ID;
-                //cboSelectionEnterprise.DataBind();
-            }
-        }
-        public string Enterprise
-        {
-            get { return "1"; }
-        }
-        public string InnerTitle
-        {
-            set { lblTitle.Text = value; }
-        }
-        public bool IsInserting
-        {
-            get { return Convert.ToBoolean(Session["IsInserting"]); }
-            set { Session["IsInserting"] = value; }
-        }
-        public int? IdCopy
-        {
-            set
-            {
-                grdData.DataSource = Presenter.RechercheInformation(txtSearch.Text, 0);
+                grdData.DataSource = value;
                 grdData.DataBind();
-                EditData(value);
             }
         }
+        public int NombreValeurRetrouve
+        {
+            set { lblNombreElementTrouve.Text = value.ToString(); }
+        }
+        public void AfficherColonneGrille()
+        {
+            DataControlField dataControlField1 = grdData.Columns[0];
+            DataControlField dataControlField2 = grdData.Columns[1];
+            DataControlField dataControlField3 = grdData.Columns[2];
+            DataControlField dataControlField4 = grdData.Columns[3];
 
+            grdData.Columns.Clear();
+
+            dataControlField1.HeaderText = "";
+            dataControlField2.HeaderText = "";
+            dataControlField3.HeaderText = "";
+
+            grdData.Columns.Add(dataControlField1);
+            grdData.Columns.Add(dataControlField2);
+            grdData.Columns.Add(dataControlField3);
+            grdData.Columns.Add(dataControlField4);
+
+            IList<Propriete> obtenirListePropriete = Presenter.ObtenirListePropriete();
+            obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "SearchUpdate").ToList();
+            obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "ComboboxDescriptionUpdate").ToList();
+            obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "Search").ToList();
+            obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "IsActive").ToList();
+            obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "ComboboxDescription").ToList();
+
+            foreach (Propriete propriete in obtenirListePropriete)
+            {
+                if (propriete.PropertyInfo.PropertyType.Name.ToLower() != "ilist`1")
+                {
+                    TemplateField champsPersonnalise = new TemplateField
+                    {
+                        ItemTemplate =
+                            new GridViewTemplate(DataControlRowType.DataRow,
+                                                 propriete.Libelle, propriete.Nom, propriete.EstProprieteNative, NomEntite),
+                        HeaderTemplate =
+                            new GridViewTemplate(DataControlRowType.Header,
+                                                 propriete.Libelle, propriete.Nom, propriete.EstProprieteNative, NomEntite)
+                    };
+                    champsPersonnalise.HeaderText = propriete.Libelle;
+                    grdData.Columns.Add(champsPersonnalise);
+                }
+            }
+        }
+        public void GenererControles()
+        {
+            pnlControl.Controls.Clear();
+            IList<Controle> listeControles = Presenter.ObtenirListeControle();
+            Table table = new Table { Width = new Unit(100, UnitType.Percentage) };
+
+            foreach (Controle controle in listeControles)
+            {
+                TableRow rangee = new TableRow();
+                TableCell celluleLibelle = new TableCell { Width = new Unit(175, UnitType.Pixel) };
+                TableCell celluleControle = new TableCell();
+
+                celluleLibelle.Controls.Add(controle.Libelle);
+                celluleControle.Controls.Add(controle.Objet);
+
+                rangee.Cells.Add(celluleLibelle);
+                rangee.Cells.Add(celluleControle);
+                table.Rows.Add(rangee);
+            }
+            pnlControl.Controls.Add(table);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GenererControles(Convert.ToInt32(Session["IdSelectionner"]));
+            GenererControles();
             Rechercher();
         }
-        private void FindGridViewField(GridView gridView, string nameSpace, string entity)
-        {
 
-
-            DataControlField dataControlField1 = gridView.Columns[0];
-            DataControlField dataControlField2 = gridView.Columns[1];
-            DataControlField dataControlField3 = gridView.Columns[2];
-            DataControlField dataControlField4 = gridView.Columns[3];
-
-            dataControlField3.HeaderText = "";
-
-            gridView.Columns.Clear();
-            gridView.Columns.Add(dataControlField1);
-            gridView.Columns.Add(dataControlField2);
-            gridView.Columns.Add(dataControlField3);
-            gridView.Columns.Add(dataControlField4);
-
-
-
-            IList<PropertyWithLabel> listeProprieteSansCelleSysteme = Presenter.ListeProprieteSansCelleSysteme(nameSpace, entity);
-            foreach (PropertyWithLabel propertyWithLabel in listeProprieteSansCelleSysteme)
-            {
-
-
-                if (propertyWithLabel.PropertyInfo.PropertyType.Namespace == "System")
-                {
-                    if (propertyWithLabel.PropertyInfo.Name != "Language")
-                    {
-
-
-                        BoundField field = new BoundField
-                                               {
-                                                   DataField = propertyWithLabel.PropertyInfo.Name,
-                                                   HeaderText = propertyWithLabel.Label
-
-                                               };
-                        gridView.Columns.Add(field);
-                    }
-                }
-                else
-                {
-                    if (propertyWithLabel.PropertyInfo.PropertyType.Name.ToLower() != "ilist`1")
-                    {
-                        TemplateField customField = new TemplateField
-                                                        {
-                                                            ItemTemplate =
-                                                                new GridViewTemplate(DataControlRowType.DataRow,
-                                                                                     propertyWithLabel.PropertyInfo.Name),
-                                                            HeaderTemplate =
-                                                                new GridViewTemplate(DataControlRowType.Header,
-                                                                                     propertyWithLabel.PropertyInfo.Name)
-                                                        };
-                        gridView.Columns.Add(customField);
-                    }
-                }
-            }
-        }
-        private void Rechercher()
-        {
-            FindGridViewField(grdData, NameSpace, Entity);
-            object rechercheInformation = Presenter.RechercheInformation(txtSearch.Text, 0);
-            grdData.DataSource = rechercheInformation;
-            grdData.DataBind();
-            lblNombreElementTrouve.Text = Presenter.NombreRangeeRetrouve.ToString();
-            pnlSaveDone.Visible = false;
-            IsInserting = false;
-        }
-        protected void SearchClick(object sender, EventArgs e)
+        protected void btnRechercheClick(object sender, EventArgs e)
         {
             Rechercher();
         }
-        private void EditData(int? id)
+        protected void btnEnregistrerClick(object sender, EventArgs e)
         {
-            if (id != null)
+            if (Presenter.Enregistrer(pnlControl) != 0)
             {
-                pnlEdit.Visible = true;
-                pnlPilotage.Visible = false;
-                IsInserting = false;
-                GenererControles((int)id);
+                ShowMessage(new Message { Description = "Enregistrement complété", MessageType = Message.MESSAGE_TYPE_SUCCESS });
             }
 
         }
-        protected void RowCommandClick(object sender, GridViewCommandEventArgs e)
+        protected void btnAnnulerClick(object sender, EventArgs e)
+        {
+            pnlEdition.Visible = false;
+            pnlPilotage.Visible = true;
+            GenererControles();
+        }
+        protected void btnAjouterClick(object sender, EventArgs e)
+        {
+            pnlEdition.Visible = true;
+            pnlPilotage.Visible = false;
+            ValeurId = 0;
+            GenererControles();
+        }
+        protected void grdDataRowCommandClick(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
             if (index <= grdData.Rows.Count - 1)
             {
-
-
                 GridViewRow selectedRow = grdData.Rows[index];
-                TableCell id = selectedRow.Cells[3];
-
+                ValeurId = Convert.ToInt32(selectedRow.Cells[3].Text);
                 switch (e.CommandName)
                 {
                     case "Copie":
-                        Presenter.CopierLigne(Convert.ToInt32(id.Text));
                         break;
                     case "Edition":
-                        {
-                            EditData(Convert.ToInt32(id.Text));
-                        }
+                        pnlEdition.Visible = true;
+                        pnlPilotage.Visible = false;
+                        GenererControles();
                         break;
                     case "Inactive":
-                        {
-                            Presenter.Inactivate(Convert.ToInt32(id.Text));
-                            Rechercher();
-                        }
                         break;
                 }
             }
-
         }
-        private void GenererControles(int id)
-        {
-            if (Session["IdSelectionner"] == null) Session["IdSelectionner"] = 0;
-            Session["IdSelectionner"] = id;
-            pnlControl.Controls.Clear();
-
-            IList<ControlWithLabel> controlWithLabels = Presenter.CreateControls(NameSpace, Entity, IsInserting, id, Convert.ToInt32(Enterprise));
-
-            Table table = new Table { Width = new Unit(100, UnitType.Percentage) };
-
-            foreach (ControlWithLabel controlWithLabel in controlWithLabels)
-            {
-                TableRow tableRow = new TableRow();
-                TableCell tableCellLabel = new TableCell { Width = new Unit(175, UnitType.Pixel) };
-                TableCell tableCellControl = new TableCell();
-
-                tableCellLabel.Controls.Add(controlWithLabel.Label);
-                tableCellControl.Controls.Add(controlWithLabel.Control);
-
-                tableRow.Cells.Add(tableCellLabel);
-                tableRow.Cells.Add(tableCellControl);
-                table.Rows.Add(tableRow);
-            }
-            pnlControl.Controls.Add(table);
-        }
-        private void Save()
-        {
-            ManageClass manageClass = new ManageClass();
-            Type type = manageClass.GetTypeFromNameSpace(NameSpace, Entity);
-            Object entity = Activator.CreateInstance(type, null);
-
-            foreach (Control control in type.GetProperties().Select(propertyInfo => Pages.FindControlRecursive(pnlControl, propertyInfo.Name)))
-            {
-                Editor editor = control as Editor;
-                if (editor != null)
-                {
-                    manageClass.AssignValue(type, entity, editor.Text, editor.ID);
-                }
-                ComboBox combobox = control as ComboBox;
-                if (combobox != null)
-                {
-                    if (!string.IsNullOrEmpty(combobox.SelectedValue))
-                    {
-                        manageClass.AssignValue(type, entity, combobox.SelectedValue, combobox.ID);
-                    }
-                }
-                CheckBox checkbox = control as CheckBox;
-                if (checkbox != null)
-                {
-                    manageClass.AssignValue(type, entity, checkbox.Checked ? "True" : "False", checkbox.ID);
-                }
-                DatePicker datePicker = control as DatePicker;
-                if (datePicker != null)
-                {
-                    manageClass.AssignValue(type, entity, datePicker.Text, datePicker.ID);
-                }
-                Numeric numeric = control as Numeric;
-                if (numeric != null)
-                {
-                    manageClass.AssignValue(type, entity, numeric.Text.Replace(".", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator), numeric.ID);
-                }
-            }
-
-            Presenter.Save(entity);
-            Rechercher();
-            GenererControles(Convert.ToInt32(Session["IdSelectionner"]));
-            IsInserting = false;
-        }
-        protected void SaveClick(object sender, EventArgs e)
-        {
-            Save();
-            pnlSaveDone.Visible = true;
-            pnlEdit.Visible = false;
-            pnlPilotage.Visible = true;
-        }
-        protected void AddClick(object sender, EventArgs e)
-        {
-            pnlEdit.Visible = true;
-            pnlPilotage.Visible = false;
-            IsInserting = true;
-            GenererControles(0);
-
-        }
-        protected void CancelClick(object sender, EventArgs e)
-        {
-            GenererControles((int)Session["IdSelectionner"]);
-            pnlEdit.Visible = false;
-            pnlPilotage.Visible = true;
-        }
-        protected void PageIndexChanging(object sender, GridViewPageEventArgs e)
+    
+        protected void grdDataPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdData.PageIndex = e.NewPageIndex;
             grdData.DataBind();
             Rechercher();
         }
-        protected void RowDataBound(object sender, GridViewRowEventArgs e)
+
+        private void Rechercher()
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                if (e.Row.DataItem is Order)
-                {
-                    string decodedText = HttpUtility.HtmlDecode(e.Row.Cells[18].Text);
-                    switch (decodedText)
-                    {
-                        case "1":
-                            e.Row.Cells[18].Text = "Liste de souhait";
-                            break;
-                        case "2":
-                            e.Row.Cells[18].Text = "Commandé par le client";
-                            break;
-                        case "3":
-                            e.Row.Cells[18].Text = "Envoyé au client";
-                            break;
-                    }
-                }
-                for (int i = 3; i < e.Row.Cells.Count; i++)
-                {
-                    string decodedText = HttpUtility.HtmlDecode(e.Row.Cells[i].Text);
-                    if (decodedText == "True")
-                        decodedText = "Vrai";
-                    if (decodedText == "False")
-                        decodedText = "Faux";
-
-                    if (!string.IsNullOrEmpty(decodedText))
-                    {
-                        decodedText = Pages.RemoveHtmlTag(decodedText);
-
-                        if (decodedText.Length > 100)
-                        {
-                            e.Row.Cells[i].Text = decodedText.Substring(0, 100) + "...";
-                        }
-                        else
-                        {
-                            e.Row.Cells[i].Text = decodedText;
-                        }
-
-                    }
-                }
-
-            }
+            AfficherColonneGrille();
+            Presenter.Rechercher();
         }
-
     }
 }

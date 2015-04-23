@@ -97,9 +97,7 @@
                                     <ul>
                                         <li><a href="DataEditor.aspx?Entity=Product">Les produits</a></li>
                                         <li><a href="DataEditor.aspx?Entity=ProductCategory">Les catégories de produit</a></li>
-
                                         <li><a href="DataEditor.aspx?Entity=ProductFile">Les images des produits</a> </li>
-
                                         <li><a href="DataEditor.aspx?Entity=ProductPriceHistory&IsEnterpriseRuled=0">Historique des prix modifiés</a> </li>
                                     </ul>
 

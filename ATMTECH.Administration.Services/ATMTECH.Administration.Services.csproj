@@ -41,9 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\AdministrationInitializer.cs" />
+    <Compile Include="Francais\EditionService.cs" />
     <Compile Include="ImportProduit.cs" />
     <Compile Include="ImportXmlService.cs" />
     <Compile Include="GenerateControlsService.cs" />
+    <Compile Include="Interface\Francais\IEditionService.cs" />
     <Compile Include="Interface\IImportXmlService.cs" />
     <Compile Include="Interface\IGenerateControlsService.cs" />
     <Compile Include="DataEditorService.cs" />

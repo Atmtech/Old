@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComboBox.cs" />
+    <Compile Include="LabelGridView.cs" />
     <Compile Include="Editor.cs" />
     <Compile Include="Numeric.cs" />
     <Compile Include="DatePicker.cs" />

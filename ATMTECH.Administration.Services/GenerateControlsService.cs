@@ -96,7 +96,6 @@ namespace ATMTECH.Administration.Services
 
             return true;
         }
-
         private string TrouverLibelle(string propertyName, string entity, IEnumerable<EntityInformation> entityInformations, IEnumerable<EntityProperty> entityProperties)
         {
             //int id = DAOEntityInformation.GetEntityInformationId(entity);
@@ -162,8 +161,6 @@ namespace ATMTECH.Administration.Services
             }
             return DataEditorService.FindValue(entityObject, propertyInfo.Name);
         }
-
-
         private Object GetDatasourceFromProperty(PropertyInfo propertyInfo, int idEnterprise, string nameSpace, string entity)
         {
             switch (propertyInfo.PropertyType.Name.ToLower())
@@ -300,7 +297,6 @@ namespace ATMTECH.Administration.Services
 
             return comboBoxSimple;
         }
-
         private Control CreateTextBox(PropertyInfo propertyInfo, string value, bool isInserting)
         {
             bool isEnabled = true;
@@ -499,75 +495,6 @@ namespace ATMTECH.Administration.Services
                     }
             }
         }
-        //private DatePicker CreateDateTextBox(PropertyInfo propertyInfo, string value)
-        //{
-        //    DatePicker dateTextBoxAvance = new DatePicker
-        //    {
-        //        ID = propertyInfo.Name,
-        //        Text = value,
-        //        //EstObligatoire = IsRequired(propertyInfo.Name, entity, entityInformations, entityPropertiess)
-        //    };
-        //    if (DataEditorService.IsSystemColumn(propertyInfo.Name))
-        //    {
-        //        dateTextBoxAvance.Enabled = false;
-        //    }
-        //    return dateTextBoxAvance;
-        //}
-        //private bool IsRequired(string property, string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityPropertiess)
-        //{
-        //    IList<EntityProperty> entityProperties = FindEntityInformation(entity, entityInformations, entityPropertiess).EntityProperties;
-        //    entityProperties = entityProperties.Where(x => x.PropertyName == property).ToList();
-        //    if (entityProperties.Count > 0)
-        //        return entityProperties[0].IsRequired;
-        //    else
-        //        return false;
-        //}
-        //private EntityInformation FindEntityInformation(string entity, IList<EntityInformation> entityInformations, IList<EntityProperty> entityProperties)
-        //{
-        //    ManageClass manageClass = new ManageClass();
-        //    EntityInformation entityInformation = null;
-        //    if (manageClass.IsExistInNameSpace("ATMTECH.ShoppingCart.Entities", entity))
-        //    {
-        //        entityInformation =
-        //           entityInformations.Where(x => x.NameSpace == "ATMTECH.ShoppingCart.Entities." + entity)
-        //               .ToList()[0];
-        //        entityInformation.EntityProperties =
-        //            entityProperties.Where(x => x.EntityInformation.Id == entityInformation.Id).ToList();
-        //    }
-        //    if (manageClass.IsExistInNameSpace("ATMTECH.Entities", entity))
-        //    {
-        //        entityInformation =
-        //            entityInformations.Where(x => x.NameSpace == "ATMTECH.Entities." + entity)
-        //                .ToList()[0];
-        //        entityInformation.EntityProperties =
-        //            entityProperties.Where(x => x.EntityInformation.Id == entityInformation.Id).ToList();
-        //    }
-        //    return entityInformation;
-        //}
-        //private Control CreateComboboxLanguage()
-        //{
-        //    return null;
-        //    //ComboBoxAvance comboBoxAvance = new ComboBoxAvance
-        //    //{
-        //    //    ID = propertyInfo.Name,
-        //    //    DataValueField = "Id",
-        //    //    DataTextField = "ComboboxDescription",
-        //    //    EstObligatoire = true
-        //    //};
-
-        //    //ListItem listItemFrancais = new ListItem("Français", "fr");
-        //    //ListItem listItemAnglais = new ListItem("Anglais", "en");
-
-        //    //comboBoxAvance.Items.Add(listItemFrancais);
-        //    //comboBoxAvance.Items.Add(listItemAnglais);
-        //    //comboBoxAvance.SelectedValue = value;
-        //    //return comboBoxAvance;
-        //}
-
-        //private bool IsLanguageProperty(PropertyInfo propertyInfo)
-        //{
-        //    return propertyInfo.Name == "Language";
-        //}
     }
 
     public class ControlWithLabel

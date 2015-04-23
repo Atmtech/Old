@@ -13,31 +13,13 @@ namespace ATMTECH.Administration.Commerce {
     public partial class DataEditor {
         
         /// <summary>
-        /// Contrôle pnlSaveDone.
+        /// Contrôle pnlEdition.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSaveDone;
-        
-        /// <summary>
-        /// Contrôle lblMessage.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
-        
-        /// <summary>
-        /// Contrôle pnlEdit.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlEdit;
+        protected global::System.Web.UI.WebControls.Panel pnlEdition;
         
         /// <summary>
         /// Contrôle pnlControl.
@@ -49,13 +31,13 @@ namespace ATMTECH.Administration.Commerce {
         protected global::System.Web.UI.WebControls.PlaceHolder pnlControl;
         
         /// <summary>
-        /// Contrôle btnSave.
+        /// Contrôle btnEnregistrer.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Button btnEnregistrer;
         
         /// <summary>
         /// Contrôle btnAnnuler.
@@ -76,13 +58,13 @@ namespace ATMTECH.Administration.Commerce {
         protected global::System.Web.UI.WebControls.Panel pnlPilotage;
         
         /// <summary>
-        /// Contrôle lblTitle.
+        /// Contrôle lblTitre.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitle;
+        protected global::System.Web.UI.WebControls.Label lblTitre;
         
         /// <summary>
         /// Contrôle pnlheader.
@@ -94,49 +76,31 @@ namespace ATMTECH.Administration.Commerce {
         protected global::System.Web.UI.WebControls.Panel pnlheader;
         
         /// <summary>
-        /// Contrôle pnlEnterprise.
+        /// Contrôle pnlRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlEnterprise;
+        protected global::System.Web.UI.WebControls.Panel pnlRecherche;
         
         /// <summary>
-        /// Contrôle cboSelectionEntreprise.
+        /// Contrôle txtCritereRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboSelectionEntreprise;
+        protected global::System.Web.UI.WebControls.TextBox txtCritereRecherche;
         
         /// <summary>
-        /// Contrôle pnlSearch.
+        /// Contrôle btnRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSearch;
-        
-        /// <summary>
-        /// Contrôle txtSearch.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearch;
-        
-        /// <summary>
-        /// Contrôle btnSearch.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
+        protected global::System.Web.UI.WebControls.Button btnRecherche;
         
         /// <summary>
         /// Contrôle lblNombreElementTrouve.
@@ -148,13 +112,13 @@ namespace ATMTECH.Administration.Commerce {
         protected global::System.Web.UI.WebControls.Label lblNombreElementTrouve;
         
         /// <summary>
-        /// Contrôle btnAdd.
+        /// Contrôle btnAjouter.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.Button btnAjouter;
         
         /// <summary>
         /// Contrôle grdData.

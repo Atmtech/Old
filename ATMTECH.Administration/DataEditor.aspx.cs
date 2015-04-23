@@ -154,8 +154,6 @@ namespace ATMTECH.Administration
             gridView.Columns.Add(dataControlField3);
             gridView.Columns.Add(dataControlField4);
 
-
-
             IList<PropertyWithLabel> listeProprieteSansCelleSysteme = Presenter.ListeProprieteSansCelleSysteme(nameSpace, entity);
             foreach (PropertyWithLabel propertyWithLabel in listeProprieteSansCelleSysteme)
             {

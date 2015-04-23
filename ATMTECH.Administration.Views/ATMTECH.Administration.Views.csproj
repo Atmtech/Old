@@ -134,6 +134,10 @@
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
       <Name>ATMTECH.Web.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.WebControls\ATMTECH.WebControls.csproj">
+      <Project>{FFE0D22C-FE79-4E43-9A65-1CA2EDF14E9A}</Project>
+      <Name>ATMTECH.WebControls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
