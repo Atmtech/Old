@@ -74,6 +74,23 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             return produits;
         }
 
+        public IList<Product> ObtenirProduitParMarque(string marque)
+        {
+            IList<Criteria> criterias = new List<Criteria>();
+            Criteria criteriaRecherche = new Criteria { Column = Product.BRAND, Operator = DatabaseOperator.OPERATOR_LIKE, Value = marque };
+            criterias.Add(criteriaRecherche);
+            criterias.Add(IsActive());
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ORDER_ID, OrderByType = OrderBy.Type.Descending };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            IList<Product> produits = GetByCriteria(criterias, pagingOperation, orderOperation);
+            foreach (Product product in produits)
+            {
+                product.ProductFiles = DAOProduitFichier.ObtenirListeFichier(product.Id);
+            }
+
+            return produits;
+        }
+
         public IList<Product> ObtenirProduit()
         {
             IList<Criteria> criterias = new List<Criteria>();

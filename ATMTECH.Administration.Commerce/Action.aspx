@@ -42,7 +42,7 @@
             <tr>
                 <td style="width: 50%">Code:
                     <br />
-                    <asp:TextBox runat="server" ID="txtCode" Enabled="False" Width="100%"></asp:TextBox><br/>
+                    <asp:TextBox runat="server" ID="txtCode" Enabled="False" Width="100%"></asp:TextBox><br />
                     Sujet:<br />
 
                     <asp:TextBox runat="server" ID="txtSujet" Width="100%"></asp:TextBox><br />
@@ -61,5 +61,32 @@
 
         <asp:Button runat="server" ID="btnApercuCourriel" Text="Aperçu du courriel" OnClick="btnApercuCourrielClick" CssClass="bouton" />
         <asp:Button runat="server" ID="btnSauvegarderCourriel" Text="Enregistrer" OnClick="btnSauvegarderCourrielClick" CssClass="bouton" />
+    </asp:Panel>
+    <asp:Panel runat="server" ID="pnlAppliquerPourcentage" Visible="False">
+        <div class="titrePage">
+            Appliquer un pourcentage aux prix unitaire de chaque produit versus prix coutant
+        </div>
+        Pourcentage:<atmtech:Numeric runat="server" ID="txtPourcentage" NoDecimal="True" />
+        %<br />
+        <br />
+        <asp:Button runat="server" ID="btnAppliquerPourcentage" Text="Appliquer pourcentage" OnClick="btnAppliquerPourcentageClick" CssClass="bouton" />
+    </asp:Panel>
+    <asp:Panel runat="server" ID="pnlVerifierInventaire" Visible="false">
+        Identification produit:
+        <asp:TextBox runat="server" ID="txtIdentProduit"></asp:TextBox>
+        Ex: (12000)<br />
+        Taille:
+        <asp:TextBox runat="server" ID="txtTaille"></asp:TextBox>
+        Ex: (2XL)<br />
+        Couleur en anglais:
+        <asp:TextBox runat="server" ID="txtCouleurAnglais"></asp:TextBox>
+        Ex: (Cardinal Red)<br />
+        <asp:Button runat="server" ID="btnVerifierInvenaire" Text="Vérifier inventaire" OnClick="btnVerifierInvenaireClick" CssClass="bouton" />
+        <br />
+        <br />
+        <div>
+            Nombre en inventaire:
+            <asp:Label runat="server" ID="lblNombreEnInventaire"></asp:Label>
+        </div>
     </asp:Panel>
 </asp:Content>

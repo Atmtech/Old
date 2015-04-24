@@ -8,6 +8,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
     public class ValiderCommandeService : BaseService, IValiderCommandeService
     {
         public IMessageService MessageService { get; set; }
+        public IInventaireService InventaireService { get; set; }
 
         public bool EstClientValide(Customer client)
         {
@@ -17,6 +18,16 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 return false;
             }
             return true;
+        }
+
+        public bool EstItemPresentEnInventaire(string idProduit, string grandeur, string couleur)
+        {
+            if (InventaireService.ObtenirInventaireTechnosport(idProduit, grandeur, couleur) > 0)
+            {
+                return true;
+            }
+            MessageService.ThrowMessage(ErrorCode.SC_STOCK_INSUFICIENT);
+            return false;
         }
     }
 }

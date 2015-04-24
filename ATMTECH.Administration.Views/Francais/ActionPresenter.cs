@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Web.UI.WebControls;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface.Francais;
 using ATMTECH.Services.Interface;
@@ -13,6 +14,7 @@ namespace ATMTECH.Administration.Views.Francais
         public IDatabaseService DatabaseService { get; set; }
         public ICommandeService CommandeService { get; set; }
         public IDAOCourriel DAOCourriel { get; set; }
+        public IInventaireService InventaireService { get; set; }
 
         public ActionPresenter(IActionPresenter view)
             : base(view)
@@ -69,6 +71,17 @@ namespace ATMTECH.Administration.Views.Francais
             mail.Body = View.Corps;
             mail.Subject = View.Sujet;
             DAOCourriel.Save(mail);
+        }
+
+        public void AppliquerPourcentage()
+        {
+            string sql = string.Format("UPDATE Product SET UnitPrice = (CostPrice * {0} /100) + CostPrice", View.Pourcentage);
+            DatabaseService.ExecuteSql(sql, EnumDatabaseVendor.Mssql);
+        }
+
+        public string VerifierInventaire(string idProduit, string grandeur, string couleur)
+        {
+            return InventaireService.ObtenirInventaireTechnosport(idProduit, grandeur, couleur).ToString();
         }
     }
 }

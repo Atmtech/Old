@@ -24,8 +24,8 @@ namespace ATMTECH.ShoppingCart.Commerce
             set
             {
                 Session["ListeProduitSlideShow"] = value;
-                SlideShow.Produits = value;
-                SlideShow.Langue = Presenter.CurrentLanguage;
+                SlideShowAccueil.Produits = value;
+                SlideShowAccueil.Langue = Presenter.CurrentLanguage;
             }
         }
     }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web;
 using ATMTECH.Administration.Views.Francais;
 using ATMTECH.Administration.Views.Interface.Francais;
 using ATMTECH.Entities;
@@ -54,6 +53,12 @@ namespace ATMTECH.Administration.Commerce
             set { txtCorps.Text = value; }
         }
 
+        public string Pourcentage
+        {
+            get { return txtPourcentage.Text; }
+            set { txtPourcentage.Text = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             switch (NomAction)
@@ -63,24 +68,48 @@ namespace ATMTECH.Administration.Commerce
                     pnlAjusterCommande.Visible = false;
                     pnlConfirmerCommande.Visible = true;
                     pnlRestaureCopie.Visible = false;
+                    pnlAppliquerPourcentage.Visible = false;
+                    pnlVerifierInventaire.Visible = false;
                     break;
                 case "AjusterCommande":
                     pnlEditionCourriel.Visible = false;
                     pnlAjusterCommande.Visible = true;
                     pnlConfirmerCommande.Visible = false;
                     pnlRestaureCopie.Visible = false;
+                    pnlAppliquerPourcentage.Visible = false;
+                    pnlVerifierInventaire.Visible = false;
                     break;
                 case "RestaureCopie":
                     pnlEditionCourriel.Visible = false;
                     pnlAjusterCommande.Visible = false;
                     pnlConfirmerCommande.Visible = false;
                     pnlRestaureCopie.Visible = true;
+                    pnlAppliquerPourcentage.Visible = false;
+                    pnlVerifierInventaire.Visible = false;
                     break;
                 case "EditionCourriel":
                     pnlEditionCourriel.Visible = true;
                     pnlAjusterCommande.Visible = false;
                     pnlConfirmerCommande.Visible = false;
                     pnlRestaureCopie.Visible = false;
+                    pnlAppliquerPourcentage.Visible = false;
+                    pnlVerifierInventaire.Visible = false;
+                    break;
+                case "AppliquerPourcentage":
+                    pnlEditionCourriel.Visible = false;
+                    pnlAjusterCommande.Visible = false;
+                    pnlConfirmerCommande.Visible = false;
+                    pnlRestaureCopie.Visible = false;
+                    pnlAppliquerPourcentage.Visible = true;
+                    pnlVerifierInventaire.Visible = false;
+                    break;
+                case "VerifierInventaire":
+                    pnlEditionCourriel.Visible = false;
+                    pnlAjusterCommande.Visible = false;
+                    pnlConfirmerCommande.Visible = false;
+                    pnlRestaureCopie.Visible = false;
+                    pnlAppliquerPourcentage.Visible = false;
+                    pnlVerifierInventaire.Visible = true;
                     break;
             }
         }
@@ -116,6 +145,17 @@ namespace ATMTECH.Administration.Commerce
         protected void btnApercuCourrielClick(object sender, EventArgs e)
         {
             lblApercu.Text = Corps;
+        }
+
+        protected void btnAppliquerPourcentageClick(object sender, EventArgs e)
+        {
+            Presenter.AppliquerPourcentage();
+        }
+
+        protected void btnVerifierInvenaireClick(object sender, EventArgs e)
+        {
+            lblNombreEnInventaire.Text = Presenter.VerifierInventaire(txtIdentProduit.Text, txtTaille.Text,
+                txtCouleurAnglais.Text);
         }
     }
 }

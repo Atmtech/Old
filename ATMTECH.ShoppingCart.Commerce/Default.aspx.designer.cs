@@ -13,13 +13,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
     public partial class Default1 {
         
         /// <summary>
-        /// Contrôle SlideShow.
+        /// Contrôle SlideShowAccueil.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.ShoppingCart.Commerce.SlideShowProduct SlideShow;
+        protected global::ATMTECH.ShoppingCart.Commerce.SlideShowProduct SlideShowAccueil;
         
         /// <summary>
         /// Contrôle lblItemEnVenteActuellement.

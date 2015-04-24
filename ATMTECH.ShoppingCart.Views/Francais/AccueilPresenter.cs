@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
@@ -12,13 +12,13 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 {
     public class AccueilPresenter : BaseShoppingCartPresenter<IAccueilPresenter>
     {
+        public IProduitService ProduitService { get; set; }
+        public IDAOProduitFichier DAOProduitFichier { get; set; }
+
         public AccueilPresenter(IAccueilPresenter view)
             : base(view)
         {
         }
-
-
-        public IProduitService ProduitService { get; set; }
 
         public override void OnViewInitialized()
         {
@@ -47,7 +47,16 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                     produits.Add(product);
                 }
             }
-
+            if (produits.Count == 0)
+            {
+                IList<Product> listeProduits = ProduitService.ObtenirProduit();
+                List<Product> listeProduitsRandom = listeProduits.OrderBy(x => Guid.NewGuid()).ToList();
+                produits = listeProduitsRandom.Take(5).ToList();
+                foreach (Product produit in produits)
+                {
+                    produit.ProductFiles = DAOProduitFichier.ObtenirListeFichier(produit.Id);
+                }
+            }
             View.ListeProduitSlideShow = produits;
             return produits;
         }

@@ -7,5 +7,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface.Francais
     {
         IList<ProductFile> ObtenirListeFichier(int id);
         IList<ProductFile> GetAllActive();
+        int Save(ProductFile productFile);
     }
 }

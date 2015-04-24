@@ -23,6 +23,11 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             return DAOProduit.ObtenirProduit(recherche);
         }
+        public IList<Product> ObtenirProduitParMarque(string marque)
+        {
+            return DAOProduit.ObtenirProduitParMarque(marque);
+        }
+
         public IList<Product> ObtenirProduit()
         {
             return DAOProduit.ObtenirProduit();
@@ -47,6 +52,11 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IList<ProductFile> ObtenirFichierProduit()
         {
             return DAOProduitFichier.GetAllActive();
+        }
+
+        public void EnregistrerFichierProduit(ProductFile productFile)
+        {
+            DAOProduitFichier.Save(productFile);
         }
     }
 }

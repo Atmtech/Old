@@ -56,6 +56,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
             ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
             ObtenirMock<IDAOProduit>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
+            ObtenirMock<IValiderCommandeService>().Setup(x => x.EstItemPresentEnInventaire(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
             Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(stock.Id, 1);
             Assert.AreEqual(1, ajouterLigneCommande.OrderLines.Count);
             Assert.AreEqual(stock.Id, ajouterLigneCommande.OrderLines[0].Stock.Id);
@@ -74,6 +75,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
             ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
             ObtenirMock<IDAOProduit>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
+            ObtenirMock<IValiderCommandeService>().Setup(x => x.EstItemPresentEnInventaire(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
 
             Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(20100, 1);
             Assert.AreEqual(1, ajouterLigneCommande.OrderLines.Count);
@@ -92,6 +94,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
             ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
             ObtenirMock<IDAOProduit>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
+            ObtenirMock<IValiderCommandeService>().Setup(x => x.EstItemPresentEnInventaire(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
 
             Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(20100, 1);
             ajouterLigneCommande.OrderLines[0].IsActive.Should().BeTrue();
@@ -110,6 +113,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
             ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
             ObtenirMock<IDAOProduit>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
+            ObtenirMock<IValiderCommandeService>().Setup(x => x.EstItemPresentEnInventaire(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
 
             Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(20100, 1);
             ajouterLigneCommande.OrderLines[0].UnitPrice.Should().Be(stock.Product.UnitPrice);
@@ -130,6 +134,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IDAOCommande>().Setup(x => x.ObtenirCommandeSouhaite(client)).Returns(order);
             ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
             ObtenirMock<IDAOProduit>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
+            ObtenirMock<IValiderCommandeService>().Setup(x => x.EstItemPresentEnInventaire(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
 
             Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(20100, 1);
             Assert.AreEqual(1, ajouterLigneCommande.OrderLines.Count);
@@ -321,13 +326,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
             ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
             ObtenirMock<IDAOProduit>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
-
-            //Order order = AutoFixture.Create<Order>();
-            //OrderLine orderLine = AutoFixture.Create<OrderLine>();
-            //orderLine.IsActive = true;
-            //order.OrderLines.Clear();
-            //order.OrderLines.Add(orderLine);
-            //ObtenirMock<IDAOCommande>().Setup(x => x.ObtenirCommandeSouhaite(It.IsAny<Customer>())).Returns(order);
+            ObtenirMock<IValiderCommandeService>().Setup(x => x.EstItemPresentEnInventaire(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
 
             Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(stock.Id, 1);
             Assert.AreEqual(1, ajouterLigneCommande.OrderLines.Count);
@@ -346,7 +345,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IProduitService>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
             ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
             ObtenirMock<IDAOProduit>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
-
+            ObtenirMock<IValiderCommandeService>().Setup(x => x.EstItemPresentEnInventaire(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
 
             Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(stock.Id, 1);
             Assert.AreEqual(5, ajouterLigneCommande.OrderLines[0].UnitPrice);
@@ -442,6 +441,8 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             Customer client = AutoFixture.Create<Customer>();
             ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(client);
             ObtenirMock<IValiderCommandeService>().Setup(x => x.EstClientValide(It.IsAny<Customer>())).Returns(true);
+            ObtenirMock<IValiderCommandeService>().Setup(x => x.EstItemPresentEnInventaire(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
+
             return client;
         }
     }

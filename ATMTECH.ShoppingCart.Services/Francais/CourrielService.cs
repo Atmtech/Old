@@ -1,8 +1,15 @@
 ﻿using System;
+using System.IO;
+using System.Net;
+using System.Net.Mail;
 using System.Reflection;
+using ATMTECH.Common.Utils.Web;
+using ATMTECH.DAO;
+using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
+using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Base;
 using ATMTECH.Web.Services.Interface;
 
@@ -10,47 +17,130 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 {
     public class CourrielService : BaseService, ICourrielService
     {
-        public IMailService MailService { get; set; }
         public IDAOCourriel DAOCourriel { get; set; }
+        public IParameterService ParameterService { get; set; }
+        public IMessageService MessageService { get; set; }
+        public ILogService LogService { get; set; }
 
         public void EnvoyerConfirmationCreationClient(Customer client)
         {
             Mail courriel = DAOCourriel.ObtenirMail("CONFIRMATION_CREATION_CLIENT");
             string sujet = RemplacerAvecNomChamp(courriel.Subject, client);
             string corps = RemplacerAvecNomChamp(courriel.Body, client);
-            MailService.SendEmail(client.User.Login, courriel.From, sujet, corps);
+            EnvoyerCourriel(client.User.Login, courriel.From, sujet, corps);
         }
-
         public void EnvoyerConfirmationCommande(Order commande)
         {
             Mail courriel = DAOCourriel.ObtenirMail("CONFIRMATION_COMMANDE");
             string sujet = RemplacerAvecNomChamp(courriel.Subject, commande);
             string corps = RemplacerAvecNomChamp(courriel.Body, commande);
-            MailService.SendEmail(commande.Customer.User.Login, courriel.From, sujet, corps);
+            EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps);
         }
-
         public void EnvoyerInformationCommande(Order commande)
         {
             Mail courriel = DAOCourriel.ObtenirMail("INFORMATION_COMMANDE");
             string sujet = RemplacerAvecNomChamp(courriel.Subject, commande);
             string corps = RemplacerAvecNomChamp(courriel.Body, commande);
-            MailService.SendEmail(commande.Customer.User.Login, courriel.From, sujet, corps);
+            EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps);
         }
-
         public void EnvoyerMotPasseOublie(Customer client)
         {
             Mail mail = DAOCourriel.ObtenirMail("ENVOYER_MOT_PASSE_OUBLIE");
             string sujet = RemplacerAvecNomChamp(mail.Subject, client);
             string corps = RemplacerAvecNomChamp(mail.Body, client);
-            MailService.SendEmail(client.User.Login, mail.From, sujet, corps);
+            EnvoyerCourriel(client.User.Login, mail.From, sujet, corps);
         }
 
+        public bool EnvoyerCourriel(string to, string from, string subject, string body)
+        {
+            return ParameterService.GetValue("Environment") != "PROD" ? EnvoyerDeveloppement(to, from, subject, body) : EnvoyerProduction(to, from, subject, body, null, string.Empty);
+        }
+        public bool EnvoyerCourriel(string to, string from, string subject, string body, Stream file, string fileName)
+        {
+            return ParameterService.GetValue("Environment") != "PROD" ? EnvoyerDeveloppement(to, from, subject, body) : EnvoyerProduction(to, from, subject, body, file, fileName);
+        }
+
+        private bool EnvoyerProduction(string to, string from, string subject, string body, Stream file, string fileName)
+        {
+            if (string.IsNullOrEmpty(to))
+            {
+                MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_NO_EMAIL_TO);
+                return false;
+            }
+
+            MailAddress fromx = new MailAddress(from, "");
+            MailAddress tox = new MailAddress(to, "");
+
+            string subjectFormat = Pages.RemoveHtmlTag(subject);
+            MailMessage message = new MailMessage(fromx, tox) { IsBodyHtml = true, Body = body, Subject = subjectFormat };
+            LogService.LogMail(message);
+            return Envoyer(message, file, fileName);
+        }
+        private bool EnvoyerDeveloppement(string to, string from, string subject, string body)
+        {
+            MailAddress fromx = new MailAddress(from, "");
+            MailAddress tox = new MailAddress(to, "");
+
+            string subjectFormat = Pages.RemoveHtmlTag(subject);
+            MailMessage message = new MailMessage(fromx, tox) { IsBodyHtml = true, Body = body, Subject = subjectFormat };
+            LogService.LogMail(message);
+            return true;
+        }
+        private bool Envoyer(MailMessage message, Stream file, string fileName)
+        {
+
+            SmtpClient client = new SmtpClient(ParameterService.GetValue("SmtpServer"),
+                                               Convert.ToInt32(ParameterService.GetValue("SmtpServerPort"))) { EnableSsl = true };
+
+            NetworkCredential myCreds = new NetworkCredential(ParameterService.GetValue("SmtpServerLogin"), ParameterService.GetValue("SmtpServerPassword"), "");
+            client.Credentials = myCreds;
+
+            if (file != null)
+            {
+                Attachment data = new Attachment(file, fileName);
+                message.Attachments.Add(data);
+            }
+
+            try
+            {
+                client.Send(message);
+            }
+            catch (Exception exception)
+            {
+                DAOLogException daoLogException = new DAOLogException();
+                LogException logException = new LogException
+                {
+                    InnerId = "INTERNAL",
+                    Page = Pages.GetCurrentUrl() + Pages.GetCurrentPage(),
+                    Description = exception.Message + " => EnvoyerCourriel " + client.Host + " " + client.Port + " " + myCreds.UserName + " " + myCreds.Password,
+                    StackTrace = exception.StackTrace
+                };
+                daoLogException.Save(logException);
+                return false;
+            }
+
+            return true;
+        }
         private string RemplacerAvecNomChamp(string chaine, object entite)
         {
             foreach (PropertyInfo propertyInfo in entite.GetType().GetProperties())
             {
                 object valeurPropriete = propertyInfo.GetValue(entite, null);
-                chaine = chaine.Replace(string.Format("[{0}]", propertyInfo.Name), valeurPropriete.ToString());
+                if (valeurPropriete != null)
+                {
+                    if (propertyInfo.PropertyType.Namespace == "System")
+                    {
+                        chaine = chaine.Replace(string.Format("[{0}]", propertyInfo.Name), valeurPropriete.ToString());
+                    }
+                    else
+                    {
+                        PropertyInfo propertyInfoId = valeurPropriete.GetType().GetProperty("Id");
+                        string valeurEnfant = propertyInfoId.GetValue(valeurPropriete, null).ToString();
+                        chaine = chaine.Replace(string.Format("[{0}]", propertyInfo.Name), valeurEnfant);
+                    }
+
+                }
+
             }
             return chaine;
         }

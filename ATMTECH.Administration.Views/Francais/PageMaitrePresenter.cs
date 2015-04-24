@@ -6,17 +6,13 @@ using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface.Francais;
 using ATMTECH.Common.Constant;
 using ATMTECH.DAO;
-using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.Services.Interface;
-using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
-using ATMTECH.Web.Services.Interface;
 using File = ATMTECH.Entities.File;
 
 namespace ATMTECH.Administration.Views.Francais
@@ -31,18 +27,10 @@ namespace ATMTECH.Administration.Views.Francais
         public IClientService ClientService { get; set; }
         public ICommandeService CommandeService { get; set; }
         public IDAOListeDistribution DAOListeDistribution { get; set; }
-
-        public IOrderService OrderService { get; set; }
-        public IEnterpriseService EnterpriseService { get; set; }
-        public IProductService ProductService { get; set; }
-        public IDAOStockTransaction DAOStockTransaction { get; set; }
-        public IStockService StockService { get; set; }
         public IDatabaseService DatabaseService { get; set; }
-        public ICustomerService CustomerService { get; set; }
-        public IDAOUser DAOUser { get; set; }
         public IImportXmlService ImportXmlService { get; set; }
         public IFileService FileService { get; set; }
-
+        public IProduitService ProduitService { get; set; }
 
         public override void OnViewLoaded()
         {
@@ -91,6 +79,10 @@ namespace ATMTECH.Administration.Views.Francais
         {
             string retour = Enregistrer<User>();
             retour += Enregistrer<Stock>();
+            retour += Enregistrer<Parameter>();
+            retour += Enregistrer<Order>();
+            retour += Enregistrer<Customer>();
+            retour += Enregistrer<OrderLine>();
             return retour;
         }
         public void ImporterXml()
@@ -142,8 +134,8 @@ namespace ATMTECH.Administration.Views.Francais
         public void SynchronizeProductFile()
         {
             IList<File> filesDatabase = FileService.GetAllFile();
-            IList<ProductFile> productFiles = ProductService.GetProductFile();
-            IList<Product> products = ProductService.GetAllActive();
+            IList<ProductFile> productFiles = ProduitService.ObtenirFichierProduit();
+            IList<Product> products = ProduitService.ObtenirProduit();
             foreach (File file in filesDatabase)
             {
                 ProductFile productFile = productFiles.FirstOrDefault(x => x.Product.Ident == file.FileName.Replace(".jpg", ""));
@@ -165,15 +157,10 @@ namespace ATMTECH.Administration.Views.Francais
                             IsPrincipal = identSplit == null,
                             IsActive = true
                         };
-                        ProductService.SaveProductFile(productFile);
+                        ProduitService.EnregistrerFichierProduit(productFile);
                     }
-
-
-
                 }
             }
-
-
         }
         public void OuvrirSysteme()
         {
@@ -209,40 +196,40 @@ namespace ATMTECH.Administration.Views.Francais
         {
             switch (typeof(TModel).FullName)
             {
-                case "ATMTECH.ShoppingCart.Entities.Enterprise":
-                    foreach (Enterprise enterprise in EnterpriseService.GetAll())
-                    {
-                        EnterpriseService.Save(EnterpriseService.GetEnterprise(enterprise.Id));
-                    }
-                    break;
-                case "ATMTECH.ShoppingCart.Entities.Order":
-                    foreach (Order order in OrderService.GetAll())
-                    {
-                        OrderService.Save(OrderService.GetOrder(order.Id));
-                    }
-                    break;
-                case "ATMTECH.ShoppingCart.Entities.Stock":
+                //case "ATMTECH.ShoppingCart.Entities.Enterprise":
+                //    foreach (Enterprise enterprise in EnterpriseService.GetAll())
+                //    {
+                //        EnterpriseService.Save(EnterpriseService.GetEnterprise(enterprise.Id));
+                //    }
+                //    break;
+                //case "ATMTECH.ShoppingCart.Entities.Order":
+                //    foreach (Order order in OrderService.GetAll())
+                //    {
+                //        OrderService.Save(OrderService.GetOrder(order.Id));
+                //    }
+                //    break;
+                //case "ATMTECH.ShoppingCart.Entities.Stock":
 
-                    IList<Product> allActive = ProductService.GetAllActive();
-                    foreach (Stock stock in StockService.GetAllStock())
-                    {
-                        Product product = allActive.FirstOrDefault(x => x.Id == stock.Product.Id);
-                        if (product != null)
-                        {
-                            stock.Product = product;
-                            StockService.Save(stock);
-                        }
-                    }
-                    break;
-                case "ATMTECH.ShoppingCart.Entities.Customer":
-                    BaseDao<Customer, int> daoModelCustomer = new BaseDao<Customer, int>();
+                //    IList<Product> allActive = ProductService.GetAllActive();
+                //    foreach (Stock stock in StockService.GetAllStock())
+                //    {
+                //        Product product = allActive.FirstOrDefault(x => x.Id == stock.Product.Id);
+                //        if (product != null)
+                //        {
+                //            stock.Product = product;
+                //            StockService.Save(stock);
+                //        }
+                //    }
+                //    break;
+                //case "ATMTECH.ShoppingCart.Entities.Customer":
+                //    BaseDao<Customer, int> daoModelCustomer = new BaseDao<Customer, int>();
 
-                    foreach (Customer customer in CustomerService.GetAll())
-                    {
-                        customer.User = AuthenticationService.GetUser(customer.User.Id);
-                        daoModelCustomer.Save(customer);
-                    }
-                    break;
+                //    foreach (Customer customer in CustomerService.GetAll())
+                //    {
+                //        customer.User = AuthenticationService.GetUser(customer.User.Id);
+                //        daoModelCustomer.Save(customer);
+                //    }
+                //    break;
                 default:
                     BaseDao<TModel, int> daoModel = new BaseDao<TModel, int>();
                     IList<TModel> model = daoModel.GetAll();

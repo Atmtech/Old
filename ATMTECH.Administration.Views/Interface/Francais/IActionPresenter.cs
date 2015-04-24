@@ -14,5 +14,6 @@ namespace ATMTECH.Administration.Views.Interface.Francais
         string Code { get; set; }
         string Sujet { get; set; }
         string Corps { get; set; }
+        string Pourcentage { get; set; }
     }
 }

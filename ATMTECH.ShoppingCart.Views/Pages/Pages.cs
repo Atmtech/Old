@@ -35,6 +35,8 @@ namespace ATMTECH.ShoppingCart.Views.Pages
         public const string CONTENT_ID = "ContentId";
         public const string PRODUCT_CATEGORY = "ProductCategoryId";
         public const string SEARCH = "Search";
+        public const string BRAND = "Brand";
+        public const string ORDER_BY_PRICE = "OrderByPrice";
         public const string REMOVE_MAILING_LIST = "RemoveEmail";
     }
 

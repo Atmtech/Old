@@ -111,10 +111,12 @@
                                     Action à prendre
                                 </div>
                                 <ul>
+                                    <li><a href="Action.aspx?action=VerifierInventaire">Valider un inventaire technosport</a></li>
                                     <li><a href="Action.aspx?action=EditionCourriel">Editer les courriels</a></li>
                                     <li><a href="Action.aspx?action=ConfirmerCommande">Confirmer la commande</a></li>
                                     <li><a href="Action.aspx?action=AjusterCommande">Ajuster une commande</a></li>
                                     <li><a href="Action.aspx?action=RestaureCopie">Restaurer une copie de sauvegarde</a></li>
+                                    <li><a href="Action.aspx?action=AppliquerPourcentage">Appliquer un pourcentage sur les produits</a></li>
                                     <li>
                                         <asp:Button runat="server" Text="Faire une copie de sauvegarde" ID="btnCopierSauvegarde" OnClick="btnCopierSauvegardeClick" CssClass="boutonMenu"></asp:Button></li>
                                 </ul>
@@ -132,6 +134,7 @@
                                     Outils
                                 </div>
                                 <ul>
+                                    <li><a href="Edition.aspx?NomEntite=Parameter">Les paramètres</a></li>
                                     <li>
                                         <asp:Button runat="server" Text="Ajuster colonne recherche" ID="btnAjusterColonneRecherche" OnClick="btnAjusterColonneRechercheClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>

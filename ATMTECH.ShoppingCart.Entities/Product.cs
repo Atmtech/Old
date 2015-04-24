@@ -15,7 +15,7 @@ namespace ATMTECH.ShoppingCart.Entities
         public const string NAME = "Name";
         public const string SALE_PRICE = "SalePrice";
         public const string IS_SLIDE_SHOW = "IsSlideShow";
-        
+        public const string BRAND = "Brand";
 
         public string Ident { get; set; }
         public string NameFrench { get; set; }

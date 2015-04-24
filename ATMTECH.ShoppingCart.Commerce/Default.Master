@@ -38,7 +38,8 @@
         </asp:ScriptManager>
 
         <div class="logo">
-            <img src="Images/WebSite/logo.png" width="800" height="87" />
+            <a href="Default.aspx">
+                <img src="Images/WebSite/logo.png" width="800" height="87" /></a>
         </div>
 
         <div class="menuHaut">

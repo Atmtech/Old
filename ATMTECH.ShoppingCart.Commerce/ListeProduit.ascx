@@ -17,6 +17,8 @@
                 </asp:HyperLink>
 
                 <br />
+                <asp:Label runat="server" ID="lblMarque" Text='<%#Eval("Brand")%>'></asp:Label>
+
                 <asp:Label runat="server" ID="lblNomProduit" Text='<%#Langue == LocalizationLanguage.FRENCH ? Eval("NameFrench") : Eval("NameEnglish")%>'></asp:Label>
                 <br />
 

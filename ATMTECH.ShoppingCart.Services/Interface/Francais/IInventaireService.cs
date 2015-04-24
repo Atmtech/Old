@@ -6,5 +6,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
     public interface IInventaireService
     {
         IList<Stock> ObtenirInventaire();
+        int ObtenirInventaireTechnosport(string idProduit, string grandeur, string couleur);
     }
 }

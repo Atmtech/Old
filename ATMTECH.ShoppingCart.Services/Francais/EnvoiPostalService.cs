@@ -29,10 +29,10 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             ShippingParameter shippingParameter = new ShippingParameter
             {
                 BillingAccount = "99999999",
-                CountryReceiverCode = ParameterService.GetValue("CountryReceiverCode"),
+                CountryReceiverCode = ParameterService.GetValue("PurolatorCountryReceiverCode"),
                 PackageType = PurolatorPackageType.EXPRESS_BOX,
                 ServiceType = PurolatorServiceType.EXPRESS_BOX,
-                SenderPostalCode = ParameterService.GetValue("SenderPostalCode"),
+                SenderPostalCode = ParameterService.GetValue("PurolatorSenderPostalCode"),
                 ShippingType = ShippingType.Purolator,
                 WeightType = ShippingParameter.WeightTypes.Lbs,
                 AccountId = ParameterService.GetValue("PurolatorBillingAccount"),
