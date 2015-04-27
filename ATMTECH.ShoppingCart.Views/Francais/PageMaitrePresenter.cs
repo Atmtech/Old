@@ -40,11 +40,13 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
         public void AfficherInformation()
         {
+            View.AffichageLangue = LocalizationService.CurrentLanguage;
+
             Customer customer = ClientService.ClientAuthentifie;
             if (customer == null) return;
             View.EstConnecte = true;
             View.NomClient = customer.User.FirstNameLastName;
-            View.AffichageLangue = LocalizationService.CurrentLanguage;
+            
             Order commande = CommandeService.ObtenirCommandeSouhaite(customer);
 
             if (commande == null) return;

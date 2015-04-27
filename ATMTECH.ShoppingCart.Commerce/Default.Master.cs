@@ -65,11 +65,15 @@ namespace ATMTECH.ShoppingCart.Commerce
                 {
                     btnAnglais.Visible = false;
                     btnFrancais.Visible = true;
+                    txtRecherche.Attributes.Remove("PlaceHolder");
+                    txtRecherche.Attributes.Add("PlaceHolder", "Search...");
                 }
                 else
                 {
                     btnAnglais.Visible = true;
                     btnFrancais.Visible = false;
+                    txtRecherche.Attributes.Remove("PlaceHolder");
+                    txtRecherche.Attributes.Add("PlaceHolder", "Rechercher...");
                 }
             }
         }
@@ -147,6 +151,11 @@ namespace ATMTECH.ShoppingCart.Commerce
         protected void btnAnglaisClick(object sender, EventArgs e)
         {
             Presenter.MettreSiteEnAnglais();
+        }
+
+        protected void btnAccueilClick(object sender, EventArgs e)
+        {
+            Presenter.NavigationService.Redirect(Pages.DEFAULT);
         }
     }
 }

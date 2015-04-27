@@ -14,7 +14,7 @@ namespace ATMTECH.Administration.Services
         public IProductService ProductService { get; set; }
         public IStockService StockService { get; set; }
 
-      
+
         public IList<string> DisplayColor(Enterprise enterprise, string fileXml)
         {
             IList<ImportProduit> importProduits = new List<ImportProduit>();
@@ -79,7 +79,7 @@ namespace ATMTECH.Administration.Services
                                                                 Brand = node.SelectSingleNode("Brand").InnerText,
                                                                 Size = node.SelectSingleNode("Size").InnerText,
                                                                 ColorId = node.SelectSingleNode("ColorId").InnerText,
-                                                                Price = node.SelectSingleNode("Price").InnerText,
+                                                                Price = Convert.ToDecimal(node.SelectSingleNode("Price").InnerText.Replace(".", ",")),
                                                                 Color_EN = node.SelectSingleNode("Color_EN").InnerText,
                                                                 Color_FR = node.SelectSingleNode("Color_FR").InnerText,
                                                                 Title_EN = node.SelectSingleNode("Title_EN").InnerText,
@@ -148,10 +148,12 @@ namespace ATMTECH.Administration.Services
             foreach (ImportProduit importProduit in importProduits)
             {
                 Product product = products.FirstOrDefault(x => x.Ident == importProduit.ItemID);
+                List<ImportProduit> produits = importProduits.Where(x => x.ItemID == importProduit.ItemID).OrderBy(x => x.Price).ToList();
+                Decimal prixUnitaire = produits.First().Price;
+
 
                 if (product == null && productsTraite.Count(x => x.Ident == importProduit.ItemID) == 0)
                 {
-                    
                     product = new Product
                         {
                             Brand = importProduit.Brand,
@@ -164,8 +166,8 @@ namespace ATMTECH.Administration.Services
                             ProductCategoryEnglish = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieAnglaise(importProduit)),
                             ProductCategoryFrench = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieFrancaise(importProduit)),
                             Weight = 1,
-                            UnitPrice = Convert.ToDecimal(importProduit.Price.Replace(".",",")),
-                            CostPrice = Convert.ToDecimal(importProduit.Price.Replace(".", ","))
+                            UnitPrice = prixUnitaire,
+                            CostPrice = prixUnitaire
                         };
                     productsTraite.Add(product);
                     ProductService.Save(product);
@@ -181,8 +183,8 @@ namespace ATMTECH.Administration.Services
                         product.NameFrench = importProduit.Title_FR;
                         product.ProductCategoryEnglish = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieAnglaise(importProduit));
                         product.ProductCategoryFrench = productCategories.FirstOrDefault(x => x.Description == TrouverCategorieFrancaise(importProduit));
-                        product.UnitPrice = Convert.ToDecimal(importProduit.Price.Replace(".", ","));
-                        product.CostPrice = Convert.ToDecimal(importProduit.Price.Replace(".", ","));
+                        product.UnitPrice = prixUnitaire;
+                        product.CostPrice = prixUnitaire;
                         productsTraite.Add(product);
                         ProductService.Save(product);
                     }
@@ -203,6 +205,11 @@ namespace ATMTECH.Administration.Services
                         string featureEnglish = importProduit.Size + " - " + importProduit.Color_EN;
                         string featureFrench = importProduit.Size + " - " + importProduit.Color_FR;
                         Stock stock = stocks.FirstOrDefault(x => x.Id == product.Id && x.FeatureEnglish == featureEnglish);
+
+                        List<ImportProduit> produits = importProduits.Where(x => x.ItemID == importProduit.ItemID).OrderBy(x => x.Price).ToList();
+                        Decimal prixUnitaire = produits.First().Price;
+
+
                         if (stock == null && stocksTraite.Count(x => x.Product.Id == product.Id && x.FeatureEnglish == featureEnglish) == 0)
                         {
                             stock = new Stock
@@ -212,6 +219,7 @@ namespace ATMTECH.Administration.Services
                                     ColorEnglish = importProduit.Color_EN,
                                     ColorFrench = importProduit.Color_FR,
                                     Size = importProduit.Size,
+                                    AdjustPrice = importProduit.Price - prixUnitaire,
                                     Product = product,
                                     IsWithoutStock = true,
                                     InitialState = 0,
@@ -226,6 +234,7 @@ namespace ATMTECH.Administration.Services
                             {
                                 stock.FeatureEnglish = featureEnglish;
                                 stock.FeatureFrench = featureFrench;
+                                stock.AdjustPrice = importProduit.Price - prixUnitaire;
                                 stock.Product = product;
                                 stock.IsWithoutStock = true;
                                 stock.InitialState = 0;

@@ -42,47 +42,58 @@
                 <img src="Images/WebSite/logo.png" width="800" height="87" /></a>
         </div>
 
-        <div class="menuHaut">
+        <div style="background-color: #4a4949; margin-top: 10px;">
+            <div style="width: 1000px; margin: 0 auto; height: 30px;">
+                <div style="width: 100%; float: left;">
 
-            <div class="itemMenuEspace">
-                &nbsp;
-            </div>
-            <div class="itemMenuRecherche">
-                <div style="padding-top: 5px;">
-                    <asp:ImageButton runat="server" ID="imgRecherche" ImageUrl="~/Images/WebSite/Rechercher.png" OnClick="imgRechercheClick" />
-                    <asp:TextBox ID="txtRecherche" runat="server" CssClass="textBoxRecherche" PlaceHolder="Recherche"></asp:TextBox>
+                    <div class="itemMenuRecherche">
+                        <div style="padding-top: 5px;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <asp:ImageButton runat="server" ID="imgRecherche" ImageUrl="~/Images/WebSite/Rechercher.png" OnClick="imgRechercheClick" Height="16px" Width="16px" /></td>
+                                    <td>
+                                        <asp:TextBox ID="txtRecherche" runat="server" CssClass="textBoxRecherche"></asp:TextBox></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="itemMenu">
+                        <asp:Button runat="server" ID="btnAccueil" Text="Accueil" CssClass="boutonItemMenu" OnClick="btnAccueilClick" />
+                    </div>
+                    <div class="itemMenu">
+                        <asp:Button runat="server" ID="btnCategorieProduit" Text="Magasiner par catégorie" CssClass="boutonItemMenu" OnClick="btnCategorieProduitClick" />
+                    </div>
+                    <div class="itemMenu">
+                        <asp:Button ID="btnContacterNous" runat="server" Text="Contacter-nous" CssClass="boutonItemMenu" OnClick="btnContacterNousClick" />
+                    </div>
+                    <div class="itemMenu">
+                        <asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonItemMenu" Visible="False" OnClick="btnFrancaisClick" />
+                        <asp:Button runat="server" ID="btnAnglais" Text="English" CssClass="boutonItemMenu" Visible="True" OnClick="btnAnglaisClick" />
+                    </div>
+                    <div class="itemMenu">
+                        <asp:Panel runat="server" ID="pnlDeconnecte">
+                            <asp:Button runat="server" ID="btnConnecter" Text="Identifiez vous ou créer un compte" CssClass="boutonItemMenu" OnClick="btnConnecterClick" />
+                        </asp:Panel>
+                        <asp:Panel runat="server" ID="pnlConnecte" Visible="False">
+                            <div style="float: left; border-left: solid 1px white;">
+                                <asp:Button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonItemMenu"></asp:Button>
+                            </div>
+                            <div style="float: left; border-left: solid 1px white;">
+                                <asp:Button runat="server" ID="btnAucunItemDansPanier" Text="Panier vide" CssClass="boutonItemMenu"></asp:Button>
+                                <asp:Button runat="server" ID="btnPanier" OnClick="btnPanierClick" CssClass="boutonItemMenu" Visible="False" />
+                            </div>
+                            <div style="float: left; border-left: solid 1px white;">
+                                <asp:Button runat="server" ID="btnDeconnecter" Text="Déconnecter" CssClass="boutonItemMenu" OnClick="btnDeconnecterClick" />
+                            </div>
+                        </asp:Panel>
+                    </div>
+                    <div style="clear: both;"></div>
                 </div>
             </div>
-
-            <div class="itemMenu">
-                <asp:Button runat="server" ID="btnCategorieProduit" Text="Magasiner par catégorie" CssClass="boutonItemMenu" OnClick="btnCategorieProduitClick" />
-            </div>
-            <div class="itemMenu">
-                <asp:Button ID="btnContacterNous" runat="server" Text="Contacter-nous" CssClass="boutonItemMenu" OnClick="btnContacterNousClick" />
-            </div>
-            <div class="itemMenu">
-                <asp:Button runat="server" ID="btnFrancais" Text="Français" CssClass="boutonItemMenu" Visible="False" OnClick="btnFrancaisClick" />
-                <asp:Button runat="server" ID="btnAnglais" Text="Anglais" CssClass="boutonItemMenu" Visible="True" OnClick="btnAnglaisClick" />
-            </div>
-            <div class="itemMenu">
-                <asp:Panel runat="server" ID="pnlDeconnecte">
-                    <asp:Button runat="server" ID="btnConnecter" Text="Identifiez vous ou créer un compte" CssClass="boutonItemMenu" OnClick="btnConnecterClick" />
-                </asp:Panel>
-                <asp:Panel runat="server" ID="pnlConnecte" Visible="False">
-                    <div style="float: left;">
-                        <asp:Button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonItemMenu"></asp:Button>
-                    </div>
-                    <div style="float: left; border-left: solid 1px white;">
-                        <asp:Button runat="server" ID="btnAucunItemDansPanier" Text="Aucun article dans le panier" CssClass="boutonItemMenu"></asp:Button>
-                        <asp:Button runat="server" ID="btnPanier" OnClick="btnPanierClick" CssClass="boutonItemMenu" Visible="False" />
-                    </div>
-                    <div style="float: left; border-left: solid 1px white;">
-                        <asp:Button runat="server" ID="btnDeconnecter" Text="Se déconnecter" CssClass="boutonItemMenu" OnClick="btnDeconnecterClick" />
-                    </div>
-                </asp:Panel>
-            </div>
-            <div style="clear: both;"></div>
         </div>
+
+
         <div class="center">
             <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" Visible="False">
                 <img src="Images/WebSite/error-icon.png" style="width: 40px; height: 40px; vertical-align: middle;" alt="Erreur" />
@@ -105,11 +116,11 @@
                     <asp:Label runat="server" ID="lblNavigation" Text="Navigation"></asp:Label>
                     <br />
                     <br />
-                    <asp:Button ID="btnCondition" runat="server" Text="Conditions" CssClass="boutonLien" OnClick="btnConditionClick" />
+                    <asp:Button ID="btnCondition" runat="server" Text="Conditions" CssClass="boutonNavigation" OnClick="btnConditionClick" />
                     |
-                    <asp:Button ID="btnRetour" runat="server" Text="Retours" CssClass="boutonLien" OnClick="btnRetourClick" />
+                    <asp:Button ID="btnRetour" runat="server" Text="Retours" CssClass="boutonNavigation" OnClick="btnRetourClick" />
                     |
-                    <asp:Button ID="btnLivraison" runat="server" Text="Livraison" CssClass="boutonLien" OnClick="btnLivraisonClick" />
+                    <asp:Button ID="btnLivraison" runat="server" Text="Livraison" CssClass="boutonNavigation" OnClick="btnLivraisonClick" />
                 </div>
 
                 <div class="listeCourriel">

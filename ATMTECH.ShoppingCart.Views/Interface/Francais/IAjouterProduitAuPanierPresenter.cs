@@ -1,4 +1,6 @@
-﻿using ATMTECH.ShoppingCart.Entities;
+﻿using System.Collections.Generic;
+using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.Views.Interface;
 
 namespace ATMTECH.ShoppingCart.Views.Interface.Francais
@@ -9,6 +11,12 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
         Product Produit { get; set; }
         int Inventaire { get; set; }
         int Quantite { get; set; }
+        string Couleur { get; set; }
+        string Taille { get; set; }
+        IList<string> Couleurs { set; }
+        IList<Taille> Tailles { set; }
         bool EstPossibleDeCommander { get; set; }
+        decimal PrixUnitaireOriginal { set; }
+        decimal PrixUnitaireEnSolde { set; }
     }
 }

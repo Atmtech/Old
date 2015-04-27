@@ -17,32 +17,12 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             get { return Convert.ToInt32(QueryString.GetQueryStringValue(PagesId.PRODUCT_ID)); }
         }
-
         public Product Produit
         {
             get { return (Product)Session["ProduitCourant"]; }
             set
             {
                 Session["ProduitCourant"] = value;
-                IList<string> couleur = new List<string>();
-                foreach (Stock stock in value.Stocks.Where(stock => !couleur.Contains(stock.ColorFrench)))
-                {
-                    couleur.Add(stock.ColorFrench);
-                }
-
-                IList<string> color = new List<string>();
-                foreach (Stock stock in value.Stocks.Where(stock => !color.Contains(stock.ColorEnglish)))
-                {
-                    color.Add(stock.ColorEnglish);
-                }
-
-                IList<string> taille = new List<string>();
-                foreach (Stock stock in value.Stocks.Where(stock => !taille.Contains(stock.Size)))
-                {
-                    taille.Add(stock.Size);
-                }
-
-
                 switch (Presenter.CurrentLanguage)
                 {
 
@@ -50,55 +30,55 @@ namespace ATMTECH.ShoppingCart.Commerce
                         lblDescription.Text = value.DescriptionFrench;
                         lblNomProduit.Text = value.NameFrench;
                         FillDropDown(ddlStock, value.Stocks, Stock.FEATURE_FRENCH);
-                        FillDropDownWithoutEntity(ddlCouleur, couleur.OrderBy(x => x.ToLower()));
                         break;
                     case LocalizationLanguage.ENGLISH:
                         lblDescription.Text = value.DescriptionEnglish;
                         lblNomProduit.Text = value.NameEnglish;
                         FillDropDown(ddlStock, value.Stocks, Stock.FEATURE_ENGLISH);
-                        FillDropDownWithoutEntity(ddlCouleur, color.OrderBy(x => x.ToLower()));
                         break;
                 }
 
-                FillDropDownWithoutEntity(ddlTaille, taille.OrderBy(x => x.ToLower()));
+
                 lblIdentProduit.Text = value.Ident;
-                lblPrixEpargner.Text = value.SavePrice.ToString("C");
-                lblPrixOriginal.Text = value.UnitPrice.ToString("C");
-                if (value.SavePrice > 0)
-                {
-                    lblPrixEpargner.Visible = true;
-                    lblVousEpargnez.Visible = true;
-                    lblPrixOriginal.Visible = true;
-                    lblPrixUnitaire.Text = value.SalePrice.ToString("C");
-                }
-                else
-                {
-                    lblPrixEpargner.Visible = false;
-                    lblVousEpargnez.Visible = false;
-                    lblPrixOriginal.Visible = false;
-                    lblPrixUnitaire.Text = value.UnitPrice.ToString("C");
-                }
-
                 ListeFichier.Fichiers = value.ProductFiles;
-                //imgProductPrincipal.ImageUrl = value.PrincipalFileUrl;
 
-                ListeCouleur.Langue = Presenter.CurrentLanguage;
-                ListeCouleur.Produit = value;
+                //AfficherPanneauCouleur(value);
             }
         }
-
         public int Inventaire
         {
             get { return Convert.ToInt32(ddlStock.SelectedValue); }
             set { ddlStock.SelectedValue = value.ToString(); }
         }
-
         public int Quantite
         {
             get { return Convert.ToInt32(txtQuantite.Text); }
             set { txtQuantite.Text = value.ToString(); }
         }
 
+        public string Couleur
+        {
+            get { return ddlCouleur.SelectedValue; }
+            set { ddlCouleur.SelectedValue = value; }
+        }
+        public string Taille
+        {
+            get { return ddlTaille.SelectedValue; }
+            set { ddlTaille.SelectedValue = value; }
+        }
+        public IList<string> Couleurs
+        {
+            set
+            {
+                FillDropDownWithoutEntity(ddlCouleur, value);
+                ListeCouleur.Langue = Presenter.CurrentLanguage;
+                ListeCouleur.Produit = Produit;
+            }
+        }
+        public IList<Taille> Tailles
+        {
+            set { FillDropDownWithoutEntity(ddlTaille, value.OrderBy(x => x.Ordre), "Nom", "Nom"); }
+        }
         public bool EstPossibleDeCommander
         {
             get { return btnAjouterLigneCommande.Visible; }
@@ -109,35 +89,88 @@ namespace ATMTECH.ShoppingCart.Commerce
                 txtQuantite.Visible = value;
             }
         }
-
-        private Stock TrouverLeStockAvecTailleEtCouleur()
+        public decimal PrixUnitaireOriginal
         {
-            Stock stock = null;
-            switch (Presenter.CurrentLanguage)
+            set
             {
-                case LocalizationLanguage.FRENCH:
-                    stock = Produit.Stocks.FirstOrDefault(x => x.FeatureFrench == ddlTaille.SelectedValue + " - " + ddlCouleur.SelectedValue);
-                    break;
-                case LocalizationLanguage.ENGLISH:
-                    stock = Produit.Stocks.FirstOrDefault(x => x.FeatureEnglish == ddlTaille.SelectedValue + " - " + ddlCouleur.SelectedValue);
-                    break;
+                lblPrixOriginal.Text = value.ToString("C");
+                if (Produit.SavePrice > 0)
+                {
+                    lblPrixEpargner.Visible = true;
+                    lblVousEpargnez.Visible = true;
+                    lblPrixOriginal.Visible = true;
+                }
+                else
+                {
+                    lblPrixEpargner.Visible = false;
+                    lblVousEpargnez.Visible = false;
+                    lblPrixOriginal.Visible = false;
+                    lblPrixUnitaire.Text = value.ToString("C");
+                }
             }
-            if (stock == null) return null;
-            return stock;
         }
+        public decimal PrixUnitaireEnSolde
+        {
+            set
+            {
+                lblPrixEpargner.Text = value.ToString("C");
+                if (Produit.SavePrice > 0)
+                {
+                    lblPrixEpargner.Visible = true;
+                    lblVousEpargnez.Visible = true;
+                    lblPrixOriginal.Visible = true;
+                    lblPrixUnitaire.Text = value.ToString("C");
+                }
+                else
+                {
+                    lblPrixEpargner.Visible = false;
+                    lblVousEpargnez.Visible = false;
+                    lblPrixOriginal.Visible = false;
+                }
+            }
+        }
+
+        //private void AfficherPanneauCouleur(Product produit)
+        //{
+        //    IList<string> couleur = new List<string>();
+        //    foreach (Stock stock in produit.Stocks.Where(stock => !couleur.Contains(stock.ColorFrench)))
+        //    {
+        //        couleur.Add(stock.ColorFrench);
+        //    }
+
+        //    IList<string> color = new List<string>();
+        //    foreach (Stock stock in produit.Stocks.Where(stock => !color.Contains(stock.ColorEnglish)))
+        //    {
+        //        color.Add(stock.ColorEnglish);
+        //    }
+
+
+
+        //    ListeCouleur.Langue = Presenter.CurrentLanguage;
+        //    ListeCouleur.Produit = produit;
+        //}
+
         protected void btnAjouterLigneCommandeClick(object sender, EventArgs e)
         {
-            Stock stock = TrouverLeStockAvecTailleEtCouleur();
-            if (stock != null)
-            {
-                Presenter.AjouterLigneCommande();
-            }
-
+            Presenter.AjouterLigneCommande();
         }
-
         protected void btnVousDevezEtreConnectePourAjouterQuantiteClick(object sender, EventArgs e)
         {
             Presenter.NavigationService.Redirect(Pages.LOGIN);
         }
+        protected void ddlTailleSelectedIndexChanged(object sender, EventArgs e)
+        {
+            Presenter.AfficherPrix();
+            //AffichageDuPrix(Produit);
+            //AfficherPanneauCouleur(Produit);
+        }
+        protected void ddlCouleurSelectedIndexChanged(object sender, EventArgs e)
+        {
+          //  Presenter.AffichageDuPrix();
+            //AfficherTaille(Produit, Couleur);
+            //AfficherPanneauCouleur(Produit);
+        }
     }
+
+
 }

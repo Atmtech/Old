@@ -815,15 +815,15 @@ namespace ATMTECH.ShoppingCart.Services
             {
                 if (orderLine.IsActive)
                 {
-                    if (order.FinalizedDate == null)
-                    {
+                    //if (order.FinalizedDate == null)
+                    //{
                         Product product = ProductService.GetProduct(orderLine.Stock.Product.Id);
                         decimal subTotal = (product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
                         total += subTotal;
                         orderLine.SubTotal = subTotal;
                         orderLine.UnitPrice = product.UnitPrice;
                         order.TotalWeight += (product.Weight * orderLine.Quantity);
-                    }
+                   // }
                 }
             }
             if (!order.Enterprise.IsShippingQuotationRequired)

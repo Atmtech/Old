@@ -270,7 +270,7 @@ namespace ATMTECH.Administration.Views
 
         public string BalanceOrder()
         {
-            IList<Order> orders = OrderService.GetAllWithCustomer().Where(x => x.IsActive && x.FinalizedDate != null).ToList();
+            IList<Order> orders = OrderService.GetAllWithCustomer().Where(x => x.IsActive).ToList();
             IList<OrderLine> orderLines = OrderService.GetAllOrderLine();
             IList<Stock> stocks = StockService.GetAllStock();
             foreach (OrderLine orderLine in orderLines)

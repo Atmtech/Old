@@ -42,9 +42,10 @@
                             <atmtech:ComboBox runat="server" ID="ddlStock" Visible="False" />
 
                             <asp:Label runat="server" ID="lblCouleur" Text="Couleur"></asp:Label>
-                            <atmtech:ComboBox runat="server" ID="ddlCouleur" />
+                            <asp:DropDownList  runat="server" ID="ddlCouleur" AutoPostBack="True" OnSelectedIndexChanged="ddlCouleurSelectedIndexChanged"  CssClass="dropDownList" Width="100%" />
                             <asp:Label runat="server" ID="lblTaille" Text="Taille"></asp:Label>
-                            <atmtech:ComboBox runat="server" ID="ddlTaille" />
+                            <br/>
+                            <asp:DropDownList runat="server" ID="ddlTaille" AutoPostBack="True" OnSelectedIndexChanged="ddlTailleSelectedIndexChanged" CssClass="dropDownList" Width="100%" />
                         </div>
                         <div class="Cell" style=""><br/>
                             <asp:Button runat="server" ID="btnVousDevezEtreConnectePourAjouterQuantite" Text="Identifier vous" OnClick="btnVousDevezEtreConnectePourAjouterQuantiteClick" CssClass="boutonLien"></asp:Button>

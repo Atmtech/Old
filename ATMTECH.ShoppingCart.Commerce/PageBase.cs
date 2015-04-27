@@ -64,11 +64,35 @@ namespace ATMTECH.ShoppingCart.Commerce
             dropDownList.DataBind();
         }
 
+        public void FillDropDownWithoutEntity(ComboBox dropDownList, object Source, string DisplayText, string value)
+        {
+            dropDownList.DataSource = Source;
+            dropDownList.DataTextField = DisplayText;
+            dropDownList.DataValueField = value;
+            dropDownList.DataBind();
+        }
+
+        public void FillDropDownWithoutEntity(DropDownList dropDownList, object Source, string DisplayText, string value)
+        {
+            dropDownList.DataSource = Source;
+            dropDownList.DataTextField = DisplayText;
+            dropDownList.DataValueField = value;
+            dropDownList.DataBind();
+        }
+
+
         public void FillDropDownWithoutEntity(ComboBox dropDownList, object Source)
         {
             dropDownList.DataSource = Source;
             dropDownList.DataBind();
         }
+
+        public void FillDropDownWithoutEntity(DropDownList dropDownList, object Source)
+        {
+            dropDownList.DataSource = Source;
+            dropDownList.DataBind();
+        }
+
 
         protected override void OnLoad(EventArgs e)
         {

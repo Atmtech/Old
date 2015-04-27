@@ -58,6 +58,7 @@
     <Content Include="ConfirmCreate.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content.aspx" />
+    <Content Include="Images\WebSite\ArrowDropDownList.png" />
     <Content Include="Images\WebSite\EnSavoirPlus.png" />
     <Content Include="Images\WebSite\logo.png" />
     <Content Include="Images\WebSite\LogoAnvil.jpg" />

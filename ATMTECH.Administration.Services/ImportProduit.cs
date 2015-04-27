@@ -6,7 +6,7 @@
         public string Brand { get; set; }
         public string Size { get; set; }
         public string ColorId { get; set; }
-        public string Price { get; set; }
+        public decimal Price { get; set; }
         public string Color_EN { get; set; }
         public string Color_FR { get; set; }
         public string Title_EN { get; set; }
