@@ -25,7 +25,7 @@
         </div>
         Copie:
         <asp:DropDownList runat="server" ID="ddlListeCopieSauvegarde" AutoPostBack="True" />
-        <br />
+        <br /><br/>
         <asp:Button runat="server" ID="btnRestaurerCopieSauvegarde" Text="Restaurer la copie de sauvegarde" OnClick="btnRestaurerCopieSauvegardeClick" CssClass="bouton" />
     </asp:Panel>
     <asp:Panel runat="server" ID="pnlEditionCourriel" Visible="False">
@@ -72,6 +72,10 @@
         <asp:Button runat="server" ID="btnAppliquerPourcentage" Text="Appliquer pourcentage" OnClick="btnAppliquerPourcentageClick" CssClass="bouton" />
     </asp:Panel>
     <asp:Panel runat="server" ID="pnlVerifierInventaire" Visible="false">
+        <div class="titrePage">
+            Vérifier un inventaire
+        </div>
+
         Identification produit:
         <asp:TextBox runat="server" ID="txtIdentProduit"></asp:TextBox>
         Ex: (12000)<br />
@@ -88,5 +92,37 @@
             Nombre en inventaire:
             <asp:Label runat="server" ID="lblNombreEnInventaire"></asp:Label>
         </div>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="pnlValiderPourPaypal" Visible="False">
+        <div class="titrePage">
+            Sortir la liste des commandes finalisé pour valider avec paypal
+        </div>
+        <table>
+            <tr>
+                <td>Date début:</td>
+                <td>
+                    <atmtech:DatePicker runat="server" ID="txtDateDepart" />
+                </td>
+            </tr>
+            <tr>
+                <td>Date fin: </td>
+                <td>
+                    <atmtech:DatePicker runat="server" ID="txtDateFin" />
+                </td>
+            </tr>
+        </table>
+        <asp:Button runat="server" ID="btnValiderPaypal" Text="Valider" OnClick="btnValiderPaypalClick" CssClass="bouton" />
+        <asp:Label runat="server" ID="lblRetourValidationPaypal"></asp:Label>
+    </asp:Panel>
+
+    <asp:Panel runat="server" ID="pnlEnvoiCourriel" Visible="False">
+        <div class="titrePage">
+            Tester l'envoi de courriel
+        </div>
+        Courriel:
+        <asp:TextBox runat="server" ID="txtCourriel" Text="atmtech.vincent@gmail.com"></asp:TextBox><br/><br/>
+        <asp:Button runat="server" ID="btnEnvoiCourriel" Text="Envoyer courriel" OnClick="btnEnvoiCourrielClick" CssClass="bouton" />
+        <br/>
+        <asp:Label runat="server" ID="lblStatutEnvoiCourriel"></asp:Label>
     </asp:Panel>
 </asp:Content>

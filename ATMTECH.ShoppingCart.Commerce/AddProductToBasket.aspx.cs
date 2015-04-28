@@ -41,8 +41,7 @@ namespace ATMTECH.ShoppingCart.Commerce
 
                 lblIdentProduit.Text = value.Ident;
                 ListeFichier.Fichiers = value.ProductFiles;
-
-                //AfficherPanneauCouleur(value);
+                AfficherPanneauCouleur();
             }
         }
         public int Inventaire
@@ -66,14 +65,15 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return ddlTaille.SelectedValue; }
             set { ddlTaille.SelectedValue = value; }
         }
-        public IList<string> Couleurs
+
+        public IList<string> ListeDeroulanteCouleurs
         {
-            set
-            {
-                FillDropDownWithoutEntity(ddlCouleur, value);
-                ListeCouleur.Langue = Presenter.CurrentLanguage;
-                ListeCouleur.Produit = Produit;
-            }
+            set { FillDropDownWithoutEntity(ddlCouleur, value); }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            AfficherPanneauCouleur();
         }
         public IList<Taille> Tailles
         {
@@ -130,26 +130,11 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
         }
 
-        //private void AfficherPanneauCouleur(Product produit)
-        //{
-        //    IList<string> couleur = new List<string>();
-        //    foreach (Stock stock in produit.Stocks.Where(stock => !couleur.Contains(stock.ColorFrench)))
-        //    {
-        //        couleur.Add(stock.ColorFrench);
-        //    }
-
-        //    IList<string> color = new List<string>();
-        //    foreach (Stock stock in produit.Stocks.Where(stock => !color.Contains(stock.ColorEnglish)))
-        //    {
-        //        color.Add(stock.ColorEnglish);
-        //    }
-
-
-
-        //    ListeCouleur.Langue = Presenter.CurrentLanguage;
-        //    ListeCouleur.Produit = produit;
-        //}
-
+        public void AfficherPanneauCouleur()
+        {
+            ListeCouleur.Langue = Presenter.CurrentLanguage;
+            ListeCouleur.Produit = Produit;
+        }
         protected void btnAjouterLigneCommandeClick(object sender, EventArgs e)
         {
             Presenter.AjouterLigneCommande();
@@ -161,14 +146,11 @@ namespace ATMTECH.ShoppingCart.Commerce
         protected void ddlTailleSelectedIndexChanged(object sender, EventArgs e)
         {
             Presenter.AfficherPrix();
-            //AffichageDuPrix(Produit);
-            //AfficherPanneauCouleur(Produit);
         }
         protected void ddlCouleurSelectedIndexChanged(object sender, EventArgs e)
         {
-          //  Presenter.AffichageDuPrix();
-            //AfficherTaille(Produit, Couleur);
-            //AfficherPanneauCouleur(Produit);
+            Presenter.AfficherPrix();
+            Presenter.AfficherTaille();
         }
     }
 

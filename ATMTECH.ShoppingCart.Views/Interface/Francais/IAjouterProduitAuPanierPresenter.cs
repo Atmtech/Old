@@ -13,7 +13,7 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
         int Quantite { get; set; }
         string Couleur { get; set; }
         string Taille { get; set; }
-        IList<string> Couleurs { set; }
+        IList<string> ListeDeroulanteCouleurs { set; }
         IList<Taille> Tailles { set; }
         bool EstPossibleDeCommander { get; set; }
         decimal PrixUnitaireOriginal { set; }

@@ -28,7 +28,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             AfficherPrix();
             GererAffichage();
         }
-
         public void AfficherTaille()
         {
             if (View.Produit != null)
@@ -69,7 +68,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 }
 
                 View.Tailles = tailles.OrderBy(x => x.Ordre).ToList();
-                //FillDropDownWithoutEntity(ddlTaille, tailles.OrderBy(x => x.Ordre), "Nom", "Nom");
             }
         }
         public void AfficherListeDeroulanteCouleur()
@@ -91,10 +89,10 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 switch (CurrentLanguage)
                 {
                     case LocalizationLanguage.FRENCH:
-                        View.Couleurs = couleur.OrderBy(x => x.ToLower()).ToList();
+                        View.ListeDeroulanteCouleurs = couleur.OrderBy(x => x.ToLower()).ToList();
                         break;
                     case LocalizationLanguage.ENGLISH:
-                        View.Couleurs = color.OrderBy(x => x.ToLower()).ToList();
+                        View.ListeDeroulanteCouleurs = color.OrderBy(x => x.ToLower()).ToList();
                         break;
                 }
             }
@@ -121,7 +119,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
 
         }
-
         public void GererAffichage()
         {
             View.EstPossibleDeCommander = ClientService.ClientAuthentifie != null;
@@ -135,7 +132,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 NavigationService.Redirect(Pages.Pages.DEFAULT);
             }
         }
-
         private Stock TrouverLeStockAvecTailleEtCouleur()
         {
             Stock stock = null;

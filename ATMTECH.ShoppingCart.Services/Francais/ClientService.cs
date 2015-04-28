@@ -100,6 +100,11 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             return DAOUser.GetAllUser();
         }
+
+        public Customer ObtenirClient(int id)
+        {
+            return DAOClient.ObtenirClient(id);
+        }
     }
 }
 

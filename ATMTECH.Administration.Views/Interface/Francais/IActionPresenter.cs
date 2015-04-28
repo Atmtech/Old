@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.Views.Interface;
 
@@ -15,5 +16,8 @@ namespace ATMTECH.Administration.Views.Interface.Francais
         string Sujet { get; set; }
         string Corps { get; set; }
         string Pourcentage { get; set; }
+        DateTime DateDepart { get; }
+        DateTime DateFin { get; }
+        string Courriel { get; }
     }
 }

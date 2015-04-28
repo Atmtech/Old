@@ -10,7 +10,7 @@
 namespace ATMTECH.Administration.Commerce {
     
     
-    public partial class DataEditor {
+    public partial class Edition {
         
         /// <summary>
         /// Contrôle pnlEdition.

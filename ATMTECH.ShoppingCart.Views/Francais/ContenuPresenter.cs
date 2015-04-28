@@ -40,7 +40,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 {
                     if (LocalizationService.CurrentLanguage == LocalizationLanguage.FRENCH)
                         View.Contenu = enterprise.FrenchWelcome;
-                    View.Contenu = enterprise.FrenchWelcome;
+                    View.Contenu = enterprise.EnglishWelcome;
                 }
                 if (View.IdContenu == ((int)TypeContenu.Condition).ToString())
                 {

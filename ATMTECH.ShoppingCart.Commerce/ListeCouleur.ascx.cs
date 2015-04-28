@@ -14,39 +14,42 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return (Product)Session["produitCouleur"]; }
             set
             {
-                string html = string.Empty;
-
-                IList<Couleur> listeCouleur = new List<Couleur>();
-
-                foreach (Stock stock in value.Stocks)
+                if (value != null)
                 {
-                    Couleur couleur = new Couleur
-                        {
-                            Anglais = stock.ColorEnglish,
-                            Francais = stock.ColorFrench,
-                            EquivalentWeb = RetournerEquivalentCouleurWebStock(stock)
-                        };
+                    string html = string.Empty;
 
-                    if (listeCouleur.Count(x => x.Anglais == stock.ColorEnglish) == 0)
+                    IList<Couleur> listeCouleur = new List<Couleur>();
+
+                    foreach (Stock stock in value.Stocks)
                     {
-                        listeCouleur.Add(couleur);
+                        Couleur couleur = new Couleur
+                            {
+                                Anglais = stock.ColorEnglish,
+                                Francais = stock.ColorFrench,
+                                EquivalentWeb = RetournerEquivalentCouleurWebStock(stock)
+                            };
+
+                        if (listeCouleur.Count(x => x.Anglais == stock.ColorEnglish) == 0)
+                        {
+                            listeCouleur.Add(couleur);
+                        }
                     }
-                }
 
-                foreach (Couleur couleur in listeCouleur)
-                {
-                    html += Langue == LocalizationLanguage.FRENCH
-                                ? "<div title='" + couleur.Francais + "' style='background-color:" +
-                                  couleur.EquivalentWeb +
-                                  ";border:solid 1px gray; width: 20px; height:20px;float: left;margin-left: 5px;'>&nbsp;</div>"
-                                : "<div title='" + couleur.Anglais + "' style='background-color:" +
-                                  couleur.EquivalentWeb +
-                                  ";border:solid 1px gray; width: 20px; height:20px;float: left;margin-left: 5px;'>&nbsp;</div>";
-                }
+                    foreach (Couleur couleur in listeCouleur)
+                    {
+                        html += Langue == LocalizationLanguage.FRENCH
+                                    ? "<div title='" + couleur.Francais + "' style='background-color:" +
+                                      couleur.EquivalentWeb +
+                                      ";border:solid 1px gray; width: 20px; height:20px;float: left;margin-left: 5px;'>&nbsp;</div>"
+                                    : "<div title='" + couleur.Anglais + "' style='background-color:" +
+                                      couleur.EquivalentWeb +
+                                      ";border:solid 1px gray; width: 20px; height:20px;float: left;margin-left: 5px;'>&nbsp;</div>";
+                    }
 
-                html += "<div style='clear: both;'></div>";
-                Literal literal = new Literal { Text = html };
-                placeHolderCouleur.Controls.Add(literal);
+                    html += "<div style='clear: both;'></div>";
+                    Literal literal = new Literal { Text = html };
+                    placeHolderCouleur.Controls.Add(literal);
+                }
             }
         }
 

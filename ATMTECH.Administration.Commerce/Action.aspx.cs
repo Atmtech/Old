@@ -14,7 +14,6 @@ namespace ATMTECH.Administration.Commerce
         {
             get { return QueryString.GetQueryStringValue("action"); }
         }
-
         public IList<string> ListeCopieSauvegarde
         {
             set
@@ -23,12 +22,10 @@ namespace ATMTECH.Administration.Commerce
                 ddlListeCopieSauvegarde.DataBind();
             }
         }
-
         public string FichierSauvegarde
         {
             get { return ddlListeCopieSauvegarde.SelectedValue; }
         }
-
         public IList<Mail> ListeCourriel
         {
             set
@@ -36,7 +33,6 @@ namespace ATMTECH.Administration.Commerce
                 FillDropDown(ddlListeCourriel, value, Mail.CODE, Mail.CODE);
             }
         }
-
         public string Code
         {
             get { return txtCode.Text; }
@@ -52,11 +48,23 @@ namespace ATMTECH.Administration.Commerce
             get { return txtCorps.Text; }
             set { txtCorps.Text = value; }
         }
-
         public string Pourcentage
         {
             get { return txtPourcentage.Text; }
             set { txtPourcentage.Text = value; }
+        }
+        public DateTime DateDepart
+        {
+            get { return Convert.ToDateTime(txtDateDepart.Text); }
+        }
+        public DateTime DateFin
+        {
+            get { return Convert.ToDateTime(txtDateFin.Text); }
+        }
+
+        public string Courriel
+        {
+            get { return txtCourriel.Text; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -70,6 +78,8 @@ namespace ATMTECH.Administration.Commerce
                     pnlRestaureCopie.Visible = false;
                     pnlAppliquerPourcentage.Visible = false;
                     pnlVerifierInventaire.Visible = false;
+                    pnlValiderPourPaypal.Visible = false;
+                    pnlEnvoiCourriel.Visible = false;
                     break;
                 case "AjusterCommande":
                     pnlEditionCourriel.Visible = false;
@@ -78,6 +88,8 @@ namespace ATMTECH.Administration.Commerce
                     pnlRestaureCopie.Visible = false;
                     pnlAppliquerPourcentage.Visible = false;
                     pnlVerifierInventaire.Visible = false;
+                    pnlValiderPourPaypal.Visible = false;
+                    pnlEnvoiCourriel.Visible = false;
                     break;
                 case "RestaureCopie":
                     pnlEditionCourriel.Visible = false;
@@ -86,6 +98,8 @@ namespace ATMTECH.Administration.Commerce
                     pnlRestaureCopie.Visible = true;
                     pnlAppliquerPourcentage.Visible = false;
                     pnlVerifierInventaire.Visible = false;
+                    pnlValiderPourPaypal.Visible = false;
+                    pnlEnvoiCourriel.Visible = false;
                     break;
                 case "EditionCourriel":
                     pnlEditionCourriel.Visible = true;
@@ -94,6 +108,8 @@ namespace ATMTECH.Administration.Commerce
                     pnlRestaureCopie.Visible = false;
                     pnlAppliquerPourcentage.Visible = false;
                     pnlVerifierInventaire.Visible = false;
+                    pnlValiderPourPaypal.Visible = false;
+                    pnlEnvoiCourriel.Visible = false;
                     break;
                 case "AppliquerPourcentage":
                     pnlEditionCourriel.Visible = false;
@@ -102,6 +118,8 @@ namespace ATMTECH.Administration.Commerce
                     pnlRestaureCopie.Visible = false;
                     pnlAppliquerPourcentage.Visible = true;
                     pnlVerifierInventaire.Visible = false;
+                    pnlValiderPourPaypal.Visible = false;
+                    pnlEnvoiCourriel.Visible = false;
                     break;
                 case "VerifierInventaire":
                     pnlEditionCourriel.Visible = false;
@@ -110,17 +128,36 @@ namespace ATMTECH.Administration.Commerce
                     pnlRestaureCopie.Visible = false;
                     pnlAppliquerPourcentage.Visible = false;
                     pnlVerifierInventaire.Visible = true;
+                    pnlValiderPourPaypal.Visible = false;
+                    pnlEnvoiCourriel.Visible = false;
+                    break;
+                case "ValiderPaypal":
+                    pnlEditionCourriel.Visible = false;
+                    pnlAjusterCommande.Visible = false;
+                    pnlConfirmerCommande.Visible = false;
+                    pnlRestaureCopie.Visible = false;
+                    pnlAppliquerPourcentage.Visible = false;
+                    pnlVerifierInventaire.Visible = false;
+                    pnlValiderPourPaypal.Visible = true;
+                    pnlEnvoiCourriel.Visible = false;
+                    break;
+                case "EnvoiCourriel":
+                    pnlEditionCourriel.Visible = false;
+                    pnlAjusterCommande.Visible = false;
+                    pnlConfirmerCommande.Visible = false;
+                    pnlRestaureCopie.Visible = false;
+                    pnlAppliquerPourcentage.Visible = false;
+                    pnlVerifierInventaire.Visible = false;
+                    pnlValiderPourPaypal.Visible = false;
+                    pnlEnvoiCourriel.Visible = true;
                     break;
             }
         }
-
-
         protected void btnRestaurerCopieSauvegardeClick(object sender, EventArgs e)
         {
             string retour = Presenter.RestaurerCopieSauvegarde();
             ShowMessage(new Message { Description = retour, MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
-
         protected void btnConfirmerCommandeClick(object sender, EventArgs e)
         {
             string retour = Presenter.ConfirmerCommande(Convert.ToInt32(txtNoCommandeConfirmer.Text.Replace(" ", "")));
@@ -128,34 +165,39 @@ namespace ATMTECH.Administration.Commerce
                 ? new Message { Description = retour, MessageType = Message.MESSAGE_TYPE_ERROR }
                 : new Message { Description = retour, MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
-
         protected void btnSauvegarderCourrielClick(object sender, EventArgs e)
         {
             Presenter.SauvegarderCourriel();
             lblApercu.Text = Corps;
         }
-
         protected void btnAfficherCourrielClick(object sender, EventArgs e)
         {
             Code = ddlListeCourriel.SelectedValue;
             Presenter.AfficherCourriel();
             lblApercu.Text = Corps;
         }
-
         protected void btnApercuCourrielClick(object sender, EventArgs e)
         {
             lblApercu.Text = Corps;
         }
-
         protected void btnAppliquerPourcentageClick(object sender, EventArgs e)
         {
             Presenter.AppliquerPourcentage();
         }
-
         protected void btnVerifierInvenaireClick(object sender, EventArgs e)
         {
             lblNombreEnInventaire.Text = Presenter.VerifierInventaire(txtIdentProduit.Text, txtTaille.Text,
                 txtCouleurAnglais.Text);
+        }
+        protected void btnValiderPaypalClick(object sender, EventArgs e)
+        {
+            lblRetourValidationPaypal.Text = Presenter.ValiderPaypal();
+
+        }
+
+        protected void btnEnvoiCourrielClick(object sender, EventArgs e)
+        {
+            lblStatutEnvoiCourriel.Text = Presenter.EnvoyerCourriel() == false ? "Échec de l'envoi du courriel" : "Envoi du courriel réussi";
         }
     }
 }

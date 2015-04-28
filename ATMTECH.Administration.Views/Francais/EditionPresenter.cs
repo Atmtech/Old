@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using System.Security.Cryptography;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ATMTECH.Administration.DAO.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface.Francais;
 using ATMTECH.Common.Utils;
@@ -27,6 +27,7 @@ namespace ATMTECH.Administration.Views.Francais
         public IProduitService ProduitService { get; set; }
         public IEnterpriseService EnterpriseService { get; set; }
         public IFileService FileService { get; set; }
+        public IDAOProprieteEdition DAOProprieteEdition { get; set; }
 
         public EditionPresenter(IEditionPresenter view)
             : base(view)
@@ -125,13 +126,28 @@ namespace ATMTECH.Administration.Views.Francais
             }
             return "ATMTECH.ShoppingCart.Entities";
         }
+
+        public IList<ProprieteEdition> ObtenirListeProprietePourEdition()
+        {
+            return DAOProprieteEdition.GetAllActive();
+        }
         public IList<Propriete> ObtenirListePropriete()
         {
+            IList<ProprieteEdition> proprieteEditions = ObtenirListeProprietePourEdition();
             ManageClass manageClass = new ManageClass();
 
             IList<PropertyInfo> listeList = manageClass.GetPropertiesFromClass(ObtenirAssemblie(), View.NomEntite).ToList();
+            IList<PropertyInfo> listeSortie = new List<PropertyInfo>();
+            foreach (PropertyInfo propertyInfo in listeList)
+            {
+                ProprieteEdition firstOrDefault = proprieteEditions.FirstOrDefault(x => x.NomPropriete == propertyInfo.Name);
+                if (firstOrDefault != null)
+                {
+                    listeSortie.Add(propertyInfo);
+                }
+            }
 
-            return listeList.Select(propertyInfo => new Propriete { Libelle = propertyInfo.Name, Nom = propertyInfo.Name, EstProprieteNative = propertyInfo.PropertyType.Namespace == "System", PropertyInfo = propertyInfo }).ToList();
+            return listeSortie.Select(propertyInfo => new Propriete { Libelle = proprieteEditions.FirstOrDefault(x => x.NomPropriete == propertyInfo.Name).Affichage, Nom = propertyInfo.Name, EstProprieteNative = propertyInfo.PropertyType.Namespace == "System", PropertyInfo = propertyInfo }).ToList();
         }
         public IList<Controle> ObtenirListeControle()
         {
@@ -170,7 +186,7 @@ namespace ATMTECH.Administration.Views.Francais
                         if (propriete.Nom == "UserLoginModified") controle.Ordre = 3;
                         if (propriete.Nom == "DateCreated") controle.Ordre = 4;
                         if (propriete.Nom == "DateModified") controle.Ordre = 5;
-                        
+
 
                         controle.Libelle = new Label { Text = string.Format("<div style='font-weight:bold;font-size:13px;'>{0}</div>", propriete.Libelle) };
                         controle.Objet = ObtenirControleEdition(propriete, entite);
@@ -194,36 +210,23 @@ namespace ATMTECH.Administration.Views.Francais
         {
             bool estEditable = !EstColonneFramework(propriete.Nom);
 
-            if (propriete.Nom == "OrderStatus")
-            {
-                IList<OrderStatusDisplay> orderStatus = new List<OrderStatusDisplay>();
-                OrderStatusDisplay orderStatusDisplay1 = new OrderStatusDisplay
-                {
-                    Id = 1,
-                    ComboboxDescription = "Liste de souhait"
-                };
-
-                OrderStatusDisplay orderStatusDisplay2 = new OrderStatusDisplay
-                {
-                    Id = 2,
-                    ComboboxDescription = "Commandé par le client"
-                };
-
-                OrderStatusDisplay orderStatusDisplay3 = new OrderStatusDisplay
-                {
-                    Id = 3,
-                    ComboboxDescription = "Envoyé au client"
-                };
-
-                orderStatus.Add(orderStatusDisplay1);
-                orderStatus.Add(orderStatusDisplay2);
-                orderStatus.Add(orderStatusDisplay3);
-
-                return CreerCombobox(propriete.Nom, orderStatus, valeur);
-            }
+            CreerControleStatutCommande(propriete, valeur);
 
             switch (propriete.PropertyInfo.PropertyType.FullName)
             {
+                case "System.String":
+                    Editor editor = new Editor
+                           {
+                               ID = propriete.PropertyInfo.Name,
+                               Text = valeur,
+                               Width = Unit.Percentage(90),
+                               Enabled = estEditable,
+                               //Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
+                               //Toolbar = "Source",
+                               Height = Unit.Pixel(25)
+
+                           };
+                    return editor;
                 case "System.Decimal":
                     {
                         Numeric numeric = new Numeric
@@ -267,21 +270,8 @@ namespace ATMTECH.Administration.Views.Francais
                         }
                         return checkBox;
                     }
-                default:
-                    {
-                        Editor editor = new Editor
-                            {
-                                ID = propriete.PropertyInfo.Name,
-                                Text = valeur,
-                                Width = Unit.Percentage(90),
-                                Enabled = estEditable,
-                                Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
-                                Height = Unit.Pixel(150)
-
-                            };
-                        return editor;
-                    }
             }
+            return null;
         }
         public Control ObtenirControleComplexe(Propriete propriete, string valeur)
         {
@@ -383,7 +373,7 @@ namespace ATMTECH.Administration.Views.Francais
             }
             return null;
         }
-        public int? EnregistrerEntite(Object entite)
+        public int EnregistrerEntite(Object entite)
         {
             ManageClass manageClass = new ManageClass();
             Type d1 = typeof(BaseDao<,>);
@@ -402,7 +392,12 @@ namespace ATMTECH.Administration.Views.Francais
             Type type = manageClass.GetTypeFromNameSpace(ObtenirAssemblie(), View.NomEntite);
             Object entite = Activator.CreateInstance(type, null);
 
-            foreach (Control control in type.GetProperties().Select(propertyInfo => ATMTECH.Common.Utils.Web.Pages.FindControlRecursive(panel, propertyInfo.Name)))
+            if (View.ValeurId != EST_INSERTION)
+            {
+                entite = ObtenirEntite(View.ValeurId);
+            }
+
+            foreach (Control control in type.GetProperties().Select(propertyInfo => Common.Utils.Web.Pages.FindControlRecursive(panel, propertyInfo.Name)))
             {
                 Editor editeur = control as Editor;
                 if (editeur != null)
@@ -435,9 +430,7 @@ namespace ATMTECH.Administration.Views.Francais
                 }
             }
 
-            //EnregistrerEntite(entite);
-
-            return 1;
+            return EnregistrerEntite(entite);
         }
         public bool EstColonneFramework(string colonne)
         {
@@ -494,6 +487,37 @@ namespace ATMTECH.Administration.Views.Francais
             return true;
         }
 
+        private Control CreerControleStatutCommande(Propriete propriete, string valeur)
+        {
+            if (propriete.Nom == "OrderStatus")
+            {
+                IList<OrderStatusDisplay> orderStatus = new List<OrderStatusDisplay>();
+                OrderStatusDisplay orderStatusDisplay1 = new OrderStatusDisplay
+                {
+                    Id = 1,
+                    ComboboxDescription = "Liste de souhait"
+                };
+
+                OrderStatusDisplay orderStatusDisplay2 = new OrderStatusDisplay
+                {
+                    Id = 2,
+                    ComboboxDescription = "Commandé par le client"
+                };
+
+                OrderStatusDisplay orderStatusDisplay3 = new OrderStatusDisplay
+                {
+                    Id = 3,
+                    ComboboxDescription = "Envoyé au client"
+                };
+
+                orderStatus.Add(orderStatusDisplay1);
+                orderStatus.Add(orderStatusDisplay2);
+                orderStatus.Add(orderStatusDisplay3);
+
+                return CreerCombobox(propriete.Nom, orderStatus, valeur);
+            }
+            return null;
+        }
     }
 
     public class Propriete

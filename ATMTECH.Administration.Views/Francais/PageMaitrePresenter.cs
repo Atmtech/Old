@@ -88,6 +88,7 @@ namespace ATMTECH.Administration.Views.Francais
         public void ImporterXml()
         {
             ImportXmlService.ImportProductAndStockXml(new Enterprise { Id = 1 }, Server.MapPath("Data") + @"\Catalogue.xml");
+            EffacerJournalTransaction();
         }
         public void SynchronizerImage()
         {
@@ -116,7 +117,7 @@ namespace ATMTECH.Administration.Views.Francais
 
             }
 
-
+            EffacerJournalTransaction();
         }
         public void CopierFichierImageProduitNonFormateVersProduct()
         {
@@ -161,6 +162,7 @@ namespace ATMTECH.Administration.Views.Francais
                     }
                 }
             }
+            EffacerJournalTransaction();
         }
         public void OuvrirSysteme()
         {
@@ -181,16 +183,20 @@ namespace ATMTECH.Administration.Views.Francais
             DatabaseService.ExecuteSql("DELETE FROM STOCK", EnumDatabaseVendor.Mssql);
             DatabaseService.ExecuteSql("DELETE FROM [FILE]", EnumDatabaseVendor.Mssql);
             DatabaseService.ExecuteSql("DELETE FROM [PRODUCTFILE]", EnumDatabaseVendor.Mssql);
-            DatabaseService.ExecuteSql("DELETE FROM TRANSACTIONLOG", EnumDatabaseVendor.Mssql);
             DatabaseService.ExecuteSql("DELETE FROM LogException", EnumDatabaseVendor.Mssql);
             DatabaseService.ExecuteSql("DELETE FROM LogMail", EnumDatabaseVendor.Mssql);
-
             DatabaseService.ExecuteSql("DBCC CHECKIDENT (PRODUCT, RESEED, 0)", EnumDatabaseVendor.Mssql);
             DatabaseService.ExecuteSql("DBCC CHECKIDENT (PRODUCTCATEGORY, RESEED, 0)", EnumDatabaseVendor.Mssql);
             DatabaseService.ExecuteSql("DBCC CHECKIDENT (STOCK, RESEED, 0)", EnumDatabaseVendor.Mssql);
             DatabaseService.ExecuteSql("DBCC CHECKIDENT ([FILE], RESEED, 0)", EnumDatabaseVendor.Mssql);
             DatabaseService.ExecuteSql("DBCC CHECKIDENT ([PRODUCTFILE], RESEED, 0)", EnumDatabaseVendor.Mssql);
+            EffacerJournalTransaction();
+        }
 
+        public void EffacerJournalTransaction()
+        {
+            DatabaseService.ExecuteSql("DELETE FROM TRANSACTIONLOG", EnumDatabaseVendor.Mssql);
+            DatabaseService.ExecuteSql("DBCC CHECKIDENT ([TRANSACTIONLOG], RESEED, 0)", EnumDatabaseVendor.Mssql);
         }
         private string Enregistrer<TModel>()
         {

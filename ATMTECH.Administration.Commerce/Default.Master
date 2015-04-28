@@ -100,8 +100,6 @@
                                     <li><a href="Edition.aspx?NomEntite=Enterprise">L'entreprise</a></li>
                                     <li><a href="Edition.aspx?NomEntite=Product">Les produits</a></li>
                                     <li><a href="Edition.aspx?NomEntite=Stock">Les inventaires de produits</a></li>
-                                    <li><a href="Edition.aspx?NomEntite=ProductCategory">Les catégories de produit</a></li>
-                                    <li><a href="Edition.aspx?NomEntite=ProductFile">Les images des produits</a> </li>
                                     <li><a href="Edition.aspx?NomEntite=Order">Les commandes</a> </li>
                                     <li><a href="Edition.aspx?NomEntite=OrderLine">Les lignes de commandes</a> </li>
                                     <li><a href="Edition.aspx?NomEntite=User">Les utilisateurs</a> </li>
@@ -111,6 +109,7 @@
                                     Action à prendre
                                 </div>
                                 <ul>
+                                    <li><a href="Action.aspx?action=ValiderPaypal">Valider commande pour paypal</a></li>
                                     <li><a href="Action.aspx?action=VerifierInventaire">Valider un inventaire technosport</a></li>
                                     <li><a href="Action.aspx?action=EditionCourriel">Editer les courriels</a></li>
                                     <li><a href="Action.aspx?action=ConfirmerCommande">Confirmer la commande</a></li>
@@ -147,8 +146,9 @@
                                         <asp:Button runat="server" Text="Ouvrir le système" ID="btnOuvrirSysteme" OnClick="btnOuvrirSystemeClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>
                                         <asp:Button runat="server" Text="Initialiser le système" ID="btnInitialiserSysteme" OnClick="btnInitialiserSystemeClick" CssClass="boutonMenu"></asp:Button></li>
-
                                     <li><a href="ExecuteSql.aspx">Exécuter du SQL</a> </li>
+                                    
+                                    <li><a href="Action.aspx?action=EnvoiCourriel">Tester envoi courriel</a></li>
 
                                 </ul>
                             </div>

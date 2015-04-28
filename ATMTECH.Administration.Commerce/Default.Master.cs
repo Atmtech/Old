@@ -11,8 +11,6 @@ namespace ATMTECH.Administration.Commerce
         {
             get { throw new NotImplementedException(); }
         }
-
-
         public bool EstConnecte
         {
             set
@@ -31,13 +29,11 @@ namespace ATMTECH.Administration.Commerce
                 }
             }
         }
-
         public string NomUtilisateur
         {
             get { return txtCourriel.Text; }
             set { txtCourriel.Text = value; }
         }
-
         public string MotDePasse
         {
             get { return txtMotDePasse.Text; }
@@ -48,24 +44,20 @@ namespace ATMTECH.Administration.Commerce
         {
             Presenter.OuvrirSession();
         }
-
         protected void SignOutClick(object sender, EventArgs e)
         {
             Presenter.FermerSession();
         }
-
         protected void btnAjusterColonneRechercheClick(object sender, EventArgs e)
         {
             string message = Presenter.AjusterRecherche();
             ShowMessage(new Message { Description = message, MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
-
         protected void btnImporterProduitXmlClick(object sender, EventArgs e)
         {
             Presenter.ImporterXml();
             ShowMessage(new Message { Description = "Importation terminé", MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
-
         protected void btnImporterImageProduitClick(object sender, EventArgs e)
         {
             Presenter.CopierFichierImageProduitNonFormateVersProduct();
@@ -73,25 +65,21 @@ namespace ATMTECH.Administration.Commerce
             Presenter.SynchronizeProductFile();
             ShowMessage(new Message { Description = "Images synchronisé", MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
-
         protected void btnFermerSystemeClick(object sender, EventArgs e)
         {
             Presenter.FermerSysteme();
             ShowMessage(new Message { Description = "Système fermé", MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
-
         protected void btnOuvrirSystemeClick(object sender, EventArgs e)
         {
             Presenter.OuvrirSysteme();
             ShowMessage(new Message { Description = "Système ouvert", MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
-
         protected void btnCopierSauvegardeClick(object sender, EventArgs e)
         {
             string resultat = Presenter.CreationCopieSauvegarde(Server.MapPath("data"));
             ShowMessage(new Message { Description = resultat, MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
-
         protected void btnInitialiserSystemeClick(object sender, EventArgs e)
         {
             Presenter.InitialiserSysteme();

@@ -13,5 +13,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
         bool EnvoyerMotPasseOublie(string courriel);
         IList<Customer> ObtenirClient();
         IList<User> ObtenirUtilisateur();
+        Customer ObtenirClient(int id);
     }
 }

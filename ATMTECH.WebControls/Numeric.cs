@@ -60,16 +60,6 @@ namespace ATMTECH.WebControls
             base.OnPreRender(e);
             string js = string.Empty;
 
-            //js = NoDecimal
-            //         ? "$(function () {  " +
-            //           "$(\"input[name*='$" + _textBox.ID +
-            //           "']\").priceFormat({prefix: '',thousandsSeparator: '',allowNegative: true, centsLimit:0})" +
-            //           "});"
-            //         : "$(function () {  " +
-            //           "$(\"input[name*='$" + _textBox.ID +
-            //           "']\").priceFormat({prefix: '',thousandsSeparator: '',allowNegative: true})" +
-            //           "});";
-
             js = "$(function () {  " +
                        "$(\"input[name*='$" + _textBox.ID +
                        "']\").autoNumeric('init')" +

@@ -11,13 +11,10 @@ namespace ATMTECH.Administration.Commerce
         {
             get { return QueryString.GetQueryStringValue("rapport"); }
         }
-
-
         public DateTime DateDepart
         {
             get { return Convert.ToDateTime(txtDateDepart.Text); }
         }
-
         public DateTime DateFin
         {
             get { return Convert.ToDateTime(txtDateFin.Text); }
@@ -27,7 +24,6 @@ namespace ATMTECH.Administration.Commerce
         {
             Presenter.GenererRapport();
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             switch (NomRapport)
@@ -46,6 +42,5 @@ namespace ATMTECH.Administration.Commerce
                     break;
             }
         }
-
     }
 }

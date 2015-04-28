@@ -62,6 +62,7 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="BaseEnumeration.cs" />
     <Compile Include="ContentCms.cs" />
+    <Compile Include="ProprieteEdition.cs" />
     <Compile Include="LogMail.cs" />
     <Compile Include="Weather.cs" />
     <Compile Include="GroupUser.cs" />

@@ -6,12 +6,11 @@ namespace ATMTECH.Administration.Commerce
 {
     public partial class ExecuteSql : PageBase<ExecuteSqlPresenter, IExecuteSqlPresenter>, IExecuteSqlPresenter
     {
+        public string ReturnExecuteSql { set { lblResult.Text = value; } }
 
         protected void btnExecuteSqlClick(object sender, EventArgs e)
         {
             Presenter.ExecuteSql(txtSql.Text);
         }
-
-        public string ReturnExecuteSql { set { lblResult.Text = value; } }
     }
 }

@@ -15,7 +15,6 @@ namespace ATMTECH.Administration.Commerce
         where TPresenter : BaseAdministrationPresenter<TView>
     {
         public TPresenter Presenter { get; set; }
-
         public void ShowMessage(Message message)
         {
             if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
@@ -39,7 +38,6 @@ namespace ATMTECH.Administration.Commerce
                 }
             }
         }
-
         public void FillDropDown(DropDownList dropDownList, object Source)
         {
             dropDownList.DataSource = Source;
@@ -47,7 +45,6 @@ namespace ATMTECH.Administration.Commerce
             dropDownList.DataValueField = BaseEntity.ID;
             dropDownList.DataBind();
         }
-
         public void FillDropDown(ComboBox dropDownList, object Source)
         {
             dropDownList.DataSource = Source;
@@ -55,7 +52,6 @@ namespace ATMTECH.Administration.Commerce
             dropDownList.DataValueField = BaseEntity.ID;
             dropDownList.DataBind();
         }
-
         public void FillDropDown(ComboBox dropDownList, object Source, string DisplayText)
         {
             dropDownList.DataSource = Source;
@@ -63,7 +59,6 @@ namespace ATMTECH.Administration.Commerce
             dropDownList.DataValueField = BaseEntity.ID;
             dropDownList.DataBind();
         }
-
         public void FillDropDown(ComboBox dropDownList, object Source, string DisplayText, string dataValue)
         {
             dropDownList.DataSource = Source;
@@ -71,8 +66,6 @@ namespace ATMTECH.Administration.Commerce
             dropDownList.DataValueField = dataValue;
             dropDownList.DataBind();
         }
-
-
         public void FillDropDownWithoutEntity(ComboBox dropDownList, object Source)
         {
             dropDownList.DataSource = Source;
@@ -102,7 +95,6 @@ namespace ATMTECH.Administration.Commerce
                 panel.Visible = false;
             }
         }
-
         private void GetControlList<T>(ControlCollection controlCollection, List<T> resultCollection) where T : Control
         {
             foreach (Control control in controlCollection)

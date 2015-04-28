@@ -11,7 +11,7 @@ using ATMTECH.Web;
 
 namespace ATMTECH.Administration.Commerce
 {
-    public partial class DataEditor : PageBase<EditionPresenter, IEditionPresenter>, IEditionPresenter
+    public partial class Edition : PageBase<EditionPresenter, IEditionPresenter>, IEditionPresenter
     {
         public string NomEntite
         {
@@ -100,20 +100,24 @@ namespace ATMTECH.Administration.Commerce
         {
             pnlControl.Controls.Clear();
             IList<Controle> listeControles = Presenter.ObtenirListeControle();
+            
             Table table = new Table { Width = new Unit(100, UnitType.Percentage) };
 
             foreach (Controle controle in listeControles)
             {
-                TableRow rangee = new TableRow();
-                TableCell celluleLibelle = new TableCell { Width = new Unit(175, UnitType.Pixel) };
-                TableCell celluleControle = new TableCell();
+                if (controle.Objet != null)
+                {
+                    TableRow rangee = new TableRow();
+                    TableCell celluleLibelle = new TableCell { Width = new Unit(175, UnitType.Pixel) };
+                    TableCell celluleControle = new TableCell();
 
-                celluleLibelle.Controls.Add(controle.Libelle);
-                celluleControle.Controls.Add(controle.Objet);
+                    celluleLibelle.Controls.Add(controle.Libelle);
+                    celluleControle.Controls.Add(controle.Objet);
 
-                rangee.Cells.Add(celluleLibelle);
-                rangee.Cells.Add(celluleControle);
-                table.Rows.Add(rangee);
+                    rangee.Cells.Add(celluleLibelle);
+                    rangee.Cells.Add(celluleControle);
+                    table.Rows.Add(rangee);
+                }
             }
             pnlControl.Controls.Add(table);
         }
@@ -123,7 +127,6 @@ namespace ATMTECH.Administration.Commerce
             GenererControles();
             Rechercher();
         }
-
         protected void btnRechercheClick(object sender, EventArgs e)
         {
             Rechercher();
@@ -170,7 +173,6 @@ namespace ATMTECH.Administration.Commerce
                 }
             }
         }
-    
         protected void grdDataPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdData.PageIndex = e.NewPageIndex;

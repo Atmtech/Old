@@ -9,5 +9,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
         void EnvoyerInformationCommande(Order commande);
         void EnvoyerMotPasseOublie(Customer client);
 
+        bool EnvoyerCourriel(string to, string from, string subject, string body);
     }
 }

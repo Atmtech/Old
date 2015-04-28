@@ -23,7 +23,6 @@ namespace ATMTECH.Administration.Commerce
             _estColonneNative = estColonneNative;
             _classe = classe;
         }
-
         public void InstantiateIn(Control container)
         {
             switch (_templateType)
