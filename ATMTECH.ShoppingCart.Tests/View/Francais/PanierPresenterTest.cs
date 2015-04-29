@@ -67,7 +67,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.CUSTOMER_INFORMATION));
         }
 
-       
+
 
         [TestMethod]
         public void FinaliserCommande_SiPasPayPalOnFinaliseStandard()
@@ -140,7 +140,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
 
             InstanceTest.SupprimerLigneCommande(1);
 
-            ObtenirMock<ICommandeService>().Verify(x => x.Enregistrer(It.Is<Order>(a => a.OrderLines[0].IsActive == false)), Times.Once());
+            ObtenirMock<ICommandeService>().Verify(x => x.SupprimerLigneCommande(orderLine), Times.Once());
         }
 
         [TestMethod]
@@ -149,13 +149,13 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             Customer customer = AutoFixture.Create<Customer>();
             Order order = AutoFixture.Create<Order>();
             order.OrderLines.Clear();
-            
+
             ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
 
             InstanceTest.AfficherPanier();
 
-            ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.DEFAULT),Times.Once());
+            ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.DEFAULT), Times.Once());
         }
     }
 }

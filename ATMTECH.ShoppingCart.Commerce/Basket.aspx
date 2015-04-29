@@ -25,10 +25,6 @@
                                 <br />
                                 <asp:Label runat="server" ID="lblCaracteristique" Text='<%# Session["currentLanguage"].ToString().Equals("fr") ?  Eval("Stock.FeatureFrench") : Eval("Stock.FeatureEnglish")  %>'></asp:Label>
                                 <br />
-                                <div class="ajustementPrixPanier">
-                                    <asp:Label runat="server" ID="lblAjustement" Text="Ajustement de caractéristique: " Visible='<%#  Convert.ToDecimal(Eval("Stock.AdjustPrice")) > 0 %>'></asp:Label>
-                                    <asp:Label runat="server" ID="lblPrixAjuste" Text='<%# "+" + Eval("Stock.AdjustPrice","{0:c}")   %>' Visible='<%#  Convert.ToDecimal(Eval("Stock.AdjustPrice")) > 0 %>'></asp:Label>
-                                </div>
                             </div>
                         </div>
                     </div>

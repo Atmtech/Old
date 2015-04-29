@@ -3,13 +3,13 @@ using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Reflection;
+using ATMTECH.Common.Constant;
 using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
-using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Base;
 using ATMTECH.Web.Services.Interface;
 
@@ -21,34 +21,35 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IParameterService ParameterService { get; set; }
         public IMessageService MessageService { get; set; }
         public ILogService LogService { get; set; }
+        public ILocalizationService LocalizationService { get; set; }
 
         public void EnvoyerConfirmationCreationClient(Customer client)
         {
             Mail courriel = DAOCourriel.ObtenirMail("CONFIRMATION_CREATION_CLIENT");
-            string sujet = RemplacerAvecNomChamp(courriel.Subject, client);
-            string corps = RemplacerAvecNomChamp(courriel.Body, client);
+            string sujet = RemplacerAvecNomChamp(ObtenirSujet(courriel), client);
+            string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), client);
             EnvoyerCourriel(client.User.Login, courriel.From, sujet, corps);
         }
         public void EnvoyerConfirmationCommande(Order commande)
         {
             Mail courriel = DAOCourriel.ObtenirMail("CONFIRMATION_COMMANDE");
-            string sujet = RemplacerAvecNomChamp(courriel.Subject, commande);
-            string corps = RemplacerAvecNomChamp(courriel.Body, commande);
+            string sujet = RemplacerAvecNomChamp(ObtenirSujet(courriel), commande);
+            string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), commande);
             EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps);
         }
         public void EnvoyerInformationCommande(Order commande)
         {
             Mail courriel = DAOCourriel.ObtenirMail("INFORMATION_COMMANDE");
-            string sujet = RemplacerAvecNomChamp(courriel.Subject, commande);
-            string corps = RemplacerAvecNomChamp(courriel.Body, commande);
+            string sujet = RemplacerAvecNomChamp(ObtenirSujet(courriel), commande);
+            string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), commande);
             EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps);
         }
         public void EnvoyerMotPasseOublie(Customer client)
         {
-            Mail mail = DAOCourriel.ObtenirMail("ENVOYER_MOT_PASSE_OUBLIE");
-            string sujet = RemplacerAvecNomChamp(mail.Subject, client);
-            string corps = RemplacerAvecNomChamp(mail.Body, client);
-            EnvoyerCourriel(client.User.Login, mail.From, sujet, corps);
+            Mail courriel = DAOCourriel.ObtenirMail("ENVOYER_MOT_PASSE_OUBLIE");
+            string sujet = RemplacerAvecNomChamp(ObtenirSujet(courriel), client);
+            string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), client);
+            EnvoyerCourriel(client.User.Login, courriel.From, sujet, corps);
         }
 
         public bool EnvoyerCourriel(string to, string from, string subject, string body)
@@ -143,6 +144,32 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
             }
             return chaine;
+        }
+
+        private string ObtenirSujet(Mail courriel)
+        {
+            switch (LocalizationService.CurrentLanguage)
+            {
+                case LocalizationLanguage.FRENCH:
+                    return courriel.SubjectFr;
+                case LocalizationLanguage.ENGLISH:
+                    return courriel.SubjectEn;
+                default:
+                    return string.Empty;
+            }
+        }
+        private string ObtenirCorps(Mail courriel)
+        {
+            switch (LocalizationService.CurrentLanguage)
+            {
+                case LocalizationLanguage.FRENCH:
+                    return courriel.BodyFr;
+                case LocalizationLanguage.ENGLISH:
+                    return courriel.BodyEn;
+                default:
+                    return string.Empty;
+            }
+
         }
     }
 }

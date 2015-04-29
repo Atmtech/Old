@@ -98,6 +98,16 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             return false;
         }
 
+        public bool ValiderCodePostalLivraison(Order order)
+        {
+            if (EnvoiPostalService.EstCodePostalValideAvecPurolator(order.ShippingAddress.PostalCode) == false)
+            {
+                MessageService.ThrowMessage(ErrorCode.SC_INVALID_POSTAL_CODE);
+                return false;
+            }
+            return true;
+        }
+
         public IList<Order> ObtenirCommande()
         {
             return DAOCommande.GetAllActive();
@@ -199,23 +209,31 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         }
         public void FinaliserCommandeAvecPaypal(Order commande)
         {
-            string productName = HttpUtility.HtmlDecode(commande.OrderLines.Aggregate(string.Empty, (current, line) => current + (line.ProductDescription + " (" + line.Quantity + ") , ")));
-            PaypalDto paypalDto = new PaypalDto
+            if (ValiderCodePostalLivraison(commande))
             {
-                OrderDescription = string.Format(ParameterService.GetValue("OrderMessagePaypal"), commande.DateModified.ToString(), commande.Enterprise.Name),
-                Price = commande.Coupon != null ? (double)commande.GrandTotalWithCoupon : (double)commande.GrandTotal,
-                Quantity = 1,
-                OrderId = commande.Id.ToString(),
-                ProductName = productName
-            };
 
-            PaypalService.SendPaypalRequest(paypalDto);
+
+                string productName = HttpUtility.HtmlDecode(commande.OrderLines.Aggregate(string.Empty, (current, line) => current + (line.ProductDescription + " (" + line.Quantity + ") , ")));
+                PaypalDto paypalDto = new PaypalDto
+                {
+                    OrderDescription = string.Format(ParameterService.GetValue("OrderMessagePaypal"), commande.DateModified.ToString(), commande.Enterprise.Name),
+                    Price = commande.Coupon != null ? (double)commande.GrandTotalWithCoupon : (double)commande.GrandTotal,
+                    Quantity = 1,
+                    OrderId = commande.Id.ToString(),
+                    ProductName = productName
+                };
+
+                PaypalService.SendPaypalRequest(paypalDto);
+            }
         }
         public Order FinaliserCommande(Order commande)
         {
-            commande.FinalizedDate = DateTime.Now;
-            commande.OrderStatus = OrderStatus.IsOrdered;
-            commande = Enregistrer(commande);
+            if (ValiderCodePostalLivraison(commande))
+            {
+                commande.FinalizedDate = DateTime.Now;
+                commande.OrderStatus = OrderStatus.IsOrdered;
+                commande = Enregistrer(commande);
+            }
             return commande;
         }
         public Order ImprimerCommande(Order commande)
@@ -240,6 +258,12 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             return commande;
         }
 
+        public void SupprimerLigneCommande(OrderLine ligneCommande)
+        {
+            ligneCommande.IsActive = false;
+            DAOLigneCommande.Save(ligneCommande);
+        }
+
         private Order SauvegarderLigneCommande(Order commande, int idInventaire, int quantite)
         {
             Stock stock = DAOInventaire.ObtenirInventaire(idInventaire);
@@ -249,7 +273,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             {
                 Order = new Order { Id = commande.Id },
                 Stock = stock,
-                UnitPrice = stock.Product.UnitPrice,
+                UnitPrice = stock.Product.UnitPrice + stock.AdjustPrice,
                 Quantity = quantite,
                 IsActive = true
             };
@@ -283,10 +307,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                         if (orderLine.IsActive)
                         {
                             Product product = ProduitService.ObtenirProduit(orderLine.Stock.Product.Id);
-                            orderLine.UnitPrice = product.UnitPrice > product.SalePrice ? product.SalePrice : product.UnitPrice;
-                            orderLine.SubTotal = (product.SalePrice != 0
-                                                      ? product.SalePrice
-                                                      : product.UnitPrice + orderLine.Stock.AdjustPrice) * orderLine.Quantity;
+                            orderLine.SubTotal = orderLine.UnitPrice * orderLine.Quantity;
                             commande.TotalWeight += (product.Weight * orderLine.Quantity);
                             commande.SubTotal += orderLine.SubTotal;
                         }

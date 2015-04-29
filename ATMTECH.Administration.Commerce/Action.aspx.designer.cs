@@ -109,7 +109,7 @@ namespace ATMTECH.Administration.Commerce {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.WebControls.ComboBox ddlListeCourriel;
+        protected global::System.Web.UI.WebControls.DropDownList ddlListeCourriel;
         
         /// <summary>
         /// Contrôle btnAfficherCourriel.
@@ -130,40 +130,76 @@ namespace ATMTECH.Administration.Commerce {
         protected global::System.Web.UI.WebControls.TextBox txtCode;
         
         /// <summary>
-        /// Contrôle txtSujet.
+        /// Contrôle txtSujetFr.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSujet;
+        protected global::System.Web.UI.WebControls.TextBox txtSujetFr;
         
         /// <summary>
-        /// Contrôle txtCorps.
+        /// Contrôle txtCorpsFr.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCorps;
+        protected global::System.Web.UI.WebControls.TextBox txtCorpsFr;
         
         /// <summary>
-        /// Contrôle lblApercu.
+        /// Contrôle btnApercuCourrielFrancais.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblApercu;
+        protected global::System.Web.UI.WebControls.Button btnApercuCourrielFrancais;
         
         /// <summary>
-        /// Contrôle btnApercuCourriel.
+        /// Contrôle txtSujetEn.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApercuCourriel;
+        protected global::System.Web.UI.WebControls.TextBox txtSujetEn;
+        
+        /// <summary>
+        /// Contrôle txtCorpsEn.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCorpsEn;
+        
+        /// <summary>
+        /// Contrôle btnApercuCourrielAnglais.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnApercuCourrielAnglais;
+        
+        /// <summary>
+        /// Contrôle lblApercuCourrielFrancais.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblApercuCourrielFrancais;
+        
+        /// <summary>
+        /// Contrôle lblApercuCourrielAnglais.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblApercuCourrielAnglais;
         
         /// <summary>
         /// Contrôle btnSauvegarderCourriel.

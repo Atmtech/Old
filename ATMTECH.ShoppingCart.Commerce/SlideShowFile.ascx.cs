@@ -1,34 +1,62 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.ShoppingCart.Entities;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
-    public partial class SlideShowFile : System.Web.UI.UserControl
+    public partial class SlideShowFile : UserControl
     {
         public string Langue { get; set; }
-        public IList<ProductFile> Fichiers { get; set; }
+
+        public IList<ProductFile> Fichiers
+        {
+            get { return (IList<ProductFile>)Session["ListeFichier"]; }
+            set
+            {
+                if (value != null)
+                {
+                    Session["ListeFichier"] = value;
+                }
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string html = string.Empty;
             if (Fichiers == null) return;
-            IList<ProductFile> orderedEnumerable = Fichiers.OrderByDescending(x => x.IsPrincipal).ToList();
-            foreach (ProductFile productFile in orderedEnumerable)
+
+            if (!Page.IsPostBack)
             {
-                html += "<div style='background-color: white;'>";
-                html += "   <div style='text-align: center;'>";
-                html += "       <img u='image' src='Images/Product/" + productFile.File.FileName + "' />";
-                html += "   </div>";
-                html += "   <img u='thumb' src='Images/Product/" + productFile.File.FileName + "' />";
-                html += "</div>";
+                AfficherImagePrincipale("Images/Product/" + Fichiers.FirstOrDefault(x => x.IsPrincipal).File.FileName);
+
+                AfficherListeFichier();
             }
 
-            Literal literal = new Literal { Text = html };
-            placeHolder.Controls.Add(literal);
+        }
+
+        protected void dataListeFichierItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "AfficherImage")
+            {
+                AfficherImagePrincipale(e.CommandArgument.ToString());
+                AfficherListeFichier();
+            }
+        }
+
+        public void AfficherListeFichier()
+        {
+            dataListeFichier.DataSource = Fichiers;
+            dataListeFichier.DataBind();
+        }
+
+        public void AfficherImagePrincipale(string image)
+        {
+            string mapPath = Server.MapPath(image);
+            System.Drawing.Image img = System.Drawing.Image.FromFile(mapPath);
+            imgPrincipale.CssClass = img.Width > 420 ? "imagePrincipaleMaximale" : "imagePrincipaleAvecPadding";
+            imgPrincipale.ImageUrl = image;
         }
     }
 }

@@ -25,7 +25,8 @@
         </div>
         Copie:
         <asp:DropDownList runat="server" ID="ddlListeCopieSauvegarde" AutoPostBack="True" />
-        <br /><br/>
+        <br />
+        <br />
         <asp:Button runat="server" ID="btnRestaurerCopieSauvegarde" Text="Restaurer la copie de sauvegarde" OnClick="btnRestaurerCopieSauvegardeClick" CssClass="bouton" />
     </asp:Panel>
     <asp:Panel runat="server" ID="pnlEditionCourriel" Visible="False">
@@ -33,33 +34,40 @@
             Éditer un courriel
         </div>
         Courriel:
-        <atmtech:ComboBox runat="server" ID="ddlListeCourriel" />
-        <br />
-        <br />
+        <asp:DropDownList runat="server" ID="ddlListeCourriel" />
         <asp:Button runat="server" ID="btnAfficherCourriel" Text="Afficher le courriel" OnClick="btnAfficherCourrielClick" CssClass="bouton" /><br />
-
-        <table style="width: 100%">
+        <br/>
+        Code: <asp:TextBox runat="server" ID="txtCode" Enabled="False" Width="100%"></asp:TextBox>
+        <br/>
+        <table style="width:100%">
             <tr>
-                <td style="width: 50%">Code:
-                    <br />
-                    <asp:TextBox runat="server" ID="txtCode" Enabled="False" Width="100%"></asp:TextBox><br />
-                    Sujet:<br />
-
-                    <asp:TextBox runat="server" ID="txtSujet" Width="100%"></asp:TextBox><br />
+                <td style="font-weight: bold;text-transform: uppercase;">Français</td>
+                <td style="font-weight: bold;text-transform: uppercase;">Anglais</td>
+            </tr>
+            <tr>
+                <td>Sujet:<br />
+                    <asp:TextBox runat="server" ID="txtSujetFr" Width="100%"></asp:TextBox>
                     Corps:<br />
-                    <asp:TextBox runat="server" ID="txtCorps" TextMode="MultiLine" Rows="30" Width="100%" />
+                    <asp:TextBox runat="server" ID="txtCorpsFr" Width="100%" Rows="15" TextMode="MultiLine"></asp:TextBox><br />
+                    <asp:Button runat="server" ID="btnApercuCourrielFrancais" OnClick="btnApercuCourrielFrancaisClick" CssClass="bouton" Text="Apercu" />
                 </td>
-                <td style="vertical-align: top; width: 50%; padding-left: 10px;">
-                    <div style="border: solid 1px gray; width: 100%">
-                        <asp:Label runat="server" ID="lblApercu" Text=""></asp:Label>
-                    </div>
+                <td>Sujet:<br />
+                    <asp:TextBox runat="server" ID="txtSujetEn" Width="100%"></asp:TextBox>
+                    Corps:<br />
+                    <asp:TextBox runat="server" ID="txtCorpsEn" Width="100%" Rows="15"  TextMode="MultiLine"></asp:TextBox><br />
+                    <asp:Button runat="server" ID="btnApercuCourrielAnglais" OnClick="btnApercuCourrielAnglaisClick" CssClass="bouton"  Text="Apercu"/>
                 </td>
             </tr>
-
+            <tr>
+                <td>
+                    <asp:Label runat="server" ID="lblApercuCourrielFrancais" Text=""></asp:Label>
+                </td>
+                <td>
+                    <asp:Label runat="server" ID="lblApercuCourrielAnglais" Text=""></asp:Label>
+                </td>
+            </tr>
         </table>
 
-
-        <asp:Button runat="server" ID="btnApercuCourriel" Text="Aperçu du courriel" OnClick="btnApercuCourrielClick" CssClass="bouton" />
         <asp:Button runat="server" ID="btnSauvegarderCourriel" Text="Enregistrer" OnClick="btnSauvegarderCourrielClick" CssClass="bouton" />
     </asp:Panel>
     <asp:Panel runat="server" ID="pnlAppliquerPourcentage" Visible="False">
@@ -120,9 +128,10 @@
             Tester l'envoi de courriel
         </div>
         Courriel:
-        <asp:TextBox runat="server" ID="txtCourriel" Text="atmtech.vincent@gmail.com"></asp:TextBox><br/><br/>
+        <asp:TextBox runat="server" ID="txtCourriel" Text="atmtech.vincent@gmail.com"></asp:TextBox><br />
+        <br />
         <asp:Button runat="server" ID="btnEnvoiCourriel" Text="Envoyer courriel" OnClick="btnEnvoiCourrielClick" CssClass="bouton" />
-        <br/>
+        <br />
         <asp:Label runat="server" ID="lblStatutEnvoiCourriel"></asp:Label>
     </asp:Panel>
 </asp:Content>

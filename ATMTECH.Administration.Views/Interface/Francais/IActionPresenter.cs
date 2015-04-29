@@ -13,8 +13,10 @@ namespace ATMTECH.Administration.Views.Interface.Francais
 
         IList<Mail> ListeCourriel { set; }
         string Code { get; set; }
-        string Sujet { get; set; }
-        string Corps { get; set; }
+        string SujetFr { get; set; }
+        string CorpsFr { get; set; }
+        string SujetEn { get; set; }
+        string CorpsEn { get; set; }
         string Pourcentage { get; set; }
         DateTime DateDepart { get; }
         DateTime DateFin { get; }

@@ -128,7 +128,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             Stock stock = TrouverLeStockAvecTailleEtCouleur();
             if (stock != null)
             {
-                CommandeService.AjouterLigneCommande(View.Inventaire, View.Quantite);
+                CommandeService.AjouterLigneCommande(stock.Id, View.Quantite);
                 NavigationService.Redirect(Pages.Pages.DEFAULT);
             }
         }

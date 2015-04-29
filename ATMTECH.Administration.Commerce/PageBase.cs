@@ -66,6 +66,15 @@ namespace ATMTECH.Administration.Commerce
             dropDownList.DataValueField = dataValue;
             dropDownList.DataBind();
         }
+
+        public void FillDropDown(DropDownList dropDownList, object Source, string DisplayText, string dataValue)
+        {
+            dropDownList.DataSource = Source;
+            dropDownList.DataTextField = DisplayText;
+            dropDownList.DataValueField = dataValue;
+            dropDownList.DataBind();
+        }
+
         public void FillDropDownWithoutEntity(ComboBox dropDownList, object Source)
         {
             dropDownList.DataSource = Source;

@@ -19,11 +19,23 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
         public decimal ObtenirCotationPurolator(Order commande)
         {
+
             decimal total = 0;
+            if (commande.ShippingAddress == null)
+            {
+                return total;
+            }
+
+
+            if (string.IsNullOrEmpty(commande.ShippingAddress.PostalCode))
+            {
+                return total;
+            }
+
             if ((int)commande.TotalWeight == 0)
             {
                 MessageService.ThrowMessage(ErrorCode.SC_WEIGHT_EQUAL_ZERO_CANNOT_EVALUATE_SHIPPING_COST);
-                return 0;
+                return total;
             }
 
             ShippingParameter shippingParameter = new ShippingParameter
@@ -88,7 +100,10 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             }
             catch (Exception ex)
             {
-                MessageService.ThrowMessage(ErrorCode.SC_PUROLATOR_ERROR, ex);
+                if (ex.Message.ToLower().IndexOf("mandatory") <= 0)
+                {
+                    MessageService.ThrowMessage(ErrorCode.SC_PUROLATOR_ERROR, ex);
+                }
             }
 
             return total;

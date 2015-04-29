@@ -38,15 +38,25 @@ namespace ATMTECH.Administration.Commerce
             get { return txtCode.Text; }
             set { txtCode.Text = value; }
         }
-        public string Sujet
+        public string SujetFr
         {
-            get { return txtSujet.Text; }
-            set { txtSujet.Text = value; }
+            get { return txtSujetFr.Text; }
+            set { txtSujetFr.Text = value; }
         }
-        public string Corps
+        public string CorpsFr
         {
-            get { return txtCorps.Text; }
-            set { txtCorps.Text = value; }
+            get { return txtCorpsFr.Text; }
+            set { txtCorpsFr.Text = value; }
+        }
+        public string SujetEn
+        {
+            get { return txtSujetEn.Text; }
+            set { txtSujetEn.Text = value; }
+        }
+        public string CorpsEn
+        {
+            get { return txtCorpsEn.Text; }
+            set { txtCorpsEn.Text = value; }
         }
         public string Pourcentage
         {
@@ -168,18 +178,17 @@ namespace ATMTECH.Administration.Commerce
         protected void btnSauvegarderCourrielClick(object sender, EventArgs e)
         {
             Presenter.SauvegarderCourriel();
-            lblApercu.Text = Corps;
+            lblApercuCourrielFrancais.Text = CorpsFr;
+            lblApercuCourrielAnglais.Text = CorpsEn;
         }
         protected void btnAfficherCourrielClick(object sender, EventArgs e)
         {
             Code = ddlListeCourriel.SelectedValue;
             Presenter.AfficherCourriel();
-            lblApercu.Text = Corps;
+            lblApercuCourrielFrancais.Text = CorpsFr;
+            lblApercuCourrielAnglais.Text = CorpsEn;
         }
-        protected void btnApercuCourrielClick(object sender, EventArgs e)
-        {
-            lblApercu.Text = Corps;
-        }
+
         protected void btnAppliquerPourcentageClick(object sender, EventArgs e)
         {
             Presenter.AppliquerPourcentage();
@@ -198,6 +207,16 @@ namespace ATMTECH.Administration.Commerce
         protected void btnEnvoiCourrielClick(object sender, EventArgs e)
         {
             lblStatutEnvoiCourriel.Text = Presenter.EnvoyerCourriel() == false ? "Échec de l'envoi du courriel" : "Envoi du courriel réussi";
+        }
+
+        protected void btnApercuCourrielFrancaisClick(object sender, EventArgs e)
+        {
+            lblApercuCourrielFrancais.Text = CorpsFr;
+        }
+
+        protected void btnApercuCourrielAnglaisClick(object sender, EventArgs e)
+        {
+            lblApercuCourrielAnglais.Text = CorpsEn;
         }
     }
 }

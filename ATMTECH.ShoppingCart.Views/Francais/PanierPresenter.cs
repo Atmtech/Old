@@ -82,9 +82,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public void SupprimerLigneCommande(int id)
         {
             OrderLine orderLine = View.Commande.OrderLines.FirstOrDefault(x => x.Id == id);
-            if (orderLine != null)
-                orderLine.IsActive = false;
-            CommandeService.Enregistrer(View.Commande);
+            CommandeService.SupprimerLigneCommande(orderLine);
         }
 
         public void RecalculerPanier(Dictionary<int, int> listeQuantite)

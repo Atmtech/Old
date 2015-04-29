@@ -125,7 +125,7 @@ namespace ATMTECH.Administration.Commerce
         protected void Page_Load(object sender, EventArgs e)
         {
             GenererControles();
-            Rechercher();
+            //Rechercher();
         }
         protected void btnRechercheClick(object sender, EventArgs e)
         {

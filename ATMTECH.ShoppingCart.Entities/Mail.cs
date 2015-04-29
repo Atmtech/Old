@@ -8,7 +8,9 @@ namespace ATMTECH.ShoppingCart.Entities
 
         public string Code { get; set; }
         public string From { get; set; }
-        public string Subject { get; set; }
-        public string Body { get; set; }
+        public string SubjectFr { get; set; }
+        public string BodyFr { get; set; }
+        public string SubjectEn { get; set; }
+        public string BodyEn { get; set; }
     }
 }

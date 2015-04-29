@@ -18,5 +18,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
         bool ConfirmerCommande(int id);
         IList<Order> ObtenirCommande();
         IList<OrderLine> ObtenirLigneCommande();
+        void SupprimerLigneCommande(OrderLine ligneCommande);
     }
 }

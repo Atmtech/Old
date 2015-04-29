@@ -58,14 +58,18 @@ namespace ATMTECH.Administration.Views.Francais
         public void AfficherCourriel()
         {
             Mail mail = DAOCourriel.ObtenirMail(View.Code);
-            View.Corps = mail.Body;
-            View.Sujet = mail.Subject;
+            View.CorpsFr = mail.BodyFr;
+            View.SujetFr = mail.SubjectFr;
+            View.CorpsEn = mail.BodyEn;
+            View.SujetEn = mail.SubjectEn;
         }
         public void SauvegarderCourriel()
         {
             Mail mail = DAOCourriel.ObtenirMail(View.Code);
-            mail.Body = View.Corps;
-            mail.Subject = View.Sujet;
+            mail.BodyFr = View.CorpsFr;
+            mail.SubjectFr = View.SujetFr;
+            mail.BodyEn = View.CorpsEn;
+            mail.SubjectEn = View.SujetEn;
             DAOCourriel.Save(mail);
         }
         public void AppliquerPourcentage()

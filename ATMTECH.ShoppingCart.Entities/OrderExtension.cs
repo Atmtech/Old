@@ -34,5 +34,10 @@
                 return OrderLines != null ? OrderLines.Count : 0;
             }
         }
+
+        public string OrderDetail
+        {
+            get { return "Detail"; }
+        }
     }
 }
