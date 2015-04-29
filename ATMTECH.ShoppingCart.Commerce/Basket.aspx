@@ -4,6 +4,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+    <asp:UpdatePanel runat="server" ID="updatePanelPanier">
+        <ContentTemplate>
+
+
     <div class="Panier">
         <div class="titreDansPage">
             <asp:Label runat="server" ID="lblVotrePanier" Text="Panier"></asp:Label>
@@ -14,11 +19,11 @@
                 <ItemTemplate>
                     <div style="border-bottom: solid 2px lightGray; margin-bottom: 10px; width: 750px;">
                         <div style="float: left; text-align: center">
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# "images/product/" +Eval("Stock.Product.PrincipalFileUrlWithoutDirectory")  %>' CssClass="imageThumbNailPanier"></asp:Image>
+                            <asp:Image ID="imageProduit" runat="server" ImageUrl='<%# "images/product/" +Eval("Stock.Product.PrincipalFileUrlWithoutDirectory")  %>' CssClass="imageThumbNailPanier"></asp:Image>
                             <br />
                             <asp:Button runat="server" ID="btnRetirerArticle" Text="Retirer" CssClass="boutonLien" CommandName="SupprimerLigneCommande" CommandArgument='<%# Eval("Id") %>' />
                         </div>
-                        <div style="float: left; padding-left: 10px; padding-top: 10px; width: 400px;">
+                        <div style="float: left; padding-left: 10px; padding-top: 10px; width: 300px;">
                             <div style="font-weight: bold;">
                                 <asp:Label runat="server" ID="lblIdent" Text='<%#Eval("Stock.Product.Ident")%>'></asp:Label>
                                 <asp:Label runat="server" ID="lblNom" Text='<%# Session["currentLanguage"].ToString().Equals("fr") ?  Eval("Stock.Product.NameFrench") : Eval("Stock.Product.NameEnglish")%>'></asp:Label>
@@ -150,4 +155,7 @@
 
 
     </div>
+                    </ContentTemplate>
+    </asp:UpdatePanel>
+
 </asp:Content>

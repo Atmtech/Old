@@ -34,11 +34,17 @@ namespace ATMTECH.ShoppingCart.Commerce
                 html += "<div>";
                 html += string.Format("<img u='image' src='JQuery/jquery-ui-1.11.2/img/SlideShow/{0}' />", ImageDeFondAleatoire());
                 html += "<div style='position: absolute; width: 1000px; height: 120px; top: 0px;'>";
-                html += "<div style='float: left; width: 670px; padding-right: 10px; padding-top: 80px; padding-left: 10px;'>";
-                html += "<div style='font-weight: bold; font-size: 25px; padding-bottom: 10px; font-weight: bold; border-bottom: solid 1px white; margin-bottom: 10px;'>{0}</div>";
-                html += "{1}";
-                html += "<br /><br />";
-                html += "<div style='font-weight: bold; font-size: 20px;'><a href='AddProductToBasket.aspx?ProductId={2}'>{7}</a></div>";
+                html += "<div style='float: left; width: 670px; padding-right: 10px; padding-left: 10px;'>";
+
+                html += "<table style='height: 500px;'>";
+                html += "<tr>";
+                html += "<td style='height: 70%;vertical-align: top'>";
+
+                html += "<div class='slideShowTitreProduit'>{0}</div>";
+                html += "<div class='slideShowDescriptionProduit'>{1}</div>";
+                html += "<div class='slideShowPrixProduit'>{8}</div>";
+                html += "</td></tr><tr><td class='slideShowEmplacementButonAchat'>";
+                html += "<a href='AddProductToBasket.aspx?ProductId={2}' class='boutonActionRondSlideShow'>{7}</a></td></tr></table>";
 
                 if (produit.SalePrice != 0)
                 {
@@ -58,10 +64,10 @@ namespace ATMTECH.ShoppingCart.Commerce
                 switch (Langue)
                 {
                     case LocalizationLanguage.FRENCH:
-                        literal.Text = string.Format(html, produit.NameFrench, produit.DescriptionFrench, produit.Id, produit.PrincipalFileUrl, produit.PercentageSave, "Épargner", "Maintenant", "Pour épargner acheter dès maintenant !!");
+                        literal.Text = string.Format(html, produit.NameFrench, produit.DescriptionFrench, produit.Id, produit.PrincipalFileUrl, produit.PercentageSave, "Épargner", "Maintenant", "Pour épargner acheter dès maintenant !!", produit.UnitPrice.ToString("C"));
                         break;
                     case LocalizationLanguage.ENGLISH:
-                        literal.Text = string.Format(html, produit.NameEnglish, produit.DescriptionEnglish, produit.Id, produit.PrincipalFileUrl, produit.PercentageSave, "Save", "Now", "To save buy it now !!");
+                        literal.Text = string.Format(html, produit.NameEnglish, produit.DescriptionEnglish, produit.Id, produit.PrincipalFileUrl, produit.PercentageSave, "Save", "Now", "To save buy it now !!", produit.UnitPrice.ToString("C"));
                         break;
                 }
 

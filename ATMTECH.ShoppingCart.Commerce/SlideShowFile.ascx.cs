@@ -30,8 +30,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             if (!Page.IsPostBack)
             {
                 AfficherImagePrincipale("Images/Product/" + Fichiers.FirstOrDefault(x => x.IsPrincipal).File.FileName);
-
-                AfficherListeFichier();
+                AfficherListeFichier(Fichiers);
             }
 
         }
@@ -41,13 +40,14 @@ namespace ATMTECH.ShoppingCart.Commerce
             if (e.CommandName == "AfficherImage")
             {
                 AfficherImagePrincipale(e.CommandArgument.ToString());
-                AfficherListeFichier();
+                AfficherListeFichier(Fichiers);
             }
         }
 
-        public void AfficherListeFichier()
+        public void AfficherListeFichier(IList<ProductFile> productFiles)
         {
-            dataListeFichier.DataSource = Fichiers;
+            Fichiers = productFiles;
+            dataListeFichier.DataSource = productFiles;
             dataListeFichier.DataBind();
         }
 

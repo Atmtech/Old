@@ -40,7 +40,7 @@ namespace ATMTECH.ShoppingCart.Commerce
 
 
                 lblIdentProduit.Text = value.Ident;
-                ListeFichier.Fichiers = value.ProductFiles;
+                AfficherListeFichier();
                 AfficherPanneauCouleur();
             }
         }
@@ -130,6 +130,10 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
         }
 
+        public void AfficherListeFichier()
+        {
+            ListeFichier.AfficherListeFichier(((Product)Session["ProduitCourant"]).ProductFiles);
+        }
         public void AfficherPanneauCouleur()
         {
             ListeCouleur.Langue = Presenter.CurrentLanguage;
@@ -146,11 +150,13 @@ namespace ATMTECH.ShoppingCart.Commerce
         protected void ddlTailleSelectedIndexChanged(object sender, EventArgs e)
         {
             Presenter.AfficherPrix();
+            AfficherListeFichier();
         }
         protected void ddlCouleurSelectedIndexChanged(object sender, EventArgs e)
         {
             Presenter.AfficherPrix();
             Presenter.AfficherTaille();
+            AfficherListeFichier();
         }
     }
 

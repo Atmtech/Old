@@ -13,6 +13,15 @@ namespace ATMTECH.ShoppingCart.Commerce {
     public partial class Basket {
         
         /// <summary>
+        /// Contrôle updatePanelPanier.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanelPanier;
+        
+        /// <summary>
         /// Contrôle lblVotrePanier.
         /// </summary>
         /// <remarks>

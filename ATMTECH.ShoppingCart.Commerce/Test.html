@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/Site.css" rel="stylesheet" type="text/css" />
+    <link href="JQuery/jquery-ui-1.11.2/css/lightbox.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.custom.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/ComboBox.css" rel="stylesheet" />
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/autoNumeric.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.slider.js"></script>
+</head>
+<body>
+    <script type="text/javascript" src="/Javascript/Utilitaires.js"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            InitialiserExpiration(20, '/Errors/SessionTimeout.htm', false);
+            $("#lnkImprimer").click(function () {
+                $('#impression').jqprint();
+                return false;
+            });
+        });
+    </script>
+    <form name="aspnetForm" method="post" action="Default.aspx" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_imgRecherche')" id="aspnetForm">
+        <div>
+            <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+            <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTc4MzA5NzIzNA9kFgJmD2QWAgIBD2QWJgIFDw8WAh4HVG9vbFRpcAUJUmVjaGVyY2hlFgIeC1BsYWNlSG9sZGVyBQ1SZWNoZXJjaGVyLi4uZAIHDw8WBB4EVGV4dAUHQWNjdWVpbB8ABQdBY2N1ZWlsZGQCCQ8PFgQfAgUYTWFnYXNpbmVyIHBhciBjYXTDqWdvcmllHwAFGE1hZ2FzaW5lciBwYXIgY2F0w6lnb3JpZWRkAgsPDxYEHwIFDkNvbnRhY3Rlci1ub3VzHwAFDkNvbnRhY3Rlci1ub3VzZGQCDQ8PFgQfAgUJRnJhbsOnYWlzHwAFCUZyYW7Dp2Fpc2RkAg8PDxYEHwIFB0VuZ2xpc2gfAAUHRW5nbGlzaGRkAhEPDxYCHgdWaXNpYmxlaGQWAgIBDw8WBB8CBQ9JZGVudGlmaWV6IHZvdXMfAAUPSWRlbnRpZmlleiB2b3VzZGQCEw8PFgIfA2dkFggCAQ8PFgIfAgUNVmluY2VudCBSaW91eGRkAgMPDxYGHwIFHEF1Y3VuIGFydGljbGUgZGFucyBsZSBwYW5pZXIfAAUcQXVjdW4gYXJ0aWNsZSBkYW5zIGxlIHBhbmllch8DaGRkAgUPDxYEHwIFEzQ2LDU0ICQgLSAyIGl0ZW0ocykfA2dkZAIHDw8WBB8CBQ9TZSBkw6ljb25uZWN0ZXIfAAUPU2UgZMOpY29ubmVjdGVyZGQCFQ9kFgICAQ8PFgIfAgUHICgqTG9jKWRkAhcPZBYCAgEPDxYCHwIFByAoKkxvYylkZAIZD2QWBAIDDw8WAh8CBRtJdGVtcyBlbiB2ZW50ZSBhY3R1ZWxsZW1lbnRkZAIFD2QWAmYPPCsACQEADxYEHghEYXRhS2V5cxYAHgtfIUl0ZW1Db3VudGZkZAIbDw8WAh8CBQpOYXZpZ2F0aW9uZGQCHQ8PFgQfAgUKQ29uZGl0aW9ucx8ABQpDb25kaXRpb25zZGQCHw8PFgQfAgUHUmV0b3Vycx8ABQdSZXRvdXJzZGQCIQ8PFgQfAgUJTGl2cmFpc29uHwAFCUxpdnJhaXNvbmRkAiMPDxYCHwIFEkxpc3RlIGRlIGRpZmZ1c2lvbmRkAiUPDxYCHwAFFUVudHJlciB2b3RyZSBjb3VycmllbBYCHwEFFUVudHJlciB2b3RyZSBjb3VycmllbGQCJw8PFgQfAgUJUmVqb2luZHJlHwAFCVJlam9pbmRyZWRkAikPDxYCHwIFD1N1aXZleiBub3VzIC4uLmRkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBRJjdGwwMCRpbWdSZWNoZXJjaGVbSKQ3xvQ+jip5KioOFMpG2TMtYU5SVxbZPdI+DqwycA==" />
+        </div>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var theForm = document.forms['aspnetForm'];
+            if (!theForm) {
+                theForm = document.aspnetForm;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+            //]]>
+        </script>
+
+
+        <script src="/WebResource.axd?d=nW-ai5b5vkQR0Jy2Gcb8SZ_OVlaAvxpSUX5d9D133YVE7LCGhfV8ODtmC0sazorz_drECJ8DtBmVPfJtiQDgnZG4sGq-uFZFjBKJllUjoSE1&amp;t=635586505120000000" type="text/javascript"></script>
+
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var __cultureInfo = { "name": "fr-CA", "numberFormat": { "CurrencyDecimalDigits": 2, "CurrencyDecimalSeparator": ",", "IsReadOnly": true, "CurrencyGroupSizes": [3], "NumberGroupSizes": [3], "PercentGroupSizes": [3], "CurrencyGroupSeparator": " ", "CurrencySymbol": "$", "NaNSymbol": "Non Numérique", "CurrencyNegativePattern": 15, "NumberNegativePattern": 1, "PercentPositivePattern": 0, "PercentNegativePattern": 0, "NegativeInfinitySymbol": "-Infini", "NegativeSign": "-", "NumberDecimalDigits": 2, "NumberDecimalSeparator": ",", "NumberGroupSeparator": " ", "CurrencyPositivePattern": 3, "PositiveInfinitySymbol": "+Infini", "PositiveSign": "+", "PercentDecimalDigits": 2, "PercentDecimalSeparator": ",", "PercentGroupSeparator": " ", "PercentSymbol": "%", "PerMilleSymbol": "‰", "NativeDigits": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], "DigitSubstitution": 1 }, "dateTimeFormat": { "AMDesignator": "", "Calendar": { "MinSupportedDateTime": "\/Date(-62135578800000)\/", "MaxSupportedDateTime": "\/Date(253402300799999)\/", "AlgorithmType": 1, "CalendarType": 1, "Eras": [1], "TwoDigitYearMax": 2029, "IsReadOnly": true }, "DateSeparator": "-", "FirstDayOfWeek": 0, "CalendarWeekRule": 0, "FullDateTimePattern": "d MMMM yyyy HH:mm:ss", "LongDatePattern": "d MMMM yyyy", "LongTimePattern": "HH:mm:ss", "MonthDayPattern": "d MMMM", "PMDesignator": "", "RFC1123Pattern": "ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027", "ShortDatePattern": "yyyy-MM-dd", "ShortTimePattern": "HH:mm", "SortableDateTimePattern": "yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss", "TimeSeparator": ":", "UniversalSortableDateTimePattern": "yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027", "YearMonthPattern": "MMMM, yyyy", "AbbreviatedDayNames": ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."], "ShortestDayNames": ["di", "lu", "ma", "me", "je", "ve", "sa"], "DayNames": ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"], "AbbreviatedMonthNames": ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""], "MonthNames": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""], "IsReadOnly": true, "NativeCalendarName": "calendrier grégorien", "AbbreviatedMonthGenitiveNames": ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc.", ""], "MonthGenitiveNames": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre", ""] }, "eras": [1, "ap. J.-C.", null, 0] };//]]>
+        </script>
+
+        <script src="/ScriptResource.axd?d=1hzvH2IaQO52RcPW66JcTqarCLCmu8sc2UeOSUuMKSzL9pEgOwEKLH6Kiwb53aQePVJa5GyA0xIee1aD8gU6bX5nMDlDqTrVS1UVw4qUmOhqRRUk5RusCfqFVvo4TQim1B70u1YjMdZx9nv5wxQx07_eXgfwV5hRSmVakX5X5K8xIGWokhkS7xjrVof4bO_v0&amp;t=7b689585" type="text/javascript"></script>
+        <script type="text/javascript">
+            //<![CDATA[
+            if (typeof (Sys) === 'undefined') throw new Error('Échec du chargement de l\u0027infrastructure ASP.NET Ajax côté client.');
+            //]]>
+        </script>
+
+        <script src="/ScriptResource.axd?d=qW13HmSPC_YoeGT8CBRaRplzmDO28XujeJyRaEXrqqQ2HqQ8sDl3dYaNfCKVCzDqg_YbCg3QgSB3Wp3P9Fmk8QiXGBYzOBWNfJHGF-9fRgE86Qy2PGp8ljFWHN4MtRkivrIrTeuX_7ayptlfq5_gApjLjEVb2xOF0ers3z_u3HIFYdiY0tLk-zZsYwWcM2Zn0&amp;t=7b689585" type="text/javascript"></script>
+        <script src="/WebResource.axd?d=t30Rt7fgBtnDkJ7zcSqcok7OdCyNhIaXO5iKxVhJIEJyN8i5xp6w4e0pSTXEVb-fJHBMIpZr1f5dov6OHIAikh8P2cU2sE0qz7twVZymOYo1&amp;t=635586505120000000" type="text/javascript"></script>
+        <div>
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAA/Xv6QcqVFoz7OnKrSQLH06nKGO4anqwqL9BfrB2y9F7q8QEgiVAyiNy4NcOZzzrF28u2K+0dsnIRruFyr5D3wFYLfMzFw1ppWB7Tsj9059vPjuSE9EvKhwoc8ek4sAkwkhiuefsXbbw+mn01mP2CdLhRHfiaCxjhtWXoN45Mk1N37CE0daqFvgenTHvFr9tTERgEbAG2MkohGhsMGcmISsc5DV4GJD404uItJ1AOq1JsY+MO/CNISzohuUCO9H/QNhUNGxNRZCUz6QiV4jy/JQsNt/7l8jY1PTzNUrSrhgmnLB8HgCWU4KFhJ9aGLRDDGfzpA26jw2eCkzpJ2vIJOutxx4HegqQsii4ipv6iPGJA==" />
+        </div>
+        <script type="text/javascript">
+            //<![CDATA[
+            Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', [], [], [], 90, 'ctl00');
+            //]]>
+        </script>
+
+
+        <div class="logo">
+            <a href="Default.aspx">
+                <img src="Images/WebSite/logo.png" width="800" height="87" /></a>
+        </div>
+
+        <div style="background-color: #4a4949; margin-top: 10px;">
+            <div style="width: 1000px; margin: 0 auto; height: 30px;">
+                <div style="width: 100%; float: left;">
+
+                    <div class="itemMenuRecherche">
+                        <div style="padding-top: 5px;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input type="image" name="ctl00$imgRecherche" id="ctl00_imgRecherche" src="Images/WebSite/Rechercher.png" style="height: 16px; width: 16px; border-width: 0px;" /></td>
+                                    <td>
+                                        <input name="ctl00$txtRecherche" type="text" id="ctl00_txtRecherche" title="Recherche" class="textBoxRecherche" placeholder="Rechercher..." /></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="itemMenu">
+                        <input type="submit" name="ctl00$btnAccueil" value="Accueil" id="ctl00_btnAccueil" title="Accueil" class="boutonItemMenu" />
+                    </div>
+                    <div class="itemMenu">
+                        <input type="submit" name="ctl00$btnCategorieProduit" value="Magasiner par catégorie" id="ctl00_btnCategorieProduit" title="Magasiner par catégorie" class="boutonItemMenu" />
+                    </div>
+                    <div class="itemMenu">
+                        <input type="submit" name="ctl00$btnContacterNous" value="Contacter-nous" id="ctl00_btnContacterNous" title="Contacter-nous" class="boutonItemMenu" />
+                    </div>
+                    <div class="itemMenu">
+
+                        <input type="submit" name="ctl00$btnAnglais" value="English" id="ctl00_btnAnglais" title="English" class="boutonItemMenu" />
+                    </div>
+                    <div class="itemMenu">
+
+                        <div id="ctl00_pnlConnecte">
+
+                            <div style="float: left; border-left: solid 1px white;">
+                                <input type="submit" name="ctl00$btnNomClient" value="Vincent Rioux" id="ctl00_btnNomClient" class="boutonItemMenu" />
+                            </div>
+                            <div style="float: left; border-left: solid 1px white;">
+
+                                <input type="submit" name="ctl00$btnPanier" value="46,54 $ - 2 item(s)" id="ctl00_btnPanier" class="boutonItemMenu" />
+                            </div>
+                            <div style="float: left; border-left: solid 1px white;">
+                                <input type="submit" name="ctl00$btnDeconnecter" value="Se déconnecter" id="ctl00_btnDeconnecter" title="Se déconnecter" class="boutonItemMenu" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="center">
+
+
+
+
+
+            <script>
+                jQuery(document).ready(function ($) {
+                    //var _CaptionTransitions = [];
+                    //_CaptionTransitions["L"] = { $Duration: 900, x: 0.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+                    //_CaptionTransitions["R"] = { $Duration: 900, x: -0.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+                    //_CaptionTransitions["T"] = { $Duration: 900, y: 0.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+                    //_CaptionTransitions["B"] = { $Duration: 900, y: -0.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+                    //_CaptionTransitions["ZMF|10"] = { $Duration: 900, $Zoom: 11, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 };
+                    //_CaptionTransitions["RTT|10"] = { $Duration: 900, $Zoom: 11, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInExpo }, $Opacity: 2, $Round: { $Rotate: 0.8 } };
+                    //_CaptionTransitions["RTT|2"] = { $Duration: 900, $Zoom: 3, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Round: { $Rotate: 0.5 } };
+                    //_CaptionTransitions["RTTL|BR"] = { $Duration: 900, x: -0.6, y: -0.6, $Zoom: 11, $Rotate: 1, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Top: $JssorEasing$.$EaseInCubic, $Zoom: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInCubic }, $Opacity: 2, $Round: { $Rotate: 0.8 } };
+                    //_CaptionTransitions["CLIP|LR"] = { $Duration: 900, $Clip: 15, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic }, $Opacity: 2 };
+                    //_CaptionTransitions["MCLIP|L"] = { $Duration: 900, $Clip: 1, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic } };
+                    //_CaptionTransitions["MCLIP|R"] = { $Duration: 900, $Clip: 2, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic } };
+                    var options = {
+                        $FillMode: 2,                                       //[Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
+                        $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                        $AutoPlayInterval: 4000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                        $PauseOnHover: 1,                                   //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+                        $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+                        $SlideEasing: $JssorEasing$.$EaseOutQuint,          //[Optional] Specifies easing for right to left animation, default value is $JssorEasing$.$EaseOutQuad
+                        $SlideDuration: 800,                               //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                        $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+                        //$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+                        //$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+                        $SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
+                        $DisplayPieces: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+                        $ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+                        $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+                        $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+                        $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+                        //$CaptionSliderOptions: {                            //[Optional] Options which specifies how to animate caption
+                        //    $Class: $JssorCaptionSlider$,                   //[Required] Class to create instance to animate caption
+                        //    $CaptionTransitions: _CaptionTransitions,       //[Required] An array of caption transitions to play caption, see caption transition section at jssor slideshow transition builder
+                        //    $PlayInMode: 1,                                 //[Optional] 0 None (no play), 1 Chain (goes after main slide), 3 Chain Flatten (goes after main slide and flatten all caption animations), default value is 1
+                        //    $PlayOutMode: 3                                 //[Optional] 0 None (no play), 1 Chain (goes before main slide), 3 Chain Flatten (goes before main slide and flatten all caption animations), default value is 1
+                        //},
+                        $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
+                            $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
+                            $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                            $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                            $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+                            $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+                            $SpacingX: 8,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
+                            $SpacingY: 8,                                   //[Optional] Vertical space between each item in pixel, default value is 0
+                            $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+                        },
+                        $ArrowNavigatorOptions: {                           //[Optional] Options to specify and enable arrow navigator or not
+                            $Class: $JssorArrowNavigator$,                  //[Requried] Class to create arrow navigator instance
+                            $ChanceToShow: 1,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                            $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                            $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+                        }
+                    };
+                    var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+                    ////responsive code begin
+                    ////you can remove responsive code if you don't want the slider scales while window resizes
+                    //function ScaleSlider() {
+                    //    var bodyWidth = document.body.clientWidth;
+                    //    if (bodyWidth)
+                    //        jssor_slider1.$ScaleWidth(Math.min(bodyWidth, 1920));
+                    //    else
+                    //        window.setTimeout(ScaleSlider, 30);
+                    //}
+                    //ScaleSlider();
+                    //$(window).bind("load", ScaleSlider);
+                    //$(window).bind("resize", ScaleSlider);
+                    //$(window).bind("orientationchange", ScaleSlider);
+                    //responsive code end
+                });
+            </script>
+
+            <div id="slider1_container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1000px; height: 500px; overflow: hidden;">
+                <!-- Loading Screen -->
+                <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+                    <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;">
+                    </div>
+                    <div style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat center center; top: 0px; left: 0px; width: 100%; height: 100%;">
+                    </div>
+                </div>
+                <!-- Slides Container -->
+                <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1000px; height: 500px; overflow: hidden;">
+                    <div>
+                        <img u='image' src='JQuery/jquery-ui-1.11.2/img/SlideShow/blue.jpg' />
+
+
+
+                        <div style='position: absolute; width: 1000px; height: 120px; top: 0px;'>
+                            <div style='float: left; width: 670px; padding-right: 10px; padding-top: 80px; padding-left: 10px;'>
+
+                                <table style="height: 450px;">
+                                    <tr>
+                                        <td style="height: 70%;vertical-align: top">
+                                            <div style='font-weight: bold; font-size: 25px; padding-bottom: 10px; font-weight: bold; border-bottom: solid 1px white; margin-bottom: 10px;'>T-SHIRT À M/C À ENCOLURE ARRONDIE</div>
+                                            100% Coton, peigné et filé à l’anneau, 9,6 onces. Tricot côtelé 1X1,très doux. 30 single. Couture latérale. Coupe ajustée.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='AddProductToBasket.aspx?ProductId=169' class="boutonActionRondSlideShow">Pour épargner acheter dès maintenant !!</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style='float: left; width: 300px;'>
+                                <img src='images/product/B1003.jpg' style='width: 311px; height: 500px;' />
+                            </div>
+                            <div style='clear: both;'></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bullet Navigator Skin Begin -->
+                <style>
+                    /* jssor slider bullet navigator skin 21 css */
+                    /*
+            .jssorb21 div           (normal)
+            .jssorb21 div:hover     (normal mouseover)
+            .jssorb21 .av           (active)
+            .jssorb21 .av:hover     (active mouseover)
+            .jssorb21 .dn           (mousedown)
+            */
+                    .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av
+                    {
+                        background: url(JQuery/jquery-ui-1.11.2/img/SlideShow/b21.png) no-repeat;
+                        overflow: hidden;
+                        cursor: pointer;
+                    }
+
+                    .jssorb21 div
+                    {
+                        background-position: -5px -5px;
+                    }
+
+                        .jssorb21 div:hover, .jssorb21 .av:hover
+                        {
+                            background-position: -35px -5px;
+                        }
+
+                    .jssorb21 .av
+                    {
+                        background-position: -65px -5px;
+                    }
+
+                    .jssorb21 .dn, .jssorb21 .dn:hover
+                    {
+                        background-position: -95px -5px;
+                    }
+                </style>
+                <!-- bullet navigator container -->
+                <div u="navigator" class="jssorb21" style="position: absolute; bottom: 26px; left: 6px;">
+                    <!-- bullet navigator item prototype -->
+                    <div u="prototype" style="POSITION: absolute; WIDTH: 19px; HEIGHT: 19px; text-align: center; line-height: 19px; color: White; font-size: 12px;"></div>
+                </div>
+                <!-- Bullet Navigator Skin End -->
+
+                <!-- Arrow Navigator Skin Begin -->
+                <style>
+                    /* jssor slider arrow navigator skin 21 css */
+                    /*
+            .jssora21l              (normal)
+            .jssora21r              (normal)
+            .jssora21l:hover        (normal mouseover)
+            .jssora21r:hover        (normal mouseover)
+            .jssora21ldn            (mousedown)
+            .jssora21rdn            (mousedown)
+            */
+                    .jssora21l, .jssora21r, .jssora21ldn, .jssora21rdn
+                    {
+                        position: absolute;
+                        cursor: pointer;
+                        display: block;
+                        background: url(JQuery/jquery-ui-1.11.2/img/SlideShow/a21.png) center center no-repeat;
+                        overflow: hidden;
+                    }
+
+                    .jssora21l
+                    {
+                        background-position: -3px -33px;
+                    }
+
+                    .jssora21r
+                    {
+                        background-position: -63px -33px;
+                    }
+
+                    .jssora21l:hover
+                    {
+                        background-position: -123px -33px;
+                    }
+
+                    .jssora21r:hover
+                    {
+                        background-position: -183px -33px;
+                    }
+
+                    .jssora21ldn
+                    {
+                        background-position: -243px -33px;
+                    }
+
+                    .jssora21rdn
+                    {
+                        background-position: -303px -33px;
+                    }
+                </style>
+                <!-- Arrow Left -->
+                <span u="arrowleft" class="jssora21l" style="width: 55px; height: 55px; top: 123px; left: 8px;"></span>
+                <!-- Arrow Right -->
+                <span u="arrowright" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px"></span>
+                <!-- Arrow Navigator Skin End -->
+
+            </div>
+            <div style="background-color: white; text-align: center; margin-top: 15px; padding: 10px 10px 10px 10px">
+                <a href="ProductCatalog.aspx?Brand=anvil">
+                    <img src="Images/WebSite/LogoAnvil.jpg" class="imageLogoMarqueAccueil" /></a>
+                <a href="ProductCatalog.aspx?Brand=bella">
+                    <img src="Images/WebSite/LogoBella.jpg" class="imageLogoMarqueAccueil" /></a>
+                <a href="ProductCatalog.aspx?Brand=ck">
+                    <img src="Images/WebSite/Logock.jpg" class="imageLogoMarqueAccueil" /></a>
+                <a href="ProductCatalog.aspx?Brand=Driduck">
+                    <img src="Images/WebSite/LogoDriDuck.jpg" class="imageLogoMarqueAccueil" /></a>
+                <a href="ProductCatalog.aspx?Brand=Flexfit">
+                    <img src="Images/WebSite/LogoFLEXFIT.jpg" class="imageLogoMarqueAccueil" /></a>
+                <a href="ProductCatalog.aspx?Brand=Gildan">
+                    <img src="Images/WebSite/LogoGildan.jpg" class="imageLogoMarqueAccueil" /></a>
+                <a href="ProductCatalog.aspx?Brand=NewBalance">
+                    <img src="Images/WebSite/LogoNewBalance.jpg" class="imageLogoMarqueAccueil" /></a>
+                <a href="ProductCatalog.aspx?Brand=Nike">
+                    <img src="Images/WebSite/Logonike.jpg" class="imageLogoMarqueAccueil" /></a>
+                <a href="ProductCatalog.aspx?Brand=OutdoorCap">
+                    <img src="Images/WebSite/LogoOutdoorCap.jpg" class="imageLogoMarqueAccueil" /></a>
+                <a href="ProductCatalog.aspx?Brand=VanHeusen">
+                    <img src="Images/WebSite/LogoVanHeusen.jpg" class="imageLogoMarqueAccueil" /></a>
+                <a href="ProductCatalog.aspx?Brand=Yupoong">
+                    <img src="Images/WebSite/LogoYupoong.jpg" class="imageLogoMarqueAccueil" /></a>
+            </div>
+            <div class="vente">
+                <span id="ctl00_ContentPlaceHolder1_lblItemEnVenteActuellement">Items en vente actuellement</span>
+            </div>
+            <div class="listeObjetEnPromo">
+            </div>
+
+        </div>
+
+        <div class="menuBas">
+
+            <div class="informationBasPage">
+                <div class="navigation">
+                    <span id="ctl00_lblNavigation">Navigation</span>
+                    <br />
+                    <br />
+                    <input type="submit" name="ctl00$btnCondition" value="Conditions" id="ctl00_btnCondition" title="Conditions" class="boutonNavigation" />
+                    |
+                    <input type="submit" name="ctl00$btnRetour" value="Retours" id="ctl00_btnRetour" title="Retours" class="boutonNavigation" />
+                    |
+                    <input type="submit" name="ctl00$btnLivraison" value="Livraison" id="ctl00_btnLivraison" title="Livraison" class="boutonNavigation" />
+                </div>
+
+                <div class="listeCourriel">
+                    <span id="ctl00_lblListeDiffusion">Liste de diffusion</span>
+                    <br />
+                    <br />
+                    <input name="ctl00$txtListeDiffusion" type="text" id="ctl00_txtListeDiffusion" title="Entrer votre courriel" class="textBox" placeholder="Entrer votre courriel" style="width: 170px;" />
+                    <input type="submit" name="ctl00$btnRejoindreListeDiffusion" value="Rejoindre" id="ctl00_btnRejoindreListeDiffusion" title="Rejoindre" class="boutonAction" />
+                </div>
+
+                <div class="reseauSociaux">
+                    <span id="ctl00_lblSuivezNous">Suivez nous ...</span>
+                    <br />
+                    <br />
+                    <img src="Images/WebSite/reseauSociaux.png" />
+                </div>
+            </div>
+
+            <div style="clear: both;"></div>
+
+            <div class="copyRight">
+                Copyright © 2015 eCommerce
+            </div>
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            //<![CDATA[
+            WebForm_AutoFocus('imgRecherche');//]]>
+        </script>
+    </form>
+</body>
+</html>

@@ -97,7 +97,9 @@ namespace ATMTECH.ShoppingCart.Commerce
             if (id == "lblAffichageCommande") return true;
             if (id == "lblMarque") return true;
             if (id == "lblNombreElement") return true;
-
+            if (id == "lblMarque") return true;
+            if (id == "lblPrixOriginal") return true;
+            
             return false;
         }
         private void Localiser()
