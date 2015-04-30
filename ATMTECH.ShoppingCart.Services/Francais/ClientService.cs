@@ -73,7 +73,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             }
             else
             {
-                MessageService.ThrowMessage(CodeErreur.SC_USER_NOT_EXIST_ON_CONFIRM);
+                MessageService.ThrowMessage(CodeErreur.SC_UTILISATEUR_NON_EXISTANT_POUR_CONFIRMATION);
             }
             return false;
         }
@@ -86,7 +86,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 if (customer != null)
                 {
                     CourrielService.EnvoyerMotPasseOublie(customer);
-                    MessageService.ThrowMessage(CodeErreur.SC_PASSWORD_RECOVERY_SENT);
+                    MessageService.ThrowMessage(CodeErreur.SC_MOT_PASSE_OUBLIE_ENVOYER_PAR_COURRIEL);
                 }
                 return false;
             }

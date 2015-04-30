@@ -34,7 +34,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
             if ((int)commande.TotalWeight == 0)
             {
-                MessageService.ThrowMessage(CodeErreur.SC_WEIGHT_EQUAL_ZERO_CANNOT_EVALUATE_SHIPPING_COST);
+                MessageService.ThrowMessage(CodeErreur.SC_POIDS_0_IMPOSSIBLE_EVALUER_COUT_ENVOI);
                 return total;
             }
 
@@ -102,7 +102,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             {
                 if (ex.Message.ToLower().IndexOf("mandatory") <= 0)
                 {
-                    MessageService.ThrowMessage(CodeErreur.SC_PUROLATOR_ERROR, ex);
+                    MessageService.ThrowMessage(CodeErreur.SC_ERREUR_AVEC_PUROLATOR, ex);
                 }
             }
 

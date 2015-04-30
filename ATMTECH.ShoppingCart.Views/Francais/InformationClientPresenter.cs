@@ -95,25 +95,25 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
             if (string.IsNullOrEmpty(View.Courriel))
             {
-                MessageService.ThrowMessage(CodeErreur.ADM_CREATE_USER_MANDATORY);
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATION_NOM_UTILISATEUR_OBLIGATOIRE);
                 return;
             }
 
             if (string.IsNullOrEmpty(View.MotPasse))
             {
-                MessageService.ThrowMessage(CodeErreur.ADM_CREATE_USER_MANDATORY);
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATION_NOM_UTILISATEUR_OBLIGATOIRE);
                 return;
             }
 
             if (View.MotPasse != View.MotPasseConfirmation)
             {
-                MessageService.ThrowMessage(CodeErreur.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM);
+                MessageService.ThrowMessage(CodeErreur.SC_MOT_PASSE_INEGALE_AVEC_CONFIRMATION);
                 return;
             }
 
             if (EnvoiPostalService.EstCodePostalValideAvecPurolator(View.CodePostalLivraison) == false)
             {
-                MessageService.ThrowMessage(CodeErreur.SC_INVALID_POSTAL_CODE);
+                MessageService.ThrowMessage(CodeErreur.SC_CODE_POSTAL_INVALIDE);
                 return;
             }
 
@@ -130,7 +130,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             customer.User.Email = View.Courriel;
             customer.User.Password = View.MotPasse;
             ClientService.Enregistrer(customer);
-            MessageService.ThrowMessage(CodeErreur.ADM_SAVE_IS_CORRECT);
+            MessageService.ThrowMessage(CodeErreur.ADM_ENREGISTRER_AVES_SUCCES);
         }
         public Address EnregistrerAdresse(Address adresse, string noCivique, string rue, string CodePostal, string ville,
                                           int pays)

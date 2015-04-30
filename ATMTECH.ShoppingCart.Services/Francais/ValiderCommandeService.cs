@@ -14,7 +14,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             if (client == null)
             {
-                MessageService.ThrowMessage(CodeErreur.SC_CUSTOMER_IS_NULL);
+                MessageService.ThrowMessage(CodeErreur.SC_CLIENT_EST_NULL);
                 return false;
             }
             return true;
@@ -25,7 +25,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             {
                 return true;
             }
-            MessageService.ThrowMessage(CodeErreur.SC_STOCK_INSUFICIENT);
+            MessageService.ThrowMessage(CodeErreur.SC_INVENTAIRE_INSUFFISANT_POUR_COMMANDER);
             return false;
         }
     }

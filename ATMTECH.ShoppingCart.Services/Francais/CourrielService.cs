@@ -64,7 +64,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             if (string.IsNullOrEmpty(to))
             {
-                MessageService.ThrowMessage(CodeErreur.ADM_NO_EMAIL_TO);
+                MessageService.ThrowMessage(CodeErreur.ADM_AUCUNE_MENTION_TO_POUR_ENVOI_COURRIEL);
                 return false;
             }
 

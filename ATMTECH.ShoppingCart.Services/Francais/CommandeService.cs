@@ -80,7 +80,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                     return Enregistrer(commande);
                 }
 
-                MessageService.ThrowMessage(CodeErreur.SC_INVALID_COUPON);
+                MessageService.ThrowMessage(CodeErreur.SC_COUPON_INVALIDE);
                 return commande;
             }
             return commande;
@@ -102,7 +102,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             if (EnvoiPostalService.EstCodePostalValideAvecPurolator(order.ShippingAddress.PostalCode) == false)
             {
-                MessageService.ThrowMessage(CodeErreur.SC_INVALID_POSTAL_CODE);
+                MessageService.ThrowMessage(CodeErreur.SC_CODE_POSTAL_INVALIDE);
                 return false;
             }
             return true;

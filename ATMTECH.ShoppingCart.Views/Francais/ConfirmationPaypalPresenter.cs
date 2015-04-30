@@ -43,7 +43,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             }
 
             View.EstFinalise = false;
-            MessageService.ThrowMessage(CodeErreur.ADM_PAYPAL_FINISH_FAILED);
+            MessageService.ThrowMessage(CodeErreur.ADM_FINALISER_COMMANDE_AVEC_PAYPAL_EST_EN_ERREUR);
         }
         public void ImprimerCommande()
         {

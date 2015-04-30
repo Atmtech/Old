@@ -43,6 +43,7 @@
     <Compile Include="Base\Constant.cs" />
     <Compile Include="Base\ShoppingCartInitializer.cs" />
     <Compile Include="AddressService.cs" />
+    <Compile Include="Francais\CodeErreur.cs" />
     <Compile Include="Francais\CommandeService.cs" />
     <Compile Include="DTO\ProductBySale.cs" />
     <Compile Include="ErrorCode.cs" />

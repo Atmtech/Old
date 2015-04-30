@@ -21,7 +21,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             {
                 if (!Regex.IsMatch(client.User.Email, matchEmailPattern))
                 {
-                    MessageService.ThrowMessage(CodeErreur.SC_INVALID_EMAIL);
+                    MessageService.ThrowMessage(CodeErreur.SC_COURRIEL_EST_INVALIDE);
                     return false;
                 }
             }
@@ -33,7 +33,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             User user = DAOUser.GetUser(client.User.Login);
             if (user != null)
             {
-                MessageService.ThrowMessage(CodeErreur.SC_THIS_USER_ALREADY_EXIST);
+                MessageService.ThrowMessage(CodeErreur.SC_CET_UTILISATEUR_EXISTE_DEJA);
                 return true;
             }
             return false;
@@ -42,7 +42,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             if (string.IsNullOrEmpty(client.User.Login))
             {
-                MessageService.ThrowMessage(CodeErreur.ADM_CREATE_USER_MANDATORY);
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATION_NOM_UTILISATEUR_OBLIGATOIRE);
                 return false;
             }
             return true;
@@ -51,7 +51,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             if (string.IsNullOrEmpty(client.User.Password))
             {
-                MessageService.ThrowMessage(CodeErreur.ADM_CREATE_USER_MANDATORY);
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATION_NOM_UTILISATEUR_OBLIGATOIRE);
                 return false;
             }
             return true;

@@ -32,7 +32,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
             if (View.MotPasseCreation != View.MotPasseConfirmationCreation)
             {
-                MessageService.ThrowMessage(CodeErreur.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM);
+                MessageService.ThrowMessage(CodeErreur.SC_MOT_PASSE_INEGALE_AVEC_CONFIRMATION);
             }
 
             User user = new User
@@ -51,7 +51,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
             if (ClientService.Creer(customer) != null)
             {
-                MessageService.ThrowMessage(CodeErreur.ADM_CREATE_SUCCESS);
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATION_UTILISATEUR_EST_UN_SUCCES);
             }
         }
     }
