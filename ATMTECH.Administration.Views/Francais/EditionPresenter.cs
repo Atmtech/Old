@@ -5,11 +5,11 @@ using System.Linq;
 using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ATMTECH.Administration.DAO.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface.Francais;
 using ATMTECH.Common.Utils;
 using ATMTECH.DAO;
+using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.Entities;
@@ -129,14 +129,19 @@ namespace ATMTECH.Administration.Views.Francais
 
         public IList<ProprieteEdition> ObtenirListeProprietePourEdition()
         {
+            // fouille moi pkoi ca fonctionne pas avec ca ...
+            //BaseDao<ProprieteEdition, int> dao = new BaseDao<ProprieteEdition, int>();
             return DAOProprieteEdition.GetAllActive();
         }
         public IList<Propriete> ObtenirListePropriete()
         {
+
             IList<ProprieteEdition> proprieteEditions = ObtenirListeProprietePourEdition();
+
             ManageClass manageClass = new ManageClass();
 
             IList<PropertyInfo> listeList = manageClass.GetPropertiesFromClass(ObtenirAssemblie(), View.NomEntite).ToList();
+
             IList<PropertyInfo> listeSortie = new List<PropertyInfo>();
             foreach (PropertyInfo propertyInfo in listeList)
             {
@@ -210,7 +215,11 @@ namespace ATMTECH.Administration.Views.Francais
         {
             bool estEditable = !EstColonneFramework(propriete.Nom);
 
-            CreerControleStatutCommande(propriete, valeur);
+            Control creerControleStatutCommande = CreerControleStatutCommande(propriete, valeur);
+            if (creerControleStatutCommande != null)
+            {
+                return creerControleStatutCommande;
+            }
 
             switch (propriete.PropertyInfo.PropertyType.FullName)
             {

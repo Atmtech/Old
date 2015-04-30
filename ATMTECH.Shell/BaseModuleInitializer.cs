@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using ATMTECH.Services;
-using ATMTECH.Services.Interface;
-using ATMTECH.Web.Services;
-using ATMTECH.Web.Services.Interface;
+using ATMTECH.Exception;
 using Autofac;
-using Autofac.Builder;
-using Autofac.Features.Scanning;
 using Module = Autofac.Module;
 
 namespace ATMTECH.BaseModule
@@ -69,12 +62,9 @@ namespace ATMTECH.BaseModule
         public void EnregistrerParAssembly(string nomAssembly)
         {
 
-            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == nomAssembly) ?? ChercherAssemblyReferencer(nomAssembly);
-
-            if (assembly == null)
-            {
-                assembly = Assembly.Load(nomAssembly);
-            }
+            Assembly assembly = (AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == nomAssembly) ?? ChercherAssemblyReferencer(nomAssembly)) ??
+                                Assembly.Load(nomAssembly);
+            
             if (nomAssembly.IndexOf("DAO") > 0)
             {
 
@@ -83,6 +73,10 @@ namespace ATMTECH.BaseModule
                     Container.RegisterAssemblyTypes(assembly).Where(t => t.Name.Contains("DAO"))
                        .AsImplementedInterfaces()
                        .PropertiesAutowired();
+                }
+                else
+                {
+                    throw new System.Exception("Assembly non retrouvé: " + nomAssembly + " l'enregistrement n'a pas fonctionné ...");
                 }
             }
             else

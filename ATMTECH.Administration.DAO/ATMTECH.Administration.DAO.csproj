@@ -35,10 +35,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAOProprieteEdition.cs" />
     <Compile Include="DAOEntityProperty.cs" />
     <Compile Include="DAOEntityInformation.cs" />
-    <Compile Include="Interface\IDAOProprieteEdition.cs" />
     <Compile Include="Interface\IDAOEntityInformation.cs" />
     <Compile Include="Interface\IDAOEntityProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

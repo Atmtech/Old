@@ -80,6 +80,7 @@
     <Compile Include="DAOFile.cs" />
     <Compile Include="DAOLocalization.cs" />
     <Compile Include="DAOMenu.cs" />
+    <Compile Include="DAOProprieteEdition.cs" />
     <Compile Include="DAOUser.cs" />
     <Compile Include="DAOContent.cs" />
     <Compile Include="Database\InitializeDatabase.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Interface\IDAOFile.cs" />
     <Compile Include="Interface\IDAOLocalization.cs" />
     <Compile Include="Interface\IDAOMenu.cs" />
+    <Compile Include="Interface\IDAOProprieteEdition.cs" />
     <Compile Include="Interface\IDAOUser.cs" />
     <Compile Include="Interface\IDAOContent.cs" />
     <Compile Include="Database\Model.cs" />

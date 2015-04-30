@@ -192,6 +192,7 @@ namespace ATMTECH.Administration.Commerce
         protected void btnAppliquerPourcentageClick(object sender, EventArgs e)
         {
             Presenter.AppliquerPourcentage();
+            ShowMessage(new Message { Description = "Pourcentage appliqué", MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
         protected void btnVerifierInvenaireClick(object sender, EventArgs e)
         {

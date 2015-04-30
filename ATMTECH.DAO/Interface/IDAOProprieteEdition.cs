@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.Entities;
 
-namespace ATMTECH.Administration.DAO.Interface
+namespace ATMTECH.DAO.Interface
 {
     public interface IDAOProprieteEdition
     {

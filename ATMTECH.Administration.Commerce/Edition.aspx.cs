@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.Administration.Views.Francais;
 using ATMTECH.Administration.Views.Interface.Francais;
-using ATMTECH.Common.Utils.Web;
 using ATMTECH.Entities;
 using ATMTECH.Web;
 
@@ -55,77 +53,96 @@ namespace ATMTECH.Administration.Commerce
         }
         public void AfficherColonneGrille()
         {
-            DataControlField dataControlField1 = grdData.Columns[0];
-            DataControlField dataControlField2 = grdData.Columns[1];
-            DataControlField dataControlField3 = grdData.Columns[2];
-            DataControlField dataControlField4 = grdData.Columns[3];
-
-            grdData.Columns.Clear();
-
-            dataControlField1.HeaderText = "";
-            dataControlField2.HeaderText = "";
-            dataControlField3.HeaderText = "";
-
-            grdData.Columns.Add(dataControlField1);
-            grdData.Columns.Add(dataControlField2);
-            grdData.Columns.Add(dataControlField3);
-            grdData.Columns.Add(dataControlField4);
-
-            IList<Propriete> obtenirListePropriete = Presenter.ObtenirListePropriete();
-            obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "SearchUpdate").ToList();
-            obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "ComboboxDescriptionUpdate").ToList();
-            obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "Search").ToList();
-            obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "IsActive").ToList();
-            obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "ComboboxDescription").ToList();
-
-            foreach (Propriete propriete in obtenirListePropriete)
+            try
             {
-                if (propriete.PropertyInfo.PropertyType.Name.ToLower() != "ilist`1")
+                DataControlField dataControlField1 = grdData.Columns[0];
+                DataControlField dataControlField2 = grdData.Columns[1];
+                DataControlField dataControlField3 = grdData.Columns[2];
+                DataControlField dataControlField4 = grdData.Columns[3];
+
+                grdData.Columns.Clear();
+
+                dataControlField1.HeaderText = "";
+                dataControlField2.HeaderText = "";
+                dataControlField3.HeaderText = "";
+
+                grdData.Columns.Add(dataControlField1);
+                grdData.Columns.Add(dataControlField2);
+                grdData.Columns.Add(dataControlField3);
+                grdData.Columns.Add(dataControlField4);
+                
+                IList<Propriete> obtenirListePropriete = Presenter.ObtenirListePropriete();
+                obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "SearchUpdate").ToList();
+                obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "ComboboxDescriptionUpdate").ToList();
+                obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "Search").ToList();
+                obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "IsActive").ToList();
+                obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "ComboboxDescription").ToList();
+
+                foreach (Propriete propriete in obtenirListePropriete)
                 {
-                    TemplateField champsPersonnalise = new TemplateField
+                    if (propriete.PropertyInfo.PropertyType.Name.ToLower() != "ilist`1")
                     {
-                        ItemTemplate =
-                            new GridViewTemplate(DataControlRowType.DataRow,
-                                                 propriete.Libelle, propriete.Nom, propriete.EstProprieteNative, NomEntite),
-                        HeaderTemplate =
-                            new GridViewTemplate(DataControlRowType.Header,
-                                                 propriete.Libelle, propriete.Nom, propriete.EstProprieteNative, NomEntite)
-                    };
-                    champsPersonnalise.HeaderText = propriete.Libelle;
-                    grdData.Columns.Add(champsPersonnalise);
+                        TemplateField champsPersonnalise = new TemplateField
+                        {
+                            ItemTemplate =
+                                new GridViewTemplate(DataControlRowType.DataRow,
+                                                     propriete.Libelle, propriete.Nom, propriete.EstProprieteNative, NomEntite),
+                            HeaderTemplate =
+                                new GridViewTemplate(DataControlRowType.Header,
+                                                     propriete.Libelle, propriete.Nom, propriete.EstProprieteNative, NomEntite)
+                        };
+                        champsPersonnalise.HeaderText = propriete.Libelle;
+                        grdData.Columns.Add(champsPersonnalise);
+                    }
                 }
+                
             }
+            catch (Exception)
+            {
+
+
+
+            }
+
         }
         public void GenererControles()
         {
-            pnlControl.Controls.Clear();
-            IList<Controle> listeControles = Presenter.ObtenirListeControle();
-            
-            Table table = new Table { Width = new Unit(100, UnitType.Percentage) };
-
-            foreach (Controle controle in listeControles)
+            try
             {
-                if (controle.Objet != null)
+                pnlControl.Controls.Clear();
+                IList<Controle> listeControles = Presenter.ObtenirListeControle();
+
+                Table table = new Table { Width = new Unit(100, UnitType.Percentage) };
+
+                foreach (Controle controle in listeControles)
                 {
-                    TableRow rangee = new TableRow();
-                    TableCell celluleLibelle = new TableCell { Width = new Unit(175, UnitType.Pixel) };
-                    TableCell celluleControle = new TableCell();
+                    if (controle.Objet != null)
+                    {
+                        TableRow rangee = new TableRow();
+                        TableCell celluleLibelle = new TableCell { Width = new Unit(175, UnitType.Pixel) };
+                        TableCell celluleControle = new TableCell();
 
-                    celluleLibelle.Controls.Add(controle.Libelle);
-                    celluleControle.Controls.Add(controle.Objet);
+                        celluleLibelle.Controls.Add(controle.Libelle);
+                        celluleControle.Controls.Add(controle.Objet);
 
-                    rangee.Cells.Add(celluleLibelle);
-                    rangee.Cells.Add(celluleControle);
-                    table.Rows.Add(rangee);
+                        rangee.Cells.Add(celluleLibelle);
+                        rangee.Cells.Add(celluleControle);
+                        table.Rows.Add(rangee);
+                    }
                 }
+                pnlControl.Controls.Add(table);
             }
-            pnlControl.Controls.Add(table);
+            catch (Exception)
+            {
+
+            }
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             GenererControles();
-            //Rechercher();
+            Rechercher();
         }
         protected void btnRechercheClick(object sender, EventArgs e)
         {
