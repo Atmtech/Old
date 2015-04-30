@@ -15,9 +15,7 @@
             <asp:TextBox ID="txtCourriel" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
         </div>
         <div style="padding-top: 20px;">
-            <asp:Button runat="server" ID="btnEnvoyerCourriel" Text="Envoyez moi mon mot de passe" CssClass="boutonActionRond" />
-            <asp:Label runat="server" ID="lblConfirmationCourriel" Text="Nous vous avons envoyé votre mot de passe par courriel."
-                Visible="False"></asp:Label>
+            <asp:Button runat="server" ID="btnEnvoyerCourriel" Text="Envoyez moi mon mot de passe" CssClass="boutonActionRond"  OnClick="btnEnvoyerCourrielClick"/>
         </div>
     </div>
     <div style="clear: both;"></div>

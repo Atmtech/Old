@@ -39,5 +39,6 @@ namespace ATMTECH.ShoppingCart.Services
         public const string SC_NO_CATEGORY = "SC0030";
         public const string SC_INVALID_COUPON = "SC0031";
         public const string SC_INVALID_POSTAL_CODE = "SC0032";
+        public const string SC_PASSWORD_RECOVERY_SENT = "SC0033";
     }
 }

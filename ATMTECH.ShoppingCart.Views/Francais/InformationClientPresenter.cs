@@ -2,6 +2,7 @@
 using System.Linq;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
@@ -31,18 +32,12 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             AfficherInformationClient();
             AfficherCommandePasse();
         }
-
         public void AfficherListePays()
         {
-            //IList<Country> allCountries = new List<Country>();
-            //Country country = new Country {Code = "CANADA", Description = "Canada"};
-            //allCountries.Add(country);
-
             IList<Country> allCountries = DAOCountry.GetAllCountries().Where(x => x.Code == "CAN").ToList();
             View.ListePaysLivraison = allCountries;
             View.ListePaysFacturation = allCountries;
         }
-
         public void AfficherCommandePasse()
         {
             Customer customer = ClientService.ClientAuthentifie;
@@ -96,30 +91,29 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 NavigationService.Redirect(Pages.Pages.DEFAULT);
             }
         }
-
         public void Enregistrer()
         {
             if (string.IsNullOrEmpty(View.Courriel))
             {
-                MessageService.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY);
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATE_USER_MANDATORY);
                 return;
             }
 
             if (string.IsNullOrEmpty(View.MotPasse))
             {
-                MessageService.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY);
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATE_USER_MANDATORY);
                 return;
             }
 
             if (View.MotPasse != View.MotPasseConfirmation)
             {
-                MessageService.ThrowMessage(Services.ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM);
+                MessageService.ThrowMessage(CodeErreur.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM);
                 return;
             }
 
             if (EnvoiPostalService.EstCodePostalValideAvecPurolator(View.CodePostalLivraison) == false)
             {
-                MessageService.ThrowMessage(Services.ErrorCode.SC_INVALID_POSTAL_CODE);
+                MessageService.ThrowMessage(CodeErreur.SC_INVALID_POSTAL_CODE);
                 return;
             }
 
@@ -136,9 +130,8 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             customer.User.Email = View.Courriel;
             customer.User.Password = View.MotPasse;
             ClientService.Enregistrer(customer);
-            MessageService.ThrowMessage(ErrorCode.ADM_SAVE_IS_CORRECT);
+            MessageService.ThrowMessage(CodeErreur.ADM_SAVE_IS_CORRECT);
         }
-
         public Address EnregistrerAdresse(Address adresse, string noCivique, string rue, string CodePostal, string ville,
                                           int pays)
         {

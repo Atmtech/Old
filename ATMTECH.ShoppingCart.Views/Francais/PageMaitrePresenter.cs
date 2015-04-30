@@ -27,7 +27,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             EstSiteHorsLigne();
             AfficherInformation();
         }
-
         public void EstSiteHorsLigne()
         {
             string isOffline = ParameterService.GetValue(Constant.IS_OFFLINE);
@@ -37,7 +36,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 NavigationService.Redirect(Pages.Pages.MAINTENANCE);
             }
         }
-
         public void AfficherInformation()
         {
             View.AffichageLangue = LocalizationService.CurrentLanguage;
@@ -74,13 +72,11 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
             View.AffichagePanier = affichagePanier;
         }
-
         public void FermerSession()
         {
             AuthenticationService.SignOut();
             NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
-
         public void RejoindreListeDiffusion()
         {
             MailingList mailingList = new MailingList
@@ -91,13 +87,11 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             DAOListeDistribution.Save(mailingList);
             NavigationService.Redirect(Pages.Pages.MAILING_LIST);
         }
-
         public void MettreSiteEnFrancais()
         {
             LocalizationService.CurrentLanguage = LocalizationLanguage.FRENCH;
             NavigationService.Redirect(Pages.Pages.DEFAULT);
         }
-
         public void MettreSiteEnAnglais()
         {
             LocalizationService.CurrentLanguage = LocalizationLanguage.ENGLISH;

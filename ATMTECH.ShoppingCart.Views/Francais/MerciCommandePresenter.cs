@@ -20,7 +20,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             base.OnViewInitialized();
             AfficherCommande();
         }
-
         public void AfficherCommande()
         {
             Order order = CommandeService.ObtenirCommande(View.IdCommande);
@@ -30,7 +29,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             }
             View.Commande = order;
         }
-
         public void ImprimerCommande()
         {
             Order commande = CommandeService.ObtenirCommande(View.IdCommande);

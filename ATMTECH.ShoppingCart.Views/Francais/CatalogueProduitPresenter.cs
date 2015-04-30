@@ -25,7 +25,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             AfficherListeProduit();
             AfficherLogoMarque();
         }
-
         public void AfficherLogoMarque()
         {
             if (!string.IsNullOrEmpty(View.Marque))
@@ -37,7 +36,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 View.ImageMarque = "";
             }
         }
-
         public void AfficherListeProduit()
         {
 
@@ -58,6 +56,14 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 NavigationService.Redirect(Pages.Pages.DEFAULT);
             }
         }
+        public void TrierMoinsChereAuPlusChere()
+        {
+            NavigationService.Redirect(Pages.Pages.PRODUCT_CATALOG, AjouterQueryStringDeTri(new QueryString(PagesId.ORDER_BY_PRICE, "LowToHigh")));
+        }
+        public void TrierDuPlusChereAuMoinsChere()
+        {
+            NavigationService.Redirect(Pages.Pages.PRODUCT_CATALOG, AjouterQueryStringDeTri(new QueryString(PagesId.ORDER_BY_PRICE, "HighToLow")));
+        }
 
         private IList<Product> ObtenirListeProduitTrier(IList<Product> produits)
         {
@@ -77,19 +83,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 return produits;
             }
         }
-
-        public void TrierMoinsChereAuPlusChere()
-        {
-
-            NavigationService.Redirect(Pages.Pages.PRODUCT_CATALOG, AjouterQueryStringDeTri(new QueryString(PagesId.ORDER_BY_PRICE, "LowToHigh")));
-
-        }
-
-        public void TrierDuPlusChereAuMoinsChere()
-        {
-            NavigationService.Redirect(Pages.Pages.PRODUCT_CATALOG, AjouterQueryStringDeTri(new QueryString(PagesId.ORDER_BY_PRICE, "HighToLow")));
-        }
-
         private IList<QueryString> AjouterQueryStringDeTri(QueryString queryString)
         {
             IList<QueryString> queryStrings = QueryString.GetQueryString();

@@ -14,19 +14,18 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             if (client == null)
             {
-                MessageService.ThrowMessage(ErrorCode.SC_CUSTOMER_IS_NULL);
+                MessageService.ThrowMessage(CodeErreur.SC_CUSTOMER_IS_NULL);
                 return false;
             }
             return true;
         }
-
         public bool EstItemPresentEnInventaire(string idProduit, string grandeur, string couleur)
         {
             if (InventaireService.ObtenirInventaireTechnosport(idProduit, grandeur, couleur) > 0)
             {
                 return true;
             }
-            MessageService.ThrowMessage(ErrorCode.SC_STOCK_INSUFICIENT);
+            MessageService.ThrowMessage(CodeErreur.SC_STOCK_INSUFICIENT);
             return false;
         }
     }

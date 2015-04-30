@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
+using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Web;
 
 namespace ATMTECH.ShoppingCart.Views.Francais
@@ -19,14 +19,11 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public ICommandeService CommandeService { get; set; }
         public IClientService ClientService { get; set; }
 
-
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
             AfficherPanier();
         }
-
-
         public void AfficherPanier()
         {
             Customer customer = ClientService.ClientAuthentifie;
@@ -61,7 +58,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 NavigationService.Redirect(Pages.Pages.DEFAULT);
             }
         }
-
         public void FinaliserCommande()
         {
             CommandeService.ValiderCoupon(View.Commande, View.Coupon);
@@ -74,33 +70,28 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             {
                 CommandeService.FinaliserCommande(View.Commande);
                 IList<QueryString> queryStrings = new List<QueryString>();
-                queryStrings.Add(new QueryString(Pages.PagesId.ORDER_ID, View.Commande.Id.ToString()));
+                queryStrings.Add(new QueryString(PagesId.ORDER_ID, View.Commande.Id.ToString()));
                 NavigationService.Redirect(Pages.Pages.THANK_YOU_ORDER, queryStrings);
             }
         }
-
         public void SupprimerLigneCommande(int id)
         {
             OrderLine orderLine = View.Commande.OrderLines.FirstOrDefault(x => x.Id == id);
             CommandeService.SupprimerLigneCommande(orderLine);
         }
-
         public void RecalculerPanier(Dictionary<int, int> listeQuantite)
         {
-            foreach (var keyValuePair in listeQuantite)
+            foreach (KeyValuePair<int, int> keyValuePair in listeQuantite)
             {
                 View.Commande.OrderLines[keyValuePair.Key].Quantity = keyValuePair.Value;
             }
             CommandeService.Enregistrer(View.Commande);
             AfficherPanier();
         }
-
-
         public void ModifierAdresse()
         {
             NavigationService.Redirect(Pages.Pages.CUSTOMER_INFORMATION);
         }
-
         public void ValiderCoupon()
         {
             if (!string.IsNullOrEmpty(View.Coupon))

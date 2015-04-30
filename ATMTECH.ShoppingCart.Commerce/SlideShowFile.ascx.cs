@@ -9,8 +9,6 @@ namespace ATMTECH.ShoppingCart.Commerce
 {
     public partial class SlideShowFile : UserControl
     {
-        public string Langue { get; set; }
-
         public IList<ProductFile> Fichiers
         {
             get { return (IList<ProductFile>)Session["ListeFichier"]; }
@@ -21,6 +19,19 @@ namespace ATMTECH.ShoppingCart.Commerce
                     Session["ListeFichier"] = value;
                 }
             }
+        }
+        public void AfficherListeFichier(IList<ProductFile> productFiles)
+        {
+            Fichiers = productFiles;
+            dataListeFichier.DataSource = productFiles;
+            dataListeFichier.DataBind();
+        }
+        public void AfficherImagePrincipale(string image)
+        {
+            string mapPath = Server.MapPath(image);
+            System.Drawing.Image img = System.Drawing.Image.FromFile(mapPath);
+            imgPrincipale.CssClass = img.Width > 420 ? "imagePrincipaleMaximale" : "imagePrincipaleAvecPadding";
+            imgPrincipale.ImageUrl = image;
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -34,7 +45,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
 
         }
-
         protected void dataListeFichierItemCommand(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName == "AfficherImage")
@@ -42,21 +52,6 @@ namespace ATMTECH.ShoppingCart.Commerce
                 AfficherImagePrincipale(e.CommandArgument.ToString());
                 AfficherListeFichier(Fichiers);
             }
-        }
-
-        public void AfficherListeFichier(IList<ProductFile> productFiles)
-        {
-            Fichiers = productFiles;
-            dataListeFichier.DataSource = productFiles;
-            dataListeFichier.DataBind();
-        }
-
-        public void AfficherImagePrincipale(string image)
-        {
-            string mapPath = Server.MapPath(image);
-            System.Drawing.Image img = System.Drawing.Image.FromFile(mapPath);
-            imgPrincipale.CssClass = img.Width > 420 ? "imagePrincipaleMaximale" : "imagePrincipaleAvecPadding";
-            imgPrincipale.ImageUrl = image;
         }
     }
 }

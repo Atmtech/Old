@@ -17,7 +17,6 @@ namespace ATMTECH.ShoppingCart.Commerce
                 Session["ListeProduitEnVente"] = value;
             }
         }
-
         public IList<Product> ListeProduitSlideShow
         {
             get { return (IList<Product>)Session["ListeProduitSlideShow"]; }

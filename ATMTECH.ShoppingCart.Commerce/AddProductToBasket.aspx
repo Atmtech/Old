@@ -13,7 +13,7 @@
 
 
             <div class="imageProduit">
-                <uc3:SlideShowFile ID="ListeFichier" runat="server" Langue='<%#Presenter.CurrentLanguage%>' />
+                <uc3:SlideShowFile ID="ListeFichier" runat="server" />
             </div>
             <div class="descriptionProduit">
                 <div class="titreDescriptionProduit">

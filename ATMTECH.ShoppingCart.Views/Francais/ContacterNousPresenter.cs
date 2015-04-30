@@ -29,7 +29,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 View.Nom = authenticateCustomer.User.FirstNameLastName;
             }
         }
-
         public void EnvoyerMessage()
         {
             string message = string.Format("Nom: {0} <br><br> {1}", View.Nom, View.Message);

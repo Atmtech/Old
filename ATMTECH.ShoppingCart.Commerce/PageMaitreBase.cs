@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,7 +14,6 @@ namespace ATMTECH.ShoppingCart.Commerce
         where TPresenter : BaseShoppingCartPresenter<TView>
     {
         public TPresenter Presenter { get; set; }
-
         public void ShowMessage(Message message)
         {
             if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
@@ -39,18 +37,6 @@ namespace ATMTECH.ShoppingCart.Commerce
                 }
             }
         }
-
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            if (!IsPostBack)
-            {
-                Localiser();
-                Presenter.OnViewInitialized();
-            }
-            Presenter.OnViewLoaded();
-        }
-
         public void GetControlList<T>(ControlCollection controlCollection, List<T> resultCollection) where T : Control
         {
             foreach (Control control in controlCollection)
@@ -61,6 +47,17 @@ namespace ATMTECH.ShoppingCart.Commerce
                 if (control.HasControls())
                     GetControlList(control.Controls, resultCollection);
             }
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            if (!IsPostBack)
+            {
+                Localiser();
+                Presenter.OnViewInitialized();
+            }
+            Presenter.OnViewLoaded();
         }
 
         private bool EstExclus(string id)

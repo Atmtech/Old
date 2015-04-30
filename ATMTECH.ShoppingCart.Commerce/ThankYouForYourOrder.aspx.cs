@@ -10,7 +10,6 @@ namespace ATMTECH.ShoppingCart.Commerce
     public partial class ThankYouForYourOrder : PageBase<MerciCommandePresenter, IMerciCommandePresenter>, IMerciCommandePresenter
     {
         public int IdCommande { get { return Convert.ToInt32(QueryString.GetQueryStringValue(PagesId.ORDER_ID)); } }
-
         public Order Commande
         {
             set

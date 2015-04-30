@@ -18,10 +18,13 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 {
     public class CommandeService : BaseService, ICommandeService
     {
-        public IProduitService ProduitService { get; set; }
+        public IDAOCoupon DAOCoupon { get; set; }
+        public IDAOProduit DAOProduit { get; set; }
         public IDAOCommande DAOCommande { get; set; }
         public IDAOLigneCommande DAOLigneCommande { get; set; }
         public IDAOInventaire DAOInventaire { get; set; }
+
+        public IProduitService ProduitService { get; set; }
         public IClientService ClientService { get; set; }
         public ITaxesService TaxesService { get; set; }
         public IMessageService MessageService { get; set; }
@@ -31,8 +34,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IPaypalService PaypalService { get; set; }
         public ILocalizationService LocalizationService { get; set; }
         public IReportService ReportService { get; set; }
-        public IDAOCoupon DAOCoupon { get; set; }
-        public IDAOProduit DAOProduit { get; set; }
         public IMailService MailService { get; set; }
         public ICourrielService CourrielService { get; set; }
 
@@ -79,7 +80,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                     return Enregistrer(commande);
                 }
 
-                MessageService.ThrowMessage(ErrorCode.SC_INVALID_COUPON);
+                MessageService.ThrowMessage(CodeErreur.SC_INVALID_COUPON);
                 return commande;
             }
             return commande;
@@ -97,22 +98,19 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             }
             return false;
         }
-
         public bool ValiderCodePostalLivraison(Order order)
         {
             if (EnvoiPostalService.EstCodePostalValideAvecPurolator(order.ShippingAddress.PostalCode) == false)
             {
-                MessageService.ThrowMessage(ErrorCode.SC_INVALID_POSTAL_CODE);
+                MessageService.ThrowMessage(CodeErreur.SC_INVALID_POSTAL_CODE);
                 return false;
             }
             return true;
         }
-
         public IList<Order> ObtenirCommande()
         {
             return DAOCommande.GetAllActive();
         }
-
         public IList<OrderLine> ObtenirLigneCommande()
         {
             return DAOLigneCommande.GetAllActive();
@@ -211,8 +209,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             if (ValiderCodePostalLivraison(commande))
             {
-
-
                 string productName = HttpUtility.HtmlDecode(commande.OrderLines.Aggregate(string.Empty, (current, line) => current + (line.ProductDescription + " (" + line.Quantity + ") , ")));
                 PaypalDto paypalDto = new PaypalDto
                 {
@@ -257,7 +253,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 ReportService.GetReport(reportParameter));
             return commande;
         }
-
         public void SupprimerLigneCommande(OrderLine ligneCommande)
         {
             ligneCommande.IsActive = false;

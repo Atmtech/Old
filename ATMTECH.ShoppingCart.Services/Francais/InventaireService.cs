@@ -17,7 +17,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             return DAOInventaire.GetAllActive();
         }
-
         public int ObtenirInventaireTechnosport(string idProduit, string grandeur, string couleur)
         {
             IList<XMLInventaire> listeXMLInventaires = new List<XMLInventaire>();

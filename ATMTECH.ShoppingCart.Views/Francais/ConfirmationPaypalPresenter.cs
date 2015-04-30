@@ -1,10 +1,10 @@
 ﻿using System;
 using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
-using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.ShoppingCart.Views.Francais
@@ -25,14 +25,12 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             base.OnViewInitialized();
             AfficherCommande();
         }
-
         public void AfficherCommande()
         {
             View.PaypalReturn = PayPalService.GetReplyFromPaypal();
             int id = Convert.ToInt32(View.PaypalReturn.ResponseDetails.InvoiceID);
             View.AffichageCommande = CommandeService.AfficherCommande(id);
         }
-
         public void FinaliserCommande()
         {
             if (PayPalService.FinishPaypalTransaction(View.PaypalReturn))
@@ -45,10 +43,8 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             }
 
             View.EstFinalise = false;
-            MessageService.ThrowMessage(ErrorCode.ADM_PAYPAL_FINISH_FAILED);
+            MessageService.ThrowMessage(CodeErreur.ADM_PAYPAL_FINISH_FAILED);
         }
-
-
         public void ImprimerCommande()
         {
             int orderId = Convert.ToInt32(View.PaypalReturn.ResponseDetails.InvoiceID);

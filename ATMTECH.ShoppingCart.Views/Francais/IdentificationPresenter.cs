@@ -2,10 +2,10 @@
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
+using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
-using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.ShoppingCart.Views.Francais
@@ -28,12 +28,11 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 NavigationService.Redirect(Pages.Pages.DEFAULT);
             }
         }
-
         public void CreerUtilisateur()
         {
             if (View.MotPasseCreation != View.MotPasseConfirmationCreation)
             {
-                MessageService.ThrowMessage(Services.ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM);
+                MessageService.ThrowMessage(CodeErreur.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM);
             }
 
             User user = new User
@@ -52,10 +51,8 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
             if (ClientService.Creer(customer) != null)
             {
-                MessageService.ThrowMessage(ErrorCode.ADM_CREATE_SUCCESS);
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATE_SUCCESS);
             }
         }
-
-
     }
 }

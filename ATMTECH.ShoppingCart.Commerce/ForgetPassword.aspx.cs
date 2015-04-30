@@ -1,4 +1,5 @@
-﻿using ATMTECH.ShoppingCart.Views.Francais;
+﻿using System;
+using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
 namespace ATMTECH.ShoppingCart.Commerce
@@ -6,10 +7,11 @@ namespace ATMTECH.ShoppingCart.Commerce
     public partial class ForgetPassword : PageBase<MotPasseOubliePresenter, IMotPasseOubliePresenter>,
                                           IMotPasseOubliePresenter
     {
-        public string Courriel
+        public string Courriel { get { return txtCourriel.Text; } set { txtCourriel.Text = value; } }
+
+        protected void btnEnvoyerCourrielClick(object sender, EventArgs e)
         {
-            get { return txtCourriel.Text; }
-            set { txtCourriel.Text = value; }
+           Presenter.EnvoyerMotPasseOublie();
         }
     }
 }

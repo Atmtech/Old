@@ -73,7 +73,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             }
             else
             {
-                MessageService.ThrowMessage(ErrorCode.SC_USER_NOT_EXIST_ON_CONFIRM);
+                MessageService.ThrowMessage(CodeErreur.SC_USER_NOT_EXIST_ON_CONFIRM);
             }
             return false;
         }
@@ -86,6 +86,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 if (customer != null)
                 {
                     CourrielService.EnvoyerMotPasseOublie(customer);
+                    MessageService.ThrowMessage(CodeErreur.SC_PASSWORD_RECOVERY_SENT);
                 }
                 return false;
             }
@@ -95,12 +96,10 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             return DAOClient.GetAllActive();
         }
-
         public IList<User> ObtenirUtilisateur()
         {
             return DAOUser.GetAllUser();
         }
-
         public Customer ObtenirClient(int id)
         {
             return DAOClient.ObtenirClient(id);

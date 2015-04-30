@@ -12,7 +12,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return (PaypalReturn)Session["PaypalReturn"]; }
             set { Session["PaypalReturn"] = value; }
         }
-
         public bool EstFinalise
         {
             set
@@ -30,7 +29,6 @@ namespace ATMTECH.ShoppingCart.Commerce
                 
             }
         }
-
         public string AffichageCommande
         {
             set { lblAffichageCommande.Text = value; }
@@ -40,7 +38,6 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             Presenter.FinaliserCommande();
         }
-
         protected void btnImprimerCommandeClick(object sender, EventArgs e)
         {
             Presenter.ImprimerCommande();

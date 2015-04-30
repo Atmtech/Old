@@ -13,8 +13,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IMessageService MessageService { get; set; }
         public IDAOUser DAOUser { get; set; }
 
-
-
         public bool EstCourrielValide(Customer client)
         {
             const string matchEmailPattern =
@@ -23,47 +21,41 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             {
                 if (!Regex.IsMatch(client.User.Email, matchEmailPattern))
                 {
-                    MessageService.ThrowMessage(ErrorCode.SC_INVALID_EMAIL);
+                    MessageService.ThrowMessage(CodeErreur.SC_INVALID_EMAIL);
                     return false;
                 }
             }
 
             return true;
         }
-
         public bool EstClientExistant(Customer client)
         {
             User user = DAOUser.GetUser(client.User.Login);
             if (user != null)
             {
-                MessageService.ThrowMessage(ErrorCode.SC_THIS_USER_ALREADY_EXIST);
+                MessageService.ThrowMessage(CodeErreur.SC_THIS_USER_ALREADY_EXIST);
                 return true;
             }
             return false;
         }
-
         public bool EstNomUtilisateurValide(Customer client)
         {
             if (string.IsNullOrEmpty(client.User.Login))
             {
-                MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY);
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATE_USER_MANDATORY);
                 return false;
             }
             return true;
         }
-
         public bool EstMotPasseValide(Customer client)
         {
             if (string.IsNullOrEmpty(client.User.Password))
             {
-                MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_CREATE_USER_MANDATORY);
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATE_USER_MANDATORY);
                 return false;
             }
             return true;
         }
-
-        
-
         public bool EstClientValide(Customer client)
         {
             if (EstCourrielValide(client) == false) return false;
@@ -72,7 +64,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             if (EstMotPasseValide(client) == false) return false;
             return true;
         }
-
 
     }
 }

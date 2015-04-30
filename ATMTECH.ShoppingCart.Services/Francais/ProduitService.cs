@@ -12,8 +12,9 @@ namespace ATMTECH.ShoppingCart.Services.Francais
     {
         public IDAOProduit DAOProduit { get; set; }
         public IDAOCategorieProduit DAOCategorieProduit { get; set; }
-        public ILocalizationService LocalizationService { get; set; }
         public IDAOProduitFichier DAOProduitFichier { get; set; }
+
+        public ILocalizationService LocalizationService { get; set; }
 
         public Product ObtenirProduit(int id)
         {
@@ -27,7 +28,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             return DAOProduit.ObtenirProduitParMarque(marque);
         }
-
         public IList<Product> ObtenirProduit()
         {
             return DAOProduit.ObtenirProduit();
@@ -48,12 +48,10 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             return DAOCategorieProduit.GetAllActive();
         }
-
         public IList<ProductFile> ObtenirFichierProduit()
         {
             return DAOProduitFichier.GetAllActive();
         }
-
         public void EnregistrerFichierProduit(ProductFile productFile)
         {
             DAOProduitFichier.Save(productFile);

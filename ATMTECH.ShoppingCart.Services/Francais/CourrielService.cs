@@ -51,7 +51,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), client);
             EnvoyerCourriel(client.User.Login, courriel.From, sujet, corps);
         }
-
         public bool EnvoyerCourriel(string to, string from, string subject, string body)
         {
             return ParameterService.GetValue("Environment") != "PROD" ? EnvoyerDeveloppement(to, from, subject, body) : EnvoyerProduction(to, from, subject, body, null, string.Empty);
@@ -65,7 +64,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             if (string.IsNullOrEmpty(to))
             {
-                MessageService.ThrowMessage(Web.Services.ErrorCode.ADM_NO_EMAIL_TO);
+                MessageService.ThrowMessage(CodeErreur.ADM_NO_EMAIL_TO);
                 return false;
             }
 
@@ -145,7 +144,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             }
             return chaine;
         }
-
         private string ObtenirSujet(Mail courriel)
         {
             switch (LocalizationService.CurrentLanguage)

@@ -15,7 +15,6 @@ namespace ATMTECH.ShoppingCart.Commerce
         where TPresenter : BaseShoppingCartPresenter<TView>
     {
         public TPresenter Presenter { get; set; }
-
         public void ShowMessage(Message message)
         {
             if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
@@ -39,7 +38,6 @@ namespace ATMTECH.ShoppingCart.Commerce
                 }
             }
         }
-
         public void FillDropDown(DropDownList dropDownList, object Source)
         {
             dropDownList.DataSource = Source;
@@ -47,7 +45,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             dropDownList.DataValueField = BaseEntity.ID;
             dropDownList.DataBind();
         }
-
         public void FillDropDown(ComboBox dropDownList, object Source)
         {
             dropDownList.DataSource = Source;
@@ -55,7 +52,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             dropDownList.DataValueField = BaseEntity.ID;
             dropDownList.DataBind();
         }
-
         public void FillDropDown(ComboBox dropDownList, object Source, string DisplayText)
         {
             dropDownList.DataSource = Source;
@@ -63,7 +59,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             dropDownList.DataValueField = BaseEntity.ID;
             dropDownList.DataBind();
         }
-
         public void FillDropDownWithoutEntity(ComboBox dropDownList, object Source, string DisplayText, string value)
         {
             dropDownList.DataSource = Source;
@@ -71,7 +66,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             dropDownList.DataValueField = value;
             dropDownList.DataBind();
         }
-
         public void FillDropDownWithoutEntity(DropDownList dropDownList, object Source, string DisplayText, string value)
         {
             dropDownList.DataSource = Source;
@@ -79,20 +73,16 @@ namespace ATMTECH.ShoppingCart.Commerce
             dropDownList.DataValueField = value;
             dropDownList.DataBind();
         }
-
-
         public void FillDropDownWithoutEntity(ComboBox dropDownList, object Source)
         {
             dropDownList.DataSource = Source;
             dropDownList.DataBind();
         }
-
         public void FillDropDownWithoutEntity(DropDownList dropDownList, object Source)
         {
             dropDownList.DataSource = Source;
             dropDownList.DataBind();
         }
-
 
         protected override void OnLoad(EventArgs e)
         {
@@ -118,7 +108,6 @@ namespace ATMTECH.ShoppingCart.Commerce
                 panel.Visible = false;
             }
         }
-
         private void GetControlList<T>(ControlCollection controlCollection, List<T> resultCollection) where T : Control
         {
             foreach (Control control in controlCollection)
