@@ -1,12 +1,22 @@
-﻿body
+﻿/*
+ COULEUR:
+    goldenrod
+    gray
+    white
+    darkgoldenrod
+*/
+
+
+*
 {
+    font-size: 14px;
     font-family: 'calibri', 'Segoe UI', 'Verdana';
 }
 
 
 .boiteEntete
 {
-    background-color: goldenrod;
+    background-color: lightslategrey;
     border: solid 1px gray;
     margin-bottom: 10px;
     color: white;
@@ -23,7 +33,6 @@
     padding-top: 5px;
     padding-bottom: 5px;
     text-transform: uppercase;
-    font-family: 'calibri', 'Segoe UI', 'Verdana';
 }
 
 .bouton
@@ -35,7 +44,8 @@
     padding-top: 5px;
     padding-bottom: 5px;
     font-weight: bold;
-    background-color: rgb(134, 96, 0);
+    background-color: darkslategray;
+    cursor: pointer;
 }
 
 .titreMenu
@@ -43,8 +53,8 @@
     text-transform: uppercase;
     color: white;
     font-size: 16px;
-    padding-left: 4px;
-    background-color: goldenrod;
+    padding: 5px 5px 5px 5px;
+    background-color: lightslategray;
 }
 
 .titrePage
@@ -53,9 +63,7 @@
     padding: 5px 5px 5px 5px;
     border: solid 1px gray;
     text-transform: uppercase;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=rgb(99, 87, 59), endColorstr=rgb(74, 56, 50)); /* for IE */
-    background: -webkit-gradient(linear, left top, left bottom, from(rgb(99, 87, 59)), to(rgb(74, 56, 50))); /* for webkit browsers */
-    background: -moz-linear-gradient(top, #607695, #8ca1be); /* for firefox 3.6+ */
+    background: darkslategray;
     font-weight: bold;
     color: white;
     margin-bottom: 15px;
@@ -64,7 +72,6 @@
 #list4
 {
     width: 250px;
-    font-size: 13px;
     font-weight: bold;
 }
 
@@ -97,11 +104,13 @@
 
 .boutonMenu
 {
+    padding: 0;
+    border: 0;
     width: 250px;
-    font-size: 12px;
     font-weight: bold;
     text-align: left;
-    border: none;
+    display: block;
+    text-decoration: none;
     background-color: transparent;
     text-decoration: none;
     color: #000000;
@@ -118,3 +127,21 @@
         background-image: url(../images/hover.png);
         background-repeat: repeat-x;
     }
+
+
+.panneauEdition
+{
+    margin-bottom: 10px;
+    margin-left: 10px;
+    border: Gray solid 2px;
+    background-color: aliceblue;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+
+.panneauEditionBouton
+{
+    background-color: lightgray;
+    border: solid 1px gray;
+    padding: 10px 10px 10px 10px;
+}

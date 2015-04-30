@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ATMTECH.Administration.Views.Base;
@@ -74,8 +75,12 @@ namespace ATMTECH.Administration.Views.Francais
         }
         public void AppliquerPourcentage()
         {
-            string sql = string.Format("UPDATE Product SET UnitPrice = (CostPrice * {0} /100) + CostPrice", View.Pourcentage);
+            string sql = string.Format("UPDATE Product SET UnitPrice = round((CostPrice / (1 - {0}.00/100.00)),2)", View.Pourcentage);
             DatabaseService.ExecuteSql(sql, EnumDatabaseVendor.Mssql);
+
+            sql = string.Format("UPDATE Stock SET AdjustPrice = round((AdjustPrice / (1 - {0}.00/100.00)),2)", View.Pourcentage);
+            DatabaseService.ExecuteSql(sql, EnumDatabaseVendor.Mssql);
+
         }
         public string VerifierInventaire(string idProduit, string grandeur, string couleur)
         {

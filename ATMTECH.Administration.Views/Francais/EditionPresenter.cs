@@ -231,7 +231,7 @@ namespace ATMTECH.Administration.Views.Francais
                                Width = Unit.Percentage(90),
                                Enabled = estEditable,
                                //Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
-                               //Toolbar = "Source",
+                               Toolbar = "Source",
                                Height = Unit.Pixel(25)
 
                            };

@@ -217,7 +217,7 @@ namespace ATMTECH.Administration.Services
                                     FeatureEnglish = featureEnglish,
                                     FeatureFrench = featureFrench,
                                     ColorEnglish = importProduit.Color_EN,
-                                    ColorFrench = importProduit.Color_FR,
+                                    ColorFrench = TrouverCouleurFrancaisManquante(importProduit),
                                     Size = importProduit.Size,
                                     AdjustPrice = importProduit.Price - prixUnitaire,
                                     Product = product,
@@ -235,6 +235,9 @@ namespace ATMTECH.Administration.Services
                                 stock.FeatureEnglish = featureEnglish;
                                 stock.FeatureFrench = featureFrench;
                                 stock.AdjustPrice = importProduit.Price - prixUnitaire;
+                                stock.ColorEnglish = importProduit.Color_EN;
+                                stock.ColorFrench = TrouverCouleurFrancaisManquante(importProduit);
+                                stock.Size = importProduit.Size;
                                 stock.Product = product;
                                 stock.IsWithoutStock = true;
                                 stock.InitialState = 0;
@@ -247,6 +250,43 @@ namespace ATMTECH.Administration.Services
                 }
             }
         }
+
+        private string TrouverCouleurFrancaisManquante(ImportProduit importProduit)
+        {
+            if (string.IsNullOrEmpty(importProduit.Color_FR))
+            {
+                if (importProduit.Color_EN == "Azelea") return "Azale";
+                if (importProduit.Color_EN == "Azure") return "Azure";
+                if (importProduit.Color_EN == "Black") return "Noir";
+                if (importProduit.Color_EN == "Black Red") return "Noir rouge";
+                if (importProduit.Color_EN == "Black Tartan") return "Noir tartan";
+                if (importProduit.Color_EN == "Black/Gray") return "Gris noir";
+                if (importProduit.Color_EN == "Black/Green") return "Vert noir";
+                if (importProduit.Color_EN == "Black/White") return "Noir blanc";
+                if (importProduit.Color_EN == "Brown/Khaki") return "Brun";
+                if (importProduit.Color_EN == "Denim") return "Denim";
+                if (importProduit.Color_EN == "GAMMA GREY/SAIL-MIDNIGHT TURQ") return "Gris";
+                if (importProduit.Color_EN == "Gold") return "Or";
+                if (importProduit.Color_EN == "Gravel") return "Gris";
+                if (importProduit.Color_EN == "Green/Black") return "Vert noir";
+                if (importProduit.Color_EN == "Grey") return "Gris";
+                if (importProduit.Color_EN == "Heliconia") return "Heliconia";
+                if (importProduit.Color_EN == "Light Blue/Navy") return "Bleu clair";
+                if (importProduit.Color_EN == "Marble Black") return "Noir";
+                if (importProduit.Color_EN == "Maroon Triblend") return "Marron";
+                if (importProduit.Color_EN == "Navy") return "Navy";
+                if (importProduit.Color_EN == "Orange") return "Orange";
+                if (importProduit.Color_EN == "Red") return "Rouge";
+                if (importProduit.Color_EN == "Royal") return "Royal";
+                if (importProduit.Color_EN == "Safety Pink") return "Rose";
+                if (importProduit.Color_EN == "Silver") return "Argent";
+                if (importProduit.Color_EN == "Tobacco") return "Tabac";
+                if (importProduit.Color_EN == "Tweed") return "Tweed";
+                return importProduit.Color_EN;
+            }
+            return importProduit.Color_FR;
+        }
+
         private string TrouverCategorieAnglaise(ImportProduit importProduit)
         {
             string categorieAnglaise = string.Empty;

@@ -154,8 +154,8 @@ namespace ATMTECH.ShoppingCart.Commerce
         }
         protected void ddlCouleurSelectedIndexChanged(object sender, EventArgs e)
         {
-            Presenter.AfficherPrix();
             Presenter.AfficherTaille();
+            Presenter.AfficherPrix();
             AfficherListeFichier();
         }
     }

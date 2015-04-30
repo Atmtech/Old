@@ -196,7 +196,6 @@ namespace ATMTECH.Administration.Views.Francais
         public void EffacerJournalTransaction()
         {
             DatabaseService.ExecuteSql("DELETE FROM TRANSACTIONLOG", EnumDatabaseVendor.Mssql);
-            DatabaseService.ExecuteSql("DBCC CHECKIDENT ([TRANSACTIONLOG], RESEED, 0)", EnumDatabaseVendor.Mssql);
         }
         private string Enregistrer<TModel>()
         {

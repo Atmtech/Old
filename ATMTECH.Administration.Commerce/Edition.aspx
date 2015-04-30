@@ -4,11 +4,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel runat="server" ID="pnlEdition" Visible="False" Style="margin-bottom: 10px; margin-left: 10px; border: Gray solid 2px; background-color: bisque; padding: 10px 10px 10px 10px; border-radius: 25px;">
-        <div style="font-size: 11px; margin-bottom: 10px;">
+    <asp:Panel runat="server" ID="pnlEdition" Visible="False" CssClass="panneauEdition">
+        <div style="margin-bottom: 10px;">
             <asp:PlaceHolder runat="server" ID="pnlControl"></asp:PlaceHolder>
         </div>
-        <div style="background-color: lightgray; border: solid 1px gray; padding: 5px 5px 5px 15px; border-radius: 25px;">
+        <div class="panneauEditionBouton">
             <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" OnClick="btnEnregistrerClick" CausesValidation="False"
                 CssClass="bouton" />
             <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" OnClick="btnAnnulerClick" CausesValidation="False"
@@ -61,10 +61,10 @@
                                 ButtonType="Image" />
                             <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                         </Columns>
-                        <FooterStyle BackColor="GoldenRod" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="GoldenRod" Font-Bold="True" ForeColor="White" Font-Size="15px" />
+                        <FooterStyle BackColor="darkslategray" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="darkslategray" Font-Bold="True" ForeColor="White" Font-Size="15px" />
                         <PagerSettings Position="TopAndBottom" />
-                        <PagerStyle BackColor="GoldenRod" ForeColor="White" Font-Bold="True" Font-Size="15px" HorizontalAlign="Left" />
+                        <PagerStyle BackColor="darkslategray" ForeColor="White" Font-Bold="True" Font-Size="15px" HorizontalAlign="Left" />
                         <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
                         <AlternatingRowStyle BackColor="#FFE1E1E1" ForeColor="#284775" />
                     </asp:GridView>

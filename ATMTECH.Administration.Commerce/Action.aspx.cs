@@ -204,17 +204,14 @@ namespace ATMTECH.Administration.Commerce
             lblRetourValidationPaypal.Text = Presenter.ValiderPaypal();
 
         }
-
         protected void btnEnvoiCourrielClick(object sender, EventArgs e)
         {
             lblStatutEnvoiCourriel.Text = Presenter.EnvoyerCourriel() == false ? "Échec de l'envoi du courriel" : "Envoi du courriel réussi";
         }
-
         protected void btnApercuCourrielFrancaisClick(object sender, EventArgs e)
         {
             lblApercuCourrielFrancais.Text = CorpsFr;
         }
-
         protected void btnApercuCourrielAnglaisClick(object sender, EventArgs e)
         {
             lblApercuCourrielAnglais.Text = CorpsEn;
