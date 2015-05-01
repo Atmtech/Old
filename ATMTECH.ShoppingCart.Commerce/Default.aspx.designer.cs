@@ -19,7 +19,7 @@ namespace ATMTECH.ShoppingCart.Commerce {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.ShoppingCart.Commerce.SlideShowProduct SlideShowAccueil;
+        protected global::ATMTECH.ShoppingCart.Commerce.UserControls.SlideShowProduct SlideShowAccueil;
         
         /// <summary>
         /// Contrôle lblItemEnVenteActuellement.
@@ -37,6 +37,6 @@ namespace ATMTECH.ShoppingCart.Commerce {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.ShoppingCart.Commerce.ListeProduit ListeProduit;
+        protected global::ATMTECH.ShoppingCart.Commerce.UserControls.ListeProduit ListeProduit;
     }
 }

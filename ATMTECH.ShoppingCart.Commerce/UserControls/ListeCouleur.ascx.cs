@@ -4,7 +4,7 @@ using System.Web.UI.WebControls;
 using ATMTECH.Common.Constant;
 using ATMTECH.ShoppingCart.Entities;
 
-namespace ATMTECH.ShoppingCart.Commerce
+namespace ATMTECH.ShoppingCart.Commerce.UserControls
 {
     public partial class ListeCouleur : System.Web.UI.UserControl
     {

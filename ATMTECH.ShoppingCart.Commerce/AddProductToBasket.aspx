@@ -1,12 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
     CodeBehind="AddProductToBasket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.AddProductToBasket" %>
 
-<%@ Register Src="ListeCouleur.ascx" TagName="ListeCouleur" TagPrefix="uc2" %>
-<%@ Register Src="SlideShowFile.ascx" TagName="SlideShowFile" TagPrefix="uc3" %>
+<%@ Register Src="UserControls/ListeCouleur.ascx" TagName="ListeCouleur" TagPrefix="uc2" %>
+<%@ Register Src="UserControls/SlideShowFile.ascx" TagName="SlideShowFile" TagPrefix="uc3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=286270354802156";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
     <asp:UpdatePanel runat="server" ID="updatePanelAddProduct">
         <ContentTemplate>
@@ -68,10 +77,11 @@
                 </div>
                 <div class="detailDescriptionProduit">
                     <div style="float: left; padding-right: 10px;">
-                        <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/tweet_button.67ae45a68af44ab435dd5797206058d3.en.html#_=1423083634059&amp;count=none&amp;dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Frutherford-romaguera2611.myshopify.com%2Fproducts%2Fbreitling-transocean&amp;size=m&amp;text=Breitling%20Transocean%20by%20Breitling&amp;url=http%3A%2F%2Frutherford-romaguera2611.myshopify.com%2Fproducts%2Fbreitling-transocean" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-none" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 56px; height: 20px;"></iframe>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.checkleprix.com/AddProductToBasket.aspx?ProductId=1" data-via="CheckLePrix">Tweet</a>
+                        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
                     </div>
                     <div style="float: left;">
-                        <iframe src="//www.facebook.com/plugins/like.php?href=http://rutherford-romaguera2611.myshopify.com/products/breitling-transocean&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 80px; height: 30px" allowtransparency="true"></iframe>
+                        <div class="fb-like" data-href="http://www.checkleprix.com/AddProductToBasket.aspx?ProductId=1" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                     </div>
                     <div style="clear: both;"></div>
                     <div style="padding-bottom: 10px;">

@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.Default1" %>
 
-<%@ Register Src="SlideShowProduct.ascx" TagPrefix="uc1" TagName="SlideShow" %>
-<%@ Register Src="ListeProduit.ascx" TagName="ListeProduit" TagPrefix="uc2" %>
+<%@ Register Src="UserControls/SlideShowProduct.ascx" TagPrefix="uc1" TagName="SlideShow" %>
+<%@ Register Src="UserControls/ListeProduit.ascx" TagName="ListeProduit" TagPrefix="uc2" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -26,6 +26,6 @@
         <asp:Label runat="server" ID="lblItemEnVenteActuellement" Text="Items en vente actuellement"></asp:Label>
     </div>
     <div class="listeObjetEnPromo">
-        <uc2:ListeProduit ID="ListeProduit" runat="server" Langue='<%#Presenter.CurrentLanguage%>' />
+        <uc2:ListeProduit ID="ListeProduit" runat="server" Langue='<%#Presenter.CurrentLanguage%>'  ProduitParRangee="4" AfficherBoutonTriEtNombreItem="False"/>
     </div>
 </asp:Content>

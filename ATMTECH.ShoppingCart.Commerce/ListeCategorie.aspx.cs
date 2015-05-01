@@ -21,9 +21,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return (IList<Product>)Session["ListeProduitParCategorie"]; }
             set
             {
-                ListeProduit.ProduitParRangee = 3;
                 ListeProduit.Produits = value;
-                ListeProduit.Langue = Presenter.CurrentLanguage;
                 Session["ListeProduitParCategorie"] = value;
             }
         }

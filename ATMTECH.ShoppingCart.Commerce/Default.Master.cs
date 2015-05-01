@@ -141,5 +141,10 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             Presenter.NavigationService.Redirect(Pages.DEFAULT);
         }
+
+        protected void btnAucunItemDansPanierClick(object sender, EventArgs e)
+        {
+            Presenter.NavigationService.Redirect(Pages.DEFAULT);
+        }
     }
 }

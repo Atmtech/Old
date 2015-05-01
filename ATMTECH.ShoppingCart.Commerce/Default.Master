@@ -25,7 +25,7 @@
     <%-- Envoyer true à la fonction GererExpiration pour l'affichage du temps restant en bas de page. --%>
     <script type="text/javascript">
         $(function () {
-            InitialiserExpiration(20, '<%=ResolveUrl("~/Errors/SessionTimeout.htm")%>', false);
+            InitialiserExpiration(20, '<%=ResolveUrl("~/Errors/SessionTimeout.html")%>', false);
             $("#lnkImprimer").click(function () {
                 $('#impression').jqprint();
                 return false;
@@ -80,7 +80,7 @@
                                 <asp:Button runat="server" ID="btnNomClient" OnClick="btnNomClientClick" CssClass="boutonItemMenu"></asp:Button>
                             </div>
                             <div style="float: left; border-left: solid 1px white;">
-                                <asp:Button runat="server" ID="btnAucunItemDansPanier" Text="Panier vide" CssClass="boutonItemMenu"></asp:Button>
+                                <asp:Button runat="server" ID="btnAucunItemDansPanier" Text="Panier vide" CssClass="boutonItemMenu" OnClick="btnAucunItemDansPanierClick"></asp:Button>
                                 <asp:Button runat="server" ID="btnPanier" OnClick="btnPanierClick" CssClass="boutonItemMenu" Visible="False" />
                             </div>
                             <div style="float: left; border-left: solid 1px white;">

@@ -31,48 +31,12 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.Image imgLogoMarque;
         
         /// <summary>
-        /// Contrôle lblNombreElementAffichage.
+        /// Contrôle ListeProduit.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreElementAffichage;
-        
-        /// <summary>
-        /// Contrôle lblNombreElement.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreElement;
-        
-        /// <summary>
-        /// Contrôle btnTrierMoinsChereAuPlusChere.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTrierMoinsChereAuPlusChere;
-        
-        /// <summary>
-        /// Contrôle btnTrierDuPlusChereAuMoinsChere.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTrierDuPlusChereAuMoinsChere;
-        
-        /// <summary>
-        /// Contrôle ListeProduit1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.ShoppingCart.Commerce.ListeProduit ListeProduit1;
+        protected global::ATMTECH.ShoppingCart.Commerce.UserControls.ListeProduit ListeProduit;
     }
 }

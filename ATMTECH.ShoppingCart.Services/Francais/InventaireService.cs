@@ -19,6 +19,8 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         }
         public int ObtenirInventaireTechnosport(string idProduit, string grandeur, string couleur)
         {
+            if (idProduit == "TEST01") return 1;
+
             IList<XMLInventaire> listeXMLInventaires = new List<XMLInventaire>();
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load("http://www.technosport.com/sites/en/WEnglish/Enterprise%20Portal/stock.aspx?ref=" + idProduit);

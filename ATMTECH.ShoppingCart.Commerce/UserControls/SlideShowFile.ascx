@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SlideShowFile.ascx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.SlideShowFile" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SlideShowFile.ascx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.UserControls.SlideShowFile" %>
 
 <style>
     .imageAjouterPanier
@@ -27,7 +27,7 @@
 <div style="text-align: center; background-color: white; padding: 5px 5px 5px 5px; margin-top: 5px;">
     <asp:DataList runat="server" ID="dataListeFichier" RepeatColumns="7" RepeatDirection="Horizontal" OnItemCommand="dataListeFichierItemCommand">
         <ItemTemplate>
-            <asp:ImageButton runat="server" ImageUrl='<%# "Images/Product/" + Eval("File.FileName")%>' CssClass="imageAjouterPanier" CommandName="AfficherImage" CommandArgument='<%# "Images/Product/" + Eval("File.FileName")%>' />
+            <asp:ImageButton runat="server" ImageUrl='<%# "~/Images/Product/" + Eval("File.FileName")%>' CssClass="imageAjouterPanier" CommandName="AfficherImage" CommandArgument='<%# "~/Images/Product/" + Eval("File.FileName")%>' />
         </ItemTemplate>
     </asp:DataList>
 </div>

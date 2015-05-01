@@ -7,7 +7,7 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace ATMTECH.ShoppingCart.Commerce {
+namespace ATMTECH.ShoppingCart.Commerce.UserControls {
     
     
     public partial class ListeCouleur {

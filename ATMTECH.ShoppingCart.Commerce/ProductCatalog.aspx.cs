@@ -11,10 +11,16 @@ namespace ATMTECH.ShoppingCart.Commerce
     public partial class ProductCatalog : PageBase<CatalogueProduitPresenter, ICatalogueProduitPresenter>,
                                           ICatalogueProduitPresenter
     {
-        public IList<Product> Produits { set { ListeProduit1.Produits = value; } }
+        public IList<Product> Produits
+        {
+            set
+            {
+                ListeProduit.Produits = value;
+            }
+        }
+
         public string Recherche { get { return QueryString.GetQueryStringValue(PagesId.SEARCH); } }
         public string Marque { get { return QueryString.GetQueryStringValue(PagesId.BRAND); } }
-        public string Tri { get { return QueryString.GetQueryStringValue(PagesId.ORDER_BY_PRICE); } }
         public string ImageMarque
         {
             set
@@ -29,16 +35,6 @@ namespace ATMTECH.ShoppingCart.Commerce
                     pnlMarque.Visible = false;
                 }
             }
-        }
-        public int NombreElementRetrouve { get { return Convert.ToInt32(lblNombreElement.Text); } set { lblNombreElement.Text = value.ToString(); } }
-
-        protected void btnTrierMoinsChereAuPlusChereClick(object sender, EventArgs e)
-        {
-            Presenter.TrierMoinsChereAuPlusChere();
-        }
-        protected void btnTrierDuPlusChereAuMoinsChereClick(object sender, EventArgs e)
-        {
-            Presenter.TrierDuPlusChereAuMoinsChere();
         }
     }
 }

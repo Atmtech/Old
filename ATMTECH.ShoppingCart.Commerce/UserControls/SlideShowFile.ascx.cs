@@ -5,7 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.ShoppingCart.Entities;
 
-namespace ATMTECH.ShoppingCart.Commerce
+namespace ATMTECH.ShoppingCart.Commerce.UserControls
 {
     public partial class SlideShowFile : UserControl
     {
@@ -42,7 +42,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             {
                 if (Fichiers.Count > 0)
                 {
-                    AfficherImagePrincipale("Images/Product/" + Fichiers.FirstOrDefault(x => x.IsPrincipal).File.FileName);
+                    AfficherImagePrincipale("~/Images/Product/" + Fichiers.FirstOrDefault(x => x.IsPrincipal).File.FileName);
                     AfficherListeFichier(Fichiers);
                 }
             }

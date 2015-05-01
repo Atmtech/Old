@@ -7,90 +7,63 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace ATMTECH.ShoppingCart.Commerce {
+namespace ATMTECH.ShoppingCart.Commerce.UserControls {
     
     
-    public partial class ListeCategorie {
+    public partial class ListeProduit {
         
         /// <summary>
-        /// Contrôle lblLesCategories.
+        /// Contrôle pnlBoutonTriNombreElement.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLesCategories;
+        protected global::System.Web.UI.WebControls.Panel pnlBoutonTriNombreElement;
         
         /// <summary>
-        /// Contrôle btnCategorieAccessoire.
+        /// Contrôle btnTrierMoinsChereAuPlusChere.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCategorieAccessoire;
+        protected global::System.Web.UI.WebControls.Button btnTrierMoinsChereAuPlusChere;
         
         /// <summary>
-        /// Contrôle btnCategorieChapeau.
+        /// Contrôle btnTrierDuPlusChereAuMoinsChere.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCategorieChapeau;
+        protected global::System.Web.UI.WebControls.Button btnTrierDuPlusChereAuMoinsChere;
         
         /// <summary>
-        /// Contrôle btnCategorieGilet.
+        /// Contrôle lblNombreElementAffichage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCategorieGilet;
+        protected global::System.Web.UI.WebControls.Label lblNombreElementAffichage;
         
         /// <summary>
-        /// Contrôle btnCategorieManteau.
+        /// Contrôle lblNombreElement.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCategorieManteau;
+        protected global::System.Web.UI.WebControls.Label lblNombreElement;
         
         /// <summary>
-        /// Contrôle btnCategoriePantalon.
+        /// Contrôle dataListListeProduitEnVente.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCategoriePantalon;
-        
-        /// <summary>
-        /// Contrôle btnCategoriePolo.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCategoriePolo;
-        
-        /// <summary>
-        /// Contrôle btnCategorieTshirt.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCategorieTshirt;
-        
-        /// <summary>
-        /// Contrôle ListeProduit.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.ShoppingCart.Commerce.UserControls.ListeProduit ListeProduit;
+        protected global::System.Web.UI.WebControls.DataList dataListListeProduitEnVente;
     }
 }

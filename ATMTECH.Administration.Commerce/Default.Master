@@ -145,7 +145,7 @@
                                     <li>
                                         <asp:Button runat="server" Text="Ouvrir le système" ID="btnOuvrirSysteme" OnClick="btnOuvrirSystemeClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>
-                                        <asp:Button runat="server" Text="Ouvrir le système" ID="btnFlagPourmettreSystemeProduction" OnClick="btnFlagPourmettreSystemeProductionClick" CssClass="boutonMenu"></asp:Button></li>
+                                        <asp:Button runat="server" Text="Mettre parametre production" ID="btnFlagPourmettreSystemeProduction" OnClick="btnFlagPourmettreSystemeProductionClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>
                                         <asp:Button runat="server" Text="Initialiser le système" ID="btnInitialiserSysteme" OnClick="btnInitialiserSystemeClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li><a href="ExecuteSql.aspx">Exécuter du SQL</a> </li>

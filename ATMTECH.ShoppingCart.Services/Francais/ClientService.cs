@@ -20,13 +20,18 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IMessageService MessageService { get; set; }
         public ITaxesService TaxesService { get; set; }
         public ICourrielService CourrielService { get; set; }
-
+        public IEntrepriseService EntrepriseService { get; set; }
 
         public Customer ClientAuthentifie
         {
             get
             {
-                return AuthenticationService.AuthenticateUser != null ? DAOClient.ObtenirClient(AuthenticationService.AuthenticateUser) : null;
+                Customer retour = AuthenticationService.AuthenticateUser != null ? DAOClient.ObtenirClient(AuthenticationService.AuthenticateUser) : null;
+                if (retour != null)
+                {
+                    retour.Enterprise = EntrepriseService.ObtenirEntreprise(retour.Enterprise.Id);
+                }
+                return retour;
             }
         }
         public Customer Creer(Customer client)

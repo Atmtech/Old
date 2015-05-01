@@ -7,18 +7,18 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace ATMTECH.ShoppingCart.Commerce {
+namespace ATMTECH.ShoppingCart.Commerce.UserControls {
     
     
-    public partial class ListeProduit {
+    public partial class SlideShowProduct {
         
         /// <summary>
-        /// Contrôle dataListListeProduitEnVente.
+        /// Contrôle placeHolder.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListListeProduitEnVente;
+        protected global::System.Web.UI.WebControls.PlaceHolder placeHolder;
     }
 }

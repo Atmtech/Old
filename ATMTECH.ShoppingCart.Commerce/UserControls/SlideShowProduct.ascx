@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SlideShow.ascx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.SlideShowProduct" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SlideShow.ascx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.UserControls.SlideShowProduct" %>
 
 <script>
     jQuery(document).ready(function ($) {

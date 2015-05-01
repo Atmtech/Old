@@ -7,36 +7,27 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace ATMTECH.Administration.Commerce {
+namespace ATMTECH.ShoppingCart.Commerce.UserControls {
     
     
-    public partial class Test {
+    public partial class SlideShowFile {
         
         /// <summary>
-        /// Contrôle form1.
+        /// Contrôle imgPrincipale.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Image imgPrincipale;
         
         /// <summary>
-        /// Contrôle txtTest.
+        /// Contrôle dataListeFichier.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.WebControls.DatePicker txtTest;
-        
-        /// <summary>
-        /// Contrôle btnSkin.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSkin;
+        protected global::System.Web.UI.WebControls.DataList dataListeFichier;
     }
 }

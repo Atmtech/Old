@@ -58,7 +58,6 @@
     <Content Include="ConfirmCreate.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content.aspx" />
-    <Content Include="Test.html" />
     <Content Include="Images\WebSite\ArrowDropDownList.png" />
     <Content Include="Images\WebSite\EnSavoirPlus.png" />
     <Content Include="Images\WebSite\logo.png" />
@@ -75,12 +74,12 @@
     <Content Include="Images\WebSite\LogoYupoong.jpg" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\a11.png" />
     <Content Include="MailingList.aspx" />
-    <Content Include="SlideShowFile.ascx" />
+    <Content Include="UserControls\SlideShowFile.ascx" />
     <Content Include="Css\Site.css" />
     <Content Include="CustomerInformation.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Errors\Maintenance.html" />
-    <Content Include="Errors\SessionTimeout.htm" />
+    <Content Include="Errors\SessionTimeout.html" />
     <Content Include="ExpressCheckoutPaypal.aspx" />
     <Content Include="fonts\license.txt" />
     <Content Include="ForgetPassword.aspx" />
@@ -146,11 +145,11 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
     <Content Include="ListeCategorie.aspx" />
-    <Content Include="ListeCouleur.ascx" />
-    <Content Include="ListeProduit.ascx" />
+    <Content Include="UserControls\ListeCouleur.ascx" />
+    <Content Include="UserControls\ListeProduit.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="ProductCatalog.aspx" />
-    <Content Include="SlideShowProduct.ascx" />
+    <Content Include="UserControls\SlideShowProduct.ascx" />
     <Content Include="ThankYouForYourOrder.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -199,11 +198,11 @@
     <Compile Include="MailingList.aspx.designer.cs">
       <DependentUpon>MailingList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SlideShowFile.ascx.cs">
+    <Compile Include="UserControls\SlideShowFile.ascx.cs">
       <DependentUpon>SlideShowFile.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SlideShowFile.ascx.designer.cs">
+    <Compile Include="UserControls\SlideShowFile.ascx.designer.cs">
       <DependentUpon>SlideShowFile.ascx</DependentUpon>
     </Compile>
     <Compile Include="CustomerInformation.aspx.cs">
@@ -251,18 +250,18 @@
     <Compile Include="ListeCategorie.aspx.designer.cs">
       <DependentUpon>ListeCategorie.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ListeCouleur.ascx.cs">
+    <Compile Include="UserControls\ListeCouleur.ascx.cs">
       <DependentUpon>ListeCouleur.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ListeCouleur.ascx.designer.cs">
+    <Compile Include="UserControls\ListeCouleur.ascx.designer.cs">
       <DependentUpon>ListeCouleur.ascx</DependentUpon>
     </Compile>
-    <Compile Include="ListeProduit.ascx.cs">
+    <Compile Include="UserControls\ListeProduit.ascx.cs">
       <DependentUpon>ListeProduit.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ListeProduit.ascx.designer.cs">
+    <Compile Include="UserControls\ListeProduit.ascx.designer.cs">
       <DependentUpon>ListeProduit.ascx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
@@ -286,11 +285,11 @@
       <DependentUpon>ProductCatalog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SlideShowProduct.ascx.cs">
+    <Compile Include="UserControls\SlideShowProduct.ascx.cs">
       <DependentUpon>SlideShowProduct.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SlideShowProduct.ascx.designer.cs">
+    <Compile Include="UserControls\SlideShowProduct.ascx.designer.cs">
       <DependentUpon>SlideShowProduct.ascx</DependentUpon>
     </Compile>
     <Compile Include="ThankYouForYourOrder.aspx.cs">

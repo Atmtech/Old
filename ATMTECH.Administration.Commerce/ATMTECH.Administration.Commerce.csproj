@@ -356,8 +356,6 @@
     <Content Include="Site.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />
-    <Content Include="TemplateCourriel.html" />
-    <Content Include="Test.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -418,13 +416,6 @@
     </Compile>
     <Compile Include="Rapport.aspx.designer.cs">
       <DependentUpon>Rapport.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

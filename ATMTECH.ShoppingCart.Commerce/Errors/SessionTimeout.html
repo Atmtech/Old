@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Le site est en maintenance</title>
-    <link href="../Css/Site.css" rel="stylesheet" />
+    <title>Votre session est expirée / Your session has expired.</title>
+    <link href="../Css/Site.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../Javascript/Redirection.js"></script>
 </head>
 <style>
     .messageMaintenance
@@ -11,7 +12,7 @@
         font-size: 20px;
         margin: 0 auto;
         width: 1000px;
-        margin-top: 40px;
+        margin-top: 10px;
         text-align: center;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -25,9 +26,12 @@
     </div>
 
     <div class="messageMaintenance">
-        Le site est présentement en maintenance / The site is currently down for maintenance (+/- 10minutes)
+        <h2>Votre session est expirée / Your session has expired.</h2>
+        Le délai d'inactivité a été configuré à 20 minutes / The waiting time was set to 20 minutes.
+    <br />
+        Toutes les modifications en suspens ont été annulée / All pending changes have been canceled.
     <hr />
-        Merci de votre patience / Thank you for your patience
+        <a href="javascript:RedirigerVersAccueil();">Revenir à la page d'accueil / Return to the home page</a>
     </div>
 
     <div class="copyRight">

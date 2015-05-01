@@ -135,13 +135,20 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                     }
                     else
                     {
-                        PropertyInfo propertyInfoId = valeurPropriete.GetType().GetProperty("Id");
-                        string valeurEnfant = propertyInfoId.GetValue(valeurPropriete, null).ToString();
-                        chaine = chaine.Replace(string.Format("[{0}]", propertyInfo.Name), valeurEnfant);
+                        foreach (PropertyInfo propertyInfo2 in valeurPropriete.GetType().GetProperties())
+                        {
+                            if (propertyInfo2.PropertyType.Namespace == "System")
+                            {
+                                object value = propertyInfo2.GetValue(valeurPropriete, null);
+                                if (value != null)
+                                {
+                                    string valeurEnfant = value.ToString();
+                                    chaine = chaine.Replace(string.Format("[{0}]", propertyInfo2.Name), valeurEnfant);
+                                }
+                            }
+                        }
                     }
-
                 }
-
             }
             return chaine;
         }

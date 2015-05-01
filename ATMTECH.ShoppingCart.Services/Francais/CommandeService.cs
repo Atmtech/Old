@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using ATMTECH.Common.Constant;
+using ATMTECH.DAO;
 using ATMTECH.Services;
 using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
@@ -42,6 +43,8 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             Order obtenirCommandeSouhaite = DAOCommande.ObtenirCommandeSouhaite(client);
             if (obtenirCommandeSouhaite == null) return null;
+            obtenirCommandeSouhaite.Customer = client;
+            obtenirCommandeSouhaite.Enterprise = client.Enterprise;
             if (obtenirCommandeSouhaite.BillingAddress == null)
                 obtenirCommandeSouhaite.BillingAddress = client.BillingAddress;
             if (obtenirCommandeSouhaite.ShippingAddress == null)
@@ -193,15 +196,26 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         }
         public Order CalculerEnvoiPostal(Order commande)
         {
-            if (commande.Coupon != null && commande.Coupon.IsShippingSave)
+            if (commande.Enterprise.IsShippingManaged)
             {
-                commande.ShippingTotal = 0;
+                if (commande.Coupon != null && commande.Coupon.IsShippingSave)
+                {
+                    commande.ShippingTotal = 0;
+                }
+                else
+                {
+                    commande.TotalWeight = 0;
+                    foreach (OrderLine orderLine in commande.OrderLines)
+                    {
+                        commande.TotalWeight += orderLine.Stock.Product.Weight;
+                    }
+                    commande.ShippingTotal = EnvoiPostalService.ObtenirCotationPurolator(commande);
+                }
             }
             else
             {
-                commande.ShippingTotal = EnvoiPostalService.ObtenirCotationPurolator(commande);
+                commande.ShippingTotal = 0;
             }
-
             return commande;
         }
         public Order AjouterLigneCommande(int idInventaire, int quantite)
@@ -229,14 +243,17 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             if (ValiderCodePostalLivraison(commande))
             {
-                string productName = HttpUtility.HtmlDecode(commande.OrderLines.Aggregate(string.Empty, (current, line) => current + (line.ProductDescription + " (" + line.Quantity + ") , ")));
+                string nomProduit = HttpUtility.HtmlDecode(commande.OrderLines.Aggregate(string.Empty, (current, line) => current + (line.ProductDescription + " (" + line.Quantity + ") , ")));
+                string descriptionCommande = string.Format("Date: {0}, {1}", commande.DateModified, commande.Enterprise.Name);
+                double prix = commande.Coupon != null ? (double)commande.GrandTotalWithCoupon : (double)commande.GrandTotal;
+
                 PaypalDto paypalDto = new PaypalDto
                 {
-                    OrderDescription = string.Format(ParameterService.GetValue("OrderMessagePaypal"), commande.DateModified.ToString(), commande.Enterprise.Name),
-                    Price = commande.Coupon != null ? (double)commande.GrandTotalWithCoupon : (double)commande.GrandTotal,
+                    OrderDescription = descriptionCommande,
+                    Price = prix,
                     Quantity = 1,
                     OrderId = commande.Id.ToString(),
-                    ProductName = productName
+                    ProductName = nomProduit
                 };
 
                 PaypalService.SendPaypalRequest(paypalDto);

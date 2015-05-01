@@ -13,7 +13,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             set
             {
                 ListeProduit.Produits = value;
-                ListeProduit.Langue = Presenter.CurrentLanguage;
                 Session["ListeProduitEnVente"] = value;
             }
         }
@@ -22,6 +21,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return (IList<Product>)Session["ListeProduitSlideShow"]; }
             set
             {
+
                 Session["ListeProduitSlideShow"] = value;
                 SlideShowAccueil.Produits = value;
                 SlideShowAccueil.Langue = Presenter.CurrentLanguage;
