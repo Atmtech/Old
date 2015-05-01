@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using ATMTECH.Common.Constant;
@@ -93,10 +94,29 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 commande.OrderStatus = OrderStatus.IsShipped;
                 commande.ShippingDate = DateTime.Now;
                 Enregistrer(commande);
-                CourrielService.EnvoyerConfirmationCommande(commande);
+                CourrielService.EnvoyerConfirmationCommandeEstEnLivraison(commande, ObtenirFacturePourPdf(commande));
                 return true;
             }
             return false;
+        }
+
+        public Stream ObtenirFacturePourPdf(Order commande)
+        {
+            Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
+            ReportParameter reportParameter = new ReportParameter
+            {
+                Assembly = "ATMTECH.ShoppingCart.Services",
+                PathToReportAssembly = "ATMTECH.ShoppingCart.Services.Reports.Commande_" + LocalizationService.CurrentLanguage + ".rdlc",
+                ReportFormat = ReportFormat.PDF,
+                Parameters = dictionnaire
+            };
+
+            IList<Order> order = new List<Order>();
+            order.Add(commande);
+
+            reportParameter.AddDatasource("dsCommande", order);
+            reportParameter.AddDatasource("dsLigneCommande", commande.OrderLines);
+            return ReportService.SaveReportToStream("Invoice.pdf", ReportService.GetReport(reportParameter));
         }
         public bool ValiderCodePostalLivraison(Order order)
         {
@@ -229,6 +249,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 commande.FinalizedDate = DateTime.Now;
                 commande.OrderStatus = OrderStatus.IsOrdered;
                 commande = Enregistrer(commande);
+                CourrielService.EnvoyerCommandeFinaliser(commande, ObtenirFacturePourPdf(commande));
             }
             return commande;
         }

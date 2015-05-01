@@ -30,19 +30,20 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), client);
             EnvoyerCourriel(client.User.Login, courriel.From, sujet, corps);
         }
-        public void EnvoyerConfirmationCommande(Order commande)
+        public void EnvoyerConfirmationCommandeEstEnLivraison(Order commande, Stream facture)
         {
             Mail courriel = DAOCourriel.ObtenirMail("CONFIRMATION_COMMANDE");
             string sujet = RemplacerAvecNomChamp(ObtenirSujet(courriel), commande);
             string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), commande);
-            EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps);
+            EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps, facture, "Invoice.pdf");
         }
-        public void EnvoyerInformationCommande(Order commande)
+        public void EnvoyerCommandeFinaliser(Order commande, Stream facture)
         {
             Mail courriel = DAOCourriel.ObtenirMail("INFORMATION_COMMANDE");
             string sujet = RemplacerAvecNomChamp(ObtenirSujet(courriel), commande);
             string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), commande);
-            EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps);
+            EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps, facture, "Invoice.pdf");
+            EnvoyerCourriel(ParameterService.GetValue("CourrielAdministrateur"), courriel.From, sujet, corps, facture, "Invoice.pdf");
         }
         public void EnvoyerMotPasseOublie(Customer client)
         {
@@ -55,7 +56,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             return ParameterService.GetValue("Environment") != "PROD" ? EnvoyerDeveloppement(to, from, subject, body) : EnvoyerProduction(to, from, subject, body, null, string.Empty);
         }
-        public bool EnvoyerCourriel(string to, string from, string subject, string body, Stream file, string fileName)
+        private bool EnvoyerCourriel(string to, string from, string subject, string body, Stream file, string fileName)
         {
             return ParameterService.GetValue("Environment") != "PROD" ? EnvoyerDeveloppement(to, from, subject, body) : EnvoyerProduction(to, from, subject, body, file, fileName);
         }

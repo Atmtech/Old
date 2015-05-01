@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using ATMTECH.ShoppingCart.Entities;
 
 namespace ATMTECH.ShoppingCart.Services.Interface.Francais
@@ -19,5 +20,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
         IList<Order> ObtenirCommande();
         IList<OrderLine> ObtenirLigneCommande();
         void SupprimerLigneCommande(OrderLine ligneCommande);
+        Stream ObtenirFacturePourPdf(Order commande);
     }
 }

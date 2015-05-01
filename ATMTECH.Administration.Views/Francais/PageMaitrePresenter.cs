@@ -36,14 +36,7 @@ namespace ATMTECH.Administration.Views.Francais
         {
             base.OnViewLoaded();
             EstSiteHorsLigne();
-            if (AuthenticationService.AuthenticateUser != null)
-            {
-                View.EstConnecte = AuthenticationService.AuthenticateUser.IsAdministrator;
-            }
-            else
-            {
-                View.EstConnecte = false;
-            }
+            View.EstConnecte = AuthenticationService.AuthenticateUser != null && AuthenticationService.AuthenticateUser.IsAdministrator;
 
         }
         public void EstSiteHorsLigne()
@@ -248,6 +241,11 @@ namespace ATMTECH.Administration.Views.Francais
 
 
             return typeof(TModel).FullName + " Exécuté !!!<br>";
+        }
+
+        public void MettreSystemeEnProduction()
+        {
+            DatabaseService.ExecuteSql("UPDATE [Parameter] SET DESCRIPTION = 'PROD' WHERE CODE = 'Environment'", EnumDatabaseVendor.Mssql);
         }
     }
 }

@@ -70,7 +70,13 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
         }
         public bool ThrowExceptionIfNoPresenterBound { get; private set; }
-
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            lblVersion.Text = System.Reflection.Assembly.GetExecutingAssembly()
+                                              .GetName()
+                                              .Version
+                                              .ToString();
+        }
         protected void btnConnecterClick(object sender, EventArgs e)
         {
             Presenter.NavigationService.Redirect(Pages.LOGIN);

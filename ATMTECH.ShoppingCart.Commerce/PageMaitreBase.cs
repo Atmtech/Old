@@ -96,6 +96,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             if (id == "lblNombreElement") return true;
             if (id == "lblMarque") return true;
             if (id == "lblPrixOriginal") return true;
+            if (id == "lblVersion") return true;
             
             return false;
         }

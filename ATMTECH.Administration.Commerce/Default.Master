@@ -145,6 +145,8 @@
                                     <li>
                                         <asp:Button runat="server" Text="Ouvrir le système" ID="btnOuvrirSysteme" OnClick="btnOuvrirSystemeClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>
+                                        <asp:Button runat="server" Text="Ouvrir le système" ID="btnFlagPourmettreSystemeProduction" OnClick="btnFlagPourmettreSystemeProductionClick" CssClass="boutonMenu"></asp:Button></li>
+                                    <li>
                                         <asp:Button runat="server" Text="Initialiser le système" ID="btnInitialiserSysteme" OnClick="btnInitialiserSystemeClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li><a href="ExecuteSql.aspx">Exécuter du SQL</a> </li>
                                     
@@ -162,7 +164,7 @@
                 </table>
             </asp:Panel>
         </div>
-        Version: 20150416
+        Version: <asp:Label runat="server" ID="lblVersion"></asp:Label>
        
 
         <input type="hidden" id="EstFenetreModal" value="0" />

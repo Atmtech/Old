@@ -39,7 +39,13 @@ namespace ATMTECH.Administration.Commerce
             get { return txtMotDePasse.Text; }
             set { txtMotDePasse.Text = value; }
         }
-
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            lblVersion.Text = System.Reflection.Assembly.GetExecutingAssembly()
+                                              .GetName()
+                                              .Version
+                                              .ToString();
+        }
         protected void SignInClick(object sender, EventArgs e)
         {
             Presenter.OuvrirSession();
@@ -84,6 +90,11 @@ namespace ATMTECH.Administration.Commerce
         {
             Presenter.InitialiserSysteme();
             ShowMessage(new Message { Description = "Initialisation complétée", MessageType = Message.MESSAGE_TYPE_SUCCESS });
+        }
+
+        protected void btnFlagPourmettreSystemeProductionClick(object sender, EventArgs e)
+        {
+            Presenter.MettreSystemeEnProduction();
         }
     }
 

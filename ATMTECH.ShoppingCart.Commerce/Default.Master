@@ -142,7 +142,7 @@
             <div style="clear: both;"></div>
 
             <div class="copyRight">
-                Copyright © 2015 eCommerce
+                Copyright © 2015 checkleprix.com | v<asp:Label runat="server" ID="lblVersion"></asp:Label> 
             </div>
         </div>
 

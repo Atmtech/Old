@@ -40,10 +40,12 @@ namespace ATMTECH.ShoppingCart.Commerce
 
             if (!Page.IsPostBack)
             {
-                AfficherImagePrincipale("Images/Product/" + Fichiers.FirstOrDefault(x => x.IsPrincipal).File.FileName);
-                AfficherListeFichier(Fichiers);
+                if (Fichiers.Count > 0)
+                {
+                    AfficherImagePrincipale("Images/Product/" + Fichiers.FirstOrDefault(x => x.IsPrincipal).File.FileName);
+                    AfficherListeFichier(Fichiers);
+                }
             }
-
         }
         protected void dataListeFichierItemCommand(object source, DataListCommandEventArgs e)
         {

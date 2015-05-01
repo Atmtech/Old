@@ -26,7 +26,6 @@ namespace ATMTECH.ShoppingCart.Views
             int orderId = Convert.ToInt32(View.PaypalReturn.ResponseDetails.InvoiceID);
             View.OrderDisplay = OrderService.GetOrderWithFormat(orderId);
         }
-
         public void FinalizeOrder()
         {
             if (PayPalService.FinishPaypalTransaction(View.PaypalReturn))
@@ -44,8 +43,6 @@ namespace ATMTECH.ShoppingCart.Views
             View.IsOrderFinalized = false;
             MessageService.ThrowMessage(ErrorCode.ADM_PAYPAL_FINISH_FAILED);
         }
-
-
         public void PrintOrder()
         {
             int orderId = Convert.ToInt32(View.PaypalReturn.ResponseDetails.InvoiceID);
