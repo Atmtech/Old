@@ -58,6 +58,7 @@
     <Content Include="ConfirmCreate.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Images\WebSite\ArrowDropDownList.png" />
     <Content Include="Images\WebSite\EnSavoirPlus.png" />
     <Content Include="Images\WebSite\logo.png" />
@@ -190,6 +191,13 @@
     </Compile>
     <Compile Include="Content.aspx.designer.cs">
       <DependentUpon>Content.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="MailingList.aspx.cs">
       <DependentUpon>MailingList.aspx</DependentUpon>

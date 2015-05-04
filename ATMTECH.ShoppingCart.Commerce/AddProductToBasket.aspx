@@ -17,10 +17,8 @@
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-    <asp:UpdatePanel runat="server" ID="updatePanelAddProduct">
-        <ContentTemplate>
 
-
+   
             <div class="imageProduit">
                 <uc3:SlideShowFile ID="ListeFichier" runat="server" />
             </div>
@@ -93,9 +91,6 @@
                 </div>
             </div>
             <div style="clear: both;"></div>
-
-        </ContentTemplate>
-    </asp:UpdatePanel>
 
 
 </asp:Content>

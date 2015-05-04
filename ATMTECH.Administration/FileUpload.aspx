@@ -31,6 +31,7 @@
         <asp:ListItem Value="C:\WebSite\glv-an.boutiquecorpo.com\Images">glv-an.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="C:\WebSite\lauzon.boutiquecorpo.com\Images">lauzon.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="C:\WebSite\inrs.boutiquecorpo.com\Images">inrs.boutiquecorpo.com</asp:ListItem>
+        <asp:ListItem Value="C:\WebSite\pagesjaunes.boutiquecorpo.com\Images">pagesjaunes.boutiquecorpo.com</asp:ListItem>
         <asp:ListItem Value="C:\WebSite\dev.boutiquecorpo.com\Images">dev.boutiquecorpo.com</asp:ListItem>
 
         <%--<asp:ListItem Value="C:\Domains\cima-directeur.boutiquecorpo.com\www\Images">cima-directeur.boutiquecorpo.com</asp:ListItem>

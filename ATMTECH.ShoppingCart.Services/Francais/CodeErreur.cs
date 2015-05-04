@@ -7,6 +7,7 @@
         public const string ADM_ENREGISTRER_AVES_SUCCES = "ADM005";
         public const string ADM_FINALISER_COMMANDE_AVEC_PAYPAL_EST_EN_ERREUR = "ADM0014";
         public const string ADM_CREATION_NOM_UTILISATEUR_OBLIGATOIRE = "ADM0015";
+        
         public const string ADM_CREATION_UTILISATEUR_EST_UN_SUCCES = "ADM0016";
 
         public const string SC_ERREUR_AVEC_PUROLATOR = "SC0015";

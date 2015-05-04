@@ -16,26 +16,8 @@ namespace ATMTECH.ShoppingCart.Commerce
         public TPresenter Presenter { get; set; }
         public void ShowMessage(Message message)
         {
-            if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
-            {
-                if (Master != null)
-                {
-                    Panel panel = (Panel)Master.FindControl("pnlSuccess");
-                    Label literal = (Label)Master.FindControl("lblSuccess");
-                    literal.Text = message.Description;
-                    panel.Visible = true;
-                }
-            }
-            else
-            {
-                if (Master != null)
-                {
-                    Panel panel = (Panel)Master.FindControl("pnlError");
-                    Label literal = (Label)Master.FindControl("lblError");
-                    literal.Text = message.Description;
-                    panel.Visible = true;
-                }
-            }
+            Session["MessageEnvoye"] = message;
+            Response.Redirect("Error.aspx");
         }
         public void GetControlList<T>(ControlCollection controlCollection, List<T> resultCollection) where T : Control
         {
@@ -97,7 +79,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             if (id == "lblMarque") return true;
             if (id == "lblPrixOriginal") return true;
             if (id == "lblVersion") return true;
-            
+
             return false;
         }
         private void Localiser()

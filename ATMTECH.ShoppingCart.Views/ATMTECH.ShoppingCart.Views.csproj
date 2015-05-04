@@ -50,6 +50,7 @@
     <Compile Include="Francais\CatalogueProduitPresenter.cs" />
     <Compile Include="Francais\ContenuPresenter.cs" />
     <Compile Include="Francais\ConfirmationPaypalPresenter.cs" />
+    <Compile Include="Francais\ErreurPresenter.cs" />
     <Compile Include="Francais\PublicationCourrielPresenter.cs" />
     <Compile Include="Francais\ListeCategoriePresenter.cs" />
     <Compile Include="Francais\MerciCommandePresenter.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Francais\InformationClientPresenter.cs" />
     <Compile Include="Francais\IdentificationPresenter.cs" />
     <Compile Include="InformationsPresenter.cs" />
+    <Compile Include="Interface\Francais\IErreurPresenter.cs" />
     <Compile Include="Interface\Francais\IConfirmationPaypalPresenter.cs" />
     <Compile Include="Interface\Francais\IPublicationCourrielPresenter.cs" />
     <Compile Include="Interface\Francais\IContenuPresenter.cs" />

@@ -6,6 +6,7 @@ using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.Views.Interface;
 using ATMTECH.Web;
+using ATMTECH.Web.Services;
 using ATMTECH.WebControls;
 
 namespace ATMTECH.ShoppingCart.Commerce
@@ -17,26 +18,8 @@ namespace ATMTECH.ShoppingCart.Commerce
         public TPresenter Presenter { get; set; }
         public void ShowMessage(Message message)
         {
-            if (Message.MESSAGE_TYPE_SUCCESS == message.MessageType)
-            {
-                if (Master != null)
-                {
-                    Panel panel = (Panel) Master.FindControl("pnlSuccess");
-                    Label literal = (Label) Master.FindControl("lblSuccess");
-                    literal.Text = message.Description;
-                    panel.Visible = true;
-                }
-            }
-            else
-            {
-                if (Master != null)
-                {
-                    Panel panel = (Panel) Master.FindControl("pnlError");
-                    Label literal = (Label) Master.FindControl("lblError");
-                    literal.Text = message.Description;
-                    panel.Visible = true;
-                }
-            }
+            Session["MessageEnvoye"] = message;
+            Response.Redirect("Error.aspx");
         }
         public void FillDropDown(DropDownList dropDownList, object Source)
         {
