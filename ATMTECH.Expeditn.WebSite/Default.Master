@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ATMTECH.Expeditn.WebSite.Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/Site.css" rel="stylesheet" type="text/css" />
+    <link href="JQuery/jquery-ui-1.11.2/css/lightbox.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.custom.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/ComboBox.css" rel="stylesheet" />
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/autoNumeric.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.slider.js"></script>
+</head>
+<body style="margin: 0 0 0 0;">
+    <form id="form1" runat="server">
+        <div class="total">
+            .
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td style="vertical-align: top; width: 300px;">
+                        <div style="font-family: Pacifico, sans-serif; padding-left: 100px; padding-top: 100px; color: Black; font-size: 70px;">
+                            <div style="background-color: white; width: 310px; border-radius: 20px; padding-left: 10px; padding-right: 10px;">
+                                <a href="Default.aspx">Expedit'n</a>
+                            </div>
+                        </div>
+                        <div style="padding-top: 20px; padding-left: 105px; color: black; font-size: 20px; font-weight: bold;">
+                            <asp:Label runat="server" ID="lblPourPlanifierUneExpeditionMemorable" Text="Planificateur d'expédition mémorable ..."></asp:Label>
+                        </div>
+                        <div style="padding-left: 105px; padding-top: 10px;">
+                            <asp:Button runat="server" ID="btnIdentification" Text="Identifiez vous ou créez un compte" CssClass="bouton" OnClick="btnIdentificationClick" />
+                        </div>
+                        <div style="padding-left: 105px; padding-top: 10px; display: none;">
+                            Dernier en ligne:
+                            <div style="background-color: black; opacity: 0.5; border-radius: 10px; width: 200px; border: solid 3px white;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <img src="Images/Utilisateur/1.jpg" style="width: 50px; height: 45px;" /></td>
+                                        <td style="vertical-align: top; color: white; font-size: 10px;"><b>Evelyne</b><br />
+                                            3 Expéditions </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="background-color: black; opacity: 0.5; border-radius: 10px; width: 200px; border: solid 3px white;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <img src="Images/Utilisateur/2.jpg" style="width: 50px; height: 45px;" /></td>
+                                        <td style="vertical-align: top; color: white; font-size: 10px;"><b>Evelyne</b><br />
+                                            3 Expéditions </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="padding-left: 100px; vertical-align: top; ">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+
+                </tr>
+            </table>
+            <div style="width: 100%; background-color: rgb(68, 68, 68); color: white; height: 35px; text-align: center; padding-top: 20px; font-size: 12px;">
+                Copyright © 2015 expeditn.com | v<asp:Label runat="server" ID="lblVersion"></asp:Label>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>

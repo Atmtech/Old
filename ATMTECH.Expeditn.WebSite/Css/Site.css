@@ -1,0 +1,93 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+body
+{
+    font-family: Montserrat;
+}
+
+.total
+{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: url(/Images/Background/trip1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    opacity: 0.3;
+}
+
+.circle
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 250px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 150px;
+    text-align: center;
+    background: #000;
+    border: solid 5px bisque;
+}
+
+A
+{
+    text-decoration: none;
+    color: Black;
+}
+
+
+.bouton
+{
+    -webkit-appearance: none;
+    border: none;
+    height: 35px;
+    background-color: rgb(0, 150, 31);
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    cursor: pointer;
+}
+
+    .bouton:hover
+    {
+        background-color: rgb(21, 116, 31);
+    }
+
+    .bouton:disabled
+    {
+        background: repeating-linear-gradient( 45deg, #575757, #575757 10px, #4a4949 10px, #4a4949 20px );
+        cursor: auto;
+    }
+
+.imageListeExpedition
+{
+    width: 275px;
+    height: 175px;
+    border: solid 3px gray;
+    border-radius: 10px;
+}
+
+.dropDownList
+{
+    border: 2px solid rgb(75, 75, 75);
+    border-radius: 5px;
+    padding: 3px;
+    -webkit-appearance: none;
+    background: black;
+    color: white;
+    background-image: url('../Images/WebSite/ArrowDropDownList.png');
+    background-position: 100%;
+    background-repeat: no-repeat;
+    text-indent: 0.01px; /*In Firefox*/
+    text-overflow: ''; /*In Firefox*/
+    font-size: 14px;
+    font-weight: bold;
+}
