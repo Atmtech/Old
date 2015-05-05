@@ -12,9 +12,13 @@ namespace ATMTECH.Expeditn.Entities
         public decimal Longitude { get; set; }
         public DateTime DateDebut { get; set; }
         public DateTime DateFin { get; set; }
+        public int NombreKilometre { get; set; }
+        public decimal PrixDuGazAuLitre { get; set; }
+        public decimal PrixDuGazAuGallon { get; set; }
         public string Pays { get; set; }
         public string Region { get; set; }
         public IList<Media> Media { get; set; }
         public IList<Materiel> Materiel { get; set; }
+        public bool EstMesureMetrique { get; set; }
     }
 }
