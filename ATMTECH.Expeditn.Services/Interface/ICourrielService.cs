@@ -5,5 +5,6 @@ namespace ATMTECH.Expeditn.Services.Interface
     public interface ICourrielService
     {
         void EnvoyerConfirmationCreationUtilisateur(User utilisateur);
+        void EnvoyerMotPasseOublie(User utilisateur);
     }
 }

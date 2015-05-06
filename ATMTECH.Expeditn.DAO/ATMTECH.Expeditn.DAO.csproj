@@ -39,12 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAOCourriel.cs" />
     <Compile Include="DAOEtape.cs" />
     <Compile Include="DAOCategorie.cs" />
     <Compile Include="DAOMedia.cs" />
     <Compile Include="DAOMateriel.cs" />
     <Compile Include="DAOParticipant.cs" />
     <Compile Include="DAOExpedition.cs" />
+    <Compile Include="Interface\IDAOCourriel.cs" />
     <Compile Include="Interface\IDAOEtape.cs" />
     <Compile Include="Interface\IDAOCategorie.cs" />
     <Compile Include="Interface\IDAOMedia.cs" />

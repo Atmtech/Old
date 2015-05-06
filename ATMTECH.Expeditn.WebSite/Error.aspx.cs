@@ -20,10 +20,15 @@ namespace ATMTECH.Expeditn.WebSite
                 pnlSuccess.Visible = true;
                 lblSuccess.Text = Message.Description;
             }
-            if (Message.MESSAGE_TYPE_ERROR == Message.MessageType)
+            else if (Message.MESSAGE_TYPE_ERROR == Message.MessageType)
             {
                 pnlError.Visible = true;
                 lblError.Text = Message.Description;
+            }
+            else
+            {
+                pnlError.Visible = true;
+                lblError.Text = Message.Description; 
             }
         }
 

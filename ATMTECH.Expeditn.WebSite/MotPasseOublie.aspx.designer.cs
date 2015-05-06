@@ -7,54 +7,45 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace ATMTECH.Expeditn.WebSite.UserControls {
+namespace ATMTECH.Expeditn.WebSite {
     
     
-    public partial class UtilisateurControl {
+    public partial class MotPasseOublie {
         
         /// <summary>
-        /// Contrôle lblNomPrenomUtilisateur.
+        /// Contrôle lblJaiOublieMonMotDePasse.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNomPrenomUtilisateur;
+        protected global::System.Web.UI.WebControls.Label lblJaiOublieMonMotDePasse;
         
         /// <summary>
-        /// Contrôle lblCourrielUtilisateur.
+        /// Contrôle lblCourrielMotPasseOublie.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCourrielUtilisateur;
+        protected global::System.Web.UI.WebControls.Label lblCourrielMotPasseOublie;
         
         /// <summary>
-        /// Contrôle lblIdUtilisateur.
+        /// Contrôle txtCourriel.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdUtilisateur;
+        protected global::System.Web.UI.WebControls.TextBox txtCourriel;
         
         /// <summary>
-        /// Contrôle btnAfficherMesExpeditions.
+        /// Contrôle btnEnvoyerCourriel.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAfficherMesExpeditions;
-        
-        /// <summary>
-        /// Contrôle btnCreerUneExpedition.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreerUneExpedition;
+        protected global::System.Web.UI.WebControls.Button btnEnvoyerCourriel;
     }
 }

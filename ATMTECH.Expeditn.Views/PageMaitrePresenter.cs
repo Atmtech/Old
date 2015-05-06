@@ -32,6 +32,7 @@ namespace ATMTECH.Expeditn.Views
         public void Deconnecter()
         {
             AuthenticationService.SignOut();
+            NavigationService.Redirect(Pages.DEFAULT);
         }
     }
 }

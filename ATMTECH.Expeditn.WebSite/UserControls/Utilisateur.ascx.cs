@@ -8,7 +8,10 @@ namespace ATMTECH.Expeditn.WebSite.UserControls
     {
         public bool EstUtilisateurAuthentifie
         {
-            set { btnAfficherMesExpeditions.Visible = value; }
+            set
+            {
+                btnAfficherMesExpeditions.Visible = value;
+            }
         }
         public User Utilisateur
         {

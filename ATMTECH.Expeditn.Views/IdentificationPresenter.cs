@@ -1,6 +1,7 @@
 ﻿using ATMTECH.Entities;
 using ATMTECH.Expeditn.Entities;
 using ATMTECH.Expeditn.Services;
+using ATMTECH.Expeditn.Services.Interface;
 using ATMTECH.Expeditn.Views.Base;
 using ATMTECH.Expeditn.Views.Interface;
 using ATMTECH.Web.Services.Interface;
@@ -15,7 +16,7 @@ namespace ATMTECH.Expeditn.Views
         }
 
         public IAuthenticationService AuthenticationService { get; set; }
-        //public IClientService ClientService { get; set; }
+        public IUtilisateurService UtilisateurService { get; set; }
 
         public void Identification()
         {
@@ -40,11 +41,11 @@ namespace ATMTECH.Expeditn.Views
                     FirstName = View.PrenomCreation,
                     LastName = View.NomCreation
                 };
-            
-            //if (ClientService.Creer(customer) != null)
-            //{
-            //    MessageService.ThrowMessage(CodeErreur.ADM_CREATION_UTILISATEUR_EST_UN_SUCCES);
-            //}
+
+            if (UtilisateurService.Creer(utilisateur) != null)
+            {
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATION_UTILISATEUR_EST_UN_SUCCES);
+            }
         }
     }
 }

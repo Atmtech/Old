@@ -9,6 +9,21 @@ namespace ATMTECH.Expeditn.WebSite
 {
     public partial class ExpeditionPage : PageBase<ExpeditionPresenter, IExpeditionPresenter>, IExpeditionPresenter
     {
+        public bool EstAdministrateur
+        {
+            set
+            {
+                txtTitreExpedition.Enabled = value;
+                txtDateDebut.Enabled = value;
+                txtDateFin.Enabled = value;
+                txtPays.Enabled = value;
+                txtRegion.Enabled = value;
+                txtdescriptionExpedition.Enabled = value;
+                ddlUtilisateur.Enabled = value;
+                btnAjouterUtilisateurAExpedition.Enabled = false;
+            }
+        }
+
         public int IdExpedition
         {
             get { return Convert.ToInt32(QueryString.GetQueryStringValue(PagesId.EXPEDITION)); }
@@ -17,6 +32,7 @@ namespace ATMTECH.Expeditn.WebSite
         {
             set
             {
+
                 txtTitreExpedition.Text = value.Nom;
                 txtDateDebut.Text = value.DateDebut.ToString();
                 txtDateFin.Text = value.DateFin.ToString();
@@ -25,7 +41,7 @@ namespace ATMTECH.Expeditn.WebSite
                 txtdescriptionExpedition.Text = value.Description;
                 lblBudget.Text = string.Format("{0:C}", value.Budget);
 
-                dataListeParticipant.DataSource = value.Participant.OrderByDescending(x=>x.EstAdministrateurExpedition);
+                dataListeParticipant.DataSource = value.Participant.OrderByDescending(x => x.EstAdministrateurExpedition);
                 dataListeParticipant.DataBind();
 
                 dataListEtape.DataSource = value.Etape;

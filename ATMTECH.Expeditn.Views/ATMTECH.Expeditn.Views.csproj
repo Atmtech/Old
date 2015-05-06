@@ -51,12 +51,18 @@
     <Compile Include="Interface\IAccueilPresenter.cs" />
     <Compile Include="Interface\IErreurPresenter.cs" />
     <Compile Include="Interface\IIdentificationPresenter.cs" />
+    <Compile Include="Interface\IMotPasseOubliePresenter.cs" />
     <Compile Include="Interface\IPageMaitrePresenter.cs" />
+    <Compile Include="MotPasseOubliePresenter.cs" />
     <Compile Include="PageMaitrePresenter.cs" />
     <Compile Include="Pages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
+      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
+      <Name>ATMTECH.DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>

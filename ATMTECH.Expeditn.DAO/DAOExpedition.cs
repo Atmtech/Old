@@ -29,7 +29,7 @@ namespace ATMTECH.Expeditn.DAO
                 rtn[0].Participant = DAOParticipant.ObtenirParticipant(rtn[0]);
                 rtn[0].Materiel = DAOMateriel.ObtenirMateriel(rtn[0]);
                 rtn[0].Media = DAOMedia.ObtenirMedia(rtn[0]);
-                rtn[0].Etape = DAOEtape.ObtenirEtape(rtn[0]);
+                rtn[0].Etape = DAOEtape.ObtenirEtape(rtn[0]).OrderBy(x => x.OrderId).ToList();
                 return rtn[0];
             }
             return null;

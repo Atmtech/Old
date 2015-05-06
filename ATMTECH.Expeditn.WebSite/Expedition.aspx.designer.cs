@@ -13,6 +13,24 @@ namespace ATMTECH.Expeditn.WebSite {
     public partial class ExpeditionPage {
         
         /// <summary>
+        /// Contrôle btnAfficherListeMaterielExpedition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAfficherListeMaterielExpedition;
+        
+        /// <summary>
+        /// Contrôle btnImprimerExpedition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnImprimerExpedition;
+        
+        /// <summary>
         /// Contrôle lblIdentificationExpedition.
         /// </summary>
         /// <remarks>
@@ -38,24 +56,6 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTitreExpedition;
-        
-        /// <summary>
-        /// Contrôle lblDescriptionExpedition.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescriptionExpedition;
-        
-        /// <summary>
-        /// Contrôle txtdescriptionExpedition.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.WebControls.Editor txtdescriptionExpedition;
         
         /// <summary>
         /// Contrôle lblDateDebutExpedition.
@@ -130,6 +130,24 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.TextBox txtRegion;
         
         /// <summary>
+        /// Contrôle lblDescriptionExpedition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescriptionExpedition;
+        
+        /// <summary>
+        /// Contrôle txtdescriptionExpedition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::ATMTECH.WebControls.Editor txtdescriptionExpedition;
+        
+        /// <summary>
         /// Contrôle lblAffichageBudget.
         /// </summary>
         /// <remarks>
@@ -148,22 +166,22 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.Label lblBudget;
         
         /// <summary>
-        /// Contrôle btnAfficherListeMaterielExpedition.
+        /// Contrôle lblLesEtapesExpedition.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAfficherListeMaterielExpedition;
+        protected global::System.Web.UI.WebControls.Label lblLesEtapesExpedition;
         
         /// <summary>
-        /// Contrôle btnImprimerExpedition.
+        /// Contrôle dataListEtape.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnImprimerExpedition;
+        protected global::System.Web.UI.WebControls.DataList dataListEtape;
         
         /// <summary>
         /// Contrôle lblListeParticipant.
@@ -200,23 +218,5 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList dataListeParticipant;
-        
-        /// <summary>
-        /// Contrôle lblLesEtapesExpedition.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLesEtapesExpedition;
-        
-        /// <summary>
-        /// Contrôle dataListEtape.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dataListEtape;
     }
 }

@@ -39,7 +39,7 @@ namespace ATMTECH.Expeditn.Entities
         {
             get
             {
-                return Media != null ? Media.FirstOrDefault(x => x.EstFichierPrincipale).Fichier.FileName : "AucuneImage.png";
+                return Media != null ? Media.FirstOrDefault(x => x.EstFichierPrincipaleExpedition).Fichier.FileName : "AucuneImage.png";
 
             }
         }

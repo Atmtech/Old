@@ -25,7 +25,6 @@ namespace ATMTECH.Expeditn.Services
             }
             return null;
         }
-
         private bool EstUtilisateurExistant(User utilisateur)
         {
             User user = DAOUser.GetUser(utilisateur.Login);

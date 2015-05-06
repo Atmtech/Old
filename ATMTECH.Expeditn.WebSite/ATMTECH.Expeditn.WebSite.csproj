@@ -354,6 +354,7 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.slider.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
+    <Content Include="MotPasseOublie.aspx" />
     <Content Include="UserControls\ListeExpedition.ascx" />
     <Content Include="UserControls\Utilisateur.ascx" />
     <Content Include="Web.config">
@@ -398,6 +399,13 @@
     </Compile>
     <Compile Include="Identification.aspx.designer.cs">
       <DependentUpon>Identification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MotPasseOublie.aspx.cs">
+      <DependentUpon>MotPasseOublie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MotPasseOublie.aspx.designer.cs">
+      <DependentUpon>MotPasseOublie.aspx</DependentUpon>
     </Compile>
     <Compile Include="PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>

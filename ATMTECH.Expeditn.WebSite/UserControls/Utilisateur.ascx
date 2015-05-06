@@ -11,7 +11,8 @@
             </b>
                 <br /><br />
                 <asp:Label runat="server" ID="lblIdUtilisateur" Visible="False"></asp:Label>
-                <asp:Button runat="server" ID="btnAfficherMesExpeditions" Text="Afficher mes expeditions" CssClass="boutonSimple" Visible="False" OnClick="btnAfficherMesExpeditionsClick" />
+                <asp:Button runat="server" ID="btnAfficherMesExpeditions" Text="Afficher mes expeditions" CssClass="bouton" Visible="False" OnClick="btnAfficherMesExpeditionsClick" />
+                <asp:Button runat="server" ID="btnCreerUneExpedition" Text="Créer une expédition" CssClass="bouton" />
             </td>
         </tr>
     </table>
