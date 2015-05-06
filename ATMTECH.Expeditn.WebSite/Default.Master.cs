@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data.SqlTypes;
+using ATMTECH.Entities;
 using ATMTECH.Expeditn.Views;
 using ATMTECH.Expeditn.Views.Interface;
 
@@ -19,6 +21,33 @@ namespace ATMTECH.Expeditn.WebSite
         protected void btnIdentificationClick(object sender, EventArgs e)
         {
             Presenter.RedirigerIdentification();
+        }
+
+        public User Utilisateur
+        {
+            set
+            {
+                if (value == null)
+                {
+                    pnlIdentification.Visible = true;
+                    pnlIdentifier.Visible = false;
+                    pnlDeconnecter.Visible = false;
+                }
+                else
+                {
+                    pnlIdentification.Visible = false;
+                    UtilisateurIdentifier.Utilisateur = value;
+                    UtilisateurIdentifier.EstUtilisateurAuthentifie = true;
+                    pnlIdentifier.Visible = true;
+                    pnlDeconnecter.Visible = true;
+                }
+
+            }
+        }
+
+        protected void btnDeconnecterClick(object sender, EventArgs e)
+        {
+            Presenter.Deconnecter();
         }
     }
 }

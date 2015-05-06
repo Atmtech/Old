@@ -44,42 +44,15 @@ namespace ATMTECH.Expeditn.WebSite
 
         private bool EstExclus(string id)
         {
-            if (id == "lblPrixAvant") return true;
-            if (id == "lblPrixActuel") return true;
-            if (id == "lblPrixMaintenant") return true;
-            if (id == "lblPrixVente") return true;
-            if (id == "lblNomProduit") return true;
-            if (id == "lblVentes") return true;
+            if (id == "lblBudget") return true;
+            if (id == "lblTitre") return true;
             if (id == "lblDescription") return true;
-            if (id == "lblIdentProduit") return true;
-            if (id == "lblPrixUnitaire") return true;
-            if (id == "lblSousTotal") return true;
-            if (id == "lblTaxeProvinciale") return true;
-            if (id == "lblTaxeFederale") return true;
-            if (id == "lblCoutLivraison") return true;
-            if (id == "lblGrandTotal") return true;
-            if (id == "lblAdresseLivraison") return true;
-            if (id == "lblAdresseFacturation") return true;
-            if (id == "lblPrixUnitairePaye") return true;
-            if (id == "lblIdent") return true;
-            if (id == "btnNomClient") return true;
-            if (id == "btnPanier") return true;
-            if (id == "lblError") return true;
-            if (id == "lblSuccess") return true;
-            if (id == "lblCaracteristique") return true;
-            if (id == "lblPrixAjuste") return true;
-            if (id == "lblPrixEpargner") return true;
-            if (id == "lblNumeroCommande") return true;
-            if (id == "lblContenu") return true;
-            if (id == "lblGrandTotalApresCoupon") return true;
-            if (id == "lblCouponValeur") return true;
-            if (id == "lblAffichageCommande") return true;
-            if (id == "lblMarque") return true;
-            if (id == "lblNombreElement") return true;
-            if (id == "lblMarque") return true;
-            if (id == "lblPrixOriginal") return true;
-            if (id == "lblVersion") return true;
-
+            if (id == "lblParticipant") return true;
+            if (id == "lblEstAdministrateur") return true;
+            if (id == "lblChef") return true;
+            if (id == "lblNombreParticipant") return true;
+            if (id == "lblNomPrenomUtilisateur") return true;
+            if (id == "lblIdUtilisateur") return true;
             return false;
         }
         private void Localiser()

@@ -44,8 +44,10 @@
   <ItemGroup>
     <Compile Include="Base\BaseExpeditnPresenter.cs" />
     <Compile Include="AccueilPresenter.cs" />
+    <Compile Include="ExpeditionPresenter.cs" />
     <Compile Include="ErreurPresenter.cs" />
     <Compile Include="IdentificationPresenter.cs" />
+    <Compile Include="Interface\IExpeditionPresenter.cs" />
     <Compile Include="Interface\IAccueilPresenter.cs" />
     <Compile Include="Interface\IErreurPresenter.cs" />
     <Compile Include="Interface\IIdentificationPresenter.cs" />
@@ -58,6 +60,10 @@
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Expeditn.DAO\ATMTECH.Expeditn.DAO.csproj">
+      <Project>{D8370FB3-11E0-47D2-8DDE-41CA4601AD7A}</Project>
+      <Name>ATMTECH.Expeditn.DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Expeditn.Entitiess\ATMTECH.Expeditn.Entities.csproj">
       <Project>{9B32691F-85B3-44B6-BDD8-921F0AAD3F99}</Project>
@@ -74,6 +80,10 @@
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
       <Name>ATMTECH.Web.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Web\ATMTECH.Web.csproj">
+      <Project>{F4ED3261-CB00-4C89-B481-56806262BFCF}</Project>
+      <Name>ATMTECH.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

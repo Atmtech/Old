@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ATMTECH.Expeditn.WebSite.Default" %>
 
+<%@ Register src="UserControls/Utilisateur.ascx" tagname="Utilisateur" tagprefix="uc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,7 +29,7 @@
             .
         </div>
         <div>
-            <table>
+            <table style="width: 100%;">
                 <tr>
                     <td style="vertical-align: top; width: 300px;">
                         <div style="font-family: Pacifico, sans-serif; padding-left: 100px; padding-top: 100px; color: Black; font-size: 70px;">
@@ -38,34 +40,19 @@
                         <div style="padding-top: 20px; padding-left: 105px; color: black; font-size: 20px; font-weight: bold;">
                             <asp:Label runat="server" ID="lblPourPlanifierUneExpeditionMemorable" Text="Planificateur d'expédition mémorable ..."></asp:Label>
                         </div>
-                        <div style="padding-left: 105px; padding-top: 10px;">
+
+                        <asp:Panel runat="server" ID="pnlIdentification" CssClass="panneauIdentification">
                             <asp:Button runat="server" ID="btnIdentification" Text="Identifiez vous ou créez un compte" CssClass="bouton" OnClick="btnIdentificationClick" />
-                        </div>
-                        <div style="padding-left: 105px; padding-top: 10px; display: none;">
-                            Dernier en ligne:
-                            <div style="background-color: black; opacity: 0.5; border-radius: 10px; width: 200px; border: solid 3px white;">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <img src="Images/Utilisateur/1.jpg" style="width: 50px; height: 45px;" /></td>
-                                        <td style="vertical-align: top; color: white; font-size: 10px;"><b>Evelyne</b><br />
-                                            3 Expéditions </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div style="background-color: black; opacity: 0.5; border-radius: 10px; width: 200px; border: solid 3px white;">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <img src="Images/Utilisateur/2.jpg" style="width: 50px; height: 45px;" /></td>
-                                        <td style="vertical-align: top; color: white; font-size: 10px;"><b>Evelyne</b><br />
-                                            3 Expéditions </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
+                        </asp:Panel>
+                        <asp:Panel runat="server" ID="pnlDeconnecter" CssClass="panneauIdentification">
+                            <asp:Button runat="server" ID="btnDeconnecter" Text="Déconnecter" CssClass="bouton" OnClick="btnDeconnecterClick" />
+                        </asp:Panel>
+                        <asp:Panel runat="server" ID="pnlIdentifier" CssClass="panneauIdentification">
+                            <uc1:Utilisateur ID="UtilisateurIdentifier" runat="server" />
+                        </asp:Panel>
+
                     </td>
-                    <td style="padding-left: 100px; vertical-align: top; ">
+                    <td style="padding-left: 100px; vertical-align: top;">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                     </td>

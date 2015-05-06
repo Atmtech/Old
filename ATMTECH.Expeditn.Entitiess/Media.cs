@@ -6,6 +6,7 @@ namespace ATMTECH.Expeditn.Entities
     {
         public Expedition Expedition { get; set; }
         public File Fichier { get; set; }
+        public bool EstFichierPrincipale { get; set; }
         public bool EstPrive { get; set; }
     }
 }

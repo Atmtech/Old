@@ -28,6 +28,14 @@ namespace ATMTECH.Expeditn.WebSite
             dropDownList.DataValueField = BaseEntity.ID;
             dropDownList.DataBind();
         }
+        public void FillDropDown(DropDownList dropDownList, object Source, string DisplayText)
+        {
+            dropDownList.DataSource = Source;
+            dropDownList.DataTextField = DisplayText;
+            dropDownList.DataValueField = BaseEntity.ID;
+            dropDownList.DataBind();
+        }
+
         public void FillDropDown(ComboBox dropDownList, object Source)
         {
             dropDownList.DataSource = Source;
@@ -86,7 +94,7 @@ namespace ATMTECH.Expeditn.WebSite
             foreach (Control control in controlCollection)
             {
                 if (control is T)
-                    resultCollection.Add((T) control);
+                    resultCollection.Add((T)control);
 
                 if (control.HasControls())
                     GetControlList(control.Controls, resultCollection);

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Error.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.Error" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Error.aspx.cs" Inherits="ATMTECH.Expeditn.WebSite.Error" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="center">
+    <div class="erreur">
         <asp:Panel runat="server" ID="pnlError" CssClass="errorMessage" Visible="False">
             <table>
                 <tr>
@@ -17,8 +17,6 @@
                     </td>
                 </tr>
             </table>
-
-
         </asp:Panel>
         <asp:Panel runat="server" ID="pnlSuccess" CssClass="successMessage" BorderStyle="Solid" Visible="False">
             <table>
@@ -36,6 +34,6 @@
         </asp:Panel>
     </div>
 
-    <asp:Button runat="server" ID="btnRetourAccueil" Text="Retourner à l'accueil" OnClick="btnRetourAccueilClick" CssClass="boutonActionRond" />
+    <asp:Button runat="server" ID="btnRetourAccueil" Text="Retourner à l'accueil" OnClick="btnRetourAccueilClick" CssClass="bouton" />
 
 </asp:Content>

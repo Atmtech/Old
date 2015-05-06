@@ -13,9 +13,25 @@ namespace ATMTECH.Expeditn.Views
 
         public IAuthenticationService AuthenticationService { get; set; }
 
+        public override void OnViewInitialized()
+        {
+            base.OnViewInitialized();
+            AfficherUtilisateur();
+        }
+
+        public void AfficherUtilisateur()
+        {
+            View.Utilisateur = AuthenticationService.AuthenticateUser;
+        }
+
         public void RedirigerIdentification()
         {
-           NavigationService.Redirect(Pages.IDENTIFICATION);
+            NavigationService.Redirect(Pages.IDENTIFICATION);
+        }
+
+        public void Deconnecter()
+        {
+            AuthenticationService.SignOut();
         }
     }
 }
