@@ -31,6 +31,42 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Contrôle tb_fromPoint.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_fromPoint;
+        
+        /// <summary>
+        /// Contrôle tb_endPoint.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_endPoint;
+        
+        /// <summary>
+        /// Contrôle GMap2.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::Subgurim.Controles.GMap GMap2;
+        
+        /// <summary>
+        /// Contrôle GMap1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::Subgurim.Controles.GMap GMap1;
+        
+        /// <summary>
         /// Contrôle lblPourPlanifierUneExpeditionMemorable.
         /// </summary>
         /// <remarks>
@@ -92,6 +128,15 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::ATMTECH.Expeditn.WebSite.UserControls.UtilisateurControl UtilisateurIdentifier;
+        
+        /// <summary>
+        /// Contrôle btnTestGoogleMap.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTestGoogleMap;
         
         /// <summary>
         /// Contrôle ContentPlaceHolder1.

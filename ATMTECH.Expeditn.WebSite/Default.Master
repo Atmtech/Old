@@ -2,6 +2,8 @@
 
 <%@ Register src="UserControls/Utilisateur.ascx" tagname="Utilisateur" tagprefix="uc1" %>
 
+<%@ Register assembly="GMaps" namespace="Subgurim.Controles" tagprefix="cc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,10 +27,21 @@
 </head>
 <body style="margin: 0 0 0 0;">
     <form id="form1" runat="server">
+        
         <div class="total">
             .
+           
         </div>
         <div>
+         
+            Start Location: <asp:TextBox ID="tb_fromPoint" runat="server" ></asp:TextBox>
+End Location: <asp:TextBox ID="tb_endPoint" runat="server" ></asp:TextBox>
+<input type="button" id="bt_Go" value="Let's go!" />
+<div id="div_directions"></div>
+               
+       <cc1:GMap ID="GMap1" runat="server" />
+            
+
             <table style="width: 100%;">
                 <tr>
                     <td style="vertical-align: top; width: 300px;">
@@ -50,7 +63,8 @@
                         <asp:Panel runat="server" ID="pnlIdentifier" CssClass="panneauIdentification">
                             <uc1:Utilisateur ID="UtilisateurIdentifier" runat="server" />
                         </asp:Panel>
-
+                        
+                        <asp:Button runat="server" ID="btnTestGoogleMap" OnClick="btnTestGoogleMapClick" Text="test"/>
                     </td>
                     <td style="padding-left: 100px; vertical-align: top;">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

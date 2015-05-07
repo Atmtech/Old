@@ -48,7 +48,12 @@ namespace ATMTECH.ShoppingCart.Entities
         {
             get
             {
-                return Math.Round(((UnitPrice - SalePrice) / UnitPrice) * 100, 0);
+                if (UnitPrice !=0)
+                    return Math.Round(((UnitPrice - SalePrice) / UnitPrice) * 100, 0);
+                else
+                {
+                    return 0;
+                }
             }
         }
         public string PrincipalFileUrl

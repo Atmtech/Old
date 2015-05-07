@@ -37,7 +37,7 @@ namespace ATMTECH.Web.Services
             MailAddress fromx = new MailAddress(from, "");
             MailAddress tox = new MailAddress(to, "");
 
-            string subjectFormat = Pages.RemoveHtmlTag(subject);
+            string subjectFormat = Pages.RemoveHtmlTag(subject).Replace("\r\n", "");
             MailMessage message = new MailMessage(fromx, tox) { IsBodyHtml = true, Body = body, Subject = subjectFormat };
             LogService.LogMail(message);
             return Send(message, file, fileName);
@@ -59,7 +59,7 @@ namespace ATMTECH.Web.Services
             {
                 SmtpClient client = new SmtpClient(ParameterService.GetValue("SmtpServer"),
                                                    Convert.ToInt32(ParameterService.GetValue("SmtpServerPort"))) { EnableSsl = true };
-               
+
                 NetworkCredential myCreds = new NetworkCredential(ParameterService.GetValue("SmtpServerLogin"), ParameterService.GetValue("SmtpServerPassword"), "");
                 client.Credentials = myCreds;
 

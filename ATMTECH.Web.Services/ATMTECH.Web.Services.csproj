@@ -53,6 +53,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -69,7 +70,9 @@
     <Compile Include="Base\BaseService.cs" />
     <Compile Include="Base\IBaseService.cs" />
     <Compile Include="Base\ParameterConstant.cs" />
+    <Compile Include="GoogleMapService.cs" />
     <Compile Include="ErrorCode.cs" />
+    <Compile Include="Interface\IGoogleMapService.cs" />
     <Compile Include="WeatherService.cs" />
     <Compile Include="Interface\IWeatherService.cs" />
     <Compile Include="Service References\GlobalWeatherService\Reference.cs">

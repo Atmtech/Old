@@ -205,7 +205,7 @@
                 </table>
             </asp:Panel>
         </div>
-        Version: 20150109
+        Version: <asp:Label runat="server" ID="lblVersion"></asp:Label>
        
 
         <input type="hidden" id="EstFenetreModal" value="0" />

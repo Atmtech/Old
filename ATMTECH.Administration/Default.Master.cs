@@ -26,6 +26,12 @@ namespace ATMTECH.Administration
             Presenter.OnViewLoaded();
 
             pnlShoppingCart.Visible = true;
+
+            lblVersion.Text = System.Reflection.Assembly.GetExecutingAssembly()
+                                             .GetName()
+                                             .Version
+                                             .ToString();
+
         }
 
         public bool IsAdministrator { set; get; }

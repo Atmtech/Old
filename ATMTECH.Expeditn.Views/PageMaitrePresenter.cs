@@ -1,5 +1,6 @@
 ﻿using ATMTECH.Expeditn.Views.Base;
 using ATMTECH.Expeditn.Views.Interface;
+using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.Expeditn.Views
@@ -12,6 +13,7 @@ namespace ATMTECH.Expeditn.Views
         }
 
         public IAuthenticationService AuthenticationService { get; set; }
+        public IGoogleMapService GoogleMapService { get; set; }
 
         public override void OnViewInitialized()
         {
@@ -33,6 +35,11 @@ namespace ATMTECH.Expeditn.Views
         {
             AuthenticationService.SignOut();
             NavigationService.Redirect(Pages.DEFAULT);
+        }
+
+        public void TestGoogleMap()
+        {
+           // GoogleMapService.AfficherImage("1318 rue des frênes Canada Lévis", TypeCarteAffiche.Satellite);
         }
     }
 }
