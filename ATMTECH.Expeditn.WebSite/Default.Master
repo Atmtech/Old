@@ -33,15 +33,6 @@
            
         </div>
         <div>
-         
-            Start Location: <asp:TextBox ID="tb_fromPoint" runat="server" ></asp:TextBox>
-End Location: <asp:TextBox ID="tb_endPoint" runat="server" ></asp:TextBox>
-<input type="button" id="bt_Go" value="Let's go!" />
-<div id="div_directions"></div>
-               
-       <cc1:GMap ID="GMap1" runat="server" />
-            
-
             <table style="width: 100%;">
                 <tr>
                     <td style="vertical-align: top; width: 300px;">

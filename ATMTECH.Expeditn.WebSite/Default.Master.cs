@@ -18,21 +18,21 @@ namespace ATMTECH.Expeditn.WebSite
                                               .Version
                                               .ToString();
 
-            string key = "";
+            //string key = "";
 
-            GDirection direction = new GDirection();
-            direction.autoGenerate = false;
-            direction.buttonElementId = "bt_Go";
-            direction.fromElementId = tb_fromPoint.ClientID;
-            direction.toElementId = tb_endPoint.ClientID;
-            direction.divElementId = "div_directions";
-            direction.clearMap = true;
+            //GDirection direction = new GDirection();
+            //direction.autoGenerate = false;
+            //direction.buttonElementId = "bt_Go";
+            //direction.fromElementId = tb_fromPoint.ClientID;
+            //direction.toElementId = tb_endPoint.ClientID;
+            //direction.divElementId = "div_directions";
+            //direction.clearMap = true;
 
-            //direction.avoidHighways = true;
-            //direction.travelMode = GDirection.GTravelModeEnum.G_TRAVEL_MODE_WALKING;
-            //direction.locale = "en";
-            GMap1.enableStore = true;
-            GMap1.Add(direction);
+            ////direction.avoidHighways = true;
+            ////direction.travelMode = GDirection.GTravelModeEnum.G_TRAVEL_MODE_WALKING;
+            ////direction.locale = "en";
+            //GMap1.enableStore = true;
+            //GMap1.Add(direction);
 
             //GDirection direction = new GDirection(true);
             //direction.autoGenerate = true;
