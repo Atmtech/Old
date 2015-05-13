@@ -56,7 +56,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
         public void GererAffichage_SiAucunUtilisateurConnecteImpossibleDeCommander()
         {
             ObtenirMock<ICustomerService>().Setup(x => x.AuthenticateCustomer).Returns((Customer)null);
-            InstanceTest.GererAffichage();
+            InstanceTest.GererAffichagePourPossibiliteCommander();
             ViewMock.VerifySet(v => v.EstPossibleDeCommander = false);
         }
     }
