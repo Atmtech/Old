@@ -1,14 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" EnableEventValidation="false"
     CodeBehind="Basket.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.Basket" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-    <asp:UpdatePanel runat="server" ID="updatePanelPanier">
-        <ContentTemplate>
-
-
     <div class="Panier">
         <div class="titreDansPage">
             <asp:Label runat="server" ID="lblVotrePanier" Text="Panier"></asp:Label>
@@ -155,7 +150,5 @@
 
 
     </div>
-                    </ContentTemplate>
-    </asp:UpdatePanel>
 
 </asp:Content>

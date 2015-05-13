@@ -38,6 +38,7 @@ namespace ATMTECH.ShoppingCart.Views.Pages
         public const string BRAND = "Brand";
         public const string ORDER_BY_PRICE = "OrderByPrice";
         public const string REMOVE_MAILING_LIST = "RemoveEmail";
+        public const string CHARTE = "Charte";
     }
 
     public class ContentIdValue

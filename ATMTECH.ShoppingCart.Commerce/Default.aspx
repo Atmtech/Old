@@ -21,6 +21,7 @@
         <a href="ProductCatalog.aspx?Brand=OutdoorCap"><img src="Images/WebSite/LogoOutdoorCap.jpg" class="imageLogoMarqueAccueil" /></a>
         <a href="ProductCatalog.aspx?Brand=VanHeusen"><img src="Images/WebSite/LogoVanHeusen.jpg" class="imageLogoMarqueAccueil" /></a>
         <a href="ProductCatalog.aspx?Brand=Yupoong"><img src="Images/WebSite/LogoYupoong.jpg" class="imageLogoMarqueAccueil" /></a>
+        
     </div>
     <div class="vente">
         <asp:Label runat="server" ID="lblItemEnVenteActuellement" Text="Items en vente actuellement"></asp:Label>

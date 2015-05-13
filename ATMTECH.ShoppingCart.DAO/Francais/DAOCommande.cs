@@ -30,6 +30,7 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             IList<Order> commandes = GetByCriteria(criterias);
             foreach (Order commande in commandes)
             {
+                commande.Enterprise = DAOEnterprise.GetEnterprise(commande.Enterprise.Id);
                 commande.OrderLines = DAOLigneCommande.ObtenirLigneCommande(commande);
                 commande.ShippingAddress = DAOAddress.GetAddress(commande.ShippingAddress.Id);
                 commande.BillingAddress = DAOAddress.GetAddress(commande.BillingAddress.Id);

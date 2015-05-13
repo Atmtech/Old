@@ -19,13 +19,12 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public ICommandeService CommandeService { get; set; }
         public IClientService ClientService { get; set; }
 
-        public override void OnViewLoaded()
+        public override void OnViewInitialized()
         {
-            base.OnViewLoaded();
+            base.OnViewInitialized();
             AfficherPanier();
         }
 
-        
         public void AfficherPanier()
         {
             Customer customer = ClientService.ClientAuthentifie;

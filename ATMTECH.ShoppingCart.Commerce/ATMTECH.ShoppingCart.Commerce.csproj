@@ -55,12 +55,20 @@
   <ItemGroup>
     <Content Include="AddProductToBasket.aspx" />
     <Content Include="Basket.aspx" />
+    <Content Include="Charte.aspx" />
     <Content Include="ConfirmCreate.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="Images\WebSite\anvil.jpg" />
     <Content Include="Images\WebSite\ArrowDropDownList.png" />
+    <Content Include="Images\WebSite\bella.jpg" />
+    <Content Include="Images\WebSite\ckvh.jpg" />
+    <Content Include="Images\WebSite\cozy.jpg" />
     <Content Include="Images\WebSite\EnSavoirPlus.png" />
+    <Content Include="Images\WebSite\gildan.jpg" />
+    <Content Include="Images\WebSite\Horst.jpg" />
+    <Content Include="Images\WebSite\king.jpg" />
     <Content Include="Images\WebSite\logo.png" />
     <Content Include="Images\WebSite\LogoAnvil.jpg" />
     <Content Include="Images\WebSite\LogoBella.jpg" />
@@ -70,9 +78,15 @@
     <Content Include="Images\WebSite\LogoGildan.jpg" />
     <Content Include="Images\WebSite\LogoNewBalance.jpg" />
     <Content Include="Images\WebSite\Logonike.jpg" />
+    <Content Include="Images\WebSite\LogoOakley.jpg" />
     <Content Include="Images\WebSite\LogoOutdoorCap.jpg" />
     <Content Include="Images\WebSite\LogoVanHeusen.jpg" />
     <Content Include="Images\WebSite\LogoYupoong.jpg" />
+    <Content Include="Images\WebSite\mo.jpg" />
+    <Content Include="Images\WebSite\NewBalance.jpg" />
+    <Content Include="Images\WebSite\Nike.jpg" />
+    <Content Include="Images\WebSite\Oakley.jpg" />
+    <Content Include="Images\WebSite\SportT.jpg" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\a11.png" />
     <Content Include="MailingList.aspx" />
     <Content Include="UserControls\SlideShowFile.ascx" />
@@ -170,6 +184,13 @@
     </Compile>
     <Compile Include="Basket.aspx.designer.cs">
       <DependentUpon>Basket.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Charte.aspx.cs">
+      <DependentUpon>Charte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Charte.aspx.designer.cs">
+      <DependentUpon>Charte.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConfirmCreate.aspx.cs">
       <DependentUpon>ConfirmCreate.aspx</DependentUpon>

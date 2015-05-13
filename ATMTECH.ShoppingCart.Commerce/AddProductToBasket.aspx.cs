@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ATMTECH.Common.Constant;
 using ATMTECH.ShoppingCart.Entities;
@@ -41,6 +42,11 @@ namespace ATMTECH.ShoppingCart.Commerce
 
                 lblIdentProduit.Text = value.Ident;
                 AfficherListeFichier();
+
+                if (!File.Exists(Server.MapPath(@"Images\WebSite\") + value.Brand + ".jpg"))
+                {
+                    btnConsulterLaCharte.Visible = false;
+                }
 
             }
         }
@@ -161,7 +167,8 @@ namespace ATMTECH.ShoppingCart.Commerce
 
         protected void btnConsulterLaCharteClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
+            Response.Redirect("Charte.aspx?" + PagesId.PRODUCT_ID + "=" + QueryString.GetQueryStringValue(PagesId.PRODUCT_ID) + "&" + PagesId.CHARTE + "=" + Produit.Brand);
         }
     }
 
