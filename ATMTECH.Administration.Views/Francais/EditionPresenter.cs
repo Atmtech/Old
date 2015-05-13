@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net.Mime;
 using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,6 +17,7 @@ using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.WebControls;
+using Parameter = ATMTECH.Entities.Parameter;
 
 namespace ATMTECH.Administration.Views.Francais
 {
@@ -28,6 +30,7 @@ namespace ATMTECH.Administration.Views.Francais
         public IEnterpriseService EnterpriseService { get; set; }
         public IFileService FileService { get; set; }
         public IDAOProprieteEdition DAOProprieteEdition { get; set; }
+        public IDAOParameter DAOParameter { get; set; }
 
         public EditionPresenter(IEditionPresenter view)
             : base(view)
@@ -111,6 +114,20 @@ namespace ATMTECH.Administration.Views.Francais
                     View.NombreValeurRetrouve = utilisateurs.Count;
                     View.ValeurRetrouve = utilisateurs;
                     break;
+                case "parameter":
+                    IList<Parameter> parametres = DAOParameter.GetAllActive();
+                    parametres = parametres.Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
+                            .ToList();
+                    View.NombreValeurRetrouve = parametres.Count;
+                    View.ValeurRetrouve = parametres;
+                    break;
+                case "proprieteedition":
+                    IList<ProprieteEdition> proprieteEditions = DAOProprieteEdition.GetAllActive();
+                    proprieteEditions = proprieteEditions.Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
+                            .ToList();
+                    View.NombreValeurRetrouve = proprieteEditions.Count;
+                    View.ValeurRetrouve = proprieteEditions;
+                    break;
             }
         }
         public string ObtenirAssemblie()
@@ -129,30 +146,120 @@ namespace ATMTECH.Administration.Views.Francais
 
         public IList<ProprieteEdition> ObtenirListeProprietePourEdition()
         {
-            // fouille moi pkoi ca fonctionne pas avec ca ...
-            //BaseDao<ProprieteEdition, int> dao = new BaseDao<ProprieteEdition, int>();
-            return DAOProprieteEdition.GetAllActive();
+            return DAOProprieteEdition.GetAllActive().Where(x => x.NomEntite == View.NomEntite).ToList();
         }
+
+        private IList<ProprieteEdition> ObtenirListeProprieteFrameWork()
+        {
+            return DAOProprieteEdition.GetAllActive().Where(x => x.NomEntite == null).ToList();
+        }
+
         public IList<Propriete> ObtenirListePropriete()
         {
-
-            IList<ProprieteEdition> proprieteEditions = ObtenirListeProprietePourEdition();
-
             ManageClass manageClass = new ManageClass();
 
-            IList<PropertyInfo> listeList = manageClass.GetPropertiesFromClass(ObtenirAssemblie(), View.NomEntite).ToList();
+            IList<ProprieteEdition> proprieteEditions = ObtenirListeProprietePourEdition();
+            IList<ProprieteEdition> proprieteFrameWork = ObtenirListeProprieteFrameWork();
 
-            IList<PropertyInfo> listeSortie = new List<PropertyInfo>();
+            List<ProprieteEdition> editions = proprieteEditions.Union(proprieteFrameWork).ToList();
+            IList<PropertyInfo> listeList = manageClass.GetPropertiesFromClass(ObtenirAssemblie(), View.NomEntite).ToList();
+            IList<Propriete> proprietes = new List<Propriete>();
             foreach (PropertyInfo propertyInfo in listeList)
             {
-                ProprieteEdition firstOrDefault = proprieteEditions.FirstOrDefault(x => x.NomPropriete == propertyInfo.Name);
-                if (firstOrDefault != null)
+                ProprieteEdition proprieteEdition = editions.FirstOrDefault(x => x.NomPropriete == propertyInfo.Name);
+                if (proprieteEdition != null)
                 {
-                    listeSortie.Add(propertyInfo);
+                    proprietes.Add(new Propriete
+                    {
+                        Libelle = proprieteEdition.Affichage,
+                        Nom = propertyInfo.Name,
+                        EstProprieteNative = propertyInfo.PropertyType.Namespace == "System",
+                        PropertyInfo = propertyInfo
+                    });
                 }
             }
+            return proprietes;
+            //IList<ProprieteEdition> fusion = new List<ProprieteEdition>();
+            //foreach (ProprieteEdition proprieteEdition in proprieteEditions)
+            //{
+            //    fusion.Add(proprieteEdition);
+            //}
+            //foreach (ProprieteEdition proprieteEdition in proprieteFrameWork)
+            //{
+            //    fusion.Add(proprieteEdition);
+            //}
 
-            return listeSortie.Select(propertyInfo => new Propriete { Libelle = proprieteEditions.FirstOrDefault(x => x.NomPropriete == propertyInfo.Name).Affichage, Nom = propertyInfo.Name, EstProprieteNative = propertyInfo.PropertyType.Namespace == "System", PropertyInfo = propertyInfo }).ToList();
+
+            //IList<Propriete> proprietes = new List<Propriete>();
+            //foreach (PropertyInfo propertyInfo in fusion)
+            //{
+            //    if (EstColonneFramework(propertyInfo.Name))
+            //    {
+            //        proprietes.Add(new Propriete
+            //        {
+            //            Libelle = proprieteFrameWork.FirstOrDefault(x => x.NomPropriete == propertyInfo.Name).Affichage,
+            //            Nom = propertyInfo.Name,
+            //            EstProprieteNative = propertyInfo.PropertyType.Namespace == "System",
+            //            PropertyInfo = propertyInfo
+            //        });
+            //    }
+            //    else
+            //    {
+            //        proprietes.Add(new Propriete
+            //        {
+            //            Libelle = proprieteEditions.FirstOrDefault(x => x.NomPropriete == propertyInfo.Name).Affichage,
+            //            Nom = propertyInfo.Name,
+            //            EstProprieteNative = propertyInfo.PropertyType.Namespace == "System",
+            //            PropertyInfo = propertyInfo
+            //        });
+            //    }
+            //}
+
+            //return proprietes;
+
+
+            //return null;
+
+
+            //ManageClass manageClass = new ManageClass();
+            //IList<PropertyInfo> listeList = manageClass.GetPropertiesFromClass(ObtenirAssemblie(), View.NomEntite).ToList();
+            //IList<PropertyInfo> listeSortie = new List<PropertyInfo>();
+            //foreach (PropertyInfo propertyInfo in listeList)
+            //{
+            //    ProprieteEdition firstOrDefault = proprieteEditions.FirstOrDefault(x => x.NomPropriete == propertyInfo.Name);
+            //    if (firstOrDefault != null)
+            //    {
+            //        listeSortie.Add(propertyInfo);
+            //    }
+            //}
+
+            //IList<Propriete> proprietes = new List<Propriete>();
+            //foreach (PropertyInfo propertyInfo in listeSortie)
+            //{
+            //    if (EstColonneFramework(propertyInfo.Name))
+            //    {
+            //        proprietes.Add(new Propriete
+            //        {
+            //            Libelle = proprieteFrameWork.FirstOrDefault(x => x.NomPropriete == propertyInfo.Name).Affichage,
+            //            Nom = propertyInfo.Name,
+            //            EstProprieteNative = propertyInfo.PropertyType.Namespace == "System",
+            //            PropertyInfo = propertyInfo
+            //        });
+            //    }
+            //    else
+            //    {
+            //        proprietes.Add(new Propriete
+            //        {
+            //            Libelle = proprieteEditions.FirstOrDefault(x => x.NomPropriete == propertyInfo.Name).Affichage,
+            //            Nom = propertyInfo.Name,
+            //            EstProprieteNative = propertyInfo.PropertyType.Namespace == "System",
+            //            PropertyInfo = propertyInfo
+            //        });
+            //    }
+            //}
+
+            //return proprietes;
+            //return listeSortie.Select(propertyInfo => new Propriete { Libelle = proprieteEditions.FirstOrDefault(x => x.NomPropriete == propertyInfo.Name).Affichage, Nom = propertyInfo.Name, EstProprieteNative = propertyInfo.PropertyType.Namespace == "System", PropertyInfo = propertyInfo }).ToList();
         }
         public IList<Controle> ObtenirListeControle()
         {
@@ -191,6 +298,7 @@ namespace ATMTECH.Administration.Views.Francais
                         if (propriete.Nom == "UserLoginModified") controle.Ordre = 3;
                         if (propriete.Nom == "DateCreated") controle.Ordre = 4;
                         if (propriete.Nom == "DateModified") controle.Ordre = 5;
+                        if (propriete.Nom == "Description") controle.Ordre = 6;
 
 
                         controle.Libelle = new Label { Text = string.Format("<div style='font-weight:bold;font-size:13px;'>{0}</div>", propriete.Libelle) };
@@ -224,18 +332,28 @@ namespace ATMTECH.Administration.Views.Francais
             switch (propriete.PropertyInfo.PropertyType.FullName)
             {
                 case "System.String":
-                    Editor editor = new Editor
-                           {
-                               ID = propriete.PropertyInfo.Name,
-                               Text = valeur,
-                               Width = Unit.Percentage(90),
-                               Enabled = estEditable,
-                               //Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
-                               Toolbar = "Source",
-                               Height = Unit.Pixel(25)
+                    TextBox textBox = new TextBox
+                    {
+                        ID = propriete.PropertyInfo.Name,
+                        Text = valeur,
+                        Width = Unit.Percentage(90),
+                        Enabled = estEditable,
+                        Height = Unit.Pixel(25),
+                        TextMode = TextBoxMode.MultiLine
+                    };
+                    return textBox;
+                //Editor editor = new Editor
+                //       {
+                //           ID = propriete.PropertyInfo.Name,
+                //           Text = valeur,
+                //           Width = Unit.Percentage(90),
+                //           Enabled = estEditable,
+                //           //Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
+                //           Toolbar = "Source",
+                //           Height = Unit.Pixel(25)
 
-                           };
-                    return editor;
+                //       };
+                //return editor;
                 case "System.Decimal":
                     {
                         Numeric numeric = new Numeric
@@ -408,6 +526,12 @@ namespace ATMTECH.Administration.Views.Francais
 
             foreach (Control control in type.GetProperties().Select(propertyInfo => Common.Utils.Web.Pages.FindControlRecursive(panel, propertyInfo.Name)))
             {
+                TextBox textBox = control as TextBox;
+                if (textBox != null)
+                {
+                    manageClass.AssignValue(type, entite, textBox.Text, textBox.ID);
+                }
+
                 Editor editeur = control as Editor;
                 if (editeur != null)
                 {

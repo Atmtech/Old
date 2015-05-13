@@ -134,6 +134,7 @@
                                 </div>
                                 <ul>
                                     <li><a href="Edition.aspx?NomEntite=Parameter">Les paramètres</a></li>
+                                    <li><a href="Edition.aspx?NomEntite=ProprieteEdition">Les champs éditables</a></li>
                                     <li>
                                         <asp:Button runat="server" Text="Ajuster colonne recherche" ID="btnAjusterColonneRecherche" OnClick="btnAjusterColonneRechercheClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>
@@ -149,7 +150,7 @@
                                     <li>
                                         <asp:Button runat="server" Text="Initialiser le système" ID="btnInitialiserSysteme" OnClick="btnInitialiserSystemeClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li><a href="ExecuteSql.aspx">Exécuter du SQL</a> </li>
-                                    
+
                                     <li><a href="Action.aspx?action=EnvoiCourriel">Tester envoi courriel</a></li>
 
                                 </ul>
@@ -164,8 +165,9 @@
                 </table>
             </asp:Panel>
         </div>
-        Version: <asp:Label runat="server" ID="lblVersion"></asp:Label>
-       
+        Version:
+        <asp:Label runat="server" ID="lblVersion"></asp:Label>
+
 
         <input type="hidden" id="EstFenetreModal" value="0" />
         <input type="hidden" id="StatutExpiration" value="1" />

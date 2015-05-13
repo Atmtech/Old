@@ -4,14 +4,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="margin-top: 20px;">
-        <asp:Button runat="server" ID="btnAfficherListeMaterielExpedition" Text="Imprimer la liste du matériel pour cette expédition" CssClass="bouton" />
-        <asp:Button runat="server" ID="btnImprimerExpedition" Text="Imprimer l'expedition" CssClass="bouton" />
+        <asp:Button runat="server" ID="btnInformationGenerale" Text="Informations générales" CssClass="bouton" OnClick="btnInformationGeneraleClick" />
+        <asp:Button runat="server" ID="btnEtape" Text="Les étapes" CssClass="bouton" OnClick="btnEtapeClick" />
+        <asp:Button runat="server" ID="btnParticipant" Text="Les participants" CssClass="bouton" OnClick="btnParticipantClick" />
+        <asp:Button runat="server" ID="btnAfficherListeMaterielExpedition" Text="Imprimer la liste du matériel" CssClass="bouton" OnClick="btnAfficherListeMaterielExpeditionClick" />
+        <asp:Button runat="server" ID="btnImprimerExpedition" Text="Imprimer l'expedition" CssClass="bouton" OnClick="btnImprimerExpeditionClick" />
     </div>
-    <div class="expedition">
+    <asp:Panel runat="server" ID="pnlInformationGenerales" CssClass="expedition" Visible="True">
         <div class="titre">
-            <asp:Label runat="server" ID="lblIdentificationExpedition" Text="Identification"></asp:Label>
+            <asp:Label runat="server" ID="lblInformationGenerales" Text="Informations générales"></asp:Label>
         </div>
-
         <table>
             <tr>
                 <td>
@@ -47,8 +49,8 @@
             <asp:Label runat="server" ID="lblAffichageBudget" Text="Budget prévu (Comptabilisé avec les étapes)"></asp:Label><br />
             <asp:Label runat="server" ID="lblBudget"></asp:Label><br />
         </div>
-    </div>
-    <div class="etape">
+    </asp:Panel>
+    <asp:Panel runat="server" ID="pnlEtape" CssClass="etape" Visible="False">
         <div class="titre">
 
             <asp:Label runat="server" ID="lblLesEtapesExpedition" Text="Les étapes"></asp:Label>
@@ -72,8 +74,8 @@
                 <asp:Label Visible='<%#bool.Parse((dataListEtape.Items.Count==0).ToString())%>' runat="server" ID="lblNoRecord" Text="No Record Found!"></asp:Label>
             </FooterTemplate>
         </asp:DataList>
-    </div>
-    <div class="participant">
+    </asp:Panel>
+    <asp:Panel runat="server" ID="pnlParticipant" CssClass="participant" Visible="False">
         <div class="titre">
             <asp:Label runat="server" ID="lblListeParticipant" Text="Liste des participants"></asp:Label><br />
         </div>
@@ -94,7 +96,7 @@
                 </FooterTemplate>
             </asp:DataList>
         </div>
-    </div>
+    </asp:Panel>
 
 
 

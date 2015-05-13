@@ -71,11 +71,14 @@ namespace ATMTECH.Administration.Views.Francais
         public string AjusterRecherche()
         {
             string retour = Enregistrer<User>();
-            retour += Enregistrer<Stock>();
-            retour += Enregistrer<Parameter>();
-            retour += Enregistrer<Order>();
-            retour += Enregistrer<Customer>();
-            retour += Enregistrer<OrderLine>();
+            //retour += Enregistrer<Stock>();
+            //retour += Enregistrer<Parameter>();
+            //retour += Enregistrer<Order>();
+            //retour += Enregistrer<Customer>();
+            //retour += Enregistrer<OrderLine>();
+            //retour += Enregistrer<Parameter>();
+            retour += Enregistrer<ProprieteEdition>();
+            //retour += Enregistrer<Message>();
             return retour;
         }
         public void ImporterXml()

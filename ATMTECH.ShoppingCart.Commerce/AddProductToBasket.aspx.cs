@@ -41,7 +41,7 @@ namespace ATMTECH.ShoppingCart.Commerce
 
                 lblIdentProduit.Text = value.Ident;
                 AfficherListeFichier();
-                AfficherPanneauCouleur();
+
             }
         }
         public int Inventaire
@@ -70,11 +70,15 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             set { FillDropDownWithoutEntity(ddlCouleur, value); }
         }
-
-        protected void Page_Load(object sender, EventArgs e)
+        public IList<Couleur> ListeCouleurs
         {
-            AfficherPanneauCouleur();
+            set
+            {
+                ListeCouleur.ListeCouleurs = value;
+                ListeCouleur.Langue = Presenter.CurrentLanguage;
+            }
         }
+
         public IList<Taille> Tailles
         {
             set { FillDropDownWithoutEntity(ddlTaille, value.OrderBy(x => x.Ordre), "Nom", "Nom"); }
@@ -134,11 +138,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             ListeFichier.AfficherListeFichier(((Product)Session["ProduitCourant"]).ProductFiles);
         }
-        public void AfficherPanneauCouleur()
-        {
-            ListeCouleur.Langue = Presenter.CurrentLanguage;
-            ListeCouleur.Produit = Produit;
-        }
+
         protected void btnAjouterLigneCommandeClick(object sender, EventArgs e)
         {
             Presenter.AjouterLigneCommande();
@@ -157,6 +157,11 @@ namespace ATMTECH.ShoppingCart.Commerce
             Presenter.AfficherTaille();
             Presenter.AfficherPrix();
             AfficherListeFichier();
+        }
+
+        protected void btnConsulterLaCharteClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 

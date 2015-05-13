@@ -40,7 +40,7 @@
 
         <div class="logo">
             <a href="Default.aspx">
-                <img src="Images/WebSite/logo.png" width="800" height="87" /></a>
+                <img src="Images/WebSite/logo.png"/></a>
         </div>
 
         <div style="background-color: #4a4949; margin-top: 10px;">

@@ -1,4 +1,5 @@
-﻿using ATMTECH.Entities;
+﻿using System.Collections.Generic;
+using ATMTECH.Entities;
 
 namespace ATMTECH.DAO.Interface
 {
@@ -7,5 +8,6 @@ namespace ATMTECH.DAO.Interface
         void UpdateParameter(Parameter parameter);
         Parameter GetParameter(string code, string language);
         Parameter GetParameter(string code);
+        IList<Parameter> GetAllActive();
     }
 }

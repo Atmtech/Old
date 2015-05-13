@@ -79,86 +79,32 @@ namespace ATMTECH.Administration.Commerce
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            MasquerTout();
+
             switch (NomAction)
             {
                 case "ConfirmerCommande":
-                    pnlEditionCourriel.Visible = false;
-                    pnlAjusterCommande.Visible = false;
                     pnlConfirmerCommande.Visible = true;
-                    pnlRestaureCopie.Visible = false;
-                    pnlAppliquerPourcentage.Visible = false;
-                    pnlVerifierInventaire.Visible = false;
-                    pnlValiderPourPaypal.Visible = false;
-                    pnlEnvoiCourriel.Visible = false;
                     break;
                 case "AjusterCommande":
-                    pnlEditionCourriel.Visible = false;
                     pnlAjusterCommande.Visible = true;
-                    pnlConfirmerCommande.Visible = false;
-                    pnlRestaureCopie.Visible = false;
-                    pnlAppliquerPourcentage.Visible = false;
-                    pnlVerifierInventaire.Visible = false;
-                    pnlValiderPourPaypal.Visible = false;
-                    pnlEnvoiCourriel.Visible = false;
                     break;
                 case "RestaureCopie":
-                    pnlEditionCourriel.Visible = false;
-                    pnlAjusterCommande.Visible = false;
-                    pnlConfirmerCommande.Visible = false;
                     pnlRestaureCopie.Visible = true;
-                    pnlAppliquerPourcentage.Visible = false;
-                    pnlVerifierInventaire.Visible = false;
-                    pnlValiderPourPaypal.Visible = false;
-                    pnlEnvoiCourriel.Visible = false;
                     break;
                 case "EditionCourriel":
                     pnlEditionCourriel.Visible = true;
-                    pnlAjusterCommande.Visible = false;
-                    pnlConfirmerCommande.Visible = false;
-                    pnlRestaureCopie.Visible = false;
-                    pnlAppliquerPourcentage.Visible = false;
-                    pnlVerifierInventaire.Visible = false;
-                    pnlValiderPourPaypal.Visible = false;
-                    pnlEnvoiCourriel.Visible = false;
                     break;
-                case "AppliquerPourcentage":
-                    pnlEditionCourriel.Visible = false;
-                    pnlAjusterCommande.Visible = false;
-                    pnlConfirmerCommande.Visible = false;
-                    pnlRestaureCopie.Visible = false;
+                case "AppliquerPourcentage":                    
                     pnlAppliquerPourcentage.Visible = true;
-                    pnlVerifierInventaire.Visible = false;
-                    pnlValiderPourPaypal.Visible = false;
-                    pnlEnvoiCourriel.Visible = false;
                     break;
                 case "VerifierInventaire":
-                    pnlEditionCourriel.Visible = false;
-                    pnlAjusterCommande.Visible = false;
-                    pnlConfirmerCommande.Visible = false;
-                    pnlRestaureCopie.Visible = false;
-                    pnlAppliquerPourcentage.Visible = false;
                     pnlVerifierInventaire.Visible = true;
-                    pnlValiderPourPaypal.Visible = false;
-                    pnlEnvoiCourriel.Visible = false;
                     break;
                 case "ValiderPaypal":
-                    pnlEditionCourriel.Visible = false;
-                    pnlAjusterCommande.Visible = false;
-                    pnlConfirmerCommande.Visible = false;
-                    pnlRestaureCopie.Visible = false;
-                    pnlAppliquerPourcentage.Visible = false;
-                    pnlVerifierInventaire.Visible = false;
                     pnlValiderPourPaypal.Visible = true;
-                    pnlEnvoiCourriel.Visible = false;
                     break;
                 case "EnvoiCourriel":
-                    pnlEditionCourriel.Visible = false;
-                    pnlAjusterCommande.Visible = false;
-                    pnlConfirmerCommande.Visible = false;
-                    pnlRestaureCopie.Visible = false;
-                    pnlAppliquerPourcentage.Visible = false;
-                    pnlVerifierInventaire.Visible = false;
-                    pnlValiderPourPaypal.Visible = false;
                     pnlEnvoiCourriel.Visible = true;
                     break;
             }
@@ -215,6 +161,18 @@ namespace ATMTECH.Administration.Commerce
         protected void btnApercuCourrielAnglaisClick(object sender, EventArgs e)
         {
             lblApercuCourrielAnglais.Text = CorpsEn;
+        }
+
+        private void MasquerTout()
+        {
+            pnlEditionCourriel.Visible = false;
+            pnlAjusterCommande.Visible = false;
+            pnlConfirmerCommande.Visible = false;
+            pnlRestaureCopie.Visible = false;
+            pnlAppliquerPourcentage.Visible = false;
+            pnlVerifierInventaire.Visible = false;
+            pnlValiderPourPaypal.Visible = false;
+            pnlEnvoiCourriel.Visible = false;
         }
     }
 }

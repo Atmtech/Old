@@ -68,6 +68,9 @@
                         <br />
                         <uc2:ListeCouleur ID="ListeCouleur" runat="server" />
                         <br />
+                        <asp:Button runat="server" ID="btnConsulterLaCharte" OnClick="btnConsulterLaCharteClick" CssClass="boutonActionRond"
+                            Text="Consulter la charte des grandeurs"></asp:Button>
+                        <br/>
                         <asp:Button runat="server" ID="btnAjouterLigneCommande" OnClick="btnAjouterLigneCommandeClick" CssClass="boutonActionRond"
                             Text="Ajouter au panier"></asp:Button>
                     </div>

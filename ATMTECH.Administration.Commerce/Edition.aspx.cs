@@ -77,6 +77,7 @@ namespace ATMTECH.Administration.Commerce
                 obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "Search").ToList();
                 obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "IsActive").ToList();
                 obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "ComboboxDescription").ToList();
+                obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "Id").ToList();
 
                 foreach (Propriete propriete in obtenirListePropriete)
                 {

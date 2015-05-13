@@ -48,5 +48,41 @@ namespace ATMTECH.Expeditn.WebSite
                 dataListEtape.DataBind();
             }
         }
+
+        private void MasquerTout()
+        {
+            pnlEtape.Visible = false;
+            pnlInformationGenerales.Visible = false;
+            pnlParticipant.Visible = false;
+        }
+
+        protected void btnInformationGeneraleClick(object sender, EventArgs e)
+        {
+            MasquerTout();
+            pnlInformationGenerales.Visible = true;
+        }
+
+        protected void btnEtapeClick(object sender, EventArgs e)
+        {
+            MasquerTout();
+            pnlEtape.Visible = true;
+        }
+
+        protected void btnParticipantClick(object sender, EventArgs e)
+        {
+            MasquerTout();
+            pnlParticipant.Visible = true;
+        }
+
+        protected void btnAfficherListeMaterielExpeditionClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        protected void btnImprimerExpeditionClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

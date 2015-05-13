@@ -29,21 +29,18 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
                 if (View.IdContenu == ((int)TypeContenu.Retour).ToString())
                 {
-                    if (LocalizationService.CurrentLanguage == LocalizationLanguage.FRENCH)
-                        View.Contenu = enterprise.FrenchStep;
-                    View.Contenu = enterprise.EnglishStep;
+                    View.Contenu = LocalizationService.CurrentLanguage == LocalizationLanguage.FRENCH ? enterprise.FrenchStep : enterprise.EnglishStep;
+                    
                 }
                 if (View.IdContenu == ((int)TypeContenu.Livraison).ToString())
                 {
-                    if (LocalizationService.CurrentLanguage == LocalizationLanguage.FRENCH)
-                        View.Contenu = enterprise.FrenchWelcome;
-                    View.Contenu = enterprise.EnglishWelcome;
+                    View.Contenu = LocalizationService.CurrentLanguage == LocalizationLanguage.FRENCH ? enterprise.FrenchWelcome : enterprise.EnglishWelcome;
+                    
                 }
                 if (View.IdContenu == ((int)TypeContenu.Condition).ToString())
                 {
-                    if (LocalizationService.CurrentLanguage == LocalizationLanguage.FRENCH)
-                        View.Contenu = enterprise.FrenchInformation;
-                    View.Contenu = enterprise.EnglishInformation;
+                    View.Contenu = LocalizationService.CurrentLanguage == LocalizationLanguage.FRENCH ? enterprise.FrenchInformation : enterprise.EnglishInformation;
+                    
                 }
             }
             else

@@ -54,11 +54,20 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         }
         public bool EnvoyerCourriel(string to, string from, string subject, string body)
         {
-            return ParameterService.GetValue("Environment") != "PROD" ? EnvoyerDeveloppement(to, from, subject, body) : EnvoyerProduction(to, from, subject, body, null, string.Empty);
+            return ParameterService.GetValue("Environment").ToLower() != "prod" ?
+                EnvoyerDeveloppement(to, from, subject, body) : 
+                EnvoyerProduction(to, from, subject, body, null, string.Empty);
         }
-        private bool EnvoyerCourriel(string to, string from, string subject, string body, Stream file, string fileName)
+        private void EnvoyerCourriel(string to, string from, string subject, string body, Stream file, string fileName)
         {
-            return ParameterService.GetValue("Environment") != "PROD" ? EnvoyerDeveloppement(to, from, subject, body) : EnvoyerProduction(to, from, subject, body, file, fileName);
+            if (ParameterService.GetValue("Environment").ToLower() != "prod")
+            {
+                EnvoyerDeveloppement(to, from, subject, body);
+            }
+            else
+            {
+                EnvoyerProduction(to, from, subject, body, file, fileName);    
+            }
         }
 
         private bool EnvoyerProduction(string to, string from, string subject, string body, Stream file, string fileName)

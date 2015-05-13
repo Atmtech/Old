@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="Default.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="Default.Master" AutoEventWireup="true" ValidateRequest="false"
     CodeBehind="Edition.aspx.cs" Inherits="ATMTECH.Administration.Commerce.Edition" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
