@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using ATMTECH.Common.Constant;
 using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO;
@@ -26,8 +28,8 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public void EnvoyerConfirmationCreationClient(Customer client)
         {
             Mail courriel = DAOCourriel.ObtenirMail("CONFIRMATION_CREATION_CLIENT");
-            string sujet = RemplacerAvecNomChamp(ObtenirSujet(courriel), client);
-            string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), client);
+            string sujet = RemplacerAvecNomChamp(ObtenirSujet(courriel), client.User);
+            string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), client.User);
             EnvoyerCourriel(client.User.Login, courriel.From, sujet, corps);
         }
         public void EnvoyerConfirmationCommandeEstEnLivraison(Order commande, Stream facture)
@@ -55,7 +57,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public bool EnvoyerCourriel(string to, string from, string subject, string body)
         {
             return ParameterService.GetValue("Environment").ToLower() != "prod" ?
-                EnvoyerDeveloppement(to, from, subject, body) : 
+                EnvoyerDeveloppement(to, from, subject, body) :
                 EnvoyerProduction(to, from, subject, body, null, string.Empty);
         }
         private void EnvoyerCourriel(string to, string from, string subject, string body, Stream file, string fileName)
@@ -66,7 +68,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             }
             else
             {
-                EnvoyerProduction(to, from, subject, body, file, fileName);    
+                EnvoyerProduction(to, from, subject, body, file, fileName);
             }
         }
 
@@ -131,16 +133,17 @@ namespace ATMTECH.ShoppingCart.Services.Francais
 
             return true;
         }
-        private string RemplacerAvecNomChamp(string chaine, object entite)
+        public string RemplacerAvecNomChamp(string chaine, object entite)
         {
             foreach (PropertyInfo propertyInfo in entite.GetType().GetProperties())
             {
+
                 object valeurPropriete = propertyInfo.GetValue(entite, null);
                 if (valeurPropriete != null)
                 {
                     if (propertyInfo.PropertyType.Namespace == "System")
                     {
-                        chaine = chaine.Replace(string.Format("[{0}]", propertyInfo.Name), valeurPropriete.ToString());
+                        chaine = RemplacerValeurProprieteDansChaine(chaine,entite.ToString(), propertyInfo.Name, valeurPropriete.ToString());
                     }
                     else
                     {
@@ -151,16 +154,29 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                                 object value = propertyInfo2.GetValue(valeurPropriete, null);
                                 if (value != null)
                                 {
-                                    string valeurEnfant = value.ToString();
-                                    chaine = chaine.Replace(string.Format("[{0}]", propertyInfo2.Name), valeurEnfant);
+                                    chaine = RemplacerValeurProprieteDansChaine(chaine, valeurPropriete.ToString(), propertyInfo2.Name, value.ToString());
                                 }
                             }
                         }
                     }
                 }
             }
+
             return chaine;
         }
+
+
+        private string RemplacerValeurProprieteDansChaine(string chaine, string nameSpace, string propriete, string valeur)
+        {
+            return EstProprieteExistanteDansChaine(propriete, nameSpace, chaine) ? chaine.Replace(string.Format("[{0}]", nameSpace + "." + propriete), valeur) : chaine;
+        }
+
+        private bool EstProprieteExistanteDansChaine(string propriete, string nameSpace, string chaine)
+        {
+            return chaine.IndexOf(string.Format("[{0}]", nameSpace + "." + propriete)) > 0;
+        }
+
+
         private string ObtenirSujet(Mail courriel)
         {
             switch (LocalizationService.CurrentLanguage)

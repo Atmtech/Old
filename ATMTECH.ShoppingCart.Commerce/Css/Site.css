@@ -291,6 +291,8 @@ a
 
 .logo
 {
+    margin-top: 5px;
+    padding-top: 5px;
     width: 100%;
     text-align: center;
     font-size: 30px;

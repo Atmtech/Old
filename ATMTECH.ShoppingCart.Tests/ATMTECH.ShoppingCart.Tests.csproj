@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Services\Francais\ClientServiceTest.cs" />
     <Compile Include="Services\Francais\CommandeServiceTest.cs" />
+    <Compile Include="Services\Francais\CourrielServiceTest.cs" />
     <Compile Include="Services\Francais\ValiderClientServiceTest.cs" />
     <Compile Include="Services\ValidateCustomerServiceTest.cs" />
     <Compile Include="Services\CustomerServiceTest.cs" />

@@ -71,14 +71,13 @@ namespace ATMTECH.Administration.Views.Francais
         public string AjusterRecherche()
         {
             string retour = Enregistrer<User>();
-            //retour += Enregistrer<Stock>();
-            //retour += Enregistrer<Parameter>();
-            //retour += Enregistrer<Order>();
-            //retour += Enregistrer<Customer>();
-            //retour += Enregistrer<OrderLine>();
-            //retour += Enregistrer<Parameter>();
+            retour += Enregistrer<Parameter>();
+            retour += Enregistrer<Customer>();
             retour += Enregistrer<ProprieteEdition>();
-            //retour += Enregistrer<Message>();
+            retour += Enregistrer<Message>();
+            //retour += Enregistrer<Order>();
+            //retour += Enregistrer<OrderLine>();
+            //retour += Enregistrer<Stock>();
             return retour;
         }
         public void ImporterXml()
@@ -222,15 +221,15 @@ namespace ATMTECH.Administration.Views.Francais
                 //        }
                 //    }
                 //    break;
-                //case "ATMTECH.ShoppingCart.Entities.Customer":
-                //    BaseDao<Customer, int> daoModelCustomer = new BaseDao<Customer, int>();
+                case "ATMTECH.ShoppingCart.Entities.Customer":
+                    BaseDao<Customer, int> daoModelCustomer = new BaseDao<Customer, int>();
 
-                //    foreach (Customer customer in CustomerService.GetAll())
-                //    {
-                //        customer.User = AuthenticationService.GetUser(customer.User.Id);
-                //        daoModelCustomer.Save(customer);
-                //    }
-                //    break;
+                    foreach (Customer customer in ClientService.ObtenirClient())
+                    {
+                        customer.User = AuthenticationService.GetUser(customer.User.Id);
+                        daoModelCustomer.Save(customer);
+                    }
+                    break;
                 default:
                     BaseDao<TModel, int> daoModel = new BaseDao<TModel, int>();
                     IList<TModel> model = daoModel.GetAll();
