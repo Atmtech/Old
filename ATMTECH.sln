@@ -36,6 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{CB26
 		Library\Microsoft.SharePoint.Client.Runtime.dll = Library\Microsoft.SharePoint.Client.Runtime.dll
 		Library\Moq.dll = Library\Moq.dll
 		Library\Newtonsoft.Json.dll = Library\Newtonsoft.Json.dll
+		..\..\Users\riov01\Desktop\gmaps-api-net-0.9.2a\dependencies\Json35r6\Bin\DotNet\Newtonsoft.Json.dll = ..\..\Users\riov01\Desktop\gmaps-api-net-0.9.2a\dependencies\Json35r6\Bin\DotNet\Newtonsoft.Json.dll
 		Library\Selenium.WebDriverBackedSelenium.dll = Library\Selenium.WebDriverBackedSelenium.dll
 		Library\TechTalk.SpecFlow.dll = Library\TechTalk.SpecFlow.dll
 		Library\ThoughtWorks.Selenium.Core.dll = Library\ThoughtWorks.Selenium.Core.dll

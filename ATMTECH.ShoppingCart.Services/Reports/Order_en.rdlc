@@ -1320,6 +1320,10 @@
           <DataField>CountryTax</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="Coupon">
+          <DataField>Coupon</DataField>
+          <rd:TypeName>ATMTECH.ShoppingCart.Entities.Coupon</rd:TypeName>
+        </Field>
         <Field Name="Customer">
           <DataField>Customer</DataField>
           <rd:TypeName>ATMTECH.ShoppingCart.Entities.Customer</rd:TypeName>
@@ -1360,6 +1364,10 @@
           <DataField>GrandTotal</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="GrandTotalWithCoupon">
+          <DataField>GrandTotalWithCoupon</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="Id">
           <DataField>Id</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -1386,6 +1394,10 @@
         </Field>
         <Field Name="Language">
           <DataField>Language</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OrderDetail">
+          <DataField>OrderDetail</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="OrderId">
@@ -1456,6 +1468,10 @@
           <DataField>TrackingNumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="UserLoginModified">
+          <DataField>UserLoginModified</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ATMTECH.ShoppingCart.Entities</rd:DataSetName>
@@ -1521,6 +1537,10 @@
           <DataField>Quantity</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="SavePrice">
+          <DataField>SavePrice</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="Search">
           <DataField>Search</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1536,6 +1556,10 @@
         <Field Name="UnitPrice">
           <DataField>UnitPrice</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="UserLoginModified">
+          <DataField>UserLoginModified</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

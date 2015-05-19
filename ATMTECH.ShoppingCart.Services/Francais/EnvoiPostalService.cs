@@ -21,13 +21,13 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
 
             decimal total = 0;
-            if (commande.ShippingAddress == null)
+            if (commande.PostalCodeShipping == null)
             {
                 return total;
             }
 
 
-            if (string.IsNullOrEmpty(commande.ShippingAddress.PostalCode))
+            if (string.IsNullOrEmpty(commande.PostalCodeShipping))
             {
                 return total;
             }
@@ -60,7 +60,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 SenderPostalCode = shippingParameter.SenderPostalCode,
                 PackageType = shippingParameter.PackageType,
                 BillingAccountNumer = shippingParameter.BillingAccount,
-                ReceiverPostalCode = commande.ShippingAddress.PostalCode,
+                ReceiverPostalCode = commande.PostalCodeShipping,
                 CountryReceiverCode = shippingParameter.CountryReceiverCode
             };
 

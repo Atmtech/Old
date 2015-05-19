@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
     CodeBehind="CustomerInformation.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.CustomerInformation" %>
 
+<%@ Register TagPrefix="adresse" TagName="selectionneradresse" Src="~/UserControls/SelectionnerAdresse.ascx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -41,91 +43,20 @@
             <asp:TextBox ID="txtMotDePasseConfirmation" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
         </div>
 
-
         <div class="adresseLivraisonClient">
             <div class="titreDansPage">
                 <asp:Label runat="server" ID="lblAdresseLivraisonClient" Text="Adresse de livraison"></asp:Label>
             </div>
-
-            <div style="padding-top: 20px;">
-                <asp:Label runat="server" ID="lblNoCiviqueLivraisonInformationClient" Text="Numéro civique" CssClass="labelLogin"></asp:Label>
-            </div>
-            <div>
-                <asp:TextBox ID="txtNoCiviqueLivraisonClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
-            </div>
-
-            <div style="padding-top: 20px;">
-                <asp:Label runat="server" ID="lblRueLivraisonInformationClient" Text="Rue" CssClass="labelLogin"></asp:Label>
-            </div>
-            <div>
-                <asp:TextBox ID="txtRueLivraisonClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
-            </div>
-
-            <div style="padding-top: 20px;">
-                <asp:Label runat="server" ID="lblCodePostalLivraisonInformationClient" Text="Code postal" CssClass="labelLogin"></asp:Label>
-            </div>
-            <div>
-                <asp:TextBox ID="txtCodePostalLivraisonInformationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
-            </div>
-
-            <div style="padding-top: 20px;">
-                <asp:Label runat="server" ID="lblVilleLivraisonClient" Text="Ville" CssClass="labelLogin"></asp:Label>
-            </div>
-            <div>
-                <asp:TextBox ID="txtVilleLivraisonClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
-            </div>
-
-
-            <div style="padding-top: 20px;">
-                <asp:Label runat="server" ID="lblPaysLivraisonInformationClient" Text="Pays" CssClass="labelLogin"></asp:Label>
-            </div>
-            <div>
-                <atmtech:ComboBox ID="ddlPaysLivraisonClient" runat="server" Width="400px" AutoPostBack="True"></atmtech:ComboBox>
-            </div>
+            <adresse:selectionneradresse ID="adresseLivraison" runat="server" />
         </div>
         <div class="adresseFacturationClient">
             <div class="titreDansPage">
                 <asp:Label runat="server" ID="lblAdresseFacturationClient" Text="Adresse de facturation"></asp:Label>
-
             </div>
-            <div>
+             <div style="margin-bottom: 10px;">
                 <asp:Button runat="server" ID="btnUtiliserMemeAdresseQueLivraison" OnClick="btnUtiliserMemeAdresseQueLivraisonClick" Text="Utiliser la même adresse que celle de livraison" CssClass="boutonActionRond" />
             </div>
-            <div style="padding-top: 20px;">
-                <asp:Label runat="server" ID="lblNoCiviqueFacturationInformationClient" Text="Numéro civique" CssClass="labelLogin"></asp:Label>
-            </div>
-            <div>
-                <asp:TextBox ID="txtNoCiviqueFacturationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
-            </div>
-
-            <div style="padding-top: 20px;">
-                <asp:Label runat="server" ID="lblRueFacturationInformationClient" Text="Rue" CssClass="labelLogin"></asp:Label>
-            </div>
-            <div>
-                <asp:TextBox ID="txtRueFacturationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
-            </div>
-
-            <div style="padding-top: 20px;">
-                <asp:Label runat="server" ID="lblCodePostalFacturationInformationClient" Text="Code postal" CssClass="labelLogin"></asp:Label>
-            </div>
-            <div>
-                <asp:TextBox ID="txtCodePostalFacturationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
-            </div>
-
-            <div style="padding-top: 20px;">
-                <asp:Label runat="server" ID="lblVilleFacturationInformationClient" Text="Ville" CssClass="labelLogin"></asp:Label>
-            </div>
-            <div>
-                <asp:TextBox ID="txtVilleFacturationClient" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
-            </div>
-
-
-            <div style="padding-top: 20px;">
-                <asp:Label runat="server" ID="lblPaysFacturationInformationClient" Text="Pays" CssClass="labelLogin"></asp:Label>
-            </div>
-            <div>
-                <atmtech:ComboBox ID="ddlPaysFacturationClient" runat="server" Width="400px" AutoPostBack="True"></atmtech:ComboBox>
-            </div>
+            <adresse:selectionneradresse ID="adresseFacturation" runat="server" />
         </div>
 
         <div style="padding-top: 20px;">
@@ -133,7 +64,6 @@
         </div>
     </div>
     <div class="HistoriqueCommandeClient">
-
         <div class="titreDansPage">
             <asp:Label runat="server" ID="lblHistoriqueDeVosCommandesInformationClient" Text="Historique de vos commandes"></asp:Label>
         </div>

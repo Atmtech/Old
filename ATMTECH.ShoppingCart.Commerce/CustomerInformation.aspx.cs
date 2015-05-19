@@ -16,26 +16,20 @@ namespace ATMTECH.ShoppingCart.Commerce
         public string Courriel { get { return txtCourriel.Text; } set { txtCourriel.Text = value; } }
         public string MotPasse { get { return txtMotDePasse.Text; } set { txtMotDePasse.Text = value; } }
         public string MotPasseConfirmation { get { return txtMotDePasseConfirmation.Text; } set { txtMotDePasseConfirmation.Text = value; } }
-        public string NoCiviqueLivraison { get { return txtNoCiviqueLivraisonClient.Text; } set { txtNoCiviqueLivraisonClient.Text = value; } }
-        public string RueLivraison { get { return txtRueLivraisonClient.Text; } set { txtRueLivraisonClient.Text = value; } }
-        public string CodePostalLivraison { get { return txtCodePostalLivraisonInformationClient.Text; } set { txtCodePostalLivraisonInformationClient.Text = value; } }
-        public string VilleLivraison { get { return txtVilleLivraisonClient.Text; } set { txtVilleLivraisonClient.Text = value; } }
-        public int PaysLivraison { get { return Convert.ToInt32(ddlPaysLivraisonClient.SelectedValue); } set { ddlPaysLivraisonClient.SelectedValue = value.ToString(); } }
-        public string NoCiviqueFacturation { get { return txtNoCiviqueFacturationClient.Text; } set { txtNoCiviqueFacturationClient.Text = value; } }
-        public string RueFacturation { get { return txtRueFacturationClient.Text; } set { txtRueFacturationClient.Text = value; } }
-        public string CodePostalFacturation { get { return txtCodePostalFacturationClient.Text; } set { txtCodePostalFacturationClient.Text = value; } }
-        public string VilleFacturation { get { return txtVilleFacturationClient.Text; } set { txtVilleFacturationClient.Text = value; } }
-        public int PaysFacturation { get { return Convert.ToInt32(ddlPaysFacturationClient.SelectedValue); } set { ddlPaysFacturationClient.SelectedValue = value.ToString(); } }
+
+        public string AdresseLongueLivraison
+        {
+            get { return adresseLivraison.AdresseLongue; }
+            set { adresseLivraison.AdresseLongue = value; }
+        }
+        public string AdresseLongueFacturation
+        {
+            get { return adresseFacturation.AdresseLongue; }
+            set { adresseFacturation.AdresseLongue = value; }
+        }
+        
         public bool EstAucuneAdresseLivraison { get; set; }
         public bool EstAucuneAdresseFacturation { get; set; }
-        public IList<Country> ListePaysLivraison
-        {
-            set { FillDropDown(ddlPaysLivraisonClient, value); }
-        }
-        public IList<Country> ListePaysFacturation
-        {
-            set { FillDropDown(ddlPaysFacturationClient, value); }
-        }
         public IList<Order> ListeCommandePasse
         {
             set
@@ -59,11 +53,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         }
         protected void btnUtiliserMemeAdresseQueLivraisonClick(object sender, EventArgs e)
         {
-            txtNoCiviqueFacturationClient.Text = txtNoCiviqueLivraisonClient.Text;
-            txtRueFacturationClient.Text = txtRueLivraisonClient.Text;
-            txtVilleFacturationClient.Text = txtVilleLivraisonClient.Text;
-            txtCodePostalFacturationClient.Text = txtCodePostalLivraisonInformationClient.Text;
-            ddlPaysFacturationClient.SelectedValue = ddlPaysLivraisonClient.SelectedValue;
+            AdresseLongueFacturation = AdresseLongueLivraison;
             Presenter.Enregistrer();
         }
     }

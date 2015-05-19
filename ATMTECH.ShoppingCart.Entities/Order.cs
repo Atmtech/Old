@@ -43,6 +43,10 @@ namespace ATMTECH.ShoppingCart.Entities
         public Coupon Coupon { get; set; }
         public decimal GrandTotalWithCoupon { get; set; }
 
+        public string AddressBilling { get; set; }
+        public string AddressShipping { get; set; }
+        public string PostalCodeShipping { get; set; }
+
         public string ComboboxDescriptionUpdate
         {
             get

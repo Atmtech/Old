@@ -5,9 +5,14 @@
 <%@ Register Src="UserControls/ListeProduit.ascx" TagName="ListeProduit" TagPrefix="uc2" %>
 
 
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+    
+
     <uc1:SlideShow runat="server" ID="SlideShowAccueil" />
     <div style="background-color: white; text-align: center; margin-top: 15px; padding: 10px 10px 10px 10px">
         <a href="ProductCatalog.aspx?Brand=anvil"><img src="Images/WebSite/LogoAnvil.jpg" class="imageLogoMarqueAccueil" /></a>

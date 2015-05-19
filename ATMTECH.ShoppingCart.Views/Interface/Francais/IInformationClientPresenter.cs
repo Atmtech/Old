@@ -11,25 +11,10 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
         string Courriel { get; set; }
         string MotPasse { get; set; }
         string MotPasseConfirmation { get; set; }
-
-        string NoCiviqueLivraison { get; set; }
-        string RueLivraison { get; set; }
-        string CodePostalLivraison { get; set; }
-        string VilleLivraison { get; set; }
-        int PaysLivraison { get; set; }
-
-        string NoCiviqueFacturation { get; set; }
-        string RueFacturation { get; set; }
-        string CodePostalFacturation { get; set; }
-        string VilleFacturation { get; set; }
-        int PaysFacturation { get; set; }
-
+        string AdresseLongueLivraison { get; set; }
+        string AdresseLongueFacturation { get; set; }
         bool EstAucuneAdresseLivraison { get; set; }
         bool EstAucuneAdresseFacturation { get; set; }
-
-        IList<Country> ListePaysLivraison {  set; }
-        IList<Country> ListePaysFacturation {  set; }
-
         IList<Order> ListeCommandePasse { set; }
     }
 }

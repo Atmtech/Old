@@ -22,6 +22,8 @@ namespace ATMTECH.ShoppingCart.Entities
         public Address BillingAddress { get; set; }
         public Address ShippingAddress { get; set; }
         public string ComboboxDescriptionUpdate { get { return  User == null ? "" : User.FirstNameLastName; } }
-
+        public string AddressBilling { get; set; }
+        public string AddressShipping { get; set; }
+        public string PostalCodeShipping { get; set; }
     }
 }

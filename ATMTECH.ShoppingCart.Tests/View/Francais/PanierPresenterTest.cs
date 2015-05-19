@@ -43,20 +43,20 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             ObtenirMock<ICommandeService>().Verify(x => x.ObtenirCommandeSouhaite(customer));
         }
 
-        [TestMethod]
-        public void AfficherPanier_RemplirLesAdresses()
-        {
-            Customer customer = AutoFixture.Create<Customer>();
-            Order order = AutoFixture.Create<Order>();
+        //[TestMethod]
+        //public void AfficherPanier_RemplirLesAdresses()
+        //{
+        //    Customer customer = AutoFixture.Create<Customer>();
+        //    Order order = AutoFixture.Create<Order>();
 
-            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
-            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+        //    ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
+        //    ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
 
-            InstanceTest.AfficherPanier();
+        //    InstanceTest.AfficherPanier();
 
-            ViewMock.VerifySet(x => x.AdresseFacturation = order.BillingAddress.DisplayAddress);
-            ViewMock.VerifySet(x => x.AdresseLivraison = order.ShippingAddress.DisplayAddress);
-        }
+        //    ViewMock.VerifySet(x => x.AdresseFacturation = order.BillingAddress.DisplayAddress);
+        //    ViewMock.VerifySet(x => x.AdresseLivraison = order.ShippingAddress.DisplayAddress);
+        //}
 
 
         [TestMethod]

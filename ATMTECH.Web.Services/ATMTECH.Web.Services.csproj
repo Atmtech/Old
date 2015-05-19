@@ -53,6 +53,10 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -70,6 +74,25 @@
     <Compile Include="Base\BaseService.cs" />
     <Compile Include="Base\IBaseService.cs" />
     <Compile Include="Base\ParameterConstant.cs" />
+    <Compile Include="GoogleMap\AddressComponent.cs" />
+    <Compile Include="GoogleMap\AddressType.cs" />
+    <Compile Include="GoogleMap\ElevationRequest.cs" />
+    <Compile Include="GoogleMap\ElevationResponse.cs" />
+    <Compile Include="GoogleMap\ElevationResult.cs" />
+    <Compile Include="GoogleMap\ElevationService.cs" />
+    <Compile Include="GoogleMap\Extensions.cs" />
+    <Compile Include="GoogleMap\GeocodingRequest.cs" />
+    <Compile Include="GoogleMap\GeocodingResponse.cs" />
+    <Compile Include="GoogleMap\GeocodingResult.cs" />
+    <Compile Include="GoogleMap\GeocodingService.cs" />
+    <Compile Include="GoogleMap\GeographicPosition.cs" />
+    <Compile Include="GoogleMap\Geometry.cs" />
+    <Compile Include="GoogleMap\Http.cs" />
+    <Compile Include="GoogleMap\JsonEnumTypeConverter.cs" />
+    <Compile Include="GoogleMap\LocationType.cs" />
+    <Compile Include="GoogleMap\ServiceResponseStatus.cs" />
+    <Compile Include="GoogleMap\StaticMap.cs" />
+    <Compile Include="GoogleMap\Viewport.cs" />
     <Compile Include="GoogleMapService.cs" />
     <Compile Include="ErrorCode.cs" />
     <Compile Include="Interface\IGoogleMapService.cs" />

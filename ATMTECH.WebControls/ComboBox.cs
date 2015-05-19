@@ -8,13 +8,14 @@ namespace ATMTECH.WebControls
     public class ComboBox : CompositeControl
     {
         public string SelectedValue { get { return _dropDownList.SelectedValue; } set { _dropDownList.SelectedValue = value; } }
+        public string Text { get { return _dropDownList.Text; } set { _dropDownList.Text = value; } }
         public Object DataSource
         {
             get { return _dropDownList.DataSource; }
             set
             {
                 _dropDownList.DataSource = value;
-             
+
             }
         }
         public string DataTextField { get { return _dropDownList.DataTextField; } set { _dropDownList.DataTextField = value; } }
