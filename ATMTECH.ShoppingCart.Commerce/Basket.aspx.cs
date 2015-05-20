@@ -87,6 +87,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         protected void btnValiderCouponClick(object sender, EventArgs e)
         {
             Presenter.ValiderCoupon();
+            AffichageValeurCoupon(Commande);
             AffichagePanier();
         }
 
@@ -97,12 +98,10 @@ namespace ATMTECH.ShoppingCart.Commerce
         }
         private void AffichageValeurCoupon(Order commande)
         {
-            if (commande.Coupon != null && commande.Coupon.PercentageSave != 0)
+            if (commande.Coupon != null)
             {
                 lblGrandTotalApresCoupon.Text = commande.GrandTotalWithCoupon.ToString("c");
-                string valeurTexteCoupon = commande.Coupon.PercentageSave != 0
-                    ? " - " + commande.Coupon.PercentageSave + "%"
-                    : "";
+
                 if (commande.Coupon.IsShippingSave)
                 {
                     lblCouponAucunFraisLivraison.Visible = true;
@@ -110,14 +109,17 @@ namespace ATMTECH.ShoppingCart.Commerce
                 }
                 else
                 {
+                    string valeurTexteCoupon = commande.Coupon.PercentageSave != 0
+                   ? " - " + commande.Coupon.PercentageSave + "%"
+                   : "";
                     lblCouponValeur.Visible = true;
                     lblCouponValeur.Text = "( Coupon: " + commande.Coupon.Ident + valeurTexteCoupon + " )";
+                    lblGrandTotalApresCoupon.Visible = true;
+                    lblGrandTotalAffichageAvecCoupon.Visible = true;
+                    lblGrandTotalAffichage.Font.Strikeout = true;
+                    lblGrandTotal.Font.Strikeout = true;
                 }
-
-                lblGrandTotalApresCoupon.Visible = true;
-                lblGrandTotalAffichageAvecCoupon.Visible = true;
-                lblGrandTotalAffichage.Font.Strikeout = true;
-                lblGrandTotal.Font.Strikeout = true;
+                txtCoupon.Text = commande.Coupon.Ident;
             }
             else
             {

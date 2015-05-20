@@ -46,7 +46,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 else
                 {
                     View.EstSansAdresseFacturation = true;
-                    View.EstCommandable = false; 
+                    View.EstCommandable = false;
                 }
 
                 if (!string.IsNullOrEmpty(commande.AddressShipping))
@@ -102,7 +102,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
             if (!string.IsNullOrEmpty(View.Coupon))
             {
-                CommandeService.ValiderCoupon(View.Commande, View.Coupon);
+                View.Commande = CommandeService.ValiderCoupon(View.Commande, View.Coupon);
             }
         }
     }

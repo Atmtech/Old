@@ -1,5 +1,4 @@
-﻿using ATMTECH.Shell.Tests;
-using ATMTECH.ShoppingCart.Services;
+﻿using ATMTECH.ShoppingCart.Services;
 using ATMTECH.Test;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

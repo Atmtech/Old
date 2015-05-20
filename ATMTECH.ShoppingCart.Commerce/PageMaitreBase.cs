@@ -79,7 +79,8 @@ namespace ATMTECH.ShoppingCart.Commerce
             if (id == "lblMarque") return true;
             if (id == "lblPrixOriginal") return true;
             if (id == "lblVersion") return true;
-
+            if (id == "lblCouponIdentifiant") return true;
+            
             return false;
         }
         private void Localiser()

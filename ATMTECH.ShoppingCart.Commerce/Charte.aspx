@@ -20,6 +20,7 @@
             <br/>
             
             <asp:Button ID="btnRevenirProduit" runat="server" OnClick="btnRevenirAccueilClick" Text="Revenir au produit | Return to product" CssClass="boutonActionRond" /><br />
+            <br/>
             <asp:Image runat="server" ID="imgCharte" />
         </div>
     </form>

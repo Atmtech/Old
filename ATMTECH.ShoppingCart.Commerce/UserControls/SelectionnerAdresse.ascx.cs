@@ -13,16 +13,17 @@ namespace ATMTECH.ShoppingCart.Commerce.UserControls
         {
             get
             {
-                if (Session["AdresseLongue" + ID] == null)
-                {
-                    Session["AdresseLongue" + ID] = string.Empty;
-                }
-                return Session["AdresseLongue" + ID].ToString();
+                return txtAdresse.Text;
+                //if (Session["AdresseLongue" + ID] == null)
+                //{
+                //    Session["AdresseLongue" + ID] = string.Empty;
+                //}
+                //return Session["AdresseLongue" + ID].ToString();
             }
             set
             {
                 txtAdresse.Text = value;
-                Session["AdresseLongue" + ID] = value;
+                //Session["AdresseLongue" + ID] = value;
             }
         }
         public string CodePostal

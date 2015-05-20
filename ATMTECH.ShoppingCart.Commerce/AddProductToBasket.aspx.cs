@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 using ATMTECH.Common.Constant;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Views.Francais;
@@ -24,9 +26,9 @@ namespace ATMTECH.ShoppingCart.Commerce
             set
             {
                 Session["ProduitCourant"] = value;
+
                 switch (Presenter.CurrentLanguage)
                 {
-
                     case LocalizationLanguage.FRENCH:
                         lblDescription.Text = value.DescriptionFrench;
                         lblNomProduit.Text = value.NameFrench;
@@ -39,7 +41,6 @@ namespace ATMTECH.ShoppingCart.Commerce
                         break;
                 }
 
-
                 lblIdentProduit.Text = value.Ident;
                 AfficherListeFichier();
 
@@ -48,8 +49,12 @@ namespace ATMTECH.ShoppingCart.Commerce
                     btnConsulterLaCharte.Visible = false;
                 }
 
+                AfficherInformationReseauSociaux(value);
+                AfficherLogoMarque(value);
             }
         }
+
+
         public int Inventaire
         {
             get { return Convert.ToInt32(ddlStock.SelectedValue); }
@@ -60,7 +65,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return Convert.ToInt32(txtQuantite.Text); }
             set { txtQuantite.Text = value.ToString(); }
         }
-
         public string Couleur
         {
             get { return ddlCouleur.SelectedValue; }
@@ -71,7 +75,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return ddlTaille.SelectedValue; }
             set { ddlTaille.SelectedValue = value; }
         }
-
         public IList<string> ListeDeroulanteCouleurs
         {
             set { FillDropDownWithoutEntity(ddlCouleur, value); }
@@ -80,11 +83,10 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             set
             {
-                ListeCouleur.ListeCouleurs = value;
                 ListeCouleur.Langue = Presenter.CurrentLanguage;
+                ListeCouleur.ListeCouleurs = value;
             }
         }
-
         public IList<Taille> Tailles
         {
             set { FillDropDownWithoutEntity(ddlTaille, value.OrderBy(x => x.Ordre), "Nom", "Nom"); }
@@ -139,7 +141,6 @@ namespace ATMTECH.ShoppingCart.Commerce
                 }
             }
         }
-
         public void AfficherListeFichier()
         {
             ListeFichier.AfficherListeFichier(((Product)Session["ProduitCourant"]).ProductFiles);
@@ -156,12 +157,14 @@ namespace ATMTECH.ShoppingCart.Commerce
         protected void ddlTailleSelectedIndexChanged(object sender, EventArgs e)
         {
             Presenter.AfficherPrix();
+            Presenter.AfficherListeDesCouleurs();
             AfficherListeFichier();
         }
         protected void ddlCouleurSelectedIndexChanged(object sender, EventArgs e)
         {
             Presenter.AfficherTaille();
             Presenter.AfficherPrix();
+            Presenter.AfficherListeDesCouleurs();
             AfficherListeFichier();
         }
 
@@ -169,6 +172,48 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
 
             Response.Redirect("Charte.aspx?" + PagesId.PRODUCT_ID + "=" + QueryString.GetQueryStringValue(PagesId.PRODUCT_ID) + "&" + PagesId.CHARTE + "=" + Produit.Brand);
+        }
+
+        private void AfficherInformationReseauSociaux(Product produit)
+        {
+            HtmlMeta metaTitre = new HtmlMeta();
+            HtmlMeta metaType = new HtmlMeta();
+            HtmlMeta metaDescription = new HtmlMeta();
+
+            switch (Presenter.CurrentLanguage)
+            {
+                case LocalizationLanguage.FRENCH:
+                    metaTitre.Attributes.Add("content", string.Format("({0}) - {1}", produit.UnitPrice.ToString("C"), produit.NameFrench));
+                    metaDescription.Attributes.Add("content", produit.DescriptionFrench);
+                    break;
+                case LocalizationLanguage.ENGLISH:
+                    metaTitre.Attributes.Add("content", string.Format("({0}) - {1}", produit.UnitPrice.ToString("C"), produit.NameEnglish));
+                    metaDescription.Attributes.Add("content", produit.DescriptionEnglish);
+                    break;
+            }
+
+            metaTitre.Attributes.Add("property", "og:title");
+            metaType.Attributes.Add("property", "og:type");
+            metaType.Attributes.Add("content", "product");
+            metaDescription.Attributes.Add("property", "og:description");
+
+            MetaPlaceHolder.Controls.Add(metaType);
+            MetaPlaceHolder.Controls.Add(metaTitre);
+            MetaPlaceHolder.Controls.Add(metaDescription);
+
+            Literal literalFacebook = new Literal { Text = "<div class='fb-like' style='color:white;' data-href='http://www.checkleprix.com/AddProductToBasket.aspx?ProductId=" + produit.Id + "' data-layout='standard' data-action='like' data-show-faces='true' data-share='true'></div>" };
+            placeHolderFacebook.Controls.Add(literalFacebook);
+            Literal literalTwitter = new Literal { Text = "<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://www.checkleprix.com/AddProductToBasket.aspx?ProductId=" + produit.Id + "' data-via='CheckLePrix'>Tweet</a>" };
+            placeHolderTwitter.Controls.Add(literalTwitter);
+        }
+
+        private void AfficherLogoMarque(Product produit)
+        {
+            if (!string.IsNullOrEmpty(produit.Brand))
+            {
+                imgMarque.Visible = true;
+                imgMarque.ImageUrl = "~/images/WebSite/Logo" + produit.Brand + ".jpg";
+            }
         }
     }
 

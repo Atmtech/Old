@@ -1,5 +1,4 @@
-﻿using ATMTECH.ShoppingCart.Services.Interface;
-using ATMTECH.ShoppingCart.Services.Interface.Francais;
+﻿using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.Test;

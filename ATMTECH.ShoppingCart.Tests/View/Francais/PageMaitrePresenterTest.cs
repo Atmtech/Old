@@ -9,17 +9,17 @@ using ATMTECH.ShoppingCart.Views.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Pages;
 using ATMTECH.Test;
 using ATMTECH.Web.Services.Interface;
-using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using Ploeh.AutoFixture;
+using It = Moq.It;
+using Times = Moq.Times;
 
 namespace ATMTECH.ShoppingCart.Tests.View.Francais
 {
     [TestClass]
     public class PageMaitrePresenterTest : BaseTest<PageMaitrePresenter>
     {
-        public Mock<IPageMaitrePresenter> ViewMock
+        public Moq.Mock<IPageMaitrePresenter> ViewMock
         {
             get { return ObtenirMock<IPageMaitrePresenter>(); }
         }

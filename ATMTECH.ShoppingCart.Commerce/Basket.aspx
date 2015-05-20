@@ -106,8 +106,7 @@
                 <tr>
                     <td colspan="2" class="affichageValeurCoupon">
                         <asp:Label runat="server" ID="lblCouponValeur" Text="" Visible="false"></asp:Label>
-                        <asp:Label runat="server" ID="lblCouponAucunFraisLivraison" Text="(Coupon: Aucun frais livraison)" Visible="false"></asp:Label>
-
+                        <asp:Label runat="server" ID="lblCouponAucunFraisLivraison" Text="(Coupon: Aucun frais livraison)" Visible="false"></asp:Label><br />
                     </td>
 
                 </tr>

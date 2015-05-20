@@ -2,7 +2,6 @@
 using System.Linq;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
-using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
@@ -85,7 +84,6 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
         {
             ObtenirMock<IParameterService>().Setup(x => x.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)).Returns("1");
             IList<Product> produits = new List<Product>();
-            IList<Product> produitsVide = new List<Product>();
             Product product1 = AutoFixture.Create<Product>();
             Product product2 = AutoFixture.Create<Product>();
 

@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.UI.WebControls;
-using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services.Base;
-using ATMTECH.ShoppingCart.Services.Interface;
+﻿using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
@@ -11,7 +6,6 @@ using ATMTECH.Test;
 using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 using ATMTECH.Web.Services.PaypalSandboxService;
-using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Ploeh.AutoFixture;
@@ -80,7 +74,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
 
             ObtenirMock<ICommandeService>().Verify(x => x.FinaliserCommande(commande), Times.Never());
             ViewMock.VerifySet(x => x.EstFinalise = false);
-            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(Web.Services.ErrorCode.ADM_PAYPAL_FINISH_FAILED), Times.Once());
+            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(ErrorCode.ADM_PAYPAL_FINISH_FAILED), Times.Once());
         }
 
     }

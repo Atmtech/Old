@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ATMTECH.Common.Context;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;

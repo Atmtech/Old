@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ATMTECH.Shell.Tests;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services;

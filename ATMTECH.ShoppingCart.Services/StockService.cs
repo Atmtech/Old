@@ -4,7 +4,6 @@ using System.Linq;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
-using ATMTECH.ShoppingCart.Services.Reports.DTO;
 using ATMTECH.Web.Services.Base;
 
 namespace ATMTECH.ShoppingCart.Services

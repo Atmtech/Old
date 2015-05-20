@@ -398,18 +398,18 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IDAOCommande>().Verify(test => test.Save(It.Is<Order>(a => a.OrderStatus == OrderStatus.IsOrdered)), Times.Once());
         }
 
-        [TestMethod]
-        public void ObtenirCommandeSouhaite_TouteCommandeObtenuLorsqueAucuneAdresseDoitPrendreAdresseDuClient()
-        {
-            Customer customer = AutoFixture.Create<Customer>();
-            Order order = AutoFixture.Create<Order>();
-            order.ShippingAddress = null;
-            order.BillingAddress = null;
-            ObtenirMock<IDAOCommande>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
-            Order obtenirCommandeSouhaite = InstanceTest.ObtenirCommandeSouhaite(customer);
-            obtenirCommandeSouhaite.ShippingAddress.Should().Be(customer.ShippingAddress);
-            obtenirCommandeSouhaite.BillingAddress.Should().Be(customer.BillingAddress);
-        }
+        //[TestMethod]
+        //public void ObtenirCommandeSouhaite_TouteCommandeObtenuLorsqueAucuneAdresseDoitPrendreAdresseDuClient()
+        //{
+        //    Customer customer = AutoFixture.Create<Customer>();
+        //    Order order = AutoFixture.Create<Order>();
+        //    order.ShippingAddress = null;
+        //    order.BillingAddress = null;
+        //    ObtenirMock<IDAOCommande>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
+        //    Order obtenirCommandeSouhaite = InstanceTest.ObtenirCommandeSouhaite(customer);
+        //    obtenirCommandeSouhaite.ShippingAddress.Should().Be(customer.ShippingAddress);
+        //    obtenirCommandeSouhaite.BillingAddress.Should().Be(customer.BillingAddress);
+        //}
 
         [TestMethod]
         public void AfficherCommande_DevraitSortirLeBonHtml()

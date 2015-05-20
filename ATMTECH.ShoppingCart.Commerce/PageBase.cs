@@ -6,7 +6,6 @@ using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.Views.Interface;
 using ATMTECH.Web;
-using ATMTECH.Web.Services;
 using ATMTECH.WebControls;
 
 namespace ATMTECH.ShoppingCart.Commerce

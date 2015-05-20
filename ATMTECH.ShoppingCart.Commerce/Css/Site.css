@@ -744,7 +744,7 @@ a
     padding-bottom: 5px;
     border-top: solid 2px gray;
     color: gold;
-    font-size: 25px;
+    font-size: 15px;
 }
 
 .affichageAdressePanier
@@ -885,4 +885,10 @@ a
     height: 25px;
     font-size: 70px;
     font-weight: bold;
+}
+
+
+.imageMarqueDansAjoutPanier {
+    width: 100px;
+    height: 50px;
 }

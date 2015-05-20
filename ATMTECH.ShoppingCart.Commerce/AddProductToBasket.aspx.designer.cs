@@ -13,6 +13,15 @@ namespace ATMTECH.ShoppingCart.Commerce {
     public partial class AddProductToBasket {
         
         /// <summary>
+        /// Contrôle MetaPlaceHolder.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder MetaPlaceHolder;
+        
+        /// <summary>
         /// Contrôle ListeFichier.
         /// </summary>
         /// <remarks>
@@ -166,6 +175,15 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::ATMTECH.ShoppingCart.Commerce.UserControls.ListeCouleur ListeCouleur;
         
         /// <summary>
+        /// Contrôle imgMarque.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgMarque;
+        
+        /// <summary>
         /// Contrôle btnConsulterLaCharte.
         /// </summary>
         /// <remarks>
@@ -182,6 +200,24 @@ namespace ATMTECH.ShoppingCart.Commerce {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAjouterLigneCommande;
+        
+        /// <summary>
+        /// Contrôle placeHolderTwitter.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder placeHolderTwitter;
+        
+        /// <summary>
+        /// Contrôle placeHolderFacebook.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder placeHolderFacebook;
         
         /// <summary>
         /// Contrôle lblDetail.

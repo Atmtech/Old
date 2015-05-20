@@ -45,10 +45,9 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             if (obtenirCommandeSouhaite == null) return null;
             obtenirCommandeSouhaite.Customer = client;
             obtenirCommandeSouhaite.Enterprise = client.Enterprise;
-            if (obtenirCommandeSouhaite.BillingAddress == null)
-                obtenirCommandeSouhaite.BillingAddress = client.BillingAddress;
-            if (obtenirCommandeSouhaite.ShippingAddress == null)
-                obtenirCommandeSouhaite.ShippingAddress = client.ShippingAddress;
+            obtenirCommandeSouhaite.AddressBilling = client.AddressBilling;
+            obtenirCommandeSouhaite.AddressShipping = client.AddressShipping;
+            obtenirCommandeSouhaite.PostalCodeShipping = client.PostalCodeShipping;
             return obtenirCommandeSouhaite;
         }
         public string AfficherCommande(int id)
@@ -123,7 +122,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         }
         public bool ValiderCodePostalLivraison(Order order)
         {
-            if (EnvoiPostalService.EstCodePostalValideAvecPurolator(order.ShippingAddress.PostalCode) == false)
+            if (EnvoiPostalService.EstCodePostalValideAvecPurolator(order.PostalCodeShipping) == false)
             {
                 MessageService.ThrowMessage(CodeErreur.SC_CODE_POSTAL_INVALIDE);
                 return false;
@@ -153,8 +152,8 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                         OrderStatus = OrderStatus.IsWishList,
                         Customer = client,
                         Enterprise = client.Enterprise,
-                        ShippingAddress = client.ShippingAddress,
-                        BillingAddress = client.BillingAddress
+                        AddressShipping = client.AddressShipping,
+                        AddressBilling = client.AddressBilling
                     };
 
                 return Enregistrer(order);
@@ -170,6 +169,11 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 {
                     DAOLigneCommande.Save(orderLine);
                 }
+            }
+            else
+            {
+                commande.Coupon = null;
+                commande.GrandTotalWithCoupon = 0;
             }
             commande.Id = DAOCommande.Save(commande);
             return commande;
@@ -355,6 +359,12 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             {
                 commande.GrandTotalWithCoupon = commande.SubTotal - (commande.SubTotal * commande.Coupon.PercentageSave / 100) + commande.CountryTax + commande.RegionalTax + commande.ShippingTotal;
             }
+
+            if (commande.Coupon != null && commande.Coupon.IsShippingSave)
+            {
+                commande.GrandTotalWithCoupon = commande.SubTotal + commande.CountryTax + commande.RegionalTax;
+            }
+
             return commande;
         }
 

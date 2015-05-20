@@ -20,10 +20,10 @@ namespace ATMTECH.ShoppingCart.Commerce.UserControls
                     foreach (Couleur couleur in value)
                     {
                         html += Langue == LocalizationLanguage.FRENCH
-                                    ? "<div title='" + couleur.Francais + "' style='background-color:" +
+                                    ? "<div title='" + couleur.Francais + "' style='margin-top:4px; background-color:" +
                                       couleur.EquivalentWeb +
                                       ";border:solid 1px gray; width: 20px; height:20px;float: left;margin-left: 5px;'>&nbsp;</div>"
-                                    : "<div title='" + couleur.Anglais + "' style='background-color:" +
+                                    : "<div title='" + couleur.Anglais + "' style='margin-top:4px;background-color:" +
                                       couleur.EquivalentWeb +
                                       ";border:solid 1px gray; width: 20px; height:20px;float: left;margin-left: 5px;'>&nbsp;</div>";
                     }
