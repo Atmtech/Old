@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
@@ -131,27 +132,27 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
                 .Verify(x => x.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
         }
 
-        [TestMethod]
-        public void Enregistrer_SiMotPasseEstInexistantLancerErreur()
-        {
-            ViewMock.Setup(x => x.Courriel).Returns("test");
-            ViewMock.Setup(x => x.MotPasse).Returns("");
-            InstanceTest.Enregistrer();
-            ObtenirMock<IMessageService>()
-                .Verify(x => x.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
-        }
+        //[TestMethod]
+        //public void Enregistrer_SiMotPasseEstInexistantLancerErreur()
+        //{
+        //    ViewMock.Setup(x => x.Courriel).Returns("test");
+        //    ViewMock.Setup(x => x.MotPasse).Returns("");
+        //    InstanceTest.Enregistrer();
+        //    ObtenirMock<IMessageService>()
+        //        .Verify(x => x.ThrowMessage(ErrorCode.ADM_CREATE_USER_MANDATORY), Times.Once());
+        //}
 
-        [TestMethod]
-        public void Enregistrer_SiMotPasseEstDifferentConfirmationLancerErreur()
-        {
-            ViewMock.Setup(x => x.Courriel).Returns("test");
-            ViewMock.Setup(x => x.MotPasse).Returns("test");
-            ViewMock.Setup(x => x.MotPasseConfirmation).Returns("xna");
-            InstanceTest.Enregistrer();
-            ObtenirMock<IMessageService>()
-                .Verify(x => x.ThrowMessage(ShoppingCart.Services.ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM),
-                        Times.Once());
-        }
+        //[TestMethod]
+        //public void Enregistrer_SiMotPasseEstDifferentConfirmationLancerErreur()
+        //{
+        //    ViewMock.Setup(x => x.Courriel).Returns("test");
+        //    ViewMock.Setup(x => x.MotPasse).Returns("test");
+        //    ViewMock.Setup(x => x.MotPasseConfirmation).Returns("xna");
+        //    InstanceTest.Enregistrer();
+        //    ObtenirMock<IMessageService>()
+        //        .Verify(x => x.ThrowMessage(ShoppingCart.Services.ErrorCode.SC_PASSWORD_DONT_EQUAL_PASSWORD_CONFIRM),
+        //                Times.Once());
+        //}
 
         //[TestMethod]
         //public void Enregistrer_SiCodePostalInvalideLancerErreur()
@@ -316,5 +317,84 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
 
             ObtenirMock<ICommandeService>().Verify(x => x.ObtenirCommande(customer), Times.Once());
         }
+
+
+        [TestMethod]
+        public void AfficherCommandePasse_SiAucunClientAuthentifieOnRameneAPageAccueil()
+        {
+            //Arranger
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns((Customer)null);
+            //Agir
+            InstanceTest.AfficherCommandePasse();
+            //Asserter
+            ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.DEFAULT), Times.Once());
+        }
+
+        [TestMethod]
+        public void AfficherInformationClient_SiAucuneAdresseFacturationOnAfficheAucun()
+        {
+            //Arranger
+            Customer customer = AutoFixture.Create<Customer>();
+            customer.AddressBilling = null;
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+            //Agir
+            InstanceTest.AfficherInformationClient();
+
+            //Asserter
+
+            ViewMock.VerifySet(x => x.EstAucuneAdresseFacturation = true);
+        }
+
+        [TestMethod]
+        public void AfficherInformationClient_SiAucuneAdresseLivraisonOnAfficheAucun()
+        {
+            //Arranger
+            Customer customer = AutoFixture.Create<Customer>();
+            customer.AddressShipping = null;
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+            //Agir
+            InstanceTest.AfficherInformationClient();
+
+            //Asserter
+            ViewMock.VerifySet(x => x.EstAucuneAdresseLivraison = true);
+        }
+
+        [TestMethod]
+        public void EnregistrerMotPasse_SiMotPasseVideLanceErreur()
+        {
+            ViewMock.Setup(x => x.MotPasse).Returns((string)null);
+
+            InstanceTest.EnregistrerMotPasse();
+
+            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(CodeErreur.ADM_CREATION_NOM_UTILISATEUR_OBLIGATOIRE), Times.Once());
+        }
+
+        [TestMethod]
+        public void EnregistrerMotPasse_SiMotPasseDifferentConfirmationLanceErreur()
+        {
+            ViewMock.Setup(x => x.MotPasse).Returns("A");
+            ViewMock.Setup(x => x.MotPasseConfirmation).Returns("B");
+
+            InstanceTest.EnregistrerMotPasse();
+
+            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(CodeErreur.SC_MOT_PASSE_INEGALE_AVEC_CONFIRMATION), Times.Once());
+        }
+
+
+        [TestMethod]
+        public void EnregistrerMotPasse_SIToutEstOkEnregistreEtMessage()
+        {
+            Customer customer = AutoFixture.Create<Customer>();
+            customer.User.Password = "A";
+            ViewMock.Setup(x => x.MotPasse).Returns("A");
+            ViewMock.Setup(x => x.MotPasseConfirmation).Returns("A");
+            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+            ObtenirMock<IClientService>().Setup(x => x.ObtenirClient(It.IsAny<int>())).Returns(customer);
+
+            InstanceTest.EnregistrerMotPasse();
+            ObtenirMock<IClientService>().Verify(x => x.Enregistrer(customer), Times.Once());
+            ObtenirMock<IMessageService>().Verify(x => x.ThrowMessage(CodeErreur.ADM_ENREGISTRER_AVES_SUCCES), Times.Once());
+        }
+
     }
 }

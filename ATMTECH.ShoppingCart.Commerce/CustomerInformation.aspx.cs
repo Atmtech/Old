@@ -56,5 +56,16 @@ namespace ATMTECH.ShoppingCart.Commerce
             AdresseLongueFacturation = AdresseLongueLivraison;
             Presenter.Enregistrer();
         }
+
+        protected void btnChangerMotDePasseClick(object sender, EventArgs e)
+        {
+            Presenter.EnregistrerMotPasse();
+        }
+
+        protected void btnJeVeuxChangerMonMotDePasseClick(object sender, EventArgs e)
+        {
+            pnlChangerMotDePasse.Visible = true;
+            btnJeVeuxChangerMonMotDePasse.Visible = false;
+        }
     }
 }

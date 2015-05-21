@@ -47,5 +47,25 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             InstanceTest.AfficherListeProduit();
             ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.DEFAULT));
         }
+
+        [TestMethod]
+        public void AfficherLogoMarque_QuandMarqueExisteOnAfficheLeJpgAssocie()
+        {
+            ViewMock.Setup(x => x.Marque).Returns("test");
+
+            InstanceTest.AfficherLogoMarque();
+
+            ViewMock.VerifySet(x => x.ImageMarque = "/Images/WebSite/Logotest.jpg");
+        }
+
+        [TestMethod]
+        public void AfficherLogoMarque_QuandMarqueNExistePasOnFaitRien()
+        {
+            ViewMock.Setup(x => x.Marque).Returns((string)null);
+
+            InstanceTest.AfficherLogoMarque();
+
+            ViewMock.VerifySet(x => x.ImageMarque = "");
+        }
     }
 }

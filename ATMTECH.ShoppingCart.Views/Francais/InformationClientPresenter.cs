@@ -79,14 +79,9 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 NavigationService.Redirect(Pages.Pages.DEFAULT);
             }
         }
-        public void Enregistrer()
-        {
-            if (string.IsNullOrEmpty(View.Courriel))
-            {
-                MessageService.ThrowMessage(CodeErreur.ADM_CREATION_NOM_UTILISATEUR_OBLIGATOIRE);
-                return;
-            }
 
+        public void EnregistrerMotPasse()
+        {
             if (string.IsNullOrEmpty(View.MotPasse))
             {
                 MessageService.ThrowMessage(CodeErreur.ADM_CREATION_NOM_UTILISATEUR_OBLIGATOIRE);
@@ -96,6 +91,19 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (View.MotPasse != View.MotPasseConfirmation)
             {
                 MessageService.ThrowMessage(CodeErreur.SC_MOT_PASSE_INEGALE_AVEC_CONFIRMATION);
+                return;
+            }
+
+            Customer customer = ClientService.ObtenirClient(ClientService.ClientAuthentifie.Id);
+            customer.User.Password = View.MotPasse;
+            ClientService.Enregistrer(customer);
+            MessageService.ThrowMessage(CodeErreur.ADM_ENREGISTRER_AVES_SUCCES);
+        }
+        public void Enregistrer()
+        {
+            if (string.IsNullOrEmpty(View.Courriel))
+            {
+                MessageService.ThrowMessage(CodeErreur.ADM_CREATION_NOM_UTILISATEUR_OBLIGATOIRE);
                 return;
             }
 
@@ -114,7 +122,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             customer.User.FirstName = View.Prenom;
             customer.User.LastName = View.Nom;
             customer.User.Email = View.Courriel;
-            customer.User.Password = View.MotPasse;
             ClientService.Enregistrer(customer);
             MessageService.ThrowMessage(CodeErreur.ADM_ENREGISTRER_AVES_SUCCES);
         }

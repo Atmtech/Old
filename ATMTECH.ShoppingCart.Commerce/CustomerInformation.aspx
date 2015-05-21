@@ -30,18 +30,24 @@
             <asp:TextBox ID="txtCourriel" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
         </div>
 
-        <div style="padding-top: 20px;">
-            <asp:Label runat="server" ID="lblMotDePasseCreer" Text="Mot de passe" CssClass="labelLogin"></asp:Label>
-        </div>
-        <div>
-            <asp:TextBox ID="txtMotDePasse" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
-        </div>
-        <div style="padding-top: 20px;">
-            <asp:Label runat="server" ID="lblMotDePasseCreerConfirmation" Text="Confirmation" CssClass="labelLogin"></asp:Label>
-        </div>
-        <div>
-            <asp:TextBox ID="txtMotDePasseConfirmation" runat="server" CssClass="textBox" Width="400px"></asp:TextBox>
-        </div>
+        <br/>
+        <asp:Panel ID="pnlChangerMotDePasse" runat="server" Visible="False">
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblMotDePasseCreer" Text="Mot de passe" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div>
+                <asp:TextBox ID="txtMotDePasse" runat="server" CssClass="textBox" Width="400px" TextMode="Password"></asp:TextBox>
+            </div>
+            <div style="padding-top: 20px;">
+                <asp:Label runat="server" ID="lblMotDePasseCreerConfirmation" Text="Confirmation" CssClass="labelLogin"></asp:Label>
+            </div>
+            <div>
+                <asp:TextBox ID="txtMotDePasseConfirmation" runat="server" CssClass="textBox" Width="400px" TextMode="Password"></asp:TextBox>
+            </div><br/>
+            <asp:Button runat="server" ID="btnChangerMotDePasse" Text="Changer mon mot de passe" OnClick="btnChangerMotDePasseClick"  CssClass="boutonActionRond" />
+        </asp:Panel>
+        <asp:Button runat="server" ID="btnJeVeuxChangerMonMotDePasse" Text="Je veux changer mon mot de passe" OnClick="btnJeVeuxChangerMonMotDePasseClick"  CssClass="boutonActionRond" />
+        <br/>
 
         <div class="adresseLivraisonClient">
             <div class="titreDansPage">
@@ -53,14 +59,14 @@
             <div class="titreDansPage">
                 <asp:Label runat="server" ID="lblAdresseFacturationClient" Text="Adresse de facturation"></asp:Label>
             </div>
-             <div style="margin-bottom: 10px;">
+            <div style="margin-bottom: 10px;">
                 <asp:Button runat="server" ID="btnUtiliserMemeAdresseQueLivraison" OnClick="btnUtiliserMemeAdresseQueLivraisonClick" Text="Utiliser la même adresse que celle de livraison" CssClass="boutonActionRond" />
             </div>
             <adresse:selectionneradresse ID="adresseFacturation" runat="server" />
         </div>
 
         <div style="padding-top: 20px;">
-            <asp:Button runat="server" ID="btnEnregistrerInformationClient" Text="Enregistrer" CssClass="boutonActionRond" Width="400px" OnClick="btnEnregistrerInformationClientClick"></asp:Button>
+            <asp:Button runat="server" ID="btnEnregistrerInformationClient" Text="Enregistrer" CssClass="boutonActionRondFinaliser" Width="400px" OnClick="btnEnregistrerInformationClientClick"></asp:Button>
         </div>
     </div>
     <div class="HistoriqueCommandeClient">

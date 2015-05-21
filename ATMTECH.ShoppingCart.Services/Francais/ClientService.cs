@@ -60,6 +60,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             if (ValiderClientService.EstClientValide(client))
             {
                 DAOClient.Save(client);
+                DAOUser.UpdateUser(client.User);
             }
             return client;
         }

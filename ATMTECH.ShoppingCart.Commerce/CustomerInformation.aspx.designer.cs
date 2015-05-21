@@ -76,6 +76,15 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.TextBox txtCourriel;
         
         /// <summary>
+        /// Contrôle pnlChangerMotDePasse.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlChangerMotDePasse;
+        
+        /// <summary>
         /// Contrôle lblMotDePasseCreer.
         /// </summary>
         /// <remarks>
@@ -110,6 +119,24 @@ namespace ATMTECH.ShoppingCart.Commerce {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMotDePasseConfirmation;
+        
+        /// <summary>
+        /// Contrôle btnChangerMotDePasse.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangerMotDePasse;
+        
+        /// <summary>
+        /// Contrôle btnJeVeuxChangerMonMotDePasse.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnJeVeuxChangerMonMotDePasse;
         
         /// <summary>
         /// Contrôle lblAdresseLivraisonClient.
