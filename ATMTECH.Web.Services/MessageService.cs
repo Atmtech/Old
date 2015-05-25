@@ -32,6 +32,7 @@ namespace ATMTECH.Web.Services
         public void ThrowMessage(string innerId, System.Exception ex)
         {
             Message message = DAOMessage.GetMessage(innerId, LocalizationService.CurrentLanguage);
+            message.Description += string.Format("({0})", ex.Message);
             //LogService.LogException(message, ex);
             throw new BaseException(message);
         }

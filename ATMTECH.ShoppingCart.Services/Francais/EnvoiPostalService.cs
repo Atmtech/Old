@@ -88,23 +88,29 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             };
 
 
-            try
+            //try
+            //{
+            IList<PurolatorEstimateReturn> purolatorEstimateReturns = PurolatorService.GetQuickEstimate(purolatorPackage, configurationPurolatorWebService);
+            if (purolatorEstimateReturns != null)
             {
-                IList<PurolatorEstimateReturn> purolatorEstimateReturns = PurolatorService.GetQuickEstimate(purolatorPackage, configurationPurolatorWebService);
-                if (purolatorEstimateReturns != null)
+                PurolatorEstimateReturn purolatorEstimateReturn = purolatorEstimateReturns.FirstOrDefault(x => x.IsFail);
+
+                if (purolatorEstimateReturn != null)
                 {
-                    total =
-                        purolatorEstimateReturns.Where(x => x.ServiceId == shippingParameter.ServiceType).ToList()[0]
-                            .TotalPrice;
+                    MessageService.ThrowMessage(CodeErreur.SC_ERREUR_AVEC_PUROLATOR, purolatorEstimateReturn.FailMessage);
                 }
+                total =
+                    purolatorEstimateReturns.Where(x => x.ServiceId == shippingParameter.ServiceType).ToList()[0]
+                        .TotalPrice;
             }
-            catch (Exception ex)
-            {
-                if (ex.Message.ToLower().IndexOf("mandatory") <= 0)
-                {
-                    MessageService.ThrowMessage(CodeErreur.SC_ERREUR_AVEC_PUROLATOR, ex);
-                }
-            }
+            // }
+            //catch (Exception ex)
+            //{
+            //    if (ex.Message.ToLower().IndexOf("mandatory") <= 0)
+            //    {
+            //        MessageService.ThrowMessage(CodeErreur.SC_ERREUR_AVEC_PUROLATOR, ex);
+            //    }
+            //}
 
             return total;
         }

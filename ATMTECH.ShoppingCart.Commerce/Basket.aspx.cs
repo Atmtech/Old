@@ -58,7 +58,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             Dictionary<int, int> listeQuantite = new Dictionary<int, int>();
             foreach (Numeric textBox in from DataListItem row in dataListeCommande.Items select (Numeric)row.FindControl("txtQuantite"))
             {
-                listeQuantite.Add(i, Convert.ToInt32(textBox.Text));
+                listeQuantite.Add(i, Convert.ToInt32(textBox.Text.Replace(" ", "")));
                 i++;
             }
             Presenter.RecalculerPanier(listeQuantite);

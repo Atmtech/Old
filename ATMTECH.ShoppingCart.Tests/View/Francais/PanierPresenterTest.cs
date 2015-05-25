@@ -38,6 +38,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
             ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
 
+            ObtenirMock<ICommandeService>().Setup(x => x.Enregistrer(order)).Returns(order);
             InstanceTest.AfficherPanier();
 
             ObtenirMock<ICommandeService>().Verify(x => x.ObtenirCommandeSouhaite(customer));
@@ -152,6 +153,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
 
             ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
             ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
+            ObtenirMock<ICommandeService>().Setup(x => x.Enregistrer(order)).Returns(order);
 
             InstanceTest.AfficherPanier();
 

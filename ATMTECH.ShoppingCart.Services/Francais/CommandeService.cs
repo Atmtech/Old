@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using ATMTECH.Common.Constant;
-using ATMTECH.DAO;
 using ATMTECH.Services;
 using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
@@ -213,6 +212,12 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                     {
                         commande.TotalWeight += orderLine.Stock.Product.Weight * orderLine.Quantity;
                     }
+
+                    if (commande.TotalWeight < 0)
+                    {
+                        commande.TotalWeight = 1;
+                    }
+
                     commande.ShippingTotal = EnvoiPostalService.ObtenirCotationPurolator(commande);
                 }
             }

@@ -32,6 +32,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (customer != null)
             {
                 Order commande = CommandeService.ObtenirCommandeSouhaite(customer);
+                commande = CommandeService.Enregistrer(commande);
                 if (commande.OrderLines.Count == 0)
                 {
                     NavigationService.Redirect(Pages.Pages.DEFAULT);
