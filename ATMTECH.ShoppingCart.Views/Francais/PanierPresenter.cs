@@ -49,7 +49,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                     View.EstCommandable = false;
                 }
 
-                if (!string.IsNullOrEmpty(commande.AddressShipping))
+                if (!string.IsNullOrEmpty(commande.AddressShipping) && !string.IsNullOrEmpty(commande.PostalCodeShipping))
                 {
                     View.AdresseLivraison = commande.AddressShipping;
                 }

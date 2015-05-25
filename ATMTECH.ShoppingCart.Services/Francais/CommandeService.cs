@@ -211,7 +211,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                     commande.TotalWeight = 0;
                     foreach (OrderLine orderLine in commande.OrderLines)
                     {
-                        commande.TotalWeight += orderLine.Stock.Product.Weight;
+                        commande.TotalWeight += orderLine.Stock.Product.Weight * orderLine.Quantity;
                     }
                     commande.ShippingTotal = EnvoiPostalService.ObtenirCotationPurolator(commande);
                 }

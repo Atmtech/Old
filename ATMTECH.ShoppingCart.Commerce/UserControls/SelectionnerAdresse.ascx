@@ -11,5 +11,10 @@
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
-
+<div style="padding-top: 20px;">
+    <asp:Label runat="server" ID="lblCodePostal" Text="Code postal" CssClass="labelLogin"></asp:Label>
+</div>
+<div>
+    <asp:TextBox ID="txtCodePostal" runat="server" AutoPostBack="true" CssClass="textBox"></asp:TextBox>
+</div>
 

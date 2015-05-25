@@ -9,36 +9,32 @@ namespace ATMTECH.ShoppingCart.Commerce.UserControls
 {
     public partial class SelectionnerAdresse : UserControl
     {
+        public bool EstAfficherCodePostal
+        {
+            set
+            {
+                lblCodePostal.Visible = value;
+                txtCodePostal.Visible = value;
+            }
+        }
+
         public string AdresseLongue
         {
             get
             {
                 return txtAdresse.Text;
-                //if (Session["AdresseLongue" + ID] == null)
-                //{
-                //    Session["AdresseLongue" + ID] = string.Empty;
-                //}
-                //return Session["AdresseLongue" + ID].ToString();
             }
             set
             {
                 txtAdresse.Text = value;
-                //Session["AdresseLongue" + ID] = value;
             }
         }
         public string CodePostal
         {
-            get
-            {
-                if (Session["CodePostal" + ID] == null)
-                {
-                    Session["CodePostal" + ID] = string.Empty;
-                }
-                return Session["CodePostal" + ID].ToString();
-            }
+            get { return txtCodePostal.Text; }
             set
             {
-                Session["CodePostal" + ID] = value;
+                txtCodePostal.Text = value;
             }
         }
 

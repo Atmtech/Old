@@ -53,7 +53,7 @@
             <div class="titreDansPage">
                 <asp:Label runat="server" ID="lblAdresseLivraisonClient" Text="Adresse de livraison"></asp:Label>
             </div>
-            <adresse:selectionneradresse ID="adresseLivraison" runat="server" />
+            <adresse:selectionneradresse ID="adresseLivraison" runat="server" EstAfficherCodePostal="True" />
         </div>
         <div class="adresseFacturationClient">
             <div class="titreDansPage">
@@ -62,7 +62,7 @@
             <div style="margin-bottom: 10px;">
                 <asp:Button runat="server" ID="btnUtiliserMemeAdresseQueLivraison" OnClick="btnUtiliserMemeAdresseQueLivraisonClick" Text="Utiliser la même adresse que celle de livraison" CssClass="boutonActionRond" />
             </div>
-            <adresse:selectionneradresse ID="adresseFacturation" runat="server" />
+            <adresse:selectionneradresse ID="adresseFacturation" runat="server" EstAfficherCodePostal="False" />
         </div>
 
         <div style="padding-top: 20px;">

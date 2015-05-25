@@ -38,5 +38,23 @@ namespace ATMTECH.ShoppingCart.Commerce.UserControls {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdAdresse;
+        
+        /// <summary>
+        /// Contrôle lblCodePostal.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCodePostal;
+        
+        /// <summary>
+        /// Contrôle txtCodePostal.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCodePostal;
     }
 }

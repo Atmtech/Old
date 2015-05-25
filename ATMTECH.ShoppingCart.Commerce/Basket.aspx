@@ -130,7 +130,7 @@
                         <asp:Label runat="server" ID="lblAdresseLivraisonClient" Text="Adresse de livraison"></asp:Label>
                     </div>
                     <asp:Label runat="server" ID="lblAdresseLivraison" CssClass="affichageAdressePanier"></asp:Label>
-                    <asp:Label runat="server" ID="lblSansAdresseLivraison" Text="Vous devez configurez votre adresse de livraison pour finaliser la commande" Visible="False"></asp:Label>
+                    <asp:Label runat="server" ID="lblSansAdresseLivraison" Text="Vous devez configurez votre adresse de livraison pour finaliser la commande" Visible="False" ForeColor="red"></asp:Label>
                 </div>
                 <div class="adresseFacturationClient">
                     <div class="titreDansPage">

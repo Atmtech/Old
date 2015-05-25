@@ -55,6 +55,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 View.Courriel = customer.User.Email;
                 View.MotPasse = customer.User.Password;
                 View.MotPasseConfirmation = customer.User.Password;
+                View.CodePostalLivraison = customer.PostalCodeShipping;
 
                 if (string.IsNullOrEmpty(customer.AddressBilling))
                 {
@@ -107,9 +108,8 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 return;
             }
 
-            string codePostalLivraison = GoogleMapService.Rechercher(View.AdresseLongueLivraison)[0].CodePostal;
 
-            if (EnvoiPostalService.EstCodePostalValideAvecPurolator(codePostalLivraison) == false)
+            if (EnvoiPostalService.EstCodePostalValideAvecPurolator(View.CodePostalLivraison) == false)
             {
                 MessageService.ThrowMessage(CodeErreur.SC_CODE_POSTAL_INVALIDE);
                 return;
@@ -118,10 +118,11 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             Customer customer = ClientService.ClientAuthentifie;
             customer.AddressBilling = View.AdresseLongueFacturation;
             customer.AddressShipping = View.AdresseLongueLivraison;
-            customer.PostalCodeShipping = codePostalLivraison;
+            customer.PostalCodeShipping = View.CodePostalLivraison;
             customer.User.FirstName = View.Prenom;
             customer.User.LastName = View.Nom;
             customer.User.Email = View.Courriel;
+
             ClientService.Enregistrer(customer);
             MessageService.ThrowMessage(CodeErreur.ADM_ENREGISTRER_AVES_SUCCES);
         }

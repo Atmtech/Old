@@ -27,7 +27,13 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return adresseFacturation.AdresseLongue; }
             set { adresseFacturation.AdresseLongue = value; }
         }
-        
+
+        public string CodePostalLivraison
+        {
+            get { return adresseLivraison.CodePostal; }
+            set { adresseLivraison.CodePostal = value; }
+        }
+
         public bool EstAucuneAdresseLivraison { get; set; }
         public bool EstAucuneAdresseFacturation { get; set; }
         public IList<Order> ListeCommandePasse
@@ -56,12 +62,10 @@ namespace ATMTECH.ShoppingCart.Commerce
             AdresseLongueFacturation = AdresseLongueLivraison;
             Presenter.Enregistrer();
         }
-
         protected void btnChangerMotDePasseClick(object sender, EventArgs e)
         {
             Presenter.EnregistrerMotPasse();
         }
-
         protected void btnJeVeuxChangerMonMotDePasseClick(object sender, EventArgs e)
         {
             pnlChangerMotDePasse.Visible = true;

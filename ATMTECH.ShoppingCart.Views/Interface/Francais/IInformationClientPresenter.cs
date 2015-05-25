@@ -13,6 +13,8 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
         string MotPasseConfirmation { get; set; }
         string AdresseLongueLivraison { get; set; }
         string AdresseLongueFacturation { get; set; }
+        string CodePostalLivraison { get; set; }
+
         bool EstAucuneAdresseLivraison { get; set; }
         bool EstAucuneAdresseFacturation { get; set; }
         IList<Order> ListeCommandePasse { set; }

@@ -32,9 +32,6 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
         }
 
-        protected void btnRetourAccueilClick(object sender, EventArgs e)
-        {
-            Presenter.RetourAccueil();
-        }
+       
     }
 }

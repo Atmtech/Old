@@ -113,10 +113,10 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             ShippingParameter shippingParameter = new ShippingParameter
             {
                 BillingAccount = "99999999",
-                CountryReceiverCode = ParameterService.GetValue("CountryReceiverCode"),
+                CountryReceiverCode = ParameterService.GetValue("PurolatorCountryReceiverCode"),
                 PackageType = PurolatorPackageType.EXPRESS_BOX,
                 ServiceType = PurolatorServiceType.EXPRESS_BOX,
-                SenderPostalCode = ParameterService.GetValue("SenderPostalCode"),
+                SenderPostalCode = ParameterService.GetValue("PurolatorSenderPostalCode"),
                 ShippingType = ShippingType.Purolator,
                 WeightType = ShippingParameter.WeightTypes.Lbs,
                 AccountId = ParameterService.GetValue("PurolatorBillingAccount"),
@@ -162,7 +162,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             IList<PurolatorEstimateReturn> purolatorEstimateReturns = PurolatorService.GetQuickEstimate(purolatorPackage, configurationPurolatorWebService);
             foreach (PurolatorEstimateReturn purolatorEstimateReturn in purolatorEstimateReturns)
             {
-                if (purolatorEstimateReturn.FailMessage != null && purolatorEstimateReturn.FailMessage.IndexOf("1100594") >= 0)
+                if (purolatorEstimateReturn.IsFail)
                     return false;
             }
             return true;
