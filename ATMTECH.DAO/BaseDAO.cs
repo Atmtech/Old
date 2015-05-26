@@ -122,21 +122,22 @@ namespace ATMTECH.DAO
 
             foreach (Criteria criteria in criterias)
             {
-                if (criteria.Operator == DatabaseOperator.OPERATOR_LIKE)
+                switch (criteria.Operator)
                 {
-                    where += "[" + criteria.Column + "] " + criteria.Operator + "(@" + criteria.Column + ") and ";
-                }
-                else
-                {
-                    if (criteria.Operator != DatabaseOperator.OPERATOR_IS_NOT_NULL)
-                    {
-                        where += "[" + criteria.Column + "]" + criteria.Operator + "@" + criteria.Column + " and ";
-                    }
-                    else
-                    {
+                    case DatabaseOperator.OPERATOR_WHERE_STRING:
+                        where += criteria.DirectWhere + " and ";
+                        break;
+                    case DatabaseOperator.OPERATOR_LIKE:
+                        where += "[" + criteria.Column + "] " + criteria.Operator + "(@" + criteria.Column + ") and ";
+                        break;
+                    case DatabaseOperator.OPERATOR_IS_NOT_NULL:
                         where += " " + criteria.Column + " " + DatabaseOperator.OPERATOR_IS_NOT_NULL + " and ";
-                    }
+                        break;
+                    default:
+                        where += "[" + criteria.Column + "]" + criteria.Operator + "@" + criteria.Column + " and ";
+                        break;
                 }
+               
             }
 
             // Remove the last and
@@ -315,6 +316,7 @@ namespace ATMTECH.DAO
         public DbType DbType { get; set; }
         public SqlDbType SqlDbType { get; set; }
         public bool ClearText { get; set; }
+        public string DirectWhere { get; set; }
     }
     public static class OrderBy
     {

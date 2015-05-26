@@ -10,6 +10,9 @@
         </div>
 
         <div style="float: left;">
+            <div style="width: 100%; text-align: center; border: solid 5px gray; background-color: white;">
+                <asp:Label runat="server" ID="lblAvertissementShippingPlusAvantageuxEnGroupe" Text="Quand vous commandez plusieurs articles les coûts d'envois sont plus avantageux"></asp:Label>
+            </div>
             <asp:DataList runat="server" ID="dataListeCommande" OnItemCommand="dataListeCommande_ItemCommand">
                 <ItemTemplate>
                     <div style="border-bottom: solid 2px lightGray; margin-bottom: 10px; width: 750px;">

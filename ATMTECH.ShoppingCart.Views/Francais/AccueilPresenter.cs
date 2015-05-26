@@ -28,42 +28,33 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         }
         public IList<Product> AfficherListeProduitSlideShow()
         {
-            IList<Product> productsSlideShow = ProduitService.ObtenirListeProduitSlideShow(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)));
+            IList<Product> listeproduitAfficherDansSlideShow = new List<Product>();
+            IList<Product> productsEstSlideShow = ProduitService.ObtenirListeProduitEstSlideShow(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)));
             IList<Product> produitAvecRabaisDe35Pourcent = ProduitService.ObtenirListeProduitEnVente(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED))).Where(x => x.PercentageSave > 35).ToList();
-
-            IList<Product> produits = new List<Product>();
-            if (productsSlideShow.Count > 0)
-            {
-                foreach (Product product in productsSlideShow.Where(product => !produits.Contains(product)))
-                {
-                    produits.Add(product);
-                }
-            }
-
-            if (produitAvecRabaisDe35Pourcent.Count > 0)
-            {
-                foreach (Product product in produitAvecRabaisDe35Pourcent.Where(product => !produits.Contains(product)))
-                {
-                    produits.Add(product);
-                }
-            }
-            if (produits.Count == 0)
-            {
-                IList<Product> listeProduits = ProduitService.ObtenirProduit();
-                List<Product> listeProduitsRandom = listeProduits.OrderBy(x => Guid.NewGuid()).ToList();
-                produits = listeProduitsRandom.Take(5).ToList();
-                foreach (Product produit in produits)
-                {
-                    produit.ProductFiles = DAOProduitFichier.ObtenirListeFichier(produit.Id);
-                }
-            }
-            View.ListeProduitSlideShow = produits;
-            return produits;
+            IList<Product> listeProduits = ProduitService.ObtenirProduit();
+            Product produitNewBalance = ObtenirProduitPourUneMarque("Newbalance", listeProduits);
+            Product produitNike = ObtenirProduitPourUneMarque("Nike", listeProduits);
+            Product produitCalvinKlein = ObtenirProduitPourUneMarque("ck", listeProduits);
+            Product produitOakley = ObtenirProduitPourUneMarque("Oakley", listeProduits);
+            listeproduitAfficherDansSlideShow.Add(produitNike);
+            listeproduitAfficherDansSlideShow.Add(produitNewBalance);
+            listeproduitAfficherDansSlideShow.Add(produitCalvinKlein);
+            listeproduitAfficherDansSlideShow.Add(produitOakley);
+            listeproduitAfficherDansSlideShow = productsEstSlideShow.Concat(produitAvecRabaisDe35Pourcent).ToList();
+            View.ListeProduitSlideShow = listeproduitAfficherDansSlideShow;
+            return listeproduitAfficherDansSlideShow;
         }
         public void AfficherListeProduitEnVente()
         {
             View.ListeProduitEnVente = ProduitService.ObtenirListeProduitEnVente(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)));
         }
 
+        private Product ObtenirProduitPourUneMarque(string marque, IList<Product> produits)
+        {
+            List<Product> listeProduitsRandom = produits.Where(x => x.Brand == marque).OrderBy(x => Guid.NewGuid()).ToList();
+            Product produit = listeProduitsRandom.Take(1).ToList()[0];
+            produit.ProductFiles = DAOProduitFichier.ObtenirListeFichier(produit.Id);
+            return produit;
+        }
     }
 }

@@ -11,7 +11,6 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
     {
         public IDAOProduitFichier DAOProduitFichier { get; set; }
         public IDAOInventaire DAOInventaire { get; set; }
-
         public IList<Product> ObtenirListeProduitEnVente(int id)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -29,8 +28,7 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             }
             return products;
         }
-
-        public IList<Product> ObtenirListeProduitSlideShow(int id)
+        public IList<Product> ObtenirListeProduitEstSlideShow(int id)
         {
             IList<Criteria> criterias = new List<Criteria>();
             Criteria criteriaEnterprise = new Criteria { Column = Product.ENTERPRISE, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = id.ToString() };
@@ -41,14 +39,15 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ORDER_ID, OrderByType = OrderBy.Type.Descending };
             PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
             IList<Product> products = GetByCriteria(criterias, pagingOperation, orderOperation);
-            foreach (Product product in products)
-            {
-                product.ProductFiles = DAOProduitFichier.ObtenirListeFichier(product.Id);
-            }
+
+
+            //(1-convert(decimal,1)/convert(decimal,10)) * 100
+            //foreach (Product product in products)
+            //{
+            //    product.ProductFiles = DAOProduitFichier.ObtenirListeFichier(product.Id);
+            //}
             return products;
         }
-
-
         public Product ObtenirProduit(int id)
         {
             Product product = GetById(id);
@@ -56,7 +55,6 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             product.Stocks = DAOInventaire.ObtenirInventaire(product);
             return product;
         }
-
         public IList<Product> ObtenirProduit(string recherche)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -73,7 +71,6 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
 
             return produits;
         }
-
         public IList<Product> ObtenirProduitParMarque(string marque)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -90,7 +87,6 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
 
             return produits;
         }
-
         public IList<Product> ObtenirProduit()
         {
             IList<Criteria> criterias = new List<Criteria>();

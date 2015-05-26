@@ -36,9 +36,9 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             return DAOProduit.ObtenirListeProduitEnVente(id);
         }
-        public IList<Product> ObtenirListeProduitSlideShow(int id)
+        public IList<Product> ObtenirListeProduitEstSlideShow(int id)
         {
-            return DAOProduit.ObtenirListeProduitSlideShow(id);
+            return DAOProduit.ObtenirListeProduitEstSlideShow(id);
         }
         public IList<ProductCategory> ObtenirListeCategorie(int id)
         {
