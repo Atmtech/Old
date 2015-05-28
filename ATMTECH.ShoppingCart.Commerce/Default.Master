@@ -106,11 +106,14 @@
                 <strong>
                     <asp:Label runat="server" ID="lblSuccess"></asp:Label></strong>
             </asp:Panel>
-            <asp:DataList runat="server" ID="datalistFilArianne" RepeatDirection="Horizontal">
-                <ItemTemplate>
-                   <asp:HyperLink runat="server" ID="lnkFileArianne" Text='<%# Eval("Titre")  %>' NavigateUrl='<%# Eval("Page")  %>'></asp:HyperLink> > 
-                </ItemTemplate>
-            </asp:DataList>
+            <div style="color:greenyellow; font-weight: bold; font-size: 10px;">
+                <asp:DataList runat="server" ID="datalistFilArianne" RepeatDirection="Horizontal">
+                    <ItemTemplate>
+                        <asp:HyperLink runat="server" ID="lnkFileArianne" Text='<%# Eval("Titre")  %>' NavigateUrl='<%# Eval("Page")  %>'></asp:HyperLink>
+                        >
+                    </ItemTemplate>
+                </asp:DataList>
+            </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
