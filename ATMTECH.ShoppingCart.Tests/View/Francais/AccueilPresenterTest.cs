@@ -103,5 +103,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
         //    afficherListeProduitSlideShow.Count.Should().Be(2);
         //}
 
+       
+
     }
 }

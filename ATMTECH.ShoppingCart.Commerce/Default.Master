@@ -31,7 +31,7 @@
                 return false;
             });
         });
-      
+
     </script>
     <form id="form1" runat="server" defaultbutton="imgRecherche">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
@@ -40,7 +40,7 @@
 
         <div class="logo">
             <a href="Default.aspx">
-                <img src="Images/WebSite/logo.png"/></a>
+                <img src="Images/WebSite/logo.png" /></a>
         </div>
 
         <div style="background-color: #4a4949; margin-top: 10px;">
@@ -106,6 +106,11 @@
                 <strong>
                     <asp:Label runat="server" ID="lblSuccess"></asp:Label></strong>
             </asp:Panel>
+            <asp:DataList runat="server" ID="datalistFilArianne" RepeatDirection="Horizontal">
+                <ItemTemplate>
+                   <asp:HyperLink runat="server" ID="lnkFileArianne" Text='<%# Eval("Titre")  %>' NavigateUrl='<%# Eval("Page")  %>'></asp:HyperLink> > 
+                </ItemTemplate>
+            </asp:DataList>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
@@ -143,7 +148,7 @@
             <div style="clear: both;"></div>
 
             <div class="copyRight">
-                Copyright © 2015 checkleprix.com | v<asp:Label runat="server" ID="lblVersion"></asp:Label> 
+                Copyright © 2015 checkleprix.com | v<asp:Label runat="server" ID="lblVersion"></asp:Label>
             </div>
         </div>
 

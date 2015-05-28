@@ -1,4 +1,6 @@
-﻿using ATMTECH.Views.Interface;
+﻿using System.Collections.Generic;
+using ATMTECH.Views.Interface;
+using ATMTECH.Web.Services;
 
 namespace ATMTECH.ShoppingCart.Views.Interface.Francais
 {
@@ -9,5 +11,6 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
         bool EstConnecte { set; }
         string AffichagePanier { set; }
         string AffichageLangue { set; }
+        IList<FilArianne> FilArianne { set; }
     }
 }

@@ -42,10 +42,21 @@ namespace ATMTECH.Web.Services
 
         public string ObtenirTitrePage(string page, string langue)
         {
-            string pageSimple = Path.GetFileName(page);
-            TitrePage titrePage = DAOTitrePage.ObtenirTitrePage(pageSimple);
-            if (titrePage == null) return "N/A";
-            return langue == LocalizationLanguage.FRENCH ? titrePage.TitreFr : titrePage.TitreEn;
+            if (page.IndexOf("AddProductToBasket") > 0)
+            {
+                int id = Convert.ToInt32(page.Substring(page.IndexOf("ProductId") + 10, page.Length - page.IndexOf("ProductId") - 10));
+                Product obtenirProduit = DAOProduit.ObtenirProduit(id);
+                return obtenirProduit != null
+                    ? (langue == LocalizationLanguage.FRENCH ? obtenirProduit.NameFrench : obtenirProduit.NameEnglish)
+                    : "N/A";
+            }
+            else
+            {
+                string pageSimple = Path.GetFileName(page);
+                TitrePage titrePage = DAOTitrePage.ObtenirTitrePage(pageSimple);
+                if (titrePage == null) return "N/A";
+                return langue == LocalizationLanguage.FRENCH ? titrePage.TitreFr : titrePage.TitreEn;
+            }
         }
 
         public IList<FilArianne> ListePageAcceder
@@ -151,6 +162,5 @@ namespace ATMTECH.Web.Services
     {
         public string Titre { get; set; }
         public string Page { get; set; }
-        public string NomProduit { get; set; }
     }
 }

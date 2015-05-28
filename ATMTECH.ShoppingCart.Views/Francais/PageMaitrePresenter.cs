@@ -1,10 +1,14 @@
-﻿using ATMTECH.Common.Constant;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.UI.WebControls;
+using ATMTECH.Common.Constant;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
+using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.ShoppingCart.Views.Francais
@@ -26,6 +30,26 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             base.OnViewLoaded();
             EstSiteHorsLigne();
             AfficherInformation();
+            AfficherFilArianne();
+        }
+
+        public IList<FilArianne> AfficherFilArianne()
+        {
+            IList<FilArianne> initiale = NavigationService.ListePageAcceder;
+            initiale = initiale.GroupBy(x => x.Page).Select(g => g.First()).ToList();
+
+            IList<FilArianne> retour = new List<FilArianne>();
+            if (initiale.Count < 5)
+                return initiale;
+
+            retour.Add(initiale[initiale.Count - 5]);
+            retour.Add(initiale[initiale.Count - 4]);
+            retour.Add(initiale[initiale.Count - 3]);
+            retour.Add(initiale[initiale.Count - 2]);
+            retour.Add(initiale[initiale.Count - 1]);
+
+            View.FilArianne = retour;
+            return retour;
         }
         public void EstSiteHorsLigne()
         {
@@ -44,7 +68,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (customer == null) return;
             View.EstConnecte = true;
             View.NomClient = customer.User.FirstNameLastName;
-            
+
             Order commande = CommandeService.ObtenirCommandeSouhaite(customer);
 
             if (commande == null) return;

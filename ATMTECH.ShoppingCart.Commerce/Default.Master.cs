@@ -69,6 +69,16 @@ namespace ATMTECH.ShoppingCart.Commerce
                 }
             }
         }
+
+        public IList<FilArianne> FilArianne
+        {
+            set
+            {
+                datalistFilArianne.DataSource = value;
+                datalistFilArianne.DataBind();
+            }
+        }
+
         public bool ThrowExceptionIfNoPresenterBound { get; private set; }
         protected void Page_Load(object sender, EventArgs e)
         {
