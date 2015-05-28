@@ -40,7 +40,11 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
             IList<FilArianne> retour = new List<FilArianne>();
             if (initiale.Count < 5)
+            {
+                View.FilArianne = initiale;
                 return initiale;
+            }
+
 
             retour.Add(initiale[initiale.Count - 5]);
             retour.Add(initiale[initiale.Count - 4]);
