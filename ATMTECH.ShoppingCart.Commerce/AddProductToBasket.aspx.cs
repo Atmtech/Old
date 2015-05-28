@@ -25,6 +25,8 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return (Product)Session["ProduitCourant"]; }
             set
             {
+               
+
                 Session["ProduitCourant"] = value;
 
                 switch (Presenter.CurrentLanguage)

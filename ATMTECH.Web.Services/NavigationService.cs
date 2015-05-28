@@ -11,12 +11,25 @@ namespace ATMTECH.Web.Services
     public class NavigationService : BaseService, INavigationService
     {
 
+        public IList<string> ListePageAcceder
+        {
+            get
+            {
+                if (System.Web.HttpContext.Current.Session["ListePageAcceder"] == null)
+                    System.Web.HttpContext.Current.Session["ListePageAcceder"] = new List<string>();
+                return System.Web.HttpContext.Current.Session["ListePageAcceder"] as IList<string>;
+            }
+            set
+            {
+                System.Web.HttpContext.Current.Session["ListePageAcceder"] = value;
+            }
+        }
 
         public void Redirect(string page)
         {
+            ListePageAcceder.Add(page);
             ContextSessionManager.Context.Response.Redirect(page);
         }
-
         public void Redirect(string page, IList<QueryString> queryString)
         {
             string queryStringTemp = string.Empty;
@@ -25,9 +38,9 @@ namespace ATMTECH.Web.Services
             {
                 queryStringTemp += s.Name + "=" + s.Value + "&";
             }
+            ListePageAcceder.Add(page + "?" + queryStringTemp);
             ContextSessionManager.Context.Response.Redirect(page + "?" + queryStringTemp);
         }
-
 
 
         private string CapitalizeFirst(string s)
@@ -41,7 +54,7 @@ namespace ATMTECH.Web.Services
                 string ip = ContextSessionManager.Context.Request.UserHostName;
                 if (ip != "127.0.0.1" && ip != "::1")
                 {
-                    
+
                     string url = string.Format("http://api.ipinfodb.com/v3/ip-city/?key=784b00c1233a988d47b6bfbfbd2fa55dc41279ec9781162bbe9d7ce36d001b0f&ip={0}", ip);
                     using (WebClient client = new WebClient())
                     {

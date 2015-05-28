@@ -55,6 +55,13 @@ namespace ATMTECH.Common.Utils.Web
             return protocol + ContextSessionManager.Context.Request.ServerVariables["SERVER_NAME"] + port +
                    ContextSessionManager.Context.Request.ApplicationPath;
         }
+
+
+        public static string GetCurrentAbsoluteUri()
+        {
+            return ContextSessionManager.Context.Request.Url.AbsoluteUri;
+        }
+
         public static string GetCurrentPage()
         {
             string temp = ContextSessionManager.Context.Request.ServerVariables["URL"];

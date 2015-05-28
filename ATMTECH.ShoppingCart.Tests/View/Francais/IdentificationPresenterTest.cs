@@ -47,19 +47,19 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.DEFAULT), Times.Never());
         }
 
-        [TestMethod]
-        public void Identification_DoitDoitAllerSurLaPageDaccueilSurReussite()
-        {
-            User user = AutoFixture.Create<User>();
+        //[TestMethod]
+        //public void Identification_DoitDoitAllerSurLaPageDaccueilSurReussite()
+        //{
+        //    User user = AutoFixture.Create<User>();
 
-            ObtenirMock<IAuthenticationService>()
-                .Setup(x => x.SignIn(It.IsAny<string>(), It.IsAny<string>()))
-                .Returns(user);
+        //    ObtenirMock<IAuthenticationService>()
+        //        .Setup(x => x.SignIn(It.IsAny<string>(), It.IsAny<string>()))
+        //        .Returns(user);
 
-            InstanceTest.Identification();
+        //    InstanceTest.Identification();
 
-            ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.DEFAULT), Times.Once());
-        }
+        //    ObtenirMock<INavigationService>().Verify(x => x.Redirect(Pages.DEFAULT), Times.Once());
+        //}
 
 
         [TestMethod]

@@ -107,7 +107,6 @@ a
     cursor: pointer;
     font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
     -webkit-appearance: none;
-
 }
 
     .boutonLienCategorie:hover
@@ -270,7 +269,8 @@ a
 
     .boutonActionRondFinaliser:disabled
     {
-        background: repeating-linear-gradient( 45deg, #575757, #575757 10px, #4a4949 10px, #4a4949 20px );
+        /*background: repeating-linear-gradient( 45deg, #575757, #575757 10px, #4a4949 10px, #4a4949 20px );*/
+        background-color: gray;
         cursor: auto;
     }
 
@@ -881,6 +881,7 @@ a
 
 .slideShowPrixProduit
 {
+    padding-left: 50px;
     padding-top: 50px;
     height: 25px;
     font-size: 70px;
@@ -888,7 +889,8 @@ a
 }
 
 
-.imageMarqueDansAjoutPanier {
+.imageMarqueDansAjoutPanier
+{
     width: 100px;
     height: 50px;
 }

@@ -25,7 +25,11 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             User user = AuthenticationService.SignIn(View.NomUtilisateurIdentification, View.MotPasseIdentification);
             if (user != null)
             {
-                NavigationService.Redirect(Pages.Pages.DEFAULT);
+                string dernierePageConsulte =
+                    NavigationService.ListePageAcceder[NavigationService.ListePageAcceder.Count - 2];
+                NavigationService.Redirect(dernierePageConsulte.IndexOf(Pages.Pages.ADD_PRODUCT_TO_BASKET) > 0
+                    ? dernierePageConsulte
+                    : Pages.Pages.DEFAULT);
             }
         }
         public void CreerUtilisateur()

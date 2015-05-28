@@ -36,11 +36,11 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             Product produitNike = ObtenirProduitPourUneMarque("Nike", listeProduits);
             Product produitCalvinKlein = ObtenirProduitPourUneMarque("ck", listeProduits);
             Product produitOakley = ObtenirProduitPourUneMarque("Oakley", listeProduits);
+            listeproduitAfficherDansSlideShow = productsEstSlideShow.Concat(produitAvecRabaisDe35Pourcent).ToList();
             listeproduitAfficherDansSlideShow.Add(produitNike);
             listeproduitAfficherDansSlideShow.Add(produitNewBalance);
             listeproduitAfficherDansSlideShow.Add(produitCalvinKlein);
             listeproduitAfficherDansSlideShow.Add(produitOakley);
-            listeproduitAfficherDansSlideShow = productsEstSlideShow.Concat(produitAvecRabaisDe35Pourcent).ToList();
             View.ListeProduitSlideShow = listeproduitAfficherDansSlideShow;
             return listeproduitAfficherDansSlideShow;
         }
@@ -52,9 +52,13 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         private Product ObtenirProduitPourUneMarque(string marque, IList<Product> produits)
         {
             List<Product> listeProduitsRandom = produits.Where(x => x.Brand == marque).OrderBy(x => Guid.NewGuid()).ToList();
-            Product produit = listeProduitsRandom.Take(1).ToList()[0];
-            produit.ProductFiles = DAOProduitFichier.ObtenirListeFichier(produit.Id);
-            return produit;
+            if (listeProduitsRandom.Count > 0)
+            {
+                Product produit = listeProduitsRandom.Take(1).ToList()[0];
+                produit.ProductFiles = DAOProduitFichier.ObtenirListeFichier(produit.Id);
+                return produit;    
+            }
+            return null;
         }
     }
 }

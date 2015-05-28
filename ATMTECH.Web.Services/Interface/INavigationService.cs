@@ -5,6 +5,7 @@ namespace ATMTECH.Web.Services.Interface
 {
     public interface INavigationService
     {
+        IList<string> ListePageAcceder { get; set; }
         void Redirect(string page);
         IList<QueryString> GetQueryString();
         string GetQueryStringValue(string key);
