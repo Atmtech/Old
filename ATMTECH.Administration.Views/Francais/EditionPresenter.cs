@@ -31,6 +31,8 @@ namespace ATMTECH.Administration.Views.Francais
         public IFileService FileService { get; set; }
         public IDAOProprieteEdition DAOProprieteEdition { get; set; }
         public IDAOParameter DAOParameter { get; set; }
+        public IDAOTitrePage DAOTitrePage { get; set; }
+        public IDAOLogException DAOLogException { get; set; }
 
         public EditionPresenter(IEditionPresenter view)
             : base(view)
@@ -128,8 +130,23 @@ namespace ATMTECH.Administration.Views.Francais
                     View.NombreValeurRetrouve = proprieteEditions.Count;
                     View.ValeurRetrouve = proprieteEditions;
                     break;
+                case "titrepage":
+                    IList<TitrePage> titrePages = DAOTitrePage.GetAllActive();
+                    titrePages = titrePages.Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
+                            .ToList();
+                    View.NombreValeurRetrouve = titrePages.Count;
+                    View.ValeurRetrouve = titrePages;
+                    break;
+                case "logexception":
+                    IList<LogException> logExceptions = DAOLogException.GetAllActive();
+                    logExceptions = logExceptions.Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
+                            .ToList();
+                    View.NombreValeurRetrouve = logExceptions.Count;
+                    View.ValeurRetrouve = logExceptions;
+                    break;
             }
         }
+
         public string ObtenirAssemblie()
         {
             ManageClass manageClass = new ManageClass();

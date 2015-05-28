@@ -46,7 +46,6 @@ namespace ATMTECH.Administration.Commerce
                 LabelGridView labelGridView = (LabelGridView)sender;
                 GridViewRow row = (GridViewRow)labelGridView.NamingContainer;
 
-
                 if (labelGridView.EstProprieteNative)
                 {
                     object evaluation = DataBinder.Eval(row.DataItem, labelGridView.NomColonne);
@@ -74,7 +73,8 @@ namespace ATMTECH.Administration.Commerce
                                     break;
                             }
                         }
-                        labelGridView.Text = valeur.Length > 25 ? valeur.Substring(0, 25) + "[...]" : valeur;
+                        //labelGridView.Text = valeur.Length > 25 ? valeur.Substring(0, 25) + "<a href='#' title='" + valeur + "'>[...]</a>" : valeur;
+                        labelGridView.Text = valeur.Length > 25 ? "<div title='" + valeur.Replace("'",".") + "'>" + valeur.Substring(0, 25) + "[...]</div>" : valeur;
                     }
                     else
                     {

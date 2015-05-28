@@ -134,6 +134,8 @@
                                 </div>
                                 <ul>
                                     <li><a href="Edition.aspx?NomEntite=Parameter">Les paramètres</a></li>
+                                    <li><a href="Edition.aspx?NomEntite=TitrePage">Titre des pages</a></li>
+                                    <li><a href="Edition.aspx?NomEntite=LogException">Les exceptions</a></li>
                                     <li><a href="Edition.aspx?NomEntite=ProprieteEdition">Les champs éditables</a></li>
                                     <li>
                                         <asp:Button runat="server" Text="Ajuster colonne recherche" ID="btnAjusterColonneRecherche" OnClick="btnAjusterColonneRechercheClick" CssClass="boutonMenu"></asp:Button></li>

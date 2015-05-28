@@ -1,7 +1,6 @@
 ﻿using System;
 using ATMTECH.Administration.Views;
 using ATMTECH.Administration.Views.Interface;
-using ATMTECH.Entities;
 
 namespace ATMTECH.Administration.Commerce
 {
