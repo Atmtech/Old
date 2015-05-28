@@ -22,7 +22,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
-            NavigationService.ListePageAcceder.Add(Common.Utils.Web.Pages.GetCurrentAbsoluteUri());
             AfficherProduit(View.IdProduit);
             AfficherListeDeroulanteCouleur();
             AfficherTaille();

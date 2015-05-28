@@ -5,7 +5,9 @@ namespace ATMTECH.Web.Services.Interface
 {
     public interface INavigationService
     {
-        IList<string> ListePageAcceder { get; set; }
+        void AjouterPageFilArianne(string page, string langue);
+        string ObtenirTitrePage(string page, string langue);
+        IList<FilArianne> ListePageAcceder { get; set; }
         void Redirect(string page);
         IList<QueryString> GetQueryString();
         string GetQueryStringValue(string key);

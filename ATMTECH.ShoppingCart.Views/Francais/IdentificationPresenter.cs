@@ -6,6 +6,7 @@ using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
+using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.ShoppingCart.Views.Francais
@@ -25,10 +26,10 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             User user = AuthenticationService.SignIn(View.NomUtilisateurIdentification, View.MotPasseIdentification);
             if (user != null)
             {
-                string dernierePageConsulte =
+                FilArianne dernierePageConsulte =
                     NavigationService.ListePageAcceder[NavigationService.ListePageAcceder.Count - 2];
-                NavigationService.Redirect(dernierePageConsulte.IndexOf(Pages.Pages.ADD_PRODUCT_TO_BASKET) > 0
-                    ? dernierePageConsulte
+                NavigationService.Redirect(dernierePageConsulte.Page.IndexOf(Pages.Pages.ADD_PRODUCT_TO_BASKET) > 0
+                    ? dernierePageConsulte.Page
                     : Pages.Pages.DEFAULT);
             }
         }

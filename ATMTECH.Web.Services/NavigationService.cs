@@ -1,7 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Web;
+using ATMTECH.Common.Constant;
 using ATMTECH.Common.Context;
+using ATMTECH.DAO.Interface;
+using ATMTECH.Entities;
+using ATMTECH.ShoppingCart.DAO;
+using ATMTECH.ShoppingCart.DAO.Interface.Francais;
+using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.Web.Services.Base;
 using ATMTECH.Web.Services.Entities;
 using ATMTECH.Web.Services.Interface;
@@ -10,24 +19,51 @@ namespace ATMTECH.Web.Services
 {
     public class NavigationService : BaseService, INavigationService
     {
+        public IDAOTitrePage DAOTitrePage { get; set; }
+        public IDAOProduit DAOProduit { get; set; }
 
-        public IList<string> ListePageAcceder
+        public void AjouterPageFilArianne(string page, string langue)
+        {
+            Product obtenirProduit = null;
+            if (page.IndexOf("AddProductToBasket") > 0)
+            {
+                int id = Convert.ToInt32(page.Substring(page.IndexOf("ProductId") + 10, page.Length - page.IndexOf("ProductId") - 10));
+                obtenirProduit = DAOProduit.ObtenirProduit(id);
+            }
+
+            FilArianne filArianne = new FilArianne();
+            filArianne.Page = page;
+            filArianne.Titre = obtenirProduit != null
+                ? (langue == LocalizationLanguage.FRENCH ? obtenirProduit.NameFrench : obtenirProduit.NameEnglish)
+                : ObtenirTitrePage(page, langue);
+
+            ListePageAcceder.Add(filArianne);
+        }
+
+        public string ObtenirTitrePage(string page, string langue)
+        {
+            string pageSimple = Path.GetFileName(page);
+            TitrePage titrePage = DAOTitrePage.ObtenirTitrePage(pageSimple);
+            if (titrePage == null) return "N/A";
+            return langue == LocalizationLanguage.FRENCH ? titrePage.TitreFr : titrePage.TitreEn;
+        }
+
+        public IList<FilArianne> ListePageAcceder
         {
             get
             {
-                if (System.Web.HttpContext.Current.Session["ListePageAcceder"] == null)
-                    System.Web.HttpContext.Current.Session["ListePageAcceder"] = new List<string>();
-                return System.Web.HttpContext.Current.Session["ListePageAcceder"] as IList<string>;
+                if (HttpContext.Current.Session["ListePageAcceder"] == null)
+                    HttpContext.Current.Session["ListePageAcceder"] = new List<FilArianne>();
+                return HttpContext.Current.Session["ListePageAcceder"] as IList<FilArianne>;
             }
             set
             {
-                System.Web.HttpContext.Current.Session["ListePageAcceder"] = value;
+                HttpContext.Current.Session["ListePageAcceder"] = value;
             }
         }
 
         public void Redirect(string page)
         {
-            ListePageAcceder.Add(page);
             ContextSessionManager.Context.Response.Redirect(page);
         }
         public void Redirect(string page, IList<QueryString> queryString)
@@ -38,7 +74,6 @@ namespace ATMTECH.Web.Services
             {
                 queryStringTemp += s.Name + "=" + s.Value + "&";
             }
-            ListePageAcceder.Add(page + "?" + queryStringTemp);
             ContextSessionManager.Context.Response.Redirect(page + "?" + queryStringTemp);
         }
 
@@ -110,5 +145,12 @@ namespace ATMTECH.Web.Services
         {
             return QueryString.GetQueryStringValue(key);
         }
+    }
+
+    public class FilArianne
+    {
+        public string Titre { get; set; }
+        public string Page { get; set; }
+        public string NomProduit { get; set; }
     }
 }

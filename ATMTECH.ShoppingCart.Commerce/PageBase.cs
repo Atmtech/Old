@@ -75,6 +75,8 @@ namespace ATMTECH.ShoppingCart.Commerce
                 GetControlList(Page.Controls, allControls);
                 Presenter.Controls = allControls;
                 Presenter.Localize();
+                Presenter.AjouterPageFilAriane();
+                Title = Presenter.ObtenirTitrePage();
                 Presenter.OnViewInitialized();
             }
             Presenter.OnViewLoaded();
@@ -86,7 +88,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             if (Master != null)
             {
-                Panel panel = (Panel) Master.FindControl("pnlError");
+                Panel panel = (Panel)Master.FindControl("pnlError");
                 panel.Visible = false;
             }
         }
@@ -95,7 +97,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             foreach (Control control in controlCollection)
             {
                 if (control is T)
-                    resultCollection.Add((T) control);
+                    resultCollection.Add((T)control);
 
                 if (control.HasControls())
                     GetControlList(control.Controls, resultCollection);

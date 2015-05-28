@@ -12,6 +12,7 @@ namespace ATMTECH.ShoppingCart.Views.Base
         public BaseShoppingCartPresenter(TView view)
             : base(view)
         {
+           
         }
 
     }

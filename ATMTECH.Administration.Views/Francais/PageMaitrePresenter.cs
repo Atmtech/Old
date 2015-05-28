@@ -75,6 +75,7 @@ namespace ATMTECH.Administration.Views.Francais
             retour += Enregistrer<Customer>();
             retour += Enregistrer<ProprieteEdition>();
             retour += Enregistrer<Message>();
+            retour += Enregistrer<TitrePage>();
             //retour += Enregistrer<Order>();
             //retour += Enregistrer<OrderLine>();
             //retour += Enregistrer<Stock>();

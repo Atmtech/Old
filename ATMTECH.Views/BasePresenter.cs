@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Web.UI;
-using ATMTECH.Common.Constant;
-using ATMTECH.Common.Context;
 using ATMTECH.Entities;
 using ATMTECH.Views.Interface;
 using ATMTECH.Web.Services.Interface;
@@ -40,6 +38,15 @@ namespace ATMTECH.Views
         {
         }
 
+        public string ObtenirTitrePage()
+        {
+            return NavigationService.ObtenirTitrePage(Common.Utils.Web.Pages.GetCurrentAbsoluteUri(), LocalizationService.CurrentLanguage);
+        }
+
+        public void AjouterPageFilAriane()
+        {
+            NavigationService.AjouterPageFilArianne(Common.Utils.Web.Pages.GetCurrentAbsoluteUri(), LocalizationService.CurrentLanguage);
+        }
         public void Localize()
         {
             LocalizationService.Localize(Controls, LocalizationService.CurrentLanguage);

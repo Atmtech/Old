@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDAO.cs" />
+    <Compile Include="DAOTitrePage.cs" />
     <Compile Include="DAOLogMail.cs" />
     <Compile Include="DAOLogVisit.cs" />
     <Compile Include="DAOGroupUser.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Database\DatabaseOperation.cs" />
     <Compile Include="Database\DatabaseVendor.cs" />
     <Compile Include="Database\IDatabase.cs" />
+    <Compile Include="Interface\IDAOTitrePage.cs" />
     <Compile Include="Interface\IDAOLogMail.cs" />
     <Compile Include="Interface\IDAOLogVisit.cs" />
     <Compile Include="Interface\IDAOGroupUser.cs" />
