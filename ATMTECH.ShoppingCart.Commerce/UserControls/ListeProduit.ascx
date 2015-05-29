@@ -11,7 +11,7 @@
         <asp:Label runat="server" ID="lblNombreElement" Text="0"></asp:Label>
     </div>
 </asp:Panel>
-<asp:DataList runat="server" ID="dataListListeProduitEnVente" RepeatDirection="Horizontal" RepeatColumns="4">
+<asp:DataList runat="server" ID="dataListListeProduitEnVente" RepeatDirection="Horizontal" RepeatColumns="4" OnItemDataBound="dataListListeProduitEnVenteOnItemDataBound">
     <ItemTemplate>
         <div style="padding-left: 15px; padding-bottom: 10px;">
             <div class="wrapperListeProduit">
@@ -23,7 +23,7 @@
                     </div>
                 </asp:Panel>
                 <asp:HyperLink ID="imgProduit" runat="server" NavigateUrl='<%# "~/AddProductToBasket.aspx?ProductId=" + Eval("Id")%>'>
-                    <asp:Image runat="server" ID="tes" ImageUrl='<%#"~/" +Eval("PrincipalFileUrl")%>' CssClass="thumbnailImageListeProduitEnVente" />
+                    <asp:Image runat="server" ID="imageProduit" ImageUrl='<%#"~/" +Eval("PrincipalFileUrl")%>'/>
                 </asp:HyperLink>
 
                 <br />

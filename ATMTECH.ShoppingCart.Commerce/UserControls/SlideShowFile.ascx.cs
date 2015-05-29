@@ -28,10 +28,31 @@ namespace ATMTECH.ShoppingCart.Commerce.UserControls
         }
         public void AfficherImagePrincipale(string image)
         {
+            const double hauteurMaximale = 650;
+            const double largeurMaximale = 420;
             string mapPath = Server.MapPath(image);
             System.Drawing.Image img = System.Drawing.Image.FromFile(mapPath);
-            imgPrincipale.CssClass = img.Width > 420 ? "imagePrincipaleMaximale" : "imagePrincipaleAvecPadding";
             imgPrincipale.ImageUrl = image;
+            double width = img.Width;
+            double height = img.Height;
+
+            double nouvelleLargeur = hauteurMaximale * width / height;
+            double nouvelleHauteur = largeurMaximale * height / width;
+            if (nouvelleLargeur > largeurMaximale)
+            {
+                imgPrincipale.Width = new Unit(largeurMaximale, UnitType.Pixel);
+                imgPrincipale.Height = new Unit(nouvelleHauteur, UnitType.Pixel);
+            }
+            else
+            {
+                imgPrincipale.Width = new Unit(nouvelleLargeur, UnitType.Pixel);
+                imgPrincipale.Height = new Unit(hauteurMaximale, UnitType.Pixel);
+            }
+
+
+
+            //imgPrincipale.CssClass = img.Width > 420 ? "imagePrincipaleMaximale" : "imagePrincipaleAvecPadding";
+
         }
 
         protected void Page_Load(object sender, EventArgs e)

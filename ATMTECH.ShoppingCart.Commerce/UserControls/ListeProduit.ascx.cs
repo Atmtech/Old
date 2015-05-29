@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using ATMTECH.ShoppingCart.Entities;
+using Image = System.Web.UI.WebControls.Image;
 
 namespace ATMTECH.ShoppingCart.Commerce.UserControls
 {
@@ -70,6 +73,25 @@ namespace ATMTECH.ShoppingCart.Commerce.UserControls
         {
             Tri = "HighToLow";
             Produits = Produits;
+        }
+
+        protected void dataListListeProduitEnVenteOnItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            Image image = e.Item.FindControl("imageProduit") as Image;
+            if (image != null)
+            {
+                string imageUrl = image.ImageUrl;
+                Bitmap bitmap = new Bitmap(Server.MapPath(imageUrl));
+
+                double width = bitmap.Width;
+                double height = bitmap.Height;
+
+                double nouvelleUnite = 200*width/height;
+                if (nouvelleUnite > 200)
+                    nouvelleUnite = 200;
+                image.Width = new Unit(nouvelleUnite, UnitType.Pixel);
+                image.Height = new Unit(200, UnitType.Pixel);
+            }
         }
     }
 }
