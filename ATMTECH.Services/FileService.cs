@@ -75,7 +75,7 @@ namespace ATMTECH.Services
         }
         public int SaveFile(File file)
         {
-           // file.FileType = GetFileType(file);
+            // file.FileType = GetFileType(file);
             file.IsActive = true;
             return DAOFile.UpdateFile(file);
         }
@@ -130,7 +130,7 @@ namespace ATMTECH.Services
 
             return fileType;
         }
-        private static void SaveJpeg(string path, Image img, int quality)
+        public void SaveJpeg(string path, Image img, int quality)
         {
             if (quality < 0 || quality > 100)
                 throw new ArgumentOutOfRangeException("quality must be between 0 and 100.");
@@ -140,6 +140,41 @@ namespace ATMTECH.Services
             encoderParams.Param[0] = qualityParam;
             img.Save(path, jpegCodec, encoderParams);
         }
+
+        public void ReduireQualite(string fichierImage)
+        {
+            if (fichierImage.IndexOf(".jpg") > 0)
+            {
+                using (Bitmap image = new Bitmap(fichierImage))
+                {
+                    try
+                    {
+                        ImageCodecInfo jpegCodec = ImageCodecInfo.GetImageEncoders().First(enc => enc.FormatID == ImageFormat.Jpeg.Guid);
+                        EncoderParameters jpegParams = new EncoderParameters(1);
+                        jpegParams.Param = new[] { new EncoderParameter(Encoder.Quality, 75L) };
+                        image.Save(fichierImage + ".tmp", jpegCodec, jpegParams);
+
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+
+                try
+                {
+                    if (System.IO.File.Exists(fichierImage + ".tmp"))
+                    {
+                        System.IO.File.Delete(fichierImage);
+                        System.IO.File.Move(fichierImage + ".tmp", fichierImage);
+                        System.IO.File.Delete(fichierImage + ".tmp");
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
+
         private static ImageCodecInfo GetEncoderInfo(string mimeType)
         {
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Web;
 using ATMTECH.Entities;
 
@@ -15,5 +16,8 @@ namespace ATMTECH.Services.Interface
         File GetFile(int id);
         IList<File> GetAllFile(string rootImagePath);
         void SaveFileWithoutDatabase(HttpPostedFile httpPostedFile, string root);
+        void SaveJpeg(string path, Image img, int quality);
+
+        void ReduireQualite(string fichierImage);
     }
 }

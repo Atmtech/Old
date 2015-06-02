@@ -250,5 +250,9 @@ namespace ATMTECH.Administration.Views.Francais
         {
             DatabaseService.ExecuteSql("UPDATE [Parameter] SET DESCRIPTION = 'PROD' WHERE CODE = 'Environment'", EnumDatabaseVendor.Mssql);
         }
+
+     
+
+
     }
 }

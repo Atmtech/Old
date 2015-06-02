@@ -304,11 +304,13 @@
     <Content Include="Javascript\supprimer.gif" />
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.min.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\css\lightbox.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\css\screen.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\external\jquery\jquery.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\external\jquery\jquery.min.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_glass_55_fbf9ee_1x400.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_glass_65_ffffff_1x400.png" />

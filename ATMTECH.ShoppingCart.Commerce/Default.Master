@@ -11,10 +11,10 @@
     <link href="JQuery/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
     <link href="JQuery/jquery-ui-1.11.2/jquery-ui.custom.css" rel="stylesheet" />
     <link href="JQuery/jquery-ui-1.11.2/ComboBox.css" rel="stylesheet" />
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.min.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/autoNumeric.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/autoNumeric.min.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/lightbox.min.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.slider.js"></script>

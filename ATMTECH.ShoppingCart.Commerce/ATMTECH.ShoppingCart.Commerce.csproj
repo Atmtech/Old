@@ -87,6 +87,8 @@
     <Content Include="Images\WebSite\Nike.jpg" />
     <Content Include="Images\WebSite\Oakley.jpg" />
     <Content Include="Images\WebSite\SportT.jpg" />
+    <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.min.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\external\jquery\jquery.min.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\a11.png" />
     <Content Include="MailingList.aspx" />
     <Content Include="Test.aspx" />
