@@ -89,7 +89,9 @@ namespace ATMTECH.Administration.Commerce
                 List<Control> allControls = new List<Control>();
                 GetControlList(Page.Controls, allControls);
                 Presenter.Controls = allControls;
+                Title = Presenter.ObtenirTitrePage();
                 Presenter.OnViewInitialized();
+                
             }
             Presenter.OnViewLoaded();
 
