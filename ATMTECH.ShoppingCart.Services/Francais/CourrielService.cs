@@ -46,6 +46,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), commande);
             EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps, facture, "Invoice.pdf");
             EnvoyerCourriel(ParameterService.GetValue("CourrielAdministrateur"), courriel.From, sujet, corps, facture, "Invoice.pdf");
+            EnvoyerCourriel(ParameterService.GetValue("AutreCourrielAdministrateur1"), courriel.From, sujet, corps, facture, "Invoice.pdf");
         }
         public void EnvoyerMotPasseOublie(Customer client)
         {
