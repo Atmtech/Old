@@ -7,5 +7,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface.Francais
     {
         Coupon ObtenirCoupon(string coupon);
         Coupon GetById(int id);
+        IList<Coupon> GetAllActive();
     }
 }

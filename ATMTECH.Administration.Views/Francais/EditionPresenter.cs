@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Net.Mime;
 using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,6 +12,7 @@ using ATMTECH.DAO;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.Services.Interface;
+using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
@@ -32,6 +32,7 @@ namespace ATMTECH.Administration.Views.Francais
         public IDAOProprieteEdition DAOProprieteEdition { get; set; }
         public IDAOParameter DAOParameter { get; set; }
         public IDAOTitrePage DAOTitrePage { get; set; }
+        public IDAOCoupon DAOCoupon { get; set; }
         public IDAOLogException DAOLogException { get; set; }
 
         public EditionPresenter(IEditionPresenter view)
@@ -143,6 +144,13 @@ namespace ATMTECH.Administration.Views.Francais
                             .ToList();
                     View.NombreValeurRetrouve = logExceptions.Count;
                     View.ValeurRetrouve = logExceptions;
+                    break;
+                case "coupon":
+                    IList<Coupon> coupons = DAOCoupon.GetAllActive();
+                    coupons = coupons.Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
+                            .ToList();
+                    View.NombreValeurRetrouve = coupons.Count;
+                    View.ValeurRetrouve = coupons;
                     break;
             }
         }
@@ -359,18 +367,6 @@ namespace ATMTECH.Administration.Views.Francais
                         TextMode = TextBoxMode.MultiLine
                     };
                     return textBox;
-                //Editor editor = new Editor
-                //       {
-                //           ID = propriete.PropertyInfo.Name,
-                //           Text = valeur,
-                //           Width = Unit.Percentage(90),
-                //           Enabled = estEditable,
-                //           //Toolbar = "Source|Bold|Italic|Underline|Strike|-|Subscript|Superscript|NumberedList|BulletedList|-|Outdent|Indent|Table/Styles|Format|Font|FontSize|TextColor|BGColor|",
-                //           Toolbar = "Source",
-                //           Height = Unit.Pixel(25)
-
-                //       };
-                //return editor;
                 case "System.Decimal":
                     {
                         Numeric numeric = new Numeric
@@ -455,6 +451,8 @@ namespace ATMTECH.Administration.Views.Francais
         {
             switch (propriete.PropertyInfo.PropertyType.Name.ToLower())
             {
+                case "customer":
+                    return ClientService.ObtenirClient();
                 case "product":
                     return ProduitService.ObtenirProduit();
                 case "enterprise":

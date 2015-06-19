@@ -1,4 +1,5 @@
-﻿using ATMTECH.Views.Interface;
+﻿using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.Views.Interface;
 using ATMTECH.Web.Services;
 
 namespace ATMTECH.ShoppingCart.Views.Interface.Francais
@@ -7,6 +8,6 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
     {
         PaypalReturn PaypalReturn { get; set; }
         bool EstFinalise { set; }
-        string AffichageCommande { set; }
+        Order Commande { set; }
     }
 }

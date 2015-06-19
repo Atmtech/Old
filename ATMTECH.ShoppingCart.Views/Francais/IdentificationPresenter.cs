@@ -26,11 +26,18 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             User user = AuthenticationService.SignIn(View.NomUtilisateurIdentification, View.MotPasseIdentification);
             if (user != null)
             {
-                FilArianne dernierePageConsulte =
-                    NavigationService.ListePageAcceder[NavigationService.ListePageAcceder.Count - 2];
-                NavigationService.Redirect(dernierePageConsulte.Page.IndexOf(Pages.Pages.ADD_PRODUCT_TO_BASKET) > 0
-                    ? dernierePageConsulte.Page
-                    : Pages.Pages.DEFAULT);
+                if (NavigationService.ListePageAcceder.Count > 2)
+                {
+                    FilArianne dernierePageConsulte =
+                        NavigationService.ListePageAcceder[NavigationService.ListePageAcceder.Count - 2];
+                    NavigationService.Redirect(dernierePageConsulte.Page.IndexOf(Pages.Pages.ADD_PRODUCT_TO_BASKET) > 0
+                        ? dernierePageConsulte.Page
+                        : Pages.Pages.DEFAULT);
+                }
+                else
+                {
+                    NavigationService.Redirect(Pages.Pages.DEFAULT);
+                }
             }
         }
         public void CreerUtilisateur()

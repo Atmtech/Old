@@ -20,6 +20,11 @@ namespace ATMTECH.Administration.Commerce
             get { return Convert.ToDateTime(txtDateFin.Text); }
         }
 
+        public int NoCommande
+        {
+            get { return Convert.ToInt32(txtNoCommande.Text); }
+        }
+
         protected void btnGenererClick(object sender, EventArgs e)
         {
             Presenter.GenererRapport();

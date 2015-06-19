@@ -49,24 +49,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             obtenirCommandeSouhaite.PostalCodeShipping = client.PostalCodeShipping;
             return obtenirCommandeSouhaite;
         }
-        public string AfficherCommande(int id)
-        {
-            Order order = ObtenirCommande(id);
-            String html = "<table>";
-            html += "<td></td><td>Qte</td><td></td>";
-            foreach (OrderLine orderLine in order.OrderLines)
-            {
-                html += "<tr>";
-                html += "<td>" + orderLine.ProductDescription + "</td><td>" + orderLine.Quantity + "</td><td>" + orderLine.SubTotal.ToString("C") + "</td>";
-                html += "</tr>";
-            }
-
-            html += "<tr><td></td><td>S-Total:</td><td>" + order.SubTotal.ToString("C") + "</td></tr>";
-            html += "<tr><td></td><td><b>G-Total:</td><td>" + order.GrandTotal.ToString("C") + "</b></td></tr>";
-            html += "</table>";
-
-            return html;
-        }
+       
         public IList<Order> ObtenirCommande(Customer customer)
         {
             return DAOCommande.ObtenirCommande(customer);
@@ -213,7 +196,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                         commande.TotalWeight += orderLine.Stock.Product.Weight * orderLine.Quantity;
                     }
 
-                    if (commande.TotalWeight < 0)
+                    if (commande.TotalWeight < 1)
                     {
                         commande.TotalWeight = 1;
                     }
@@ -296,7 +279,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             reportParameter.AddDatasource("dsCommande", order);
             reportParameter.AddDatasource("dsLigneCommande", commande.OrderLines);
             ReportService.SaveReport(
-                LocalizationService.CurrentLanguage == LocalizationLanguage.ENGLISH ? "Order.pdf" : "Commande.pdf",
+                LocalizationService.CurrentLanguage == LocalizationLanguage.ENGLISH ? commande.Id + "_Order_CheckLePrix.pdf" : commande.Id + "_Commande_CheckLePrix.pdf",
                 ReportService.GetReport(reportParameter));
             return commande;
         }

@@ -29,7 +29,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
             View.PaypalReturn = PayPalService.GetReplyFromPaypal();
             int id = Convert.ToInt32(View.PaypalReturn.ResponseDetails.InvoiceID);
-            View.AffichageCommande = CommandeService.AfficherCommande(id);
+            View.Commande = CommandeService.ObtenirCommande(id);
         }
         public void FinaliserCommande()
         {

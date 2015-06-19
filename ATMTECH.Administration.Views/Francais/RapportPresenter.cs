@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface.Francais;
 using ATMTECH.Services;
 using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.Entities;
-using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
-using ATMTECH.ShoppingCart.Services.Reports.DTO;
 
 namespace ATMTECH.Administration.Views.Francais
 {
@@ -22,7 +19,6 @@ namespace ATMTECH.Administration.Views.Francais
         {
         }
 
-
         public void GenererRapport()
         {
             switch (View.NomRapport)
@@ -30,6 +26,8 @@ namespace ATMTECH.Administration.Views.Francais
                 case "VenteParProduit":
                     break;
                 case "UneCommande":
+                    Order commande = CommandeService.ObtenirCommande(View.NoCommande);
+                    CommandeService.ImprimerCommande(commande);
                     break;
                 case "ListeCommande":
                     break;

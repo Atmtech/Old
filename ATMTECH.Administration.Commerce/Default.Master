@@ -104,6 +104,7 @@
                                     <li><a href="Edition.aspx?NomEntite=OrderLine">Les lignes de commandes</a> </li>
                                     <li><a href="Edition.aspx?NomEntite=User">Les utilisateurs</a> </li>
                                     <li><a href="Edition.aspx?NomEntite=Customer">Les clients</a> </li>
+                                    <li><a href="Edition.aspx?NomEntite=Coupon">Les coupons</a> </li>
                                 </ul>
                                 <div class="titreMenu">
                                     Action à prendre

@@ -8,5 +8,6 @@ namespace ATMTECH.Administration.Views.Interface.Francais
         string NomRapport { get; }
         DateTime DateDepart { get; }
         DateTime DateFin { get;  }
+        int NoCommande { get; }
     }
 }

@@ -411,33 +411,33 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
         //    obtenirCommandeSouhaite.BillingAddress.Should().Be(customer.BillingAddress);
         //}
 
-        [TestMethod]
-        public void AfficherCommande_DevraitSortirLeBonHtml()
-        {
-            Order commande = AutoFixture.Create<Order>();
-            commande.OrderLines.Clear();
-            OrderLine orderLine = new OrderLine { Quantity = 1, SubTotal = 10 };
-            commande.OrderLines.Add(orderLine);
-            ObtenirMock<IDAOCommande>().Setup(x => x.ObtenirCommande(It.IsAny<int>())).Returns(commande);
+        //[TestMethod]
+        //public void AfficherCommande_DevraitSortirLeBonHtml()
+        //{
+        //    Order commande = AutoFixture.Create<Order>();
+        //    commande.OrderLines.Clear();
+        //    OrderLine orderLine = new OrderLine { Quantity = 1, SubTotal = 10 };
+        //    commande.OrderLines.Add(orderLine);
+        //    ObtenirMock<IDAOCommande>().Setup(x => x.ObtenirCommande(It.IsAny<int>())).Returns(commande);
 
-            string afficherCommande = InstanceTest.AfficherCommande(1);
+        //    string afficherCommande = InstanceTest.AfficherCommande(1);
 
 
-            String html = "<table>";
-            html += "<td></td><td>Qte</td><td></td>";
-            foreach (OrderLine test in commande.OrderLines)
-            {
-                html += "<tr>";
-                html += "<td>" + test.ProductDescription + "</td><td>" + test.Quantity + "</td><td>" + test.SubTotal.ToString("C") + "</td>";
-                html += "</tr>";
-            }
+        //    String html = "<table>";
+        //    html += "<td></td><td>Qte</td><td></td>";
+        //    foreach (OrderLine test in commande.OrderLines)
+        //    {
+        //        html += "<tr>";
+        //        html += "<td>" + test.ProductDescription + "</td><td>" + test.Quantity + "</td><td>" + test.SubTotal.ToString("C") + "</td>";
+        //        html += "</tr>";
+        //    }
 
-            html += "<tr><td></td><td>S-Total:</td><td>" + commande.SubTotal.ToString("C") + "</td></tr>";
-            html += "<tr><td></td><td><b>G-Total:</td><td>" + commande.GrandTotal.ToString("C") + "</b></td></tr>";
-            html += "</table>";
+        //    html += "<tr><td></td><td>S-Total:</td><td>" + commande.SubTotal.ToString("C") + "</td></tr>";
+        //    html += "<tr><td></td><td><b>G-Total:</td><td>" + commande.GrandTotal.ToString("C") + "</b></td></tr>";
+        //    html += "</table>";
 
-            afficherCommande.Should().Be(html);
-        }
+        //    afficherCommande.Should().Be(html);
+        //}
 
         private Customer LeClientEstValide()
         {

@@ -41,12 +41,16 @@ namespace ATMTECH.ShoppingCart.Commerce
             set
             {
                 string html =
-                    "<div class='Row'><div class='Cell'><p>{0}</p></div><div class='Cell'><p>{1}</p></div><div class='Cell'><p>{2}</p></div><div class='Cell'><p>{3}</p></div><div class='Cell'><p>{4}</p></div><div class='Cell'><a href='" + Pages.THANK_YOU_ORDER + "?" + PagesId.ORDER_ID + "={5}'><img src='Images/WebSite/Rechercher.png' /></a></div></div>";
+                    "<div class='Row'><div class='Cell'><p>{0}</p></div><div class='Cell'><p>{1}</p></div><div class='Cell'><p>{2}</p></div><div class='Cell'><p>{3}</p></div><div class='Cell'><p>{4}</p></div><div class='Cell'><a href='" + Pages.THANK_YOU_ORDER + "?" + PagesId.ORDER_ID + "={5}'><img src='Images/WebSite/Rechercher.png' width='16px' height='16px' /></a></div></div>";
                 lblAucuneCommandePasseACeJour.Visible = value.Count == 0;
                 foreach (Order order in value)
                 {
-                    html = string.Format(html, order.Id, order.FinalizedDate, order.ShippingDate == null ? "N/A" : order.ShippingDate.ToString(), order.GrandTotal.ToString("c"),
-                                         order.TrackingNumber ?? "N/A", order.Id);
+                    if (order.FinalizedDate != null)
+                    {
+                        DateTime dateFinalise = (DateTime) order.FinalizedDate;
+                        html = string.Format(html, order.Id, dateFinalise.ToString("yyyy-MM-dd HH:mm tt"), order.ShippingDate == null ? "N/A" : order.ShippingDate.ToString(), order.GrandTotal.ToString("c"),
+                            order.TrackingNumber ?? "N/A", order.Id);
+                    }
                     Literal literal = new Literal { Text = html };
                     placeHolderListeCommandePasse.Controls.Add(literal);
                 }

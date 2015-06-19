@@ -247,6 +247,27 @@ a
         background-color: rgb(129, 129, 129);
     }
 
+
+.boutonActionRondAccepterPaypal
+{
+    -webkit-appearance: none;
+    border: none;
+    height: 55px;
+    background-color: rgb(0, 150, 31);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+    cursor: pointer;
+}
+
+    .boutonActionRondAccepterPaypal:hover
+    {
+        background-color: rgb(129, 129, 129);
+    }
+
 .boutonActionRondFinaliser
 {
     -webkit-appearance: none;
@@ -492,7 +513,7 @@ a
 {
     font-weight: bold;
     padding-top: 20px;
-    float: left;
+   
     text-transform: uppercase;
     padding-right: 20px;
 }
@@ -506,7 +527,7 @@ a
 
 .HistoriqueCommandeClient
 {
-    width: 567px;
+    width: 500px;
     padding-top: 20px;
     float: left;
     padding-left: 10px;

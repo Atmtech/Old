@@ -20,18 +20,7 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
             get { return ObtenirMock<IConfirmationPaypalPresenter>(); }
         }
 
-        [TestMethod]
-        public void AfficherCommande_DoitSortirLeBonString()
-        {
-            PaypalReturn paypalReturn = new PaypalReturn();
-            paypalReturn.ResponseDetails = new GetExpressCheckoutDetailsResponseDetailsType { InvoiceID = "1" };
-            ViewMock.Setup(x => x.PaypalReturn).Returns(paypalReturn);
-            ObtenirMock<IPaypalService>().Setup(x => x.GetReplyFromPaypal()).Returns(paypalReturn);
-            ObtenirMock<ICommandeService>().Setup(x => x.AfficherCommande(1)).Returns("tata");
-            InstanceTest.AfficherCommande();
-
-            ViewMock.VerifySet(x => x.AffichageCommande = "tata");
-        }
+       
 
         [TestMethod]
         public void ImprimerCommande_ImprimerLaCommandeDeLaCommandeDePaypal()
