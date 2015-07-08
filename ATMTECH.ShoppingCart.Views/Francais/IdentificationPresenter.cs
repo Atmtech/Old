@@ -20,6 +20,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
         public IAuthenticationService AuthenticationService { get; set; }
         public IClientService ClientService { get; set; }
+        public IEnvoiPostalService EnvoiPostalService { get; set; }
 
         public void Identification()
         {
@@ -59,7 +60,20 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 {
                     User = user,
                     Enterprise = new Enterprise { Id = Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)) }
+                    
                 };
+
+
+            if (EnvoiPostalService.EstCodePostalValideAvecPurolator(View.CodePostalLivraison) == false)
+            {
+                MessageService.ThrowMessage(CodeErreur.SC_CODE_POSTAL_INVALIDE);
+                return;
+            }
+
+            customer.AddressBilling = View.AdresseLongueFacturation;
+            customer.AddressShipping = View.AdresseLongueLivraison;
+            customer.PostalCodeShipping = View.CodePostalLivraison;
+
 
             if (ClientService.Creer(customer) != null)
             {

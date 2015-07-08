@@ -12,5 +12,8 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
         string CourrielCreation { get; set; }
         string MotPasseCreation { get; set; }
         string MotPasseConfirmationCreation { get; set; }
+        string AdresseLongueLivraison { get; set; }
+        string CodePostalLivraison { get; set; }
+        string AdresseLongueFacturation { get; set; }
     }
 }

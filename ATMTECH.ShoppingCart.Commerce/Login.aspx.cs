@@ -14,6 +14,14 @@ namespace ATMTECH.ShoppingCart.Commerce
         public string CourrielCreation { get { return txtCourrielCreer.Text; } set { txtCourrielCreer.Text = value; } }
         public string MotPasseCreation { get { return txtMotDePasseCreer.Text; } set { txtMotDePasseCreer.Text = value; } }
         public string MotPasseConfirmationCreation { get { return txtMotDePasseCreerConfirmation.Text; } set { txtMotDePasseCreerConfirmation.Text = value; } }
+        public string AdresseLongueLivraison { get { return adresseLivraison.AdresseLongue; } set { adresseLivraison.AdresseLongue = value; }}
+        public string CodePostalLivraison { get { return adresseLivraison.CodePostal; } set { adresseLivraison.CodePostal = value; } }
+        public string AdresseLongueFacturation
+        {
+            get { return adresseFacturation.AdresseLongue; }
+            set { adresseFacturation.AdresseLongue = value; }
+        }
+
 
         protected void btnConnecterLoginClick(object sender, EventArgs e)
         {
@@ -28,11 +36,19 @@ namespace ATMTECH.ShoppingCart.Commerce
             CourrielCreation = "";
             MotPasseCreation = "";
             MotPasseConfirmationCreation = "";
+            AdresseLongueLivraison = "";
+            CodePostalLivraison = "";
+            AdresseLongueFacturation = "";
 
         }
         protected void btnOublieMotDePasseClick(object sender, EventArgs e)
         {
             Presenter.NavigationService.Redirect(Pages.FORGET_PASSWORD);
+        }
+
+        protected void btnUtiliserMemeAdresseQueLivraisonClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true"
     CodeBehind="Login.aspx.cs" Inherits="ATMTECH.ShoppingCart.Commerce.Login" %>
 
+<%@ Register TagPrefix="adresse" TagName="selectionneradresse" Src="~/UserControls/SelectionnerAdresse.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -67,10 +68,31 @@
         <div>
             <asp:TextBox ID="txtMotDePasseCreerConfirmation" runat="server" CssClass="textBox" Width="300px" TextMode="Password"></asp:TextBox>
         </div>
+        <div style="padding-top: 20px;">
+            <asp:Label runat="server" ID="lblAdresseLivraisonClient" Text="Adresse de livraison"></asp:Label>
+        </div>
+        <div>
+            <adresse:selectionneradresse ID="adresseLivraison" runat="server" EstAfficherCodePostal="True" />
+        </div>
+
+
+        <div style="padding-top: 20px;">
+            <asp:Label runat="server" ID="lblAdresseFacturationClient" Text="Adresse de facturation"></asp:Label>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <asp:Button runat="server" ID="btnUtiliserMemeAdresseQueLivraison" OnClick="btnUtiliserMemeAdresseQueLivraisonClick" Text="Utiliser la même adresse que celle de livraison" CssClass="boutonActionRond" />
+        </div>
+        <div>
+            <adresse:selectionneradresse ID="adresseFacturation" runat="server" EstAfficherCodePostal="False" />
+        </div>
+
+
 
         <div style="padding-top: 20px;">
             <asp:Button runat="server" ID="btnCreerLogin" Text="Créer" CssClass="boutonActionRond" Width="200px" OnClick="btnCreerLoginClick"></asp:Button>
         </div>
+
+
 
 
     </div>

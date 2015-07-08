@@ -175,6 +175,51 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.TextBox txtMotDePasseCreerConfirmation;
         
         /// <summary>
+        /// Contrôle lblAdresseLivraisonClient.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAdresseLivraisonClient;
+        
+        /// <summary>
+        /// Contrôle adresseLivraison.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::ATMTECH.ShoppingCart.Commerce.UserControls.SelectionnerAdresse adresseLivraison;
+        
+        /// <summary>
+        /// Contrôle lblAdresseFacturationClient.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAdresseFacturationClient;
+        
+        /// <summary>
+        /// Contrôle btnUtiliserMemeAdresseQueLivraison.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUtiliserMemeAdresseQueLivraison;
+        
+        /// <summary>
+        /// Contrôle adresseFacturation.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::ATMTECH.ShoppingCart.Commerce.UserControls.SelectionnerAdresse adresseFacturation;
+        
+        /// <summary>
         /// Contrôle btnCreerLogin.
         /// </summary>
         /// <remarks>
