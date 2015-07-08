@@ -13,6 +13,7 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
         int CreateStock(Stock stock);
         IList<Stock> GetStockByEnterprise(int idEnterprise);
         int Save(Stock stock);
-        
+        IList<Stock> GetAll();
+
     }
 }

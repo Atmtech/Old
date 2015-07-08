@@ -193,10 +193,10 @@ namespace ATMTECH.ShoppingCart.DAO
             IList<Order> orders = GetByCriteria(criterias);
             orders = orders.Where(x => x.FinalizedDate >= dateStart && x.FinalizedDate <= dateEnd).ToList();
             IList<OrderLine> orderLinesAll = DAOOrderLine.GetAll();
-            IList<Stock> stocks = DAOStock.GetAllStock();
+            IList<Stock> stocks = DAOStock.GetAll();
             IList<Customer> customers = DAOCustomer.GetAll();
             IList<User> users = DAOUser.GetAllUser();
-            IList<Product> products = DAOProduct.GetProducts(enterprise.Id);
+            IList<Product> products = DAOProduct.GetAll();
             foreach (Order order in orders)
             {
                 order.Customer = customers.FirstOrDefault(x => x.Id == order.Customer.Id);
@@ -208,8 +208,18 @@ namespace ATMTECH.ShoppingCart.DAO
                     orderLine.Order = order;
                     orderLine.Stock = stocks.FirstOrDefault(x => x.Id == orderLine.Stock.Id);
                     if (orderLine.Stock != null)
-                        orderLine.Stock.Product = products.FirstOrDefault(x => x.Id == orderLine.Stock.Product.Id);
-                            //DAOProduct.GetProduct(orderLine.Stock.Product.Id);
+                    {
+                        if (orderLine.Stock.Product != null)
+                            orderLine.Stock.Product = products.FirstOrDefault(x => x.Id == orderLine.Stock.Product.Id);
+                        else
+                        {
+                            Stock stock = DAOStock.GetStock(orderLine.Stock.Id);
+                            int produit = stock.Product.Id;
+                            orderLine.Stock.Product = products.FirstOrDefault(x => x.Id == produit);
+                        }
+                    }
+
+                    //DAOProduct.GetProduct(orderLine.Stock.Product.Id);
                 }
                 order.OrderLines = orderLines;
 

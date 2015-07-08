@@ -20,5 +20,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface
         IList<Product> GetAllActive();
         int Save(Product product);
         IList<Product> ObtenirListeProduitEnVente(int id);
+        IList<Product> GetAll();
     }
 }

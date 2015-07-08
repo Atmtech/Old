@@ -56,5 +56,8 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             return GetAllActive();
         }
+
+      
+
     }
 }
