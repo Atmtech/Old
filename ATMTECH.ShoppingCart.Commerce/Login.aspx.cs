@@ -48,7 +48,7 @@ namespace ATMTECH.ShoppingCart.Commerce
 
         protected void btnUtiliserMemeAdresseQueLivraisonClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            AdresseLongueFacturation = AdresseLongueLivraison;
         }
     }
 }

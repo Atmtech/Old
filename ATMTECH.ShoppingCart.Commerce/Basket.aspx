@@ -19,7 +19,7 @@
                         <div style="float: left; text-align: center">
                             <asp:Image ID="imageProduit" runat="server" ImageUrl='<%# "images/product/" +Eval("Stock.Product.PrincipalFileUrlWithoutDirectory")  %>' CssClass="imageThumbNailPanier"></asp:Image>
                             <br />
-                            <asp:Button runat="server" ID="btnRetirerArticle" Text="Retirer" CssClass="boutonLien" CommandName="SupprimerLigneCommande" CommandArgument='<%# Eval("Id") %>' />
+            
                         </div>
                         <div style="float: left; padding-left: 10px; padding-top: 10px; width: 300px;">
                             <div style="font-weight: bold;">
@@ -50,12 +50,16 @@
                             Total:
                                 <asp:Label runat="server" ID="lblSousTotal" Text='<%#Eval("SubTotal","{0:c}")%>'></asp:Label>
                         </div>
-
+                        <div style="padding-top: 10px;">
+                                        <asp:Button runat="server" ID="btnRetirerArticle" Text="Retirer ce produit du panier" CssClass="boutonActionRond" CommandName="SupprimerLigneCommande" CommandArgument='<%# Eval("Id") %>' />
+                            
+                            </div>
                     </div>
                     <div style="clear: both;"></div>
                     </div>
                 </ItemTemplate>
             </asp:DataList>
+            
         </div>
         <div style="float: left; padding-left: 20px; border-left: solid 1px gray; margin-left: 10px; width: 200px">
             <div class="titreDansPage">

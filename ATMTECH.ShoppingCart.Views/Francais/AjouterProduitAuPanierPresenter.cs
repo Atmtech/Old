@@ -152,7 +152,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (stock != null)
             {
                 CommandeService.AjouterLigneCommande(stock.Id, View.Quantite);
-                NavigationService.Redirect(Pages.Pages.DEFAULT);
+                NavigationService.Redirect(Pages.Pages.BASKET);
             }
         }
         private Stock TrouverLeStockAvecTailleEtCouleur()
