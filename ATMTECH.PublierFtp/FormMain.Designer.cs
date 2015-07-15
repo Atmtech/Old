@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.btnPublier = new System.Windows.Forms.Button();
             this.lsvFtp = new System.Windows.Forms.ListView();
             this.checkbox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ftp = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.site = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.repertoireFtp = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.repertoireLocal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Utilisateur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MotDePasse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Resultat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lsvResultat = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Utilisateur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.MotDePasse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ftp = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstResultatVisible = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -88,6 +89,11 @@
             this.checkbox.Text = "";
             this.checkbox.Width = 20;
             // 
+            // ftp
+            // 
+            this.ftp.Text = "FTP / IP";
+            this.ftp.Width = 100;
+            // 
             // site
             // 
             this.site.Text = "Site";
@@ -102,6 +108,14 @@
             // 
             this.repertoireLocal.Text = "Répertoire local";
             this.repertoireLocal.Width = 200;
+            // 
+            // Utilisateur
+            // 
+            this.Utilisateur.Text = "Utilisateur";
+            // 
+            // MotDePasse
+            // 
+            this.MotDePasse.Text = "Mot de passe";
             // 
             // Resultat
             // 
@@ -146,19 +160,6 @@
             // 
             this.columnHeader7.Text = "Résultat";
             this.columnHeader7.Width = 200;
-            // 
-            // Utilisateur
-            // 
-            this.Utilisateur.Text = "Utilisateur";
-            // 
-            // MotDePasse
-            // 
-            this.MotDePasse.Text = "Mot de passe";
-            // 
-            // ftp
-            // 
-            this.ftp.Text = "FTP / IP";
-            this.ftp.Width = 100;
             // 
             // lstResultatVisible
             // 
@@ -209,6 +210,7 @@
             this.Controls.Add(this.lsvResultat);
             this.Controls.Add(this.lsvFtp);
             this.Controls.Add(this.btnPublier);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "Publication FTP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
