@@ -4,8 +4,6 @@
 <%@ Register Src="UserControls/ListeCouleur.ascx" TagName="ListeCouleur" TagPrefix="uc2" %>
 <%@ Register Src="UserControls/SlideShowFile.ascx" TagName="SlideShowFile" TagPrefix="uc3" %>
 
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <asp:PlaceHolder id="MetaPlaceHolder" runat="server" />
 </asp:Content>
