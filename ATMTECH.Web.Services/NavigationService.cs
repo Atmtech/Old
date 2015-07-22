@@ -8,7 +8,6 @@ using ATMTECH.Common.Constant;
 using ATMTECH.Common.Context;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
-using ATMTECH.ShoppingCart.DAO;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.Web.Services.Base;
@@ -37,7 +36,8 @@ namespace ATMTECH.Web.Services
                 ? (langue == LocalizationLanguage.FRENCH ? obtenirProduit.NameFrench : obtenirProduit.NameEnglish)
                 : ObtenirTitrePage(page, langue);
 
-            ListePageAcceder.Add(filArianne);
+            if (filArianne.Titre != "N/A")
+                ListePageAcceder.Add(filArianne);
         }
 
         public string ObtenirTitrePage(string page, string langue)
@@ -58,7 +58,6 @@ namespace ATMTECH.Web.Services
                 return langue == LocalizationLanguage.FRENCH ? titrePage.TitreFr : titrePage.TitreEn;
             }
         }
-
         public IList<FilArianne> ListePageAcceder
         {
             get
@@ -72,7 +71,6 @@ namespace ATMTECH.Web.Services
                 HttpContext.Current.Session["ListePageAcceder"] = value;
             }
         }
-
         public void Redirect(string page)
         {
             ContextSessionManager.Context.Response.Redirect(page);
@@ -86,12 +84,6 @@ namespace ATMTECH.Web.Services
                 queryStringTemp += s.Name + "=" + s.Value + "&";
             }
             ContextSessionManager.Context.Response.Redirect(page + "?" + queryStringTemp);
-        }
-
-
-        private string CapitalizeFirst(string s)
-        {
-            return char.ToUpper(s[0]) + s.Substring(1).ToLower();
         }
         public CountryIp GetInformationIpInfoDb()
         {
@@ -107,13 +99,13 @@ namespace ATMTECH.Web.Services
                         string s = client.DownloadString(url);
                         string[] response = s.Split(';');
                         CountryIp countryIp = new CountryIp
-                            {
-                                Ip = ip,
-                                CountryName = CapitalizeFirst(response[4]),
-                                Region = CapitalizeFirst(response[5]),
-                                City = CapitalizeFirst(response[6]),
-                                PostalCode = response[7]
-                            };
+                        {
+                            Ip = ip,
+                            CountryName = CapitalizeFirst(response[4]),
+                            Region = CapitalizeFirst(response[5]),
+                            City = CapitalizeFirst(response[6]),
+                            PostalCode = response[7]
+                        };
                         return countryIp;
                     }
                 }
@@ -128,7 +120,6 @@ namespace ATMTECH.Web.Services
             return null;
 
         }
-
         public void Refresh()
         {
             ContextSessionManager.Context.Response.Redirect(ContextSessionManager.Context.Request.RawUrl);
@@ -151,10 +142,13 @@ namespace ATMTECH.Web.Services
         {
             return QueryString.GetQueryString();
         }
-
         public string GetQueryStringValue(string key)
         {
             return QueryString.GetQueryStringValue(key);
+        }
+        private string CapitalizeFirst(string s)
+        {
+            return char.ToUpper(s[0]) + s.Substring(1).ToLower();
         }
     }
 

@@ -76,7 +76,8 @@ namespace ATMTECH.ShoppingCart.Commerce
                 Presenter.Controls = allControls;
                 Presenter.Localize();
                 Presenter.AjouterPageFilAriane();
-                Title = Presenter.ObtenirTitrePage();
+                string titrePage = Presenter.ObtenirTitrePage();
+                Title = titrePage == "N/A" ? "" : titrePage;
                 Presenter.OnViewInitialized();
             }
             Presenter.OnViewLoaded();

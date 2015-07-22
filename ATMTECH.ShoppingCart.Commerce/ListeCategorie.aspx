@@ -15,6 +15,7 @@
         <asp:Button runat="server" ID="btnCategoriePantalon" Text="Pantalon" CssClass="boutonLienCategorie" OnClick="btnCategorieClick" />
         <asp:Button runat="server" ID="btnCategoriePolo" Text="Polos" CssClass="boutonLienCategorie" OnClick="btnCategorieClick" />
         <asp:Button runat="server" ID="btnCategorieTshirt" Text="T-shirt" CssClass="boutonLienCategorie" OnClick="btnCategorieClick" />
+
     </div>
     <uc2:ListeProduit ID="ListeProduit" runat="server" Langue='<%#Presenter.CurrentLanguage%>' ProduitParRangee="4" AfficherBoutonTriEtNombreItem="True" />
 </asp:Content>

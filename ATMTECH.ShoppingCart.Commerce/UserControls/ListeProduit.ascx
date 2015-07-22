@@ -3,8 +3,8 @@
 
 <asp:Panel runat="server" ID="pnlBoutonTriNombreElement">
     <div style="font-size: 16px; padding-top: 10px;">
-        <asp:Button runat="server" ID="btnTrierMoinsChereAuPlusChere" Text="Prix: ascendant" CssClass="boutonActionRond" OnClick="btnTrierMoinsChereAuPlusChereClick" />
-        <asp:Button runat="server" ID="btnTrierDuPlusChereAuMoinsChere" Text="Prix: descendant" CssClass="boutonActionRond" OnClick="btnTrierDuPlusChereAuMoinsChereClick" />
+        <asp:Button runat="server" ID="btnTrierMoinsChereAuPlusChere" Text="Prix: ascendant" CssClass="boutonActionRondFinaliser" Width="300px" OnClick="btnTrierMoinsChereAuPlusChereClick" />
+        <asp:Button runat="server" ID="btnTrierDuPlusChereAuMoinsChere" Text="Prix: descendant" CssClass="boutonActionRondFinaliser"  Width="300px" OnClick="btnTrierDuPlusChereAuMoinsChereClick" />
     </div>
     <div style="font-size: 16px; font-weight: bold; padding-top: 10px;">
         <asp:Label runat="server" ID="lblNombreElementAffichage" Text="Nombre d'élément retrouvé:"></asp:Label>
