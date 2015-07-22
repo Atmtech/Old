@@ -381,6 +381,7 @@ a
 .titreDescriptionProduit
 {
     padding-top: 20px;
+    padding-bottom: 5px;
     font-size: 20px;
     border-bottom: solid 1px rgb(75, 75, 75);
     font-weight: bold;
@@ -583,6 +584,7 @@ a
 
 .titreDansPage
 {
+    font-size: 20px;
     text-transform: uppercase;
     font-weight: bold;
     text-transform: uppercase;
