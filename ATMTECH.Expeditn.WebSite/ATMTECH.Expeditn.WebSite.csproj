@@ -378,6 +378,7 @@
     <Content Include="Template\images\pic07.jpg" />
     <Content Include="Template\images\pic08.jpg" />
     <Content Include="Template\images\profile_placeholder.gif" />
+    <Content Include="Template\images\trip1.jpg" />
     <Content Include="Template\index.html" />
     <Content Include="Template\js\html5shiv.js" />
     <Content Include="Template\js\init.js" />
