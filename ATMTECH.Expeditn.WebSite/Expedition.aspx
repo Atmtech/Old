@@ -80,7 +80,7 @@
             <asp:Label runat="server" ID="lblListeParticipant" Text="Liste des participants"></asp:Label><br />
         </div>
 
-        <atmtech:ComboBox runat="server" ID="ddlUtilisateur" />
+        <%--<atmtech:ComboBox runat="server" ID="ddlUtilisateur" />--%>
 
         <div style="margin-top: 10px;">
             <asp:Button runat="server" ID="btnAjouterUtilisateurAExpedition" Text="Ajouter cet utilisateur à cette expédition" CssClass="bouton" />

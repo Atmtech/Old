@@ -19,7 +19,7 @@ namespace ATMTECH.Expeditn.WebSite
                 txtPays.Enabled = value;
                 txtRegion.Enabled = value;
                 txtdescriptionExpedition.Enabled = value;
-                ddlUtilisateur.Enabled = value;
+              //  ddlUtilisateur.Enabled = value;
                 btnAjouterUtilisateurAExpedition.Enabled = false;
             }
         }

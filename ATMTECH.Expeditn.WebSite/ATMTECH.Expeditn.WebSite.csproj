@@ -359,6 +359,32 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
     <Content Include="MotPasseOublie.aspx" />
+    <Content Include="Template\css\font-awesome.min.css" />
+    <Content Include="Template\css\skel.css" />
+    <Content Include="Template\css\style-large.css" />
+    <Content Include="Template\css\style-medium.css" />
+    <Content Include="Template\css\style-small.css" />
+    <Content Include="Template\css\style-xlarge.css" />
+    <Content Include="Template\css\style-xsmall.css" />
+    <Content Include="Template\css\style.css" />
+    <Content Include="Template\elements.html" />
+    <Content Include="Template\fonts\fontawesome-webfont.svg" />
+    <Content Include="Template\generic.html" />
+    <Content Include="Template\images\bokeh_car_lights_bg.jpg" />
+    <Content Include="Template\images\dark_tint.png" />
+    <Content Include="Template\images\pic02.jpg" />
+    <Content Include="Template\images\pic03.jpg" />
+    <Content Include="Template\images\pic04.jpg" />
+    <Content Include="Template\images\pic07.jpg" />
+    <Content Include="Template\images\pic08.jpg" />
+    <Content Include="Template\images\profile_placeholder.gif" />
+    <Content Include="Template\index.html" />
+    <Content Include="Template\js\html5shiv.js" />
+    <Content Include="Template\js\init.js" />
+    <Content Include="Template\js\jquery.min.js" />
+    <Content Include="Template\js\skel-layers.min.js" />
+    <Content Include="Template\js\skel.min.js" />
+    <Content Include="Template\license.txt" />
     <Content Include="UserControls\ListeExpedition.ascx" />
     <Content Include="UserControls\Utilisateur.ascx" />
     <Content Include="Web.config">
@@ -449,6 +475,10 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />
     <Content Include="Default.Master" />
+    <Content Include="Template\fonts\fontawesome-webfont.eot" />
+    <Content Include="Template\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Template\fonts\fontawesome-webfont.woff" />
+    <Content Include="Template\fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
