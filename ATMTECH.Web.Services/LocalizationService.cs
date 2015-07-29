@@ -116,6 +116,13 @@ namespace ATMTECH.Web.Services
                             (control as LinkButton).Text = localizeString;
                             (control as LinkButton).ToolTip = localizeString;
                         }
+
+                        if (control is HyperLink)
+                        {
+                            (control as HyperLink).Text = localizeString;
+                            (control as HyperLink).ToolTip = localizeString;
+                        }
+
                     }
                     else
                     {
@@ -132,7 +139,10 @@ namespace ATMTECH.Web.Services
                         {
                             (control as LinkButton).Text += " (*Loc)";
                         }
-
+                        if (control is HyperLink)
+                        {
+                            (control as HyperLink).Text += " (*Loc)";
+                        }
                     }
                 }
             }
@@ -159,6 +169,10 @@ namespace ATMTECH.Web.Services
                 return true;
             }
             if (control is LinkButton)
+            {
+                return true;
+            }
+            if (control is HyperLink)
             {
                 return true;
             }

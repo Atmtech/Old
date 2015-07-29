@@ -285,28 +285,34 @@
     <Content Include="ckeditor\skins\v2\skin.js" />
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
+    <Content Include="Css\font-awesome.min.css" />
     <Content Include="Css\Site.css" />
+    <Content Include="Css\skel.css" />
+    <Content Include="Css\style-large.css" />
+    <Content Include="Css\style-medium.css" />
+    <Content Include="Css\style-small.css" />
+    <Content Include="Css\style-xlarge.css" />
+    <Content Include="Css\style-xsmall.css" />
+    <Content Include="Css\style.css" />
     <Content Include="Default.aspx" />
-    <Content Include="Error.aspx" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\bokeh_car_lights_bg.jpg" />
+    <Content Include="Images\dark_tint.png" />
+    <Content Include="Images\pic02.jpg" />
+    <Content Include="Images\pic03.jpg" />
+    <Content Include="Images\pic04.jpg" />
+    <Content Include="Images\pic07.jpg" />
+    <Content Include="Images\pic08.jpg" />
+    <Content Include="Images\profile_placeholder.gif" />
+    <Content Include="Images\trip1.jpg" />
+    <Content Include="Javascript\html5shiv.js" />
+    <Content Include="Javascript\init.js" />
+    <Content Include="Javascript\skel-layers.min.js" />
+    <Content Include="Javascript\skel.min.js" />
     <Content Include="Errors\Maintenance.html" />
     <Content Include="Errors\SessionTimeout.html" />
-    <Content Include="Expedition.aspx" />
     <Content Include="fonts\license.txt" />
-    <Content Include="Global.asax" />
-    <Content Include="Identification.aspx" />
-    <Content Include="Images\Media\AucuneImage.png" />
-    <Content Include="Images\Media\Pipmuacan1.jpg" />
-    <Content Include="Images\Utilisateur\AucuneImage.png" />
-    <Content Include="Images\WebSite\Suiveux.png" />
-    <Content Include="Images\Media\trip3.jpg" />
-    <Content Include="Images\Media\trip1.jpg" />
-    <Content Include="Images\Media\trip2.jpg" />
-    <Content Include="Images\Utilisateur\1.jpg" />
-    <Content Include="Images\WebSite\Aimer.png" />
-    <Content Include="Images\WebSite\ArrowDropDownList.png" />
-    <Content Include="Images\WebSite\error-icon.png" />
-    <Content Include="Images\WebSite\search-icon.png" />
-    <Content Include="Images\WebSite\success-icon.png" />
     <Content Include="Javascript\Redirection.js" />
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.js" />
@@ -358,7 +364,6 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.slider.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
-    <Content Include="MotPasseOublie.aspx" />
     <Content Include="Template\css\font-awesome.min.css" />
     <Content Include="Template\css\skel.css" />
     <Content Include="Template\css\style-large.css" />
@@ -391,6 +396,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -407,36 +413,8 @@
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
     </Compile>
-    <Compile Include="Error.aspx.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Error.aspx.designer.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Expedition.aspx.cs">
-      <DependentUpon>Expedition.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Expedition.aspx.designer.cs">
-      <DependentUpon>Expedition.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Identification.aspx.cs">
-      <DependentUpon>Identification.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Identification.aspx.designer.cs">
-      <DependentUpon>Identification.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MotPasseOublie.aspx.cs">
-      <DependentUpon>MotPasseOublie.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MotPasseOublie.aspx.designer.cs">
-      <DependentUpon>MotPasseOublie.aspx</DependentUpon>
     </Compile>
     <Compile Include="PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -459,6 +437,13 @@
     <Compile Include="UserControls\Utilisateur.ascx.designer.cs">
       <DependentUpon>Utilisateur.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\iconFont.eot">
@@ -475,11 +460,15 @@
     </Content>
     <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />
-    <Content Include="Default.Master" />
     <Content Include="Template\fonts\fontawesome-webfont.eot" />
     <Content Include="Template\fonts\fontawesome-webfont.ttf" />
     <Content Include="Template\fonts\fontawesome-webfont.woff" />
     <Content Include="Template\fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Default.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

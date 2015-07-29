@@ -21,31 +21,31 @@ namespace ATMTECH.Expeditn.Views
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
-            AfficherCategorie();
-            if (!string.IsNullOrEmpty(View.idUtilisateur))
-            {
-                AfficherListeExpeditionUtilisateur(Convert.ToInt32(View.idUtilisateur));
-            }
-            else
-            {
-                AfficherListeExpedition();    
-            }
+            //AfficherCategorie();
+            //if (!string.IsNullOrEmpty(View.idUtilisateur))
+            //{
+            //    AfficherListeExpeditionUtilisateur(Convert.ToInt32(View.idUtilisateur));
+            //}
+            //else
+            //{
+            //    AfficherListeExpedition();    
+            //}
             
         }
 
-        public void AfficherCategorie()
-        {
-            View.Categories = DAOCategorie.ObtenirCategorie();
+        //public void AfficherCategorie()
+        //{
+        //    View.Categories = DAOCategorie.ObtenirCategorie();
 
-        }
-        public void AfficherListeExpedition()
-        {
-            View.Expeditions = ExpeditionService.ObtenirExpedition();
-        }
+        //}
+        //public void AfficherListeExpedition()
+        //{
+        //    View.Expeditions = ExpeditionService.ObtenirExpedition();
+        //}
 
-        public void AfficherListeExpeditionUtilisateur(int id)
-        {
-            View.Expeditions = ExpeditionService.ObtenirMesExpedition(id);
-        }
+        //public void AfficherListeExpeditionUtilisateur(int id)
+        //{
+        //    View.Expeditions = ExpeditionService.ObtenirMesExpedition(id);
+        //}
     }
 }

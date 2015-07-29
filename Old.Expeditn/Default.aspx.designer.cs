@@ -13,30 +13,30 @@ namespace ATMTECH.Expeditn.WebSite {
     public partial class Default1 {
         
         /// <summary>
-        /// Contrôle lblMessageBienvenueEntete.
+        /// Contrôle ddlCategorie.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessageBienvenueEntete;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategorie;
         
         /// <summary>
-        /// Contrôle lblMessageBienvenueSousEntete.
+        /// Contrôle DropDownList1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessageBienvenueSousEntete;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
         
         /// <summary>
-        /// Contrôle lnkPlanifierExpedition.
+        /// Contrôle ListeExpedition.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkPlanifierExpedition;
+        protected global::ATMTECH.Expeditn.WebSite.UserControls.ListeExpedition ListeExpedition;
     }
 }

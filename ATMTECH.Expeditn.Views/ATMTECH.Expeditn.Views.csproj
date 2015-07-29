@@ -47,6 +47,7 @@
     <Compile Include="ExpeditionPresenter.cs" />
     <Compile Include="ErreurPresenter.cs" />
     <Compile Include="IdentificationPresenter.cs" />
+    <Compile Include="Interface\IPourquoiPresenter.cs" />
     <Compile Include="Interface\IExpeditionPresenter.cs" />
     <Compile Include="Interface\IAccueilPresenter.cs" />
     <Compile Include="Interface\IErreurPresenter.cs" />

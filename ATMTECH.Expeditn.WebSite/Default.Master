@@ -1,18 +1,28 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ATMTECH.Expeditn.WebSite.Default" %>
 
-<%@ Register src="UserControls/Utilisateur.ascx" tagname="Utilisateur" tagprefix="uc1" %>
-
-<%@ Register assembly="GMaps" namespace="Subgurim.Controles" tagprefix="cc1" %>
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-    <link href="css/Site.css" rel="stylesheet" type="text/css" />
+  
+    
+    <meta charset="UTF-8">
+		<title>Expedit'n</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+        <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
+		<script src="Javascript/skel.min.js"></script>
+		<script src="Javascript/skel-layers.min.js"></script>
+		<script src="Javascript/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+
     <link href="JQuery/jquery-ui-1.11.2/css/lightbox.css" rel="stylesheet" />
     <link href="JQuery/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
     <link href="JQuery/jquery-ui-1.11.2/jquery-ui.custom.css" rel="stylesheet" />
@@ -24,51 +34,88 @@
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/lightbox.min.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.slider.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
 </head>
-<body style="margin: 0 0 0 0;">
+<body class="landing">
     <form id="form1" runat="server">
-        
-        <div class="total">
-            .
-           
-        </div>
-        <div>
-            <table style="width: 100%;">
-                <tr>
-                    <td style="vertical-align: top; width: 300px;">
-                        <div style="font-family: Pacifico, sans-serif; padding-left: 100px; padding-top: 100px; color: Black; font-size: 70px;">
-                            <div style="background-color: white; width: 310px; border-radius: 20px; padding-left: 10px; padding-right: 10px;">
-                                <a href="Default.aspx">Expedit'n</a>
-                            </div>
-                        </div>
-                        <div style="padding-top: 20px; padding-left: 105px; color: black; font-size: 20px; font-weight: bold;">
-                            <asp:Label runat="server" ID="lblPourPlanifierUneExpeditionMemorable" Text="Planificateur d'expédition mémorable ..."></asp:Label>
-                        </div>
 
-                        <asp:Panel runat="server" ID="pnlIdentification" CssClass="panneauIdentification">
-                            <asp:Button runat="server" ID="btnIdentification" Text="Identifiez vous ou créez un compte" CssClass="bouton" OnClick="btnIdentificationClick" />
-                        </asp:Panel>
-                        <asp:Panel runat="server" ID="pnlDeconnecter" CssClass="panneauIdentification">
-                            <asp:Button runat="server" ID="btnDeconnecter" Text="Déconnecter" CssClass="bouton" OnClick="btnDeconnecterClick" />
-                        </asp:Panel>
-                        <asp:Panel runat="server" ID="pnlIdentifier" CssClass="panneauIdentification">
-                            <uc1:Utilisateur ID="UtilisateurIdentifier" runat="server" />
-                        </asp:Panel>
-                        
-                        <asp:Button runat="server" ID="btnTestGoogleMap" OnClick="btnTestGoogleMapClick" Text="test"/>
-                    </td>
-                    <td style="padding-left: 100px; vertical-align: top;">
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                        </asp:ContentPlaceHolder>
-                    </td>
+        <!-- Header -->
+        <header id="header">
+            <h1><a href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 70px;text-decoration: none;">Expedit'n</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li>
+                        <asp:HyperLink runat="server" ID="lnkAccueilMenu" Text="Accueil" NavigateUrl="Default.aspx"></asp:HyperLink>
+                    </li>
+                    <li>
+                        <asp:HyperLink runat="server" ID="lnkPourquoiMenu" Text="Pourquoi" NavigateUrl="Default.aspx"></asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink runat="server" ID="lnkConnecterMenu" Text="Se connecter" NavigateUrl="Default.aspx"></asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink runat="server" ID="lnkInscrireMenu" Text="M'inscrire" NavigateUrl="Default.aspx" CssClass="button special"></asp:HyperLink></li>
+                </ul>
+            </nav>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="container">
+                <section class="links">
+                    <div class="row">
+                        <section class="3u 6u(medium) 12u$(small)">
+                            <h3>Navigation</h3>
+                            <ul class="unstyled">
+                                <li>
+                                    <asp:HyperLink runat="server" ID="lnkAccueilNavigation" Text="Accueil" NavigateUrl="Default.aspx"></asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink runat="server" ID="lnkPourquoiNavigation" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink runat="server" ID="lnkConnecterNavigation" Text="Se connecter" NavigateUrl="Connection.aspx"></asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink runat="server" ID="lnkInscrireNavigation" Text="M'inscrire" NavigateUrl="Inscription.aspx"></asp:HyperLink></li>
+                            </ul>
+                        </section>
+                        <section class="3u 6u$(medium) 12u$(small)">
+                            <h3>Partenaire</h3>
+                            <ul class="unstyled">
+                                 <li>
+                                    <asp:HyperLink runat="server" ID="lnkPartenaire1" Text="Accueil" NavigateUrl="http:\\www.checkleprix.com" Target="_new"></asp:HyperLink>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+                <div class="row">
+                    <div class="8u 12u$(medium)">
+                        <ul class="copyright">
+                            <li>&copy; Expedit'n Tous droits réservé. v<asp:Label runat="server" ID="lblVersion"></asp:Label></li>
 
-                </tr>
-            </table>
-            <div style="width: 100%; background-color: rgb(68, 68, 68); color: white; height: 35px; text-align: center; padding-top: 20px; font-size: 12px;">
-                Copyright © 2015 expeditn.com | v<asp:Label runat="server" ID="lblVersion"></asp:Label>
+                        </ul>
+                    </div>
+                    <div class="4u$ 12u$(medium)">
+                        <ul class="icons">
+                            <li>
+                                <a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+                            </li>
+                            <li>
+                                <a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+                            </li>
+                            <li>
+                                <a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+                            </li>
+                            <li>
+                                <a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-
+        </footer>
     </form>
 </body>
 </html>

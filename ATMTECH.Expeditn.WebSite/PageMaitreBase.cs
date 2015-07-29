@@ -81,6 +81,14 @@ namespace ATMTECH.Expeditn.WebSite
                     }
                     else
                     {
+                        if (control is HyperLink)
+                        {
+                            localization.ObjectId = control.ID;
+                            localization.French = (control as HyperLink).Text.Replace(" (*Loc)", "");
+                            localization.English = (control as HyperLink).Text.Replace(" (*Loc)", "(en)");
+                            localizations.Add(localization);
+                        }
+
                         if (control is Label)
                         {
                             localization.ObjectId = control.ID;

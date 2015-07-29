@@ -18,28 +18,28 @@ namespace ATMTECH.Expeditn.Views
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
-            AfficherUtilisateur();
+            //AfficherUtilisateur();
         }
 
-        public void AfficherUtilisateur()
-        {
-            View.Utilisateur = AuthenticationService.AuthenticateUser;
-        }
+        //public void AfficherUtilisateur()
+        //{
+        //    View.Utilisateur = AuthenticationService.AuthenticateUser;
+        //}
 
-        public void RedirigerIdentification()
-        {
-            NavigationService.Redirect(Pages.IDENTIFICATION);
-        }
+        //public void RedirigerIdentification()
+        //{
+        //    NavigationService.Redirect(Pages.IDENTIFICATION);
+        //}
 
-        public void Deconnecter()
-        {
-            AuthenticationService.SignOut();
-            NavigationService.Redirect(Pages.DEFAULT);
-        }
+        //public void Deconnecter()
+        //{
+        //    AuthenticationService.SignOut();
+        //    NavigationService.Redirect(Pages.DEFAULT);
+        //}
 
-        public void TestGoogleMap()
-        {
-           // GoogleMapService.AfficherImage("1318 rue des frênes Canada Lévis", TypeCarteAffiche.Satellite);
-        }
+        //public void TestGoogleMap()
+        //{
+        //   // GoogleMapService.AfficherImage("1318 rue des frênes Canada Lévis", TypeCarteAffiche.Satellite);
+        //}
     }
 }
