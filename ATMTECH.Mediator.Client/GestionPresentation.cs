@@ -27,22 +27,20 @@ namespace ATMTECH.Mediator.Client
         {
             Utilisateur = ClavardageService.ObtenirUtilisateurCourant();
         }
-
         public void AjouterTexte(string text, Style style)
         {
             FastColoredTextBox.AppendText(text, style);
         }
-
         public void AjouterSautLigne()
         {
             AjouterTexte(Environment.NewLine, WhiteStyle);
         }
-
         public void AfficherClavardage(int nombre)
         {
             int plageInitial = ClavardageCourant - 100;
 
-            IList<Clavardage> clavardages = ObtenirClavardage(plageInitial).Where(x => x.Type != "COMMAND").OrderByDescending(x => x.NoClavardage).Take(nombre).OrderBy(x => x.NoClavardage).ToList();
+            //IList<Clavardage> clavardages = ObtenirClavardage(plageInitial).Where(x => x.Type != "COMMAND").OrderByDescending(x => x.NoClavardage).Take(nombre).OrderBy(x => x.NoClavardage).ToList();
+            IList<Clavardage> clavardages = ObtenirClavardage(plageInitial).OrderByDescending(x => x.NoClavardage).Take(nombre).OrderBy(x => x.NoClavardage).ToList();
 
             FastColoredTextBox.Clear();
 
@@ -79,7 +77,6 @@ namespace ATMTECH.Mediator.Client
                 }
             }
         }
-
         public IList<Clavardage> AfficherClavardage()
         {
             IList<Clavardage> clavardages = ObtenirClavardage(ClavardageCourant);
@@ -118,12 +115,10 @@ namespace ATMTECH.Mediator.Client
             }
             return clavardages;
         }
-
         public bool EstCommande(string texte)
         {
             return texte.Substring(0, 1) == "/";
         }
-
         public void EnvoyerClavardage(string texte)
         {
             Clavardage clavardage = new Clavardage
@@ -137,12 +132,10 @@ namespace ATMTECH.Mediator.Client
 
             ClavardageService.EnvoyerClavardage(clavardage);
         }
-       
         public IList<Clavardage> ObtenirClavardage(int clavardage)
         {
             return ClavardageService.ObtenirClavardage(clavardage);
         }
-
         public bool EstUnLien(Place place)
         {
             var mask = FastColoredTextBox.GetStyleIndexMask(new[] { Link });
@@ -153,7 +146,6 @@ namespace ATMTECH.Mediator.Client
             return false;
 
         }
-
         public DateTime ObtenirDateClavardage(int noLigneToolTip)
         {
             return ClavardageService.ObtenirDateClavardage(ClavardageService.ObtenirMaximumClavardage() - noLigneToolTip);
