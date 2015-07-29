@@ -22,6 +22,12 @@ namespace ATMTECH.Expeditn.Services
             return DAOExpedition.ObtenirExpedition();
         }
 
+        public IList<Expedition> ObtenirExpeditionTop(int nombreExpeditionPrise)
+        {
+            return DAOExpedition.ObtenirExpeditionTop(nombreExpeditionPrise);
+        }
+
+
         public IList<Expedition> ObtenirMesExpedition(int idUtilisateur)
         {
             IList<Participant> Participant = DAOParticipant.ObtenirParticipant().Where(x => x.Utilisateur.Id == idUtilisateur).ToList();

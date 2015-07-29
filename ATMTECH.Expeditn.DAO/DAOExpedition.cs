@@ -35,9 +35,21 @@ namespace ATMTECH.Expeditn.DAO
             return null;
         }
 
+
+        public IList<Expedition> ObtenirExpeditionTop(int nombreExpeditionPrise)
+        {
+            List<Expedition> expeditions = GetAllActive().Where(x => x.EstPrive == false).OrderByDescending(x => x.DateCreated).Take(nombreExpeditionPrise).ToList();
+            return RemplirColonneExpedition(expeditions);
+        }
+
         public IList<Expedition> ObtenirExpedition()
         {
             List<Expedition> expeditions = GetAllActive().Where(x => x.EstPrive == false).ToList();
+            return RemplirColonneExpedition(expeditions);
+        }
+
+        private IList<Expedition> RemplirColonneExpedition(List<Expedition> expeditions)
+        {
             foreach (Expedition expedition in expeditions)
             {
                 expedition.Participant = DAOParticipant.ObtenirParticipant(expedition);

@@ -1,6 +1,4 @@
 ﻿using ATMTECH.Entities;
-using ATMTECH.Expeditn.Entities;
-using ATMTECH.Expeditn.Services;
 using ATMTECH.Expeditn.Services.Interface;
 using ATMTECH.Expeditn.Views.Base;
 using ATMTECH.Expeditn.Views.Interface;
@@ -26,26 +24,26 @@ namespace ATMTECH.Expeditn.Views
                 NavigationService.Redirect(Pages.DEFAULT);
             }
         }
-        public void CreerUtilisateur()
-        {
-            if (View.MotPasseCreation != View.MotPasseConfirmationCreation)
-            {
-                MessageService.ThrowMessage(CodeErreur.SC_MOT_PASSE_INEGALE_AVEC_CONFIRMATION);
-            }
+        //public void CreerUtilisateur()
+        //{
+        //    if (View.MotPasseCreation != View.MotPasseConfirmationCreation)
+        //    {
+        //        MessageService.ThrowMessage(CodeErreur.SC_MOT_PASSE_INEGALE_AVEC_CONFIRMATION);
+        //    }
 
-            User utilisateur = new User
-                {
-                    Email = View.CourrielCreation,
-                    Login = View.CourrielCreation,
-                    Password = View.MotPasseCreation,
-                    FirstName = View.PrenomCreation,
-                    LastName = View.NomCreation
-                };
+        //    User utilisateur = new User
+        //        {
+        //            Email = View.CourrielCreation,
+        //            Login = View.CourrielCreation,
+        //            Password = View.MotPasseCreation,
+        //            FirstName = View.PrenomCreation,
+        //            LastName = View.NomCreation
+        //        };
 
-            if (UtilisateurService.Creer(utilisateur) != null)
-            {
-                MessageService.ThrowMessage(CodeErreur.ADM_CREATION_UTILISATEUR_EST_UN_SUCCES);
-            }
-        }
+        //    if (UtilisateurService.Creer(utilisateur) != null)
+        //    {
+        //        MessageService.ThrowMessage(CodeErreur.ADM_CREATION_UTILISATEUR_EST_UN_SUCCES);
+        //    }
+        //}
     }
 }

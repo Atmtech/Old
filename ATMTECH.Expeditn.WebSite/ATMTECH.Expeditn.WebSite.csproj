@@ -297,15 +297,10 @@
     <Content Include="Default.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Images\bokeh_car_lights_bg.jpg" />
-    <Content Include="Images\dark_tint.png" />
-    <Content Include="Images\pic02.jpg" />
-    <Content Include="Images\pic03.jpg" />
-    <Content Include="Images\pic04.jpg" />
-    <Content Include="Images\pic07.jpg" />
-    <Content Include="Images\pic08.jpg" />
-    <Content Include="Images\profile_placeholder.gif" />
-    <Content Include="Images\trip1.jpg" />
+    <Content Include="Identification.aspx" />
+    <Content Include="Images\Website\dark_tint.png" />
+    <Content Include="Images\Website\profile_placeholder.gif" />
+    <Content Include="Images\Medias\trip1.jpg" />
     <Content Include="Javascript\html5shiv.js" />
     <Content Include="Javascript\init.js" />
     <Content Include="Javascript\skel-layers.min.js" />
@@ -364,6 +359,7 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.slider.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
+    <Content Include="Pourquoi.aspx" />
     <Content Include="Template\css\font-awesome.min.css" />
     <Content Include="Template\css\skel.css" />
     <Content Include="Template\css\style-large.css" />
@@ -391,6 +387,7 @@
     <Content Include="Template\js\skel-layers.min.js" />
     <Content Include="Template\js\skel.min.js" />
     <Content Include="Template\license.txt" />
+    <Content Include="Test.html" />
     <Content Include="UserControls\ListeExpedition.ascx" />
     <Content Include="UserControls\Utilisateur.ascx" />
     <Content Include="Web.config">
@@ -416,11 +413,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Identification.aspx.cs">
+      <DependentUpon>Identification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Identification.aspx.designer.cs">
+      <DependentUpon>Identification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PageMaitreBase.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pourquoi.aspx.cs">
+      <DependentUpon>Pourquoi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pourquoi.aspx.designer.cs">
+      <DependentUpon>Pourquoi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\ListeExpedition.ascx.cs">

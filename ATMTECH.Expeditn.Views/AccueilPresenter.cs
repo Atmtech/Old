@@ -12,7 +12,8 @@ namespace ATMTECH.Expeditn.Views
     public class AccueilPresenter : BaseExpeditnPresenter<IAccueilPresenter>
     {
         public IExpeditionService ExpeditionService { get; set; }
-        public IDAOCategorie DAOCategorie { get; set; }
+       
+
         public AccueilPresenter(IAccueilPresenter view)
             : base(view)
         {
@@ -21,31 +22,14 @@ namespace ATMTECH.Expeditn.Views
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
-            //AfficherCategorie();
-            //if (!string.IsNullOrEmpty(View.idUtilisateur))
-            //{
-            //    AfficherListeExpeditionUtilisateur(Convert.ToInt32(View.idUtilisateur));
-            //}
-            //else
-            //{
-            //    AfficherListeExpedition();    
-            //}
-            
+            AfficherListeExpedition();
         }
 
-        //public void AfficherCategorie()
-        //{
-        //    View.Categories = DAOCategorie.ObtenirCategorie();
+      
+        public void AfficherListeExpedition()
+        {
+            View.Expeditions = ExpeditionService.ObtenirExpeditionTop(20);
+        }
 
-        //}
-        //public void AfficherListeExpedition()
-        //{
-        //    View.Expeditions = ExpeditionService.ObtenirExpedition();
-        //}
-
-        //public void AfficherListeExpeditionUtilisateur(int id)
-        //{
-        //    View.Expeditions = ExpeditionService.ObtenirMesExpedition(id);
-        //}
     }
 }

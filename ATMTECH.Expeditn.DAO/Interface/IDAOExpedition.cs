@@ -7,5 +7,6 @@ namespace ATMTECH.Expeditn.DAO.Interface
     {
         Expedition ObtenirExpedition(int id);
         IList<Expedition> ObtenirExpedition();
+        IList<Expedition> ObtenirExpeditionTop(int nombreExpeditionPrise);
     }
 }

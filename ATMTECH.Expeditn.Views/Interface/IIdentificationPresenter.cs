@@ -7,10 +7,10 @@ namespace ATMTECH.Expeditn.Views.Interface
         string NomUtilisateurIdentification { get; set; }
         string MotPasseIdentification { get; set; }
 
-        string PrenomCreation { get; set; }
-        string NomCreation { get; set; }
-        string CourrielCreation { get; set; }
-        string MotPasseCreation { get; set; }
-        string MotPasseConfirmationCreation { get; set; }
+        //string PrenomCreation { get; set; }
+        //string NomCreation { get; set; }
+        //string CourrielCreation { get; set; }
+        //string MotPasseCreation { get; set; }
+        //string MotPasseConfirmationCreation { get; set; }
     }
 }
