@@ -74,6 +74,7 @@
             // notifyIcon1
             // 
             this.notifyIcon1.BalloonTipTitle = "WinBlocker";
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "WinBlocker";
             this.notifyIcon1.Visible = true;
@@ -133,13 +134,12 @@
             // 
             // txtTemps
             // 
-            this.txtTemps.Enabled = false;
             this.txtTemps.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTemps.Location = new System.Drawing.Point(121, 37);
             this.txtTemps.Name = "txtTemps";
             this.txtTemps.Size = new System.Drawing.Size(29, 25);
             this.txtTemps.TabIndex = 4;
-            this.txtTemps.Text = "5";
+            this.txtTemps.Text = "120";
             this.txtTemps.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FormWinBlock
