@@ -54,6 +54,7 @@ namespace ATMTECH.Expeditn.WebSite
             if (id == "lblNomPrenomUtilisateur") return true;
             if (id == "lblIdUtilisateur") return true;
             if (id == "lblNombreKilometre") return true;
+            if (id == "lblMessageInformation") return true;
             return false;
         }
         private void Localiser()

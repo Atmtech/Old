@@ -1,6 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ATMTECH.Expeditn.WebSite.Default" %>
 
 
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -45,34 +47,37 @@
         <!-- Header -->
         <header id="header">
             <h1><a href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 70px; text-decoration: none;">Expedit'n</a></h1>
+            <asp:Panel ID="pnlDeconnecte" runat="server" Visible="False">
+                <nav>
+                    <ul>
+                        <li>
+                            <asp:TextBox runat="server" ID="txtRechercher" PlaceHolder="Rechercher une expedition" Style="background-color: white; color: black;"></asp:TextBox>
+                        </li>
+                        <li style="position: relative; left: -20px;">
+                            <a href="#" class="icon fa-search"></a>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkAccueilMenu" Text="Accueil" NavigateUrl="Default.aspx"></asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkPourquoiMenu" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
 
-            <nav>
 
-
-                <ul>
-                    <li>
-                        <asp:TextBox runat="server" ID="txtRechercher" PlaceHolder="Rechercher une expedition" Style="background-color: white; color: black;"></asp:TextBox>
-                    </li>
-                    <li style="position: relative; left: -20px;">
-                        <a href="#" class="icon fa-search"></a>
-                    </li>
-                    <li>
-                        <asp:HyperLink runat="server" ID="lnkAccueilMenu" Text="Accueil" NavigateUrl="Default.aspx"></asp:HyperLink>
-                    </li>
-                    <li>
-                        <asp:HyperLink runat="server" ID="lnkPourquoiMenu" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
-
-                   
                         <li>
                             <asp:HyperLink runat="server" ID="lnkConnecterMenu" Text="Se connecter" NavigateUrl="Identification.aspx"></asp:HyperLink></li>
                         <li>
-                            <asp:HyperLink runat="server" ID="lnkInscrireMenu" Text="M'inscrire" NavigateUrl="Default.aspx" CssClass="button icon fa-check-circle"></asp:HyperLink></li>
-                   
-                </ul>
+                            <asp:HyperLink runat="server" ID="lnkInscrireMenu" Text="M'inscrire" NavigateUrl="Inscription.aspx" CssClass="button icon fa-check-circle"></asp:HyperLink></li>
+                    </ul>
+                </nav>
+            </asp:Panel>
+            <asp:Panel ID="pnlConnecte" runat="server" Visible="False">
+                Toaster
+            </asp:Panel>
 
-
-            </nav>
         </header>
+
+       
+        
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         <!-- Footer -->
@@ -131,6 +136,7 @@
                 </div>
             </div>
         </footer>
+        
     </form>
 </body>
 </html>

@@ -19,7 +19,22 @@ namespace ATMTECH.Expeditn.WebSite
         }
 
 
-        public User Utilisateur { get; set; }
+        public User Utilisateur
+        {
+            set
+            {
+                if (value != null)
+                {
+                    pnlConnecte.Visible = true;
+                    pnlDeconnecte.Visible = false;
+                }
+                else
+                {
+                    pnlConnecte.Visible = false;
+                    pnlDeconnecte.Visible = true;
+                }
+            }
+        }
 
     }
 }

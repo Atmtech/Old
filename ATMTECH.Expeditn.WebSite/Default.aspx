@@ -5,8 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
+
+
+
     <!-- Banner -->
     <section id="banner">
+
         <h2>
             <asp:Label runat="server" ID="lblMessageBienvenueEntete" Text="Bonjour. Voici expedit'n."></asp:Label></h2>
         <p>
@@ -24,6 +28,9 @@
     <!-- One -->
     <section id="one" class="wrapper style1 special">
         <div class="container">
+
+           
+
             <header class="major">
                 <h2>
                     <asp:Label ID="lblCeQueExpeditnPeutFaire" runat="server" Text="Ce que Expedit'n peut faire pour vous"></asp:Label>

@@ -298,10 +298,12 @@
     <Content Include="Default.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="HtmlPage1.html" />
     <Content Include="Identification.aspx" />
     <Content Include="Images\Website\dark_tint.png" />
     <Content Include="Images\Website\profile_placeholder.gif" />
     <Content Include="Images\Medias\trip1.jpg" />
+    <Content Include="Inscription.aspx" />
     <Content Include="Javascript\html5shiv.js" />
     <Content Include="Javascript\init.js" />
     <Content Include="Javascript\skel-layers.min.js" />
@@ -390,6 +392,7 @@
     <Content Include="Template\license.txt" />
     <Content Include="Test.html" />
     <Content Include="UserControls\ListeExpedition.ascx" />
+    <Content Include="UserControls\MessageInformation.ascx" />
     <Content Include="UserControls\Utilisateur.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -421,6 +424,13 @@
     <Compile Include="Identification.aspx.designer.cs">
       <DependentUpon>Identification.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inscription.aspx.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription.aspx.designer.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -441,6 +451,13 @@
     </Compile>
     <Compile Include="UserControls\ListeExpedition.ascx.designer.cs">
       <DependentUpon>ListeExpedition.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MessageInformation.ascx.cs">
+      <DependentUpon>MessageInformation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MessageInformation.ascx.designer.cs">
+      <DependentUpon>MessageInformation.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Utilisateur.ascx.cs">
       <DependentUpon>Utilisateur.ascx</DependentUpon>

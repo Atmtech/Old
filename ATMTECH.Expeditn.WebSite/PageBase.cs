@@ -4,6 +4,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.Entities;
 using ATMTECH.Expeditn.Views.Base;
+using ATMTECH.Expeditn.WebSite.UserControls;
 using ATMTECH.Views.Interface;
 using ATMTECH.Web;
 using ATMTECH.WebControls;
@@ -19,7 +20,9 @@ namespace ATMTECH.Expeditn.WebSite
         public void ShowMessage(Message message)
         {
             Session["MessageEnvoye"] = message;
-            Response.Redirect("Error.aspx");
+            Response.Redirect("Inscription.aspx");
+
+            //Response.Redirect("Error.aspx");
         }
         public void FillDropDown(DropDownList dropDownList, object Source)
         {
@@ -86,6 +89,30 @@ namespace ATMTECH.Expeditn.WebSite
                 Presenter.Localize();
                 Presenter.OnViewInitialized();
             }
+
+            //List<Control> allControls = new List<Control>();
+            //GetControlList(Page.Controls, allControls);
+
+            if (Session["MessageEnvoye"] != null)
+            {
+                List<Control> allControls = new List<Control>();
+                GetControlList(Page.Controls, allControls);
+
+                foreach (Control control in allControls)
+                {
+                    if (control.ID == "MessageInformation")
+                    {
+                        MessageInformation panel = control as MessageInformation;
+                        panel.EstVisible = true;
+                        Message message = (Message)Session["MessageEnvoye"];
+                        panel.Message = message.Description;
+                        Session["MessageEnvoye"] = null;
+                        return;
+                    }
+                }
+            }
+
+
             Presenter.OnViewLoaded();
         }
 
