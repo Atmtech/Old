@@ -25,13 +25,13 @@ namespace ATMTECH.Expeditn.WebSite
             {
                 if (value != null)
                 {
-                    pnlConnecte.Visible = true;
-                    pnlDeconnecte.Visible = false;
+                    //pnlConnecte.Visible = true;
+                    //pnlDeconnecte.Visible = false;
                 }
                 else
                 {
-                    pnlConnecte.Visible = false;
-                    pnlDeconnecte.Visible = true;
+                    //pnlConnecte.Visible = false;
+                    //pnlDeconnecte.Visible = true;
                 }
             }
         }

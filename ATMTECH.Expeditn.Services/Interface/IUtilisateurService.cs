@@ -5,6 +5,6 @@ namespace ATMTECH.Expeditn.Services.Interface
 {
     public interface IUtilisateurService
     {
-        User Creer(User user);
+        void Creer(User user);
     }
 }

@@ -23,7 +23,10 @@
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
+        <link rel="stylesheet" href="Css/Site.css"/>
 		</noscript>
+
+
 
     <link href="JQuery/jquery-ui-1.11.2/css/lightbox.css" rel="stylesheet" />
     <link href="JQuery/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
@@ -41,17 +44,16 @@
     </asp:ContentPlaceHolder>
 
 </head>
-<body class="landing">
+<body>
     <form id="form1" runat="server">
 
         <!-- Header -->
-        <header id="header">
-            <h1><a href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 70px; text-decoration: none;">Expedit'n</a></h1>
-            <asp:Panel ID="pnlDeconnecte" runat="server" Visible="False">
-                <nav>
+            <header id="header">
+                <h1><i class="fa fa-map-marker" style="font-size: 50px;"></i><a href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;">Expedit'n</a></h1>
+                <nav id="nav">
                     <ul>
                         <li>
-                            <asp:TextBox runat="server" ID="txtRechercher" PlaceHolder="Rechercher une expedition" Style="background-color: white; color: black;"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtRechercher" PlaceHolder="Rechercher une expedition" Style="background-color: white; color: black;" Width="300px"></asp:TextBox>
                         </li>
                         <li style="position: relative; left: -20px;">
                             <a href="#" class="icon fa-search"></a>
@@ -69,15 +71,14 @@
                             <asp:HyperLink runat="server" ID="lnkInscrireMenu" Text="M'inscrire" NavigateUrl="Inscription.aspx" CssClass="button icon fa-check-circle"></asp:HyperLink></li>
                     </ul>
                 </nav>
-            </asp:Panel>
+                <%--<asp:Panel ID="pnlDeconnecte" runat="server" Visible="False">--%>
+
+                <%--</asp:Panel>
             <asp:Panel ID="pnlConnecte" runat="server" Visible="False">
                 Toaster
-            </asp:Panel>
-
-        </header>
-
-       
-        
+            </asp:Panel>--%>
+            </header>
+      
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         <!-- Footer -->
@@ -136,7 +137,7 @@
                 </div>
             </div>
         </footer>
-        
+
     </form>
 </body>
 </html>

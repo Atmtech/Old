@@ -16,8 +16,8 @@ namespace ATMTECH.Expeditn.WebSite
         public TPresenter Presenter { get; set; }
         public void ShowMessage(Message message)
         {
-            Session["MessageEnvoye"] = message;
-            Response.Redirect("Error.aspx");
+            //Session["MessageEnvoye"] = message;
+            //Response.Redirect("Error.aspx");
         }
         public void GetControlList<T>(ControlCollection controlCollection, List<T> resultCollection) where T : Control
         {
@@ -54,7 +54,8 @@ namespace ATMTECH.Expeditn.WebSite
             if (id == "lblNomPrenomUtilisateur") return true;
             if (id == "lblIdUtilisateur") return true;
             if (id == "lblNombreKilometre") return true;
-            if (id == "lblMessageInformation") return true;
+            if (id == "lblMessageInformationErreur") return true;
+            if (id == "lblMessageInformationSucces") return true;
             return false;
         }
         private void Localiser()

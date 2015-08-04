@@ -781,7 +781,6 @@
 
 /* Button */
 
-
 	input[type="submit"],
 	input[type="reset"],
 	input[type="button"],
@@ -933,6 +932,7 @@
 /* Header */
 
 	body.landing #header {
+		background-color: transparent;
 		left: 0;
 		position: absolute;
 		top: 0;
@@ -943,11 +943,11 @@
 		}
 
 	#header {
-		background-color:black;
+		background-color: #383b43;
 		color: #ffffff;
 		cursor: default;
 		font-size: 1.1em;
-		height: 7em;
+		height: 6em;
 		line-height: 6em;
 		width: 100%;
 		z-index: 10000;
@@ -1034,6 +1034,7 @@
 /* Banner */
 
 	#banner {
+		
         background-image: url(../images/WebSite/dark_tint.png), url(../images/Medias/Trip1.jpg);
 		background-position: center center;
 		background-size: cover;
@@ -1096,7 +1097,6 @@
 		}
 
 			.wrapper.style2 .profile img {
-			    border: solid 5px gray;
 				border-radius: 50%;
 			    width:100px;
                 height: 100px;

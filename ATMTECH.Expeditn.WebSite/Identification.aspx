@@ -3,8 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <br />
-    <br />
     <section id="one" class="wrapper style1 special">
         <div class="container">
             <header class="major">
@@ -18,26 +16,19 @@
 
             <div class="container 50%">
 
-                <div class="row uniform">
-                    <div class="6u 12u$(small)">
-                        <asp:TextBox runat="server" ID="txtNomUtilisateur" placeholder="Courriel" TextMode="Email"></asp:TextBox>
-                    </div>
-                    <div class="6u$ 12u$(small)">
-                        <asp:TextBox runat="server" ID="txtMotPasse" placeholder="Mot de passe" TextMode="Password"></asp:TextBox>
-                    </div>
+              
 
+                    <asp:TextBox runat="server" ID="txtNomUtilisateur" placeholder="Courriel" TextMode="Email"></asp:TextBox>
+                <br/>
+                    <asp:TextBox runat="server" ID="txtMotPasse" placeholder="Mot de passe" TextMode="Password"></asp:TextBox>
+                <br/>
                     <div class="12u$">
-                        <ul class="actions">
-                            <li>
-                                <asp:Button runat="server" ID="lnkIdentifiezVous" Text="Se connecter" CssClass="special big" OnClick="lnkIdentifiezVousClick"></asp:Button>
-                            </li>
-                            
-                             <li>
-                                <asp:Button runat="server" ID="lnkJAiOublieMonMotDePasse" Text="J'ai oublié mon mot de passe" CssClass="special big" OnClick="lnkIdentifiezVousClick"></asp:Button>
-                            </li>
-                        </ul>
+                        <asp:Button runat="server" ID="lnkIdentifiezVous" Text="Se connecter" CssClass="special big" OnClick="lnkIdentifiezVousClick"></asp:Button><br />
+                        <br />
+                        <asp:Button runat="server" ID="lnkJAiOublieMonMotDePasse" Text="J'ai oublié mon mot de passe" CssClass="special big" OnClick="lnkIdentifiezVousClick"></asp:Button>
+
                     </div>
-                </div>
+              
             </div>
     </section>
 

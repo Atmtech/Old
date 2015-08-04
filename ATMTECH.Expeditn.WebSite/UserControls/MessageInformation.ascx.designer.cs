@@ -13,21 +13,39 @@ namespace ATMTECH.Expeditn.WebSite.UserControls {
     public partial class MessageInformation {
         
         /// <summary>
-        /// Contrôle pnlMessageInformation.
+        /// Contrôle pnlMessageInformationErreur.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlMessageInformation;
+        protected global::System.Web.UI.WebControls.Panel pnlMessageInformationErreur;
         
         /// <summary>
-        /// Contrôle lblMessageInformation.
+        /// Contrôle lblMessageInformationErreur.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessageInformation;
+        protected global::System.Web.UI.WebControls.Label lblMessageInformationErreur;
+        
+        /// <summary>
+        /// Contrôle pnlMessageInformationSucces.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMessageInformationSucces;
+        
+        /// <summary>
+        /// Contrôle lblMessageInformationSucces.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessageInformationSucces;
     }
 }

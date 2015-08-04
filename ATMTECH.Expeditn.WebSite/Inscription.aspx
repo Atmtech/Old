@@ -1,14 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Inscription.aspx.cs" Inherits="ATMTECH.Expeditn.WebSite.Inscription" %>
-<%@ Register src="UserControls/MessageInformation.ascx" tagname="MessageInformation" tagprefix="uc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <br />
-    <br />
-    
-    
-
     <section id="one" class="wrapper style1 special">
         <div class="container">
             <header class="major">
@@ -19,20 +13,20 @@
                     <asp:Label ID="lblEntrerVosInformation" runat="server" Text="Entrez vos informations et démarrer votre première planification"></asp:Label>
                 </p>
             </header>
-            
-            <uc1:MessageInformation ID="MessageInformation" runat="server" EstVisible="False" />
-
+           
+            <asp:PlaceHolder runat="server" ID="placeHolderErreur"></asp:PlaceHolder>
             <div class="container 50%">
-
+                 
                 <div class="row uniform">
+                 <asp:Label runat="server" ID="lblEstObligatoire" Text="* Les champs encadrés en vert sont obligatoires."></asp:Label>   
                     <div class="6u 12u$(small)">
-                        <asp:TextBox runat="server" ID="txtPrenom" placeholder="Prénom"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtPrenom" placeholder="Prénom" style="border: solid 2px green;"></asp:TextBox>
                     </div>
                     <div class="6u$ 12u$(small)">
-                        <asp:TextBox runat="server" ID="txtNom" placeholder="Nom"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtNom" placeholder="Nom" style="border: solid 2px green;"></asp:TextBox>
                     </div>
                     <div class="12u$ 12u(small)">
-                        <asp:TextBox runat="server" ID="txtCourriel" placeholder="Courriel" TextMode="Email"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtCourriel" placeholder="Courriel" TextMode="Email" style="border: solid 2px green;"></asp:TextBox>
                     </div>
                     <div class="12u$ 12u$(small)">
                         <asp:TextBox runat="server" ID="txtMotDePasse" placeholder="Mot de passe" TextMode="Password"></asp:TextBox>
@@ -50,6 +44,7 @@
                             <asp:Label runat="server" ID="lblNousVousEnverronsUnCourriel" Text="N.B.: Nous vous enverrons un courriel pour confirmer votre inscription."></asp:Label>
                         </strong>
                     </div>
+
                 </div>
             </div>
     </section>

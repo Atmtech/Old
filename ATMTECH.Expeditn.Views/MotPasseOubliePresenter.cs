@@ -25,7 +25,7 @@ namespace ATMTECH.Expeditn.Views
             {
                 CourrielService.EnvoyerMotPasseOublie(user);
             }
-            MessageService.ThrowMessage(CodeErreur.SC_MOT_PASSE_OUBLIE_ENVOYER_PAR_COURRIEL);
+            //MessageService.ThrowMessage(CodeErreur.MOT_PASSE_OUBLIE_ENVOYER_PAR_COURRIEL);
         }
     }
 

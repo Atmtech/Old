@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Reflection;
-using System.Web;
 using ATMTECH.Common.Context;
 using ATMTECH.Common.Utils.Web;
 using ATMTECH.DAO;
@@ -39,7 +37,6 @@ namespace ATMTECH.Web
 
                 if (result.Exception is BaseException)
                 {
-                    // Ne pas logger l'erreur elle est fait quand on appel le message
                     CallShowMessage(input.Target, (BaseException)result.Exception);
                 }
                 else

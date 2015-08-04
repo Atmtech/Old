@@ -20,24 +20,16 @@ namespace ATMTECH.Expeditn.Views
 
         public void CreerUtilisateur()
         {
-            if (View.MotPasse != View.MotPasseConfirmation)
-            {
-                MessageService.ThrowMessage(CodeErreur.SC_MOT_PASSE_INEGALE_AVEC_CONFIRMATION);
-            }
-
             User utilisateur = new User
                 {
                     Email = View.Courriel,
                     Login = View.Courriel,
                     Password = View.MotPasse,
+                    PasswordConfirmation = View.MotPasseConfirmation,
                     FirstName = View.Prenom,
                     LastName = View.Nom
                 };
-
-            if (UtilisateurService.Creer(utilisateur) != null)
-            {
-                MessageService.ThrowMessage(CodeErreur.ADM_CREATION_UTILISATEUR_EST_UN_SUCCES);
-            }
+            UtilisateurService.Creer(utilisateur);
         }
     }
 }

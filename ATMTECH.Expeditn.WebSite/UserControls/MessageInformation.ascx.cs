@@ -1,16 +1,36 @@
 ﻿using System;
 using System.Web.UI;
+using ATMTECH.Entities;
 
 namespace ATMTECH.Expeditn.WebSite.UserControls
 {
     public partial class MessageInformation : UserControl
     {
-        public string Message { get; set; }
-        public bool EstVisible { get; set; }
-        protected void Page_Load(object sender, EventArgs e)
+
+        public Message Message
         {
-            lblMessageInformation.Text = Message;
-            pnlMessageInformation.Visible = EstVisible;
+            set
+            {
+                if (value != null)
+                {
+                    if (value.MessageType == Message.MESSAGE_TYPE_ERROR)
+                    {
+                        pnlMessageInformationErreur.Visible = true;
+                        lblMessageInformationErreur.Text = value.Description;
+                        return;
+                    }
+
+                    if (value.MessageType == Message.MESSAGE_TYPE_SUCCESS)
+                    {
+                        pnlMessageInformationSucces.Visible = true;
+                        lblMessageInformationSucces.Text = value.Description;
+                        return;
+                    }
+                }
+
+                pnlMessageInformationErreur.Visible = false;
+                pnlMessageInformationSucces.Visible = false;
+            }
         }
     }
 }

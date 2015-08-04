@@ -3,11 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-
-
-
-
     <!-- Banner -->
     <section id="banner">
 
@@ -21,16 +16,12 @@
                 <asp:HyperLink runat="server" ID="lnkPlanifierExpedition" Text="Planifier une expédition"
                     NavigateUrl="Default.aspx" CssClass="button big"></asp:HyperLink>
             </li>
-
         </ul>
     </section>
 
     <!-- One -->
     <section id="one" class="wrapper style1 special">
         <div class="container">
-
-           
-
             <header class="major">
                 <h2>
                     <asp:Label ID="lblCeQueExpeditnPeutFaire" runat="server" Text="Ce que Expedit'n peut faire pour vous"></asp:Label>

@@ -19,10 +19,21 @@ namespace ATMTECH.Expeditn.WebSite
         public TPresenter Presenter { get; set; }
         public void ShowMessage(Message message)
         {
-            Session["MessageEnvoye"] = message;
-            Response.Redirect("Inscription.aspx");
 
-            //Response.Redirect("Error.aspx");
+            List<Control> allControls = new List<Control>();
+            GetControlList(Page.Controls, allControls);
+            foreach (Control controle in allControls)
+            {
+                if (controle is PlaceHolder)
+                {
+                    if (controle.ID == "placeHolderErreur")
+                    {
+                        MessageInformation messageInformation = (MessageInformation)LoadControl(@"~/usercontrols/MessageInformation.ascx");
+                        messageInformation.Message = message;
+                        ((PlaceHolder)controle).Controls.Add(messageInformation);
+                    }
+                }
+            }
         }
         public void FillDropDown(DropDownList dropDownList, object Source)
         {
@@ -89,29 +100,6 @@ namespace ATMTECH.Expeditn.WebSite
                 Presenter.Localize();
                 Presenter.OnViewInitialized();
             }
-
-            //List<Control> allControls = new List<Control>();
-            //GetControlList(Page.Controls, allControls);
-
-            if (Session["MessageEnvoye"] != null)
-            {
-                List<Control> allControls = new List<Control>();
-                GetControlList(Page.Controls, allControls);
-
-                foreach (Control control in allControls)
-                {
-                    if (control.ID == "MessageInformation")
-                    {
-                        MessageInformation panel = control as MessageInformation;
-                        panel.EstVisible = true;
-                        Message message = (Message)Session["MessageEnvoye"];
-                        panel.Message = message.Description;
-                        Session["MessageEnvoye"] = null;
-                        return;
-                    }
-                }
-            }
-
 
             Presenter.OnViewLoaded();
         }
