@@ -31,13 +31,13 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle txtRechercher.
+        /// Contrôle pnlDeconnecte.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRechercher;
+        protected global::System.Web.UI.WebControls.Panel pnlDeconnecte;
         
         /// <summary>
         /// Contrôle lnkAccueilMenu.
@@ -47,6 +47,15 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkAccueilMenu;
+        
+        /// <summary>
+        /// Contrôle lnkRechercherMenu.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkRechercherMenu;
         
         /// <summary>
         /// Contrôle lnkPourquoiMenu.
@@ -74,6 +83,69 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkInscrireMenu;
+        
+        /// <summary>
+        /// Contrôle pnlConnecte.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlConnecte;
+        
+        /// <summary>
+        /// Contrôle lblBonjour.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBonjour;
+        
+        /// <summary>
+        /// Contrôle lblNomPrenomUtilisateur.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNomPrenomUtilisateur;
+        
+        /// <summary>
+        /// Contrôle lnkAccueilMenuConnecte.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkAccueilMenuConnecte;
+        
+        /// <summary>
+        /// Contrôle lnkRechercherMenuConnecte.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkRechercherMenuConnecte;
+        
+        /// <summary>
+        /// Contrôle lnkPourquoiMenuConnecte.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkPourquoiMenuConnecte;
+        
+        /// <summary>
+        /// Contrôle lnkDeconnecter.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkDeconnecter;
         
         /// <summary>
         /// Contrôle ContentPlaceHolder1.

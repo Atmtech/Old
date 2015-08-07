@@ -25,16 +25,21 @@ namespace ATMTECH.Expeditn.WebSite
             {
                 if (value != null)
                 {
-                    //pnlConnecte.Visible = true;
-                    //pnlDeconnecte.Visible = false;
+                    pnlConnecte.Visible = true;
+                    pnlDeconnecte.Visible = false;
+                    lblNomPrenomUtilisateur.Text = value.FirstNameLastName;
                 }
                 else
                 {
-                    //pnlConnecte.Visible = false;
-                    //pnlDeconnecte.Visible = true;
+                    pnlConnecte.Visible = false;
+                    pnlDeconnecte.Visible = true;
                 }
             }
         }
 
+        protected void lnkDeconnecterClick(object sender, EventArgs e)
+        {
+            Presenter.Deconnecter();
+        }
     }
 }

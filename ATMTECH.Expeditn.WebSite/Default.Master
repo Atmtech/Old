@@ -48,37 +48,46 @@
     <form id="form1" runat="server">
 
         <!-- Header -->
-            <header id="header">
-                <h1><i class="fa fa-map-marker" style="font-size: 50px;"></i><a href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;">Expedit'n</a></h1>
+        <header id="header">
+            <h1><i class="fa fa-map-marker" style="font-size: 50px;"></i><a href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;">Expedit'n&nbsp;</a></h1>
+
+            <asp:Panel ID="pnlDeconnecte" runat="server" Visible="True">
                 <nav id="nav">
                     <ul>
-                        <li>
-                            <asp:TextBox runat="server" ID="txtRechercher" PlaceHolder="Rechercher une expedition" Style="background-color: white; color: black;" Width="300px"></asp:TextBox>
-                        </li>
-                        <li style="position: relative; left: -20px;">
-                            <a href="#" class="icon fa-search"></a>
-                        </li>
                         <li>
                             <asp:HyperLink runat="server" ID="lnkAccueilMenu" Text="Accueil" NavigateUrl="Default.aspx"></asp:HyperLink>
                         </li>
                         <li>
+                            <asp:HyperLink runat="server" ID="lnkRechercherMenu" Text="Rechercher une expédition" NavigateUrl="Default.aspx"></asp:HyperLink>
+                        </li>
+                        <li>
                             <asp:HyperLink runat="server" ID="lnkPourquoiMenu" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
-
-
                         <li>
                             <asp:HyperLink runat="server" ID="lnkConnecterMenu" Text="Se connecter" NavigateUrl="Identification.aspx"></asp:HyperLink></li>
                         <li>
                             <asp:HyperLink runat="server" ID="lnkInscrireMenu" Text="M'inscrire" NavigateUrl="Inscription.aspx" CssClass="button icon fa-check-circle"></asp:HyperLink></li>
                     </ul>
                 </nav>
-                <%--<asp:Panel ID="pnlDeconnecte" runat="server" Visible="False">--%>
-
-                <%--</asp:Panel>
+            </asp:Panel>
             <asp:Panel ID="pnlConnecte" runat="server" Visible="False">
-                Toaster
-            </asp:Panel>--%>
-            </header>
-      
+                <nav id="nav">
+                    <ul>
+                        <li>
+                            <asp:Label runat="server" ID="lblBonjour" Text="Bonjour, "></asp:Label><asp:Label runat="server" ID="lblNomPrenomUtilisateur"></asp:Label></li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkAccueilMenuConnecte" Text="Accueil" NavigateUrl="Default.aspx"></asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkRechercherMenuConnecte" Text="Rechercher une expédition" NavigateUrl="Default.aspx"></asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink runat="server" ID="lnkPourquoiMenuConnecte" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
+                        <li>
+                            <asp:LinkButton runat="server" ID="lnkDeconnecter" Text="Déconnecter" OnClick="lnkDeconnecterClick"></asp:LinkButton></li>
+                    </ul>
+            </asp:Panel>
+        </header>
+
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         <!-- Footer -->

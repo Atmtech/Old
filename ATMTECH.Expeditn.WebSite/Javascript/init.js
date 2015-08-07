@@ -65,7 +65,7 @@
 					orientation: 'vertical',
 					position: 'top-left',
 					side: 'left',
-					width: 250
+					width: 500
 				}
 			}
 		}

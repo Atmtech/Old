@@ -298,7 +298,6 @@
     <Content Include="Default.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
-    <Content Include="HtmlPage1.html" />
     <Content Include="Identification.aspx" />
     <Content Include="Images\Website\dark_tint.png" />
     <Content Include="Images\Website\profile_placeholder.gif" />
@@ -397,7 +396,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -465,13 +463,6 @@
     </Compile>
     <Compile Include="UserControls\Utilisateur.ascx.designer.cs">
       <DependentUpon>Utilisateur.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
