@@ -71,10 +71,17 @@ namespace ATMTECH.Administration.Commerce
         {
             get { return Convert.ToDateTime(txtDateFin.Text); }
         }
-
         public string Courriel
         {
             get { return txtCourriel.Text; }
+        }
+        public string CourrielCommande
+        {
+            get { return txtCommandeCourriel.Text; }
+        }
+        public string NumeroCommandePourCourriel
+        {
+            get { return txtNoCommandeCourriel.Text; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -95,7 +102,7 @@ namespace ATMTECH.Administration.Commerce
                 case "EditionCourriel":
                     pnlEditionCourriel.Visible = true;
                     break;
-                case "AppliquerPourcentage":                    
+                case "AppliquerPourcentage":
                     pnlAppliquerPourcentage.Visible = true;
                     break;
                 case "VerifierInventaire":
@@ -106,6 +113,9 @@ namespace ATMTECH.Administration.Commerce
                     break;
                 case "EnvoiCourriel":
                     pnlEnvoiCourriel.Visible = true;
+                    break;
+                case "EnvoiCommandeCourriel":
+                    pnlEnvoyerCommandeParCourriel.Visible = true;
                     break;
             }
         }
@@ -162,6 +172,11 @@ namespace ATMTECH.Administration.Commerce
         {
             lblApercuCourrielAnglais.Text = CorpsEn;
         }
+        protected void btnEnvoyerCommandeCourrielClick(object sender, EventArgs e)
+        {
+            Presenter.EnvoyerCourrielCommande();
+        }
+
 
         private void MasquerTout()
         {
@@ -173,6 +188,9 @@ namespace ATMTECH.Administration.Commerce
             pnlVerifierInventaire.Visible = false;
             pnlValiderPourPaypal.Visible = false;
             pnlEnvoiCourriel.Visible = false;
+            pnlEnvoyerCommandeParCourriel.Visible = true;
         }
+
+
     }
 }

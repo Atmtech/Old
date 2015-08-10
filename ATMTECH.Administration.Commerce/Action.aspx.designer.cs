@@ -28,7 +28,7 @@ namespace ATMTECH.Administration.Commerce {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.WebControls.Numeric txtNoCommandeConfirmer;
+        protected global::System.Web.UI.WebControls.TextBox txtNoCommandeConfirmer;
         
         /// <summary>
         /// Contrôle btnConfirmerCommande.
@@ -55,7 +55,7 @@ namespace ATMTECH.Administration.Commerce {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.WebControls.Numeric txtNoCommandeAjustement;
+        protected global::System.Web.UI.WebControls.TextBox txtNoCommandeAjustement;
         
         /// <summary>
         /// Contrôle btnAfficherCommandeAjustement.
@@ -371,5 +371,41 @@ namespace ATMTECH.Administration.Commerce {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblStatutEnvoiCourriel;
+        
+        /// <summary>
+        /// Contrôle pnlEnvoyerCommandeParCourriel.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlEnvoyerCommandeParCourriel;
+        
+        /// <summary>
+        /// Contrôle txtNoCommandeCourriel.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNoCommandeCourriel;
+        
+        /// <summary>
+        /// Contrôle txtCommandeCourriel.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCommandeCourriel;
+        
+        /// <summary>
+        /// Contrôle btnEnvoyerCommandeCourriel.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEnvoyerCommandeCourriel;
     }
 }

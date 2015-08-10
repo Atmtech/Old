@@ -8,6 +8,7 @@ using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
+using ATMTECH.Web.Services.PurolatorEstimatingProxy;
 
 namespace ATMTECH.Administration.Views.Francais
 {
@@ -119,6 +120,14 @@ namespace ATMTECH.Administration.Views.Francais
             Mail courriel = DAOCourriel.ObtenirMail("CONFIRMATION_CREATION_CLIENT");
             return CourrielService.EnvoyerCourriel(View.Courriel, courriel.From, "Test d'envoi de courriel ...",
                  "<b>Test d'envoi de courriel</b><br>Réussi ...");
+        }
+
+        public void EnvoyerCourrielCommande()
+        {
+            Order obtenirCommande = CommandeService.ObtenirCommande(Convert.ToInt32(View.NumeroCommandePourCourriel));
+            Stream obtenirFacturePourPdf = CommandeService.ObtenirFacturePourPdf(obtenirCommande);
+            CourrielService.EnvoyerCommandeACourriel(obtenirCommande, obtenirFacturePourPdf, View.CourrielCommande);
+            MessageService.ThrowMessage("ADM005");
         }
     }
 }

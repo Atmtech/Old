@@ -117,6 +117,7 @@
                                     <li><a href="Action.aspx?action=AjusterCommande">Ajuster une commande</a></li>
                                     <li><a href="Action.aspx?action=RestaureCopie">Restaurer une copie de sauvegarde</a></li>
                                     <li><a href="Action.aspx?action=AppliquerPourcentage">Appliquer un pourcentage sur les produits</a></li>
+                                    <li><a href="Action.aspx?action=EnvoiCommandeCourriel">Envoyer une copie de facture à un courriel</a></li>
                                     <li>
                                         <asp:Button runat="server" Text="Faire une copie de sauvegarde" ID="btnCopierSauvegarde" OnClick="btnCopierSauvegardeClick" CssClass="boutonMenu"></asp:Button></li>
                                 </ul>

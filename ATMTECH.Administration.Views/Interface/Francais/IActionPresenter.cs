@@ -21,5 +21,8 @@ namespace ATMTECH.Administration.Views.Interface.Francais
         DateTime DateDepart { get; }
         DateTime DateFin { get; }
         string Courriel { get; }
+
+        string CourrielCommande { get; }
+        string NumeroCommandePourCourriel { get; }
     }
 }

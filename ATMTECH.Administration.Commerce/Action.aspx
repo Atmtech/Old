@@ -8,7 +8,7 @@
             Confirmer la commande
         </div>
         Numéro de commande
-        <atmtech:Numeric runat="server" ID="txtNoCommandeConfirmer" NoDecimal="True"></atmtech:Numeric>
+        <asp:TextBox runat="server" ID="txtNoCommandeConfirmer"></asp:TextBox>
         <asp:Button ID="btnConfirmerCommande" runat="server" Text="Confirmer la commande" CssClass="bouton" OnClick="btnConfirmerCommandeClick" />
     </asp:Panel>
     <asp:Panel runat="server" ID="pnlAjusterCommande" Visible="false">
@@ -16,7 +16,7 @@
             Ajuster une commande
         </div>
         Numéro de commande
-        <atmtech:Numeric runat="server" ID="txtNoCommandeAjustement" NoDecimal="true"></atmtech:Numeric>
+        <asp:TextBox runat="server" ID="txtNoCommandeAjustement" ></asp:TextBox>
         <asp:Button ID="btnAfficherCommandeAjustement" runat="server" Text="Afficher commande à ajuster" CssClass="bouton" />
     </asp:Panel>
     <asp:Panel runat="server" ID="pnlRestaureCopie" Visible="false">
@@ -36,13 +36,14 @@
         Courriel:
         <asp:DropDownList runat="server" ID="ddlListeCourriel" />
         <asp:Button runat="server" ID="btnAfficherCourriel" Text="Afficher le courriel" OnClick="btnAfficherCourrielClick" CssClass="bouton" /><br />
-        <br/>
-        Code: <asp:TextBox runat="server" ID="txtCode" Enabled="False" Width="100%"></asp:TextBox>
-        <br/>
-        <table style="width:100%">
+        <br />
+        Code:
+        <asp:TextBox runat="server" ID="txtCode" Enabled="False" Width="100%"></asp:TextBox>
+        <br />
+        <table style="width: 100%">
             <tr>
-                <td style="font-weight: bold;text-transform: uppercase;">Français</td>
-                <td style="font-weight: bold;text-transform: uppercase;">Anglais</td>
+                <td style="font-weight: bold; text-transform: uppercase;">Français</td>
+                <td style="font-weight: bold; text-transform: uppercase;">Anglais</td>
             </tr>
             <tr>
                 <td>Sujet:<br />
@@ -54,8 +55,8 @@
                 <td>Sujet:<br />
                     <asp:TextBox runat="server" ID="txtSujetEn" Width="100%"></asp:TextBox>
                     Corps:<br />
-                    <asp:TextBox runat="server" ID="txtCorpsEn" Width="100%" Rows="15"  TextMode="MultiLine"></asp:TextBox><br />
-                    <asp:Button runat="server" ID="btnApercuCourrielAnglais" OnClick="btnApercuCourrielAnglaisClick" CssClass="bouton"  Text="Apercu"/>
+                    <asp:TextBox runat="server" ID="txtCorpsEn" Width="100%" Rows="15" TextMode="MultiLine"></asp:TextBox><br />
+                    <asp:Button runat="server" ID="btnApercuCourrielAnglais" OnClick="btnApercuCourrielAnglaisClick" CssClass="bouton" Text="Apercu" />
                 </td>
             </tr>
             <tr>
@@ -134,4 +135,26 @@
         <br />
         <asp:Label runat="server" ID="lblStatutEnvoiCourriel"></asp:Label>
     </asp:Panel>
+
+    <asp:Panel runat="server" ID="pnlEnvoyerCommandeParCourriel" Visible="false">
+        <div class="titrePage">
+            Envoyer une commande à une adresse courriel
+        </div>
+
+        <table>
+            <tr>
+                <td>Numéro de commande</td>
+                <td>
+                    <asp:TextBox runat="server" ID="txtNoCommandeCourriel" ></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>Courriel</td>
+                <td>
+                    <asp:TextBox runat="server" ID="txtCommandeCourriel" TextMode="Email"></asp:TextBox></td>
+            </tr>
+        </table>
+        <asp:Button ID="btnEnvoyerCommandeCourriel" runat="server" Text="Envoyer cette commande par courriel" CssClass="bouton" OnClick="btnEnvoyerCommandeCourrielClick" />
+    </asp:Panel>
+
 </asp:Content>

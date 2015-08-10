@@ -24,7 +24,15 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         public IMessageService MessageService { get; set; }
         public ILogService LogService { get; set; }
         public ILocalizationService LocalizationService { get; set; }
+        public string NomPdfFacture { get { return LocalizationService.CurrentLanguage == LocalizationLanguage.FRENCH ? "Facture.pdf" : "Invoice.pdf"; } }
 
+        public void EnvoyerCommandeACourriel(Order commande, Stream pdf, string adresseCourriel)
+        {
+            Mail courriel = DAOCourriel.ObtenirMail("INFORMATION_COMMANDE");
+            string sujet = RemplacerAvecNomChamp(ObtenirSujet(courriel), commande);
+            string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), commande);
+            EnvoyerCourriel(adresseCourriel, ParameterService.GetValue("CourrielAdministrateur"), sujet, corps, pdf, NomPdfFacture);
+        }
         public void EnvoyerConfirmationCreationClient(Customer client)
         {
             Mail courriel = DAOCourriel.ObtenirMail("CONFIRMATION_CREATION_CLIENT");
@@ -37,16 +45,16 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             Mail courriel = DAOCourriel.ObtenirMail("CONFIRMATION_COMMANDE");
             string sujet = RemplacerAvecNomChamp(ObtenirSujet(courriel), commande);
             string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), commande);
-            EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps, facture, "Invoice.pdf");
+            EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps, facture, NomPdfFacture);
         }
         public void EnvoyerCommandeFinaliser(Order commande, Stream facture)
         {
             Mail courriel = DAOCourriel.ObtenirMail("INFORMATION_COMMANDE");
             string sujet = RemplacerAvecNomChamp(ObtenirSujet(courriel), commande);
             string corps = RemplacerAvecNomChamp(ObtenirCorps(courriel), commande);
-            EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps, facture, "Invoice.pdf");
-            EnvoyerCourriel(ParameterService.GetValue("CourrielAdministrateur"), courriel.From, sujet, corps, facture, "Invoice.pdf");
-            EnvoyerCourriel(ParameterService.GetValue("AutreCourrielAdministrateur1"), courriel.From, sujet, corps, facture, "Invoice.pdf");
+            EnvoyerCourriel(commande.Customer.User.Login, courriel.From, sujet, corps, facture, NomPdfFacture);
+            EnvoyerCourriel(ParameterService.GetValue("CourrielAdministrateur"), courriel.From, sujet, corps, facture, NomPdfFacture);
+            EnvoyerCourriel(ParameterService.GetValue("AutreCourrielAdministrateur1"), courriel.From, sujet, corps, facture, NomPdfFacture);
         }
         public void EnvoyerMotPasseOublie(Customer client)
         {
@@ -144,7 +152,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 {
                     if (propertyInfo.PropertyType.Namespace == "System")
                     {
-                        chaine = RemplacerValeurProprieteDansChaine(chaine,entite.ToString(), propertyInfo.Name, valeurPropriete.ToString());
+                        chaine = RemplacerValeurProprieteDansChaine(chaine, entite.ToString(), propertyInfo.Name, valeurPropriete.ToString());
                     }
                     else
                     {
@@ -163,9 +171,27 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 }
             }
 
-            return chaine;
+            return RemplacerchaineSpecifique(chaine);
         }
 
+        private string RemplacerchaineSpecifique(string chaine)
+        {
+            if (LocalizationService.CurrentLanguage == LocalizationLanguage.FRENCH)
+            {
+                chaine = chaine.Replace("{LangueProduit}", "Produit");
+                chaine = chaine.Replace("{LangueQuantite}", "Quantité");
+                chaine = chaine.Replace("{LangueSousTotal}", "Sous-total");
+                chaine = chaine.Replace("{LangueTotal}", "Total");
+            }
+            else
+            {
+                chaine = chaine.Replace("{LangueProduit}", "Product");
+                chaine = chaine.Replace("{LangueQuantite}", "Quantity");
+                chaine = chaine.Replace("{LangueSousTotal}", "Sub-total");
+                chaine = chaine.Replace("{LangueTotal}", "Total");
+            }
+            return chaine;
+        }
 
         private string RemplacerValeurProprieteDansChaine(string chaine, string nameSpace, string propriete, string valeur)
         {
