@@ -88,5 +88,10 @@ namespace ATMTECH.WinBlocker
         {
             Application.Exit();
         }
+
+        private void FormWinBlock_Load(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+        }
     }
 }
