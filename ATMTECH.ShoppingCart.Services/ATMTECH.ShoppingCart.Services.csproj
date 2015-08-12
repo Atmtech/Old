@@ -95,6 +95,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Reports\Commande_fr.rdlc" />
     <EmbeddedResource Include="Reports\Commande_en.rdlc" />
+    <EmbeddedResource Include="Reports\CommandeCheckLePrix_en.rdlc" />
+    <EmbeddedResource Include="Reports\CommandeCheckLePrix_fr.rdlc" />
     <EmbeddedResource Include="Reports\StockControl.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>

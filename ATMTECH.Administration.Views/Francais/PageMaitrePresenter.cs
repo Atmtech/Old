@@ -253,22 +253,22 @@ namespace ATMTECH.Administration.Views.Francais
         }
 
 
-        public void VerifierBackOrder()
-        {
-            IList<Stock> obtenirInventaire = InventaireService.ObtenirInventaire();
-            IList<Product> produits = ProduitService.ObtenirProduit();
+        //public void VerifierBackOrder()
+        //{
+        //    IList<Stock> obtenirInventaire = InventaireService.ObtenirInventaire();
+        //    IList<Product> produits = ProduitService.ObtenirProduit();
 
-            foreach (Stock stock in obtenirInventaire)
-            {
-                stock.Product = produits.FirstOrDefault(x => x.Id == stock.Product.Id);
-                int obtenirInventaireTechnosport = InventaireService.ObtenirInventaireTechnosport(stock.Product.Ident, stock.Size, stock.ColorEnglish);
-                if (obtenirInventaireTechnosport == 0)
-                {
-                    stock.IsBackOrder = true;
-                    InventaireService.Enregistrer(stock);
-                }
-            }
+        //    foreach (Stock stock in obtenirInventaire)
+        //    {
+        //        stock.Product = produits.FirstOrDefault(x => x.Id == stock.Product.Id);
+        //        int obtenirInventaireTechnosport = InventaireService.ObtenirInventaireTechnosport(stock.Product.Ident, stock.Size, stock.ColorEnglish);
+        //        if (obtenirInventaireTechnosport == 0)
+        //        {
+        //            stock.IsBackOrder = true;
+        //            InventaireService.Enregistrer(stock);
+        //        }
+        //    }
 
-        }
+        //}
     }
 }

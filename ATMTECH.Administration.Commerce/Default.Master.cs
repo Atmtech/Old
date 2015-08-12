@@ -98,11 +98,11 @@ namespace ATMTECH.Administration.Commerce
         }
 
 
-        protected void btnVerifierBackOrderClick(object sender, EventArgs e)
-        {
-            Presenter.VerifierBackOrder();
-            ShowMessage(new Message { Description = "Vérification complétée", MessageType = Message.MESSAGE_TYPE_SUCCESS });
-        }
+        //protected void btnVerifierBackOrderClick(object sender, EventArgs e)
+        //{
+        //    Presenter.VerifierBackOrder();
+        //    ShowMessage(new Message { Description = "Vérification complétée", MessageType = Message.MESSAGE_TYPE_SUCCESS });
+        //}
     }
 
 

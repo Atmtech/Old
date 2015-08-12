@@ -8,5 +8,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
         IList<Stock> ObtenirInventaire();
         int ObtenirInventaireTechnosport(string idProduit, string grandeur, string couleur);
         int Enregistrer(Stock stock);
+        void VerifierEnCommandePourProduit(Product produit);
     }
 }

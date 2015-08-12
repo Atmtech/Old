@@ -13,6 +13,21 @@ namespace ATMTECH.ShoppingCart.Services.Francais
     {
         public IDAOInventaire DAOInventaire { get; set; }
 
+        public void VerifierEnCommandePourProduit(Product produit)
+        {
+            IList<Stock> obtenirInventaire = DAOInventaire.ObtenirInventaire(produit);
+            foreach (Stock stock in obtenirInventaire)
+            {
+                stock.Product = produit;
+                int obtenirInventaireTechnosport = ObtenirInventaireTechnosport(stock.Product.Ident, stock.Size, stock.ColorEnglish);
+                if (obtenirInventaireTechnosport == 0)
+                {
+                    stock.IsBackOrder = true;
+                    Enregistrer(stock);
+                }
+            }
+        }
+
         public IList<Stock> ObtenirInventaire()
         {
             return DAOInventaire.GetAllActive();

@@ -188,7 +188,7 @@ namespace ATMTECH.Administration.Commerce
             pnlVerifierInventaire.Visible = false;
             pnlValiderPourPaypal.Visible = false;
             pnlEnvoiCourriel.Visible = false;
-            pnlEnvoyerCommandeParCourriel.Visible = true;
+            pnlEnvoyerCommandeParCourriel.Visible = false;
         }
 
 

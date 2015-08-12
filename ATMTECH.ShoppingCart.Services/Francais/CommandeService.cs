@@ -90,7 +90,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             ReportParameter reportParameter = new ReportParameter
             {
                 Assembly = "ATMTECH.ShoppingCart.Services",
-                PathToReportAssembly = "ATMTECH.ShoppingCart.Services.Reports.Commande_" + LocalizationService.CurrentLanguage + ".rdlc",
+                PathToReportAssembly = "ATMTECH.ShoppingCart.Services.Reports.CommandeCheckLePrix_" + LocalizationService.CurrentLanguage + ".rdlc",
                 ReportFormat = ReportFormat.PDF,
                 Parameters = dictionnaire
             };
@@ -268,7 +268,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             ReportParameter reportParameter = new ReportParameter
             {
                 Assembly = "ATMTECH.ShoppingCart.Services",
-                PathToReportAssembly = "ATMTECH.ShoppingCart.Services.Reports.Commande_" + LocalizationService.CurrentLanguage + ".rdlc",
+                PathToReportAssembly = "ATMTECH.ShoppingCart.Services.Reports.CommandeCheckLePrix_" + LocalizationService.CurrentLanguage + ".rdlc",
                 ReportFormat = ReportFormat.PDF,
                 Parameters = dictionnaire
             };

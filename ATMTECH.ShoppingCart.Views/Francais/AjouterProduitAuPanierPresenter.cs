@@ -18,17 +18,28 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public IProduitService ProduitService { get; set; }
         public IClientService ClientService { get; set; }
         public ICommandeService CommandeService { get; set; }
+        public IInventaireService InventaireService { get; set; }
 
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
+
             AfficherProduit(View.IdProduit);
+            //VerifierEnCommandePourProduit();
             AfficherListeDeroulanteCouleur();
             AfficherTaille();
             AfficherPrix();
             AfficherListeDesCouleurs();
             GererAffichagePourPossibiliteCommander();
         }
+
+        //private void VerifierEnCommandePourProduit()
+        //{
+        //    if (View.Produit != null)
+        //    {
+        //        InventaireService.VerifierEnCommandePourProduit(View.Produit);    
+        //    }
+        //}
 
         public void AfficherListeDesCouleurs()
         {
