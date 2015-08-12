@@ -28,22 +28,17 @@ namespace ATMTECH.ShoppingCart.Entities
         public IList<ProductFile> ProductFiles { get; set; }
         public decimal Weight { get; set; }
         public Supplier Supplier { get; set; }
-
         public string InternalIdent { get; set; }
         public bool IsNotOrderable { get; set; }
-
         public string DescriptionEnglish { get; set; }
         public string DescriptionFrench { get; set; }
         public string Brand { get; set; }
         public ProductCategory ProductCategoryEnglish { get; set; }
         public ProductCategory ProductCategoryFrench { get; set; }
-
-
         public string ComboboxDescriptionUpdate
         {
             get { return Ident + " " + NameFrench; }
         }
-
         public decimal PercentageSave
         {
             get
@@ -72,7 +67,6 @@ namespace ATMTECH.ShoppingCart.Entities
                 return "images/product/NoImageForThisProduct.jpg";
             }
         }
-
         public string PrincipalFileUrlWithoutDirectory
         {
             get
@@ -92,7 +86,6 @@ namespace ATMTECH.ShoppingCart.Entities
                 return "NoImageForThisProduct.jpg";
             }
         }
-
         public decimal SavePrice
         {
             get
@@ -102,8 +95,7 @@ namespace ATMTECH.ShoppingCart.Entities
                            : 0;
             }
         }
-
         public bool IsSlideShow { get; set; }
-
+        public bool IsBackOrder { get; set; }
     }
 }

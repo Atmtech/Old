@@ -25,6 +25,7 @@ namespace ATMTECH.Administration.Views.Francais
         }
 
         public IClientService ClientService { get; set; }
+        public IInventaireService InventaireService { get; set; }
         public ICommandeService CommandeService { get; set; }
         public IDAOListeDistribution DAOListeDistribution { get; set; }
         public IDatabaseService DatabaseService { get; set; }
@@ -251,8 +252,23 @@ namespace ATMTECH.Administration.Views.Francais
             DatabaseService.ExecuteSql("UPDATE [Parameter] SET DESCRIPTION = 'PROD' WHERE CODE = 'Environment'", EnumDatabaseVendor.Mssql);
         }
 
-     
 
+        public void VerifierBackOrder()
+        {
+            IList<Stock> obtenirInventaire = InventaireService.ObtenirInventaire();
+            IList<Product> produits = ProduitService.ObtenirProduit();
 
+            foreach (Stock stock in obtenirInventaire)
+            {
+                stock.Product = produits.FirstOrDefault(x => x.Id == stock.Product.Id);
+                int obtenirInventaireTechnosport = InventaireService.ObtenirInventaireTechnosport(stock.Product.Ident, stock.Size, stock.ColorEnglish);
+                if (obtenirInventaireTechnosport == 0)
+                {
+                    stock.IsBackOrder = true;
+                    InventaireService.Enregistrer(stock);
+                }
+            }
+
+        }
     }
 }

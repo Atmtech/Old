@@ -42,6 +42,11 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                 x => x.Couleur == couleur && x.Taille == grandeur && Convert.ToInt32(x.Nombre) > 0);
             return xmlInventaireTrouve != null ? Convert.ToInt32(xmlInventaireTrouve.Nombre) : 0;
         }
+
+        public int Enregistrer(Stock stock)
+        {
+            return DAOInventaire.Save(stock);
+        }
     }
 
     public class XMLInventaire

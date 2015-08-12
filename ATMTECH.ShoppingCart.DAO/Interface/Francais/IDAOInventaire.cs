@@ -8,5 +8,6 @@ namespace ATMTECH.ShoppingCart.DAO.Interface.Francais
         IList<Stock> ObtenirInventaire(Product product);
         Stock ObtenirInventaire(int id);
         IList<Stock> GetAllActive();
+        int Save(Stock stock);
     }
 }

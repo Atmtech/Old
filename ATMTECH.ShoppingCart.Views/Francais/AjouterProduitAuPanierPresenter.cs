@@ -29,12 +29,13 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             AfficherListeDesCouleurs();
             GererAffichagePourPossibiliteCommander();
         }
+
         public void AfficherListeDesCouleurs()
         {
 
             IList<Couleur> listeCouleur = new List<Couleur>();
 
-            foreach (Stock stock in View.Produit.Stocks)
+            foreach (Stock stock in View.Produit.Stocks.Where(x => x.IsBackOrder == false).ToList())
             {
                 Couleur couleur = new Couleur
                 {
@@ -56,7 +57,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (View.Produit != null)
             {
                 IList<Taille> tailles = new List<Taille>();
-                IList<Stock> stocks = View.Produit.Stocks.Where(x => x.ColorEnglish == View.Couleur).ToList();
+                IList<Stock> stocks = View.Produit.Stocks.Where(x => x.ColorEnglish == View.Couleur && x.IsBackOrder == false).ToList();
                 if (stocks.Count == 0)
                 {
                     stocks = View.Produit.Stocks.Where(x => x.ColorFrench == View.Couleur).ToList();
@@ -98,13 +99,13 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (View.Produit != null)
             {
                 IList<string> couleur = new List<string>();
-                foreach (Stock stock in View.Produit.Stocks.Where(stock => !couleur.Contains(stock.ColorFrench)))
+                foreach (Stock stock in View.Produit.Stocks.Where(stock => !couleur.Contains(stock.ColorFrench) && stock.IsBackOrder == false))
                 {
                     couleur.Add(stock.ColorFrench);
                 }
 
                 IList<string> color = new List<string>();
-                foreach (Stock stock in View.Produit.Stocks.Where(stock => !color.Contains(stock.ColorEnglish)))
+                foreach (Stock stock in View.Produit.Stocks.Where(stock => !color.Contains(stock.ColorEnglish) && stock.IsBackOrder == false))
                 {
                     color.Add(stock.ColorEnglish);
                 }

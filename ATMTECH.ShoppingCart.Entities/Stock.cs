@@ -25,6 +25,7 @@ namespace ATMTECH.ShoppingCart.Entities
         public decimal AdjustPrice { get; set; }
         public IList<StockTransaction> Transactions { get; set; }
         public bool IsWithoutStock { get; set; }
+        public bool IsBackOrder { get; set; }
         public string ColorEnglish { get; set; }
         public string ColorFrench { get; set; }
         public string Size { get; set; }
