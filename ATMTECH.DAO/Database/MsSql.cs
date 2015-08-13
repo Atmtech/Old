@@ -376,15 +376,26 @@ namespace ATMTECH.DAO.Database
                     foreach (SqlParameter sqlParameter in commandInit.Parameters)
                     {
                         if (sqlParameter.Value != null)
-                        { parameter += sqlParameter.ParameterName + "=" + sqlParameter.Value.ToString().Replace("'", "_") + Environment.NewLine; }
+                        {
+                            parameter += string.Format("{0}={1}", sqlParameter.ParameterName, sqlParameter.Value.ToString().Replace("'", "_"));
+                        }
 
                     }
                 }
-                string sqlInsert = string.Format("INSERT INTO TransactionLog (Sql,Parameter, [User], DateExecute) VALUES ('{0}','" + parameter + "'," + AuthenticateUser.Id + ",getdate())", commandInit.CommandText);
-                using (SqlCommand command = new SqlCommand(sqlInsert, CurrentDatabaseConnection))
+                try
                 {
-                    command.ExecuteScalar();
+                    string sqlInsert = string.Format("INSERT INTO TransactionLog ([Sql],[Parameter], [User], [DateExecute]) VALUES ('{0}','{1}',{2},getdate())", commandInit.CommandText, parameter, AuthenticateUser.Id);
+                    using (SqlCommand command = new SqlCommand(sqlInsert, CurrentDatabaseConnection))
+                    {
+                        command.ExecuteScalar();
+                    }
                 }
+                catch (Exception xException)
+                {
+
+                }
+
+
             }
         }
         private IList<string> GetAllTable()

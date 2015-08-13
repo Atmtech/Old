@@ -1,5 +1,4 @@
-﻿using System;
-using ATMTECH.Administration.Views.Base;
+﻿using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
 using ATMTECH.Services.Interface;
 
@@ -18,7 +17,8 @@ namespace ATMTECH.Administration.Views
 
         public void ExecuteSql(string sql)
         {
-            View.ReturnExecuteSql = DatabaseService.ExecuteSql(sql, EnumDatabaseVendor.Mssql);
+            string retour = DatabaseService.ExecuteSql(sql, EnumDatabaseVendor.Mssql);
+            View.ReturnExecuteSql = retour;
         }
     }
 

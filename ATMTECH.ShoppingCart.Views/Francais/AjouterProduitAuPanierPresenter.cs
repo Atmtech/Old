@@ -98,7 +98,15 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                     if (stock.Size == "YXL") ordre = 4;
                     if (tailles.Count(x => x.Nom == stock.Size) == 0)
                     {
-                        tailles.Add(new Taille { Nom = stock.Size, Ordre = ordre });
+                        switch (CurrentLanguage)
+                        {
+                            case LocalizationLanguage.FRENCH:
+                                tailles.Add(new Taille { Nom = stock.FeatureFrench.Substring(0, stock.FeatureFrench.IndexOf("-")).Trim(), Ordre = ordre });
+                                break;
+                            case LocalizationLanguage.ENGLISH:
+                                tailles.Add(new Taille { Nom = stock.FeatureEnglish.Substring(0, stock.FeatureEnglish.IndexOf("-")).Trim(), Ordre = ordre });
+                                break;
+                        }
                     }
                 }
 
