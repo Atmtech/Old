@@ -16,6 +16,7 @@ namespace ATMTECH.ShoppingCart.Commerce.UserControls
             {
                 if (value != null)
                 {
+                    placeHolderCouleur.Controls.Clear();    
                     string html = string.Empty;
                     foreach (Couleur couleur in value)
                     {

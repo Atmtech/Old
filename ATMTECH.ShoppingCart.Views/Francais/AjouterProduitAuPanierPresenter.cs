@@ -29,8 +29,14 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             AfficherListeDeroulanteCouleur();
             AfficherTaille();
             AfficherPrix();
-            AfficherListeDesCouleurs();
+           
             GererAffichagePourPossibiliteCommander();
+        }
+
+        public override void OnViewLoaded()
+        {
+            base.OnViewLoaded();
+            AfficherListeDesCouleurs();
         }
 
         //private void VerifierEnCommandePourProduit()
@@ -220,13 +226,13 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (stock.FeatureEnglish.ToLower().IndexOf("military green") > 0) return "#65665c";
             if (stock.FeatureEnglish.ToLower().IndexOf("kiwi") > 0) return "#a2a569";
             if (stock.FeatureEnglish.ToLower().IndexOf("antique sapphire") > 0) return "#006a8e";
-            if (stock.FeatureEnglish.ToLower().IndexOf("navy/sport grey") > 0) return "#1f2a44/#d0d3d4";
-            if (stock.FeatureEnglish.ToLower().IndexOf("black/sport grey") > 0) return "#25282a/#d0d3d4";
-            if (stock.FeatureEnglish.ToLower().IndexOf("red/sport grey") > 0) return "#b7312c/#d0d3d4";
-            if (stock.FeatureEnglish.ToLower().IndexOf("royal/sport grey") > 0) return "#1d4f91/#d0d3d4";
-            if (stock.FeatureEnglish.ToLower().IndexOf("sport grey/black") > 0) return "#d0d3d4/#25282a";
-            if (stock.FeatureEnglish.ToLower().IndexOf("black/red") > 0) return "#25282a/#b7312c";
-            if (stock.FeatureEnglish.ToLower().IndexOf("navy/gold") > 0) return "#1f2a44/#ffb81c";
+            if (stock.FeatureEnglish.ToLower().IndexOf("navy/sport grey") > 0) return "#1f2a44";
+            if (stock.FeatureEnglish.ToLower().IndexOf("black/sport grey") > 0) return "#25282a";
+            if (stock.FeatureEnglish.ToLower().IndexOf("red/sport grey") > 0) return "#b7312c";
+            if (stock.FeatureEnglish.ToLower().IndexOf("royal/sport grey") > 0) return "#1d4f91";
+            if (stock.FeatureEnglish.ToLower().IndexOf("sport grey/black") > 0) return "#d0d3d4";
+            if (stock.FeatureEnglish.ToLower().IndexOf("black/red") > 0) return "#25282a";
+            if (stock.FeatureEnglish.ToLower().IndexOf("navy/gold") > 0) return "#1f2a44";
             if (stock.FeatureEnglish.ToLower().IndexOf("azalea") > 0) return "#eb6fbd";
             if (stock.FeatureEnglish.ToLower().IndexOf("moss") > 0) return "#3d441e";
             if (stock.FeatureEnglish.ToLower().IndexOf("russet") > 0) return "#512f2e";
@@ -320,10 +326,10 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (stock.FeatureEnglish.ToLower().IndexOf("heather sapphire") > 0) return "#0076A8";
             if (stock.FeatureEnglish.ToLower().IndexOf("antique cherry") > 0) return "#971B2F";
             if (stock.FeatureEnglish.ToLower().IndexOf("coral silk") > 0) return "#DF6B7C";
-            if (stock.ColorEnglish.ToLower().IndexOf("university blue") >= 0) return "university blue";
+            if (stock.ColorEnglish.ToLower().IndexOf("university blue") >= 0) return "blue";
             if (stock.ColorEnglish.ToLower().IndexOf("college navy") >= 0) return "#1f2a44";
-            if (stock.ColorEnglish.ToLower().IndexOf("game royal") >= 0) return "game royal";
-            if (stock.ColorEnglish.ToLower().IndexOf("bright grape") >= 0) return "bright grape";
+            if (stock.ColorEnglish.ToLower().IndexOf("game royal") >= 0) return "navy";
+            if (stock.ColorEnglish.ToLower().IndexOf("bright grape") >= 0) return "#af3dbd";
             if (stock.ColorEnglish.ToLower().IndexOf("court purple") >= 0) return "court purple";
             if (stock.ColorEnglish.ToLower().IndexOf("universty red") >= 0) return "universty red";
             if (stock.ColorEnglish.ToLower().IndexOf("stadium grey") >= 0) return "stadium grey";
@@ -370,8 +376,8 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (stock.ColorEnglish.ToLower().IndexOf("black/white") >= 0) return "black/white";
             if (stock.ColorEnglish.ToLower().IndexOf("blue force/water") >= 0) return "blue force/water";
             if (stock.ColorEnglish.ToLower().IndexOf("blue force") >= 0) return "blue force";
-            if (stock.ColorEnglish.ToLower().IndexOf("gym red") >= 0) return "gym red";
-            if (stock.ColorEnglish.ToLower().IndexOf("dove grey") >= 0) return "dove grey";
+            if (stock.ColorEnglish.ToLower().IndexOf("gym red") >= 0) return "red";
+            if (stock.ColorEnglish.ToLower().IndexOf("dove grey") >= 0) return "gray";
             if (stock.ColorEnglish.ToLower().IndexOf("light green") >= 0) return "light green";
             if (stock.ColorEnglish.ToLower().IndexOf("lt blue lacquer") >= 0) return "lt blue lacquer";
             if (stock.ColorEnglish.ToLower().IndexOf("bleu force") >= 0) return "bleu force";
@@ -384,8 +390,8 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (stock.ColorEnglish.ToLower().IndexOf("blue force/blue") >= 0) return "blue force/blue";
             if (stock.ColorEnglish.ToLower().IndexOf("dark navy") >= 0) return "dark #1f2a44";
             if (stock.ColorEnglish.ToLower().IndexOf("light charcoal") >= 0) return "light charcoal";
-            if (stock.ColorEnglish.ToLower().IndexOf("jet black") >= 0) return "jet black";
-            if (stock.ColorEnglish.ToLower().IndexOf("heather dark grey") >= 0) return "heather dark grey";
+            if (stock.ColorEnglish.ToLower().IndexOf("jet black") >= 0) return "black";
+            if (stock.ColorEnglish.ToLower().IndexOf("heather dark grey") >= 0) return "darkgray";
             if (stock.ColorEnglish.ToLower().IndexOf("heather aubergine") >= 0) return "heather aubergine";
             if (stock.ColorEnglish.ToLower().IndexOf("heather galapagos") >= 0) return "heather galapagos";
             if (stock.ColorEnglish.ToLower().IndexOf("heather raspberry") >= 0) return "heather raspberry";
@@ -655,7 +661,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             if (stock.ColorEnglish.ToLower().IndexOf("white/white") >= 0) return "white/white";
             if (stock.ColorEnglish.ToLower().IndexOf("olive green") >= 0) return "olive green";
             if (stock.ColorEnglish.ToLower().IndexOf("tiger camo") >= 0) return "tiger camo";
-
+            if (stock.ColorEnglish.ToLower().IndexOf("turf orange") >= 0) return "orange";
 
 
             return null;

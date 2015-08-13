@@ -5,7 +5,7 @@
         public const string IDENTIFICATION = "Identification.aspx";
         public const string DEFAULT = "Default.aspx";
         public const string MOT_PASSE_OUBLIE = "MotPasseOublie.aspx";
-        public const string EXPEDITION = "Expedition.aspx";
+        public const string ACTION = "Action.aspx";
     }
 
     public class PagesId

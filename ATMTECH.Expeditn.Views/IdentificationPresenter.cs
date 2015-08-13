@@ -21,29 +21,9 @@ namespace ATMTECH.Expeditn.Views
             User user = AuthenticationService.SignIn(View.NomUtilisateurIdentification, View.MotPasseIdentification);
             if (user != null)
             {
-                NavigationService.Redirect(Pages.DEFAULT);
+                NavigationService.Redirect(Pages.ACTION);
             }
         }
-        //public void CreerUtilisateur()
-        //{
-        //    if (View.MotPasseCreation != View.MotPasseConfirmationCreation)
-        //    {
-        //        MessageService.ThrowMessage(CodeErreur.SC_MOT_PASSE_INEGALE_AVEC_CONFIRMATION);
-        //    }
-
-        //    User utilisateur = new User
-        //        {
-        //            Email = View.CourrielCreation,
-        //            Login = View.CourrielCreation,
-        //            Password = View.MotPasseCreation,
-        //            FirstName = View.PrenomCreation,
-        //            LastName = View.NomCreation
-        //        };
-
-        //    if (UtilisateurService.Creer(utilisateur) != null)
-        //    {
-        //        MessageService.ThrowMessage(CodeErreur.ADM_CREATION_UTILISATEUR_EST_UN_SUCCES);
-        //    }
-        //}
+       
     }
 }

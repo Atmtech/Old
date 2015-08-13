@@ -65,6 +65,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Action.aspx" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\CHANGES.html" />
     <Content Include="ckeditor\ckeditor.js" />
@@ -390,7 +391,6 @@
     <Content Include="Template\js\skel.min.js" />
     <Content Include="Template\license.txt" />
     <Content Include="Test.html" />
-    <Content Include="UserControls\ListeExpedition.ascx" />
     <Content Include="UserControls\MessageInformation.ascx" />
     <Content Include="UserControls\Utilisateur.ascx" />
     <Content Include="Web.config">
@@ -398,6 +398,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.aspx.cs">
+      <DependentUpon>Action.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Action.aspx.designer.cs">
+      <DependentUpon>Action.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -443,13 +450,6 @@
       <DependentUpon>Pourquoi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\ListeExpedition.ascx.cs">
-      <DependentUpon>ListeExpedition.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\ListeExpedition.ascx.designer.cs">
-      <DependentUpon>ListeExpedition.ascx</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\MessageInformation.ascx.cs">
       <DependentUpon>MessageInformation.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
