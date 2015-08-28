@@ -55,6 +55,16 @@ namespace ATMTECH.ShoppingCart.Commerce
             }
         }
 
+        public IList<Stock> Stocks
+        {
+            get { return ListeCouleur.Stocks; }
+            set
+            {
+                ListeCouleur.Langue = Presenter.CurrentLanguage;
+                ListeCouleur.Stocks = value;
+            }
+        }
+
 
         public int Inventaire
         {
@@ -80,14 +90,14 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             set { FillDropDownWithoutEntity(ddlCouleur, value); }
         }
-        public IList<Couleur> ListeCouleurs
-        {
-            set
-            {
-                ListeCouleur.Langue = Presenter.CurrentLanguage;
-                ListeCouleur.ListeCouleurs = value;
-            }
-        }
+        //public IList<Couleur> ListeCouleurs
+        //{
+        //    set
+        //    {
+        //        ListeCouleur.Langue = Presenter.CurrentLanguage;
+        //        ListeCouleur.ListeCouleurs = value;
+        //    }
+        //}
         public IList<Taille> Tailles
         {
             set { FillDropDownWithoutEntity(ddlTaille, value.OrderBy(x => x.Ordre), "Nom", "Nom"); }

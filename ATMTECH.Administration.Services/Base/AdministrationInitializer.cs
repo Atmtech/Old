@@ -6,6 +6,7 @@ namespace ATMTECH.Administration.Services.Base
     {
         public override void InitDependency()
         {
+            EnregistrerParAssembly("ATMTECH.Administration.Services");
             EnregistrerParAssembly("ATMTECH.Administration.DAO");
             EnregistrerParAssembly("ATMTECH.ShoppingCart.Services");
             EnregistrerParAssembly("ATMTECH.ShoppingCart.DAO");

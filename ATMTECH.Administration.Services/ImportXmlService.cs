@@ -223,7 +223,9 @@ namespace ATMTECH.Administration.Services
                                     Product = product,
                                     IsWithoutStock = true,
                                     InitialState = 0,
-                                    IsWarningOnLow = false
+                                    IsWarningOnLow = false,
+                                    ColorId =  importProduit.ColorId,
+                                    IsBackOrder =  false
                                 };
                             stocksTraite.Add(stock);
                             StockService.Save(stock);
@@ -242,6 +244,8 @@ namespace ATMTECH.Administration.Services
                                 stock.IsWithoutStock = true;
                                 stock.InitialState = 0;
                                 stock.IsWarningOnLow = false;
+                                stock.ColorId = importProduit.ColorId;
+                                stock.IsBackOrder = false;
                                 stocksTraite.Add(stock);
                                 StockService.Save(stock);
                             }

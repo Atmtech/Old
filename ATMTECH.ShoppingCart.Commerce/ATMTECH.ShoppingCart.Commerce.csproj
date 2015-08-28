@@ -373,6 +373,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Themes\" />
+    <Folder Include="Images\Couleur\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">

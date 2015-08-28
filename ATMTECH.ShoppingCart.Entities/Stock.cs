@@ -29,6 +29,7 @@ namespace ATMTECH.ShoppingCart.Entities
         public string ColorEnglish { get; set; }
         public string ColorFrench { get; set; }
         public string Size { get; set; }
+        public string ColorId { set; get; }
 
         public string ComboboxDescriptionUpdate { get { return Product == null ? "" : Product.NameFrench + " " + FeatureFrench + " " + Product.Ident; } }
 
