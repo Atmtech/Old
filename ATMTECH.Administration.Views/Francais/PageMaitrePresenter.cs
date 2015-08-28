@@ -11,7 +11,6 @@ using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
-using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using File = ATMTECH.Entities.File;
 
@@ -96,7 +95,7 @@ namespace ATMTECH.Administration.Views.Francais
             foreach (string file in files)
             {
                 long fileSize;
-                using (var fichier = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                using (FileStream fichier = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
                     fileSize = fichier.Length;
                 }

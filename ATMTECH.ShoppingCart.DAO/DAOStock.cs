@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.DAO;
-using ATMTECH.DAO.Database;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.Entities;
@@ -14,7 +13,7 @@ namespace ATMTECH.ShoppingCart.DAO
         {
             return
                 GetBySql(
-                    "SELECT STOCK.Id as Id, STOCK.[Description], STOCK.[IsActive], STOCK.[DateCreated], STOCK.[DateModified],STOCK.[Language],STOCK.[OrderId],STOCK.[Search],STOCK.[ComboboxDescription],[Product],[InitialState],[MinimumAccept],[IsWarningOnLow],[FeatureFrench],[FeatureEnglish],[AdjustPrice],[IsWithoutStock], STOCK.[UserLoginModified], STOCK.[ColorEnglish], STOCK.[ColorFrench], STOCK.[Size] FROM STOCK INNER JOIN PRODUCT ON STOCK.Product = Product.Id and Product.Enterprise = " + idEnterprise + "  INNER JOIN ENTERPRISE ON Product.[Enterprise] = ENTERPRISE.ID");
+                    "SELECT STOCK.Id as Id, STOCK.[Description], STOCK.[IsActive], STOCK.[DateCreated], STOCK.[DateModified],STOCK.[Language],STOCK.[OrderId],STOCK.[Search],STOCK.[ComboboxDescription],[Product],[InitialState],[MinimumAccept],[IsWarningOnLow],[FeatureFrench],[FeatureEnglish],[AdjustPrice],[IsWithoutStock], STOCK.[UserLoginModified], STOCK.[ColorEnglish], STOCK.[ColorFrench], STOCK.[Size], Stock.[ColorId], Stock.[IsBackOrder] FROM STOCK INNER JOIN PRODUCT ON STOCK.Product = Product.Id and Product.Enterprise = " + idEnterprise + "  INNER JOIN ENTERPRISE ON Product.[Enterprise] = ENTERPRISE.ID");
         }
 
 

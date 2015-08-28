@@ -202,15 +202,15 @@ namespace ATMTECH.Administration.Services
                     IList<ImportProduit> listeProduit = importProduits.Where(x => x.ItemID == product.Ident).ToList();
                     foreach (ImportProduit importProduit in listeProduit)
                     {
-                        string featureEnglish = importProduit.Size + " - " + importProduit.Color_EN;
-                        string featureFrench = importProduit.Size + " - " + importProduit.Color_FR;
-                        Stock stock = stocks.FirstOrDefault(x => x.Id == product.Id && x.FeatureEnglish == featureEnglish);
+                        Stock stock = stocks.FirstOrDefault(x => x.Id == product.Id && x.ColorEnglish == importProduit.Color_EN && x.Size == importProduit.Size);
 
                         List<ImportProduit> produits = importProduits.Where(x => x.ItemID == importProduit.ItemID).OrderBy(x => x.Price).ToList();
                         Decimal prixUnitaire = produits.First().Price;
 
+                        string featureEnglish = TrouverCaracteristiqueAnglais(importProduit.Size, importProduit.Color_EN);
+                        string featureFrench = TrouverCaracteristiqueFrancais(importProduit.Size, importProduit.Color_FR);
 
-                        if (stock == null && stocksTraite.Count(x => x.Product.Id == product.Id && x.FeatureEnglish == featureEnglish) == 0)
+                        if (stock == null)
                         {
                             stock = new Stock
                                 {
@@ -224,8 +224,8 @@ namespace ATMTECH.Administration.Services
                                     IsWithoutStock = true,
                                     InitialState = 0,
                                     IsWarningOnLow = false,
-                                    ColorId =  importProduit.ColorId,
-                                    IsBackOrder =  false
+                                    ColorId = importProduit.ColorId,
+                                    IsBackOrder = false
                                 };
                             stocksTraite.Add(stock);
                             StockService.Save(stock);
@@ -253,6 +253,55 @@ namespace ATMTECH.Administration.Services
                     }
                 }
             }
+        }
+
+
+        private string TrouverCaracteristiqueAnglais(string grandeur, string couleur)
+        {
+            if (grandeur.ToUpper() == "2XL") return "2XLarge - " + couleur;
+            if (grandeur.ToUpper() == "3XL") return "3XLarge - " + couleur;
+            if (grandeur.ToUpper() == "4XL") return "4XLarge - " + couleur;
+            if (grandeur.ToUpper() == "5XL") return "5XLarge - " + couleur;
+            if (grandeur.ToUpper() == "L") return "Large - " + couleur;
+            if (grandeur.ToUpper() == "L/XL") return "Large/XLarge - " + couleur;
+            if (grandeur.ToUpper() == "M") return "Medium - " + couleur;
+            if (grandeur.ToUpper() == "M/L") return "Medium/Large - " + couleur;
+            if (grandeur.ToUpper() == "OS") return "OS - " + couleur;
+            if (grandeur.ToUpper() == "S") return "Small - " + couleur;
+            if (grandeur.ToUpper() == "S/M") return "Small/Medium - " + couleur;
+            if (grandeur.ToUpper() == "XL") return "XLarge - " + couleur;
+            if (grandeur.ToUpper() == "XL/2XL") return "Xlarge/2Xlarge - " + couleur;
+            if (grandeur.ToUpper() == "XS") return "XSmall - " + couleur;
+            if (grandeur.ToUpper() == "YL") return "Y Large - " + couleur;
+            if (grandeur.ToUpper() == "YM") return "Y Medium - " + couleur;
+            if (grandeur.ToUpper() == "YS") return "Y Small - " + couleur;
+            if (grandeur.ToUpper() == "YXL") return "Y XLarge - " + couleur;
+            if (grandeur.ToUpper() == "YXS") return "Y XSmall - " + couleur;
+            return "";
+        }
+
+        private string TrouverCaracteristiqueFrancais(string grandeur, string couleur)
+        {
+            if (grandeur.ToUpper() == "2XL") return "2XLarge - " + couleur;
+            if (grandeur.ToUpper() == "3XL") return "3XLarge - " + couleur;
+            if (grandeur.ToUpper() == "4XL") return "4XLarge - " + couleur;
+            if (grandeur.ToUpper() == "5XL") return "5XLarge - " + couleur;
+            if (grandeur.ToUpper() == "L") return "Large - " + couleur;
+            if (grandeur.ToUpper() == "L/XL") return "Large/XLarge - " + couleur;
+            if (grandeur.ToUpper() == "M") return "Medium - " + couleur;
+            if (grandeur.ToUpper() == "M/L") return "Medium/Large - " + couleur;
+            if (grandeur.ToUpper() == "OS") return "OS - " + couleur;
+            if (grandeur.ToUpper() == "S") return "Petit - " + couleur;
+            if (grandeur.ToUpper() == "S/M") return "Petit/Medium - " + couleur;
+            if (grandeur.ToUpper() == "XL") return "XLarge - " + couleur;
+            if (grandeur.ToUpper() == "XL/2XL") return "Xlarge/2Xlarge - " + couleur;
+            if (grandeur.ToUpper() == "XS") return "XPetit - " + couleur;
+            if (grandeur.ToUpper() == "YL") return "Y Large - " + couleur;
+            if (grandeur.ToUpper() == "YM") return "Y Medium - " + couleur;
+            if (grandeur.ToUpper() == "YS") return "Y Petit - " + couleur;
+            if (grandeur.ToUpper() == "YXL") return "Y XLarge - " + couleur;
+            if (grandeur.ToUpper() == "YXS") return "Y XPetit - " + couleur;
+            return "";
         }
 
         private string TrouverCouleurFrancaisManquante(ImportProduit importProduit)

@@ -29,7 +29,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             AfficherListeDeroulanteCouleur();
             AfficherTaille();
             AfficherPrix();
-           
+
             GererAffichagePourPossibiliteCommander();
         }
 
@@ -50,24 +50,24 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public void AfficherListeDesCouleurs()
         {
 
-            //IList<Couleur> listeCouleur = new List<Couleur>();
+            IList<Couleur> listeCouleur = new List<Couleur>();
 
-            //foreach (Stock stock in View.Produit.Stocks.Where(x => x.IsBackOrder == false).ToList())
-            //{
-            //    Couleur couleur = new Couleur
-            //    {
-            //        Anglais = stock.ColorEnglish,
-            //        Francais = stock.ColorFrench,
-            //        EquivalentWeb = RetournerEquivalentCouleurWebStock(stock)
-            //    };
+            foreach (Stock stock in View.Produit.Stocks.Where(x => x.IsBackOrder == false).ToList())
+            {
+                Couleur couleur = new Couleur
+                 {
+                     Nom = CurrentLanguage == LocalizationLanguage.FRENCH ? stock.ColorFrench : stock.ColorEnglish,
+                     NomAnglais = stock.ColorEnglish,
+                     Images = "~/Images/Couleur/" + stock.ColorId + ".jpg"
+                 };
 
-            //    if (listeCouleur.Count(x => x.Anglais == stock.ColorEnglish) == 0)
-            //    {
-            //        listeCouleur.Add(couleur);
-            //    }
-            //}
+                if (listeCouleur.Count(x => x.NomAnglais == stock.ColorEnglish) == 0)
+                {
+                    listeCouleur.Add(couleur);
+                }
+            }
 
-            View.Stocks = View.Produit.Stocks.Where(x => x.IsBackOrder == false).ToList();
+            View.Couleurs = listeCouleur.OrderBy(x => x.Nom).ToList();
         }
         public void AfficherTaille()
         {
@@ -675,9 +675,9 @@ namespace ATMTECH.ShoppingCart.Views.Francais
 
     public class Couleur
     {
-        public string Anglais { get; set; }
-        public string Francais { get; set; }
-        public string EquivalentWeb { get; set; }
+        public string Nom { get; set; }
+        public string NomAnglais { get; set; }
+        public string Images { get; set; }
     }
 
 }

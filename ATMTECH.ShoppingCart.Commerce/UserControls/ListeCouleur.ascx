@@ -4,6 +4,6 @@
 
 <asp:DataList runat="server" ID="dataListListeImagesCouleur" RepeatDirection="Horizontal" RepeatColumns="10">
     <ItemTemplate>
-        <asp:Image runat="server" ID="imageCouleur" ImageUrl='<%#"~/Images/Couleur/" +Eval("ColorId") + ".jpg"%>' OnItemDataBound="dataListListeImagesCouleurOnItemDataBound">
+        <asp:Image runat="server" ID="imageCouleur" ImageUrl='<%# Eval("Images") %>' AlternateText='<%# Eval("Nom") %>' ToolTip='<%# Eval("Nom") %>' />
     </ItemTemplate>
 </asp:DataList>

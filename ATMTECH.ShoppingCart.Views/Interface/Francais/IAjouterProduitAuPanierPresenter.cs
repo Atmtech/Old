@@ -9,7 +9,7 @@ namespace ATMTECH.ShoppingCart.Views.Interface.Francais
     {
         int IdProduit { get; }
         Product Produit { get; set; }
-        IList<Stock> Stocks { get; set; }
+        IList<Couleur> Couleurs { get; set; }
         int Inventaire { get; set; }
         int Quantite { get; set; }
         string Couleur { get; set; }
