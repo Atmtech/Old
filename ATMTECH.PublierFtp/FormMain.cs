@@ -23,6 +23,7 @@ namespace ATMTECH.PublierFtp
             //AjouterLignePublication("WEB16.astralinternet.com", "glv.boutiquecorpo.com", "www", @"C:\Publication\ShoppingCart-GLV", "glv-an", "10crevette01");
             //AjouterLignePublication("WEB16.astralinternet.com", "lauzon.boutiquecorpo.com", "www", @"C:\Publication\Lauzon", "lauzon", "10crevette01");
             //AjouterLignePublication("WEB16.astralinternet.com", "ursulines.boutiquecorpo.com", "www", @"C:\Publication\ShoppingCart-Pubjl", "ursulines", "10crevette01");
+            AjouterLignePublication("108.60.212.40", "MorpheusRenovation.com", "MorpheusRenovation.com", @"C:\Publication\MorpheusRenovation", "Administrator", "Crevette01@");
             AjouterLignePublication("108.60.212.40", "admin.checkleprix.com", "admin.checkleprix.com", @"C:\Publication\AdminCommerce", "Administrator", "Crevette01@");
             AjouterLignePublication("108.60.212.40", "checkleprix.com", "checkleprix.com", @"C:\Publication\Commerce", "Administrator", "Crevette01@");
             AjouterLignePublication("108.60.212.40", "admin.boutiquecorpo.com", "admin.boutiquecorpo.com", @"C:\Publication\Administration", "Administrator", "Crevette01@");
@@ -36,7 +37,6 @@ namespace ATMTECH.PublierFtp
             AjouterLignePublication("108.60.212.40", "ursulines.boutiquecorpo.com", "ursulines.boutiquecorpo.com", @"C:\Publication\ShoppingCart-Pubjl", "Administrator", "Crevette01@");
             AjouterLignePublication("108.60.212.40", "pagesjaunes.boutiquecorpo.com", "pagesjaunes.boutiquecorpo.com", @"C:\Publication\PagesJaunes", "Administrator", "Crevette01@");
             AjouterLignePublication("108.60.212.40", "dev.boutiquecorpo.com", "dev.boutiquecorpo.com", @"C:\Publication\ShoppingCart-Pubjl", "Administrator", "Crevette01@");
-            
         }
 
         private void AjouterLignePublication(string ip, string site, string repertoireFtp, string repertoireLocal, string utilisateur, string motDePasse)
