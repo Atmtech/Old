@@ -1,0 +1,87 @@
+{
+  "settings": {
+    "currentPage": "index.html"
+  },
+  "pages": {
+    "index.html": {
+      "settings": {
+        "main": true,
+        "title": "",
+        "meta_descr": "",
+        "header_custom": "",
+        "footer_custom": ""
+      },
+      "components": [
+        {
+          "_name": "menu",
+          "_anchor": "menu-1",
+          "_params": {
+            "logo": true,
+            "showBrand": true
+          },
+          "logo": "{PROJECT_IMAGES}logo.png",
+          "brand": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"\">MORPHEUS RÉNOVATION</a>",
+          "items": "<ul class=\"nav nav-pills pull-right\"><li><a href=\"http://mobirise.com\" data-app-btn=\"true\" class=\"mbr-menu-item\">ACCUEIL</a></li><li><a href=\"http://mobirise.com\" data-app-btn=\"true\" class=\"mbr-menu-item\">À PROPOS</a></li> <li><a href=\"http://mobirise.com\" data-app-btn=\"true\" class=\"mbr-menu-item\">NOS RÉALISATIONS</a></li><li><a href=\"contact.html\" data-app-btn=\"true\" class=\"mbr-menu-item\">CONTACTEZ NOUS</a></li> <li><a href=\"http://mobirise.com\" data-app-btn=\"true\" class=\"mbr-menu-item\"></a></li>   </ul>",
+          "_styles": {
+            "A": {
+              "color": "#000000",
+              "font-size": "18px"
+            }
+          }
+        },
+        {
+          "_inherit": "header1",
+          "_name": "header2",
+          "_styles": {
+            "H1": {
+              "font-family": "'Yanone Kaffeesatz', sans-serif",
+              "googleLink": "https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,700",
+              "color": "#000000"
+            },
+            "P": {
+              "color": "#000000"
+            }
+          },
+          "_anchor": "header2-2",
+          "_params": {
+            "parallax": false,
+            "bgImageRadio": true,
+            "bgImage": "{PROJECT_IMAGES}Renovation1.jpg",
+            "bgColor": "#a38f84",
+            "bgColorRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "bgVideoRadio": false,
+            "contentAlign": "left",
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "showTitle": true,
+            "showText": true,
+            "showButtons": true,
+            "showArrow": true
+          },
+          "title": "Une équipe compétente à votre service",
+          "text": "Quand c'est trop facile y'a pas de mérite",
+          "buttons": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"mbr-buttons__btn btn btn-lg btn-warning animated fadeInUp delay\">VOIR NOS RÉALISATION</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-success\" href=\"contact.html\">CONTACTER NOUS</a>"
+        },
+        {
+          "_name": "footer1",
+          "_anchor": "footer1-4",
+          "_params": {
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "{PROJECT_IMAGES}bg3.jpg",
+            "bgColor": "#444444",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": 0.8,
+            "overlayColor": "#444444"
+          },
+          "text": "Copyright (с) 2015 Company Name. <a class=\"mbr-footer__link\" href=\"http://mobirise.com/\">Terms of Use</a>  | <a class=\"mbr-footer__link\" href=\"http://mobirise.com/\">Privacy Policy</a>"
+        }
+      ]
+    }
+  }
+}

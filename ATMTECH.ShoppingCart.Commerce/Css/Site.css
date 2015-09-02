@@ -927,3 +927,8 @@ a
     width: 100px;
     height: 50px;
 }
+
+.thumbnailCouleur {
+    height: 40px;
+    width: 40px;
+}

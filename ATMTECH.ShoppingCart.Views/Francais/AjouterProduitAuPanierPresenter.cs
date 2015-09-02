@@ -58,7 +58,7 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                  {
                      Nom = CurrentLanguage == LocalizationLanguage.FRENCH ? stock.ColorFrench : stock.ColorEnglish,
                      NomAnglais = stock.ColorEnglish,
-                     Images = "~/Images/Couleur/" + stock.ColorId + ".jpg"
+                     Images = string.Format("~/Images/Couleur/{0}/{1}/{2}.jpg", View.Produit.Brand, View.Produit.Ident, stock.ColorId)
                  };
 
                 if (listeCouleur.Count(x => x.NomAnglais == stock.ColorEnglish) == 0)
