@@ -180,6 +180,7 @@ namespace ATMTECH.Administration.Commerce
                 switch (e.CommandName)
                 {
                     case "Copie":
+                        ShowMessage(new Message { Description = "Fonction non supporté dans cette version", MessageType = Message.MESSAGE_TYPE_ERROR });
                         break;
                     case "Edition":
                         pnlEdition.Visible = true;
@@ -187,6 +188,8 @@ namespace ATMTECH.Administration.Commerce
                         GenererControles();
                         break;
                     case "Inactive":
+                        Presenter.DesactiverEntite(ValeurId);
+                        Rechercher();
                         break;
                 }
             }

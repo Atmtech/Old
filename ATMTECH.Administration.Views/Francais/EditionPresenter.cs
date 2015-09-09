@@ -154,7 +154,6 @@ namespace ATMTECH.Administration.Views.Francais
                     break;
             }
         }
-
         public string ObtenirAssemblie()
         {
             ManageClass manageClass = new ManageClass();
@@ -168,16 +167,11 @@ namespace ATMTECH.Administration.Views.Francais
             }
             return "ATMTECH.ShoppingCart.Entities";
         }
-
         public IList<ProprieteEdition> ObtenirListeProprietePourEdition()
         {
             return DAOProprieteEdition.GetAllActive().Where(x => x.NomEntite == View.NomEntite).ToList();
         }
 
-        private IList<ProprieteEdition> ObtenirListeProprieteFrameWork()
-        {
-            return DAOProprieteEdition.GetAllActive().Where(x => x.NomEntite == null).ToList();
-        }
 
         public IList<Propriete> ObtenirListePropriete()
         {
@@ -603,6 +597,17 @@ namespace ATMTECH.Administration.Views.Francais
             return false;
         }
 
+        public void DesactiverEntite(int id)
+        {
+            BaseEntity entite = ObtenirEntite(id) as BaseEntity;
+            entite.IsActive = false;
+            EnregistrerEntite(entite);
+        }
+
+        private IList<ProprieteEdition> ObtenirListeProprieteFrameWork()
+        {
+            return DAOProprieteEdition.GetAllActive().Where(x => x.NomEntite == null).ToList();
+        }
         private string ObtenirValeurProprieteTypeNatif(Propriete propriete, Object entite)
         {
             object valeur = propriete.PropertyInfo.GetValue(entite, null);
@@ -634,7 +639,6 @@ namespace ATMTECH.Administration.Views.Francais
 
             return true;
         }
-
         private Control CreerControleStatutCommande(Propriete propriete, string valeur)
         {
             if (propriete.Nom == "OrderStatus")

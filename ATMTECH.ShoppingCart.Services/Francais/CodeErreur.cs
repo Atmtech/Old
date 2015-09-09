@@ -9,6 +9,7 @@
         public const string ADM_CREATION_NOM_UTILISATEUR_OBLIGATOIRE = "ADM0015";
         
         public const string ADM_CREATION_UTILISATEUR_EST_UN_SUCCES = "ADM0016";
+        public const string ADM_COURRIEL_ENVOYE_AVEC_SUCCES = "ADM0017";
 
         public const string SC_ERREUR_AVEC_PUROLATOR = "SC0015";
         public const string SC_MOT_PASSE_INEGALE_AVEC_CONFIRMATION = "SC0017";

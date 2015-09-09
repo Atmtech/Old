@@ -1,6 +1,7 @@
 ﻿using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Base;
+using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
@@ -34,8 +35,11 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             string message = string.Format("Nom: {0} <br><br> {1}", View.Nom, View.Message);
             if (ValiderClientService.EstCourrielValide(new Customer() { User = new User { Email = View.Courriel } }))
             {
-                MailService.SendEmail(ParameterService.GetValue(Constant.ADMIN_MAIL), View.Courriel,
-                                      "Une question en provenance du site web site web.", message);
+                if (MailService.SendEmail(ParameterService.GetValue(Constant.ADMIN_MAIL), View.Courriel,
+                    "Une question en provenance du site web site web.", message))
+                {
+                    MessageService.ThrowMessage(CodeErreur.ADM_COURRIEL_ENVOYE_AVEC_SUCCES);
+                }
 
             }
         }
