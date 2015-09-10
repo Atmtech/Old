@@ -22,5 +22,6 @@
         public const string SC_COUPON_INVALIDE = "SC0031";
         public const string SC_CODE_POSTAL_INVALIDE = "SC0032";
         public const string SC_MOT_PASSE_OUBLIE_ENVOYER_PAR_COURRIEL = "SC0033";
+        public const string SC_QUANTITE_INSUFFISANTE = "SC0034";
     }
 }

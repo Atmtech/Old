@@ -6,5 +6,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
     {
         bool EstClientValide(Customer client);
         bool EstItemPresentEnInventaire(string idProduit, string grandeur, string couleur);
+        bool EstQuantiteValide(int quantite);
     }
 }

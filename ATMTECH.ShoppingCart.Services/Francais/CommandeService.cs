@@ -49,7 +49,7 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             obtenirCommandeSouhaite.PostalCodeShipping = client.PostalCodeShipping;
             return obtenirCommandeSouhaite;
         }
-       
+
         public IList<Order> ObtenirCommande(Customer customer)
         {
             return DAOCommande.ObtenirCommande(customer);
@@ -215,18 +215,20 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             Customer client = ClientService.ClientAuthentifie;
             if (ValiderCommandeService.EstClientValide(client))
             {
-                Stock stock = DAOInventaire.ObtenirInventaire(idInventaire);
-                stock.Product = DAOProduit.ObtenirProduit(stock.Product.Id);
-                if (ValiderCommandeService.EstItemPresentEnInventaire(stock.Product.Ident, stock.Size, stock.ColorEnglish))
+                if (ValiderCommandeService.EstQuantiteValide(quantite))
                 {
-                    Order obtenirCommandeSouhaite = DAOCommande.ObtenirCommandeSouhaite(client);
-                    if (obtenirCommandeSouhaite == null)
+                    Stock stock = DAOInventaire.ObtenirInventaire(idInventaire);
+                    stock.Product = DAOProduit.ObtenirProduit(stock.Product.Id);
+                    if (ValiderCommandeService.EstItemPresentEnInventaire(stock.Product.Ident, stock.Size, stock.ColorEnglish))
                     {
-                        Order commande = CreerCommande();
-                        return SauvegarderLigneCommande(commande, idInventaire, quantite);
+                        Order obtenirCommandeSouhaite = DAOCommande.ObtenirCommandeSouhaite(client);
+                        if (obtenirCommandeSouhaite == null)
+                        {
+                            Order commande = CreerCommande();
+                            return SauvegarderLigneCommande(commande, idInventaire, quantite);
+                        }
+                        return SauvegarderLigneCommande(obtenirCommandeSouhaite, idInventaire, quantite);
                     }
-
-                    return SauvegarderLigneCommande(obtenirCommandeSouhaite, idInventaire, quantite);
                 }
             }
             return null;

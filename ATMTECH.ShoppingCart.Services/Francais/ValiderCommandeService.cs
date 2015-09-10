@@ -28,6 +28,16 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             MessageService.ThrowMessage(CodeErreur.SC_INVENTAIRE_INSUFFISANT_POUR_COMMANDER);
             return false;
         }
+
+        public bool EstQuantiteValide(int quantite)
+        {
+            if (quantite <= 0)
+            {
+                MessageService.ThrowMessage(CodeErreur.SC_QUANTITE_INSUFFISANTE);
+                return false;
+            }
+            return true;
+        }
     }
 }
 

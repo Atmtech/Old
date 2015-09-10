@@ -32,7 +32,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             AfficherInformationClient();
             AfficherCommandePasse();
         }
-
         public void AfficherCommandePasse()
         {
             Customer customer = ClientService.ClientAuthentifie;
@@ -80,7 +79,6 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 NavigationService.Redirect(Pages.Pages.DEFAULT);
             }
         }
-
         public void EnregistrerMotPasse()
         {
             if (string.IsNullOrEmpty(View.MotPasse))
