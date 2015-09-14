@@ -1,5 +1,7 @@
-﻿using ATMTECH.ShoppingCart.Views.Base;
+﻿using System.Collections.Generic;
+using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
+using ATMTECH.Web.Services;
 
 namespace ATMTECH.ShoppingCart.Views.Francais
 {
@@ -25,6 +27,12 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         public void AfficherMessage()
         {
             View.AfficherMessage();
+        }
+
+        public void AfficherPagePrecedente()
+        {
+            IList<FilArianne> initiale = NavigationService.ListePageAcceder;
+            NavigationService.Redirect(initiale[initiale.Count - 2].Page);
         }
     }
 }

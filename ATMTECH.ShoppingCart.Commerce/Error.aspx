@@ -36,7 +36,7 @@
         </asp:Panel>
     </div>
     
-    <asp:Button runat="server" ID="btnRetourPagePrecedente" Text="Retourner à la page précédente" OnClientClick="javascript:window.history.back();" CssClass="boutonActionRond" />
+    <asp:Button runat="server" ID="btnRetourPagePrecedente" Text="Retourner à la page précédente" OnClick="btnRetourPagePrecedenteClick" CssClass="boutonActionRond" />
     
 
 </asp:Content>

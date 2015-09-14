@@ -596,14 +596,12 @@ namespace ATMTECH.Administration.Views.Francais
 
             return false;
         }
-
         public void DesactiverEntite(int id)
         {
             BaseEntity entite = ObtenirEntite(id) as BaseEntity;
             entite.IsActive = false;
             EnregistrerEntite(entite);
         }
-
         private IList<ProprieteEdition> ObtenirListeProprieteFrameWork()
         {
             return DAOProprieteEdition.GetAllActive().Where(x => x.NomEntite == null).ToList();

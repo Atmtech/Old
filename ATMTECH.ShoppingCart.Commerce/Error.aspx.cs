@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using ATMTECH.Entities;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
+using ATMTECH.Web.Services;
 
 namespace ATMTECH.ShoppingCart.Commerce
 {
@@ -33,5 +35,11 @@ namespace ATMTECH.ShoppingCart.Commerce
         }
 
        
+
+
+        protected void btnRetourPagePrecedenteClick(object sender, EventArgs e)
+        {
+            Presenter.AfficherPagePrecedente();
+        }
     }
 }
