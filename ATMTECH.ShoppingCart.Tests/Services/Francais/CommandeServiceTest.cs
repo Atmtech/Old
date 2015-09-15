@@ -76,6 +76,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
             ObtenirMock<IDAOProduit>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
             ObtenirMock<IValiderCommandeService>().Setup(x => x.EstItemPresentEnInventaire(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
+            ObtenirMock<IValiderCommandeService>().Setup(x => x.EstQuantiteValide(It.IsAny<int>())).Returns(true);
 
             Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(20100, 1);
             Assert.AreEqual(1, ajouterLigneCommande.OrderLines.Count);
@@ -95,6 +96,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
             ObtenirMock<IDAOProduit>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
             ObtenirMock<IValiderCommandeService>().Setup(x => x.EstItemPresentEnInventaire(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
+            ObtenirMock<IValiderCommandeService>().Setup(x => x.EstQuantiteValide(It.IsAny<int>())).Returns(true);
 
             Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(20100, 1);
             ajouterLigneCommande.OrderLines[0].IsActive.Should().BeTrue();
@@ -135,6 +137,7 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             ObtenirMock<IDAOInventaire>().Setup(x => x.ObtenirInventaire(It.IsAny<int>())).Returns(stock);
             ObtenirMock<IDAOProduit>().Setup(x => x.ObtenirProduit(It.IsAny<int>())).Returns(produit);
             ObtenirMock<IValiderCommandeService>().Setup(x => x.EstItemPresentEnInventaire(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
+            ObtenirMock<IValiderCommandeService>().Setup(x => x.EstQuantiteValide(It.IsAny<int>())).Returns(true);
 
             Order ajouterLigneCommande = InstanceTest.AjouterLigneCommande(20100, 1);
             Assert.AreEqual(1, ajouterLigneCommande.OrderLines.Count);

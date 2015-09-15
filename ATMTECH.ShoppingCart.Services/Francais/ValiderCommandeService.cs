@@ -21,12 +21,13 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         }
         public bool EstItemPresentEnInventaire(string idProduit, string grandeur, string couleur)
         {
-            if (InventaireService.ObtenirInventaireTechnosport(idProduit, grandeur, couleur) > 0)
-            {
-                return true;
-            }
-            MessageService.ThrowMessage(CodeErreur.SC_INVENTAIRE_INSUFFISANT_POUR_COMMANDER);
-            return false;
+            return true;
+            //if (InventaireService.ObtenirInventaireTechnosport(idProduit, grandeur, couleur) > 0)
+            //{
+            //    return true;
+            //}
+            //MessageService.ThrowMessage(CodeErreur.SC_INVENTAIRE_INSUFFISANT_POUR_COMMANDER);
+            //return false;
         }
 
         public bool EstQuantiteValide(int quantite)

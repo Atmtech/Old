@@ -42,10 +42,10 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
 
 
             //(1-convert(decimal,1)/convert(decimal,10)) * 100
-            //foreach (Product product in products)
-            //{
-            //    product.ProductFiles = DAOProduitFichier.ObtenirListeFichier(product.Id);
-            //}
+            foreach (Product product in products)
+            {
+                product.ProductFiles = DAOProduitFichier.ObtenirListeFichier(product.Id);
+            }
             return products;
         }
         public Product ObtenirProduit(int id)
