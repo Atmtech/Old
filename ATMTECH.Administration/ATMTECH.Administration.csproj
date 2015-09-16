@@ -564,7 +564,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>C:\Dev\Atmtech\ProjectBuildCounter.exe $(ProjectDir)\Properties\AssemblyInfo.cs B</PostBuildEvent>
+    <PostBuildEvent>$(ProjectDir)\ProjectBuildCounter.exe $(ProjectDir)\Properties\AssemblyInfo.cs B</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
