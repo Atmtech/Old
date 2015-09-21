@@ -3,11 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="margin: 10px 10px 10px 10px">
-        <div style="display: table; color: wheat; width: 365px; font-weight: bold; margin-bottom: 10px;">XWing Campaign aide</div>
+    <div style="display: table; color: wheat; width: 365px; font-weight: bold; margin: auto; text-align: center; padding-bottom: 20px;">XWing Campaign aide</div>
+    <div style="margin: 10px 10px 10px 10px; margin: auto; width: 800px; text-align: center;">
 
-        <div style="Color: white; margin-bottom: 10px;">
-           
+
+        <div style="Color: white; margin-bottom: 10px; font-size: 10px;">
+            <asp:Button ID="btnTieFighter" runat="server" Text="Tie Fighter" CssClass="myButton" CommandArgument="1" OnClick="SelectionnerVaisseau" />
+            <asp:Button ID="btnTieInterceptor" runat="server" Text="Tie Interceptor" CssClass="myButton" CommandArgument="2" OnClick="SelectionnerVaisseau" />
         </div>
 
         <asp:ImageMap runat="server" ID="imgVaisseau" ImageUrl="Images/Website/TieFighter.png" OnClick="imgVaisseauClick">
@@ -38,10 +40,10 @@
 
         </asp:ImageMap>
 
-
-        <div style="margin-top: 5px; text-align: center; background-color: white; border: solid 2px gray; border-radius: 10px; padding: 20px 10px 10px 10px; width: 515px;">
-            <asp:Label runat="server" ID="lblRetour"><br/><br/></asp:Label>
-        </div>
+        <asp:panel ID="pnlResultat" runat="server" CssClass="panelResultat" Visible="False">
+            <asp:Label runat="server" ID="lblRetour"></asp:Label><br />
+            <asp:Button runat="server" ID="btnFermer" CssClass="myButton"  Text="Fermer" OnClick="btnFermerClick"/>
+        </asp:panel>
+       
     </div>
-
 </asp:Content>

@@ -8,6 +8,7 @@ namespace ATMTECH.XWingCampaign.Entities
         public const string NOM = "Nom";
 
         public string Nom { get; set; }
+        public string Image { get; set; }
         public int Attaque { get; set; }
         public int Defense { get; set; }
         public int Coque { get; set; }

@@ -282,6 +282,12 @@
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
     <Content Include="Css\font-awesome.min.css" />
+    <Content Include="Images\Website\De1.png" />
+    <Content Include="Images\Website\De2.png" />
+    <Content Include="Images\Website\De3.png" />
+    <Content Include="Images\Website\De4.png" />
+    <Content Include="Images\Website\De5.png" />
+    <Content Include="Images\Website\De6.png" />
     <Content Include="Images\Website\LD.png" />
     <Content Include="Images\Website\LG.png" />
     <Content Include="Images\Website\R.png" />
@@ -292,6 +298,7 @@
     <Content Include="Images\Website\SG_S.png" />
     <Content Include="Images\Website\TD.png" />
     <Content Include="Images\Website\TieFighter.png" />
+    <Content Include="Images\Website\TieInterceptor.png" />
     <Content Include="Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Errors\Maintenance.html" />
