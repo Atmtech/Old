@@ -2,6 +2,7 @@
 using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
+using ATMTECH.Entities;
 using ATMTECH.XWingCampaign.DAO.Interface;
 using ATMTECH.XWingCampaign.Entities;
 
@@ -33,6 +34,11 @@ namespace ATMTECH.XWingCampaign.DAO
             //        //&& x.Quadran == quadran && x.DeRequis.IndexOf(de.ToString()) > 0).ToList();
 
             return intelligenceArtificiels.Count > 0 ? intelligenceArtificiels[0] : null;
+        }
+
+        public IList<IntelligenceArtificiel> ObtenirIntelligenceArtificiel(Vaisseau vaisseau)
+        {
+            return GetAllOneCriteria(IntelligenceArtificiel.VAISSEAU, vaisseau.Id.ToString());
         }
     }
 }

@@ -11,9 +11,12 @@ namespace ATMTECH.XWingCampaign.Services
     {
         public IDAOVaisseau DAOVaisseau { get; set; }
         public IDAOIntelligenceArtificiel DAOIntelligenceArtificiel { get; set; }
+        
         public Vaisseau ObtenirVaisseau(int id)
         {
-            return DAOVaisseau.ObtenirVaisseau(id);
+            Vaisseau vaisseau = DAOVaisseau.ObtenirVaisseau(id);
+            vaisseau.ListeMouvement = DAOIntelligenceArtificiel.ObtenirIntelligenceArtificiel(vaisseau);
+            return vaisseau;
         }
 
         public IList<Vaisseau> ObtenirVaisseau()

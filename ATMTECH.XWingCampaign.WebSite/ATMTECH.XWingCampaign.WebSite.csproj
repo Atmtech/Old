@@ -283,13 +283,20 @@
     <Content Include="ckeditor\themes\default\theme.js" />
     <Content Include="Css\font-awesome.min.css" />
     <Content Include="Images\Website\De1.png" />
+    <Content Include="Images\Website\De1Mini.png" />
     <Content Include="Images\Website\De2.png" />
+    <Content Include="Images\Website\De2Mini.png" />
     <Content Include="Images\Website\De3.png" />
+    <Content Include="Images\Website\De3Mini.png" />
     <Content Include="Images\Website\De4.png" />
+    <Content Include="Images\Website\De4Mini.png" />
     <Content Include="Images\Website\De5.png" />
+    <Content Include="Images\Website\De5Mini.png" />
     <Content Include="Images\Website\De6.png" />
+    <Content Include="Images\Website\De6Mini.png" />
     <Content Include="Images\Website\LD.png" />
     <Content Include="Images\Website\LG.png" />
+    <Content Include="Images\Website\Quadran.png" />
     <Content Include="Images\Website\R.png" />
     <Content Include="Images\Website\R_S.png" />
     <Content Include="Images\Website\SD.png" />
@@ -367,6 +374,7 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\jssor.slider.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
+    <Content Include="TEst.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

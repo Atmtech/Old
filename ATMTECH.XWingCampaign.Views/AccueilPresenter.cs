@@ -24,6 +24,8 @@ namespace ATMTECH.XWingCampaign.Views
             View.VaisseauSelectionne = VaisseauService.ObtenirVaisseau(id);
         }
 
+     
+
         public void ObtenirMouvement(string emplacement)
         {
             int jetDe = VaisseauService.JetDe();

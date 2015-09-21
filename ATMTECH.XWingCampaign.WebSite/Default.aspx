@@ -12,7 +12,7 @@
             <asp:Button ID="btnTieInterceptor" runat="server" Text="Tie Interceptor" CssClass="myButton" CommandArgument="2" OnClick="SelectionnerVaisseau" />
         </div>
 
-        <asp:ImageMap runat="server" ID="imgVaisseau" ImageUrl="Images/Website/TieFighter.png" OnClick="imgVaisseauClick">
+        <asp:ImageMap runat="server" ID="imgVaisseau" ImageUrl="Images/Website/TieFighter.pngx" OnClick="imgVaisseauClick">
 
             <asp:PolygonHotSpot AlternateText="test" Coordinates="156,-20,365,-20,327,80,196,80" PostBackValue="N;R3;R2F" HotSpotMode="PostBack" />
             <asp:PolygonHotSpot AlternateText="test" Coordinates="202,90,319,90, 280, 197,238,197" PostBackValue="N;R1;R2C" HotSpotMode="PostBack" />
@@ -40,10 +40,53 @@
 
         </asp:ImageMap>
 
-        <asp:panel ID="pnlResultat" runat="server" CssClass="panelResultat" Visible="False">
+        <asp:Panel ID="pnlResultat" runat="server" CssClass="panelResultat" Visible="False">
             <asp:Label runat="server" ID="lblRetour"></asp:Label><br />
-            <asp:Button runat="server" ID="btnFermer" CssClass="myButton"  Text="Fermer" OnClick="btnFermerClick"/>
-        </asp:panel>
-       
+            <asp:Button runat="server" ID="btnFermer" CssClass="myButton" Text="Fermer" OnClick="btnFermerClick" />
+        </asp:Panel>
+
+
+
+        <table class="quadrant">
+            <tr>
+                <td class="celluleQuadrant">
+                    <asp:PlaceHolder runat="server" ID="quadrantNW"></asp:PlaceHolder>
+                </td>
+                <td class="celluleQuadrant">
+                    <asp:PlaceHolder runat="server" ID="quadrantN"></asp:PlaceHolder>
+                </td>
+                <td class="celluleQuadrant">
+                    <asp:PlaceHolder runat="server" ID="quadrantNE"></asp:PlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td class="celluleQuadrant">
+                    <asp:PlaceHolder runat="server" ID="quadrantW"></asp:PlaceHolder>
+                </td>
+                <td class="celluleQuadrant">Vaisseau</td>
+                <td class="celluleQuadrant">
+                    <asp:PlaceHolder runat="server" ID="quadrantE"></asp:PlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td class="celluleQuadrant">
+                    <asp:PlaceHolder runat="server" ID="quadrantSW"></asp:PlaceHolder>
+                </td>
+                <td class="celluleQuadrant">
+                    <asp:PlaceHolder runat="server" ID="quadrantS"></asp:PlaceHolder>
+                </td>
+                <td class="celluleQuadrant">
+                    <asp:PlaceHolder runat="server" ID="quadrantSE"></asp:PlaceHolder>
+                </td>
+            </tr>
+        </table>
+
     </div>
+
+
+
+
+
+
 </asp:Content>
+
