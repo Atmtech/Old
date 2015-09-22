@@ -19,12 +19,18 @@ namespace ATMTECH.XWingCampaign.Views
             SelectionnerVaisseau(1);
         }
 
+        public override void OnViewLoaded()
+        {
+            base.OnViewLoaded();
+            string quadrant = NavigationService.GetQueryStringValue("quadrant");
+            if (!string.IsNullOrEmpty(quadrant))
+                ObtenirMouvement(quadrant);
+        }
+
         public void SelectionnerVaisseau(int id)
         {
             View.VaisseauSelectionne = VaisseauService.ObtenirVaisseau(id);
         }
-
-     
 
         public void ObtenirMouvement(string emplacement)
         {
@@ -34,7 +40,7 @@ namespace ATMTECH.XWingCampaign.Views
             string position = split[1] + ";" + split[2];
             IntelligenceArtificiel intelligenceArtificiel = VaisseauService.ObtenirIntelligenceArtificiel(View.VaisseauSelectionne, jetDe, quadrant, position);
 
-            View.Resultat = string.Format("<img src='Images/WebSite/De{0}.png'> <div style='font-size:20px;'>{1} {2}</div> <div style='font-size:8px;'>({3} :: {4})</div>",
+            View.Resultat = string.Format("<img src='Images/WebSite/De{0}.png' style='width:25px;;height:25px;'> <div style='font-size:20px;'>{1} {2}</div> <div style='font-size:8px;'>({3} :: {4})</div>",
                 jetDe, intelligenceArtificiel.NombreMouvement,
                 intelligenceArtificiel.Stress ?
                 string.Format("<img src='Images/WebSite/{0}_S.png' style='height:50px;width:50px;'>", intelligenceArtificiel.Mouvement)
@@ -42,5 +48,11 @@ namespace ATMTECH.XWingCampaign.Views
             View.AfficherResultat = true;
         }
 
+        public void RafraichirPage()
+        {
+            NavigationService.Redirect("default.aspx");
+            //View.AfficherResultat = false;
+
+        }
     }
 }

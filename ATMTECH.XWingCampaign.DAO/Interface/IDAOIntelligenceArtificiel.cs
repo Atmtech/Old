@@ -5,7 +5,7 @@ namespace ATMTECH.XWingCampaign.DAO.Interface
 {
     public interface IDAOIntelligenceArtificiel
     {
-        IntelligenceArtificiel ObtenirIntelligenceArtificiel(Vaisseau vaisseau, int de, string quadran, string positionVaisseau);
+        IntelligenceArtificiel ObtenirIntelligenceArtificiel(Vaisseau vaisseau, int de, string pointCardinal, string positionVaisseau);
         IList<IntelligenceArtificiel> ObtenirIntelligenceArtificiel(Vaisseau vaisseau);
     }
 }

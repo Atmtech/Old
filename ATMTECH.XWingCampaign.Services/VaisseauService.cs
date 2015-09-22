@@ -24,9 +24,9 @@ namespace ATMTECH.XWingCampaign.Services
             return DAOVaisseau.ObtenirVaisseau();
         }
 
-        public IntelligenceArtificiel ObtenirIntelligenceArtificiel(Vaisseau vaisseau, int de, string quadran, string positionVaisseau)
+        public IntelligenceArtificiel ObtenirIntelligenceArtificiel(Vaisseau vaisseau, int de, string pointCardinal, string positionVaisseau)
         {
-            return DAOIntelligenceArtificiel.ObtenirIntelligenceArtificiel(vaisseau, de, quadran, positionVaisseau);
+            return DAOIntelligenceArtificiel.ObtenirIntelligenceArtificiel(vaisseau, de, pointCardinal, positionVaisseau);
         }
 
         public int JetDe()

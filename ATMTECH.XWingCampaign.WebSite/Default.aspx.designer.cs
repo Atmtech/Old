@@ -31,40 +31,49 @@ namespace ATMTECH.XWingCampaign.WebSite {
         protected global::System.Web.UI.WebControls.Button btnTieInterceptor;
         
         /// <summary>
-        /// Contrôle imgVaisseau.
+        /// Contrôle lblNomVaisseau.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageMap imgVaisseau;
+        protected global::System.Web.UI.WebControls.Label lblNomVaisseau;
         
         /// <summary>
-        /// Contrôle pnlResultat.
+        /// Contrôle lblAttaque.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlResultat;
+        protected global::System.Web.UI.WebControls.Label lblAttaque;
         
         /// <summary>
-        /// Contrôle lblRetour.
+        /// Contrôle lblDefense.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRetour;
+        protected global::System.Web.UI.WebControls.Label lblDefense;
         
         /// <summary>
-        /// Contrôle btnFermer.
+        /// Contrôle lblCoque.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFermer;
+        protected global::System.Web.UI.WebControls.Label lblCoque;
+        
+        /// <summary>
+        /// Contrôle lblBouclier.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBouclier;
         
         /// <summary>
         /// Contrôle quadrantNW.
@@ -137,5 +146,32 @@ namespace ATMTECH.XWingCampaign.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder quadrantSE;
+        
+        /// <summary>
+        /// Contrôle pnlResultat.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlResultat;
+        
+        /// <summary>
+        /// Contrôle lblRetour.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRetour;
+        
+        /// <summary>
+        /// Contrôle btnFermer.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFermer;
     }
 }

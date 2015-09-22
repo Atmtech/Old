@@ -282,6 +282,9 @@
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
     <Content Include="Css\font-awesome.min.css" />
+    <Content Include="Images\Website\Attaque.png" />
+    <Content Include="Images\Website\bouclier.png" />
+    <Content Include="Images\Website\Coque.png" />
     <Content Include="Images\Website\De1.png" />
     <Content Include="Images\Website\De1Mini.png" />
     <Content Include="Images\Website\De2.png" />
@@ -294,6 +297,7 @@
     <Content Include="Images\Website\De5Mini.png" />
     <Content Include="Images\Website\De6.png" />
     <Content Include="Images\Website\De6Mini.png" />
+    <Content Include="Images\Website\Defense.png" />
     <Content Include="Images\Website\LD.png" />
     <Content Include="Images\Website\LG.png" />
     <Content Include="Images\Website\Quadran.png" />

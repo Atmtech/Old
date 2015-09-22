@@ -9,13 +9,11 @@ namespace ATMTECH.XWingCampaign.WebSite
 {
     public partial class Default1 : PageBase<AccueilPresenter, IAccueilPresenter>, IAccueilPresenter
     {
-
         public string Resultat
         {
             get { return lblRetour.Text; }
             set { lblRetour.Text = value; }
         }
-
         public Vaisseau VaisseauSelectionne
         {
             get
@@ -26,10 +24,24 @@ namespace ATMTECH.XWingCampaign.WebSite
             {
                 Session["VaisseauSelectionne"] = value;
                 if (value != null)
+                {
                     ConstruireTableauQuadrant();
+                    lblNomVaisseau.Text = value.Nom;
+                    lblAttaque.Text = value.Attaque.ToString();
+                    lblDefense.Text = value.Defense.ToString();
+                    lblCoque.Text = value.Coque.ToString();
+                    lblBouclier.Text = value.Bouclier.ToString();
+                }
+                    
                 //imgVaisseau.ImageUrl = "Images/Website/" + value.Image;
             }
         }
+        public bool AfficherResultat
+        {
+            get { return pnlResultat.Visible; }
+            set { pnlResultat.Visible = value; }
+        }
+
 
         private void ConstruireTableauQuadrant()
         {
@@ -60,10 +72,9 @@ namespace ATMTECH.XWingCampaign.WebSite
             ConstruireQuadrant(quadrantSE, "SE", "R1;R2C");
 
         }
-
         private void ConstruireQuadrant(PlaceHolder quadrant, string pointCardinal, string position)
         {
-            string html = position == "R3;R2F" ? string.Format("<div Class='quadrantDesVert{0}' >", pointCardinal) : string.Format("<div Class='quadrantDesRouge{0}' >", pointCardinal);
+            string html = position == "R3;R2F" ? string.Format("<a href='default.aspx?quadrant={0};{1}'><div Class='quadrantDesVert{0}' >", pointCardinal, position) : string.Format("<a href='default.aspx?quadrant={0};{1}'><div Class='quadrantDesRouge{0}' >", pointCardinal, position);
             html += "<table>";
             foreach (IntelligenceArtificiel intelligenceArtificiel in VaisseauSelectionne.ListeMouvement.Where(x => x.PositionVaisseau == position && x.Quadran == pointCardinal).ToList())
             {
@@ -76,7 +87,7 @@ namespace ATMTECH.XWingCampaign.WebSite
                         intelligenceArtificiel.Mouvement);
 
 
-               // string imageMouvement = string.Format("<img src='Images/Website/{0}.png' width='15px' height='15px' />", intelligenceArtificiel.Mouvement);
+                // string imageMouvement = string.Format("<img src='Images/Website/{0}.png' width='15px' height='15px' />", intelligenceArtificiel.Mouvement);
                 string imageMiniDe = string.Empty;
                 string[] des = intelligenceArtificiel.DeRequis.Split(';');
                 foreach (string de in des)
@@ -87,34 +98,21 @@ namespace ATMTECH.XWingCampaign.WebSite
                 html += "</tr>";
             }
             html += "</table>";
-            html += "</div>";
+            html += "</div></a>";
             quadrant.Controls.Add(new Literal { Text = html });
 
         }
-
-
-
-
-        public bool AfficherResultat
-        {
-            get { return pnlResultat.Visible; }
-            set { pnlResultat.Visible = value; }
-        }
-
-
         protected void imgVaisseauClick(object sender, ImageMapEventArgs e)
         {
             Presenter.ObtenirMouvement(e.PostBackValue);
         }
-
         protected void SelectionnerVaisseau(object sender, EventArgs e)
         {
             Presenter.SelectionnerVaisseau(Convert.ToInt32((sender as Button).CommandArgument));
         }
-
         protected void btnFermerClick(object sender, EventArgs e)
         {
-            AfficherResultat = false;
+            Presenter.RafraichirPage();
         }
     }
 }

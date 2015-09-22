@@ -9,11 +9,13 @@
     background: White;
     position: relative;
     top: -400px;
+    left: 200px;
+    border: solid 2px gray;
     border-radius: 50px;
-    width: 400px;
+    width: 200px;
     padding-top: 20px;
     padding-Bottom: 20px;
-    margin: auto;
+    text-align: center;
 }
 
 .myButton
@@ -156,6 +158,28 @@
     }
 
 
+.titreVaisseau
+{
+    Color: white;
+    margin-bottom: 10px;
+    font-size: 10px;
+    background-color: rgb(217, 217, 217);
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    width: 600px;
+}
+
+.statistiqueVaisseau {
+     Color: white;
+    margin-bottom: 10px;
+    
+    background-color: rgb(71, 71, 71);
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    width: 600px;
+}
+
+
 .quadrant
 {
     background: url('Images/Website/Quadran.png') no-repeat;
@@ -165,7 +189,7 @@
 {
     height: 200px;
     width: 200px;
-    border: solid 1px gray;
+    /*border: solid 1px gray;*/
     color: white;
 }
 
@@ -194,3 +218,196 @@
     margin: 0;
 }
 
+
+.quadrantDesVertN
+{
+    position: relative;
+    left: 50px;
+    background: rgb(158, 197, 158);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+}
+
+.quadrantDesRougeN
+{
+    position: relative;
+    left: 50px;
+    background: rgb(194, 117, 117);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin: 0;
+}
+
+.quadrantDesVertNE
+{
+    position: relative;
+    left: 100px;
+    background: rgb(158, 197, 158);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+}
+
+.quadrantDesRougeNE
+{
+    position: relative;
+    left: 50px;
+    background: rgb(194, 117, 117);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin: 0;
+}
+
+.quadrantDesVertE
+{
+    position: relative;
+    left: 100px;
+    top: 45px;
+    background: rgb(158, 197, 158);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+}
+
+.quadrantDesRougeE
+{
+    position: relative;
+    left: 0px;
+    top: -45px;
+    background: rgb(194, 117, 117);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin: 0;
+}
+
+.quadrantDesVertSE
+{
+    position: relative;
+    left: 100px;
+    top: 75px;
+    background: rgb(158, 197, 158);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+}
+
+.quadrantDesRougeSE
+{
+    position: relative;
+    left: 0px;
+    top: -85px;
+    background: rgb(194, 117, 117);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin: 0;
+}
+
+.quadrantDesVertS
+{
+    position: relative;
+    left: 55px;
+    top: 125px;
+    background: rgb(158, 197, 158);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+}
+
+.quadrantDesRougeS
+{
+    position: relative;
+    left: 55px;
+    top: -45px;
+    background: rgb(194, 117, 117);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin: 0;
+}
+
+
+.quadrantDesVertSW
+{
+    position: relative;
+  left: 0px;
+    top: 75px;
+    background: rgb(158, 197, 158);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+}
+
+.quadrantDesRougeSW
+{
+    position: relative;
+    left: 100px;
+    top: -85px;
+    background: rgb(194, 117, 117);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin: 0;
+}
+
+.quadrantDesVertW
+{
+    position: relative;
+    left: 0px;
+    top: 50px;
+    background: rgb(158, 197, 158);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+}
+
+.quadrantDesRougeW
+{
+    position: relative;
+    left: 100px;
+    top: -45px;
+    background: rgb(194, 117, 117);
+    color: black;
+    width: 95px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    margin: 0;
+}

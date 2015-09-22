@@ -7,7 +7,7 @@ namespace ATMTECH.XWingCampaign.Services.Interface
     {
         Vaisseau ObtenirVaisseau(int id);
         IList<Vaisseau> ObtenirVaisseau();
-        IntelligenceArtificiel ObtenirIntelligenceArtificiel(Vaisseau vaisseau, int de, string quadran, string positionVaisseau);
+        IntelligenceArtificiel ObtenirIntelligenceArtificiel(Vaisseau vaisseau, int de, string pointCardinal, string positionVaisseau);
         int JetDe();
     }
 }

@@ -9,9 +9,6 @@ namespace ATMTECH.XWingCampaign.Views.Interface
         string Resultat { get; set; }
         Vaisseau VaisseauSelectionne { get; set; }
         bool AfficherResultat { get; set; }
-        //string Quadran { get; set; }
-        //string Position { get; set; }
-        //IList<Vaisseau> Vaisseaux { get; set; }
-        //int VaisseauSelectionne { get; set; }
+        
     }
 }
