@@ -5,6 +5,7 @@ using System.Web.UI.WebControls;
 using ATMTECH.Administration.Views.Francais;
 using ATMTECH.Administration.Views.Interface.Francais;
 using ATMTECH.Entities;
+using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.Web;
 
 namespace ATMTECH.Administration.Commerce
@@ -32,6 +33,20 @@ namespace ATMTECH.Administration.Commerce
                 return Convert.ToInt32(Session["IdEntite"]);
             }
             set { Session["IdEntite"] = value; }
+        }
+
+        public Enterprise Entreprise
+        {
+            get
+            {
+                if ((Enterprise)Session["Enterprise"] == null)
+                {
+                    Session["Enterprise"] = new Enterprise { Id = 1 };
+                }
+                
+
+                return (Enterprise)Session["Enterprise"];
+            }
         }
 
         public string CritereRecherche
@@ -70,7 +85,7 @@ namespace ATMTECH.Administration.Commerce
                 grdData.Columns.Add(dataControlField2);
                 grdData.Columns.Add(dataControlField3);
                 grdData.Columns.Add(dataControlField4);
-                
+
                 IList<Propriete> obtenirListePropriete = Presenter.ObtenirListePropriete();
                 obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "SearchUpdate").ToList();
                 obtenirListePropriete = obtenirListePropriete.Where(x => x.Nom != "ComboboxDescriptionUpdate").ToList();
@@ -96,7 +111,7 @@ namespace ATMTECH.Administration.Commerce
                         grdData.Columns.Add(champsPersonnalise);
                     }
                 }
-                
+
             }
             catch (Exception)
             {
@@ -153,6 +168,10 @@ namespace ATMTECH.Administration.Commerce
         {
             if (Presenter.Enregistrer(pnlControl) != 0)
             {
+                Rechercher();
+                pnlEdition.Visible = false;
+                pnlPilotage.Visible = true;
+
                 ShowMessage(new Message { Description = "Enregistrement complété", MessageType = Message.MESSAGE_TYPE_SUCCESS });
             }
 

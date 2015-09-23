@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using ATMTECH.Administration.Views.Francais;
 using ATMTECH.Administration.Views.Interface.Francais;
 using ATMTECH.Entities;
+using ATMTECH.ShoppingCart.Entities;
 
 namespace ATMTECH.Administration.Commerce
 {
@@ -39,6 +41,20 @@ namespace ATMTECH.Administration.Commerce
             get { return txtMotDePasse.Text; }
             set { txtMotDePasse.Text = value; }
         }
+
+        public IList<Enterprise> Enterprises
+        {
+            set
+            {
+                FillDropDown(ddlEnterprise, value);
+
+                if ((Enterprise) Session["Enterprise"] != null)
+                {
+                    ddlEnterprise.SelectedValue = ((Enterprise) Session["Enterprise"]).Id.ToString();
+                }
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             lblVersion.Text = System.Reflection.Assembly.GetExecutingAssembly()
@@ -97,12 +113,13 @@ namespace ATMTECH.Administration.Commerce
             Presenter.MettreSystemeEnProduction();
         }
 
+        protected void ddlEnterpriseSelectedIndexChanged(object sender, EventArgs e)
+        {
+            Enterprise enterprise = new Enterprise { Id = Convert.ToInt32(ddlEnterprise.SelectedValue) };
+            Session["Enterprise"] = enterprise;
+        }
 
-        //protected void btnVerifierBackOrderClick(object sender, EventArgs e)
-        //{
-        //    Presenter.VerifierBackOrder();
-        //    ShowMessage(new Message { Description = "Vérification complétée", MessageType = Message.MESSAGE_TYPE_SUCCESS });
-        //}
+      
     }
 
 

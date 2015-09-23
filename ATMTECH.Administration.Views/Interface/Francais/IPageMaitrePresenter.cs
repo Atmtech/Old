@@ -1,4 +1,6 @@
-﻿using ATMTECH.Views.Interface;
+﻿using System.Collections.Generic;
+using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.Views.Interface;
 
 namespace ATMTECH.Administration.Views.Interface.Francais
 {
@@ -7,5 +9,6 @@ namespace ATMTECH.Administration.Views.Interface.Francais
         bool EstConnecte { set; }
         string NomUtilisateur { get; set; }
         string MotDePasse { get; set; }
+        IList<Enterprise>  Enterprises { set; }
     }
 }

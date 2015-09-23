@@ -47,6 +47,15 @@ namespace ATMTECH.Administration.Commerce
             Presenter.OnViewLoaded();
         }
 
+        public void FillDropDown(DropDownList dropDownList, object Source)
+        {
+            dropDownList.DataSource = Source;
+            dropDownList.DataTextField = BaseEntity.COMBOBOX_DESCRIPTION;
+            dropDownList.DataValueField = BaseEntity.ID;
+            dropDownList.DataBind();
+        }
+
+
         public void GetControlList<T>(ControlCollection controlCollection, List<T> resultCollection) where T : Control
         {
             foreach (Control control in controlCollection)

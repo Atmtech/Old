@@ -16,7 +16,7 @@
             Ajuster une commande
         </div>
         Numéro de commande
-        <asp:TextBox runat="server" ID="txtNoCommandeAjustement" ></asp:TextBox>
+        <asp:TextBox runat="server" ID="txtNoCommandeAjustement"></asp:TextBox>
         <asp:Button ID="btnAfficherCommandeAjustement" runat="server" Text="Afficher commande à ajuster" CssClass="bouton" />
     </asp:Panel>
     <asp:Panel runat="server" ID="pnlRestaureCopie" Visible="false">
@@ -145,7 +145,7 @@
             <tr>
                 <td>Numéro de commande</td>
                 <td>
-                    <asp:TextBox runat="server" ID="txtNoCommandeCourriel" ></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtNoCommandeCourriel"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -155,6 +155,15 @@
             </tr>
         </table>
         <asp:Button ID="btnEnvoyerCommandeCourriel" runat="server" Text="Envoyer cette commande par courriel" CssClass="bouton" OnClick="btnEnvoyerCommandeCourrielClick" />
+    </asp:Panel>
+
+    <asp:Panel runat="server" ID="pnlImporterExcel" Visible="false">
+          <div class="titrePage">
+            Importer un fichier Excel
+        </div>
+
+          Fichier: <asp:FileUpload ID="FileUpload1" runat="server" /> *.XLS<br/><br/>
+        <asp:Button ID="btnImporterExcel" runat="server" Text="Importer le fichier excel" CssClass="bouton" OnClick="btnImporterExcelClick" />
     </asp:Panel>
 
 </asp:Content>

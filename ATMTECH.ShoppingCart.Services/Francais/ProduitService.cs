@@ -56,6 +56,11 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             DAOProduitFichier.Save(productFile);
         }
+
+        public int Enregistrer(Product product)
+        {
+            return DAOProduit.Save(product);
+        }
     }
 }
 

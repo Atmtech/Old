@@ -96,7 +96,7 @@ namespace ATMTECH.Administration.Views.Francais
                 case "product":
                     List<Product> produits =
                         ProduitService.ObtenirProduit()
-                            .Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
+                            .Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()) && x.Enterprise.Id == View.Entreprise.Id)
                             .ToList();
                     View.NombreValeurRetrouve = produits.Count;
                     View.ValeurRetrouve = produits;
@@ -528,6 +528,14 @@ namespace ATMTECH.Administration.Views.Francais
             Type type = manageClass.GetTypeFromNameSpace(ObtenirAssemblie(), View.NomEntite);
             Object entite = Activator.CreateInstance(type, null);
 
+            foreach (PropertyInfo propertyInfo in entite.GetType().GetProperties())
+            {
+                if (propertyInfo.Name.ToLower() == "enterprise")
+                {
+                    manageClass.AssignValue(type, entite, View.Entreprise.Id.ToString(), propertyInfo.Name);
+                }
+            }
+            
             if (View.ValeurId != EST_INSERTION)
             {
                 entite = ObtenirEntite(View.ValeurId);

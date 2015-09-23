@@ -1,4 +1,5 @@
 ﻿using System;
+using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.Views.Interface;
 
 namespace ATMTECH.Administration.Views.Interface.Francais
@@ -10,6 +11,7 @@ namespace ATMTECH.Administration.Views.Interface.Francais
         Object ValeurRetrouve { set; }
         int NombreValeurRetrouve { set; }
         int ValeurId { get; set; }
+        Enterprise Entreprise { get;  }
         //string Entity { get; }
         //string NameSpace { get; }
         //object EnterpriseList { set; }

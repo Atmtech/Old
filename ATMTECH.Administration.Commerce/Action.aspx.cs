@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web;
 using ATMTECH.Administration.Views.Francais;
 using ATMTECH.Administration.Views.Interface.Francais;
 using ATMTECH.Entities;
@@ -117,6 +118,9 @@ namespace ATMTECH.Administration.Commerce
                 case "EnvoiCommandeCourriel":
                     pnlEnvoyerCommandeParCourriel.Visible = true;
                     break;
+                case "ImporterExcel":
+                    pnlImporterExcel.Visible = true;
+                    break;
             }
         }
         protected void btnRestaurerCopieSauvegardeClick(object sender, EventArgs e)
@@ -189,8 +193,30 @@ namespace ATMTECH.Administration.Commerce
             pnlValiderPourPaypal.Visible = false;
             pnlEnvoiCourriel.Visible = false;
             pnlEnvoyerCommandeParCourriel.Visible = false;
+            pnlImporterExcel.Visible = false;
         }
 
 
+        protected void btnImporterExcelClick(object sender, EventArgs e)
+        {
+            try
+            {
+                HttpFileCollection hfc = Request.Files;
+                string files = string.Empty;
+                for (int i = 0; i < hfc.Count; i++)
+                {
+                    HttpPostedFile httpPostedFile = hfc[i];
+                    if (httpPostedFile.ContentLength > 0)
+                    {
+                        Presenter.ImporterExcel(httpPostedFile);
+                      
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string m = ex.Message;
+            }
+        }
     }
 }

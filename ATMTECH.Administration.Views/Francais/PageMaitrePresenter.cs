@@ -31,11 +31,18 @@ namespace ATMTECH.Administration.Views.Francais
         public IImportXmlService ImportXmlService { get; set; }
         public IFileService FileService { get; set; }
         public IProduitService ProduitService { get; set; }
+        public IEntrepriseService EntrepriseService { get; set; }
+
+        public override void OnViewInitialized()
+        {
+            base.OnViewInitialized();
+            View.Enterprises = EntrepriseService.ObtenirEntreprise();
+        }
 
         public override void OnViewLoaded()
         {
             base.OnViewLoaded();
-            EstSiteHorsLigne();
+            //EstSiteHorsLigne();
             View.EstConnecte = AuthenticationService.AuthenticateUser != null && AuthenticationService.AuthenticateUser.IsAdministrator;
 
         }
