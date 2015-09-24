@@ -32,6 +32,12 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             return DAOInventaire.GetAllActive();
         }
+
+        public IList<Stock> ObtenirInventaire(Enterprise enterprise)
+        {
+            return DAOInventaire.ObtenirInventaire(enterprise);
+        }
+
         public int ObtenirInventaireTechnosport(string idProduit, string grandeur, string couleur)
         {
             if (idProduit == "TEST01") return 1;

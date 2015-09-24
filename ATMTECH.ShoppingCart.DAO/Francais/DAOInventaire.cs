@@ -9,7 +9,12 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
 {
     public class DAOInventaire : BaseDao<Stock, int>, IDAOInventaire
     {
-     
+
+
+        public IList<Stock> ObtenirInventaire(Enterprise entreprise)
+        {
+            return GetBySql(string.Format("SELECT * FROM Stock WHERE Product in (SELECT id From Product WHERE Enterprise = {0})",entreprise.Id));
+        }
 
         public IList<Stock> ObtenirInventaire(Product product)
         {
@@ -29,7 +34,7 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             criterias.Add(criteria);
             criterias.Add(IsActive());
             IList<Stock> inventaire = GetByCriteria(criterias);
-          
+
             return inventaire.Count > 0 ? inventaire[0] : null;
         }
     }

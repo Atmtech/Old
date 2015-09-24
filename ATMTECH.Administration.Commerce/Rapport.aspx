@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="titrePage">
-        Rapport
+        Rapport <asp:Label runat="server" ID="lblTitre"></asp:Label>
     </div>
     <asp:Panel runat="server" ID="pnlRapportAvecDate" Visible="False">
         <table>
@@ -27,4 +27,6 @@
         <asp:TextBox runat="server" ID="txtNoCommande"></asp:TextBox>
     </asp:Panel>
     <asp:Button runat="server" ID="btnGenerer" OnClick="btnGenererClick" Text="Générer" CssClass="bouton" />
+    
+    <asp:Label runat="server" ID="lblResultatValidationPayPal"></asp:Label>
 </asp:Content>

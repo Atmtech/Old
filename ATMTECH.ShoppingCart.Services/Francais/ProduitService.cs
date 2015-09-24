@@ -48,6 +48,10 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             return DAOCategorieProduit.GetAllActive();
         }
+        public IList<ProductFile> ObtenirFichierProduit(Enterprise enterprise)
+        {
+            return DAOProduitFichier.ObtenirFichierProduit(enterprise);
+        }
         public IList<ProductFile> ObtenirFichierProduit()
         {
             return DAOProduitFichier.GetAllActive();
@@ -56,7 +60,6 @@ namespace ATMTECH.ShoppingCart.Services.Francais
         {
             DAOProduitFichier.Save(productFile);
         }
-
         public int Enregistrer(Product product)
         {
             return DAOProduit.Save(product);

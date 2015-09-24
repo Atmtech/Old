@@ -13,6 +13,15 @@ namespace ATMTECH.Administration.Commerce {
     public partial class Rapport {
         
         /// <summary>
+        /// Contrôle lblTitre.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTitre;
+        
+        /// <summary>
         /// Contrôle pnlRapportAvecDate.
         /// </summary>
         /// <remarks>
@@ -65,5 +74,14 @@ namespace ATMTECH.Administration.Commerce {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGenerer;
+        
+        /// <summary>
+        /// Contrôle lblResultatValidationPayPal.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultatValidationPayPal;
     }
 }

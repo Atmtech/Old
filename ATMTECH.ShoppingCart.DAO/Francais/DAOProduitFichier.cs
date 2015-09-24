@@ -28,7 +28,9 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             return productFiles;
         }
 
-     
-
+        public IList<ProductFile> ObtenirFichierProduit(Enterprise enterprise)
+        {
+            return GetBySql(string.Format("select * from ProductFile where Product in (SELECT id FROM PRODUCT where Enterprise = {0})", enterprise.Id));
+        }
     }
 }

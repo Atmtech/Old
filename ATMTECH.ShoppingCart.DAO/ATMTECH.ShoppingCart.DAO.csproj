@@ -59,6 +59,8 @@
     <Compile Include="DAOOrder.cs" />
     <Compile Include="DAOProduct.cs" />
     <Compile Include="DAOStock.cs" />
+    <Compile Include="Francais\DAOAdresseEntreprise.cs" />
+    <Compile Include="Francais\DAOTransactionInventaire.cs" />
     <Compile Include="Francais\DAOCourriel.cs" />
     <Compile Include="Francais\DAOCoupon.cs" />
     <Compile Include="Francais\DAOListeDistribution.cs" />
@@ -69,6 +71,8 @@
     <Compile Include="Francais\DAOCommande.cs" />
     <Compile Include="Francais\DAOProduitFichier.cs" />
     <Compile Include="Francais\DAOProduit.cs" />
+    <Compile Include="Interface\Francais\IDAOAdresseEntreprise.cs" />
+    <Compile Include="Interface\Francais\IDAOTransactionInventaire.cs" />
     <Compile Include="Interface\Francais\IDAOCourriel.cs" />
     <Compile Include="Interface\Francais\IDAOCoupon.cs" />
     <Compile Include="Interface\Francais\IDAOListeDistribution.cs" />

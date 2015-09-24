@@ -12,6 +12,8 @@ using ATMTECH.DAO;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.Services.Interface;
+using ATMTECH.ShoppingCart.DAO;
+using ATMTECH.ShoppingCart.DAO.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
@@ -34,6 +36,8 @@ namespace ATMTECH.Administration.Views.Francais
         public IDAOTitrePage DAOTitrePage { get; set; }
         public IDAOCoupon DAOCoupon { get; set; }
         public IDAOLogException DAOLogException { get; set; }
+        public IDAOTransactionInventaire DAOTransactionInventaire { get; set; }
+        public IDAOAdresseEntreprise DAOAdresseEntreprise { get; set; }
 
         public EditionPresenter(IEditionPresenter view)
             : base(view)
@@ -64,14 +68,14 @@ namespace ATMTECH.Administration.Views.Francais
                 case "customer":
                     IList<Customer> clients =
                         ClientService.ObtenirClient()
-                            .Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
+                            .Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()) && x.Enterprise.Id == View.Entreprise.Id)
                             .ToList();
                     View.NombreValeurRetrouve = clients.Count;
                     View.ValeurRetrouve = clients;
                     break;
                 case "stock":
                     IList<Stock> stocks =
-                        InventaireService.ObtenirInventaire()
+                        InventaireService.ObtenirInventaire(View.Entreprise)
                             .Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
                             .ToList();
                     View.NombreValeurRetrouve = stocks.Count;
@@ -79,7 +83,7 @@ namespace ATMTECH.Administration.Views.Francais
                     break;
                 case "productfile":
                     IList<ProductFile> fichierProduits =
-                        ProduitService.ObtenirFichierProduit()
+                        ProduitService.ObtenirFichierProduit(View.Entreprise)
                             .Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
                             .ToList();
                     View.NombreValeurRetrouve = fichierProduits.Count;
@@ -88,7 +92,7 @@ namespace ATMTECH.Administration.Views.Francais
                 case "order":
                     IList<Order> commandes =
                         CommandeService.ObtenirCommande()
-                            .Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
+                            .Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()) && x.Enterprise.Id == View.Entreprise.Id)
                             .ToList();
                     View.NombreValeurRetrouve = commandes.Count;
                     View.ValeurRetrouve = commandes;
@@ -104,7 +108,7 @@ namespace ATMTECH.Administration.Views.Francais
                 case "productcategory":
                     List<ProductCategory> categories =
                         ProduitService.ObtenirListeCategorie()
-                            .Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
+                            .Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()) && x.Enterprise.Id == View.Entreprise.Id)
                             .ToList();
                     View.NombreValeurRetrouve = categories.Count;
                     View.ValeurRetrouve = categories;
@@ -151,6 +155,20 @@ namespace ATMTECH.Administration.Views.Francais
                             .ToList();
                     View.NombreValeurRetrouve = coupons.Count;
                     View.ValeurRetrouve = coupons;
+                    break;
+                case "stocktransaction":
+                    IList<StockTransaction> transactions = DAOTransactionInventaire.ObtenirTransactionInventaire(View.Entreprise);
+                    transactions = transactions.Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
+                            .ToList();
+                    View.NombreValeurRetrouve = transactions.Count;
+                    View.ValeurRetrouve = transactions;
+                    break;
+                case "enterpriseaddress":
+                    IList<EnterpriseAddress> enterpriseAddresses = DAOAdresseEntreprise.ObtenirAdresse(View.Entreprise);
+                    enterpriseAddresses = enterpriseAddresses.Where(x => x.Search.ToLower().Contains(View.CritereRecherche.ToLower()))
+                            .ToList();
+                    View.NombreValeurRetrouve = enterpriseAddresses.Count;
+                    View.ValeurRetrouve = enterpriseAddresses;
                     break;
             }
         }
