@@ -9,12 +9,27 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
 
     <uc1:SlideShow runat="server" ID="SlideShowAccueil" />
-    <div style="background-color: white; text-align: center; margin-top: 15px; padding: 10px 10px 10px 10px">
+    <br />
+    <div style="background-image: url('JQuery/jquery-ui-1.11.2/img/SlideShow/black.jpg')">
+        <div style='padding-right: 10px; padding-left: 10px;'>
+            <div class='slideShowTitreProduit'>Vous avez besoin de personnaliser votre commande ? </div>
+            <div class='slideShowDescriptionProduit'>Nous pouvons personnalisé à l'image de votre entreprise tout ce que vous commandez. Nous pouvons vous accompagnez dans cette démarche. 
+                <br/><br/>
+                
+                Donner des exemples:::
+                
+
+            </div>
+            <div style="padding-top: 10px; padding-bottom: 20px;"><a href='blabla.aspx' class='boutonActionRondSlideShow'>Contacter nous pour plus de détail ...</a></div>
+        </div>
+    </div>
+    <%-- <div style="background-color: white; text-align: center; margin-top: 15px; padding: 10px 10px 10px 10px">
         <div style="margin-bottom: 20px;">
             <a href="ProductCatalog.aspx?Brand=Nike">
                 <img src="Images/WebSite/Logonike.jpg" class="imageLogoMarqueAccueil" /></a>
@@ -45,7 +60,7 @@
             <a href="ProductCatalog.aspx?Brand=Yupoong">
                 <img src="Images/WebSite/LogoYupoong.jpg" class="imageLogoMarqueAccueil" /></a>
         </div>
-    </div>
+    </div>--%>
     <div class="vente">
         <asp:Label runat="server" ID="lblItemEnVenteActuellement" Text="Items en vente actuellement"></asp:Label>
     </div>

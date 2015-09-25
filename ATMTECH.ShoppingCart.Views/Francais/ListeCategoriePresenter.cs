@@ -1,4 +1,8 @@
-﻿using ATMTECH.ShoppingCart.Services.Interface.Francais;
+﻿using System.Collections.Generic;
+using System.Linq;
+using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.ShoppingCart.Services.Francais;
+using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.ShoppingCart.Views.Base;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
@@ -13,11 +17,28 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         {
         }
 
-        public void AfficherProduitPourCategorieChoisi(string categoriesAChercher)
+
+        public override void OnViewInitialized()
         {
-            View.ListeProduitParCategorie = ProduitService.ObtenirProduit(categoriesAChercher);
+            base.OnViewInitialized();
+            View.ListeCategorieAChoisir = ProduitService.ObtenirListeCategorieListeDeroulante();
         }
 
+        public void AfficherProduitPourCategorieChoisi(string categoriesAChercher)
+        {
+            if (categoriesAChercher != "_")
+            {
+                IList<CategorieProduit> listeCategorieForce = ProduitService.ObtenirListeCategorieForce();
+                View.ListeProduitParCategorie = listeCategorieForce.Count(x => x.Code == categoriesAChercher) > 0 ?
+                    ProduitService.ObtenirProduit(categoriesAChercher) :
+                    ProduitService.ObtenirProduitParMarque(categoriesAChercher);    
+            }
+            else
+            {
+                View.ListeProduitParCategorie = new List<Product>();
+            }
+            
+        }
     }
 
 

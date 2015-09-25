@@ -388,6 +388,10 @@
       <Project>{F2B35967-8009-4AD0-9B21-78A2EE6C1E36}</Project>
       <Name>ATMTECH.ShoppingCart.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.ShoppingCart.Services\ATMTECH.ShoppingCart.Services.csproj">
+      <Project>{D226BF01-2BD8-4206-A576-F9F929518A01}</Project>
+      <Name>ATMTECH.ShoppingCart.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.ShoppingCart.Views\ATMTECH.ShoppingCart.Views.csproj">
       <Project>{43B7ED27-782C-4574-96F5-1E433403E3FF}</Project>
       <Name>ATMTECH.ShoppingCart.Views</Name>

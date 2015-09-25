@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
 using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Views.Francais;
 using ATMTECH.ShoppingCart.Views.Interface.Francais;
 
@@ -24,6 +25,16 @@ namespace ATMTECH.ShoppingCart.Commerce
                 ListeProduit.Produits = value;
                 Session["ListeProduitParCategorie"] = value;
             }
+        }
+
+        public IList<CategorieProduit> ListeCategorieAChoisir
+        {
+            set { FillDropDownWithoutEntity(ddlCategorie, value, "Description", "Code"); }
+        }
+
+        protected void ddlCategorieSelectedIndexChanged(object sender, EventArgs e)
+        {
+            Presenter.AfficherProduitPourCategorieChoisi(ddlCategorie.SelectedValue);
         }
     }
 }

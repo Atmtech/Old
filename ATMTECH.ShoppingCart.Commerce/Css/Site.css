@@ -35,6 +35,25 @@ a
     font-weight: bold;
 }
 
+
+.dropDownListCategorie
+{
+    border: 2px solid rgb(75, 75, 75);
+    border-radius: 5px;
+    padding: 3px;
+    -webkit-appearance: none;
+    background: black;
+    color: white;
+    background-image: url('../Images/WebSite/ArrowDropDownList.png');
+    background-position: 100%;
+    background-repeat: no-repeat;
+    text-indent: 0.01px; /*In Firefox*/
+    text-overflow: ''; /*In Firefox*/
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
 .textBox
 {
     border: solid 1px rgb(75, 75, 75);

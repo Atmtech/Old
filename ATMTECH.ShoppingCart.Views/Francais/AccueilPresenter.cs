@@ -28,21 +28,9 @@ namespace ATMTECH.ShoppingCart.Views.Francais
         }
         public IList<Product> AfficherListeProduitSlideShow()
         {
-            IList<Product> listeproduitAfficherDansSlideShow = new List<Product>();
             IList<Product> productsEstSlideShow = ProduitService.ObtenirListeProduitEstSlideShow(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED)));
-            IList<Product> produitAvecRabaisDe35Pourcent = ProduitService.ObtenirListeProduitEnVente(Convert.ToInt32(ParameterService.GetValue(Constant.ID_ENTERPRISE_WHEN_NOT_AUTHENTIFIED))).Where(x => x.PercentageSave > 35).ToList();
-            IList<Product> listeProduits = ProduitService.ObtenirProduit();
-            Product produitNewBalance = ObtenirProduitPourUneMarque("Newbalance", listeProduits);
-            Product produitNike = ObtenirProduitPourUneMarque("Nike", listeProduits);
-            Product produitCalvinKlein = ObtenirProduitPourUneMarque("ck", listeProduits);
-            Product produitOakley = ObtenirProduitPourUneMarque("Oakley", listeProduits);
-            listeproduitAfficherDansSlideShow = productsEstSlideShow.Concat(produitAvecRabaisDe35Pourcent).ToList();
-            listeproduitAfficherDansSlideShow.Add(produitNike);
-            listeproduitAfficherDansSlideShow.Add(produitNewBalance);
-            listeproduitAfficherDansSlideShow.Add(produitCalvinKlein);
-            listeproduitAfficherDansSlideShow.Add(produitOakley);
-            View.ListeProduitSlideShow = listeproduitAfficherDansSlideShow;
-            return listeproduitAfficherDansSlideShow;
+            View.ListeProduitSlideShow = productsEstSlideShow;
+            return productsEstSlideShow;
         }
         public void AfficherListeProduitEnVente()
         {

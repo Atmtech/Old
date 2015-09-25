@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Data.SqlClient;
+using ATMTECH.Common.Context;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.Entities;
@@ -48,6 +50,28 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             }
             return products;
         }
+
+        public IList<string> ObtenirListeMarque()
+        {
+            IList<string> retour = new List<string>();
+
+            SqlConnection currentDatabaseConnection = DatabaseOperation.MsSql.CurrentDatabaseConnection;
+            using (SqlConnection sqlConnection = new SqlConnection(currentDatabaseConnection.ConnectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("select distinct brand FROM product order by brand", sqlConnection))
+                {
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        retour.Add(reader[0].ToString());
+                    }
+                }
+            }
+
+            return retour;
+        }
+
         public Product ObtenirProduit(int id)
         {
             Product product = GetById(id);
