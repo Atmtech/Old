@@ -124,6 +124,10 @@
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Mediator.DAO\ATMTECH.Mediator.DAO.csproj">
+      <Project>{54ED7F6B-C010-45BA-B786-AAFBA104896D}</Project>
+      <Name>ATMTECH.Mediator.DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Mediator.Entities\ATMTECH.Mediator.Entities.csproj">
       <Project>{52798362-2848-4E27-BAE3-2DF0E813881C}</Project>
       <Name>ATMTECH.Mediator.Entities</Name>

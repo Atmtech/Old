@@ -33,8 +33,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAOServeur.cs" />
     <Compile Include="DAOUtilisateurs.cs" />
     <Compile Include="DAOClavardage.cs" />
     <Compile Include="Interface\IDAOMediator.cs" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
+using ATMTECH.Mediator.DAO;
 using ATMTECH.Mediator.Entities;
 using ATMTECH.Mediator.Services;
 using FastColoredTextBoxNS;
@@ -34,7 +35,7 @@ namespace ATMTECH.Mediator.Client
 
         private void FormClavardage_Load(object sender, EventArgs e)
         {
-            ActiveControl = textBoxClavardage;
+            ActiveControl = txtClavardage;
             GestionPresentation.EnvoyerClavardage("/JOIN");
             timerClavardage.Enabled = true;
             GestionPresentation.AfficherClavardage();
@@ -42,7 +43,7 @@ namespace ATMTECH.Mediator.Client
 
         private void FormClavardage_Activated(object sender, EventArgs e)
         {
-            textBoxClavardage.Focus();
+            txtClavardage.Focus();
         }
 
         private void FormClavardage_FormClosed(object sender, FormClosedEventArgs e)
@@ -57,24 +58,50 @@ namespace ATMTECH.Mediator.Client
 
         private void timerClavardage_Tick(object sender, EventArgs e)
         {
-            IList<Clavardage> clavardages = GestionPresentation.AfficherClavardage();
-            if (clavardages != null)
-            {
-                foreach (Clavardage clavardage in clavardages.Where(clavardage => !GestionPresentation.EstCommande(clavardage.Texte)))
-                {
-                    if (PlatformInvocationService.IsActive(Handle) == false) FlashWindow.Flash(this, 3);
-                }
-            }
 
-            if (fastColoredTextBoxAutoScroll) fastColoredTextBoxClavardage.GoEnd();
+            if (new DAOServeur().EstServeurExistant())
+            {
+
+                IList<Clavardage> clavardages = GestionPresentation.AfficherClavardage();
+                if (clavardages != null)
+                {
+                    foreach (Clavardage clavardage in clavardages.Where(clavardage => !GestionPresentation.EstCommande(clavardage.Texte)))
+                    {
+                        if (PlatformInvocationService.IsActive(Handle) == false) FlashWindow.Flash(this, 3);
+                    }
+                }
+
+                if (fastColoredTextBoxAutoScroll) fastColoredTextBoxClavardage.GoEnd();
+            }
+            else
+            {
+                GestionPresentation.AjouterTexte("Le serveur n'est pas disponible ... Tentative de reconnection dans 10 secondes", GestionPresentation.RedStyle);
+                GestionPresentation.AjouterSautLigne();
+                timerClavardage.Enabled = false;
+                txtClavardage.Enabled = false;
+                timerReconnection.Enabled = true;
+                RafraichirControle();
+            }
         }
 
         private void textBoxChat_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) return;
-            if (string.IsNullOrWhiteSpace(textBoxClavardage.Text)) return;
-            GestionPresentation.EnvoyerClavardage(textBoxClavardage.Text);
-            textBoxClavardage.Text = "";
+            if (string.IsNullOrWhiteSpace(txtClavardage.Text)) return;
+
+
+            if (new DAOServeur().EstServeurExistant())
+            {
+                GestionPresentation.EnvoyerClavardage(txtClavardage.Text);
+                txtClavardage.Text = "";
+            }
+            else
+            {
+                GestionPresentation.AjouterTexte("Le serveur n'est pas disponible ...", GestionPresentation.RedStyle);
+                GestionPresentation.AjouterSautLigne();
+                timerClavardage.Enabled = false;
+                RafraichirControle();
+            }
         }
 
         private void btnDernierClavardage_Click(object sender, EventArgs e)
@@ -124,8 +151,8 @@ namespace ATMTECH.Mediator.Client
             {
                 LastWindowState = WindowState;
 
-                if (WindowState == FormWindowState.Maximized) textBoxClavardage.Focus();
-                if (WindowState == FormWindowState.Normal) textBoxClavardage.Focus();
+                if (WindowState == FormWindowState.Maximized) txtClavardage.Focus();
+                if (WindowState == FormWindowState.Normal) txtClavardage.Focus();
             }
         }
 
@@ -135,7 +162,7 @@ namespace ATMTECH.Mediator.Client
             fastColoredTextBoxClavardage.Cursor = GestionPresentation.EstUnLien(p) ? Cursors.Hand : Cursors.IBeam;
         }
 
-        private void fastColoredTextBoxClavardage_TextChangedDelayed(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
+        private void fastColoredTextBoxClavardage_TextChangedDelayed(object sender, TextChangedEventArgs e)
         {
             e.ChangedRange.ClearStyle(GestionPresentation.Link);
             e.ChangedRange.SetStyle(GestionPresentation.Link, @"(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?");
@@ -150,25 +177,45 @@ namespace ATMTECH.Mediator.Client
             }
         }
 
-        private void fastColoredTextBoxClavardage_ToolTipNeeded(object sender, FastColoredTextBoxNS.ToolTipNeededEventArgs e)
+        private void fastColoredTextBoxClavardage_ToolTipNeeded(object sender, ToolTipNeededEventArgs e)
         {
             int noLigneToolTip = fastColoredTextBoxClavardage.LinesCount - e.Place.iLine - 2;
 
             try
             {
                 if (noLigneToolTip >= 0)
-                    //if (fastColoredTextBoxClavardage[e.Place].style.ToString() == "Style0")
-                        e.ToolTipText = GestionPresentation.ObtenirDateClavardage(noLigneToolTip).ToString();
-
+                    e.ToolTipText = GestionPresentation.ObtenirDateClavardage(noLigneToolTip).ToString();
             }
             catch (Exception)
             {
 
             }
-
-
-
-
         }
+
+        private void timerReconnection_Tick(object sender, EventArgs e)
+        {
+            if (new DAOServeur().EstServeurExistant())
+            {
+                timerReconnection.Enabled = false;
+                timerClavardage.Enabled = true;
+                txtClavardage.Enabled = true;
+            }
+            else
+            {
+                GestionPresentation.AjouterTexte("Tentative de reconnection après 10 secondes ...", GestionPresentation.RedStyle);
+                GestionPresentation.AjouterSautLigne();
+                RafraichirControle();
+            }
+        }
+
+        private void RafraichirControle()
+        {
+            txtClavardage.Refresh();
+            fastColoredTextBoxClavardage.Refresh();
+            Refresh();
+        }
+
+
+
     }
 }
