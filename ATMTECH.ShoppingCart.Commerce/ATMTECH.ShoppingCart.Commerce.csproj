@@ -86,6 +86,9 @@
     <Content Include="Images\WebSite\NewBalance.jpg" />
     <Content Include="Images\WebSite\Nike.jpg" />
     <Content Include="Images\WebSite\Oakley.jpg" />
+    <Content Include="Images\WebSite\Service1.jpg" />
+    <Content Include="Images\WebSite\services2.jpg" />
+    <Content Include="Images\WebSite\services3.jpg" />
     <Content Include="Images\WebSite\SportT.jpg" />
     <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.min.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\external\jquery\jquery.min.js" />

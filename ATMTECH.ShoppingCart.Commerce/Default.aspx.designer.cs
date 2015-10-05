@@ -22,6 +22,24 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::ATMTECH.ShoppingCart.Commerce.UserControls.SlideShowProduct SlideShowAccueil;
         
         /// <summary>
+        /// Contrôle lblTitrePersonnaliseCommande.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTitrePersonnaliseCommande;
+        
+        /// <summary>
+        /// Contrôle lblDescriptionPersonnaliseCommande.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescriptionPersonnaliseCommande;
+        
+        /// <summary>
         /// Contrôle lblItemEnVenteActuellement.
         /// </summary>
         /// <remarks>

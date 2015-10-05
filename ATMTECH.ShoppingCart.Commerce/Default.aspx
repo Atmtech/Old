@@ -18,15 +18,18 @@
     <br />
     <div style="background-image: url('JQuery/jquery-ui-1.11.2/img/SlideShow/black.jpg')">
         <div style='padding-right: 10px; padding-left: 10px;'>
-            <div class='slideShowTitreProduit'>Vous avez besoin de personnaliser votre commande ? </div>
-            <div class='slideShowDescriptionProduit'>Nous pouvons personnalisé à l'image de votre entreprise tout ce que vous commandez. Nous pouvons vous accompagnez dans cette démarche. 
-                <br/><br/>
-                
-                Donner des exemples:::
-                
-
+            <div class='slideShowTitreProduit'>
+                <asp:Label runat="server" ID="lblTitrePersonnaliseCommande" Text="Vous avez besoin de personnaliser votre commande ?"></asp:Label>
             </div>
-            <div style="padding-top: 10px; padding-bottom: 20px;"><a href='blabla.aspx' class='boutonActionRondSlideShow'>Contacter nous pour plus de détail ...</a></div>
+            <div class='slideShowDescriptionProduit'>
+                <br />
+                
+                <asp:Label runat="server" ID="lblDescriptionPersonnaliseCommande" Text="<b>MÉTHODE DE DÉCORATION</b><br><br>Plusieurs méthodes de décoration peuvent s'offrir à vous selon l'item choisi. Nous vous aiderons à choisir le meilleur procédé, selon les options disponibles, et selon le matériel choisi.<br><br> Sur les vêtements: broderie à plat, en 3D, sérigraphie, transfert, impression.<br><br><b>INFOGRAPHIE</b><br><br>Pour éviter plusieurs tracas, CHECKLEPRIX offre également le service d'infographie afin de mieux personnaliser vos vêtements."></asp:Label>
+                <br />
+                <br />
+                <img src="Images/WebSite/Service1.jpg" style="width: 150px; padding-right: 5px;" /><img src="Images/WebSite/services2.jpg" style="width: 150px; padding-right: 5px;" /><img src="Images/WebSite/services3.jpg" style="width: 150px; padding-right: 5px;" />
+            </div>
+            <div style="padding-top: 10px; padding-bottom: 20px;"><a href='Contact.aspx' class='boutonActionRondSlideShow'>Contacter nous pour plus de détail ...</a></div>
         </div>
     </div>
     <%-- <div style="background-color: white; text-align: center; margin-top: 15px; padding: 10px 10px 10px 10px">
