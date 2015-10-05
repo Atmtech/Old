@@ -12,7 +12,7 @@ namespace ATMTECH.ShoppingCart.Commerce
             get { return (IList<Product>)Session["ListeProduitEnVente"]; }
             set
             {
-                ListeProduit.Produits = value;
+                //ListeProduit.Produits = value;
                 Session["ListeProduitEnVente"] = value;
             }
         }

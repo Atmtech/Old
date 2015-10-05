@@ -64,10 +64,10 @@
                 <img src="Images/WebSite/LogoYupoong.jpg" class="imageLogoMarqueAccueil" /></a>
         </div>
     </div>--%>
-    <div class="vente">
+   <%-- <div class="vente">
         <asp:Label runat="server" ID="lblItemEnVenteActuellement" Text="Items en vente actuellement"></asp:Label>
     </div>
     <div class="listeObjetEnPromo">
         <uc2:ListeProduit ID="ListeProduit" runat="server" Langue='<%#Presenter.CurrentLanguage%>' ProduitParRangee="4" AfficherBoutonTriEtNombreItem="False" />
-    </div>
+    </div>--%>
 </asp:Content>

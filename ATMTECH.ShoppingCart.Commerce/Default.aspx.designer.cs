@@ -38,23 +38,5 @@ namespace ATMTECH.ShoppingCart.Commerce {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDescriptionPersonnaliseCommande;
-        
-        /// <summary>
-        /// Contrôle lblItemEnVenteActuellement.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblItemEnVenteActuellement;
-        
-        /// <summary>
-        /// Contrôle ListeProduit.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::ATMTECH.ShoppingCart.Commerce.UserControls.ListeProduit ListeProduit;
     }
 }
