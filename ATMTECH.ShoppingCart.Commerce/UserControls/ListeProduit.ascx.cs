@@ -27,9 +27,12 @@ namespace ATMTECH.ShoppingCart.Commerce.UserControls
             set
             {
                 Session["ListeProduitParCategorie"] = value;
-                lblNombreElement.Text = value.Count.ToString();
-                dataListListeProduitEnVente.DataSource = ObtenirListeProduitTrier(value);
-                dataListListeProduitEnVente.DataBind();
+                if (value != null)
+                {
+                    lblNombreElement.Text = value.Count.ToString();
+                    dataListListeProduitEnVente.DataSource = ObtenirListeProduitTrier(value);
+                    dataListListeProduitEnVente.DataBind();
+                }
             }
         }
         public string Tri { get; set; }
@@ -86,7 +89,7 @@ namespace ATMTECH.ShoppingCart.Commerce.UserControls
                 double width = bitmap.Width;
                 double height = bitmap.Height;
 
-                double nouvelleUnite = 200*width/height;
+                double nouvelleUnite = 200 * width / height;
                 if (nouvelleUnite > 200)
                     nouvelleUnite = 200;
                 image.Width = new Unit(nouvelleUnite, UnitType.Pixel);
