@@ -168,11 +168,13 @@
         if ($.fn.jarallax && !$.isMobile()){
             $(document).on('destroy.parallax', function(event){
                 $(event.target).outerFind('.mbr-parallax-background')
-                    .jarallax('destroy');
+                    .jarallax('destroy')
+                    .css('position', '');
             });
             $(document).on('add.cards change.cards', function(event){
                 $(event.target).outerFind('.mbr-parallax-background')
-                    .jarallax();
+                    .jarallax()
+                    .css('position', 'relative');
             });
         }
 
@@ -442,7 +444,7 @@
         var e = document.createElement("section");
         e.id = "top-1";
         e.className = "engine";
-        e.innerHTML = '<a href="http://mobirise.com">mobirise.com</a> Mobirise v2.3';
+        e.innerHTML = '<a href="http://mobirise.com">mobirise.com</a> Mobirise v2.3.4';
         document.body.insertBefore(e, document.body.childNodes[0]);
     }
 }();

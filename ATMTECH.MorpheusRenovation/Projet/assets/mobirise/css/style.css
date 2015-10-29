@@ -975,6 +975,7 @@ html {
   color: #fff !important;
 }
 .mbr-navbar--sticky .mbr-navbar__section {
+  -webkit-transform: translate3d(0, 0, 0);
   position: fixed;
 }
 .mbr-navbar--absolute {
