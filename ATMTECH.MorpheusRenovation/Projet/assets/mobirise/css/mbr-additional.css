@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
 #ext_menu-3 .mbr-brand__name {
   font-size: 16px;
 }
@@ -7,13 +9,18 @@
 #ext_menu-3 .mbr-navbar__section {
   background: #28324e;
 }
+#ext_menu-3 .mbr-brand__name a {
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
 #features1-5 P {
   text-align: center;
   color: #8e8e8e;
 }
-#contacts1-3 P {
+#contacts2-18 P {
   color: #ffffff;
 }
+
 #msg-box4-12 .mbr-header__text {
   color: #6e6767;
 }
@@ -35,9 +42,14 @@
 #ext_menu-6 .mbr-navbar__section {
   background: #28324e;
 }
+#ext_menu-6 .mbr-brand__name a {
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
 #contacts1-10 P {
   color: #ffffff;
 }
+
 #msg-box4-15 .mbr-header__text {
   color: #6e6767;
 }
@@ -62,9 +74,14 @@
 #ext_menu-16 .mbr-navbar__section {
   background: #28324e;
 }
+#ext_menu-16 .mbr-brand__name a {
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
 #contacts1-17 P {
   color: #ffffff;
 }
+
 #form1-17 .mbr-header__text {
   color: #ffffff;
 }
@@ -76,6 +93,10 @@
 }
 #ext_menu-20 .mbr-navbar__section {
   background: #28324e;
+}
+#ext_menu-20 .mbr-brand__name a {
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
 }
 #contacts1-21 P {
   color: #ffffff;

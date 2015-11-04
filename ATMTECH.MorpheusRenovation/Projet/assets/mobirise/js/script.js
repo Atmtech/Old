@@ -444,7 +444,7 @@
         var e = document.createElement("section");
         e.id = "top-1";
         e.className = "engine";
-        e.innerHTML = '<a href="http://mobirise.com">mobirise.com</a> Mobirise v2.3.4';
+        e.innerHTML = '<a href="http://mobirise.com">mobirise.com</a> Mobirise v2.4';
         document.body.insertBefore(e, document.body.childNodes[0]);
     }
 }();
