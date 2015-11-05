@@ -1,0 +1,752 @@
+{
+  "settings": {
+    "currentPage": "index.html",
+    "versionFirst": "2.3",
+    "versionPublish": "2.4",
+    "name": "Morpheus",
+    "path": "file:///C:/Users/riov01/AppData/Local/Mobirise.com/Mobirise/projects/project-2015-10-22_110231",
+    "screenshot": "screenshot.png"
+  },
+  "pages": {
+    "index.html": {
+      "settings": {
+        "main": true,
+        "title": "Accueil",
+        "meta_descr": "Construction, Rénovation, Style, Qualité ",
+        "header_custom": "",
+        "footer_custom": ""
+      },
+      "components": [
+        {
+          "_inherit": "menu",
+          "_styles": {
+            ".mbr-brand__name": {
+              "font-size": "16px"
+            },
+            "&.mbr-navbar--stuck .mbr-navbar__section": {
+              "background": "#28324e"
+            },
+            ".mbr-navbar__section": {
+              "background": "#28324e"
+            },
+            ".mbr-brand__name a": {
+              "font-size": "10px",
+              "font-family": "'Open Sans', sans-serif",
+              "googleLink": "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"
+            }
+          },
+          "_name": "ext.menu",
+          "_anchor": "ext_menu-3",
+          "_params": {
+            "color": "#28324e",
+            "transparent": false,
+            "sticky": true,
+            "collapsed": false,
+            "logo": true,
+            "showBrand": true,
+            "showButtons": false
+          },
+          "logo": "{PROJECT_IMAGES}logo177x80-149.png",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">Service Respect Qualité</a>",
+          "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
+          "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
+        },
+        {
+          "_name": "slider",
+          "_params": {
+            "autoplay": true,
+            "slides": [
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00012730x1820-169.jpg",
+                "showTitle": false,
+                "title": "Slide 1",
+                "showText": false,
+                "text": "Develop fully responsive, mobile-optimized websites that look amazing on any devices and browsers. Preview how your website will appear on phones, tablets and desktops directly in the visual editor.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\" data-toolbar=\"-mbrBtnMove\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\" data-toolbar=\"-mbrBtnMove\">FOR MAC</a>"
+              },
+              {
+                "active": true,
+                "image": "{PROJECT_IMAGES}sbp-2700-00062679x1785-168.jpg",
+                "showTitle": false,
+                "title": "Slide 2",
+                "showText": false,
+                "text": "Mobirise is based on Bootstrap 3 - most powerful mobile first framework. Use any bootstrap themes with no extra work.",
+                "showButtons": true,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\" data-toolbar=\"-mbrBtnMove\">CONTACTEZ NOUS !!!</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00032710x1740-196.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00072641x1759-122.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00082617x1745-149.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00092706x1801-167.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00102712x1809-151.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00152710x1808-161.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00232719x1811-163.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00252690x1793-187.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00312708x1805-166.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00332719x1811-124.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00362681x1785-180.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00442734x1821-183.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00462675x1779-171.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00572695x1794-149.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00582691x1797-167.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00632715x1808-151.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00662716x1808-161.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              },
+              {
+                "active": false,
+                "image": "{PROJECT_IMAGES}sbp-2700-00712667x1775-163.jpg",
+                "showTitle": false,
+                "title": "Slide 3",
+                "showText": false,
+                "text": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+                "showButtons": false,
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
+              }
+            ],
+            "fullScreen": false,
+            "bgColor": "#ffffff"
+          },
+          "_anchor": "slider-4",
+          "articleLayout": false
+        },
+        {
+          "_name": "features1",
+          "_styles": {
+            "P": {
+              "text-align": "center",
+              "color": "#8e8e8e"
+            }
+          },
+          "_anchor": "features1-5",
+          "_params": {
+            "columns": "4",
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#efefef",
+            "bgColorRadio": true,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "bgVideoRadio": false,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "showImages": true,
+            "showTitles": true,
+            "showCaptions": true,
+            "showButtons": false
+          },
+          "img1": "{PROJECT_IMAGES}engagement128x128-165.png",
+          "title1": "NOTRE ENGAGEMENT",
+          "caption1": "Nos <b>clients</b> sont nos <b>meilleurs</b> ambassadeurs. &nbsp;C’est pourquoi nous garantissons votre <b>satisfaction</b>. <br><br>Amélioration de votre qualité de vie, augmentation de la valeur de votre maison; avec Morphéus Rénovation, vous êtes assuré d’obtenir un excellent retour sur votre investissement.&nbsp;<br><br>",
+          "button1": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-default\">LEARN MORE</a>",
+          "img2": "{PROJECT_IMAGES}votreprojet128x128-196.png",
+          "title2": "VOTRE PROJET",
+          "caption2": "Clé en main<br>&nbsp;Cuisines <br>&nbsp;Salles de bain<br>&nbsp;Aménagement de sous-sols<br>&nbsp;Finition intérieure<br>&nbsp;Recouvrement de plancher<br>&nbsp;Agrandissements<br>&nbsp;Terrasses, gazebos<br>&nbsp;Revêtement extérieur<br>&nbsp;Garages<br>&nbsp;Armoires de cuisine<br>&nbsp;Menuiserie architecturale<br>&nbsp;Mobilier intégré sur mesure<br><br>",
+          "button2": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-default\" data-toolbar=\"-mbrBtnMove\">LEARN MORE</a>",
+          "img3": "{PROJECT_IMAGES}logorenomaitre1261x1158-122.jpg",
+          "title3": "DES CLIENTS SATISFAITS",
+          "caption3": "<b><a href=\"http://www.morpheusrenovation.com/RenoMaitre.pdf\" target=\"_blank\">Évaluation Réno-Maître</a></b><br><br><br>",
+          "button3": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-default\">LEARN MORE</a>",
+          "img4": "{PROJECT_IMAGES}gestionprojet128x128-149.png",
+          "title4": "GESTION DE PROJET",
+          "caption4": "<b>Résidentiel<br>Commercial</b>",
+          "button4": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-default\">LEARN MORE</a>"
+        },
+        {
+          "items": [
+            {
+              "text": "<p class=\"mbr-reviews__p\">“Mettre témoignage”</p>",
+              "authorName": "ABANOUB S.",
+              "authorBio": "User"
+            },
+            {
+              "text": "<p class=\"mbr-reviews__p\">“...”</p>",
+              "authorName": "SUFFIAN A.",
+              "authorBio": "User"
+            },
+            {
+              "text": "<p class=\"mbr-reviews__p\">“..”</p>",
+              "authorName": "JHOLLMAN C.",
+              "authorBio": "User"
+            }
+          ],
+          "_name": "testimonials1",
+          "testimonial": [
+            {
+              "text": "<p class=\"mbr-reviews__p\">“Mettre témoignage”</p>",
+              "authorName": "ABANOUB S.",
+              "authorBio": "User"
+            },
+            {
+              "text": "<p class=\"mbr-reviews__p\">“...”</p>",
+              "authorName": "SUFFIAN A.",
+              "authorBio": "User"
+            },
+            {
+              "text": "<p class=\"mbr-reviews__p\">“..”</p>",
+              "authorName": "JHOLLMAN C.",
+              "authorBio": "User"
+            }
+          ],
+          "_anchor": "testimonials1-4",
+          "_params": {
+            "count": 3,
+            "showName": true,
+            "showBio": true,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#c1c1c1",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "showTitle": true
+          },
+          "header": "TÉMOIGNAGES"
+        },
+        {
+          "_name": "contacts2",
+          "_anchor": "contacts2-18",
+          "_params": {
+            "address": "1056, Étienne-Dumetz\nCap-Rouge, QC, G1Y 1C2",
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#28324e",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": 0.8,
+            "overlayColor": "#3C3C3C",
+            "info": ""
+          },
+          "coord": [
+            46.7651668,
+            -71.35579259999997
+          ],
+          "text1": "<b>ADRESSE</b>    <br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br><b>CONTACTS</b><br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
+          "text2": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>",
+          "_styles": {
+            "P": {
+              "color": "#ffffff"
+            }
+          }
+        }
+      ]
+    },
+    "apropos.html": {
+      "settings": {
+        "title": "À PROPOS",
+        "meta_descr": "Construction, Rénovation, Style, Qualité ",
+        "header_custom": "",
+        "footer_custom": ""
+      },
+      "components": [
+        {
+          "_name": "content1",
+          "_anchor": "content1-13",
+          "text": "<p></p>"
+        },
+        {
+          "_inherit": "msg-box5",
+          "_styles": {
+            ".mbr-header__text": {
+              "color": "#6e6767"
+            },
+            ".mbr-header__subtext": {
+              "color": "#ffffff"
+            },
+            ".mbr-article": {
+              "color": "#ffffff"
+            },
+            ".mbr-article P": {
+              "color": "#6e6767"
+            }
+          },
+          "_name": "msg-box4",
+          "_params": {
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "isVideo": false,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#ffffff",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "inverse": true,
+            "video": {
+              "url": "http://www.youtube.com/embed/sOSTC6FM6Bw",
+              "aspectratio": "16:9",
+              "autoplay": false,
+              "loop": false
+            },
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false
+          },
+          "_anchor": "msg-box4-12",
+          "image": "{PROJECT_IMAGES}sbp-2700-00082617x1745-149.jpg",
+          "headerAlign": "left",
+          "title": "À PROPOS",
+          "meta": "By John Smith posted July 30, 2015",
+          "text": "<p>Morphéus Rénovation est reconnu pour la qualité de son service à la clientèle et des travaux réalisés par son équipe de professionnels expérimentés, efficaces et minutieux.&nbsp;</p><p>Au fil des ans, nous avons bâti un réseau de fournisseurs fiables et de sous-traitants expérimentés en qui nous avons entièrement confiance.&nbsp;</p><p>Ensemble, nous parvenons à nous distinguer et à réaliser les rêves de nos clients!&nbsp;</p><p>Nous sommes là pour planifier et pour vous conseiller à chacune des étapes menant à la réalisation de votre projet.&nbsp;</p><p>Nous sommes disponibles pour vous rencontrer ou pour répondre à vos questions!</p><p><a href=\"contact.html\">Contactez-nous dès maintenant!</a></p><p><br></p>",
+          "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">LEARN MORE</a>"
+        },
+        {
+          "_inherit": "menu",
+          "_styles": {
+            ".mbr-brand__name": {
+              "font-size": "16px"
+            },
+            "&.mbr-navbar--stuck .mbr-navbar__section": {
+              "background": "#28324e"
+            },
+            ".mbr-navbar__section": {
+              "background": "#28324e"
+            },
+            ".mbr-brand__name a": {
+              "font-size": "10px",
+              "font-family": "'Open Sans', sans-serif",
+              "googleLink": "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"
+            }
+          },
+          "_name": "ext.menu",
+          "_anchor": "ext_menu-6",
+          "_params": {
+            "color": "#28324e",
+            "transparent": false,
+            "sticky": true,
+            "collapsed": false,
+            "logo": true,
+            "showBrand": true,
+            "showButtons": false
+          },
+          "logo": "{PROJECT_IMAGES}logo177x80-149.png",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">Service Respect Qualité</a>",
+          "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
+          "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
+        },
+        {
+          "_name": "contacts1",
+          "_styles": {
+            "P": {
+              "color": "#ffffff"
+            }
+          },
+          "_anchor": "contacts1-10",
+          "_params": {
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#28324e",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": "0.1",
+            "overlayColor": "#28324e"
+          },
+          "logo": "{PROJECT_IMAGES}logo177x80-151.png",
+          "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
+          "text2": "<strong>CONTACTS</strong><br>\ninfo@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
+          "text3": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
+        }
+      ]
+    },
+    "histoire.html": {
+      "settings": {
+        "title": "NOTRE HISTOIRE",
+        "meta_descr": "Construction, Rénovation, Style, Qualité ",
+        "header_custom": "",
+        "footer_custom": ""
+      },
+      "components": [
+        {
+          "_name": "content1",
+          "_anchor": "content1-14",
+          "text": "<p></p>"
+        },
+        {
+          "_inherit": "msg-box5",
+          "_styles": {
+            ".mbr-header__text": {
+              "color": "#6e6767"
+            },
+            ".mbr-header__subtext": {
+              "color": "#ffffff"
+            },
+            ".mbr-article": {
+              "color": "#ffffff"
+            },
+            ".mbr-article P": {
+              "color": "#6e6767"
+            },
+            ".mbr-article BLOCKQUOTE": {
+              "color": "#000000"
+            }
+          },
+          "_name": "msg-box4",
+          "_params": {
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
+            "isVideo": false,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#ffffff",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "inverse": false,
+            "video": {
+              "url": "http://www.youtube.com/embed/sOSTC6FM6Bw",
+              "aspectratio": "16:9",
+              "autoplay": false,
+              "loop": false
+            },
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false
+          },
+          "_anchor": "msg-box4-15",
+          "image": "{PROJECT_IMAGES}sbp-2700-00252690x1793-168.jpg",
+          "headerAlign": "left",
+          "title": "NOTRE HISTOIRE",
+          "meta": "By John Smith posted July 30, 2015",
+          "text": "<p>Morphéus Rénovation est né de la passion de deux menuisiers pour le travail bien fait.</p><p>C’est en alliant leur expérience sur le terrain à l’écoute des besoins de leurs clients qu’ils ont forgé l’excellente réputation qui les précède aujourd’hui.&nbsp;</p><p>Au fil des ans, l’équipe s’est agrandie, mais la détermination de Morphéus Rénovation à vous offrir une expérience de rénovation sans précédent ne s’est jamais démentie.&nbsp;</p><p><br></p><blockquote>Comme le dieu romain à qui l’entreprise doit son nom, l’équipe de Morphéus Rénovation s’applique à réaliser vos rêves les plus fous!</blockquote><p><br></p><p><br></p>",
+          "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">LEARN MORE</a>"
+        },
+        {
+          "_inherit": "menu",
+          "_styles": {
+            ".mbr-brand__name": {
+              "font-size": "16px"
+            },
+            "&.mbr-navbar--stuck .mbr-navbar__section": {
+              "background": "#28324e"
+            },
+            ".mbr-navbar__section": {
+              "background": "#28324e"
+            },
+            ".mbr-brand__name a": {
+              "font-size": "10px",
+              "font-family": "'Open Sans', sans-serif",
+              "googleLink": "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"
+            }
+          },
+          "_name": "ext.menu",
+          "_anchor": "ext_menu-16",
+          "_params": {
+            "color": "#28324e",
+            "transparent": false,
+            "sticky": true,
+            "collapsed": false,
+            "logo": true,
+            "showBrand": true,
+            "showButtons": false
+          },
+          "logo": "{PROJECT_IMAGES}logo177x80-149.png",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">Service Respect Qualité</a>",
+          "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
+          "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
+        },
+        {
+          "_name": "contacts1",
+          "_styles": {
+            "P": {
+              "color": "#ffffff"
+            }
+          },
+          "_anchor": "contacts1-17",
+          "_params": {
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#28324e",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": "0.1",
+            "overlayColor": "#28324e"
+          },
+          "logo": "{PROJECT_IMAGES}logo177x80-187.png",
+          "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
+          "text2": "<strong>CONTACTS</strong><br>\ninfo@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
+          "text3": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
+        }
+      ]
+    },
+    "contact.html": {
+      "settings": {
+        "title": "CONTACTEZ-NOUS",
+        "meta_descr": "Construction, Rénovation, Style, Qualité ",
+        "header_custom": "",
+        "footer_custom": ""
+      },
+      "components": [
+        {
+          "_name": "form1",
+          "_styles": {
+            ".mbr-header__text": {
+              "color": "#ffffff"
+            }
+          },
+          "_anchor": "form1-17",
+          "_params": {
+            "formoidUserID": "",
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#7c706b",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
+            "showTitle": true,
+            "showName": true,
+            "showEmail": true,
+            "showPhone": true
+          },
+          "title": "<br>CONTACTEZ-NOUS",
+          "buttons": "<a data-app-btn=\"true\" type=\"submit\" class=\"mbr-buttons__btn btn btn-lg btn-primary\" data-toolbar=\"-mbrLink,-mbrBtnAdd,-mbrBtnMove\">CONTACTEZ-NOUS</a>"
+        },
+        {
+          "_name": "social-buttons2",
+          "_anchor": "social-buttons2-23",
+          "_params": {
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#f0f0f0",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222"
+          },
+          "text": "SUIVEZ-NOUS",
+          "icons": "<a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-twitter\" title=\"Twitter\" target=\"_blank\" href=\"https://twitter.com/mobirise\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-twitter\"></i></a> <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-facebook\" title=\"Facebook\" target=\"_blank\" href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-facebook\"></i></a>  <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-youtube\" title=\"YouTube\" target=\"_blank\" href=\"http://www.youtube.com/channel/UCt_tncVAetpK5JeM8L-8jyw\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-youtube\"></i></a> <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-instagram\" title=\"Instagram\" target=\"_blank\" href=\"https://instagram.com/mobirise/\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-instagram\"></i></a> <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-pinterest\" title=\"Pinterest\" target=\"_blank\" href=\"https://www.pinterest.com/mobirise/\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-pinterest\"></i></a>"
+        },
+        {
+          "_inherit": "menu",
+          "_styles": {
+            ".mbr-brand__name": {
+              "font-size": "16px"
+            },
+            "&.mbr-navbar--stuck .mbr-navbar__section": {
+              "background": "#28324e"
+            },
+            ".mbr-navbar__section": {
+              "background": "#28324e"
+            },
+            ".mbr-brand__name a": {
+              "font-size": "10px",
+              "font-family": "'Open Sans', sans-serif",
+              "googleLink": "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"
+            }
+          },
+          "_name": "ext.menu",
+          "_anchor": "ext_menu-20",
+          "_params": {
+            "color": "#28324e",
+            "transparent": false,
+            "sticky": true,
+            "collapsed": false,
+            "logo": true,
+            "showBrand": true,
+            "showButtons": false
+          },
+          "logo": "{PROJECT_IMAGES}logo177x80-149.png",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">Service Respect Qualité</a>",
+          "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
+          "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
+        },
+        {
+          "_name": "contacts1",
+          "_styles": {
+            "P": {
+              "color": "#ffffff"
+            }
+          },
+          "_anchor": "contacts1-21",
+          "_params": {
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#28324e",
+            "bgColorRadio": true,
+            "overlay": true,
+            "overlayOpacity": "0.1",
+            "overlayColor": "#28324e"
+          },
+          "logo": "{PROJECT_IMAGES}logo177x80-124.png",
+          "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
+          "text2": "<strong>CONTACTS</strong><br>\ninfo@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
+          "text3": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
+        }
+      ]
+    }
+  }
+}
