@@ -58,14 +58,14 @@ namespace ATMTECH.ShoppingCart.Commerce
                     btnAnglais.Visible = false;
                     btnFrancais.Visible = true;
                     txtRecherche.Attributes.Remove("PlaceHolder");
-                    txtRecherche.Attributes.Add("PlaceHolder", "Search...");
+                    txtRecherche.Attributes.Add("PlaceHolder", "Search a product...");
                 }
                 else
                 {
                     btnAnglais.Visible = true;
                     btnFrancais.Visible = false;
                     txtRecherche.Attributes.Remove("PlaceHolder");
-                    txtRecherche.Attributes.Add("PlaceHolder", "Rechercher...");
+                    txtRecherche.Attributes.Add("PlaceHolder", "Rechercher un produit...");
                 }
             }
         }

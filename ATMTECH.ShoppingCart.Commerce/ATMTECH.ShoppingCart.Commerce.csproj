@@ -62,7 +62,9 @@
     <Content Include="Error.aspx" />
     <Content Include="Images\WebSite\anvil.jpg" />
     <Content Include="Images\WebSite\ArrowDropDownList.png" />
+    <Content Include="Images\WebSite\ArrowRight.png" />
     <Content Include="Images\WebSite\bella.jpg" />
+    <Content Include="Images\WebSite\CalvinKleinFondNoir.jpg" />
     <Content Include="Images\WebSite\ckvh.jpg" />
     <Content Include="Images\WebSite\cozy.jpg" />
     <Content Include="Images\WebSite\EnSavoirPlus.png" />
@@ -84,8 +86,11 @@
     <Content Include="Images\WebSite\LogoYupoong.jpg" />
     <Content Include="Images\WebSite\mo.jpg" />
     <Content Include="Images\WebSite\NewBalance.jpg" />
+    <Content Include="Images\WebSite\NewBalanceFondNoir.jpeg" />
     <Content Include="Images\WebSite\Nike.jpg" />
+    <Content Include="Images\WebSite\NikeFondNoir.jpg" />
     <Content Include="Images\WebSite\Oakley.jpg" />
+    <Content Include="Images\WebSite\OakleyFondNoir.jpeg" />
     <Content Include="Images\WebSite\Service1.jpg" />
     <Content Include="Images\WebSite\services2.jpg" />
     <Content Include="Images\WebSite\services3.jpg" />
@@ -431,7 +436,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1779/</IISUrl>
+          <IISUrl>http://localhost:56907/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

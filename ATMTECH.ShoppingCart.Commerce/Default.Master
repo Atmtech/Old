@@ -38,6 +38,8 @@
             EnableScriptLocalization="true">
         </asp:ScriptManager>
 
+
+
         <div class="logo">
             <a href="Default.aspx">
                 <img src="Images/WebSite/logo.png" /></a>
@@ -47,18 +49,7 @@
             <div style="width: 1000px; margin: 0 auto; height: 30px;">
                 <div style="width: 100%; float: left;">
 
-                    <div class="itemMenuRecherche">
-                        <div style="padding-top: 5px;">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:ImageButton runat="server" ID="imgRecherche" ImageUrl="~/Images/WebSite/Rechercher.png" OnClick="imgRechercheClick" Height="16px" Width="16px" /></td>
-                                    <td>
-                                        <asp:TextBox ID="txtRecherche" runat="server" CssClass="textBoxRecherche"></asp:TextBox></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+
                     <div class="itemMenu">
                         <asp:Button runat="server" ID="btnAccueil" Text="Accueil" CssClass="boutonItemMenu" OnClick="btnAccueilClick" />
                     </div>
@@ -89,6 +80,18 @@
                             </div>
                         </asp:Panel>
                     </div>
+                    <div class="itemMenuRecherche">
+                        <div style="padding-top: 5px;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <asp:ImageButton runat="server" ID="imgRecherche" ImageUrl="~/Images/WebSite/Rechercher.png" OnClick="imgRechercheClick" Height="16px" Width="16px" /></td>
+                                    <td>
+                                        <asp:TextBox ID="txtRecherche" runat="server" CssClass="textBoxRecherche"></asp:TextBox></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                     <div style="clear: both;"></div>
                 </div>
             </div>
@@ -106,8 +109,8 @@
                 <strong>
                     <asp:Label runat="server" ID="lblSuccess"></asp:Label></strong>
             </asp:Panel>
-            <div style="color:greenyellow; font-weight: bold; font-size: 10px;">
-                <asp:DataList runat="server" ID="datalistFilArianne" RepeatDirection="Horizontal">
+            <div style="color: greenyellow; font-weight: bold; font-size: 10px;">
+                <asp:DataList runat="server" ID="datalistFilArianne" RepeatDirection="Horizontal" Visible="False">
                     <ItemTemplate>
                         <asp:HyperLink runat="server" ID="lnkFileArianne" Text='<%# Eval("Titre")  %>' NavigateUrl='<%# Eval("Page")  %>'></asp:HyperLink>
                         >
@@ -140,7 +143,7 @@
                     <asp:Button ID="btnRejoindreListeDiffusion" runat="server" Text="Rejoindre" CssClass="boutonAction" OnClick="btnRejoindreListeDiffusionClick" />
                 </div>
 
-                <div class="reseauSociaux">
+                <div class="reseauSociaux" style="display: none;">
                     <asp:Label runat="server" ID="lblSuivezNous" Text="Suivez nous ..."></asp:Label>
                     <br />
                     <br />
