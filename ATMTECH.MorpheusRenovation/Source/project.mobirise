@@ -30,7 +30,7 @@
               "background": "#28324e"
             },
             ".mbr-brand__name a": {
-              "font-size": "10px",
+              "font-size": "12px",
               "font-family": "'Open Sans', sans-serif",
               "googleLink": "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"
             }
@@ -46,8 +46,8 @@
             "showBrand": true,
             "showButtons": false
           },
-          "logo": "{PROJECT_IMAGES}logo177x80-149.png",
-          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">Service Respect Qualité</a>",
+          "logo": "{PROJECT_IMAGES}logo177x86-167.png",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 327342774477</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
         },
@@ -73,7 +73,7 @@
                 "title": "Slide 2",
                 "showText": false,
                 "text": "Mobirise is based on Bootstrap 3 - most powerful mobile first framework. Use any bootstrap themes with no extra work.",
-                "showButtons": true,
+                "showButtons": false,
                 "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\" data-toolbar=\"-mbrBtnMove\">CONTACTEZ NOUS !!!</a>"
               },
               {
@@ -286,7 +286,7 @@
             "overlay": false,
             "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "showImages": true,
+            "showImages": false,
             "showTitles": true,
             "showCaptions": true,
             "showButtons": false
@@ -385,7 +385,7 @@
             46.7651668,
             -71.35579259999997
           ],
-          "text1": "<b>ADRESSE</b>    <br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br><b>CONTACTS</b><br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
+          "text1": "<b>ADRESSE</b>    <br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br><b>CONTACTS</b><br>Matthieu Germain<br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
           "text2": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
         }
       ]
@@ -467,7 +467,7 @@
               "background": "#28324e"
             },
             ".mbr-brand__name a": {
-              "font-size": "10px",
+              "font-size": "12px",
               "font-family": "'Open Sans', sans-serif",
               "googleLink": "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"
             }
@@ -483,8 +483,8 @@
             "showBrand": true,
             "showButtons": false
           },
-          "logo": "{PROJECT_IMAGES}logo177x80-149.png",
-          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">Service Respect Qualité</a>",
+          "logo": "{PROJECT_IMAGES}logo177x86-167.png",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 327342774477</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
         },
@@ -506,9 +506,9 @@
             "overlayOpacity": "0.1",
             "overlayColor": "#28324e"
           },
-          "logo": "{PROJECT_IMAGES}logo177x80-151.png",
+          "logo": "{PROJECT_IMAGES}logo177x86-149.png",
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
-          "text2": "<strong>CONTACTS</strong><br>\ninfo@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
+          "text2": "<strong>CONTACTS</strong><br>Matthieu Germain<br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
           "text3": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
         }
       ]
@@ -522,9 +522,13 @@
       },
       "components": [
         {
-          "_name": "content1",
-          "_anchor": "content1-14",
-          "text": "<p></p>"
+          "_name": "header3",
+          "_anchor": "header3-19",
+          "title": "",
+          "_params": {
+            "showMeta": false
+          },
+          "meta": "By John Smith posted July 30, 2015"
         },
         {
           "_inherit": "msg-box5",
@@ -593,7 +597,7 @@
               "background": "#28324e"
             },
             ".mbr-brand__name a": {
-              "font-size": "10px",
+              "font-size": "12px",
               "font-family": "'Open Sans', sans-serif",
               "googleLink": "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"
             }
@@ -609,8 +613,8 @@
             "showBrand": true,
             "showButtons": false
           },
-          "logo": "{PROJECT_IMAGES}logo177x80-149.png",
-          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">Service Respect Qualité</a>",
+          "logo": "{PROJECT_IMAGES}logo177x86-167.png",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 327342774477</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
         },
@@ -632,9 +636,9 @@
             "overlayOpacity": "0.1",
             "overlayColor": "#28324e"
           },
-          "logo": "{PROJECT_IMAGES}logo177x80-187.png",
+          "logo": "{PROJECT_IMAGES}logo177x86-167.png",
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
-          "text2": "<strong>CONTACTS</strong><br>\ninfo@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
+          "text2": "<strong>CONTACTS</strong><br>Matthieu Germain<br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
           "text3": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
         }
       ]
@@ -674,22 +678,6 @@
           "buttons": "<a data-app-btn=\"true\" type=\"submit\" class=\"mbr-buttons__btn btn btn-lg btn-primary\" data-toolbar=\"-mbrLink,-mbrBtnAdd,-mbrBtnMove\">CONTACTEZ-NOUS</a>"
         },
         {
-          "_name": "social-buttons2",
-          "_anchor": "social-buttons2-23",
-          "_params": {
-            "bgImageRadio": false,
-            "parallax": true,
-            "bgImage": "images/bg3.jpg",
-            "bgColor": "#f0f0f0",
-            "bgColorRadio": true,
-            "overlay": false,
-            "overlayOpacity": 0.5,
-            "overlayColor": "#222"
-          },
-          "text": "SUIVEZ-NOUS",
-          "icons": "<a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-twitter\" title=\"Twitter\" target=\"_blank\" href=\"https://twitter.com/mobirise\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-twitter\"></i></a> <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-facebook\" title=\"Facebook\" target=\"_blank\" href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-facebook\"></i></a>  <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-youtube\" title=\"YouTube\" target=\"_blank\" href=\"http://www.youtube.com/channel/UCt_tncVAetpK5JeM8L-8jyw\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-youtube\"></i></a> <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-instagram\" title=\"Instagram\" target=\"_blank\" href=\"https://instagram.com/mobirise/\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-instagram\"></i></a> <a data-app-btn=\"true\" class=\"mbr-social-icons__icon socicon-bg-pinterest\" title=\"Pinterest\" target=\"_blank\" href=\"https://www.pinterest.com/mobirise/\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove,-mbrFonts,-mbrFontSize\"><i class=\"socicon socicon-pinterest\"></i></a>"
-        },
-        {
           "_inherit": "menu",
           "_styles": {
             ".mbr-brand__name": {
@@ -702,7 +690,7 @@
               "background": "#28324e"
             },
             ".mbr-brand__name a": {
-              "font-size": "10px",
+              "font-size": "12px",
               "font-family": "'Open Sans', sans-serif",
               "googleLink": "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"
             }
@@ -718,8 +706,8 @@
             "showBrand": true,
             "showButtons": false
           },
-          "logo": "{PROJECT_IMAGES}logo177x80-149.png",
-          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">Service Respect Qualité</a>",
+          "logo": "{PROJECT_IMAGES}logo177x86-167.png",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 327342774477</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
         },
@@ -741,9 +729,9 @@
             "overlayOpacity": "0.1",
             "overlayColor": "#28324e"
           },
-          "logo": "{PROJECT_IMAGES}logo177x80-124.png",
+          "logo": "{PROJECT_IMAGES}logo177x86-151.png",
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
-          "text2": "<strong>CONTACTS</strong><br>\ninfo@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
+          "text2": "<strong>CONTACTS</strong><br>Matthieu Germain<br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
           "text3": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
         }
       ]
