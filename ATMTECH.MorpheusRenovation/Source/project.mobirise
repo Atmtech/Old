@@ -47,7 +47,7 @@
             "showButtons": false
           },
           "logo": "{PROJECT_IMAGES}logo177x86-167.png",
-          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 327342774477<br>Entrepreneur Général</a>",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 5607-0386-01<br>Entrepreneur Général</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
         },
@@ -337,7 +337,7 @@
           "_name": "features1",
           "_styles": {
             "P": {
-              "text-align": "center",
+              "text-align": "left",
               "color": "#8e8e8e"
             }
           },
@@ -367,7 +367,7 @@
           "button1": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-default\">LEARN MORE</a>",
           "img2": "{PROJECT_IMAGES}votreprojet128x128-196.png",
           "title2": "VOTRE PROJET",
-          "caption2": "Clé en main<br>&nbsp;Cuisines <br>&nbsp;Salles de bain<br>&nbsp;Aménagement de sous-sols<br>&nbsp;Finition intérieure<br>&nbsp;Recouvrement de plancher<br>&nbsp;Agrandissements<br>&nbsp;Terrasses, gazebos<br>&nbsp;Revêtement extérieur<br>&nbsp;Garages<br>&nbsp;Armoires de cuisine<br>&nbsp;Menuiserie architecturale<br>&nbsp;Mobilier intégré sur mesure<br><br>",
+          "caption2": "Clé en main<br>Cuisines <br>Salles de bain<br>Aménagement de sous-sols<br>Finition intérieure<br>Recouvrement de plancher<br>Agrandissements<br>Terrasses, gazebos<br>Revêtement extérieur<br>Garages<br>Armoires de cuisine<br>Menuiserie architecturale<br>Mobilier intégré sur mesure<br><br>",
           "button2": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-default\" data-toolbar=\"-mbrBtnMove\">LEARN MORE</a>",
           "img3": "{PROJECT_IMAGES}logorenomaitre1261x1158-122.jpg",
           "title3": "DES CLIENTS SATISFAITS",
@@ -491,11 +491,19 @@
           },
           "_name": "msg-box4",
           "_params": {
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
             "isVideo": false,
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#ffffff",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
             "inverse": true,
             "video": {
               "url": "http://www.youtube.com/embed/sOSTC6FM6Bw",
@@ -503,21 +511,13 @@
               "autoplay": false,
               "loop": false
             },
-            "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
-            "parallax": true,
-            "bgColorRadio": true,
-            "bgColor": "#ffffff",
-            "bgVideoRadio": false,
-            "bgVideo": {
-              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
-            },
-            "overlay": false,
-            "overlayColor": "#222",
-            "overlayOpacity": 0.5
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false
           },
           "_anchor": "msg-box4-12",
-          "image": "{PROJECT_IMAGES}sbp-2700-00082617x1745-149.jpg",
+          "image": "{PROJECT_IMAGES}sbp-2700-00592672x1779-162.jpg",
           "headerAlign": "left",
           "title": "À PROPOS",
           "meta": "By John Smith posted July 30, 2015",
@@ -545,16 +545,16 @@
           "_name": "ext.menu",
           "_anchor": "ext_menu-6",
           "_params": {
-            "logo": true,
-            "showBrand": true,
-            "showButtons": false,
+            "color": "#28324e",
+            "transparent": false,
             "sticky": true,
             "collapsed": false,
-            "transparent": false,
-            "color": "#28324e"
+            "logo": true,
+            "showBrand": true,
+            "showButtons": false
           },
           "logo": "{PROJECT_IMAGES}logo177x86-167.png",
-          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 327342774477<br>Entrepreneur Général</a>",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 5607-0386-01<br>Entrepreneur Général</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
         },
@@ -568,13 +568,13 @@
           "_anchor": "contacts1-10",
           "_params": {
             "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
             "parallax": true,
-            "bgColorRadio": true,
+            "bgImage": "images/bg3.jpg",
             "bgColor": "#28324e",
+            "bgColorRadio": true,
             "overlay": true,
-            "overlayColor": "#28324e",
-            "overlayOpacity": "0.1"
+            "overlayOpacity": "0.1",
+            "overlayColor": "#28324e"
           },
           "logo": "{PROJECT_IMAGES}logo177x86-149.png",
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
@@ -621,11 +621,19 @@
           },
           "_name": "msg-box4",
           "_params": {
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
             "isVideo": false,
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#ffffff",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
             "inverse": false,
             "video": {
               "url": "http://www.youtube.com/embed/sOSTC6FM6Bw",
@@ -633,18 +641,10 @@
               "autoplay": false,
               "loop": false
             },
-            "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
-            "parallax": true,
-            "bgColorRadio": true,
-            "bgColor": "#ffffff",
-            "bgVideoRadio": false,
-            "bgVideo": {
-              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
-            },
-            "overlay": false,
-            "overlayColor": "#222",
-            "overlayOpacity": 0.5
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false
           },
           "_anchor": "msg-box4-15",
           "image": "{PROJECT_IMAGES}sbp-2700-00252690x1793-168.jpg",
@@ -675,16 +675,16 @@
           "_name": "ext.menu",
           "_anchor": "ext_menu-16",
           "_params": {
-            "logo": true,
-            "showBrand": true,
-            "showButtons": false,
+            "color": "#28324e",
+            "transparent": false,
             "sticky": true,
             "collapsed": false,
-            "transparent": false,
-            "color": "#28324e"
+            "logo": true,
+            "showBrand": true,
+            "showButtons": false
           },
           "logo": "{PROJECT_IMAGES}logo177x86-167.png",
-          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 327342774477<br>Entrepreneur Général</a>",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 5607-0386-01<br>Entrepreneur Général</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
         },
@@ -698,17 +698,17 @@
           "_anchor": "contacts1-17",
           "_params": {
             "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
             "parallax": true,
-            "bgColorRadio": true,
+            "bgImage": "images/bg3.jpg",
             "bgColor": "#28324e",
+            "bgColorRadio": true,
             "overlay": true,
-            "overlayColor": "#28324e",
-            "overlayOpacity": "0.1"
+            "overlayOpacity": "0.1",
+            "overlayColor": "#28324e"
           },
           "logo": "{PROJECT_IMAGES}logo177x86-167.png",
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
-          "text2": "<strong>CONTACTS</strong><br>Matthieu Germain<br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
+          "text2": "<strong>CONTACT</strong><br>Matthieu Germain<br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
           "text3": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
         }
       ]
@@ -731,18 +731,18 @@
           "_anchor": "form1-17",
           "_params": {
             "formoidUserID": "",
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#cccccc",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
             "showTitle": true,
             "showName": true,
             "showEmail": true,
-            "showPhone": true,
-            "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
-            "parallax": true,
-            "bgColorRadio": true,
-            "bgColor": "#7c706b",
-            "overlay": false,
-            "overlayColor": "#222",
-            "overlayOpacity": 0.5
+            "showPhone": true
           },
           "title": "<br>CONTACTEZ-NOUS",
           "buttons": "<a data-app-btn=\"true\" type=\"submit\" class=\"mbr-buttons__btn btn btn-lg btn-primary\" data-toolbar=\"-mbrLink,-mbrBtnAdd,-mbrBtnMove\">CONTACTEZ-NOUS</a>"
@@ -768,16 +768,16 @@
           "_name": "ext.menu",
           "_anchor": "ext_menu-20",
           "_params": {
-            "logo": true,
-            "showBrand": true,
-            "showButtons": false,
+            "color": "#28324e",
+            "transparent": false,
             "sticky": true,
             "collapsed": false,
-            "transparent": false,
-            "color": "#28324e"
+            "logo": true,
+            "showBrand": true,
+            "showButtons": false
           },
           "logo": "{PROJECT_IMAGES}logo177x86-167.png",
-          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 327342774477<br>Entrepreneur Général</a>",
+          "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 5607-0386-01<br>Entrepreneur Général</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
         },
@@ -791,13 +791,13 @@
           "_anchor": "contacts1-21",
           "_params": {
             "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
             "parallax": true,
-            "bgColorRadio": true,
+            "bgImage": "images/bg3.jpg",
             "bgColor": "#28324e",
+            "bgColorRadio": true,
             "overlay": true,
-            "overlayColor": "#28324e",
-            "overlayOpacity": "0.1"
+            "overlayOpacity": "0.1",
+            "overlayColor": "#28324e"
           },
           "logo": "{PROJECT_IMAGES}logo177x86-151.png",
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
