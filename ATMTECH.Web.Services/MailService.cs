@@ -92,5 +92,29 @@ namespace ATMTECH.Web.Services
             }
             return true;
         }
+
+
+        public void SendEmailWithFrameWork(string to, string from, string subject, string body)
+        {
+            MailAddress fromx = new MailAddress(from, "");
+            MailAddress tox = new MailAddress(to, "");
+            string subjectFormat = Pages.RemoveHtmlTag(subject).Replace("\r\n", "");
+            MailMessage message = new MailMessage(fromx, tox) { IsBodyHtml = true, Body = body, Subject = subjectFormat };
+            SmtpClient client = new SmtpClient("smtp.sendgrid.net",Convert.ToInt32("587")) { EnableSsl = true };
+
+            NetworkCredential myCreds = new NetworkCredential("sagaan@hotmail.com", "10crevette01", "");
+            client.Credentials = myCreds;
+
+            try
+            {
+                client.Send(message);
+            }
+            catch (System.Exception exception)
+            {
+            }
+
+
+        }
+
     }
 }
