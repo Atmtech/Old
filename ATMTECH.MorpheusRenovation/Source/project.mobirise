@@ -87,7 +87,7 @@
                 "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
               },
               {
-                "active": false,
+                "active": true,
                 "image": "{PROJECT_IMAGES}sbp-2700-00082617x1745-149.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
@@ -317,7 +317,7 @@
                 "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
               },
               {
-                "active": true,
+                "active": false,
                 "image": "{PROJECT_IMAGES}sbp-2700-00712667x1775-161.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
@@ -494,11 +494,19 @@
           },
           "_name": "msg-box4",
           "_params": {
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
             "isVideo": false,
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#ffffff",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
             "inverse": true,
             "video": {
               "url": "http://www.youtube.com/embed/sOSTC6FM6Bw",
@@ -506,18 +514,10 @@
               "autoplay": false,
               "loop": false
             },
-            "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
-            "parallax": true,
-            "bgColorRadio": true,
-            "bgColor": "#ffffff",
-            "bgVideoRadio": false,
-            "bgVideo": {
-              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
-            },
-            "overlay": false,
-            "overlayColor": "#222",
-            "overlayOpacity": 0.5
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false
           },
           "_anchor": "msg-box4-12",
           "image": "{PROJECT_IMAGES}sbp-2700-00592672x1779-162.jpg",
@@ -548,13 +548,13 @@
           "_name": "ext.menu",
           "_anchor": "ext_menu-6",
           "_params": {
-            "logo": true,
-            "showBrand": true,
-            "showButtons": false,
+            "color": "#28324e",
+            "transparent": false,
             "sticky": true,
             "collapsed": false,
-            "transparent": false,
-            "color": "#28324e"
+            "logo": true,
+            "showBrand": true,
+            "showButtons": false
           },
           "logo": "{PROJECT_IMAGES}logo177x86-167.png",
           "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 5607-0386-01<br>Entrepreneur Général</a>",
@@ -571,13 +571,13 @@
           "_anchor": "contacts1-10",
           "_params": {
             "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
             "parallax": true,
-            "bgColorRadio": true,
+            "bgImage": "images/bg3.jpg",
             "bgColor": "#28324e",
+            "bgColorRadio": true,
             "overlay": true,
-            "overlayColor": "#28324e",
-            "overlayOpacity": "0.1"
+            "overlayOpacity": "0.1",
+            "overlayColor": "#28324e"
           },
           "logo": "{PROJECT_IMAGES}logo177x86-149.png",
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
@@ -624,11 +624,19 @@
           },
           "_name": "msg-box4",
           "_params": {
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
+            },
             "isVideo": false,
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false,
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#ffffff",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
             "inverse": false,
             "video": {
               "url": "http://www.youtube.com/embed/sOSTC6FM6Bw",
@@ -636,18 +644,10 @@
               "autoplay": false,
               "loop": false
             },
-            "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
-            "parallax": true,
-            "bgColorRadio": true,
-            "bgColor": "#ffffff",
-            "bgVideoRadio": false,
-            "bgVideo": {
-              "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
-            },
-            "overlay": false,
-            "overlayColor": "#222",
-            "overlayOpacity": 0.5
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false
           },
           "_anchor": "msg-box4-15",
           "image": "{PROJECT_IMAGES}sbp-2700-00252690x1793-168.jpg",
@@ -678,13 +678,13 @@
           "_name": "ext.menu",
           "_anchor": "ext_menu-16",
           "_params": {
-            "logo": true,
-            "showBrand": true,
-            "showButtons": false,
+            "color": "#28324e",
+            "transparent": false,
             "sticky": true,
             "collapsed": false,
-            "transparent": false,
-            "color": "#28324e"
+            "logo": true,
+            "showBrand": true,
+            "showButtons": false
           },
           "logo": "{PROJECT_IMAGES}logo177x86-167.png",
           "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 5607-0386-01<br>Entrepreneur Général</a>",
@@ -701,13 +701,13 @@
           "_anchor": "contacts1-17",
           "_params": {
             "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
             "parallax": true,
-            "bgColorRadio": true,
+            "bgImage": "images/bg3.jpg",
             "bgColor": "#28324e",
+            "bgColorRadio": true,
             "overlay": true,
-            "overlayColor": "#28324e",
-            "overlayOpacity": "0.1"
+            "overlayOpacity": "0.1",
+            "overlayColor": "#28324e"
           },
           "logo": "{PROJECT_IMAGES}logo177x86-167.png",
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
@@ -734,18 +734,18 @@
           "_anchor": "form1-17",
           "_params": {
             "formoidUserID": "",
+            "bgImageRadio": false,
+            "parallax": true,
+            "bgImage": "images/bg3.jpg",
+            "bgColor": "#cccccc",
+            "bgColorRadio": true,
+            "overlay": false,
+            "overlayOpacity": 0.5,
+            "overlayColor": "#222",
             "showTitle": true,
             "showName": true,
             "showEmail": true,
-            "showPhone": true,
-            "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
-            "parallax": true,
-            "bgColorRadio": true,
-            "bgColor": "#cccccc",
-            "overlay": false,
-            "overlayColor": "#222",
-            "overlayOpacity": 0.5
+            "showPhone": true
           },
           "title": "<br>CONTACTEZ-NOUS",
           "buttons": "<a data-app-btn=\"true\" type=\"submit\" class=\"mbr-buttons__btn btn btn-lg btn-primary\" data-toolbar=\"-mbrLink,-mbrBtnAdd,-mbrBtnMove\">CONTACTEZ-NOUS</a>"
@@ -771,13 +771,13 @@
           "_name": "ext.menu",
           "_anchor": "ext_menu-20",
           "_params": {
-            "logo": true,
-            "showBrand": true,
-            "showButtons": false,
+            "color": "#28324e",
+            "transparent": false,
             "sticky": true,
             "collapsed": false,
-            "transparent": false,
-            "color": "#28324e"
+            "logo": true,
+            "showBrand": true,
+            "showButtons": false
           },
           "logo": "{PROJECT_IMAGES}logo177x86-167.png",
           "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 5607-0386-01<br>Entrepreneur Général</a>",
@@ -794,13 +794,13 @@
           "_anchor": "contacts1-21",
           "_params": {
             "bgImageRadio": false,
-            "bgImage": "images/bg3.jpg",
             "parallax": true,
-            "bgColorRadio": true,
+            "bgImage": "images/bg3.jpg",
             "bgColor": "#28324e",
+            "bgColorRadio": true,
             "overlay": true,
-            "overlayColor": "#28324e",
-            "overlayOpacity": "0.1"
+            "overlayOpacity": "0.1",
+            "overlayColor": "#28324e"
           },
           "logo": "{PROJECT_IMAGES}logo177x86-151.png",
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
