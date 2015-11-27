@@ -6,6 +6,7 @@ using ATMTECH.Administration.Services.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
 using ATMTECH.Web.Services.Base;
+using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.Administration.Services
 {
@@ -13,7 +14,7 @@ namespace ATMTECH.Administration.Services
     {
         public IProductService ProductService { get; set; }
         public IStockService StockService { get; set; }
-
+        public IParameterService ParameterService { get; set; }
 
         public IList<string> DisplayColor(Enterprise enterprise, string fileXml)
         {
@@ -79,7 +80,7 @@ namespace ATMTECH.Administration.Services
                                                                 Brand = node.SelectSingleNode("Brand").InnerText,
                                                                 Size = node.SelectSingleNode("Size").InnerText,
                                                                 ColorId = node.SelectSingleNode("ColorId").InnerText,
-                                                                Price = Convert.ToDecimal(node.SelectSingleNode("Price").InnerText.Replace(".", ",")),
+                                                                Price = ParameterService.GetValue("Environment") != "PROD" ? Convert.ToDecimal(node.SelectSingleNode("Price").InnerText.Replace(".", ",")) : Convert.ToDecimal(node.SelectSingleNode("Price").InnerText),
                                                                 Color_EN = node.SelectSingleNode("Color_EN").InnerText,
                                                                 Color_FR = node.SelectSingleNode("Color_FR").InnerText,
                                                                 Title_EN = node.SelectSingleNode("Title_EN").InnerText,
