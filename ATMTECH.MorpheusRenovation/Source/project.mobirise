@@ -4,7 +4,7 @@
     "versionFirst": "2.3",
     "versionPublish": "2.4.1",
     "name": "Morpheus",
-    "path": "file:///C:/dev/Atmtech/ATMTECH.MorpheusRenovation/Source",
+    "path": "file:///Users/vincentrioux/Developpement/ATMTECH.MorpheusRenovation/Source",
     "screenshot": "screenshot.png"
   },
   "pages": {
@@ -57,7 +57,7 @@
             "autoplay": true,
             "slides": [
               {
-                "active": true,
+                "active": false,
                 "image": "{PROJECT_IMAGES}sbp-2700-00022733x1821-175.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
@@ -87,7 +87,7 @@
                 "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"http://mobirise.com\">FOR WINDOWS</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">FOR MAC</a>"
               },
               {
-                "active": false,
+                "active": true,
                 "image": "{PROJECT_IMAGES}sbp-2700-00082617x1745-149.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
@@ -435,14 +435,15 @@
           "header": "TÉMOIGNAGES"
         },
         {
-          "_name": "contacts1",
+          "_name": "contacts2",
           "_styles": {
             "P": {
               "color": "#ffffff"
             }
           },
-          "_anchor": "contacts1-16",
+          "_anchor": "contacts2-18",
           "_params": {
+            "address": "1056, Étienne-Dumetz\nCap-Rouge, QC, G1Y 1C2",
             "bgImageRadio": false,
             "parallax": true,
             "bgImage": "images/bg3.jpg",
@@ -450,12 +451,15 @@
             "bgColorRadio": true,
             "overlay": true,
             "overlayOpacity": 0.8,
-            "overlayColor": "#3C3C3C"
+            "overlayColor": "#3C3C3C",
+            "info": ""
           },
-          "logo": "{PROJECT_IMAGES}logo177x86-149.png",
-          "text1": "<b>ADRESSE</b> <br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br><br>",
-          "text2": "<b>CONTACT</b><br>Matthieu Germain<br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
-          "text3": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
+          "coord": [
+            46.7651668,
+            -71.35579259999997
+          ],
+          "text1": "<b>ADRESSE</b>    <br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br><b>CONTACTS</b><br>Matthieu Germain<br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
+          "text2": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
         }
       ]
     },
@@ -646,7 +650,7 @@
             "showButtons": false
           },
           "_anchor": "msg-box4-15",
-          "image": "{PROJECT_IMAGES}histoire500x333-167.jpg",
+          "image": "{PROJECT_IMAGES}sbp-2700-00252690x1793-168.jpg",
           "headerAlign": "left",
           "title": "NOTRE HISTOIRE",
           "meta": "By John Smith posted July 30, 2015",
@@ -729,7 +733,7 @@
           },
           "_anchor": "form1-17",
           "_params": {
-            "formoidUserID": "info@morpheusrenovation.com",
+            "formoidUserID": "",
             "bgImageRadio": false,
             "parallax": true,
             "bgImage": "images/bg3.jpg",

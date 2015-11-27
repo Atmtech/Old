@@ -14,13 +14,10 @@
   font-family: 'Open Sans', sans-serif;
 }
 #features1-5 P {
-  text-align: left;
-  color: #cccccc;
+  text-align: center;
+  color: #8e8e8e;
 }
-#features1-5 H3 {
-  color: #ffffff;
-}
-#contacts1-16 P {
+#contacts2-18 P {
   color: #ffffff;
 }
 
