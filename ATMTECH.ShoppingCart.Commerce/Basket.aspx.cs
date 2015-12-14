@@ -100,7 +100,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         {
             if (commande.Coupon != null)
             {
-                lblGrandTotalApresCoupon.Text = commande.GrandTotalWithCoupon.ToString("c");
+                lblGrandTotalApresCoupon.Text = commande.GrandTotal.ToString("c");
 
                 if (commande.Coupon.IsShippingSave)
                 {

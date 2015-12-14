@@ -167,8 +167,9 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             commande = CalculerSousTotaux(commande);
             commande = CalculerEnvoiPostal(commande);
             commande = CalculerTaxe(commande);
-            commande = CalculerCoupon(commande);
-            commande.GrandTotal = commande.SubTotal + commande.CountryTax + commande.RegionalTax + commande.ShippingTotal;
+
+
+            commande.GrandTotal =  commande.SubTotal + commande.CountryTax + commande.RegionalTax + commande.ShippingTotal;
 
             return commande;
         }
@@ -208,6 +209,12 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             {
                 commande.ShippingTotal = 0;
             }
+
+            if (commande.Coupon != null && commande.Coupon.IsShippingSave)
+            {
+                commande.ShippingTotal = 0;
+            }
+
             return commande;
         }
         public Order AjouterLigneCommande(int idInventaire, int quantite)
@@ -239,7 +246,8 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             {
                 string nomProduit = HttpUtility.HtmlDecode(commande.OrderLines.Aggregate(string.Empty, (current, line) => current + (line.ProductDescription + " (" + line.Quantity + ") , ")));
                 string descriptionCommande = string.Format("Date: {0}, {1}", commande.DateModified, commande.Enterprise.Name);
-                double prix = commande.Coupon != null ? (double)commande.GrandTotalWithCoupon : (double)commande.GrandTotal;
+//                double prix = commande.Coupon != null ? (double)commande.GrandTotalWithCoupon : (double)commande.GrandTotal;
+                double prix = (double)commande.GrandTotal;
 
                 PaypalDto paypalDto = new PaypalDto
                 {
@@ -339,24 +347,16 @@ namespace ATMTECH.ShoppingCart.Services.Francais
                             commande.SubTotal += orderLine.SubTotal;
                         }
                     }
+
+                    if (commande.Coupon != null)
+                    {
+                        commande.SubTotal = commande.SubTotal - (commande.SubTotal*commande.Coupon.PercentageSave/100);
+                    }
                 }
             }
             return commande;
         }
-        private Order CalculerCoupon(Order commande)
-        {
-            if (commande.Coupon != null && !commande.Coupon.IsShippingSave)
-            {
-                commande.GrandTotalWithCoupon = commande.SubTotal - (commande.SubTotal * commande.Coupon.PercentageSave / 100) + commande.CountryTax + commande.RegionalTax + commande.ShippingTotal;
-            }
-
-            if (commande.Coupon != null && commande.Coupon.IsShippingSave)
-            {
-                commande.GrandTotalWithCoupon = commande.SubTotal + commande.CountryTax + commande.RegionalTax;
-            }
-
-            return commande;
-        }
+    
 
     }
 }

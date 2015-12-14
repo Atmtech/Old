@@ -89,7 +89,7 @@
 
 
         <div style="padding-top: 20px;">
-            <asp:Button runat="server" ID="btnCreerLogin" Text="Créer" CssClass="boutonActionRondFinaliser" Width="200px" OnClick="btnCreerLoginClick"></asp:Button>
+            <asp:Button runat="server" ID="btnCreerLogin" Text="Créer" CssClass="boutonActionRondFinaliser" Width="200px" OnClick="btnCreerLoginClick" ValidationGroup="validation"></asp:Button>
         </div>
 
 

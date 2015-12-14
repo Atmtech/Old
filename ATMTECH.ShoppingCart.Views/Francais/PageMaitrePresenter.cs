@@ -85,20 +85,20 @@ namespace ATMTECH.ShoppingCart.Views.Francais
             string nombreItem = commande.OrderLines == null ? "0" : commande.OrderLines.Count.ToString();
             string grandTotal = commande.GrandTotal.ToString("C");
 
-            string affichagePanier;
-            if (commande.Coupon != null)
-            {
-                string grandTotalAvecCoupon = commande.GrandTotalWithCoupon.ToString("C");
-                affichagePanier = string.Format("{0} - {1} item(s)", grandTotalAvecCoupon, nombreItem);
-            }
-            else
-            {
-                affichagePanier = string.Format("{0} - {1} item(s)", grandTotal, nombreItem);
-            }
+            //string affichagePanier;
+            //if (commande.Coupon != null)
+            //{
+            //    string grandTotalAvecCoupon = commande.GrandTotalWithCoupon.ToString("C");
+            //    affichagePanier = string.Format("{0} - {1} item(s)", grandTotalAvecCoupon, nombreItem);
+            //}
+            //else
+            //{
+            //    affichagePanier = string.Format("{0} - {1} item(s)", grandTotal, nombreItem);
+            //}
 
 
 
-            View.AffichagePanier = affichagePanier;
+            View.AffichagePanier = string.Format("{0} - {1} item(s)", grandTotal, nombreItem);
         }
         public void FermerSession()
         {

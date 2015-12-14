@@ -15,6 +15,7 @@ namespace ATMTECH.ShoppingCart.Commerce.UserControls
             {
                 lblCodePostal.Visible = value;
                 txtCodePostal.Visible = value;
+                lblObligatoire.Visible = value;
             }
         }
 
