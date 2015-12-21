@@ -42,11 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseAdministrationPresenter.cs" />
+    <Compile Include="Francais\PaypalPresenter.cs" />
     <Compile Include="Francais\AccueilPresenter.cs" />
     <Compile Include="Francais\ActionPresenter.cs" />
     <Compile Include="Francais\EditionPresenter.cs" />
     <Compile Include="Francais\RapportPresenter.cs" />
     <Compile Include="Francais\PageMaitrePresenter.cs" />
+    <Compile Include="Interface\Francais\IPaypalPresenter.cs" />
     <Compile Include="Interface\Francais\IActionPresenter.cs" />
     <Compile Include="Interface\Francais\IEditionPresenter.cs" />
     <Compile Include="Interface\Francais\IRapportPresenter.cs" />

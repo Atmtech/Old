@@ -165,5 +165,10 @@
           Fichier: <asp:FileUpload ID="FileUpload1" runat="server" /> *.XLS<br/><br/>
         <asp:Button ID="btnImporterExcel" runat="server" Text="Importer le fichier excel" CssClass="bouton" OnClick="btnImporterExcelClick" />
     </asp:Panel>
-
+    
+    
+    <asp:panel runat="server" ID="pnlPayerPaypal" Visible="False">
+        Tester pour payer un produit à 1¢
+        <asp:button ID="btnPayerPaypal" runat="server" Text="Payer par paypal" CssClass="bouton" OnClick="btnPayerPaypalClick"/>
+    </asp:panel>
 </asp:Content>

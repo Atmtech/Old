@@ -121,6 +121,9 @@ namespace ATMTECH.Administration.Commerce
                 case "ImporterExcel":
                     pnlImporterExcel.Visible = true;
                     break;
+                case "Paypal":
+                    pnlPayerPaypal.Visible = true;
+                    break;
             }
         }
         protected void btnRestaurerCopieSauvegardeClick(object sender, EventArgs e)
@@ -194,6 +197,8 @@ namespace ATMTECH.Administration.Commerce
             pnlEnvoiCourriel.Visible = false;
             pnlEnvoyerCommandeParCourriel.Visible = false;
             pnlImporterExcel.Visible = false;
+            pnlPayerPaypal.Visible = false;
+            
         }
 
 
@@ -217,6 +222,11 @@ namespace ATMTECH.Administration.Commerce
             {
                 string m = ex.Message;
             }
+        }
+
+        protected void btnPayerPaypalClick(object sender, EventArgs e)
+        {
+            Presenter.PayerPaypal();
         }
     }
 }

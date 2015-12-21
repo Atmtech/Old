@@ -11,7 +11,10 @@ using ATMTECH.Entities;
 using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
+using ATMTECH.Web.Services;
+using ATMTECH.Web.Services.Interface;
 using File = System.IO.File;
 
 namespace ATMTECH.Administration.Views.Francais
@@ -25,6 +28,7 @@ namespace ATMTECH.Administration.Views.Francais
         public IClientService ClientService { get; set; }
         public ICourrielService CourrielService { get; set; }
         public IProduitService ProduitService { get; set; }
+        public IPaypalService PaypalService { get; set; }
 
         public ActionPresenter(IActionPresenter view)
             : base(view)
@@ -226,6 +230,25 @@ namespace ATMTECH.Administration.Views.Francais
 
             InventaireService.Enregistrer(stock);
 
+        }
+
+        public void PayerPaypal()
+        {
+
+            PaypalDto paypalDto = new PaypalDto
+            {
+                OrderDescription = "Test de commande",
+                Price = 0.01,
+                Quantity = 1,
+                OrderId = "TEST",
+                ProductName = "TEST"
+            };
+
+            PaypalService.SendPaypalRequest(paypalDto);
+
+
+            Order order = CommandeService.ObtenirCommande(23);
+            CommandeService.FinaliserCommandeAvecPaypal(order);
         }
     }
 }

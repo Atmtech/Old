@@ -126,6 +126,8 @@
                                     <li><a href="Action.aspx?action=AppliquerPourcentage">Appliquer un pourcentage sur les produits</a></li>
                                     <li><a href="Action.aspx?action=EnvoiCommandeCourriel">Envoyer une copie de facture à un courriel</a></li>
                                     <li><a href="Action.aspx?action=ImporterExcel">Importer un fichier excel</a></li>
+                                    <li><a href="Action.aspx?action=Paypal">Tester si paypal fonctionne</a></li>
+
                                     <li>
                                         <asp:Button runat="server" Text="Faire une copie de sauvegarde" ID="btnCopierSauvegarde" OnClick="btnCopierSauvegardeClick" CssClass="boutonMenu"></asp:Button></li>
                                 </ul>

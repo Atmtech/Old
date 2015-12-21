@@ -66,6 +66,7 @@
     <Content Include="Default.Master" />
     <Content Include="Errors\SessionTimeout.htm" />
     <Content Include="ExecuteSql.aspx" />
+    <Content Include="ExpressCheckoutPaypal.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\ajouter.png" />
     <Content Include="Images\arrow.png" />
@@ -177,6 +178,13 @@
     </Compile>
     <Compile Include="ExecuteSql.aspx.designer.cs">
       <DependentUpon>ExecuteSql.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExpressCheckoutPaypal.aspx.cs">
+      <DependentUpon>ExpressCheckoutPaypal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExpressCheckoutPaypal.aspx.designer.cs">
+      <DependentUpon>ExpressCheckoutPaypal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
