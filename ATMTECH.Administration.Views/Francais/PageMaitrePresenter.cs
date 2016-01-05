@@ -93,7 +93,7 @@ namespace ATMTECH.Administration.Views.Francais
             ImportXmlService.ImportProductAndStockXml(new Enterprise { Id = 1 }, Server.MapPath("Data") + @"\Catalogue.xml");
             EffacerJournalTransaction();
         }
-        public void SynchronizerImage()
+        public void SynchroniserImage()
         {
             string directory = @"C:\dev\Atmtech\ATMTECH.ShoppingCart.Commerce\Images";
             string[] files = Directory.GetFiles(directory + @"\product");
@@ -135,7 +135,7 @@ namespace ATMTECH.Administration.Views.Francais
                 }
             }
         }
-        public void SynchronizeProductFile()
+        public void SynchroniseProductFile()
         {
             IList<File> filesDatabase = FileService.GetAllFile();
             IList<ProductFile> productFiles = ProduitService.ObtenirFichierProduit();

@@ -4,7 +4,7 @@
     "versionFirst": "2.3",
     "versionPublish": "2.4.1",
     "name": "Morpheus",
-    "path": "file:///Users/vincentrioux/Developpement/ATMTECH.MorpheusRenovation/Source",
+    "path": "file:///C:/dev/Atmtech/ATMTECH.MorpheusRenovation/Source",
     "screenshot": "screenshot.png"
   },
   "pages": {
@@ -46,19 +46,27 @@
             "showBrand": true,
             "showButtons": false
           },
-          "logo": "{PROJECT_IMAGES}logo177x86-167.png",
+          "logo": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/logo177x86-167.png",
+              "class": "mbr-navbar__brand-img mbr-brand__img",
+              "height": 128,
+              "active": true
+            }
+          },
           "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 5607-0386-01<br>Entrepreneur Général</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
         },
         {
           "_name": "slider",
+          "_afterNavbarItem": ".mbr-section > .mbr-box__magnet",
           "_params": {
             "autoplay": true,
             "slides": [
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00022733x1821-175.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00022733x1821-175.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -68,7 +76,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00062679x1785-104.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00062679x1785-104.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -78,7 +86,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00072641x1759-105.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00072641x1759-105.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -88,7 +96,7 @@
               },
               {
                 "active": true,
-                "image": "{PROJECT_IMAGES}sbp-2700-00082617x1745-149.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00082617x1745-149.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -98,7 +106,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00092706x1801-175.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00092706x1801-175.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -108,7 +116,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00102712x1809-199.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00102712x1809-199.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -118,7 +126,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00122704x1801-141.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00122704x1801-141.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -128,7 +136,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00142669x1779-165.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00142669x1779-165.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -138,7 +146,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00192694x1795-131.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00192694x1795-131.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -148,7 +156,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00232719x1811-141.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00232719x1811-141.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -158,7 +166,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00241776x2668-119.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00241776x2668-119.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -168,7 +176,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00252690x1793-115.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00252690x1793-115.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -178,7 +186,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00291823x2735-111.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00291823x2735-111.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -188,7 +196,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00312708x1805-178.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00312708x1805-178.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -198,7 +206,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00332719x1811-169.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00332719x1811-169.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -208,7 +216,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00342720x1813-137.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00342720x1813-137.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -218,7 +226,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00362681x1785-123.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00362681x1785-123.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -228,7 +236,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00442734x1821-129.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00442734x1821-129.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -238,7 +246,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00462675x1779-163.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00462675x1779-163.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -248,7 +256,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00532733x1822-175.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00532733x1822-175.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -258,7 +266,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00552723x1814-104.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00552723x1814-104.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -268,7 +276,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00582691x1797-105.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00582691x1797-105.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -278,7 +286,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00592672x1779-149.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00592672x1779-149.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -288,7 +296,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00652663x1776-175.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00652663x1776-175.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -298,7 +306,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00692708x1803-199.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00692708x1803-199.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -308,7 +316,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00702689x1794-127.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00702689x1794-127.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -318,7 +326,7 @@
               },
               {
                 "active": false,
-                "image": "{PROJECT_IMAGES}sbp-2700-00712667x1775-161.jpg",
+                "image": "@PROJECT_PATH@/assets/images/sbp-2700-00712667x1775-161.jpg",
                 "showTitle": false,
                 "title": "Slide 3",
                 "showText": false,
@@ -346,7 +354,6 @@
           },
           "_anchor": "features1-5",
           "_params": {
-            "columns": "4",
             "bgImageRadio": false,
             "parallax": true,
             "bgImage": "images/bg3.jpg",
@@ -359,27 +366,107 @@
             "overlay": false,
             "overlayOpacity": 0.5,
             "overlayColor": "#222",
+            "showHeader": false,
+            "showSubheader": false,
+            "columns": "4",
             "showImages": false,
             "showTitles": true,
             "showCaptions": true,
             "showButtons": false
           },
-          "img1": "{PROJECT_IMAGES}engagement128x128-165.png",
+          "headerAlign": "left",
+          "header": "DROP-DEAD EASY WEBSITE MAKER",
+          "subheader": "By John Smith posted July 30, 2015",
+          "media1": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/engagement128x128-165.png",
+              "width": 600,
+              "class": "mbr-figure__img",
+              "active": true
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            }
+          },
           "title1": "NOTRE ENGAGEMENT",
           "caption1": "Nos <b>clients</b> sont nos <b>meilleurs</b> ambassadeurs. &nbsp;C’est pourquoi nous garantissons votre <b>satisfaction</b>. <br><br>Amélioration de votre qualité de vie, augmentation de la valeur de votre maison; avec Morphéus Rénovation, vous êtes assuré d’obtenir un excellent retour sur votre investissement.&nbsp;<br><br>",
-          "button1": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-default\">LEARN MORE</a>",
-          "img2": "{PROJECT_IMAGES}votreprojet128x128-196.png",
+          "button1": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"mbr-buttons__btn btn-wrap btn-xs-lg btn btn-default\">LEARN MORE</a>",
+          "media2": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/votreprojet128x128-196.png",
+              "width": 600,
+              "class": "mbr-figure__img",
+              "active": true
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            }
+          },
           "title2": "VOTRE PROJET",
           "caption2": "Clé en main<br>Cuisines <br>Salles de bain<br>Aménagement de sous-sols<br>Finition intérieure<br>Recouvrement de plancher<br>Agrandissements<br>Terrasses, gazebos<br>Revêtement extérieur<br>Garages<br>Armoires de cuisine<br>Menuiserie architecturale<br>Mobilier intégré sur mesure<br><br>",
-          "button2": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-default\" data-toolbar=\"-mbrBtnMove\">LEARN MORE</a>",
-          "img3": "{PROJECT_IMAGES}logorenomaitre1261x1158-122.jpg",
+          "button2": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"mbr-buttons__btn btn-wrap btn-xs-lg btn btn-default\" data-toolbar=\"-mbrBtnMove\">LEARN MORE</a>",
+          "media3": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/logorenomaitre1261x1158-122.jpg",
+              "width": 600,
+              "class": "mbr-figure__img",
+              "active": true
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            }
+          },
           "title3": "DES CLIENTS SATISFAITS",
           "caption3": "<b><a href=\"http://www.morpheusrenovation.com/RenoMaitre.pdf\" target=\"_blank\">Évaluation Réno-Maître</a></b><br><br><br>",
-          "button3": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-default\">LEARN MORE</a>",
-          "img4": "{PROJECT_IMAGES}gestionprojet128x128-149.png",
+          "button3": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"mbr-buttons__btn btn-wrap btn-xs-lg btn btn-default\">LEARN MORE</a>",
+          "media4": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/gestionprojet128x128-149.png",
+              "width": 600,
+              "class": "mbr-figure__img",
+              "active": true
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            }
+          },
           "title4": "GESTION DE PROJET",
           "caption4": "<b>Résidentiel<br>Commercial</b>",
-          "button4": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"btn btn-default\">LEARN MORE</a>"
+          "button4": "<a data-app-btn=\"true\" href=\"http://mobirise.com\" class=\"mbr-buttons__btn btn-wrap btn-xs-lg btn btn-default\">LEARN MORE</a>",
+          "media5": {
+            "image": {
+              "active": true,
+              "src": "images/blocks.png",
+              "class": "mbr-figure__img",
+              "width": 600
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            }
+          },
+          "title5": "TRENDY WEBSITE BLOCKS",
+          "caption5": "Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.",
+          "button5": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\">LEARN MORE</a>",
+          "media6": {
+            "image": {
+              "active": true,
+              "src": "images/host.png",
+              "class": "mbr-figure__img",
+              "width": 600
+            },
+            "video": {
+              "class": "mbr-figure__img",
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw"
+            }
+          },
+          "title6": "HOST ANYWHERE",
+          "caption6": "Publish your website to a local drive, FTP or host on Amazon S3, Google Drive, Github. Don't limit yourself to just one platform or service provider.",
+          "button6": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\">LEARN MORE</a>"
         },
         {
           "items": [
@@ -494,38 +581,44 @@
           },
           "_name": "msg-box4",
           "_params": {
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false,
+            "inverse": true,
+            "bgImageRadio": false,
+            "bgImage": "images/bg3.jpg",
+            "parallax": true,
+            "bgColorRadio": true,
+            "bgColor": "#ffffff",
             "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "isVideo": false,
-            "bgImageRadio": false,
-            "parallax": true,
-            "bgImage": "images/bg3.jpg",
-            "bgColor": "#ffffff",
-            "bgColorRadio": true,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "inverse": true,
-            "video": {
-              "url": "http://www.youtube.com/embed/sOSTC6FM6Bw",
-              "aspectratio": "16:9",
-              "autoplay": false,
-              "loop": false
-            },
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "_anchor": "msg-box4-12",
-          "image": "{PROJECT_IMAGES}sbp-2700-00592672x1779-162.jpg",
           "headerAlign": "left",
           "title": "À PROPOS",
           "meta": "By John Smith posted July 30, 2015",
           "text": "<p>Morphéus Rénovation est reconnu pour la qualité de son service à la clientèle et des travaux réalisés par son équipe de professionnels expérimentés, efficaces et minutieux.&nbsp;</p><p>Au fil des ans, nous avons bâti un réseau de fournisseurs fiables et de sous-traitants expérimentés en qui nous avons entièrement confiance.&nbsp;</p><p>Ensemble, nous parvenons à nous distinguer et à réaliser les rêves de nos clients!&nbsp;</p><p>Nous sommes là pour planifier et pour vous conseiller à chacune des étapes menant à la réalisation de votre projet.&nbsp;</p><p>Nous sommes disponibles pour vous rencontrer ou pour répondre à vos questions!</p><p><a href=\"contact.html\">Contactez-nous dès maintenant!</a></p><p><br></p>",
-          "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">LEARN MORE</a>"
+          "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">LEARN MORE</a>",
+          "media": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/sbp-2700-00592672x1779-162.jpg",
+              "class": "mbr-figure__img",
+              "height": 128
+            },
+            "video": {
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw",
+              "class": "mbr-figure__img",
+              "aspectratio": "16:9",
+              "autoplay": false,
+              "loop": false
+            }
+          }
         },
         {
           "_inherit": "menu",
@@ -548,15 +641,21 @@
           "_name": "ext.menu",
           "_anchor": "ext_menu-6",
           "_params": {
-            "color": "#28324e",
-            "transparent": false,
-            "sticky": true,
-            "collapsed": false,
             "logo": true,
             "showBrand": true,
-            "showButtons": false
+            "showButtons": false,
+            "sticky": true,
+            "collapsed": false,
+            "transparent": false,
+            "color": "#28324e"
           },
-          "logo": "{PROJECT_IMAGES}logo177x86-167.png",
+          "logo": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/logo177x86-167.png",
+              "class": "mbr-navbar__brand-img mbr-brand__img",
+              "height": 128
+            }
+          },
           "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 5607-0386-01<br>Entrepreneur Général</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
@@ -571,15 +670,21 @@
           "_anchor": "contacts1-10",
           "_params": {
             "bgImageRadio": false,
-            "parallax": true,
             "bgImage": "images/bg3.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": true,
+            "bgColor": "#28324e",
             "overlay": true,
-            "overlayOpacity": "0.1",
-            "overlayColor": "#28324e"
+            "overlayColor": "#28324e",
+            "overlayOpacity": "0.1"
           },
-          "logo": "{PROJECT_IMAGES}logo177x86-149.png",
+          "logo": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/logo177x86-149.png",
+              "class": "mbr-contacts__img mbr-contacts__img--left",
+              "height": 128
+            }
+          },
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
           "text2": "<strong>CONTACTS</strong><br>Matthieu Germain<br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
           "text3": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
@@ -624,38 +729,44 @@
           },
           "_name": "msg-box4",
           "_params": {
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false,
+            "inverse": false,
+            "bgImageRadio": false,
+            "bgImage": "images/bg3.jpg",
+            "parallax": true,
+            "bgColorRadio": true,
+            "bgColor": "#ffffff",
             "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "isVideo": false,
-            "bgImageRadio": false,
-            "parallax": true,
-            "bgImage": "images/bg3.jpg",
-            "bgColor": "#ffffff",
-            "bgColorRadio": true,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "inverse": false,
-            "video": {
-              "url": "http://www.youtube.com/embed/sOSTC6FM6Bw",
-              "aspectratio": "16:9",
-              "autoplay": false,
-              "loop": false
-            },
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "_anchor": "msg-box4-15",
-          "image": "{PROJECT_IMAGES}sbp-2700-00252690x1793-168.jpg",
           "headerAlign": "left",
           "title": "NOTRE HISTOIRE",
           "meta": "By John Smith posted July 30, 2015",
           "text": "<p>Morphéus Rénovation est né de la passion de deux menuisiers pour le travail bien fait.</p><p>C’est en alliant leur expérience sur le terrain à l’écoute des besoins de leurs clients qu’ils ont forgé l’excellente réputation qui les précède aujourd’hui.&nbsp;</p><p>Au fil des ans, l’équipe s’est agrandie, mais la détermination de Morphéus Rénovation à vous offrir une expérience de rénovation sans précédent ne s’est jamais démentie.&nbsp;</p><p><br></p><blockquote>Comme le dieu romain à qui l’entreprise doit son nom, l’équipe de Morphéus Rénovation s’applique à réaliser vos rêves les plus fous!</blockquote><p><br></p><p><br></p>",
-          "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">LEARN MORE</a>"
+          "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"http://mobirise.com\">LEARN MORE</a>",
+          "media": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/sbp-2700-00252690x1793-168.jpg",
+              "class": "mbr-figure__img",
+              "height": 128
+            },
+            "video": {
+              "src": "http://www.youtube.com/embed/sOSTC6FM6Bw",
+              "class": "mbr-figure__img",
+              "aspectratio": "16:9",
+              "autoplay": false,
+              "loop": false
+            }
+          }
         },
         {
           "_inherit": "menu",
@@ -678,15 +789,21 @@
           "_name": "ext.menu",
           "_anchor": "ext_menu-16",
           "_params": {
-            "color": "#28324e",
-            "transparent": false,
-            "sticky": true,
-            "collapsed": false,
             "logo": true,
             "showBrand": true,
-            "showButtons": false
+            "showButtons": false,
+            "sticky": true,
+            "collapsed": false,
+            "transparent": false,
+            "color": "#28324e"
           },
-          "logo": "{PROJECT_IMAGES}logo177x86-167.png",
+          "logo": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/logo177x86-167.png",
+              "class": "mbr-navbar__brand-img mbr-brand__img",
+              "height": 128
+            }
+          },
           "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 5607-0386-01<br>Entrepreneur Général</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
@@ -701,15 +818,21 @@
           "_anchor": "contacts1-17",
           "_params": {
             "bgImageRadio": false,
-            "parallax": true,
             "bgImage": "images/bg3.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": true,
+            "bgColor": "#28324e",
             "overlay": true,
-            "overlayOpacity": "0.1",
-            "overlayColor": "#28324e"
+            "overlayColor": "#28324e",
+            "overlayOpacity": "0.1"
           },
-          "logo": "{PROJECT_IMAGES}logo177x86-167.png",
+          "logo": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/logo177x86-167.png",
+              "class": "mbr-contacts__img mbr-contacts__img--left",
+              "height": 128
+            }
+          },
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
           "text2": "<strong>CONTACT</strong><br>Matthieu Germain<br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
           "text3": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
@@ -734,18 +857,20 @@
           "_anchor": "form1-17",
           "_params": {
             "formoidUserID": "",
-            "bgImageRadio": false,
-            "parallax": true,
-            "bgImage": "images/bg3.jpg",
-            "bgColor": "#cccccc",
-            "bgColorRadio": true,
-            "overlay": false,
-            "overlayOpacity": 0.5,
-            "overlayColor": "#222",
+            "useFormoid": false,
+            "alertSuccess": "Thanks for filling out form!",
             "showTitle": true,
             "showName": true,
             "showEmail": true,
-            "showPhone": true
+            "showPhone": true,
+            "bgImageRadio": false,
+            "bgImage": "images/bg3.jpg",
+            "parallax": true,
+            "bgColorRadio": true,
+            "bgColor": "#cccccc",
+            "overlay": false,
+            "overlayColor": "#222",
+            "overlayOpacity": 0.5
           },
           "title": "<br>CONTACTEZ-NOUS",
           "buttons": "<a data-app-btn=\"true\" type=\"submit\" class=\"mbr-buttons__btn btn btn-lg btn-primary\" data-toolbar=\"-mbrLink,-mbrBtnAdd,-mbrBtnMove\">CONTACTEZ-NOUS</a>"
@@ -771,15 +896,21 @@
           "_name": "ext.menu",
           "_anchor": "ext_menu-20",
           "_params": {
-            "color": "#28324e",
-            "transparent": false,
-            "sticky": true,
-            "collapsed": false,
             "logo": true,
             "showBrand": true,
-            "showButtons": false
+            "showButtons": false,
+            "sticky": true,
+            "collapsed": false,
+            "transparent": false,
+            "color": "#28324e"
           },
-          "logo": "{PROJECT_IMAGES}logo177x86-167.png",
+          "logo": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/logo177x86-167.png",
+              "class": "mbr-navbar__brand-img mbr-brand__img",
+              "height": 128
+            }
+          },
           "brand": "<a class=\"mbr-brand__name text-white\" data-app-btn=\"true\" href=\"index.html\" data-app-selector=\".mbr-brand__name a\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">#RBQ 5607-0386-01<br>Entrepreneur Général</a>",
           "items": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"index.html\">ACCUEIL\u001b</a></li> <li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"histoire.html\">NOTRE HIST\u001bOIRE</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"apropos.html\">À PROPOS</a></li><li class=\"mbr-navbar__item\"><a data-app-btn=\"true\" class=\"mbr-buttons__link btn mbr-menu-item text-white\" data-app-selector=\".mbr-navbar__items a\" href=\"contact.html\">CONTACTEZ-NOUS</a></li>",
           "buttons": "<li class=\"mbr-navbar__item\"><a data-app-btn=\"parent\" class=\"mbr-buttons__btn btn btn-danger\" data-app-selector=\".mbr-navbar__items a\" href=\"http://mobirise.com\">DOWNLOAD</a></li>"
@@ -794,15 +925,21 @@
           "_anchor": "contacts1-21",
           "_params": {
             "bgImageRadio": false,
-            "parallax": true,
             "bgImage": "images/bg3.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": true,
+            "bgColor": "#28324e",
             "overlay": true,
-            "overlayOpacity": "0.1",
-            "overlayColor": "#28324e"
+            "overlayColor": "#28324e",
+            "overlayOpacity": "0.1"
           },
-          "logo": "{PROJECT_IMAGES}logo177x86-151.png",
+          "logo": {
+            "image": {
+              "src": "@PROJECT_PATH@/assets/images/logo177x86-151.png",
+              "class": "mbr-contacts__img mbr-contacts__img--left",
+              "height": 128
+            }
+          },
           "text1": "<p><strong>ADRESSE</strong>&nbsp;&nbsp;&nbsp;&nbsp;<br>1056, Étienne-Dumetz<br>Cap-Rouge, QC, G1Y 1C2<br><br></p>",
           "text2": "<strong>CONTACTS</strong><br>Matthieu Germain<br>info@morpheusrenovation.com<br>Téléphone : 418.264-7032<br>",
           "text3": "<p class=\"mbr-contacts__text\"></p><ul class=\"mbr-contacts__list\"></ul>"
