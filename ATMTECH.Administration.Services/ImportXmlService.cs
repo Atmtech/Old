@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Xml;
+using System.Xml.Linq;
 using ATMTECH.Administration.Services.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
@@ -62,43 +66,69 @@ namespace ATMTECH.Administration.Services
             }
             return couleur;
         }
+
+        private void ChangerEncodage(string fileXml)
+        {
+
+            string path_new = fileXml + ".new";
+
+            Encoding utf8 = new UTF8Encoding(false);
+            Encoding ansi = Encoding.GetEncoding(1252);
+
+            string xml = File.ReadAllText(fileXml, ansi);
+
+            XDocument xmlDoc = XDocument.Parse(xml);
+
+            File.WriteAllText(
+                path_new,
+                @"<?xml version=""1.0"" encoding=""utf-8""?>" + xmlDoc.ToString(),
+               utf8
+            );
+
+            File.Delete(fileXml);
+            File.Move(path_new, fileXml);
+
+        }
         public void ImportProductAndStockXml(Enterprise enterprise, string fileXml)
         {
+            //ChangerEncodage(fileXml);
+
             IList<ImportProduit> importProduits = new List<ImportProduit>();
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(fileXml);
 
             if (xmlDoc.DocumentElement == null) return;
-            XmlNodeList nodeList = xmlDoc.DocumentElement.SelectNodes("/root/item");
+            XmlNodeList nodeList = xmlDoc.DocumentElement.SelectNodes("/Root/Item");
+
 
             if (nodeList != null)
                 foreach (ImportProduit importProduit in from XmlNode node in nodeList
                                                         select new ImportProduit
                                                             {
                                                                 // ReSharper disable PossibleNullReferenceException
-                                                                ItemID = node.SelectSingleNode("ItemID").InnerText,
-                                                                Brand = node.SelectSingleNode("Brand").InnerText,
-                                                                Size = node.SelectSingleNode("Size").InnerText,
-                                                                ColorId = node.SelectSingleNode("ColorId").InnerText,
-                                                                Price = ParameterService.GetValue("Environment") != "PROD" ? Convert.ToDecimal(node.SelectSingleNode("Price").InnerText.Replace(".", ",")) : Convert.ToDecimal(node.SelectSingleNode("Price").InnerText),
-                                                                Color_EN = node.SelectSingleNode("Color_EN").InnerText,
-                                                                Color_FR = node.SelectSingleNode("Color_FR").InnerText,
+                                                                ItemID = node.SelectSingleNode("ITEMID").InnerText,
+                                                                Brand = node.SelectSingleNode("BRAND").InnerText,
+                                                                Size = node.SelectSingleNode("INVENTSIZEID").InnerText,
+                                                                ColorId = node.SelectSingleNode("INVENTCOLORID").InnerText,
+                                                                Price = Convert.ToDecimal(node.SelectSingleNode("PRICE").InnerText.Replace(".", ",")),
+                                                                Color_EN = node.SelectSingleNode("COLOR_EN").InnerText,
+                                                                Color_FR = node.SelectSingleNode("COLOR_FR").InnerText,
                                                                 Title_EN = node.SelectSingleNode("Title_EN").InnerText,
                                                                 Title_FR = node.SelectSingleNode("Title_FR").InnerText,
                                                                 Desc_EN = node.SelectSingleNode("Desc_EN").InnerText,
                                                                 Desc_FR = node.SelectSingleNode("Desc_FR").InnerText,
-                                                                Sex = node.SelectSingleNode("Sex").InnerText,
-                                                                Category1 = node.SelectSingleNode("Category1").InnerText,
-                                                                Category2 = node.SelectSingleNode("Category2").InnerText,
-                                                                Category3 = node.SelectSingleNode("Category3").InnerText,
-                                                                Category4 = node.SelectSingleNode("Category4").InnerText,
-                                                                Category5 = node.SelectSingleNode("Category5").InnerText
+                                                                Sex = node.SelectSingleNode("SEX").InnerText,
+                                                                Category1 = node.SelectSingleNode("Category1") != null ? node.SelectSingleNode("Category1").InnerText : "",
+                                                                Category2 = node.SelectSingleNode("Category2") != null ? node.SelectSingleNode("Category2").InnerText : "",
+                                                                Category3 = node.SelectSingleNode("Category3") != null ? node.SelectSingleNode("Category3").InnerText : "",
+                                                                Category4 = node.SelectSingleNode("Category4") != null ? node.SelectSingleNode("Category4").InnerText : "",
+                                                                Category5 = node.SelectSingleNode("Category5") != null ? node.SelectSingleNode("Category5").InnerText : ""
                                                                 // ReSharper restore PossibleNullReferenceException
                                                             })
                 {
                     importProduits.Add(importProduit);
                 }
-
+          
             // Générer les catégories
             IList<ProductCategory> categoriesTraite = new List<ProductCategory>();
             IList<ProductCategory> categorieExistante = ProductService.GetProductCategoryWithoutLanguage(enterprise.Id);

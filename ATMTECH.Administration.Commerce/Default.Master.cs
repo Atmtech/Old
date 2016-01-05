@@ -61,6 +61,8 @@ namespace ATMTECH.Administration.Commerce
                                               .GetName()
                                               .Version
                                               .ToString();
+
+       
         }
         protected void SignInClick(object sender, EventArgs e)
         {
