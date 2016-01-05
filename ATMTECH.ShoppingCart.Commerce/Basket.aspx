@@ -36,7 +36,7 @@
                             <asp:Label runat="server" ID="lblPrixUnitaire" Text='<%# Eval("UnitPrice","{0:c}")  %>' CssClass="prixPaye"></asp:Label>
                             <br />
                             <asp:Label runat="server" ID="lblPrixOriginal" Text='<%# Eval("Stock.Product.UnitPrice","{0:c}")  %>' Visible='<%# Convert.ToDecimal(Eval("Stock.Product.UnitPrice")) > Convert.ToDecimal(Eval("UnitPrice")) %>' CssClass="prixRaye"></asp:Label>
-                            <br />
+                         <br />
                             <asp:Label runat="server" ID="lblVousEpargnez" Text="Vous épargnez: " Visible='<%# Convert.ToDecimal(Eval("Stock.Product.UnitPrice")) > Convert.ToDecimal(Eval("UnitPrice")) %>' CssClass="prixEpargner"></asp:Label>
                             <asp:Label runat="server" ID="lblPrixVente" Text='<%# Eval("SavePrice","{0:c}")  %>' Visible='<%# Convert.ToInt32(Eval("Stock.Product.UnitPrice")) > Convert.ToInt32(Eval("UnitPrice")) %>' CssClass="prixEpargner"></asp:Label>
 
@@ -128,6 +128,7 @@
                         <asp:TextBox runat="server" ID="txtCoupon" CssClass="textBox"></asp:TextBox>
                     </div>
                     <asp:Button runat="server" ID="btnValiderCoupon" Text="Valider" OnClick="btnValiderCouponClick" CssClass="boutonActionRond" />
+                    <asp:Button runat="server" ID="btnEffacerCoupon" Text="Effacer" OnClick="btnEffacerCouponClick" CssClass="boutonActionRond" />
                 </div>
             </div>
 

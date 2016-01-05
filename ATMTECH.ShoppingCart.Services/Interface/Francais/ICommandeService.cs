@@ -20,5 +20,6 @@ namespace ATMTECH.ShoppingCart.Services.Interface.Francais
         IList<OrderLine> ObtenirLigneCommande();
         void SupprimerLigneCommande(OrderLine ligneCommande);
         Stream ObtenirFacturePourPdf(Order commande);
+        Order EffacerCoupon(Order commande);
     }
 }

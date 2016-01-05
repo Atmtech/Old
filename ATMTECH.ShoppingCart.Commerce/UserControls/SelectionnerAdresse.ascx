@@ -12,14 +12,15 @@
     </Columns>
 </asp:GridView>
 <div style="padding-top: 20px;">
-    <asp:Label runat="server" ID="lblCodePostal" Text="Code postal" CssClass="labelLogin"></asp:Label>
-    <asp:TextBox ID="txtCodePostal" runat="server" AutoPostBack="true" CssClass="textBox" ValidationGroup="validation"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1"
+    <asp:Label runat="server" ID="lblCodePostal" Text="Code postal" CssClass="labelLogin"></asp:Label><br />
+    <asp:TextBox ID="txtCodePostal" runat="server" AutoPostBack="true" CssClass="textBox" ValidationGroup="validation"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
         ControlToValidate="txtCodePostal"
         ValidationGroup="validation"
         ErrorMessage="*"
         runat="Server">
     </asp:RequiredFieldValidator>
-    <asp:Label runat="server" ID="lblObligatoire" Text="* Obligatoire" ForeColor="red"></asp:Label>
+    <asp:Label runat="server" ID="lblObligatoire" Text="Obligatoire" ForeColor="red"></asp:Label>
 </div>
 <div>
 

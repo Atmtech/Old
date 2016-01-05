@@ -99,7 +99,6 @@
     <Content Include="JQuery\jquery-ui-1.11.2\external\jquery\jquery.min.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\a11.png" />
     <Content Include="MailingList.aspx" />
-    <Content Include="Test.aspx" />
     <Content Include="UserControls\SelectionnerAdresse.ascx" />
     <Content Include="UserControls\SlideShowFile.ascx" />
     <Content Include="Css\Site.css" />
@@ -238,13 +237,6 @@
     </Compile>
     <Compile Include="MailingList.aspx.designer.cs">
       <DependentUpon>MailingList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\SelectionnerAdresse.ascx.cs">
       <DependentUpon>SelectionnerAdresse.ascx</DependentUpon>

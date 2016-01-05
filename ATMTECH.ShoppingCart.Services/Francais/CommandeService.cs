@@ -102,6 +102,13 @@ namespace ATMTECH.ShoppingCart.Services.Francais
             reportParameter.AddDatasource("dsLigneCommande", commande.OrderLines);
             return ReportService.SaveReportToStream("Invoice.pdf", ReportService.GetReport(reportParameter));
         }
+
+        public Order EffacerCoupon(Order commande)
+        {
+            commande.Coupon = null;
+            return Enregistrer(commande);
+        }
+
         public bool ValiderCodePostalLivraison(Order order)
         {
             if (EnvoiPostalService.EstCodePostalValideAvecPurolator(order.PostalCodeShipping) == false)

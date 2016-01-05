@@ -116,8 +116,8 @@ namespace ATMTECH.ShoppingCart.Commerce
                     lblCouponValeur.Text = "( Coupon: " + commande.Coupon.Ident + valeurTexteCoupon + " )";
                     lblGrandTotalApresCoupon.Visible = true;
                     lblGrandTotalAffichageAvecCoupon.Visible = true;
-                    lblGrandTotalAffichage.Font.Strikeout = true;
-                    lblGrandTotal.Font.Strikeout = true;
+                    lblGrandTotal.Visible = false;
+                    lblGrandTotalAffichage.Visible = false;
                 }
                 txtCoupon.Text = commande.Coupon.Ident;
             }
@@ -125,11 +125,19 @@ namespace ATMTECH.ShoppingCart.Commerce
             {
                 lblGrandTotalApresCoupon.Visible = false;
                 lblGrandTotalAffichageAvecCoupon.Visible = false;
-                lblGrandTotal.Font.Strikeout = false;
-                lblGrandTotalAffichage.Font.Strikeout = false;
+                lblGrandTotal.Visible = true;
+                lblGrandTotalAffichage.Visible = true;
                 lblCouponAucunFraisLivraison.Visible = false;
                 lblCouponValeur.Visible = false;
             }
+        }
+
+        
+        protected void btnEffacerCouponClick(object sender, EventArgs e)
+        {
+            Presenter.EffacerCoupon();
+            txtCoupon.Text = string.Empty;
+            AffichagePanier();
         }
     }
 }

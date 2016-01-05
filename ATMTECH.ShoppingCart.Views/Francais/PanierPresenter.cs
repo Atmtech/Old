@@ -106,5 +106,10 @@ namespace ATMTECH.ShoppingCart.Views.Francais
                 View.Commande = CommandeService.ValiderCoupon(View.Commande, View.Coupon);
             }
         }
+
+        public void EffacerCoupon()
+        {
+            View.Commande = CommandeService.EffacerCoupon(View.Commande);
+        }
     }
 }
