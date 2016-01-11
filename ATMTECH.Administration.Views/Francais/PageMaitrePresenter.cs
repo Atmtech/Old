@@ -131,7 +131,12 @@ namespace ATMTECH.Administration.Views.Francais
                 if (file.ToLower().IndexOf("thumbs.db") == -1 && file.ToLower().IndexOf("web.config") == -1)
                 {
                     string fileToCopy = file.Replace(directory + @"\product\Mixed", "").Replace(@"/", "_").Replace(" ", "_").Replace("\\", "_");
-                    System.IO.File.Copy(file, directory + @"\product\" + fileToCopy);
+                    string fileDestination = directory + @"\product\" + fileToCopy;
+
+                    if (!System.IO.File.Exists(fileDestination))
+                    {
+                        System.IO.File.Copy(file, fileDestination);
+                    }
                 }
             }
         }
