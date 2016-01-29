@@ -136,18 +136,18 @@ namespace ATMTECH.ShoppingCart.Tests.View.Francais
 
 
 
-        [TestMethod]
-        public void AfficherInformation_SiCouponOnAfficheCoupon()
-        {
-            Customer customer = AutoFixture.Create<Customer>();
-            Order order = AutoFixture.Create<Order>();
-            order.GrandTotal = 0;
-            ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
-            ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
-            InstanceTest.AfficherInformation();
-            string format = string.Format("{0} - {1} item(s)", order.GrandTotalWithCoupon.ToString("C"), order.OrderLines.Count);
-            ViewMock.VerifySet(x => x.AffichagePanier = format, Times.Once());
-        }
+        //[TestMethod]
+        //public void AfficherInformation_SiCouponOnAfficheCoupon()
+        //{
+        //    Customer customer = AutoFixture.Create<Customer>();
+        //    Order order = AutoFixture.Create<Order>();
+        //    order.GrandTotal = 0;
+        //    ObtenirMock<ICommandeService>().Setup(x => x.ObtenirCommandeSouhaite(customer)).Returns(order);
+        //    ObtenirMock<IClientService>().Setup(x => x.ClientAuthentifie).Returns(customer);
+        //    InstanceTest.AfficherInformation();
+        //    string format = string.Format("{0} - {1} item(s)", order.GrandTotalWithCoupon.ToString("C"), order.OrderLines.Count);
+        //    ViewMock.VerifySet(x => x.AffichagePanier = format, Times.Once());
+        //}
 
 
         [TestMethod]

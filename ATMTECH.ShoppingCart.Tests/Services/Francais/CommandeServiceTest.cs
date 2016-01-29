@@ -361,6 +361,10 @@ namespace ATMTECH.ShoppingCart.Tests.Services.Francais
             order.FinalizedDate = null;
             order.OrderStatus = OrderStatus.IsWishList;
 
+            ObtenirMock<IEnvoiPostalService>()
+                .Setup(x => x.EstCodePostalValideAvecPurolator(It.IsAny<string>()))
+                .Returns(true);
+
             Order finaliserCommande = InstanceTest.FinaliserCommande(order);
 
             if (finaliserCommande.FinalizedDate != null)
