@@ -18,6 +18,7 @@ namespace ATMTECH.Administration.Views.Francais
         public ICommandeService CommandeService { get; set; }
         public IEnterpriseService EnterpriseService { get; set; }
         public IOrderService OrderService { get; set; }
+        public ICourrielService CourrielService { get; set; }
 
         public RapportPresenter(IRapportPresenter view)
             : base(view)
@@ -40,6 +41,9 @@ namespace ATMTECH.Administration.Views.Francais
                 case "UneCommande":
                     Order commande = CommandeService.ObtenirCommande(View.NoCommande);
                     CommandeService.ImprimerCommande(commande);
+                    commande.Customer.User.Login = "atmtech.vincent@gmail.com";
+                    CourrielService.EnvoyerCommandeFinaliser(commande, CommandeService.ObtenirFacturePourPdf(commande));
+
                     break;
                 case "VenteParMois":
                     GenererRapportVenteParMois();
