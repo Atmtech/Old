@@ -160,9 +160,15 @@
                                         <asp:Button runat="server" Text="Importer Catalogue.xml" ID="btnImporterProduitXml" OnClick="btnImporterProduitXmlClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>
                                         <asp:Button runat="server" Text="Importer les images de produits" ID="btnImporterImageProduit" OnClick="btnImporterImageProduitClick" CssClass="boutonMenu"></asp:Button></li>
+                                    <li>
+                                        <asp:Button runat="server" Text="Synchroniser les images avec produit" ID="btnSynchroniserImageAvecProduit" OnClick="btnSynchroniserImageAvecProduitClick" CssClass="boutonMenu"></asp:Button></li>
 
                                     <li>
-                                        <asp:Button runat="server" Text="Fermer le système" ID="btnFermerSysteme" OnClick="btnFermerSystemeClick" CssClass="boutonMenu"></asp:Button></li>
+
+
+
+                                        <asp:Button runat="server" Text="Fermer le système" ID="btnFermerSysteme" OnClick="btnFermerSystemeClick" CssClass="boutonMenu"></asp:Button>
+                                    </li>
                                     <li>
                                         <asp:Button runat="server" Text="Ouvrir le système" ID="btnOuvrirSysteme" OnClick="btnOuvrirSystemeClick" CssClass="boutonMenu"></asp:Button></li>
                                     <li>

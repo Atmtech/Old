@@ -85,10 +85,10 @@ namespace ATMTECH.Administration.Views.Francais
         }
         public void AppliquerPourcentage()
         {
-            string sql = string.Format("UPDATE Product SET UnitPrice = round((CostPrice / (1 - {0}.00/100.00)),2)", View.Pourcentage);
+            string sql = string.Format("UPDATE Product SET UnitPrice = (CostPrice * 0.{0}) + CostPrice", View.Pourcentage);
             DatabaseService.ExecuteSql(sql, EnumDatabaseVendor.Mssql);
 
-            sql = string.Format("UPDATE Stock SET AdjustPrice = round((AdjustPrice / (1 - {0}.00/100.00)),2)", View.Pourcentage);
+            sql = string.Format("UPDATE Stock SET AdjustPrice =   (AdjustPrice * 0.{0}) + AdjustPrice", View.Pourcentage);
             DatabaseService.ExecuteSql(sql, EnumDatabaseVendor.Mssql);
 
         }

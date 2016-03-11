@@ -156,6 +156,15 @@ namespace ATMTECH.Administration.Views.Francais
                     {
                         identToFind = identSplit[3];
                     }
+                    else
+                    {
+                        if (identToFind.Substring(0, 1) == "_")
+                        {
+                            identToFind = identToFind.Substring(1, identToFind.Length - 1);
+                        }
+                    }
+
+
                     Product product = products.FirstOrDefault(x => x.Ident.ToLower() == identToFind);
                     if (product != null)
                     {

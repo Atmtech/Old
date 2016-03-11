@@ -121,7 +121,12 @@ namespace ATMTECH.Administration.Commerce
             Session["Enterprise"] = enterprise;
         }
 
-      
+
+        protected void btnSynchroniserImageAvecProduitClick(object sender, EventArgs e)
+        {
+            Presenter.SynchroniseProductFile();
+            ShowMessage(new Message { Description = "Images synchronisé", MessageType = Message.MESSAGE_TYPE_SUCCESS });
+        }
     }
 
 
