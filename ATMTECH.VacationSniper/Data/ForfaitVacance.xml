@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Item>
+    <Nom>Sandals Montego bay</Nom>
+    <Url>https://www.expedia.ca/Montego-Bay-Hotels-Sandals-Montego-Bay-All-Inclusive.h863795.Description-Hotel?packagePIID=883f7e7c-6092-4155-84cf-9c1b1d01b139-7&amp;usePS=1&amp;packageType=fh&amp;hotelId=863795&amp;currentRatePlan=200143627200909350&amp;langid=3084&amp;packageType=fh&amp;paandi=true&amp;hlrId=0&amp;reorderFiltersTreatment=-1&amp;hotelName=Sandals%20Montego%20Bay%20-%20All%20Inclusive&amp;defaultFlights=37774baa99a73e8f922ab466c0acfaba,c3537f37aeae145db1dcdefdf2f70ecc&amp;regionFilter=180106&amp;totalResultsCount=121&amp;startIndex=0&amp;hotelStarRating=0&amp;originId=6000699&amp;sortOrder=0&amp;ftla=YQB&amp;numberOfRooms=1&amp;ttla=MBJ&amp;toDate=02/01/2017&amp;isDirectFlight=0&amp;pageIndex=0&amp;infantsInSeats=0&amp;fromDate=26/12/2016&amp;destinationId=180106&amp;adultsPerRoom[1]=2&amp;currentFlights=37774baa99a73e8f922ab466c0acfaba,c3537f37aeae145db1dcdefdf2f70ecc&amp;prices=7356.17&amp;inttkn=aLakjO29TEDLtVRi</Url>
+    <LignePourParse>link-to-rooms</LignePourParse>
+    <NombreCaractereLecture>10</NombreCaractereLecture>
+  </Item>
+
+
+  <Item>
+    <Nom>Moon Palace Jamaica Grande</Nom>
+    <Url>https://www.expedia.ca/Montego-Bay-Hotels-Moon-Palace-Jamaica-Grande-All-Inclusive.h9022224.Description-Hotel?adultsPerRoom[1]=2&amp;currentFlights=37774baa99a73e8f922ab466c0acfaba%2Cc3537f37aeae145db1dcdefdf2f70ecc&amp;currentRatePlan=200778564203936143&amp;defaultFlights=37774baa99a73e8f922ab466c0acfaba%2Cc3537f37aeae145db1dcdefdf2f70ecc&amp;destinationId=180106&amp;fromDate=26%2F12%2F2016&amp;ftla=YQB&amp;hlrId=0&amp;hotelId=9022224&amp;infantsInSeats=0&amp;inttkn=CRD2MFgRDxBaR2A1&amp;isDirectFlight=0&amp;langid=3084&amp;numberOfRooms=1&amp;originId=6000699&amp;paandi=true&amp;packagePIID=cb62f4bd-4a48-4acb-a0e8-f1392232b3d8-49&amp;packageType=fh&amp;prices=13680.53&amp;toDate=02%2F01%2F2017&amp;ttla=MBJ&amp;usePS=1</Url>
+    <LignePourParse>link-to-rooms</LignePourParse>
+    <NombreCaractereLecture>10</NombreCaractereLecture>
+  </Item>
+  
+</Root>
