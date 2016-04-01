@@ -15,4 +15,16 @@
     <NombreCaractereLecture>10</NombreCaractereLecture>
   </Item>
   
+
+  <Item>
+    <Nom>Iberostar Grand Hotel Rose Hall Jamaica</Nom>
+    <Url>https://www.expedia.ca/Montego-Bay-Hotels-Iberostar-Grand-Hotel-Rose-Hall-All-Inclusive.h2802581.Description-Hotel?packagePIID=55302a86-443c-4f1c-8091-64a5d0f0a037-7&amp;usePS=1&amp;packageType=fh&amp;hotelId=2802581&amp;currentRatePlan=200823868204147868&amp;langid=3084&amp;packageType=fh&amp;paandi=true&amp;hlrId=0&amp;reorderFiltersTreatment=-1&amp;defaultFlights=74d9768b93eedbe074985e462d0f7687,84ed7f82dcdbec51199f0eac7fe58149&amp;regionFilter=180106&amp;totalResultsCount=132&amp;startIndex=0&amp;hotelStarRating=50&amp;originId=6000699&amp;sortOrder=0&amp;ftla=YQB&amp;numberOfRooms=1&amp;ttla=MBJ&amp;toDate=15/06/2016&amp;isDirectFlight=0&amp;pageIndex=0&amp;infantsInSeats=0&amp;fromDate=26/12/2016&amp;destinationId=180106&amp;adultsPerRoom[1]=2&amp;currentFlights=74d9768b93eedbe074985e462d0f7687,84ed7f82dcdbec51199f0eac7fe58149&amp;prices=6463.43&amp;inttkn=Fl2sNw1q79FAdgHi</Url>
+    <LignePourParse>link-to-rooms</LignePourParse>
+    <NombreCaractereLecture>10</NombreCaractereLecture>
+  </Item>
+
+
 </Root>
+
+
+

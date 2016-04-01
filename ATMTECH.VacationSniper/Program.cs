@@ -13,7 +13,7 @@ namespace ATMTECH.VacationSniper
               .ToString();
 
 
-            new VacationSniperService().Snipe();
+            //new VacationSniperService().Snipe();
             new VacationSniperService().ConstruireHtml(version);
         }
     }

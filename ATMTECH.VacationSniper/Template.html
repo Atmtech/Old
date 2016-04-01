@@ -1,6 +1,12 @@
 ﻿<html>
 <head>
-    <title></title>
+    <title>Liste des destinations suivis </title>
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/dataTables.jqueryui.min.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/dataTables.jqueryui.min.js"></script>
 </head>
 <body>
     <style>
@@ -19,7 +25,7 @@
             padding-left: 10px;
         }
 
-      
+
         .forfait {
             padding-top: 10px;
             padding-bottom: 10px;
@@ -49,13 +55,54 @@
         }
     </style>
 
+
+    <script type="text/javascript">
+
+        var listeForfait = [
+        {donnees}
+        ];
+
+        $(document).ready(function() {
+            $('#listeForfait').DataTable( {
+                data: listeForfait,
+                stateSave: true,
+                columns: [
+                    { title: "Destination" },
+                    { title: "Prix" },
+                    { title: "Date" },
+                    { title: "Site","fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {$(nTd).html("<a href='"+oData[3]+"'>Visiter</a>");} }
+                ]
+            } );
+        } );
+
+
+        var listeForfaitMoinsChere = [
+       {moinscher}
+        ];
+
+        $(document).ready(function() {
+            $('#listeForfaitMoinsChere').DataTable( {
+                data: listeForfaitMoinsChere,
+                stateSave: true,
+                columns: [
+                    { title: "Destination" },
+                    { title: "Prix" },
+                    { title: "Date" }
+                ]
+            } );
+        } );
+
+
+    </script>
+
+
     <table style='width: 99%; font-family: tahoma;'>
         <tr>
             <td>
                 <table>
                     <tr>
                         <td><img src="avion.png" width="45" height="45" /></td>
-                        <td class="titre">Liste des destinations suivis ...</td>
+                        <td class="titre">Suivi des forfaits vacances</td>
                     </tr>
                 </table>
             </td>
@@ -66,7 +113,16 @@
             </td>
         <tr>
             <td class="forfait">
-                {forfait}
+                <h1 class="titre">Liste des forfaits suivi</h1>
+                <table id="listeForfait" class="display" width="100%"></table>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <h1 class="titre">Les forfaits peu couteux</h1>
+                <table id="listeForfaitMoinsChere" class="display" width="100%"></table>
+                
             </td>
         </tr>
     </table>
