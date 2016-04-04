@@ -46,7 +46,7 @@ namespace ATMTECH.DAO.SessionManager
                     throw new ArgumentOutOfRangeException();
             }
 
-
+//server=SD-57207\\MEDIATOR;Initial Catalog=mediator;Integrated security=SSPI;Trusted_Connection=True;
 
 
             return _session;
