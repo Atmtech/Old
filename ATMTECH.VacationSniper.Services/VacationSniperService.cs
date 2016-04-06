@@ -47,12 +47,20 @@ namespace ATMTECH.VacationSniper.Services
                     }
                     else
                     {
-                        EnregistrerSnipeNonDisponible(forfaitVacance, url);
+                        if (result.IndexOf("Aucune chambre n") >= 0)
+                        {
+                            EnregistrerSnipeAucuneChambreDisponible(forfaitVacance, url);    
+                        }
+                        else
+                        {
+                            EnregistrerSnipeErreur(forfaitVacance, url);
+                        }
+                        
                     }
                 }
                 catch (Exception)
                 {
-                    EnregistrerSnipeNonDisponible(forfaitVacance, url);
+                    EnregistrerSnipeErreur(forfaitVacance, url);
                 }
             }
 
@@ -99,21 +107,38 @@ namespace ATMTECH.VacationSniper.Services
 
 
 
-        private void EnregistrerSnipeNonDisponible(ForfaitVacance forfaitVacance, string url)
+        private void EnregistrerSnipeErreur(ForfaitVacance forfaitVacance, string url)
         {
             new BaseDAO().EnregistrerSnipe(new ForfaitVacanceSnipe
             {
                 Nom = forfaitVacance.Nom,
                 Date = DateTime.Now.ToString(),
-                Prix = "Non disponible",
+                Prix = "Erreur url ou autre",
                 Url = url
             });
 
             Console.BackgroundColor = ConsoleColor.Red;
-            Console.WriteLine("Non disponible {0}", forfaitVacance.Nom);
+            Console.WriteLine("Erreur url ou autre {0}", forfaitVacance.Nom);
             Console.BackgroundColor = ConsoleColor.White;
 
         }
+
+        private void EnregistrerSnipeAucuneChambreDisponible(ForfaitVacance forfaitVacance, string url)
+        {
+            new BaseDAO().EnregistrerSnipe(new ForfaitVacanceSnipe
+            {
+                Nom = forfaitVacance.Nom,
+                Date = DateTime.Now.ToString(),
+                Prix = "Aucune chambre disponible pour la date",
+                Url = url
+            });
+
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.WriteLine("Aucune chambre disponible pour la date {0}", forfaitVacance.Nom);
+            Console.BackgroundColor = ConsoleColor.White;
+
+        }
+
 
 
     }
