@@ -53,6 +53,37 @@
             font-size: 13px;
             font-family: tahoma;
         }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            background: #eee;
+            border: 1px solid #999;
+            overflow: hidden;
+            height: 200px;
+            width: 600px;
+            list-style: none;
+            position: relative;
+        }
+
+        li {
+            height: 200px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            float: left;
+            width: 20px;
+            background: #369;
+            border-top: 1px solid #eee;
+        }
+
+            li span {
+                position: absolute;
+                top: 10px;
+                transform: rotate(90deg);
+                font-size: 13px;
+                font-weight: bold;
+            }
     </style>
 
 
@@ -120,9 +151,9 @@
 
         <tr>
             <td>
-                <h1 class="titre">Les forfaits peu couteux</h1>
-                <table id="listeForfaitMoinsChere" class="display" width="100%"></table>
-                
+                <h1 class="titre">Graphique d'&eacute;volution des prix</h1>
+                {graphique}
+
             </td>
         </tr>
     </table>

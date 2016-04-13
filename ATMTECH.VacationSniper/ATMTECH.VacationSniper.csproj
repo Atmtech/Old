@@ -52,6 +52,9 @@
     <Content Include="avion.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Chart.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\ForfaitVacance.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

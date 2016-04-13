@@ -49,13 +49,13 @@ namespace ATMTECH.VacationSniper.Services
                     {
                         if (result.IndexOf("Aucune chambre n") >= 0)
                         {
-                            EnregistrerSnipeAucuneChambreDisponible(forfaitVacance, url);    
+                            EnregistrerSnipeAucuneChambreDisponible(forfaitVacance, url);
                         }
                         else
                         {
                             EnregistrerSnipeErreur(forfaitVacance, url);
                         }
-                        
+
                     }
                 }
                 catch (Exception)
@@ -77,27 +77,56 @@ namespace ATMTECH.VacationSniper.Services
             }
             html = html.Replace("{donnees}", ligneForfait);
 
-            string moinscher = string.Empty;
+            IList<ForfaitVacanceSnipe> listeForfaitVacanceSnipes = new BaseDAO().ObtenirSnipe().Where(x => x.Prix != "Non disponible").ToList();
 
-            foreach (
-                ForfaitVacanceSnipe forfaitVacanceSnipe in
-                    new BaseDAO().ObtenirSnipe().Where(x => x.Prix != "Non disponible"))
+            string scriptGraphique = string.Empty;
+            foreach (ForfaitVacance forfaitVacance in new BaseDAO().ObtenirForfaitVacance())
             {
+                List<string> list = listeForfaitVacanceSnipes.Where(x => x.Nom == forfaitVacance.Nom).Select(x => x.Prix).Distinct().ToList();
+
+                string nomCanvas = forfaitVacance.Nom.Replace(" ", "");
+                scriptGraphique += forfaitVacance.Nom;
+                scriptGraphique += "   <canvas id='" + nomCanvas + "' width='1000' height='300'></canvas>" + Environment.NewLine;
+                scriptGraphique += "    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>" + Environment.NewLine;
+                scriptGraphique += "<script>" + Environment.NewLine;
+                scriptGraphique += "    var ctx = document.getElementById('" + nomCanvas + "').getContext('2d');" + Environment.NewLine;
+                scriptGraphique += "    var data = {" + Environment.NewLine;
+                scriptGraphique += "labels: [";
+                int i = 0;
+                foreach (string test in list)
+                {
+                    i += 1;
+                    scriptGraphique += "'" + i.ToString() + "',";
+                }
+                scriptGraphique += "]," + Environment.NewLine;
+                //   scriptGraphique += "        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'test',]," + Environment.NewLine;
+                scriptGraphique += "        datasets: [" + Environment.NewLine;
+                scriptGraphique += "            {" + Environment.NewLine;
+                scriptGraphique += "                label: 'My Second dataset'," + Environment.NewLine;
+                scriptGraphique += "                fillColor: 'rgba(151,187,205,0.5)'," + Environment.NewLine;
+                scriptGraphique += "                strokeColor: 'rgba(151,187,205,0.8)'," + Environment.NewLine;
+                scriptGraphique += "                highlightFill: 'rgba(151,187,205,0.75)'," + Environment.NewLine;
+                scriptGraphique += "                highlightStroke: 'rgba(151,187,205,1)'," + Environment.NewLine;
+                scriptGraphique += "data: [";
+                foreach (string test in list)
+                {
+                    scriptGraphique += test + ",";
+                }
+                scriptGraphique += "]," + Environment.NewLine;
+
+                // scriptGraphique += "                data: [28.12, 48.21, 40.1, 19, 86, 27, 90, 911]" + Environment.NewLine;
+                scriptGraphique += "            }" + Environment.NewLine;
+                scriptGraphique += "        ]" + Environment.NewLine;
+                scriptGraphique += "    };" + Environment.NewLine;
+                scriptGraphique += "    var MyNewChart = new Chart(ctx).Bar(data);" + Environment.NewLine;
+                scriptGraphique += "</script>";
+
             }
 
-            // foreach (ForfaitVacanceSnipe forfaitVacanceSnipe in new BaseDAO().ObtenirSnipe())
-            //{
-
-            //}
-
-            ForfaitVacanceSnipe forfaitVacanceSnipe1 =
-                new BaseDAO().ObtenirSnipe().OrderBy(x => x.Nom).ThenBy(x => x.Date).First();
-
-            moinscher += string.Format("[ '{0}','{1}','{2}','{3}'],{4}", forfaitVacanceSnipe1.Nom, forfaitVacanceSnipe1.Prix, forfaitVacanceSnipe1.Date, forfaitVacanceSnipe1.Url, Environment.NewLine);
 
 
 
-            html = html.Replace("{moinscher}", moinscher);
+            html = html.Replace("{graphique}", scriptGraphique);
 
 
             string fichier = AppDomain.CurrentDomain.BaseDirectory + "Snipe.html";
