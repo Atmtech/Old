@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -93,6 +92,9 @@ namespace ATMTECH.Administration.Services
         {
             //ChangerEncodage(fileXml);
 
+            IList<Product> products = ProductService.GetAllActive().Where(x => x.Enterprise.Id == enterprise.Id).ToList();
+
+
             IList<ImportProduit> importProduits = new List<ImportProduit>();
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(fileXml);
@@ -128,6 +130,8 @@ namespace ATMTECH.Administration.Services
                 {
                     importProduits.Add(importProduit);
                 }
+
+            
           
             // Générer les catégories
             IList<ProductCategory> categoriesTraite = new List<ProductCategory>();
@@ -173,7 +177,16 @@ namespace ATMTECH.Administration.Services
             }
 
             // Générer les produits
-            IList<Product> products = ProductService.GetAllActive().Where(x => x.Enterprise.Id == enterprise.Id).ToList();
+            // désactivé les produits inexistants
+            foreach (Product product in products)
+            {
+                if (importProduits.Count(x => x.ItemID == product.Ident) == 0)
+                {
+                    product.IsActive = false;
+                    ProductService.Save(product);
+                }
+            }
+           
             IList<Product> productsTraite = new List<Product>();
             IList<ProductCategory> productCategories = ProductService.GetProductCategoryWithoutLanguage(enterprise.Id);
             foreach (ImportProduit importProduit in importProduits)
