@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <style>
+        BODY {
+            font-family: Segoe UI;
+        }
+
+        .menu {
+            background-color: rgb(198, 198, 198);
+            border-radius: 10px;
+        }
+
+        .tdMenu {
+            border-right: solid 2px gray;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .gras {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <table>
+            <td style="padding-left: 5px;"><img src="Images/lock.png" style="width: 20px; height: 20px;" /></td>
+            <td class="tdMenu gras">Bonjour, Vincent rioux </td>
+            <td class="tdMenu">Équipements</td>
+            <td class="tdMenu gras">Voyages</td>
+            <td class="tdMenu">Tournois</td>
+            <td class="tdMenu">Réalisation: <b>6</b></td>
+            <td class="tdMenu">Solde: <b>0.00$</b></td>
+            <td class="tdMenu">Rang: <b style="color: red">121</b> sur <b>28113</b></td>
+            <td style="padding-left: 5px;"><img src="Images/Unlock.png" style="width: 20px; height: 20px;" /></td>
+            <td class="tdMenu">Se déconnecter</td>
+        </table>
+    </div>
+
+    <br />
+    <table style="width: 100%;">
+        <tr>
+            <td colspan="2" style="padding-bottom: 10px;">
+
+
+                <div style="font-size: 30px; font-weight: bold; text-transform: uppercase; border-bottom: solid 1px gray; padding-bottom: 5px; margin-bottom: 5px;">
+                    <div style="float: left; vertical-align: middle;"><img src="Images/logo.png" style="width: 40px; height: 40px;" /></div>
+                    <div style="float: left; padding-left: 5px;">Les voyages</div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                Nombre de voyages planifiés: <b>1</b> | Nombre de capture actuellement: <b>21</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 110px;">
+                <table style="border-right: 3px solid rgb(172, 172, 199);">
+                    <tr>
+                        <td style="text-align: center; padding-right: 10px;"><img src="Images/Vacation.png" style="width: 45px; height: 45px; border-radius: 45px; border: solid 5px rgb(198, 198, 198);" /></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding-right: 10px;">À planifier</td>
+                    </tr>
+
+                    <tr>
+                        <td style="text-align: center; padding-right: 10px;"><img src="Images/VoyagePlanifie.png" style="width: 45px; height: 45px; border-radius: 45px; border: solid 5px rgb(198, 198, 198);" /></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding-right: 10px;">Déjà planifié</td>
+                    </tr>
+                </table>
+
+            </td>
+            <td style="vertical-align: top;">
+
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr style="background: rgb(181, 181, 181);">
+                        <td style="padding: 5px 5px 5px 5px;">
+                            Nom du voyage
+                        </td>
+                        <td>
+                            Le plan d'eau
+                        </td>
+                        <td>
+                            Nombre d'emplacement
+                        </td>
+                        <td>
+                            Date/Heure
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            La grosse pêche à mononcle
+                        </td>
+                        <td>
+                            Lac pleurotte (N40° 44.9064', W073° 59.0735' / 40.748440, -73.984559)
+                        </td>
+                        <td>4</td>
+                        <td>
+                            Mardi le 2 Novembre 2016 à 16:45:00
+                        </td>
+                        <td>
+                            <input type="button" style="border: none; background-color: black; color: white; padding: 10px 10px 10px 10px; width: 100%;" value="Ouvrir ce voyage" />
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+    <style>
+        #map {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+
+    <br />
+    <table style="width: 100%;">
+        <tr>
+            <td colspan="2" style="padding-bottom: 10px;">
+                <div style="font-size: 30px; font-weight: bold; text-transform: uppercase; border-bottom: solid 1px gray; padding-bottom: 5px; margin-bottom: 5px;">
+                    <div style="float: left; vertical-align: middle;"><img src="Images/logo.png" style="width: 40px; height: 40px;"/></div>
+                    <div style="float: left; padding-left: 5px;">La grosse pêche à mononcle</div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                Information sur le plan d'eau | Fin du voyage: <b>Le 17 aout 16:30:00</b> | Cout du plan d'eau : <b>17.00$</b> | Nombre de capture actuellement: <b>21</b> |
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 110px;vertical-align: top;">
+                <table style="border-right: 3px solid rgb(172, 172, 199);">
+                    <tr>
+                        <td style="text-align: center; padding-right: 10px;"><img src="Images/Vacation.png" style="width: 45px; height: 45px; border-radius: 45px; border: solid 5px rgb(198, 198, 198);" /></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding-right: 10px;">Modifier les emplacements</td>
+                    </tr>
+
+                    <tr>
+                        <td style="text-align: center; padding-right: 10px;"><img src="Images/VoyagePlanifie.png" style="width: 45px; height: 45px; border-radius: 45px; border: solid 5px rgb(198, 198, 198);" /></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding-right: 10px;">Quitter l'emplacement</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="vertical-align: top;">
+
+                <div id="map"></div>
+                <script>
+                    function initMap() {
+                        var mapDiv = document.getElementById('map');
+                        var map = new google.maps.Map(mapDiv, {
+                            center: { lat: 44.540, lng: -78.546 },
+                            zoom: 8
+                        });
+                    }
+                </script>
+                <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+                        async defer></script>
+
+            </td>
+        </tr>
+    </table>
+
+
+</body>
+</html>
