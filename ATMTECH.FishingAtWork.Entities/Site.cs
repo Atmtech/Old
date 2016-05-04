@@ -23,5 +23,5 @@ namespace ATMTECH.FishingAtWork.Entities
         public int MaxDeep { get; set; }
         public double Cost { get; set; }
     }
-    }
+ 
 }

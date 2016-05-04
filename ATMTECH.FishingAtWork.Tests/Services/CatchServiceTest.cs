@@ -8,6 +8,7 @@ using ATMTECH.FishingAtWork.Services.Interface;
 using ATMTECH.FishingAtWork.Services.Interface.Validate;
 using ATMTECH.FishingAtWork.Tests.Builder;
 using ATMTECH.Shell.Tests;
+using ATMTECH.Test;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

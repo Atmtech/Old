@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
-using ATMTECH.Common;
-using ATMTECH.Common.Utilities;
+
+using ATMTECH.Common.Utils;
 using ATMTECH.DAO;
 using ATMTECH.DAO.SessionManager;
 using ATMTECH.Entities;
 using ATMTECH.FishingAtWork.Entities;
 using ATMTECH.FishingAtWork.Services.Base;
 using ATMTECH.FishingAtWork.Tests.Builder;
+using ATMTECH.Web.Services;
 
 namespace ATMTECH.FishingAtWork.Tests.Base
 {

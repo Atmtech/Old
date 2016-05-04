@@ -2,6 +2,7 @@
 using ATMTECH.FishingAtWork.Entities.DTO;
 using ATMTECH.FishingAtWork.Services;
 using ATMTECH.Shell.Tests;
+using ATMTECH.Test;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ATMTECH.FishingAtWork.Tests.Services

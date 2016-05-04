@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using ATMTECH.Common.Utilities;
+
+using ATMTECH.Common.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ATMTECH.FishingAtWork.Tests.Base
