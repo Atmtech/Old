@@ -99,14 +99,6 @@
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.FishingAtWork.DAO\ATMTECH.FishingAtWork.DAO.csproj">
-      <Project>{34C62622-7F60-44B7-B08C-5E81A33EF6CA}</Project>
-      <Name>ATMTECH.FishingAtWork.DAO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.FishingAtWork.Entities\ATMTECH.FishingAtWork.Entities.csproj">
-      <Project>{ADFD1A18-2B6C-41CB-9251-8594CC716A4C}</Project>
-      <Name>ATMTECH.FishingAtWork.Entities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.FishingAtWork.Services\ATMTECH.FishingAtWork.Services.csproj">
       <Project>{A65C6530-89E0-4FCF-B791-82C6CE1E379F}</Project>
       <Name>ATMTECH.FishingAtWork.Services</Name>

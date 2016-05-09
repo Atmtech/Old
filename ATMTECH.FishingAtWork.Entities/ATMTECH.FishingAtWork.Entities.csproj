@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{ADFD1A18-2B6C-41CB-9251-8594CC716A4C}</ProjectGuid>
+    <ProjectGuid>{8D7AC48A-C634-42E9-9D99-4AD5244FC215}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ATMTECH.FishingAtWork.Entities</RootNamespace>
     <AssemblyName>ATMTECH.FishingAtWork.Entities</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,54 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Basket.cs" />
-    <Compile Include="CoordinateTry.cs" />
-    <Compile Include="SpeciesExtension.cs" />
-    <Compile Include="Mail.cs" />
-    <Compile Include="DTO\PlayerListDTO.cs" />
-    <Compile Include="PlayerCatch.cs" />
-    <Compile Include="Record.cs" />
-    <Compile Include="DTO\WallPostDTO.cs" />
-    <Compile Include="EnumWallPostType.cs" />
-    <Compile Include="DTO\LurePlayerLure.cs" />
-    <Compile Include="DTO\PlayerDTO.cs" />
-    <Compile Include="old\Configuration.cs" />
-    <Compile Include="DTO\Coordinate.cs" />
-    <Compile Include="TripExtension.cs" />
-    <Compile Include="DTO\GoogleMapMarker.cs" />
-    <Compile Include="SiteExtension.cs" />
-    <Compile Include="DTO\GoogleMapValue.cs" />
-    <Compile Include="PlayerLure.cs" />
-    <Compile Include="WallPost.cs" />
-    <Compile Include="WaypointExtension.cs" />
-    <Compile Include="SpeciesCatch.cs" />
-    <Compile Include="EnumAchievement.cs" />
-    <Compile Include="EnumLureType.cs" />
-    <Compile Include="EnumSiteType.cs" />
-    <Compile Include="EnumSkill.cs" />
-    <Compile Include="EnumSpeciesType.cs" />
-    <Compile Include="EnumStatusEquipment.cs" />
-    <Compile Include="EnumTemperatureType.cs" />
-    <Compile Include="EnumWaypointTechniqueType.cs" />
-    <Compile Include="Equipment.cs" />
-    <Compile Include="Lure.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="PlayerAchievement.cs" />
-    <Compile Include="PlayerEquipment.cs" />
-    <Compile Include="PlayerSkill.cs" />
-    <Compile Include="Quay.cs" />
-    <Compile Include="Site.cs" />
-    <Compile Include="WaypointCoordinate.cs" />
-    <Compile Include="SiteQuay.cs" />
-    <Compile Include="SiteSpecies.cs" />
-    <Compile Include="SiteSpeciesCoordinate.cs" />
-    <Compile Include="Species.cs" />
-    <Compile Include="SpeciesLure.cs" />
-    <Compile Include="Temperature.cs" />
-    <Compile Include="Trip.cs" />
-    <Compile Include="Waypoint.cs" />
-    <Compile Include="PlayerExtension.cs" />
+    <Compile Include="EmplacementFichier.cs" />
+    <Compile Include="Fichier.cs" />
+    <Compile Include="Utilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Emplacement.cs" />
+    <Compile Include="Voyage.cs" />
+    <Compile Include="VoyageUtilisateur.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
@@ -95,7 +53,6 @@
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

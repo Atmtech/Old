@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{34C62622-7F60-44B7-B08C-5E81A33EF6CA}</ProjectGuid>
+    <ProjectGuid>{08C7FDEF-482C-41AF-8226-AC5BE6C5B63D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ATMTECH.FishingAtWork.DAO</RootNamespace>
     <AssemblyName>ATMTECH.FishingAtWork.DAO</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,49 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAOCoordinateTry.cs" />
-    <Compile Include="DAOMail.cs" />
-    <Compile Include="DAOPlayerCatch.cs" />
-    <Compile Include="DAORecord.cs" />
-    <Compile Include="DAOSpeciesLure.cs" />
-    <Compile Include="DAOWayPointCoordinate.cs" />
-    <Compile Include="DAOSiteSpeciesCoordinate.cs" />
-    <Compile Include="DAOSiteSpecies.cs" />
-    <Compile Include="DAOSpecies.cs" />
-    <Compile Include="DAOWallPost.cs" />
-    <Compile Include="DAOBasket.cs" />
-    <Compile Include="DAOEnum.cs" />
-    <Compile Include="DAOPlayerLure.cs" />
-    <Compile Include="DAOLure.cs" />
-    <Compile Include="DAOSite.cs" />
-    <Compile Include="DAOSpeciesCatch.cs" />
-    <Compile Include="DAOPlayer.cs" />
-    <Compile Include="DAOTrip.cs" />
-    <Compile Include="DAOWayPoint.cs" />
-    <Compile Include="Interface\IDAOCoordinateTry.cs" />
-    <Compile Include="Interface\IDAOMail.cs" />
-    <Compile Include="Interface\IDAOPlayerCatch.cs" />
-    <Compile Include="Interface\IDAORecord.cs" />
-    <Compile Include="Interface\IDAOSpeciesLure.cs" />
-    <Compile Include="Interface\IDAOWayPointCoordinate.cs" />
-    <Compile Include="Interface\IDAOSiteSpecies.cs" />
-    <Compile Include="Interface\IDAOSiteSpeciesCoordinate.cs" />
-    <Compile Include="Interface\IDAOSpecies.cs" />
-    <Compile Include="Interface\IDAOWallPost.cs" />
-    <Compile Include="Interface\IDAOBasket.cs" />
-    <Compile Include="Interface\IDAOEnum.cs" />
-    <Compile Include="Interface\IDAOPlayerLure.cs" />
-    <Compile Include="Interface\IDAOLure.cs" />
-    <Compile Include="Interface\IDAOSite.cs" />
-    <Compile Include="Interface\IDAOSpeciesCatch.cs" />
-    <Compile Include="Interface\IDAOTrip.cs" />
-    <Compile Include="Interface\IDAOWayPoint.cs" />
+    <Compile Include="DAOVoyageUtilisateur.cs" />
+    <Compile Include="DAOVoyage.cs" />
+    <Compile Include="DAOUtilisateur.cs" />
+    <Compile Include="Interface\IDAOVoyageUtilisateur.cs" />
+    <Compile Include="Interface\IDAOVoyage.cs" />
+    <Compile Include="Interface\IDAOUtilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Interface\IDAOPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
-      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
+      <Project>{5b8078e8-d951-4796-aca8-c2731592b5c3}</Project>
       <Name>ATMTECH.DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
@@ -90,7 +57,7 @@
       <Name>ATMTECH.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.FishingAtWork.Entities\ATMTECH.FishingAtWork.Entities.csproj">
-      <Project>{ADFD1A18-2B6C-41CB-9251-8594CC716A4C}</Project>
+      <Project>{8D7AC48A-C634-42E9-9D99-4AD5244FC215}</Project>
       <Name>ATMTECH.FishingAtWork.Entities</Name>
     </ProjectReference>
   </ItemGroup>

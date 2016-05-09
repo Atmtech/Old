@@ -29,9 +29,6 @@ namespace ATMTECH.Test
             _instanceTest = default(TTypeTeste);
             ConfigurerAutofac();
             InitialiserDependences();
-
-
-
         }
 
         public TTypeTeste InstanceTest
@@ -57,30 +54,6 @@ namespace ATMTECH.Test
 
         public virtual void InitialiserDependences()
         {
-        }
-
-
-        //public void CreerDatabaseTest(string nameSpaceEntities)
-        //{
-        //    InitializeDatabase initializeDatabase = new InitializeDatabase();
-        //    initializeDatabase.InitializeDatabaseSqliteEnMemoire(nameSpaceEntities);
-        //}
-
-
-        public void EnregistrerEntite<T>(T entite) where T : BaseEntity
-        {
-            DatabaseSessionManager.ConnectionString = @"data source=:memory:";
-            BaseDao<T, int> daoSave = new BaseDao<T, int>();
-            int id = daoSave.Save(entite);
-            entite.Id = id;
-        }
-        public void InsererEntite<T>(T entite) where T : BaseEntity
-        {
-            DatabaseSessionManager.ConnectionString = @"data source=:memory:";
-            BaseDao<T, int> daoSave = new BaseDao<T, int>();
-            entite.Id = 0;
-            int id = daoSave.Save(entite);
-            entite.Id = id;
         }
 
         private void ConfigurerAutofac()

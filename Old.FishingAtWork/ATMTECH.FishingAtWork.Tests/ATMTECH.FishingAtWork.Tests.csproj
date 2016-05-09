@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{43939DFB-E139-4170-8A64-0F0F714EEE39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ATMTECH.FishingAtWork.Tests</RootNamespace>
+    <AssemblyName>ATMTECH.FishingAtWork.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\Library\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\Library\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WebFormsMvp, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Library\WebFormsMvp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\EntityTest.cs" />
+    <Compile Include="Base\Init.cs" />
+    <Compile Include="Builder\WallPostBuilder.cs" />
+    <Compile Include="Builder\TripBuilder.cs" />
+    <Compile Include="Builder\CoordinateBuilder.cs" />
+    <Compile Include="Builder\EnumWaypointTechniqueTypeBuilder.cs" />
+    <Compile Include="Builder\PlayerLureBuilder.cs" />
+    <Compile Include="Builder\WaypointCoordinateBuilder.cs" />
+    <Compile Include="Builder\WaypointBuilder.cs" />
+    <Compile Include="Builder\SiteSpeciesCoordinateBuilder.cs" />
+    <Compile Include="Builder\LureBuilder.cs" />
+    <Compile Include="Builder\PlayerBuilder.cs" />
+    <Compile Include="Builder\SiteBuilder.cs" />
+    <Compile Include="Builder\SiteSpeciesBuilder.cs" />
+    <Compile Include="Builder\SpeciesBuilder.cs" />
+    <Compile Include="Builder\SpeciesLureBuilder.cs" />
+    <Compile Include="Builder\UserBuilder.cs" />
+    <Compile Include="Presenter\DefaultPresenterTest.cs" />
+    <Compile Include="Presenter\NewTripPresenterTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CatchServiceTest.cs" />
+    <Compile Include="Services\ValidatePlayerServiceTest.cs" />
+    <Compile Include="Services\PlayerServiceTest.cs" />
+    <Compile Include="Services\ValidateCatchServiceTest.cs" />
+    <Compile Include="Services\RandomServiceTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
+      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
+      <Name>ATMTECH.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
+      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
+      <Name>ATMTECH.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
+      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
+      <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Exception\ATMTECH.Exception.csproj">
+      <Project>{8FB02184-36DE-4C31-836F-B6712B7A22C8}</Project>
+      <Name>ATMTECH.Exception</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.FishingAtWork.DAO\ATMTECH.FishingAtWork.DAO.csproj">
+      <Project>{34C62622-7F60-44B7-B08C-5E81A33EF6CA}</Project>
+      <Name>ATMTECH.FishingAtWork.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.FishingAtWork.Entities\ATMTECH.FishingAtWork.Entities.csproj">
+      <Project>{ADFD1A18-2B6C-41CB-9251-8594CC716A4C}</Project>
+      <Name>ATMTECH.FishingAtWork.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.FishingAtWork.Services\ATMTECH.FishingAtWork.Services.csproj">
+      <Project>{A65C6530-89E0-4FCF-B791-82C6CE1E379F}</Project>
+      <Name>ATMTECH.FishingAtWork.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.FishingAtWork.Views\ATMTECH.FishingAtWork.Views.csproj">
+      <Project>{70DC8E5F-EBCD-4773-8509-E9F39557E81D}</Project>
+      <Name>ATMTECH.FishingAtWork.Views</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Test\ATMTECH.Test.csproj">
+      <Project>{EA2A92A8-C48A-4979-BF6A-6B1AD86E23FD}</Project>
+      <Name>ATMTECH.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
+      <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
+      <Name>ATMTECH.Views</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
+      <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
+      <Name>ATMTECH.Web.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Database\FishingAtWork.db3" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

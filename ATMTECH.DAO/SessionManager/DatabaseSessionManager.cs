@@ -17,6 +17,8 @@ namespace ATMTECH.DAO.SessionManager
                 return ContextSessionManager.Context == null ? GetLocalSession() : GetWebSession();
             }
         }
+        public static bool IsUnitTesting { get; set; }
+        public static SqlTransaction CurrentSqlTransactionUnitTesting { get; set; }
 
         private static DbConnection _session;
         private static DbConnection GetLocalSession()

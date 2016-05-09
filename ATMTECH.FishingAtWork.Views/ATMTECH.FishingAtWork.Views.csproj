@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{70DC8E5F-EBCD-4773-8509-E9F39557E81D}</ProjectGuid>
+    <ProjectGuid>{D6B7B9BF-7025-4FB5-8505-5E4CA45D3E00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ATMTECH.FishingAtWork.Views</RootNamespace>
     <AssemblyName>ATMTECH.FishingAtWork.Views</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,68 +42,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseFishingAtWorkPresenter.cs" />
-    <Compile Include="ConfirmCreatePresenter.cs" />
-    <Compile Include="AdminPresenter.cs" />
-    <Compile Include="ContactPresenter.cs" />
-    <Compile Include="AdminLurePresenter.cs" />
-    <Compile Include="Interface\IAdminLurePresenter.cs" />
-    <Compile Include="Interface\IAdminSpeciesPresenter.cs" />
-    <Compile Include="AdminSpeciesPresenter.cs" />
-    <Compile Include="AdminSitePresenter.cs" />
-    <Compile Include="Interface\IAdminSitePresenter.cs" />
-    <Compile Include="Interface\IContactPresenter.cs" />
-    <Compile Include="MailPresenter.cs" />
-    <Compile Include="Interface\IMailPresenter.cs" />
-    <Compile Include="PlayerListPresenter.cs" />
-    <Compile Include="Interface\IPlayerListPresenter.cs" />
-    <Compile Include="RecordPresenter.cs" />
-    <Compile Include="Interface\IRecordPresenter.cs" />
-    <Compile Include="Interface\IAdminPresenter.cs" />
-    <Compile Include="WallPostPresenter.cs" />
-    <Compile Include="Interface\IWallPostPresenter.cs" />
-    <Compile Include="SiteListPresenter.cs" />
-    <Compile Include="Interface\ISiteListPresenter.cs" />
-    <Compile Include="RankingPresenter.cs" />
-    <Compile Include="Interface\IRankingPresenter.cs" />
-    <Compile Include="ShoppingPresenter.cs" />
-    <Compile Include="Interface\IShoppingPresenter.cs" />
-    <Compile Include="Interface\IOpenTripPresenter.cs" />
-    <Compile Include="OpenTripPresenter.cs" />
-    <Compile Include="NewTripPresenter.cs" />
-    <Compile Include="CreatePlayerPresenter.cs" />
-    <Compile Include="PlayerInformationPresenter.cs" />
-    <Compile Include="DefaultMasterPresenter.cs" />
-    <Compile Include="DefaultPresenter.cs" />
-    <Compile Include="ForgetPasswordPresenter.cs" />
-    <Compile Include="Interface\INewTripPresenter.cs" />
-    <Compile Include="Interface\IConfirmCreatePresenter.cs" />
-    <Compile Include="Interface\ICreatePlayerPresenter.cs" />
-    <Compile Include="Interface\IPlayerInformationPresenter.cs" />
-    <Compile Include="Interface\IDefaultMasterPresenter.cs" />
-    <Compile Include="Interface\IDefaultPresenter.cs" />
-    <Compile Include="Interface\IForgetPasswordPresenter.cs" />
-    <Compile Include="Interface\IGoogleSiteMapPresenter.cs" />
-    <Compile Include="Pages\Pages.cs" />
+    <Compile Include="Base\BaseFishingAtWorkPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
-      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
-      <Name>ATMTECH.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
-      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
-      <Name>ATMTECH.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.FishingAtWork.Entities\ATMTECH.FishingAtWork.Entities.csproj">
-      <Project>{ADFD1A18-2B6C-41CB-9251-8594CC716A4C}</Project>
-      <Name>ATMTECH.FishingAtWork.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.FishingAtWork.Services\ATMTECH.FishingAtWork.Services.csproj">
-      <Project>{A65C6530-89E0-4FCF-B791-82C6CE1E379F}</Project>
-      <Name>ATMTECH.FishingAtWork.Services</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
       <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
       <Name>ATMTECH.Views</Name>
@@ -112,10 +53,6 @@
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
       <Name>ATMTECH.Web.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ATMTECH.Web\ATMTECH.Web.csproj">
-      <Project>{F4ED3261-CB00-4C89-B481-56806262BFCF}</Project>
-      <Name>ATMTECH.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

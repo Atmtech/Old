@@ -118,16 +118,16 @@ namespace ATMTECH.Common.Utils
 
             if (propertyInfos != null)
             {
-                string rtn = "CREATE TABLE " + "[" + classname + "] (" + Environment.NewLine;
-                rtn += "[Id] INTEGER PRIMARY KEY AUTOINCREMENT," + Environment.NewLine;
+                string rtn = string.Format("IF EXISTS(SELECT 1 FROM Information_schema.Tables WHERE TABLE_NAME = '{0}') DROP TABLE {0}  CREATE TABLE " + "[{0}] ({1}", classname, Environment.NewLine);
+                rtn += "[Id] INT NOT NULL IDENTITY (1, 1)," + Environment.NewLine;
                 rtn += "[Description] TEXT," + Environment.NewLine;
                 rtn += "[IsActive] TINYINT," + Environment.NewLine;
                 rtn += "[DateCreated] DATETIME," + Environment.NewLine;
                 rtn += "[DateModified] DATETIME," + Environment.NewLine;
-                rtn += "[Language] VARCHAR(10)," + Environment.NewLine;
+                rtn += "[Language] VARCHAR(1000)," + Environment.NewLine;
                 rtn += "[OrderId] INTEGER," + Environment.NewLine;
                 rtn += "[Search] TEXT," + Environment.NewLine;
-                rtn += "[ComboboxDescription] VARCHAR(255)," + Environment.NewLine;
+                rtn += "[ComboboxDescription] VARCHAR(1000)," + Environment.NewLine;
 
                 foreach (PropertyInfo propertyInfo in propertyInfos)
                 {
@@ -174,7 +174,10 @@ namespace ATMTECH.Common.Utils
                 }
 
                 rtn = rtn.Substring(0, rtn.Length - 3);
-                rtn += ");";
+                rtn += ");" + Environment.NewLine +Environment.NewLine;
+
+
+                rtn += string.Format("ALTER TABLE {0} ADD CONSTRAINT PK_{0} PRIMARY KEY CLUSTERED (Id)", classname);
 
                 return rtn;
             }

@@ -57,6 +57,8 @@ namespace ATMTECH.DAO.Database
                         CommandType = CommandType.Text
                     };
 
+                SetTransactionUnitTesting(sqlCommand);
+
                 sqlDataAdapter.SelectCommand = sqlCommand;
 
                 sqlDataAdapter.Fill(dataSet);
@@ -70,6 +72,8 @@ namespace ATMTECH.DAO.Database
             {
                 using (SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection))
                 {
+                    SetTransactionUnitTesting(sqlCommand);
+
                     DateTime startDate = DateTime.Now;
                     string start = DateTime.Now + " " + DateTime.Now.Millisecond;
 
@@ -103,6 +107,7 @@ namespace ATMTECH.DAO.Database
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection);
 
+            SetTransactionUnitTesting(sqlCommand);
 
             DateTime startDate = DateTime.Now;
             string start = DateTime.Now + " " + DateTime.Now.Millisecond;
@@ -130,7 +135,7 @@ namespace ATMTECH.DAO.Database
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection);
 
-
+            SetTransactionUnitTesting(sqlCommand);
             DateTime startDate = DateTime.Now;
             string start = DateTime.Now + " " + DateTime.Now.Millisecond;
 
@@ -158,6 +163,7 @@ namespace ATMTECH.DAO.Database
             {
                 using (SqlCommand sqlCommand = new SqlCommand(sql, CurrentDatabaseConnection))
                 {
+                    SetTransactionUnitTesting(sqlCommand);
                     if (criterias != null && criterias.Count > 0)
                     {
                         foreach (Criteria criteria in criterias)
@@ -201,6 +207,20 @@ namespace ATMTECH.DAO.Database
             }
             return dataSet;
         }
+
+
+        private void SetTransactionUnitTesting(SqlCommand sqlCommand)
+        {
+            if (DatabaseSessionManager.IsUnitTesting)
+            {
+                if (DatabaseSessionManager.CurrentSqlTransactionUnitTesting == null)
+                {
+                    DatabaseSessionManager.CurrentSqlTransactionUnitTesting = CurrentDatabaseConnection.BeginTransaction("UnitTestingTransaction");
+                }
+                sqlCommand.Transaction = DatabaseSessionManager.CurrentSqlTransactionUnitTesting;
+
+            }
+        }
         public int InsertSql(TModel model)
         {
             int rtn = 0;
@@ -209,8 +229,12 @@ namespace ATMTECH.DAO.Database
 
             string sql = string.Format(SQL_INSERT, tableName, DatabaseOperation.ReturnColumnInsert(model), DatabaseOperation.ReturnValueInsert(model));
 
+
+
             using (SqlCommand command = new SqlCommand(sql, CurrentDatabaseConnection))
             {
+                SetTransactionUnitTesting(command);
+
                 PropertyInfo[] properties = type.GetProperties();
                 foreach (var propertyInfo in properties)
                 {
@@ -267,6 +291,8 @@ namespace ATMTECH.DAO.Database
 
             using (SqlCommand command = new SqlCommand(sql, CurrentDatabaseConnection))
             {
+                SetTransactionUnitTesting(command);
+
                 command.ExecuteScalar();
             }
 
@@ -285,6 +311,8 @@ namespace ATMTECH.DAO.Database
             string sql = string.Format(SQL_UPDATE, tableName, DatabaseOperation.ReturnSetClauseUpdate(model, id), Model.GetValueProperty(id, model), id);
             using (SqlCommand command = new SqlCommand(sql, CurrentDatabaseConnection))
             {
+                SetTransactionUnitTesting(command);
+
                 PropertyInfo[] properties = type.GetProperties();
                 foreach (var propertyInfo in properties)
                 {
