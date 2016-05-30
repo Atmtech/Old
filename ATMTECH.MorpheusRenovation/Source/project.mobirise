@@ -33,12 +33,16 @@
               "font-size": "12px",
               "font-family": "'Open Sans', sans-serif",
               "googleLink": "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700"
+            },
+            ".mbr-navbar__hamburger": {
+              "color": "#ffffff"
             }
           },
           "_name": "ext.menu",
           "_anchor": "ext_menu-3",
           "_params": {
             "color": "#28324e",
+            "hamburgerColor": "#ffffff",
             "transparent": false,
             "sticky": true,
             "collapsed": false,
@@ -63,6 +67,8 @@
           "_afterNavbarItem": ".mbr-section > .mbr-box__magnet",
           "_params": {
             "autoplay": true,
+            "paddingTop": 3,
+            "paddingBottom": 3,
             "slides": [
               {
                 "active": false,
@@ -336,7 +342,8 @@
               }
             ],
             "fullScreen": false,
-            "bgColor": "#cccccc"
+            "bgColor": "#cccccc",
+            "showBullets": true
           },
           "_anchor": "slider-4",
           "articleLayout": false
@@ -354,6 +361,8 @@
           },
           "_anchor": "features1-5",
           "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
             "bgImageRadio": false,
             "parallax": true,
             "bgImage": "images/bg3.jpg",
@@ -506,6 +515,8 @@
           ],
           "_anchor": "testimonials1-4",
           "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
             "count": 3,
             "showName": true,
             "showBio": true,
@@ -530,6 +541,8 @@
           },
           "_anchor": "contacts2-18",
           "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
             "address": "1056, Étienne-Dumetz\nCap-Rouge, QC, G1Y 1C2",
             "bgImageRadio": false,
             "parallax": true,
@@ -586,6 +599,8 @@
             "showText": true,
             "showButtons": false,
             "inverse": true,
+            "paddingTop": 3,
+            "paddingBottom": 3,
             "bgImageRadio": false,
             "bgImage": "images/bg3.jpg",
             "parallax": true,
@@ -647,7 +662,8 @@
             "sticky": true,
             "collapsed": false,
             "transparent": false,
-            "color": "#28324e"
+            "color": "#28324e",
+            "hamburgerColor": "#ffffff"
           },
           "logo": {
             "image": {
@@ -669,6 +685,8 @@
           },
           "_anchor": "contacts1-10",
           "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
             "bgImageRadio": false,
             "bgImage": "images/bg3.jpg",
             "parallax": true,
@@ -734,6 +752,8 @@
             "showText": true,
             "showButtons": false,
             "inverse": false,
+            "paddingTop": 3,
+            "paddingBottom": 3,
             "bgImageRadio": false,
             "bgImage": "images/bg3.jpg",
             "parallax": true,
@@ -795,7 +815,8 @@
             "sticky": true,
             "collapsed": false,
             "transparent": false,
-            "color": "#28324e"
+            "color": "#28324e",
+            "hamburgerColor": "#ffffff"
           },
           "logo": {
             "image": {
@@ -817,6 +838,8 @@
           },
           "_anchor": "contacts1-17",
           "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
             "bgImageRadio": false,
             "bgImage": "images/bg3.jpg",
             "parallax": true,
@@ -856,13 +879,9 @@
           },
           "_anchor": "form1-17",
           "_params": {
-            "formoidUserID": "",
-            "useFormoid": false,
-            "alertSuccess": "Thanks for filling out form!",
             "showTitle": true,
-            "showName": true,
-            "showEmail": true,
-            "showPhone": true,
+            "paddingTop": 3,
+            "paddingBottom": 3,
             "bgImageRadio": false,
             "bgImage": "images/bg3.jpg",
             "parallax": true,
@@ -873,7 +892,34 @@
             "overlayOpacity": 0.5
           },
           "title": "<br>CONTACTEZ-NOUS",
-          "buttons": "<a data-app-btn=\"true\" type=\"submit\" class=\"mbr-buttons__btn btn btn-lg btn-primary\" data-toolbar=\"-mbrLink,-mbrBtnAdd,-mbrBtnMove\">CONTACTEZ-NOUS</a>"
+          "buttons": "<a data-app-btn=\"true\" type=\"submit\" class=\"mbr-buttons__btn btn btn-lg btn-primary\" data-toolbar=\"-mbrLink,-mbrBtnAdd,-mbrBtnMove\">CONTACTEZ-NOUS</a>",
+          "form": {
+            "action": "",
+            "alerts": {
+              "success": "Thanks for filling out form!"
+            },
+            "fields": {
+              "name": {
+                "visible": true,
+                "title": "Name",
+                "customTitle": "Name*"
+              },
+              "email": {
+                "visible": true,
+                "title": "Email",
+                "customTitle": "Email*"
+              },
+              "phone": {
+                "visible": true,
+                "title": "Phone",
+                "customTitle": "Phone"
+              },
+              "message": {
+                "title": "Message",
+                "customTitle": "Message"
+              }
+            }
+          }
         },
         {
           "_inherit": "menu",
@@ -902,7 +948,8 @@
             "sticky": true,
             "collapsed": false,
             "transparent": false,
-            "color": "#28324e"
+            "color": "#28324e",
+            "hamburgerColor": "#ffffff"
           },
           "logo": {
             "image": {
@@ -924,6 +971,8 @@
           },
           "_anchor": "contacts1-21",
           "_params": {
+            "paddingTop": 3,
+            "paddingBottom": 3,
             "bgImageRadio": false,
             "bgImage": "images/bg3.jpg",
             "parallax": true,
