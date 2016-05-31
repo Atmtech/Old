@@ -28,8 +28,17 @@ namespace ATMTECH.Web
 
         public void Configure()
         {
-            ConfigureAutofac();
-            ConfigurerWebFormsMvp(ContainerProvider.ApplicationContainer);
+            try
+            {
+                ConfigureAutofac();
+                ConfigurerWebFormsMvp(ContainerProvider.ApplicationContainer);
+            }
+            catch
+            {
+                //ignored
+//                throw;
+            }
+         
         }
 
 
@@ -100,14 +109,23 @@ namespace ATMTECH.Web
 
         private void ConfigureAutofac()
         {
-            ContainerBuilder builder = new ContainerBuilder();
-            ConfigurationSettingsReader configuration = new ConfigurationSettingsReader();
-            builder.RegisterModule(configuration);
+            try
+            {
+                ContainerBuilder builder = new ContainerBuilder();
+                ConfigurationSettingsReader configuration = new ConfigurationSettingsReader();
+                builder.RegisterModule(configuration);
 
-            // Si The type 'ATMTECH.XWingCampaign.Services.Base.XWingCampaignInitializer, ATMTECH.XWingCampaign.Services, Version=1.0.0.0, Culture=neutral' could not be found. It may require assembly qualification, e.g. "MyType, MyAssembly".
-            // Alors il faut mettre en référence le Projet de service associé a l'initializer
-            _containerProvider = new ContainerProvider(builder.Build());
-            AutofacHostFactory.Container = _containerProvider.ApplicationContainer;
+                // Si The type 'ATMTECH.XWingCampaign.Services.Base.XWingCampaignInitializer, ATMTECH.XWingCampaign.Services, Version=1.0.0.0, Culture=neutral' could not be found. It may require assembly qualification, e.g. "MyType, MyAssembly".
+                // Alors il faut mettre en référence le Projet de service associé a l'initializer
+                _containerProvider = new ContainerProvider(builder.Build());
+                AutofacHostFactory.Container = _containerProvider.ApplicationContainer;
+            }
+            catch
+            {
+                //ignored
+               // throw;
+            }
+            
         }
 
         private void ConfigurerWebFormsMvp(IContainer container)

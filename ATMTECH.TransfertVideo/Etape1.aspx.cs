@@ -1,31 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Xml;
-using AjaxControlToolkit;
-using ATMTECH.Web;
+using ATMTECH.TransfertVideo.DAO;
+using ATMTECH.TransfertVideo.Entites;
 
 namespace ATMTECH.TransfertVideo
 {
-    public partial class Etape1 : System.Web.UI.Page
+    public partial class Etape1 : Page
     {
+        public string IdentifiantUnique
+        {
+            get
+            {
+                if (Session["IdentifiantUnique"] == null)
+                {
+                    Session["IdentifiantUnique"] = string.Empty;
+                }
+                return Session["IdentifiantUnique"].ToString();
+            }
+            set { Session["IdentifiantUnique"] = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-
-
-                string guid = QueryString.GetQueryStringValue("Guid");
-                if (!string.IsNullOrEmpty(guid))
+                if (!string.IsNullOrEmpty(IdentifiantUnique))
                 {
-                    Film film = new DAO().ObtenirListeFilm().FirstOrDefault(x => x.Guid == guid);
+                    Film film = new DAOFilm().ObtenirListeFilm().FirstOrDefault(x => x.Guid == IdentifiantUnique);
                     if (film != null)
                     {
                         txtEtudiant1.Text = film.Etudiant1;
@@ -33,7 +35,7 @@ namespace ATMTECH.TransfertVideo
                         txtEtudiant3.Text = film.Etudiant3;
                         txtEtudiant4.Text = film.Etudiant4;
                         txtEtudiant5.Text = film.Etudiant5;
-                        txtGroupe.Text = film.Groupe;
+                        ddlGroupe.Text = film.Groupe;
                     }
 
                 }
@@ -42,18 +44,38 @@ namespace ATMTECH.TransfertVideo
 
         protected void btnSuivantClick(object sender, EventArgs e)
         {
-            Film film = new Film
+            Film film;
+            if (!string.IsNullOrEmpty(IdentifiantUnique))
             {
-                Guid = string.IsNullOrEmpty(QueryString.GetQueryStringValue("Guid")) ? Guid.NewGuid().ToString() : QueryString.GetQueryStringValue("Guid"),
-                Etudiant1 = txtEtudiant1.Text,
-                Etudiant2 = txtEtudiant2.Text,
-                Etudiant3 = txtEtudiant3.Text,
-                Etudiant4 = txtEtudiant4.Text,
-                Etudiant5 = txtEtudiant5.Text,
-                Groupe = txtGroupe.Text
-            };
-            new DAO().EcrireFilm(film, Server.MapPath("/Data/") + "Film.xml");
-            Response.Redirect("Etape2.aspx?guid=" + film.Guid);
+                film = new DAOFilm().ObtenirListeFilm().FirstOrDefault(x => x.Guid == IdentifiantUnique);
+                film.Etudiant1 = txtEtudiant1.Text;
+                film.Etudiant2 = txtEtudiant2.Text;
+                film.Etudiant3 = txtEtudiant3.Text;
+                film.Etudiant4 = txtEtudiant4.Text;
+                film.Etudiant5 = txtEtudiant5.Text;
+                film.Etudiant6 = txtEtudiant6.Text;
+                film.Style = ddlStyle.Text;
+                film.Groupe = ddlGroupe.Text;
+            }
+            else
+            {
+                IdentifiantUnique = Guid.NewGuid().ToString();
+                film = new Film
+                {
+                    Guid = IdentifiantUnique,
+                    Etudiant1 = txtEtudiant1.Text,
+                    Etudiant2 = txtEtudiant2.Text,
+                    Etudiant3 = txtEtudiant3.Text,
+                    Etudiant4 = txtEtudiant4.Text,
+                    Etudiant5 = txtEtudiant5.Text,
+                    Etudiant6 = txtEtudiant6.Text,
+                    Style = ddlStyle.Text,
+                    Groupe = ddlGroupe.Text
+                };
+            }
+
+            new DAOFilm().Enregistrer(film);
+            Response.Redirect("Etape2.aspx");
         }
 
 

@@ -16,8 +16,13 @@
     <link rel="stylesheet" href="assets/mobirise/css/style.css" />
     <link rel="stylesheet" href="assets/dropdown-menu-plugin/style.css" />
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css" />
+   
+    <script>
+        function ClientUploadComplete() {
+            window.location.replace("Etape3.aspx");
+        }
 
-
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -54,7 +59,6 @@
                             <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
                                 <div class="mbr-navbar__column">
                                     <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active">
-                                        <li class="mbr-navbar__item"><a class="mbr-buttons__btn btn btn-danger" href="Transfert.aspx">UPLOAD MY MOVIE</a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -72,19 +76,31 @@
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-sm-8 col-sm-offset-2" data-form-type="formoid">
+
+
+
+
                                 <div class="mbr-header mbr-header--center mbr-header--std-padding">
                                     <h2 class="mbr-header__text">WRITE THE REQUIRED INFORMATION</h2>
                                 </div>
 
+
                                 <div class="mbr-header mbr-header--center mbr-header--std-padding">
                                     <h3>Please write clearly your information !</h3>
                                 </div>
-                                <asp:ScriptManager runat="server" ID="scriptManager"></asp:ScriptManager>
-                                <ajaxToolkit:AjaxFileUpload ID="AjaxFileUpload1" runat="server" AllowedFileTypes="mp4,avi,wmv,mpg" OnUploadComplete="AjaxFileUpload1_OnUploadComplete" />
-                                
-                                      <div class="mbr-buttons mbr-buttons--right">
+
+                                <asp:Panel runat="server" ID="pnluploader">
+
+
+
+                                    <asp:ScriptManager runat="server" ID="scriptManager"></asp:ScriptManager>
+                                    <ajaxToolkit:AjaxFileUpload ID="AjaxFileUpload1" runat="server" AllowedFileTypes="mp4,avi,wmv,mpg" OnClientUploadComplete="ClientUploadComplete" OnUploadComplete="AjaxFileUpload1_OnUploadComplete" />
+
+
+                                    <div class="mbr-buttons mbr-buttons--right">
                                         <asp:Button runat="server" ID="btnRevenir" Text="PREVIOUS STEP" Class="mbr-buttons__btn btn btn-lg btn-danger" OnClick="btnRevenirClick" />
                                     </div>
+                                </asp:Panel>
                             </div>
                         </div>
                     </div>

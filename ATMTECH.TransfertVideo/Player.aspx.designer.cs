@@ -10,7 +10,7 @@
 namespace ATMTECH.TransfertVideo {
     
     
-    public partial class Etape3 {
+    public partial class Player {
         
         /// <summary>
         /// Contrôle form1.
@@ -20,14 +20,5 @@ namespace ATMTECH.TransfertVideo {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// Contrôle lblRemerciement.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRemerciement;
     }
 }

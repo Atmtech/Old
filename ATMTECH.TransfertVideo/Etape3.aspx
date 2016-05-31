@@ -54,7 +54,7 @@
                             <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
                                 <div class="mbr-navbar__column">
                                     <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active">
-                                        <li class="mbr-navbar__item"><a class="mbr-buttons__btn btn btn-danger" href="Transfert.aspx">UPLOAD MY MOVIE</a></li>
+                                        
                                     </ul>
                                 </div>
                             </nav>
@@ -77,7 +77,10 @@
                                 <div class="mbr-header mbr-header--center mbr-header--std-padding">
                                     <h2 class="mbr-header__text">THANK YOU ! FOR UPLOADING</h2>
                                 </div>
-
+                                 <div class="mbr-header mbr-header--center mbr-header--std-padding">
+                                    <asp:Label runat="server" id="lblRemerciement"></asp:Label>
+                                </div>
+                                
 
                             </div>
                         </div>

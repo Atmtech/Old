@@ -31,13 +31,22 @@ namespace ATMTECH.TransfertVideo {
         protected global::System.Web.UI.WebControls.Panel pnlErreurNull;
         
         /// <summary>
-        /// Contrôle txtGroupe.
+        /// Contrôle ddlGroupe.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGroupe;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGroupe;
+        
+        /// <summary>
+        /// Contrôle ddlStyle.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStyle;
         
         /// <summary>
         /// Contrôle txtEtudiant1.
@@ -83,6 +92,15 @@ namespace ATMTECH.TransfertVideo {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEtudiant5;
+        
+        /// <summary>
+        /// Contrôle txtEtudiant6.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEtudiant6;
         
         /// <summary>
         /// Contrôle btnSuivant.

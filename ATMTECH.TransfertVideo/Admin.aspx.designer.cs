@@ -10,7 +10,7 @@
 namespace ATMTECH.TransfertVideo {
     
     
-    public partial class Etape2 {
+    public partial class Admin {
         
         /// <summary>
         /// Contrôle form1.
@@ -22,39 +22,30 @@ namespace ATMTECH.TransfertVideo {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle pnluploader.
+        /// Contrôle ddlGroupe.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnluploader;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGroupe;
         
         /// <summary>
-        /// Contrôle scriptManager.
+        /// Contrôle lblTotal.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager scriptManager;
+        protected global::System.Web.UI.WebControls.Label lblTotal;
         
         /// <summary>
-        /// Contrôle AjaxFileUpload1.
+        /// Contrôle GridViewMovie.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::AjaxControlToolkit.AjaxFileUpload AjaxFileUpload1;
-        
-        /// <summary>
-        /// Contrôle btnRevenir.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRevenir;
+        protected global::System.Web.UI.WebControls.GridView GridViewMovie;
     }
 }

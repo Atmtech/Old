@@ -61,6 +61,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Player.aspx" />
     <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
@@ -93,7 +94,9 @@
     <Content Include="Data\Film.xml" />
     <Content Include="Default.aspx" />
     <Content Include="Etape1.aspx" />
+    <Content Include="Admin.aspx" />
     <Content Include="Etape3.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Images\Container_Header.gif" />
     <Content Include="Images\Grid_ActionDelete.gif" />
     <Content Include="Images\Grid_Footer.gif" />
@@ -112,7 +115,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO.cs" />
+    <Compile Include="Player.aspx.cs">
+      <DependentUpon>Player.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Player.aspx.designer.cs">
+      <DependentUpon>Player.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,6 +136,13 @@
     <Compile Include="Etape1.aspx.designer.cs">
       <DependentUpon>Etape1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Etape3.aspx.cs">
       <DependentUpon>Etape3.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -134,7 +150,9 @@
     <Compile Include="Etape3.aspx.designer.cs">
       <DependentUpon>Etape3.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Film.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Etape2.aspx.cs">
       <DependentUpon>Etape2.aspx</DependentUpon>
@@ -148,6 +166,22 @@
     <Folder Include="Video\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
+      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
+      <Name>ATMTECH.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
+      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
+      <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.TransfertVideo.DAO\ATMTECH.TransfertVideo.DAO.csproj">
+      <Project>{D844ADFE-450D-48F2-8FE3-66EBBA7FB939}</Project>
+      <Name>ATMTECH.TransfertVideo.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.TransfertVideo.Entites\ATMTECH.TransfertVideo.Entites.csproj">
+      <Project>{460F2D94-FD44-4FD6-A25B-535C6E7935CE}</Project>
+      <Name>ATMTECH.TransfertVideo.Entites</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Web\ATMTECH.Web.csproj">
       <Project>{F4ED3261-CB00-4C89-B481-56806262BFCF}</Project>
       <Name>ATMTECH.Web</Name>

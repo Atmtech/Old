@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Etape1.aspx.cs" Inherits="ATMTECH.TransfertVideo.Etape1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Player.aspx.cs" Inherits="ATMTECH.TransfertVideo.Player" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <!DOCTYPE html>
@@ -72,69 +72,30 @@
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-sm-8 col-sm-offset-2" data-form-type="formoid">
-                                <div class="mbr-header mbr-header--center mbr-header--std-padding">
-                                    <h2 class="mbr-header__text">WRITE THE REQUIRED INFORMATION</h2>
-                                </div>
-
-
 
 
                                 <div class="mbr-header mbr-header--center mbr-header--std-padding">
-                                    <h3>Please write clearly your information !</h3>
-                                </div>
-                                <asp:Panel runat="server" ID="pnlErreurNull" ForeColor="red" Visible="False">
-                                    Your group number and all your teammate names is required !!!
-                                </asp:Panel>
-
-                                <div class="form-group" style="border: solid 1px lightgray;">
-                                    Group
-                                    <br />
-                                    <asp:DropDownList runat="server" ID="ddlGroupe" AutoPostBack="True">
-                                        <asp:ListItem>100</asp:ListItem>
-                                        <asp:ListItem>101</asp:ListItem>
-                                    </asp:DropDownList>
-
-                                </div>
-
-                                <div class="form-group" style="border: solid 1px lightgray;">
-                                    Movie style
-                                    <br />
-                                    <asp:DropDownList runat="server" ID="ddlStyle" AutoPostBack="True">
-                                        <asp:ListItem>Drama</asp:ListItem>
-                                        <asp:ListItem>Sci-fi</asp:ListItem>
-                                    </asp:DropDownList>
-                                </div>
-
-
-                                <div class="form-group" style="border: solid 1px lightgray;">
-                                    <asp:TextBox runat="server" placeholder="Student name 1 *" class="form-control" ID="txtEtudiant1"></asp:TextBox>
-                                </div>
-
-                                <div class="form-group" style="border: solid 1px lightgray;">
-                                    <asp:TextBox runat="server" placeholder="Student name 2" class="form-control" ID="txtEtudiant2"></asp:TextBox>
-                                </div>
-
-                                <div class="form-group" style="border: solid 1px lightgray;">
-                                    <asp:TextBox runat="server" placeholder="Student name 3" class="form-control" ID="txtEtudiant3"></asp:TextBox>
-                                </div>
-
-                                <div class="form-group" style="border: solid 1px lightgray;">
-                                    <asp:TextBox runat="server" placeholder="Student name 4" class="form-control" ID="txtEtudiant4"></asp:TextBox>
-                                </div>
-
-                                <div class="form-group" style="border: solid 1px lightgray;">
-                                    <asp:TextBox runat="server" placeholder="Student name 5" class="form-control" ID="txtEtudiant5"></asp:TextBox>
-                                </div>
-
-                                <div class="form-group" style="border: solid 1px lightgray;">
-                                    <asp:TextBox runat="server" placeholder="Student name 6" class="form-control" ID="txtEtudiant6"></asp:TextBox>
-                                </div>
-
-
-                                <div class="mbr-buttons mbr-buttons--right">
-                                    <asp:Button runat="server" ID="btnSuivant" Text="NEXT STEP" Class="mbr-buttons__btn btn btn-lg btn-danger" OnClick="btnSuivantClick" />
+                                    <h2 class="mbr-header__text">MOVIE LISTING</h2>
                                 </div>
                             </div>
+
+                            <%--<video width="400" controls>
+
+                                <source src="Video/test.mpg" type="video/mpg">
+                                Your browser does not support HTML5 video.
+                            </video>--%>
+
+
+                            <%--     <object classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95" width="480" height="360" codebase="http://www.microsoft.com/Windows/MediaPlayer/">
+                                <param name="Filename" value="Video/test.wmv">
+                                <param name="AutoStart" value="true">
+                                <param name="ShowControls" value="true">
+                                <param name="BufferingTime" value="2">
+                                <param name="ShowStatusBar" value="true">
+                                <param name="AutoSize" value="true">
+                                <param name="InvokeURLs" value="false">
+                                <embed src="Video/test.wmv" type="application/x-mplayer2" autostart="1" enabled="1" showstatusbar="1" showdisplay="1" showcontrols="1" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,0,0,0" width="480" height="360"></embed>
+                            </object>--%>
                         </div>
                     </div>
                 </div>
