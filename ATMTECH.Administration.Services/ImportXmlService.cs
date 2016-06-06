@@ -119,7 +119,7 @@ namespace ATMTECH.Administration.Services
                                                                 Title_FR = node.SelectSingleNode("Title_FR").InnerText,
                                                                 Desc_EN = node.SelectSingleNode("Desc_EN").InnerText,
                                                                 Desc_FR = node.SelectSingleNode("Desc_FR").InnerText,
-                                                                Sex = node.SelectSingleNode("SEX").InnerText,
+                                                                Sex = node.SelectSingleNode("SEX") == null ? "" : node.SelectSingleNode("SEX").InnerText,
                                                                 Category1 = node.SelectSingleNode("Category1") != null ? node.SelectSingleNode("Category1").InnerText : "",
                                                                 Category2 = node.SelectSingleNode("Category2") != null ? node.SelectSingleNode("Category2").InnerText : "",
                                                                 Category3 = node.SelectSingleNode("Category3") != null ? node.SelectSingleNode("Category3").InnerText : "",

@@ -87,22 +87,23 @@
                                 </asp:Panel>
 
                                 <div class="form-group" style="border: solid 1px lightgray;">
-                                    Group
-                                    <br />
-                                    <asp:DropDownList runat="server" ID="ddlGroupe" AutoPostBack="True">
-                                        <asp:ListItem>100</asp:ListItem>
-                                        <asp:ListItem>101</asp:ListItem>
-                                    </asp:DropDownList>
-
+                                  <div style="padding: 10px 10px 10px 10px;">  Group</div>
+                                   <div style="padding: 10px 10px 10px 10px; font-size: 15px;font-weight: bold;">
+                                       <asp:DropDownList runat="server" ID="ddlGroupe" AutoPostBack="True">
+                                           <asp:ListItem>100</asp:ListItem>
+                                           <asp:ListItem>101</asp:ListItem>
+                                       </asp:DropDownList>
+                                   </div>
                                 </div>
 
                                 <div class="form-group" style="border: solid 1px lightgray;">
-                                    Movie style
-                                    <br />
-                                    <asp:DropDownList runat="server" ID="ddlStyle" AutoPostBack="True">
-                                        <asp:ListItem>Drama</asp:ListItem>
-                                        <asp:ListItem>Sci-fi</asp:ListItem>
-                                    </asp:DropDownList>
+                                    <div style="padding: 10px 10px 10px 10px;">Movie style</div>
+                                    <div style="padding: 10px 10px 10px 10px;font-size: 15px; font-weight: bold;">
+                                        <asp:DropDownList runat="server" ID="ddlStyle" AutoPostBack="True">
+                                            <asp:ListItem>Drama</asp:ListItem>
+                                            <asp:ListItem>Sci-fi</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
                                 </div>
 
 

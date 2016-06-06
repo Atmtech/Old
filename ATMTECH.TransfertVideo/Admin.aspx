@@ -22,6 +22,7 @@
 <body>
     <form id="form1" runat="server">
 
+
         <style>
             .ajax__fileupload_dropzone {
                 border: dotted 1px #B2D1E0 !important;
@@ -66,103 +67,135 @@
 
         <section class="engine"><a rel="external" href="https://mobirise.com">mobile website creator</a></section>
         <section class="mbr-section mbr-section--relative mbr-section--fixed-size mbr-after-navbar" id="form1-7" style="background-color: rgb(239, 239, 239);">
+            <asp:Panel runat="server" ID="pnlPasOk" Visible="True">
+                <div class="mbr-section__container mbr-section__container--std-padding container" style="padding-top: 93px; padding-bottom: 93px;">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-8 col-sm-offset-2" data-form-type="formoid">
+                                    <div class="mbr-header mbr-header--center mbr-header--std-padding">
+                                        <h2 class="mbr-header__text">Authentication</h2>
+                                    </div>
 
-            <div class="mbr-section__container mbr-section__container--std-padding container" style="padding-top: 93px; padding-bottom: 93px;">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-8 col-sm-offset-2" data-form-type="formoid">
+                                    <div class="form-group" style="border: solid 1px lightgray;">
+                                        <asp:TextBox runat="server" ID="txtPassword" placeholder="Password"  class="form-control" ></asp:TextBox>
+                                    </div>
 
-
-                                <div class="mbr-header mbr-header--center mbr-header--std-padding">
-                                    <h2 class="mbr-header__text">MOVIE LISTING</h2>
+                                    <div class="mbr-buttons mbr-buttons--right">
+                                        <asp:Button runat="server" ID="btnValiderPassword" Class="mbr-buttons__btn btn btn-lg btn-danger" OnClick="btnValiderPasswordClick" Text="SIGN IN" />
+                                    </div>
                                 </div>
                             </div>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            Filter by group: 
-                                 <asp:DropDownList runat="server" ID="ddlGroupe" AutoPostBack="True">
+                        </div>
+                    </div>
+                </div>
+            </asp:Panel>
+
+            <asp:Panel runat="server" ID="pnlOk" Visible="False">
+                <div class="mbr-section__container mbr-section__container--std-padding container" style="padding-top: 93px; padding-bottom: 93px;">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-8 col-sm-offset-2" data-form-type="formoid">
+
+
+                                    <div class="mbr-header mbr-header--center mbr-header--std-padding">
+                                        <h2 class="mbr-header__text">MOVIE LISTING</h2>
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                Filter by group: 
+                                 <asp:DropDownList runat="server" ID="ddlGroupe" AutoPostBack="True" OnSelectedIndexChanged="ddlGroupeChanged" >
+                                     <asp:ListItem>all</asp:ListItem>   
                                      <asp:ListItem>100</asp:ListItem>
                                      <asp:ListItem>101</asp:ListItem>
                                  </asp:DropDownList>
 
-                            <br />
-                            Total movie received: <b>
-                                <asp:Label Text="text" runat="server" ID="lblTotal" /></b>
-                            <br />
-                            <br />
-                            <asp:GridView ID="GridViewMovie" runat="server" AutoGenerateColumns="False"
-                                CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" OnRowCommand="GridViewMovie_RowCommand">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                <Columns>
-                                    <asp:TemplateField HeaderText="Group">
-                                        <ItemTemplate>
-                                            <asp:Label runat="server" ID="lblGroupe" Text='<%# Eval("Groupe")  %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                                <br />
+                                Total movie received: <b>
+                                    <asp:Label Text="text" runat="server" ID="lblTotal" /></b>
+                                <br />
+                                <br />
+                                <asp:GridView ID="GridViewMovie" runat="server" AutoGenerateColumns="False"
+                                    CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" OnRowCommand="GridViewMovie_RowCommand">
+                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="Group">
+                                            <ItemTemplate>
+                                                <asp:Label runat="server" ID="lblGroupe" Text='<%# Eval("Groupe")  %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Date received">
-                                        <ItemTemplate>
-                                            <asp:Label runat="server" ID="lblDateModified" Text='<%# Eval("DateModified")  %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Date received">
+                                            <ItemTemplate>
+                                                <asp:Label runat="server" ID="lblDateModified" Text='<%# Eval("DateModified")  %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Students">
-                                        <ItemTemplate>
-                                            <asp:Label runat="server" ID="lblEtudiant1" Text='<%# Eval("Etudiant1")  %>'></asp:Label><br />
-                                            <asp:Label runat="server" ID="lblEtudiant2" Text='<%# Eval("Etudiant2")  %>'></asp:Label><br />
-                                            <asp:Label runat="server" ID="lblEtudiant3" Text='<%# Eval("Etudiant3")  %>'></asp:Label><br />
-                                            <asp:Label runat="server" ID="lblEtudiant4" Text='<%# Eval("Etudiant4")  %>'></asp:Label><br />
-                                            <asp:Label runat="server" ID="lblEtudiant5" Text='<%# Eval("Etudiant5")  %>'></asp:Label><br />
-                                            <asp:Label runat="server" ID="lblEtudiant6" Text='<%# Eval("Etudiant6")  %>'></asp:Label>
+                                        <asp:TemplateField HeaderText="Students">
+                                            <ItemTemplate>
+                                                <asp:Label runat="server" ID="lblEtudiant1" Text='<%# Eval("Etudiant1")  %>'></asp:Label><br />
+                                                <asp:Label runat="server" ID="lblEtudiant2" Text='<%# Eval("Etudiant2")  %>'></asp:Label><br />
+                                                <asp:Label runat="server" ID="lblEtudiant3" Text='<%# Eval("Etudiant3")  %>'></asp:Label><br />
+                                                <asp:Label runat="server" ID="lblEtudiant4" Text='<%# Eval("Etudiant4")  %>'></asp:Label><br />
+                                                <asp:Label runat="server" ID="lblEtudiant5" Text='<%# Eval("Etudiant5")  %>'></asp:Label><br />
+                                                <asp:Label runat="server" ID="lblEtudiant6" Text='<%# Eval("Etudiant6")  %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
 
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Movie style">
+                                            <ItemTemplate>
+                                                <asp:Label runat="server" ID="lblStyle" Text='<%# Eval("Style")  %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Movie style">
-                                        <ItemTemplate>
-                                            <asp:Label runat="server" ID="lblStyle" Text='<%# Eval("Style")  %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-
-
-                                    <asp:TemplateField HeaderText="Movie file">
-                                        <ItemTemplate>
-                                            <asp:HyperLink runat="server" ID="lnkFichier" NavigateUrl='<%# "video/" + Eval("Fichier")  %>' Text='<%# Eval("FichierSansGuid")  %>'></asp:HyperLink>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-
-                                    <asp:TemplateField HeaderText="Seen">
-                                        <ItemTemplate>
-                                            <asp:Label runat="server" ID="lblVisionnee" Text='<%# Eval("Visionnee")  %>'></asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Seen">
+                                            <ItemTemplate>
+                                                <asp:Label runat="server" ID="lblVisionnee" Text='<%# Eval("Visionnee")  %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
 
 
-                                    <asp:TemplateField HeaderText="">
-                                        <ItemTemplate>
-                                            <asp:Button runat="server" ID="btnVisionnee" CommandName="Visionnee" CommandArgument='<%#Eval("Guid")%>' Text="I have seen this movie"></asp:Button>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="">
+                                            <ItemTemplate>
+                                                <asp:Button runat="server" ID="btnVoir" Class="mbr-buttons__btn btn btn-lg btn-danger" Text='View' CommandName="Voir" CommandArgument='<%#Eval("Guid")%>'></asp:Button>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
 
-                                </Columns>
-                                <EditRowStyle BackColor="#999999" />
-                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" VerticalAlign="Top" />
-                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                            </asp:GridView>
+
+                                        <asp:TemplateField HeaderText="">
+                                            <ItemTemplate>
+                                                <asp:Button runat="server" ID="btnVisionnee" Class="mbr-buttons__btn btn btn-lg btn-danger" CommandName="Visionnee" CommandArgument='<%#Eval("Guid")%>' Text="I have seen this movie"></asp:Button>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+
+                                        <asp:TemplateField HeaderText="">
+                                            <ItemTemplate>
+                                                <asp:HyperLink runat="server" ID="btnDownload" Class="mbr-buttons__btn btn btn-lg btn-danger" NavigateUrl='<%# "download.aspx?file=" + Eval("FichierMp4")%>' Text="Download"></asp:HyperLink>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                    </Columns>
+                                    <EditRowStyle BackColor="#999999" />
+                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" VerticalAlign="Middle" />
+                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </asp:Panel>
         </section>
 
         <footer class="mbr-section mbr-section--relative mbr-section--fixed-size" id="footer1-6" style="background-color: rgb(68, 68, 68);">

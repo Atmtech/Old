@@ -75,27 +75,16 @@
 
 
                                 <div class="mbr-header mbr-header--center mbr-header--std-padding">
-                                    <h2 class="mbr-header__text">MOVIE LISTING</h2>
+                                    <h2 class="mbr-header__text">MOVIE PLAYER</h2>
+                                    <br/><br/>
+                                     <asp:PlaceHolder runat="server" ID="placeHolder"></asp:PlaceHolder>
+                                    <br/><br/>
+                                       <asp:Button runat="server" ID="btnRevenir" Text="RETURN TO ADMIN" Class="mbr-buttons__btn btn btn-lg btn-danger" OnClick="btnRevenirClick"/>
                                 </div>
+                             
+
                             </div>
 
-                            <%--<video width="400" controls>
-
-                                <source src="Video/test.mpg" type="video/mpg">
-                                Your browser does not support HTML5 video.
-                            </video>--%>
-
-
-                            <%--     <object classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95" width="480" height="360" codebase="http://www.microsoft.com/Windows/MediaPlayer/">
-                                <param name="Filename" value="Video/test.wmv">
-                                <param name="AutoStart" value="true">
-                                <param name="ShowControls" value="true">
-                                <param name="BufferingTime" value="2">
-                                <param name="ShowStatusBar" value="true">
-                                <param name="AutoSize" value="true">
-                                <param name="InvokeURLs" value="false">
-                                <embed src="Video/test.wmv" type="application/x-mplayer2" autostart="1" enabled="1" showstatusbar="1" showdisplay="1" showcontrols="1" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,0,0,0" width="480" height="360"></embed>
-                            </object>--%>
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,7 @@ namespace ATMTECH.TransfertVideo
         {
             if (!Page.IsPostBack)
             {
-               Refresh(); 
+                Refresh("all");
             }
         }
 
@@ -26,16 +26,42 @@ namespace ATMTECH.TransfertVideo
                 film.Visionnee = true;
                 new DAOFilm().Save(film);
             }
+
+            if (e.CommandName == "Voir")
+            {
+                Session["IdentifiantUnique"] = e.CommandArgument.ToString();
+                Response.Redirect("Player.aspx");
+            }
+
         }
 
-        private void Refresh()
+        private void Refresh(string groupe)
         {
-            IList<Film> films = new DAOFilm().ObtenirListeFilm();
+            var films = groupe == "all" ? new DAOFilm().ObtenirListeFilm() : new DAOFilm().ObtenirListeFilm().Where(x => x.Groupe == groupe).ToList();
+
             lblTotal.Text = films.Count.ToString();
 
             GridViewMovie.DataSource = films;
-            GridViewMovie.DataBind();    
+            GridViewMovie.DataBind();
         }
 
+        protected void btnValiderPasswordClick(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.ToLower() == "ourson")
+            {
+                pnlOk.Visible = true;
+                pnlPasOk.Visible = false;
+            }
+            else
+            {
+                pnlOk.Visible = false;
+                pnlPasOk.Visible = true;
+            }
+        }
+
+        protected void ddlGroupeChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

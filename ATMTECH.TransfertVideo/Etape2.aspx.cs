@@ -4,7 +4,6 @@ using System.Web.UI;
 using AjaxControlToolkit;
 using ATMTECH.TransfertVideo.DAO;
 using ATMTECH.TransfertVideo.Entites;
-using ATMTECH.Web;
 
 namespace ATMTECH.TransfertVideo
 {

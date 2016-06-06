@@ -36,6 +36,7 @@
       <HintPath>..\Library\NReco.VideoConverter.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,16 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,6 +80,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
+      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
+      <Name>ATMTECH.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
+      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
+      <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.TransfertVideo.DAO\ATMTECH.TransfertVideo.DAO.csproj">
+      <Project>{D844ADFE-450D-48F2-8FE3-66EBBA7FB939}</Project>
+      <Name>ATMTECH.TransfertVideo.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.TransfertVideo.Entites\ATMTECH.TransfertVideo.Entites.csproj">
+      <Project>{460F2D94-FD44-4FD6-A25B-535C6E7935CE}</Project>
+      <Name>ATMTECH.TransfertVideo.Entites</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
