@@ -36,9 +36,6 @@ namespace ATMTECH.TransfertVideo
                 AjaxFileUpload1.Attributes.Add("OnClientUploadComplete", "Return  OnClientUploadComplete");
                 string repertoire = Server.MapPath("/Video/");
                 AjaxFileUpload1.SaveAs(repertoire + film.Fichier);
-                pnluploader.Visible = false;
-                
-
             }
         }
 
@@ -47,6 +44,7 @@ namespace ATMTECH.TransfertVideo
              Response.Redirect("Etape1.aspx");
         }
 
-     
+
+        
     }
 }

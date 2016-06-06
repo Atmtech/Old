@@ -77,9 +77,6 @@
                         <div class="row">
                             <div class="col-sm-8 col-sm-offset-2" data-form-type="formoid">
 
-
-
-
                                 <div class="mbr-header mbr-header--center mbr-header--std-padding">
                                     <h2 class="mbr-header__text">WRITE THE REQUIRED INFORMATION</h2>
                                 </div>
@@ -89,10 +86,6 @@
                                     <h3>Please write clearly your information !</h3>
                                 </div>
 
-                                <asp:Panel runat="server" ID="pnluploader">
-
-
-
                                     <asp:ScriptManager runat="server" ID="scriptManager"></asp:ScriptManager>
                                     <ajaxToolkit:AjaxFileUpload ID="AjaxFileUpload1" runat="server" AllowedFileTypes="mp4,avi,wmv,mpg" OnClientUploadComplete="ClientUploadComplete" OnUploadComplete="AjaxFileUpload1_OnUploadComplete" />
 
@@ -100,7 +93,6 @@
                                     <div class="mbr-buttons mbr-buttons--right">
                                         <asp:Button runat="server" ID="btnRevenir" Text="PREVIOUS STEP" Class="mbr-buttons__btn btn btn-lg btn-danger" OnClick="btnRevenirClick" />
                                     </div>
-                                </asp:Panel>
                             </div>
                         </div>
                     </div>
