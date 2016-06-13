@@ -84,9 +84,9 @@ namespace ATMTECH.Administration.Commerce
         }
         protected void btnImporterImageProduitClick(object sender, EventArgs e)
         {
-            Presenter.CopierFichierImageProduitNonFormateVersProduct();
-            Presenter.SynchroniserImage();
-            Presenter.SynchroniseProductFile();
+           // Presenter.CopierFichierImageProduitNonFormateVersProduct();
+            //Presenter.SynchroniserImage();
+            //Presenter.SynchroniseProductFile();
             ShowMessage(new Message { Description = "Images synchronisé", MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
         protected void btnFermerSystemeClick(object sender, EventArgs e)

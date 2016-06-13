@@ -45,19 +45,17 @@ namespace ATMTECH.ShoppingCart.DAO
 
             return GetByCriteria(criterias, pagingOperation, orderOperation);
         }
-
-
-
         public int SaveProductFile(ProductFile productFile)
         {
             return Save(productFile);
         }
-
         public void DeleteProductFile(ProductFile productFile)
         {
             productFile.IsActive = false;
             Save(productFile);
 
         }
+
+        
     }
 }

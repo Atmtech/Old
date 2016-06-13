@@ -11,6 +11,7 @@ using ATMTECH.Entities;
 using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.DAO.Interface.Francais;
 using ATMTECH.ShoppingCart.Entities;
+using ATMTECH.ShoppingCart.Services;
 using ATMTECH.ShoppingCart.Services.Francais;
 using ATMTECH.ShoppingCart.Services.Interface.Francais;
 using ATMTECH.Web.Services;
@@ -29,6 +30,8 @@ namespace ATMTECH.Administration.Views.Francais
         public ICourrielService CourrielService { get; set; }
         public IProduitService ProduitService { get; set; }
         public IPaypalService PaypalService { get; set; }
+        public IFileService FileService { get; set; }
+        public IDAOProduitFichier DAOProduitFichier { get; set; }
 
         public ActionPresenter(IActionPresenter view)
             : base(view)
@@ -130,7 +133,6 @@ namespace ATMTECH.Administration.Views.Francais
             return CourrielService.EnvoyerCourriel(View.Courriel, courriel.From, "Test d'envoi de courriel ...",
                  "<b>Test d'envoi de courriel</b><br>Réussi ...");
         }
-
         public void EnvoyerCourrielCommande()
         {
             Order obtenirCommande = CommandeService.ObtenirCommande(Convert.ToInt32(View.NumeroCommandePourCourriel));
@@ -138,7 +140,6 @@ namespace ATMTECH.Administration.Views.Francais
             CourrielService.EnvoyerCommandeACourriel(obtenirCommande, obtenirFacturePourPdf, View.CourrielCommande);
             MessageService.ThrowMessage("ADM005");
         }
-
         public void ImporterExcel(HttpPostedFile httpPostedFile)
         {
             string filename = Path.GetFileName(httpPostedFile.FileName);
@@ -177,7 +178,6 @@ namespace ATMTECH.Administration.Views.Francais
 
             File.Delete(serverPath);
         }
-
         public void ImporterProduct(DataRow row)
         {
             if (string.IsNullOrEmpty(row["Ident"].ToString()))
@@ -231,7 +231,6 @@ namespace ATMTECH.Administration.Views.Francais
             InventaireService.Enregistrer(stock);
 
         }
-
         public void PayerPaypal()
         {
 
@@ -249,6 +248,64 @@ namespace ATMTECH.Administration.Views.Francais
 
             Order order = CommandeService.ObtenirCommande(23);
             CommandeService.FinaliserCommandeAvecPaypal(order);
+        }
+        public string ImporterImage(string repertoireImagePrincipal, string repertoireImageSecondaire, string repertoireImageSiteWeb)
+        {
+            FileService.DeleteAll();
+            DAOProduitFichier.DeleteAll();
+            DirectoryInfo directory = new DirectoryInfo(repertoireImageSiteWeb);
+            directory.GetFiles().ToList().ForEach(f => f.Delete());
+            string rtn = ImporterImagePrincipale(repertoireImagePrincipal, repertoireImageSiteWeb);
+            return rtn;
+        }
+
+        private string ImporterImageSecondaire(string repertoireImageSecondaire, string repertoireImageSiteWeb)
+        {
+            
+        }
+        private string ImporterImagePrincipale(string repertoireImagePrincipal, string repertoireImageSiteWeb)
+        {
+            string rtn = string.Empty;
+            string[] listeFichierPrincipal = Directory.GetFiles(repertoireImagePrincipal);
+            IList<Product> products = ProduitService.ObtenirProduit();
+            foreach (string file in listeFichierPrincipal)
+            {
+                long fileSize;
+                using (FileStream fichier = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                {
+                    fileSize = fichier.Length;
+                }
+
+                File.Copy(string.Format("{0}\\{1}", repertoireImagePrincipal, Path.GetFileName(file)), string.Format("{0}\\{1}", repertoireImageSiteWeb, Path.GetFileName(file)));
+                Entities.File fichierAEnregistrer = new Entities.File
+                {
+                    Category = "Product",
+                    Size = (int)fileSize,
+                    RootImagePath = repertoireImageSiteWeb,
+                    FileName = Path.GetFileName(file)
+                };
+                fichierAEnregistrer.Id = FileService.SaveFile(fichierAEnregistrer);
+
+                string identificationFichier = Path.GetFileName(file).Replace(".jpg", "").ToLower();
+                Product product = products.FirstOrDefault(x => x.Ident.ToLower() == identificationFichier);
+                if (product != null)
+                {
+                    ProductFile productFile = new ProductFile
+                    {
+                        Product = product,
+                        File = fichierAEnregistrer,
+                        IsPrincipal = true,
+                        IsActive = true
+                    };
+                    ProduitService.EnregistrerFichierProduit(productFile);
+                }
+                else
+                {
+                    rtn += string.Format("({0}) ce produit n'existe pas dans la base de donnée. Fichier: {1}<br>", identificationFichier, Path.GetFileName(file));
+                }
+            }
+
+            return rtn;
         }
     }
 }

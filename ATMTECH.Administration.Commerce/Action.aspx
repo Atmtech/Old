@@ -158,17 +158,52 @@
     </asp:Panel>
 
     <asp:Panel runat="server" ID="pnlImporterExcel" Visible="false">
-          <div class="titrePage">
+        <div class="titrePage">
             Importer un fichier Excel
         </div>
 
-          Fichier: <asp:FileUpload ID="FileUpload1" runat="server" /> *.XLS<br/><br/>
+        Fichier:
+        <asp:FileUpload ID="FileUpload1" runat="server" />
+        *.XLS<br />
+        <br />
         <asp:Button ID="btnImporterExcel" runat="server" Text="Importer le fichier excel" CssClass="bouton" OnClick="btnImporterExcelClick" />
     </asp:Panel>
-    
-    
-    <asp:panel runat="server" ID="pnlPayerPaypal" Visible="False">
+
+    <asp:Panel runat="server" ID="pnlPayerPaypal" Visible="False">
         Tester pour payer un produit à 1¢
-        <asp:button ID="btnPayerPaypal" runat="server" Text="Payer par paypal" CssClass="bouton" OnClick="btnPayerPaypalClick"/>
-    </asp:panel>
+        <asp:Button ID="btnPayerPaypal" runat="server" Text="Payer par paypal" CssClass="bouton" OnClick="btnPayerPaypalClick" />
+    </asp:Panel>
+
+
+    <asp:Panel runat="server" ID="pnlImporterImage" Visible="false">
+        <div class="titrePage">
+            Importer les images des produits
+        </div>
+
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 300px;">Répertoire des images site web:</td>
+                <td>
+                    <asp:TextBox runat="server" ID="txtRepertoireImageSiteWeb" Text="C:\Website\checkleprix.com\Images\Product" Width="100%"></asp:TextBox></td>
+
+            </tr>
+            <tr>
+                <td>Répertoire des images principales pour importation:</td>
+                <td>
+                    <asp:TextBox runat="server" ID="txtRepertoireImagePrincipale" Text="D:\eCommerce\ImagePrincipale" Width="100%"></asp:TextBox></td>
+            </tr>
+
+            <tr>
+                <td>Répertoire des images secondaires pour importation:</td>
+                <td>
+                    <asp:TextBox runat="server" ID="txtRepertoireImageSecondaire" Text="D:\eCommerce\ImageSecondaire"  Width="100%"></asp:TextBox></td>
+            </tr>
+
+        </table>
+        <br />
+        <asp:Button ID="btnImporterImage" runat="server" Text="Importer les images de produits" CssClass="bouton" OnClick="btnImporterImageClick" />
+        <br /><br />
+        <asp:Label runat="server" ID="lblListeImageSansProduit" ForeColor="red"></asp:Label>
+    </asp:Panel>
+
 </asp:Content>

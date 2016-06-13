@@ -175,6 +175,11 @@ namespace ATMTECH.Services
             }
         }
 
+        public void DeleteAll()
+        {
+            DAOFile.DeleteAll();
+        }
+
         private static ImageCodecInfo GetEncoderInfo(string mimeType)
         {
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();

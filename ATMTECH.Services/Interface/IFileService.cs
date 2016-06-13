@@ -19,5 +19,7 @@ namespace ATMTECH.Services.Interface
         void SaveJpeg(string path, Image img, int quality);
 
         void ReduireQualite(string fichierImage);
+
+        void DeleteAll();
     }
 }

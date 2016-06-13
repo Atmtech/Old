@@ -124,6 +124,10 @@ namespace ATMTECH.Administration.Commerce
                 case "Paypal":
                     pnlPayerPaypal.Visible = true;
                     break;
+                case "ImporterImage":
+                    pnlImporterImage.Visible = true;
+                    break;
+
             }
         }
         protected void btnRestaurerCopieSauvegardeClick(object sender, EventArgs e)
@@ -198,7 +202,7 @@ namespace ATMTECH.Administration.Commerce
             pnlEnvoyerCommandeParCourriel.Visible = false;
             pnlImporterExcel.Visible = false;
             pnlPayerPaypal.Visible = false;
-            
+
         }
 
 
@@ -214,7 +218,7 @@ namespace ATMTECH.Administration.Commerce
                     if (httpPostedFile.ContentLength > 0)
                     {
                         Presenter.ImporterExcel(httpPostedFile);
-                      
+
                     }
                 }
             }
@@ -227,6 +231,11 @@ namespace ATMTECH.Administration.Commerce
         protected void btnPayerPaypalClick(object sender, EventArgs e)
         {
             Presenter.PayerPaypal();
+        }
+
+        protected void btnImporterImageClick(object sender, EventArgs e)
+        {
+            lblListeImageSansProduit.Text = Presenter.ImporterImage(txtRepertoireImagePrincipale.Text, txtRepertoireImageSecondaire.Text, txtRepertoireImageSiteWeb.Text);
         }
     }
 }

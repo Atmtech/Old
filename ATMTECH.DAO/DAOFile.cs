@@ -51,10 +51,15 @@ namespace ATMTECH.DAO
             return files.Count > 0 ? files[0] : null;
         }
 
+        public void DeleteAll()
+        {
+            ExecuteSql("DELETE FROM [File]");
+            ExecuteSql("DBCC CHECKIDENT ([File], RESEED, 0)");
+        }
+
         public IList<File> GetAllFile()
         {
             return Files;
-            //return GetAllActive();
         }
 
         public void DeleteFile(File file)

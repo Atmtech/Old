@@ -12,5 +12,6 @@ namespace ATMTECH.DAO.Interface
         int UpdateFile(File file);
         File GetFile(File file);
         File GetFileByFileName(string fileName);
+        void DeleteAll();
     }
 }

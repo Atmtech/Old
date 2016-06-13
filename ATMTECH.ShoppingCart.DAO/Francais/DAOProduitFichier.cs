@@ -32,5 +32,12 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
         {
             return GetBySql(string.Format("select * from ProductFile where Product in (SELECT id FROM PRODUCT where Enterprise = {0})", enterprise.Id));
         }
+
+        public void DeleteAll()
+        {
+            ExecuteSql("DELETE FROM ProductFile");
+            ExecuteSql("DBCC CHECKIDENT ([ProductFile], RESEED,0)");
+
+        }
     }
 }
