@@ -13,6 +13,11 @@ namespace ATMTECH.FishingAtWork.DAO
             return GetAllActive().Where(x => x.Utilisateur.Id == utilisateur.Id).ToList();
         }
 
+        public IList<VoyageUtilisateur> ObtenirVoyageUtilisateur(Voyage voyage)
+        {
+            return GetAllActive().Where(x => x.Voyage.Id == voyage.Id).ToList();
+        }
+
         public int Enregistrer(VoyageUtilisateur voyageUtilisateur)
         {
             return Save(voyageUtilisateur);

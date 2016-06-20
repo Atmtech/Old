@@ -418,7 +418,7 @@ namespace ATMTECH.DAO.Database
                         command.ExecuteScalar();
                     }
                 }
-                catch (Exception xException)
+                catch (Exception)
                 {
 
                 }

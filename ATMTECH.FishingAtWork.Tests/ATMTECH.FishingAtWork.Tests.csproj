@@ -67,6 +67,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DAO\BaseTestDAOFishingAtWork.cs" />
+    <Compile Include="DAO\DAOEmplacementTest.cs" />
     <Compile Include="DAO\DAOVoyageUtilisateurTest.cs" />
     <Compile Include="DAO\DAOVoyageTest.cs" />
     <Compile Include="DAO\DAOUtilisateurTest.cs" />

@@ -10,11 +10,7 @@ namespace ATMTECH.ShoppingCart.DAO
 {
     public class DAOProductCategory : BaseDao<ProductCategory, int>, IDAOProductCategory
     {
-        public string CurrentLanguage
-        {
-            get { return ContextSessionManager.Session["currentLanguage"].ToString(); }
-        }
-
+      
         public ProductCategory GetProductCategory(int id)
         {
             return GetById(id);

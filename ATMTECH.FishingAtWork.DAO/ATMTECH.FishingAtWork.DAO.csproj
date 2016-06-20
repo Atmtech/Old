@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAOEmplacement.cs" />
     <Compile Include="DAOVoyageUtilisateur.cs" />
     <Compile Include="DAOVoyage.cs" />
     <Compile Include="DAOUtilisateur.cs" />
+    <Compile Include="Interface\IDAOEmplacement.cs" />
     <Compile Include="Interface\IDAOVoyageUtilisateur.cs" />
     <Compile Include="Interface\IDAOVoyage.cs" />
     <Compile Include="Interface\IDAOUtilisateur.cs" />

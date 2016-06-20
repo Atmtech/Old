@@ -12,7 +12,7 @@ namespace ATMTECH.WebControls
         public string ValidationGroup { get { return _textBox.ValidationGroup; } set { _textBox.ValidationGroup = value; } }
         public new Unit Width { get { return _textBox.Width; } set { _textBox.Width = value; } }
         public new Color ForeColor { get { return _textBox.ForeColor; } set { _textBox.ForeColor = value; } }
-        public string CssClass { get { return _textBox.CssClass; } set { _textBox.CssClass = value; } }
+      //  public string CssClass { get { return _textBox.CssClass; } set { _textBox.CssClass = value; } }
         public bool NoDecimal { get; set; }
 
         protected readonly TextBox _textBox;

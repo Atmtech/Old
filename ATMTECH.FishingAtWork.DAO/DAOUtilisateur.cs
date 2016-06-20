@@ -23,6 +23,13 @@ namespace ATMTECH.FishingAtWork.DAO
         {
             return GetAllActive();
         }
+
+        public IList<Utilisateur> ObtenirUtilisateur(Voyage voyage)
+        {
+            DAOVoyageUtilisateur.ObtenirVoyageUtilisateur(voyage);
+            return GetAllActive();  
+        }
+
         public Utilisateur ObtenirUtilisateur(string courriel)
         {
             IList<Criteria> criterias = new List<Criteria>();

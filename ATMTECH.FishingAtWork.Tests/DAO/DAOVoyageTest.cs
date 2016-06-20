@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using ATMTECH.FishingAtWork.DAO;
-using ATMTECH.FishingAtWork.DAO.Interface;
 using ATMTECH.FishingAtWork.Entities;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

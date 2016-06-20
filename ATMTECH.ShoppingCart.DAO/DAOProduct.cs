@@ -20,15 +20,7 @@ namespace ATMTECH.ShoppingCart.DAO
         public IDAOGroupProduct DAOGroupProduct { get; set; }
         public IDAOFile DAOFile { get; set; }
 
-        public string CurrentLanguage
-        {
-            get
-            {
-                return ContextSessionManager.Session["currentLanguage"] == null
-                           ? "fr"
-                           : ContextSessionManager.Session["currentLanguage"].ToString();
-            }
-        }
+      
         public IList<Product> GetProductsWithoutStock(int id)
         {
             return

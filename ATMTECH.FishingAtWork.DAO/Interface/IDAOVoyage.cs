@@ -5,6 +5,7 @@ namespace ATMTECH.FishingAtWork.DAO.Interface
 {
     public interface IDAOVoyage
     {
+        Voyage ObtenirVoyage(int id);
         IList<Voyage> ObtenirVoyage();
         int Enregistrer(Voyage voyage);
         

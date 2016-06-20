@@ -7,6 +7,7 @@ namespace ATMTECH.FishingAtWork.Entities
     {
         public string Nom { get; set; }
         public string CoordonneGps { get; set; }
+        public string Pays { get; set; }
         public IList<Fichier> Fichiers { get; set; }
     }
 }
