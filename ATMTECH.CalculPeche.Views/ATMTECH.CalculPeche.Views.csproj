@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C5913571-2CC8-4ABB-A186-5FEC6D529522}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ATMTECH.CalculPeche.Views</RootNamespace>
+    <AssemblyName>ATMTECH.CalculPeche.Views</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebFormsMvp">
+      <HintPath>..\Library\WebFormsMvp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccueilPresenter.cs" />
+    <Compile Include="Base\BaseCalculPechePresenter.cs" />
+    <Compile Include="Interface\IAccueilPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.CalculPeche.Entities\ATMTECH.CalculPeche.Entities.csproj">
+      <Project>{0E1E6638-8A20-4CA2-AD74-49A10742E761}</Project>
+      <Name>ATMTECH.CalculPeche.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.CalculPeche.Services\ATMTECH.CalculPeche.Services.csproj">
+      <Project>{FB2BA5F6-7E1E-4E95-8602-37071D61E79A}</Project>
+      <Name>ATMTECH.CalculPeche.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
+      <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
+      <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
+      <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
+      <Name>ATMTECH.Views</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
+      <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
+      <Name>ATMTECH.Web.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
