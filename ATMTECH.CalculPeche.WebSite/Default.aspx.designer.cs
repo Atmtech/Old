@@ -31,30 +31,66 @@ namespace ATMTECH.CalculPeche.WebSite {
         protected global::System.Web.UI.WebControls.DropDownList ddlExpedition;
         
         /// <summary>
-        /// Contrôle grvPresence.
+        /// Contrôle placeholderGeneral.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvPresence;
+        protected global::System.Web.UI.WebControls.PlaceHolder placeholderGeneral;
         
         /// <summary>
-        /// Contrôle grvBateau.
+        /// Contrôle placeHolderMontantDu.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvBateau;
+        protected global::System.Web.UI.WebControls.PlaceHolder placeHolderMontantDu;
         
         /// <summary>
-        /// Contrôle grvRepas.
+        /// Contrôle placeholderArgent.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvRepas;
+        protected global::System.Web.UI.WebControls.PlaceHolder placeholderArgent;
+        
+        /// <summary>
+        /// Contrôle placeholderPresence.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder placeholderPresence;
+        
+        /// <summary>
+        /// Contrôle placeholderBateau.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder placeholderBateau;
+        
+        /// <summary>
+        /// Contrôle placeholderRepas.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder placeholderRepas;
+        
+        /// <summary>
+        /// Contrôle placeholderRepartition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder placeholderRepartition;
     }
 }

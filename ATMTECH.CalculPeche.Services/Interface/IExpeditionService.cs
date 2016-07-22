@@ -11,5 +11,8 @@ namespace ATMTECH.CalculPeche.Services.Interface
         IList<ParticipantRepasExpedition> ObtenirParticipantRepasExpedition(int idExpedition);
         IList<ParticipantBateauExpedition> ObtenirParticipantBateauExpedition(int idExpedition);
         IList<ParticipantExpedition> ObtenirParticipantExpedition(int idExpedition);
+        IList<Repartition> ObtenirRepartition(int idExpedition);
+        IList<MontantDu> ObtenirMontantDu(int idExpedition);
+        void CreerExpedition(string nom, string dateDebut, string dateFin);
     }
 }

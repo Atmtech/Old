@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using ATMTECH.CalculPeche.Services.Interface;
 using ATMTECH.CalculPeche.Views.Base;
 using ATMTECH.CalculPeche.Views.Interface;
@@ -19,9 +20,32 @@ namespace ATMTECH.CalculPeche.Views
         {
             base.OnViewInitialized();
             AfficherListeExpedition();
-            AfficherPresenceExpedition();
-            AfficherBateauExpedition();
-            AfficherRepasExpedition();
+            Rafraichir();
+        }
+
+        public void Rafraichir()
+        {
+           
+            if (!string.IsNullOrEmpty(View.ExpeditionSelectionne))
+            {
+                AfficherPresenceExpedition();
+                AfficherBateauExpedition();
+                AfficherRepasExpedition();
+                AfficherArgentExpedition();
+                AfficherExpedition();
+                AfficherRepartition();
+                AfficherMontantDu();
+            }
+        }
+
+        private void AfficherMontantDu()
+        {
+            View.MontantDus = ExpeditionService.ObtenirMontantDu(Convert.ToInt32(View.ExpeditionSelectionne));
+        }
+
+        private void AfficherArgentExpedition()
+        {
+            View.ParticipantExpeditions = ExpeditionService.ObtenirParticipantExpedition(Convert.ToInt32(View.ExpeditionSelectionne));
         }
 
         private void AfficherRepasExpedition()
@@ -45,7 +69,21 @@ namespace ATMTECH.CalculPeche.Views
             View.Expeditions = ExpeditionService.ObtenirExpedition();
         }
 
+        public void AfficherExpedition()
+        {
+            View.Expedition = ExpeditionService.ObtenirExpedition().FirstOrDefault(x => x.Id == Convert.ToInt32(View.ExpeditionSelectionne));
+        }
+
+        public void AfficherRepartition()
+        {
+            View.Repartitions = ExpeditionService.ObtenirRepartition(Convert.ToInt32(View.ExpeditionSelectionne));
+        }
 
 
+        public void CreerExpedition(string nom, string dateDebut, string dateFin)
+        {
+            ExpeditionService.CreerExpedition(nom, dateDebut, dateFin);
+            Rafraichir();
+        }
     }
 }

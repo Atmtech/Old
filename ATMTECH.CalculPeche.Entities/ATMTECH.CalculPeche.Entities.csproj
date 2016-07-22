@@ -41,11 +41,14 @@
   <ItemGroup>
     <Compile Include="Expedition.cs" />
     <Compile Include="Participant.cs" />
+    <Compile Include="ParticipantAutomobileExpedition.cs" />
     <Compile Include="ParticipantExpedition.cs" />
     <Compile Include="ParticipantBateauExpedition.cs" />
     <Compile Include="ParticipantPresenceExpedition.cs" />
+    <Compile Include="MontantDu.cs" />
     <Compile Include="ParticipantRepasExpedition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repartition.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">

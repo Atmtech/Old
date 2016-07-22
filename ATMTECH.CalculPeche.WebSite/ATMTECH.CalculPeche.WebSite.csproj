@@ -85,6 +85,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.aspx" />
+    <Content Include="assets\animate.css\animate.min.css" />
+    <Content Include="assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\dropdown-menu-plugin\script.js" />
+    <Content Include="assets\dropdown-menu-plugin\style.css" />
+    <Content Include="assets\images\fishing-2000x1000-66.jpg" />
+    <Content Include="assets\images\fishing-2000x1000-74.jpg" />
+    <Content Include="assets\jarallax\jarallax.js" />
+    <Content Include="assets\mobirise\css\mbr-additional.css" />
+    <Content Include="assets\mobirise\css\style.css" />
+    <Content Include="assets\mobirise\js\script.js" />
+    <Content Include="assets\smooth-scroll\SmoothScroll.js" />
+    <Content Include="assets\web\assets\jquery\jquery.min.js" />
     <Content Include="Css\font-awesome.min.css" />
     <Content Include="Css\new.css" />
     <Content Include="Css\Site.css" />
@@ -179,6 +193,11 @@
     </Content>
     <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\Expeditn.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

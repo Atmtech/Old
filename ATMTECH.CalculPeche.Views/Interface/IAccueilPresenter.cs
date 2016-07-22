@@ -10,6 +10,10 @@ namespace ATMTECH.CalculPeche.Views.Interface
         IList<ParticipantPresenceExpedition> ParticipantPresenceExpeditions { set; }
         IList<ParticipantRepasExpedition> ParticipantRepasExpeditions { set; }
         IList<ParticipantBateauExpedition> ParticipantBateauExpeditions { set; }
+        IList<ParticipantExpedition> ParticipantExpeditions { set; }
+        IList<Repartition> Repartitions { set; }
+        IList<MontantDu> MontantDus { set; }
+            Expedition Expedition { set; }
         string ExpeditionSelectionne { get; set; }
     }
 }

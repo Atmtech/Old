@@ -3,19 +3,25 @@ using System.Linq;
 using ATMTECH.CalculPeche.DAO.Interface;
 using ATMTECH.CalculPeche.Entities;
 using ATMTECH.DAO;
-using ATMTECH.DAO.Database;
 
 namespace ATMTECH.CalculPeche.DAO
 {
-    public class DAOParticipantPresenceExpedition : BaseDao<ParticipantPresenceExpedition, int>, IDAOParticipantPresenceExpedition
+    public class DAOParticipantRepasExpedition : BaseDao<ParticipantRepasExpedition, int>, IDAOParticipantRepasExpedition
     {
-      
-   
-
-        public IList<ParticipantPresenceExpedition> ObtenirParticipantPresenceExpedition(int idExpedition)
+        public IDAOExpedition DAOExpedition { get; set; }
+        public IDAOParticipant DAOParticipant { get; set; }
+        public IList<ParticipantRepasExpedition> ObtenirParticipantRepasExpedition(int idExpedition)
         {
-            return GetAllActive().ToList();
-            //throw new System.NotImplementedException();
+            List<ParticipantRepasExpedition> participantRepasExpeditions = GetAllOneCriteria(ParticipantRepasExpedition.EXPEDITION, idExpedition.ToString()).Where(x => x.IsActive).ToList();
+            IList<Expedition> obtenirExpedition = DAOExpedition.ObtenirExpedition();
+            IList<Participant> obtenirParticipant = DAOParticipant.ObtenirParticipant();
+            foreach (ParticipantRepasExpedition participantRepasExpedition in participantRepasExpeditions)
+            {
+                participantRepasExpedition.Expedition = obtenirExpedition.FirstOrDefault(x => x.Id == participantRepasExpedition.Expedition.Id);
+                participantRepasExpedition.Participant = obtenirParticipant.FirstOrDefault(x => x.Id == participantRepasExpedition.Participant.Id);
+            }
+
+            return participantRepasExpeditions;
         }
     }
 }

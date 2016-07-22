@@ -42,8 +42,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPresenter.cs" />
     <Compile Include="AccueilPresenter.cs" />
     <Compile Include="Base\BaseCalculPechePresenter.cs" />
+    <Compile Include="Interface\IAdminPresenter.cs" />
     <Compile Include="Interface\IAccueilPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

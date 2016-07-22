@@ -40,12 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAOParticipant.cs" />
+    <Compile Include="DAOParticipantAutomobileExpedition.cs" />
     <Compile Include="DAOParticipantExpedition.cs" />
     <Compile Include="DAOParticipantBateauExpedition.cs" />
-    <Compile Include="DAOParticipantRepasExpedition.cs" />
     <Compile Include="DAOParticipantPresenceExpedition.cs" />
+    <Compile Include="DAOParticipantRepasExpedition.cs" />
     <Compile Include="DAOExpedition.cs" />
     <Compile Include="Interface\IDAOParticipant.cs" />
+    <Compile Include="Interface\IDAOParticipantAutomobileExpedition.cs" />
     <Compile Include="Interface\IDAOParticipantExpedition.cs" />
     <Compile Include="Interface\IDAOParticipantRepasExpedition.cs" />
     <Compile Include="Interface\IDAOParticipantBateauExpedition.cs" />

@@ -5,6 +5,7 @@ namespace ATMTECH.CalculPeche.Entities
 {
     public class ParticipantPresenceExpedition : BaseEntity 
     {
+        public const string EXPEDITION = "Expedition";
        public Participant Participant { get; set; }
        public Expedition Expedition { get; set; }
        public DateTime Date { get; set; }
