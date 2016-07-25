@@ -208,7 +208,7 @@ namespace ATMTECH.CalculPeche.WebSite
                 string html = string.Format("<table>" +
                                             "<tr><td>Nom</td><td>{0}</td></tr>" +
                                             "<tr><td>Date début</td><td>{1}</td></tr>" +
-                                            "<tr><td>Date fin</td><td>{2}</td></tr></table>", value.Nom, value.DateDebut, value.DateFin);
+                                            "<tr><td>Date fin</td><td>{2}</td></tr></table>", value.Nom, value.DateDebut.ToShortDateString(), value.DateFin.ToShortDateString());
                 placeholderGeneral.Controls.Add(new Literal { Text = html });
             }
         }
