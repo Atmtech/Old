@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
+using System.Threading;
 using System.Web;
 using ATMTECH.Common;
 using ATMTECH.Common.Utils.Web;
@@ -137,6 +139,11 @@ namespace ATMTECH.Web
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
+            CultureInfo newCulture = (CultureInfo)Thread.CurrentThread.CurrentCulture.Clone();
+            newCulture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
+            newCulture.DateTimeFormat.DateSeparator = "-";
+            Thread.CurrentThread.CurrentCulture = newCulture;
+
             StartDate = DateTime.Now;
             Start = DateTime.Now + " " + DateTime.Now.Millisecond;
             DatabaseSessionManager.DatabaseTransactionCount = 0;

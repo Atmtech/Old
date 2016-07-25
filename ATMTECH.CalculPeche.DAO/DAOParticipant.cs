@@ -14,5 +14,10 @@ namespace ATMTECH.CalculPeche.DAO
         {
             return GetAllActive().ToList();
         }
+
+        public int Enregistrer(Participant participant)
+        {
+            return Save(participant);
+        }
     }
 }

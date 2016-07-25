@@ -74,9 +74,17 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Edition.aspx.cs">
+      <DependentUpon>Edition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Edition.aspx.designer.cs">
+      <DependentUpon>Edition.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GridViewTemplate.cs" />
     <Compile Include="PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -110,6 +118,7 @@
     <Content Include="Css\style-xsmall.css" />
     <Content Include="Css\style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Edition.aspx" />
     <Content Include="Errors\Maintenance.html" />
     <Content Include="Errors\SessionTimeout.html" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -118,6 +127,16 @@
     </Content>
     <Content Include="fonts\license.txt" />
     <Content Include="Global.asax" />
+    <Content Include="Images\ajouter.png" />
+    <Content Include="Images\arrow.png" />
+    <Content Include="Images\bg.png" />
+    <Content Include="Images\Copy.png" />
+    <Content Include="Images\edition.png" />
+    <Content Include="Images\error-icon.png" />
+    <Content Include="Images\hover.png" />
+    <Content Include="Images\nested.png" />
+    <Content Include="Images\success-icon.png" />
+    <Content Include="Images\supprimer.gif" />
     <Content Include="Javascript\html5shiv.js" />
     <Content Include="Javascript\init.js" />
     <Content Include="Javascript\Redirection.js" />
@@ -243,9 +262,7 @@
       <Name>ATMTECH.Web</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

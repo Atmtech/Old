@@ -4,7 +4,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spCal
 CREATE PROCEDURE [dbo].[spCalculPeche_CreerExpedition] (@nom varchar(1000), @dateDebut DateTime, @dateFin DateTime)
 as
 BEGIN
-	INSERT INTO Expedition (IsActive, Nom, DateDebut, DateFin) VALUES (1, @nom, @dateDebut, @dateFin)
+	INSERT INTO Expedition (IsActive, Nom, DateDebut, DateFin, Search) VALUES (1, @nom, @dateDebut, @dateFin)
 	DECLARE @idExpedition int = (SELECT max(id) FROM Expedition)
 	
 	INSERT INTO ParticipantExpedition (IsActive, Participant,Expedition, MontantAutomobile, MontantBateau, MontantPropane,MontantNourriture)

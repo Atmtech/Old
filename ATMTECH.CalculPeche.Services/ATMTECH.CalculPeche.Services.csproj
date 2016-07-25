@@ -43,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\CalculPecheInitializer.cs" />
+    <Compile Include="DataEditorService.cs" />
     <Compile Include="ExpeditionService.cs" />
+    <Compile Include="Interface\IDataEditorService.cs" />
     <Compile Include="Interface\IExpeditionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +57,14 @@
     <ProjectReference Include="..\ATMTECH.CalculPeche.Entities\ATMTECH.CalculPeche.Entities.csproj">
       <Project>{0E1E6638-8A20-4CA2-AD74-49A10742E761}</Project>
       <Name>ATMTECH.CalculPeche.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
+      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
+      <Name>ATMTECH.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
+      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
+      <Name>ATMTECH.DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>

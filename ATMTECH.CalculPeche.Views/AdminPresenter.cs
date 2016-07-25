@@ -19,13 +19,20 @@ namespace ATMTECH.CalculPeche.Views
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
-        
+            RemettreSearch();
         }
 
- 
+        private void RemettreSearch()
+        {
+            ExpeditionService.RemettreSearch();
+        }
+
+
         public void CreerExpedition(string nom, string dateDebut, string dateFin)
         {
             ExpeditionService.CreerExpedition(nom, dateDebut, dateFin);
         }
+
+        
     }
 }

@@ -19,5 +19,8 @@ namespace ATMTECH.CalculPeche.Entities
                 return  MontantBateau + MontantAutomobile + MontantNourriture + MontantPropane;
             }
         }
+
+        public string NomParticipant { get { return Participant.Nom; } }
+        public string NomExpedition { get { return Expedition.Nom; } }
     }
 }

@@ -96,7 +96,7 @@ namespace ATMTECH.CalculPeche.WebSite
                 List<Control> allControls = new List<Control>();
                 GetControlList(Page.Controls, allControls);
                 Presenter.Controls = allControls;
-                Presenter.Localize();
+               // Presenter.Localize();
                 Presenter.OnViewInitialized();
             }
 

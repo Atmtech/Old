@@ -18,12 +18,13 @@
         TABLE {
             WIDTH: 100%;
         }
+
         H1 {
             text-transform: uppercase;
             font-size: 18px;
             color: rgb(137, 199, 218);
-            font-weight: bold;  
-            border-bottom:2px solid rgb(137, 199, 218);
+            font-weight: bold;
+            border-bottom: 2px solid rgb(137, 199, 218);
         }
     </style>
 </head>
@@ -65,49 +66,49 @@
                     <div class="mbr-box__container mbr-section__container container">
                         <div style="color: white; text-align: left;">
                             <div class="encadre">
-                               <H1> Selectionner l'expédition à consulter</H1>
-            <asp:DropDownList runat="server" ID="ddlExpedition" AutoPostBack="True" OnSelectedIndexChanged="ddlExpeditionChanged" class="form-control"/>
+                                <h1>Selectionner l'expédition à consulter</h1>
+                                <asp:DropDownList runat="server" ID="ddlExpedition" AutoPostBack="True" OnSelectedIndexChanged="ddlExpeditionChanged" class="form-control" />
                             </div>
                             <table>
                                 <tr>
                                     <td style="vertical-align: top">
                                         <div class="encadre">
-                                            <h1>Information générales</h1>
+                                            <h1>Information</h1>
                                             <asp:PlaceHolder runat="server" ID="placeholderGeneral"></asp:PlaceHolder>
                                         </div>
                                     </td>
-                                    <td style="vertical-align: top">
+                                    <td style="vertical-align: top; width: 100px;">
                                         <div class="encadre">
                                             <h1>Montant dûs</h1>
                                             <asp:PlaceHolder runat="server" ID="placeHolderMontantDu"></asp:PlaceHolder>
                                         </div>
                                     </td>
+                                    <td style="vertical-align: top">
+                                        <h1>Dépenses par personne</h1>
+                                        <asp:PlaceHolder runat="server" ID="placeholderArgent"></asp:PlaceHolder>
+                                    </td>
                                 </tr>
                             </table>
-
-
-                            <div class="encadre">
-                                <h1>Argent depensé</h1>
-                                <asp:PlaceHolder runat="server" ID="placeholderArgent"></asp:PlaceHolder>
-                            </div>
-
-                            <div class="encadre">
-                                <h1>Présence</h1>
-                                <asp:PlaceHolder runat="server" ID="placeholderPresence"></asp:PlaceHolder>
-                            </div>
-                            <div class="encadre">
-                                <h1>Sortie en bateau</h1>
-                                <asp:PlaceHolder runat="server" ID="placeholderBateau"></asp:PlaceHolder>
-                            </div>
-                            <div class="encadre">
-                                <h1>Nombre de repas par jour</h1>
-                                <asp:PlaceHolder runat="server" ID="placeholderRepas"></asp:PlaceHolder>
-                            </div>
 
                             <div class="encadre">
                                 <h1>Répartition des paiements</h1>
                                 <asp:PlaceHolder runat="server" ID="placeholderRepartition"></asp:PlaceHolder>
                             </div>
+
+                            <div class="encadre">
+                                <h1>Détail des présences</h1>
+                                <asp:PlaceHolder runat="server" ID="placeholderPresence"></asp:PlaceHolder>
+                            </div>
+                            <div class="encadre">
+                                <h1>Détail des sorties en bateau</h1>
+                                <asp:PlaceHolder runat="server" ID="placeholderBateau"></asp:PlaceHolder>
+                            </div>
+                            <div class="encadre">
+                                <h1>Détail sur le nombre de repas par jour</h1>
+                                <asp:PlaceHolder runat="server" ID="placeholderRepas"></asp:PlaceHolder>
+                            </div>
+
+
                         </div>
                     </div>
 

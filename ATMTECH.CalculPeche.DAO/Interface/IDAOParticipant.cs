@@ -7,6 +7,6 @@ namespace ATMTECH.CalculPeche.DAO.Interface
     {
 
         IList<Participant> ObtenirParticipant();
-       
+        int Enregistrer(Participant participant);
     }
 }

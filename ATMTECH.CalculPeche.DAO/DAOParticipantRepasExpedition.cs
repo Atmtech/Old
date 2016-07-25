@@ -23,5 +23,15 @@ namespace ATMTECH.CalculPeche.DAO
 
             return participantRepasExpeditions;
         }
+
+        public IList<ParticipantRepasExpedition> ObtenirParticipantRepasExpedition()
+        {
+            return GetAllActive();
+        }
+
+        public int Enregistrer(ParticipantRepasExpedition participantRepasExpedition)
+        {
+            return Save(participantRepasExpedition);
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace ATMTECH.CalculPeche.DAO.Interface
         IList<Expedition> ObtenirExpedition();
 
         void CreerExpedition(string nom, string dateDebut, string dateFin);
+        int Enregistrer(Expedition expedition);
     }
 }

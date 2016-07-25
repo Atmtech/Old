@@ -24,5 +24,23 @@ namespace ATMTECH.CalculPeche.DAO
 
             return participantAutomobileExpeditions;
         }
+
+        public IList<ParticipantAutomobileExpedition> ObtenirParticipantAutomobileExpedition()
+        {
+            List<ParticipantAutomobileExpedition> participantAutomobileExpeditions =GetAllActive().ToList();
+            IList<Expedition> obtenirExpedition = DAOExpedition.ObtenirExpedition();
+            IList<Participant> obtenirParticipant = DAOParticipant.ObtenirParticipant();
+            foreach (ParticipantAutomobileExpedition participantAutomobileExpedition in participantAutomobileExpeditions)
+            {
+                participantAutomobileExpedition.Expedition = obtenirExpedition.FirstOrDefault(x => x.Id == participantAutomobileExpedition.Expedition.Id);
+                participantAutomobileExpedition.Participant = obtenirParticipant.FirstOrDefault(x => x.Id == participantAutomobileExpedition.Participant.Id);
+            }
+            return participantAutomobileExpeditions;
+        }
+
+        public int Enregistrer(ParticipantAutomobileExpedition participantAutomobileExpedition)
+        {
+            return Save(participantAutomobileExpedition);
+        }
     }
 }

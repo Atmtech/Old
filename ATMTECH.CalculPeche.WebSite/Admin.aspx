@@ -82,13 +82,25 @@
                             <div class="form-group">
                                 <asp:TextBox runat="server" ID="txtDateFin" class="form-control" placeholder="Date fin"></asp:TextBox>
                             </div>
+                             <asp:Button runat="server" ID="btnCreerExpedition" OnClick="btnCreerUneExpedition" Text="Créer" class="mbr-buttons__btn btn btn-lg btn-danger" />
 
+                            <h1>ÉDITER ENTITÉS</h1>
+                            <div class="form-group">
+                                <asp:HyperLink runat="server" id="lnkExpedition" NavigateUrl="Edition.aspx?NomEntite=Expedition" Text="Expedition" class="mbr-buttons__btn btn btn-lg btn-danger"></asp:HyperLink>
+                                <asp:HyperLink runat="server" id="lnkParticipantAutomobile" NavigateUrl="Edition.aspx?NomEntite=ParticipantAutomobileExpedition" Text="Automobile expedition" class="mbr-buttons__btn btn btn-lg btn-danger"></asp:HyperLink>
+                                <asp:HyperLink runat="server" id="HyperLink1" NavigateUrl="Edition.aspx?NomEntite=ParticipantBateauExpedition" Text="Bateau expedition" class="mbr-buttons__btn btn btn-lg btn-danger"></asp:HyperLink>
+                                <asp:HyperLink runat="server" id="HyperLink2" NavigateUrl="Edition.aspx?NomEntite=ParticipantExpedition" Text="Participant expedition" class="mbr-buttons__btn btn btn-lg btn-danger"></asp:HyperLink>
+                                <asp:HyperLink runat="server" id="HyperLink3" NavigateUrl="Edition.aspx?NomEntite=ParticipantPresenceExpedition" Text="Presence expedition" class="mbr-buttons__btn btn btn-lg btn-danger"></asp:HyperLink>
+                                <asp:HyperLink runat="server" id="HyperLink4" NavigateUrl="Edition.aspx?NomEntite=ParticipantRepasExpedition" Text="Repas expedition" class="mbr-buttons__btn btn btn-lg btn-danger"></asp:HyperLink>
+                            </div>
 
-                            <asp:Button runat="server" ID="btnCreerExpedition" OnClick="btnCreerUneExpedition" Text="Créer" class="mbr-buttons__btn btn btn-lg btn-danger" />
-                             <h1>GÉNÉRER MODÈLE DE DONNÉE</h1>
+                            <h1>GÉNÉRER MODÈLE DE DONNÉE</h1>
                             <asp:Button runat="server" ID="btnGenererSql" OnClick="btnGenererSqlClick" Text="Generer modele" class="mbr-buttons__btn btn btn-lg btn-danger" />
                             <asp:TextBox ID="txtSql" runat="server" Height="282px" Width="937px" TextMode="MultiLine" class="form-control"></asp:TextBox>
-                            <br/><br/><br/><br/>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
                         </div>
                     </div>
 

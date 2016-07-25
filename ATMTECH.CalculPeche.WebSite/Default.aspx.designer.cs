@@ -58,6 +58,15 @@ namespace ATMTECH.CalculPeche.WebSite {
         protected global::System.Web.UI.WebControls.PlaceHolder placeholderArgent;
         
         /// <summary>
+        /// Contrôle placeholderRepartition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder placeholderRepartition;
+        
+        /// <summary>
         /// Contrôle placeholderPresence.
         /// </summary>
         /// <remarks>
@@ -83,14 +92,5 @@ namespace ATMTECH.CalculPeche.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder placeholderRepas;
-        
-        /// <summary>
-        /// Contrôle placeholderRepartition.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder placeholderRepartition;
     }
 }

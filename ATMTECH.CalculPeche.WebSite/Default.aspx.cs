@@ -28,11 +28,11 @@ namespace ATMTECH.CalculPeche.WebSite
             set
             {
                 string html = "<table><tr>";
-                List<DateTime> dateTimes = value.Select(x => x.Date).OrderBy(x => x.Date).Distinct().ToList();
+                List<DateTime> dateTimes = value.Select(x => x.DateParticipation).OrderBy(x => x.Date).Distinct().ToList();
                 foreach (DateTime date in dateTimes)
                 {
                     html += string.Format("<td style='vertical-align:top'><b><u>{0}</u></b><br>", date.ToShortDateString());
-                    IList<ParticipantPresenceExpedition> participantPresenceExpeditions = value.Where(x => x.EstPresence && x.Date == date).ToList();
+                    IList<ParticipantPresenceExpedition> participantPresenceExpeditions = value.Where(x => x.EstPresence && x.DateParticipation == date).ToList();
                     foreach (ParticipantPresenceExpedition participantPresenceExpedition in participantPresenceExpeditions)
                     {
                         html += string.Format("{0}<br>", participantPresenceExpedition.Participant.Nom);
@@ -49,11 +49,11 @@ namespace ATMTECH.CalculPeche.WebSite
             set
             {
                 string html = "<table><tr>";
-                List<DateTime> dateTimes = value.Select(x => x.Date).OrderBy(x => x.Date).Distinct().ToList();
+                List<DateTime> dateTimes = value.Select(x => x.DateParticipation).OrderBy(x => x.Date).Distinct().ToList();
                 foreach (DateTime date in dateTimes)
                 {
                     html += string.Format("<td style='vertical-align:top'><b><u>{0}</u></b><br>", date.ToShortDateString());
-                    IList<ParticipantRepasExpedition> participantRepasExpeditions = value.Where(x => x.Date == date).ToList();
+                    IList<ParticipantRepasExpedition> participantRepasExpeditions = value.Where(x => x.DateParticipation == date).ToList();
                     foreach (ParticipantRepasExpedition participantRepasExpedition in participantRepasExpeditions)
                     {
                         if (participantRepasExpedition.NombreRepas > 0)
@@ -73,11 +73,11 @@ namespace ATMTECH.CalculPeche.WebSite
             set
             {
                 string html = "<table><tr>";
-                List<DateTime> dateTimes = value.Select(x => x.Date).OrderBy(x => x.Date).Distinct().ToList();
+                List<DateTime> dateTimes = value.Select(x => x.DateParticipation).OrderBy(x => x.Date).Distinct().ToList();
                 foreach (DateTime date in dateTimes)
                 {
                     html += string.Format("<td style='vertical-align:top;'><b><u>{0}</u></b><br>", date.ToShortDateString());
-                    IList<ParticipantBateauExpedition> participantBateauExpeditions = value.Where(x => x.EstBateau && x.Date == date).ToList();
+                    IList<ParticipantBateauExpedition> participantBateauExpeditions = value.Where(x => x.EstBateau && x.DateParticipation == date).ToList();
                     foreach (ParticipantBateauExpedition participantBateauExpedition in participantBateauExpeditions)
                     {
                         html += string.Format("{0}<br>", participantBateauExpedition.Participant.Nom);
@@ -182,7 +182,7 @@ namespace ATMTECH.CalculPeche.WebSite
         {
             set
             {
-                string html = "<table style='width:400px;'>";
+                string html = "<table>";
                 foreach (MontantDu montantDu in value)
                 {
                     html += string.Format("<tr>" +

@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using ATMTECH.CalculPeche.Views;
 using ATMTECH.CalculPeche.Views.Interface;
 using ATMTECH.Common.Utils;
@@ -32,6 +28,11 @@ namespace ATMTECH.CalculPeche.WebSite
         public void ShowMessage(Message message)
         {
             throw new NotImplementedException();
+        }
+
+        protected void ddlExpeditionChanged(object sender, EventArgs e)
+        {
+         
         }
     }
 }

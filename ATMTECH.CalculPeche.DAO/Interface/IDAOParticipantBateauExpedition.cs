@@ -7,6 +7,7 @@ namespace ATMTECH.CalculPeche.DAO.Interface
     {
 
         IList<ParticipantBateauExpedition> ObtenirParticipantBateauExpedition(int idExpedition);
-       
+        IList<ParticipantBateauExpedition> ObtenirParticipantBateauExpedition();
+        int Enregistrer(ParticipantBateauExpedition participantBateauExpedition);
     }
 }

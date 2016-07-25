@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,8 +46,10 @@
     <Compile Include="AdminPresenter.cs" />
     <Compile Include="AccueilPresenter.cs" />
     <Compile Include="Base\BaseCalculPechePresenter.cs" />
+    <Compile Include="EditionPresenter.cs" />
     <Compile Include="Interface\IAdminPresenter.cs" />
     <Compile Include="Interface\IAccueilPresenter.cs" />
+    <Compile Include="Interface\IEditionPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +60,14 @@
     <ProjectReference Include="..\ATMTECH.CalculPeche.Services\ATMTECH.CalculPeche.Services.csproj">
       <Project>{FB2BA5F6-7E1E-4E95-8602-37071D61E79A}</Project>
       <Name>ATMTECH.CalculPeche.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
+      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
+      <Name>ATMTECH.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
+      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
+      <Name>ATMTECH.DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
@@ -69,6 +80,10 @@
     <ProjectReference Include="..\ATMTECH.Web.Services\ATMTECH.Web.Services.csproj">
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
       <Name>ATMTECH.Web.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.WebControls\ATMTECH.WebControls.csproj">
+      <Project>{FFE0D22C-FE79-4E43-9A65-1CA2EDF14E9A}</Project>
+      <Name>ATMTECH.WebControls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

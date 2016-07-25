@@ -18,5 +18,10 @@ namespace ATMTECH.CalculPeche.DAO
         {
             ExecuteSql(string.Format("[dbo].[spCalculPeche_CreerExpedition] @nom = '{0}', @dateDebut = '{1}', @dateFin ='{2}'", nom.Replace("'","''"), dateDebut, @dateFin) );
         }
+
+        public int Enregistrer(Expedition expedition)
+        {
+            return Save(expedition);
+        }
     }
 }

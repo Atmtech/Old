@@ -10,7 +10,7 @@
 namespace ATMTECH.CalculPeche.WebSite {
     
     
-    public partial class Admin {
+    public partial class Edition {
         
         /// <summary>
         /// Contrôle form1.
@@ -22,111 +22,156 @@ namespace ATMTECH.CalculPeche.WebSite {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle txtNom.
+        /// Contrôle pnlError.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNom;
+        protected global::System.Web.UI.WebControls.Panel pnlError;
         
         /// <summary>
-        /// Contrôle txtDateDebut.
+        /// Contrôle lblError.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateDebut;
+        protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// Contrôle txtDateFin.
+        /// Contrôle pnlSuccess.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateFin;
+        protected global::System.Web.UI.WebControls.Panel pnlSuccess;
         
         /// <summary>
-        /// Contrôle btnCreerExpedition.
+        /// Contrôle lblSuccess.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreerExpedition;
+        protected global::System.Web.UI.WebControls.Label lblSuccess;
         
         /// <summary>
-        /// Contrôle lnkExpedition.
+        /// Contrôle pnlEdition.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkExpedition;
+        protected global::System.Web.UI.WebControls.Panel pnlEdition;
         
         /// <summary>
-        /// Contrôle lnkParticipantAutomobile.
+        /// Contrôle pnlControl.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkParticipantAutomobile;
+        protected global::System.Web.UI.WebControls.PlaceHolder pnlControl;
         
         /// <summary>
-        /// Contrôle HyperLink1.
+        /// Contrôle btnEnregistrer.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Button btnEnregistrer;
         
         /// <summary>
-        /// Contrôle HyperLink2.
+        /// Contrôle btnAnnuler.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        protected global::System.Web.UI.WebControls.Button btnAnnuler;
         
         /// <summary>
-        /// Contrôle HyperLink3.
+        /// Contrôle pnlPilotage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink3;
+        protected global::System.Web.UI.WebControls.Panel pnlPilotage;
         
         /// <summary>
-        /// Contrôle HyperLink4.
+        /// Contrôle lblTitre.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink4;
+        protected global::System.Web.UI.WebControls.Label lblTitre;
         
         /// <summary>
-        /// Contrôle btnGenererSql.
+        /// Contrôle pnlheader.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGenererSql;
+        protected global::System.Web.UI.WebControls.Panel pnlheader;
         
         /// <summary>
-        /// Contrôle txtSql.
+        /// Contrôle pnlRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSql;
+        protected global::System.Web.UI.WebControls.Panel pnlRecherche;
+        
+        /// <summary>
+        /// Contrôle txtCritereRecherche.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCritereRecherche;
+        
+        /// <summary>
+        /// Contrôle btnRecherche.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRecherche;
+        
+        /// <summary>
+        /// Contrôle lblNombreElementTrouve.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreElementTrouve;
+        
+        /// <summary>
+        /// Contrôle btnAjouter.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAjouter;
+        
+        /// <summary>
+        /// Contrôle grdData.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdData;
     }
 }
