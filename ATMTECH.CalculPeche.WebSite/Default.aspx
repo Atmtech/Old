@@ -21,10 +21,14 @@
 
         H1 {
             text-transform: uppercase;
-            font-size: 18px;
+            font-size: 17px;
             color: rgb(137, 199, 218);
             font-weight: bold;
             border-bottom: 2px solid rgb(137, 199, 218);
+        }
+
+        .encadre {
+            color: white;
         }
     </style>
 </head>
@@ -57,63 +61,77 @@
                     </div>
                 </div>
             </section>
-            <section class="engine"><a rel="external" href="https://mobirise.com">best free website builder</a></section>
-            <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header4-5" style="background-image: url(assets/images/fishing-2000x1000-74.jpg);">
-                <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
-                    <div class="mbr-overlay" style="opacity: 0.9; background-color: rgb(34, 34, 34);">
-                    </div>
 
-                    <div class="mbr-box__container mbr-section__container container">
-                        <div style="color: white; text-align: left;">
-                            <div class="encadre">
-                                <h1>Selectionner l'expédition à consulter</h1>
-                                <asp:DropDownList runat="server" ID="ddlExpedition" AutoPostBack="True" OnSelectedIndexChanged="ddlExpeditionChanged" class="form-control" />
-                            </div>
-                            <table>
-                                <tr>
-                                    <td style="vertical-align: top">
-                                        <div class="encadre">
-                                            <h1>Information</h1>
-                                            <asp:PlaceHolder runat="server" ID="placeholderGeneral"></asp:PlaceHolder>
+
+            <section class="mbr-section mbr-section--relative mbr-section--short-paddings mbr-parallax-background" id="msg-box1-6" style="background-image: url(assets/images/fishing-2000x1000-74.jpg);">
+
+                <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(34, 34, 34);"></div>
+
+                <div class="mbr-section__container mbr-section__container--isolated container" style="padding-top: 60px; padding-bottom: 60px;">
+                    <div class="row">
+                        <div class="mbr-box mbr-box--fixed mbr-box--adapted">
+                            <div class="mbr-box__magnet mbr-box__magnet--top-left mbr-section__left col-sm-8">
+                                <div class="mbr-section__container mbr-section__container--middle">
+                                    <div class="mbr-header mbr-header--auto-align mbr-header--wysiwyg">
+                                        <h3 class="mbr-header__text">PRE MADE BLOCKS</h3>
+                                    </div>
+                                </div>
+                                <div class="mbr-section__container">
+                                    <div class="mbr-article mbr-article--auto-align ">
+                                        <div style="color: white; text-align: left; font-size: 14px;">
+                                            <div class="encadre">
+                                                <h1>Selectionner l'expédition à consulter</h1>
+                                                <asp:DropDownList runat="server" ID="ddlExpedition" AutoPostBack="True" OnSelectedIndexChanged="ddlExpeditionChanged" class="form-control" />
+                                            </div>
+                                            <table>
+                                                <tr>
+                                                    <td style="vertical-align: top">
+                                                        <div class="encadre">
+                                                            <h1>Information</h1>
+                                                            <asp:PlaceHolder runat="server" ID="placeholderGeneral"></asp:PlaceHolder>
+                                                        </div>
+                                                    </td>
+                                                    <td style="vertical-align: top; width: 300px;">
+                                                        <div class="encadre">
+                                                            <h1>Montant dûs</h1>
+                                                            <asp:PlaceHolder runat="server" ID="placeHolderMontantDu"></asp:PlaceHolder>
+                                                        </div>
+                                                    </td>
+                                                    <td style="vertical-align: top">
+                                                        <h1>Dépenses par personne</h1>
+                                                        <asp:PlaceHolder runat="server" ID="placeholderArgent"></asp:PlaceHolder>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <div class="encadre">
+                                                <h1>Répartition des paiements</h1>
+                                                <asp:PlaceHolder runat="server" ID="placeholderRepartition"></asp:PlaceHolder>
+                                            </div>
+
+                                            <div class="encadre">
+                                                <h1>Détail des présences</h1>
+                                                <asp:PlaceHolder runat="server" ID="placeholderPresence"></asp:PlaceHolder>
+                                            </div>
+                                            <div class="encadre">
+                                                <h1>Détail des sorties en bateau</h1>
+                                                <asp:PlaceHolder runat="server" ID="placeholderBateau"></asp:PlaceHolder>
+                                            </div>
+                                            <div class="encadre">
+                                                <h1>Détail sur le nombre de repas par jour</h1>
+                                                <asp:PlaceHolder runat="server" ID="placeholderRepas"></asp:PlaceHolder>
+                                            </div>
+
+
                                         </div>
-                                    </td>
-                                    <td style="vertical-align: top; width: 100px;">
-                                        <div class="encadre">
-                                            <h1>Montant dûs</h1>
-                                            <asp:PlaceHolder runat="server" ID="placeHolderMontantDu"></asp:PlaceHolder>
-                                        </div>
-                                    </td>
-                                    <td style="vertical-align: top">
-                                        <h1>Dépenses par personne</h1>
-                                        <asp:PlaceHolder runat="server" ID="placeholderArgent"></asp:PlaceHolder>
-                                    </td>
-                                </tr>
-                            </table>
-
-                            <div class="encadre">
-                                <h1>Répartition des paiements</h1>
-                                <asp:PlaceHolder runat="server" ID="placeholderRepartition"></asp:PlaceHolder>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="encadre">
-                                <h1>Détail des présences</h1>
-                                <asp:PlaceHolder runat="server" ID="placeholderPresence"></asp:PlaceHolder>
-                            </div>
-                            <div class="encadre">
-                                <h1>Détail des sorties en bateau</h1>
-                                <asp:PlaceHolder runat="server" ID="placeholderBateau"></asp:PlaceHolder>
-                            </div>
-                            <div class="encadre">
-                                <h1>Détail sur le nombre de repas par jour</h1>
-                                <asp:PlaceHolder runat="server" ID="placeholderRepas"></asp:PlaceHolder>
-                            </div>
-
-
                         </div>
                     </div>
-
                 </div>
             </section>
+
             <footer class="mbr-section mbr-section--relative mbr-section--fixed-size" id="footer1-4" style="background-color: rgb(68, 68, 68);">
 
                 <div class="mbr-section__container container">
