@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categorie.cs" />
+    <Compile Include="EtapeParticipant.cs" />
+    <Compile Include="Nourriture.cs" />
+    <Compile Include="VehiculeExpedition.cs" />
     <Compile Include="Vehicule.cs" />
     <Compile Include="Etape.cs" />
     <Compile Include="Expedition.cs" />

@@ -83,9 +83,9 @@
                     <asp:Repeater ID="listeExpedition" runat="server">
                         <ItemTemplate>
                             <section class="4u 6u(medium) 12u$(xsmall) profile">
-                                <img src="http://fabricetremblay.ca/perso/TCAT/04.jpg" alt="" />
+                                <img src="http://lostabarnacos.smugmug.com/photos/77283318-M.jpg" alt="" />
                                 <h4>
-                                    <asp:Label runat="server" ID="lblNomExpedition" Text='<%# Eval("Nom").ToString().Length > 25 ? Eval("Nom").ToString().Substring(0,25) + "[...]" : Eval("Nom").ToString()  %>'></asp:Label>
+                                    <asp:HyperLink runat="server" ID="lblNomExpedition" Text='<%# Eval("Nom").ToString().Length > 25 ? Eval("Nom").ToString().Substring(0,25) + "[...]" : Eval("Nom").ToString()  %>' NavigateUrl='<%# "VoirExpedition.aspx?Id=" + Eval("Id") %>'></asp:HyperLink>
                                 </h4>
                                 <div style="font-size: 13px;">
                                     <asp:Label runat="server" ID="lblDateDebutListe" Text='<%# Eval("DateDebut","{0:yyyy-MM-dd}")  %>'></asp:Label>
@@ -119,7 +119,7 @@
                 <h2>
                     <asp:Label ID="lblContacterNous" runat="server" Text="Contacter nous"></asp:Label></h2>
                 <p>
-                    <asp:Label ID="lblSimplementPourNousDireCoucou" runat="server" Text="Simplement pour nous dire coucou, ou pour vos états d'âmes !"></asp:Label>
+                    <asp:Label ID="lblSimplementPourNousDireCoucou" runat="server" Text="Simplement pour nous dire rock on, ou pour vos états d'âmes !"></asp:Label>
                 </p>
             </header>
         </div>

@@ -6,7 +6,7 @@ namespace ATMTECH.Expeditn.DAO.Interface
 {
     public interface IDAOVehicule
     {
-        IList<Vehicule> ObtenirVehicule(Expedition expedition);
-        IList<Vehicule> ObtenirVehicule(User utilisateur);
+        IList<Vehicule> ObtenirVehicule();
+        Vehicule ObtenirVehicule(int id);
     }
 }

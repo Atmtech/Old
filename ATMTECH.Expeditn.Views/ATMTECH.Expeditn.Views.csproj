@@ -42,10 +42,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VoirExpeditionPresenter.cs" />
     <Compile Include="Base\BaseExpeditnPresenter.cs" />
     <Compile Include="AccueilPresenter.cs" />
     <Compile Include="ActionPresenter.cs" />
     <Compile Include="InscriptionPresenter.cs" />
+    <Compile Include="Interface\IVoirExpeditionPresenter.cs" />
     <Compile Include="Interface\IActionPresenter.cs" />
     <Compile Include="Interface\IInscriptionPresenter.cs" />
     <Compile Include="PourquoiPresenter.cs" />

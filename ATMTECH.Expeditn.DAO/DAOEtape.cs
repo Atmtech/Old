@@ -8,6 +8,8 @@ namespace ATMTECH.Expeditn.DAO
 {
     public class DAOEtape : BaseDao<Etape, int>, IDAOEtape
     {
+        public IDAOEtapeParticipant DAOEtapeParticipant { get; set; }
+        public IDAOVehicule DAOVehicule { get; set; }
         public IList<Etape> ObtenirEtape(Expedition expedition)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -15,6 +17,12 @@ namespace ATMTECH.Expeditn.DAO
             criterias.Add(criteriaUser);
             criterias.Add(IsActive());
             IList<Etape> rtn = GetByCriteria(criterias);
+            foreach (Etape etape in rtn)
+            {
+                etape.Expedition = expedition;
+                etape.EtapeParticipant = DAOEtapeParticipant.ObtenirEtapeParticipant(etape);
+                etape.Vehicule = DAOVehicule.ObtenirVehicule(etape.Vehicule.Id);
+            }
             return rtn.Count > 0 ? rtn : null;
         }
 

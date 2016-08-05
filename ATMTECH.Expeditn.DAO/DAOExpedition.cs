@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      using System.Collections;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using ATMTECH.DAO;
@@ -15,6 +16,7 @@ namespace ATMTECH.Expeditn.DAO
         public IDAOMateriel DAOMateriel { get; set; }
         public IDAOMedia DAOMedia { get; set; }
         public IDAOEtape DAOEtape { get; set; }
+        public IDAONourriture DAONourriture { get; set; }
 
         public Expedition ObtenirExpedition(int id)
         {
@@ -29,7 +31,13 @@ namespace ATMTECH.Expeditn.DAO
                 rtn[0].Participant = DAOParticipant.ObtenirParticipant(rtn[0]);
                 rtn[0].Materiel = DAOMateriel.ObtenirMateriel(rtn[0]);
                 rtn[0].Media = DAOMedia.ObtenirMedia(rtn[0]);
-                rtn[0].Etape = DAOEtape.ObtenirEtape(rtn[0]).OrderBy(x => x.OrderId).ToList();
+                rtn[0].Nourriture = DAONourriture.ObtenirNourriture(rtn[0]);
+                IList<Etape> etapes = DAOEtape.ObtenirEtape(rtn[0]);
+                if (etapes != null)
+                {
+                    rtn[0].Etape = DAOEtape.ObtenirEtape(rtn[0]).OrderBy(x => x.OrderId).ToList();    
+                }
+                
                 return rtn[0];
             }
             return null;
@@ -58,4 +66,4 @@ namespace ATMTECH.Expeditn.DAO
             return expeditions;
         }
     }
-}
+}                                                    

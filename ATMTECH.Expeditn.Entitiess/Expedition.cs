@@ -46,7 +46,8 @@ namespace ATMTECH.Expeditn.Entities
         public IList<Participant> Participant { get; set; }
         public IList<Materiel> Materiel { get; set; }
         public IList<Media> Media { get; set; }
-        public IList<Etape> Etape { get; set; } 
+        public IList<Etape> Etape { get; set; }
+        public IList<Nourriture> Nourriture { get; set; }
         public Categorie Categorie { get; set; }
         public bool EstPrive { get; set; }
     }

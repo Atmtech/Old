@@ -390,9 +390,11 @@
     <Content Include="Template\js\skel-layers.min.js" />
     <Content Include="Template\js\skel.min.js" />
     <Content Include="Template\license.txt" />
+    <Content Include="Test.aspx" />
     <Content Include="Test.html" />
     <Content Include="UserControls\MessageInformation.ascx" />
     <Content Include="UserControls\Utilisateur.ascx" />
+    <Content Include="VoirExpedition.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -450,6 +452,13 @@
       <DependentUpon>Pourquoi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MessageInformation.ascx.cs">
       <DependentUpon>MessageInformation.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -463,6 +472,13 @@
     </Compile>
     <Compile Include="UserControls\Utilisateur.ascx.designer.cs">
       <DependentUpon>Utilisateur.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VoirExpedition.aspx.cs">
+      <DependentUpon>VoirExpedition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VoirExpedition.aspx.designer.cs">
+      <DependentUpon>VoirExpedition.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -497,6 +513,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.Common\ATMTECH.Common.csproj">
+      <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
+      <Name>ATMTECH.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>

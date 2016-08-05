@@ -9,6 +9,7 @@ namespace ATMTECH.Expeditn.Entities
     {
         public const string EXPEDITION = "Expedition";
         public Expedition Expedition { get; set; }
+        public Vehicule Vehicule { get; set; }
         public string Nom { get; set; }
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
@@ -19,15 +20,20 @@ namespace ATMTECH.Expeditn.Entities
         public decimal PrixDuGazAuGallon { get; set; }
         public string Pays { get; set; }
         public string Region { get; set; }
+
         public string FichierPrincipal
         {
             get
             {
-                return Media != null ? Media.FirstOrDefault(x => x.EstFichierPrincipaleEtape).Fichier.FileName : "AucuneImage.png";
+                return Media != null
+                    ? Media.FirstOrDefault(x => x.EstFichierPrincipaleEtape).Fichier.FileName
+                    : "AucuneImage.png";
             }
         }
+
         public IList<Media> Media { get; set; }
         public IList<Materiel> Materiel { get; set; }
         public bool EstMesureMetrique { get; set; }
+        public IList<EtapeParticipant> EtapeParticipant { get; set; }
     }
 }
