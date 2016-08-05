@@ -95,6 +95,13 @@
                                             </div>
                                             <asp:Button runat="server" ID="btnCreerExpedition" OnClick="btnCreerUneExpedition" Text="Créer" class="mbr-buttons__btn btn btn-lg btn-danger" />
 
+
+                                            <asp:GridView runat="server" ID="grvTEst" AutoGenerateColumns="False">
+                                                <Columns>
+                                                    <asp:BoundField HeaderText="Nom"  />
+                                                </Columns>
+                                            </asp:GridView>
+
                                             <h1>ÉDITER ENTITÉS</h1>
                                             <div class="form-group">
                                                 <asp:HyperLink runat="server" ID="lnkExpedition" NavigateUrl="Edition.aspx?NomEntite=Expedition" Text="Expedition" class="mbr-buttons__btn btn btn-lg btn-danger"></asp:HyperLink>

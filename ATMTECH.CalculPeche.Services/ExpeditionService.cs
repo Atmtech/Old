@@ -58,6 +58,9 @@ namespace ATMTECH.CalculPeche.Services
             return DAOParticipantBateauExpedition.ObtenirParticipantBateauExpedition();
         }
 
+
+   
+
         public IList<ParticipantAutomobileExpedition> ObtenirParticipantAutomobileExpedition()
         {
             return DAOParticipantAutomobileExpedition.ObtenirParticipantAutomobileExpedition();

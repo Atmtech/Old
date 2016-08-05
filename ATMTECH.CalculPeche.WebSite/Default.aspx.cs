@@ -90,6 +90,29 @@ namespace ATMTECH.CalculPeche.WebSite
 
             }
         }
+
+        public IList<ParticipantAutomobileExpedition> ParticipantAutomobileExpeditions
+        {
+            set
+            {
+                string html = "<table><tr>";
+                List<DateTime> dateTimes = value.Select(x => x.DateParticipation).OrderBy(x => x.Date).Distinct().ToList();
+                foreach (DateTime date in dateTimes)
+                {
+                    html += string.Format("<td style='vertical-align:top;'><b><u>{0}</u></b><br>", date.ToShortDateString());
+                    IList<ParticipantAutomobileExpedition> participantAutomobileExpeditions = value.Where(x => x.DateParticipation == date && x.EstAutomobile).ToList();
+                    foreach (ParticipantAutomobileExpedition participantAutomobileExpedition in participantAutomobileExpeditions)
+                    {
+                        html += string.Format("{0}<br>", participantAutomobileExpedition.Participant.Nom);
+                    }
+                    html += "</td>";
+                }
+                html += "</tr>";
+                html += "</table>";
+                placeHolderAutomobile.Controls.Add(new Literal { Text = html });
+            }
+        }
+
         public IList<ParticipantExpedition> ParticipantExpeditions
         {
             set

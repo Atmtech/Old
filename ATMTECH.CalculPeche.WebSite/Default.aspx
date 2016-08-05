@@ -121,7 +121,10 @@
                                                 <h1>Détail sur le nombre de repas par jour</h1>
                                                 <asp:PlaceHolder runat="server" ID="placeholderRepas"></asp:PlaceHolder>
                                             </div>
-
+                                             <div class="encadre">
+                                                <h1>Détail sur le nombre d'automobile emprunté</h1>
+                                                <asp:PlaceHolder runat="server" ID="placeHolderAutomobile"></asp:PlaceHolder>
+                                            </div>
 
                                         </div>
                                     </div>

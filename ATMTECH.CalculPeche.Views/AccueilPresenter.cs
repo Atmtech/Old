@@ -25,10 +25,11 @@ namespace ATMTECH.CalculPeche.Views
 
         public void Rafraichir()
         {
-           
+
             if (!string.IsNullOrEmpty(View.ExpeditionSelectionne))
             {
                 AfficherPresenceExpedition();
+                AfficherAutomobileExpedition();
                 AfficherBateauExpedition();
                 AfficherRepasExpedition();
                 AfficherArgentExpedition();
@@ -36,6 +37,11 @@ namespace ATMTECH.CalculPeche.Views
                 AfficherRepartition();
                 AfficherMontantDu();
             }
+        }
+
+        private void AfficherAutomobileExpedition()
+        {
+            View.ParticipantAutomobileExpeditions = ExpeditionService.ObtenirParticipantAutomobileExpedition(Convert.ToInt32(View.ExpeditionSelectionne));
         }
 
         private void AfficherMontantDu()
