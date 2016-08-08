@@ -105,7 +105,13 @@ namespace ATMTECH.Expeditn.WebSite
                             localization.English = (control as Button).Text.Replace(" (*Loc)", "(en)");
                             localizations.Add(localization);
                         }
-
+                        if (control is LinkButton)
+                        {
+                            localization.ObjectId = control.ID;
+                            localization.French = (control as LinkButton).Text.Replace(" (*Loc)", "");
+                            localization.English = (control as LinkButton).Text.Replace(" (*Loc)", "(en)");
+                            localizations.Add(localization);
+                        }
                         if (control is TextBox)
                         {
                             if (!string.IsNullOrEmpty((control as TextBox).Attributes["placeholder"]))

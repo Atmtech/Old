@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.DAO.Interface;
-using ATMTECH.Entities;
 using ATMTECH.Expeditn.DAO.Interface;
 using ATMTECH.Expeditn.Entities;
 
@@ -36,6 +33,11 @@ namespace ATMTECH.Expeditn.DAO
         public IList<Participant> ObtenirParticipant()
         {
             return GetAllActive();
+        }
+
+        public int Enregistrer(Participant participant)
+        {
+            return Save(participant);
         }
     }
 }

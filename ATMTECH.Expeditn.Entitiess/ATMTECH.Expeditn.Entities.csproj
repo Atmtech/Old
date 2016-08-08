@@ -39,16 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pays.cs" />
     <Compile Include="Categorie.cs" />
     <Compile Include="EtapeParticipant.cs" />
+    <Compile Include="GeoLocalisation.cs" />
+    <Compile Include="Media.cs" />
     <Compile Include="Nourriture.cs" />
+    <Compile Include="NourritureExpedition.cs" />
     <Compile Include="VehiculeExpedition.cs" />
     <Compile Include="Vehicule.cs" />
     <Compile Include="Etape.cs" />
     <Compile Include="Expedition.cs" />
     <Compile Include="Courriel.cs" />
     <Compile Include="Materiel.cs" />
-    <Compile Include="Media.cs" />
     <Compile Include="Participant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -66,6 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Action.aspx" />
+    <Content Include="AjouterExpeditionEtape3.aspx" />
+    <Content Include="AjouterExpeditionEtape2.aspx" />
+    <Content Include="AjouterExpeditionEtape1.aspx" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\CHANGES.html" />
     <Content Include="ckeditor\ckeditor.js" />
@@ -300,6 +303,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Identification.aspx" />
+    <Content Include="Images\profile_placeholder.gif" />
     <Content Include="Images\Website\dark_tint.png" />
     <Content Include="Images\Website\profile_placeholder.gif" />
     <Content Include="Images\Medias\trip1.jpg" />
@@ -363,6 +367,7 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
     <Content Include="Pourquoi.aspx" />
+    <Content Include="Site.css" />
     <Content Include="Template\css\font-awesome.min.css" />
     <Content Include="Template\css\skel.css" />
     <Content Include="Template\css\style-large.css" />
@@ -406,6 +411,27 @@
     </Compile>
     <Compile Include="Action.aspx.designer.cs">
       <DependentUpon>Action.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterExpeditionEtape3.aspx.cs">
+      <DependentUpon>AjouterExpeditionEtape3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjouterExpeditionEtape3.aspx.designer.cs">
+      <DependentUpon>AjouterExpeditionEtape3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterExpeditionEtape2.aspx.cs">
+      <DependentUpon>AjouterExpeditionEtape2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjouterExpeditionEtape2.aspx.designer.cs">
+      <DependentUpon>AjouterExpeditionEtape2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterExpeditionEtape1.aspx.cs">
+      <DependentUpon>AjouterExpeditionEtape1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjouterExpeditionEtape1.aspx.designer.cs">
+      <DependentUpon>AjouterExpeditionEtape1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

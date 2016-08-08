@@ -5,12 +5,10 @@ namespace ATMTECH.Expeditn.Entities
 {
     public class Nourriture : BaseEntity
     {
-        public const string EXPEDITION = "Expedition";
-        public const string UTILISATEUR = "Utilisateur";
-
-        public Expedition Expedition { get; set; }
-        public User Utilisateur { get; set; }
+       public const string CHEF_CUISINIER = "ChefCuisinier";
+        
+        public User ChefCuisinier { get; set; }
         public string Nom { get; set; }
-        public DateTime DateTime { get; set; }
+        public string Menu { get; set; }
     }
 }

@@ -10,5 +10,6 @@ namespace ATMTECH.Expeditn.Services.Interface
         IList<Expedition> ObtenirExpedition();
         IList<Expedition> ObtenirMesExpedition(int idUtilisateur);
         IList<Expedition> ObtenirExpeditionTop(int nombreExpeditionPrise);
+        int Enregistrer(Expedition expedition);
     }
 }

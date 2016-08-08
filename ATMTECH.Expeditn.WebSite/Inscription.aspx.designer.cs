@@ -58,7 +58,7 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.TextBox txtPrenom;
         
         /// <summary>
-        /// Contrôle txtNom.
+        /// Contrôle txtNomExpedition.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.

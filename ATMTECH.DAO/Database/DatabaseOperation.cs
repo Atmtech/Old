@@ -157,12 +157,18 @@ namespace ATMTECH.DAO.Database
         public string ConstructSqlFromModel(string @where, PagingOperation pagingOperation, OrderOperation orderOperation, Type type)
         {
             string columns = ExtractColumnsFromDatabase(type);
-            string sql = ConstructSqlWhere(@where, type, columns) + ConstructSqlOrderBy(orderOperation);
+            string sql = ConstructSqlWhere(@where, type, columns);
             string paging = ConstructSqlPaging(pagingOperation, sql);
             if (!string.IsNullOrEmpty(paging))
             {
                 sql = paging;
             }
+
+            if (!string.IsNullOrEmpty(orderOperation.OrderByColumn))
+            {
+                sql += ConstructSqlOrderBy(orderOperation);
+            }
+
             return sql;
         }
         public string ReturnSetClauseUpdate(TModel model, string id)

@@ -128,6 +128,8 @@ namespace ATMTECH.Common.Utils
                 rtn += "[OrderId] INTEGER," + Environment.NewLine;
                 rtn += "[Search] TEXT," + Environment.NewLine;
                 rtn += "[ComboboxDescription] VARCHAR(1000)," + Environment.NewLine;
+                rtn += "[UserLoginModified] VARCHAR(1000)," + Environment.NewLine;
+                
 
                 foreach (PropertyInfo propertyInfo in propertyInfos)
                 {

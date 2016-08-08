@@ -15,21 +15,20 @@
             </header>
 
             <div class="container 50%">
-
-              
-
-                    <asp:TextBox runat="server" ID="txtNomUtilisateur" placeholder="Courriel" TextMode="Email"></asp:TextBox>
-                <br/>
-                    <asp:TextBox runat="server" ID="txtMotPasse" placeholder="Mot de passe" TextMode="Password"></asp:TextBox>
-                <br/>
-                    <div class="12u$">
-                        <asp:Button runat="server" ID="lnkIdentifiezVous" Text="Se connecter" CssClass="special big" OnClick="lnkIdentifiezVousClick"></asp:Button><br />
-                        <br />
-                        <asp:Button runat="server" ID="lnkJAiOublieMonMotDePasse" Text="J'ai oublié mon mot de passe" CssClass="special big" OnClick="lnkIdentifiezVousClick"></asp:Button>
-
-                    </div>
-              
+                <div class="form-group">
+                    <asp:TextBox runat="server" ID="txtNomUtilisateur" placeholder="Courriel" TextMode="Email" class="form-control" Text="sagaan@hotmail.com"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <asp:TextBox runat="server" ID="txtMotPasse" placeholder="Mot de passe" class="form-control" Text="10crevette01"></asp:TextBox>
+                </div>
+                <br/><br/>
+                <div class="12u$">
+                    <asp:Button runat="server" ID="lnkIdentifiezVous" Text="Se connecter" CssClass="special big" OnClick="lnkIdentifiezVousClick"></asp:Button><br />
+                    <br />
+                    <asp:Button runat="server" ID="lnkJAiOublieMonMotDePasse" Text="J'ai oublié mon mot de passe" CssClass="special big" OnClick="lnkIdentifiezVousClick"></asp:Button>
+                </div>
             </div>
+        </div>
     </section>
 
 </asp:Content>

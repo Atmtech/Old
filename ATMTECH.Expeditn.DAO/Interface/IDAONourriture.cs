@@ -7,6 +7,6 @@ namespace ATMTECH.Expeditn.DAO.Interface
     {
         Nourriture ObtenirNourriture(int id);
         IList<Nourriture> ObtenirNourriture();
-        IList<Nourriture> ObtenirNourriture(Expedition expedition);
+        
     }
 }

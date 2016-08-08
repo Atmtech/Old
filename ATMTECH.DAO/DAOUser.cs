@@ -70,6 +70,14 @@ namespace ATMTECH.DAO
             }
         }
 
+        public IList<User> SearchUser(string search)
+        {
+            IList<Criteria> criterias = new List<Criteria>();
+            Criteria criteriaMenu = new Criteria() { Column = BaseEntity.SEARCH, Operator = DatabaseOperator.OPERATOR_LIKE, Value = search };
+            criterias.Add(criteriaMenu);
+            return GetByCriteria(criterias);
+        }
+
         public User GetUser(int id)
         {
             return GetById(id);

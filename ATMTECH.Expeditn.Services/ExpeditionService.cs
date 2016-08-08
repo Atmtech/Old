@@ -27,6 +27,11 @@ namespace ATMTECH.Expeditn.Services
             return DAOExpedition.ObtenirExpeditionTop(nombreExpeditionPrise);
         }
 
+        public int Enregistrer(Expedition expedition)
+        {
+            return DAOExpedition.Enregistrer(expedition);
+        }
+
 
         public IList<Expedition> ObtenirMesExpedition(int idUtilisateur)
         {

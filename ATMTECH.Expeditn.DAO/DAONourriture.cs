@@ -27,14 +27,6 @@ namespace ATMTECH.Expeditn.DAO
             return rtn.Count > 0 ? rtn : null;
         }
 
-        public IList<Nourriture> ObtenirNourriture(Expedition expedition)
-        {
-            IList<Criteria> criterias = new List<Criteria>();
-            Criteria criteriaUser = new Criteria { Column = BaseEntity.ID, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = expedition.Id.ToString() };
-            criterias.Add(criteriaUser);
-            criterias.Add(IsActive());
-            return GetByCriteria(criterias);
-        }
-
+     
     }
 }

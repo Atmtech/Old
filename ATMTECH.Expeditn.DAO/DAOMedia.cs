@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.DAO.Interface;
@@ -23,7 +21,7 @@ namespace ATMTECH.Expeditn.DAO
             IList<Media> rtn = GetByCriteria(criterias);
             if (rtn.Count > 0)
             {
-                foreach (Media media     in rtn)
+                foreach (Media media in rtn)
                 {
                     media.Fichier = DAOFile.GetFile(media.Fichier.Id);
                 }
@@ -32,5 +30,7 @@ namespace ATMTECH.Expeditn.DAO
             }
             return null;
         }
+
+      
     }
 }

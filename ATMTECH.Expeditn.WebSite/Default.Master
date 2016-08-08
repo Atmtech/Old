@@ -39,7 +39,7 @@
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/lightbox.min.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.js"></script>
     <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.slider.js"></script>
-
+    <link href="Site.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 

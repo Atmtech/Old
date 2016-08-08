@@ -42,6 +42,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjouterExpeditionEtape3Presenter.cs" />
+    <Compile Include="AjouterExpeditionEtape2Presenter.cs" />
+    <Compile Include="AjouterExpeditionEtape1Presenter.cs" />
+    <Compile Include="Interface\IAjouterExpeditionEtape3Presenter.cs" />
+    <Compile Include="Interface\IAjouterExpeditionEtape2Presenter.cs" />
+    <Compile Include="Interface\IAjouterExpeditionEtape1Presenter.cs" />
     <Compile Include="VoirExpeditionPresenter.cs" />
     <Compile Include="Base\BaseExpeditnPresenter.cs" />
     <Compile Include="AccueilPresenter.cs" />
