@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\AffichageParticipantEtape.cs" />
     <Compile Include="Pays.cs" />
     <Compile Include="Categorie.cs" />
     <Compile Include="EtapeParticipant.cs" />

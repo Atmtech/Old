@@ -13,7 +13,9 @@ namespace ATMTECH.Expeditn.Views
         public IExpeditionService ExpeditionService { get; set; }
         public IAuthenticationService AuthenticationService { get; set; }
         public IDAOEtape DAOEtape { get; set; }
+        public IDAOEtapeParticipant DAOEtapeParticipant { get; set; }
         public IDAOVehicule DAOVehicule { get; set; }
+        public IDAOParticipant DAOParticipant { get; set; }
 
         public AjouterExpeditionEtape3Presenter(IAjouterExpeditionEtape3Presenter view)
             : base(view)
@@ -49,6 +51,44 @@ namespace ATMTECH.Expeditn.Views
             DAOEtape.Enregistrer(etape);
             AfficherEtape(expedition);
 
+        }
+
+        public void RetirerEtape(string idEtape)
+        {
+            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            Etape etape = DAOEtape.ObtenirEtape(Convert.ToInt32(idEtape));
+            foreach (EtapeParticipant etapeParticipant in etape.EtapeParticipant)
+            {
+                etapeParticipant.IsActive = false;
+                DAOEtapeParticipant.Enregistrer(etapeParticipant);
+            }
+            etape.IsActive = false;
+            DAOEtape.Enregistrer(etape);
+            AfficherEtape(expedition);
+        }
+
+        public void RetirerEtapeParticipant(string idEtapeParticipant)
+        {
+            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            EtapeParticipant etapeParticipant = DAOEtapeParticipant.ObtenirEtapeParticipant(Convert.ToInt32(idEtapeParticipant));
+            etapeParticipant.IsActive = false;
+            DAOEtapeParticipant.Enregistrer(etapeParticipant);
+            AfficherEtape(expedition);
+        }
+
+        public void AjouterEtapeParticipant(int idParticipant, int idEtape, string montant)
+        {
+            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            Participant participant = DAOParticipant.ObtenirParticipant(Convert.ToInt32(idParticipant));
+            Etape etape = DAOEtape.ObtenirEtape(Convert.ToInt32(idEtape));
+            EtapeParticipant etapeParticipant = new EtapeParticipant
+            {
+                Participant = participant,
+                Etape = etape,
+                Montant = Convert.ToDecimal(montant)
+            };
+            DAOEtapeParticipant.Enregistrer(etapeParticipant);
+            AfficherEtape(expedition);
         }
     }
 }

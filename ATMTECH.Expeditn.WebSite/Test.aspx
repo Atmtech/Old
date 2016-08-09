@@ -12,6 +12,7 @@
     <div>
       <asp:Button runat="server" ID="btnGenererSql" OnClick="btnGenererSqlClick" Text="Generer modele" class="mbr-buttons__btn btn btn-lg btn-danger" />
                                             <asp:TextBox ID="txtSql" runat="server" Height="282px" Width="937px" TextMode="MultiLine" class="form-control"></asp:TextBox>
+        <asp:Button runat="server" id="btnRecalculerChamps" OnClick="btnRecalculerChampsClick"/>
     </div>
     </form>
 </body>

@@ -7,7 +7,7 @@
         .boutonAjout {
             background-color: rgb(54, 180, 54);
             color: white;
-            font-size: 12px;
+            font-size: 14px;
             border-radius: 20px;
             padding-top: 2px;
             padding-bottom: 2px;

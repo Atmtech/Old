@@ -10,5 +10,10 @@ namespace ATMTECH.Expeditn.Entities
         public User ChefCuisinier { get; set; }
         public string Nom { get; set; }
         public string Menu { get; set; }
+
+        public string ComboboxDescriptionUpdate
+        {
+            get { return string.Format("{0}", Nom); }
+        }
     }
 }

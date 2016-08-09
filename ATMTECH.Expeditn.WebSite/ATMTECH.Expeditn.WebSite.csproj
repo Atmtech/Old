@@ -543,9 +543,17 @@
       <Project>{42563E34-AAEB-4558-824A-60701E2A0E0B}</Project>
       <Name>ATMTECH.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.DAO\ATMTECH.DAO.csproj">
+      <Project>{5B8078E8-D951-4796-ACA8-C2731592B5C3}</Project>
+      <Name>ATMTECH.DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Entities\ATMTECH.Entities.csproj">
       <Project>{4F1532FF-3954-4C57-BE5E-30E0C4C458CB}</Project>
       <Name>ATMTECH.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Expeditn.DAO\ATMTECH.Expeditn.DAO.csproj">
+      <Project>{D8370FB3-11E0-47D2-8DDE-41CA4601AD7A}</Project>
+      <Name>ATMTECH.Expeditn.DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Expeditn.Entitiess\ATMTECH.Expeditn.Entities.csproj">
       <Project>{9B32691F-85B3-44B6-BDD8-921F0AAD3F99}</Project>

@@ -175,7 +175,7 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.Label lblSimplementPourNousDireCoucou;
         
         /// <summary>
-        /// Contrôle txtNomExpedition.
+        /// Contrôle txtNom.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.

@@ -10,5 +10,11 @@ namespace ATMTECH.Expeditn.Entities
         public Nourriture Nourriture { get; set; }
         public User Utilisateur { get; set; }
         public DateTime Date { get; set; }
+
+        public string ComboboxDescriptionUpdate
+        {
+            get { return string.Format("{0} {2} ({1})", Expedition.Nom, Utilisateur.FirstNameLastName, Nourriture.Nom); }
+        }
+
     }
 }

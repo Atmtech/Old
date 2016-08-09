@@ -26,6 +26,11 @@ namespace ATMTECH.Expeditn.DAO
             return rtn.Count > 0 ? rtn : null;
         }
 
+        public Etape ObtenirEtape(int id)
+        {
+            return GetById(id);
+        }
+
         public int Enregistrer(Etape etape)
         {
             return Save(etape);

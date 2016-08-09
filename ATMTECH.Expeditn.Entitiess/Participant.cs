@@ -10,5 +10,10 @@ namespace ATMTECH.Expeditn.Entities
         public Expedition Expedition { get; set; }
         public User Utilisateur { get; set; }
         public bool EstAdministrateur { get; set; }
+
+        public string ComboboxDescriptionUpdate
+        {
+            get { return string.Format("{0} ({1})", Expedition.Nom,Utilisateur.FirstNameLastName); }
+        }
     }
 }

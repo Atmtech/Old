@@ -24,5 +24,10 @@ namespace ATMTECH.Expeditn.Entities
         public IList<NourritureExpedition> Nourriture { get; set; }
         public Categorie Categorie { get; set; }
         public bool EstPrive { get; set; }
+
+        public string ComboboxDescriptionUpdate
+        {
+            get { return string.Format("{0}", Nom); }
+        }
     }
 }

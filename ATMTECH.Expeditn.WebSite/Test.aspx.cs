@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.Common.Utils;
+using ATMTECH.Expeditn.DAO;
+using ATMTECH.Expeditn.Entities;
 
 namespace ATMTECH.Expeditn.WebSite
 {
@@ -22,6 +24,15 @@ namespace ATMTECH.Expeditn.WebSite
             foreach (string classe in classes)
             {
                 txtSql.Text += manageClass.GenerateCreateTableSqlFromClass("ATMTECH.Expeditn.Entities", classe) + Environment.NewLine + Environment.NewLine;
+            }
+        }
+
+        protected void btnRecalculerChampsClick(object sender, EventArgs e)
+        {
+            IList<Vehicule> obtenirVehicule = new DAOVehicule().ObtenirVehicule();
+            foreach (Vehicule VARIABLE in obtenirVehicule)
+            {
+                new DAOVehicule().Save(VARIABLE);
             }
         }
     }

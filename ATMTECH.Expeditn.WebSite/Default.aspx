@@ -88,9 +88,9 @@
                                     <asp:HyperLink runat="server" ID="lblNomExpedition" Text='<%# Eval("Nom").ToString().Length > 25 ? Eval("Nom").ToString().Substring(0,25) + "[...]" : Eval("Nom").ToString()  %>' NavigateUrl='<%# "VoirExpedition.aspx?Id=" + Eval("Id") %>'></asp:HyperLink>
                                 </h4>
                                 <div style="font-size: 13px;">
-                                    <asp:Label runat="server" ID="lblDateDebutListe" Text='<%# Eval("DateDebut","{0:yyyy-MM-dd}")  %>'></asp:Label>
+                                    <asp:Label runat="server" ID="lblDateDebutListe" Text='<%# Eval("Debut","{0:yyyy-MM-dd}")  %>'></asp:Label>
                                     <i class="fa fa-hand-o-right"></i>
-                                    <asp:Label runat="server" ID="lblDateFinListe" Text='<%# Eval("DateFin","{0:yyyy-MM-dd}")  %>'></asp:Label>
+                                    <asp:Label runat="server" ID="lblDateFinListe" Text='<%# Eval("Fin","{0:yyyy-MM-dd}")  %>'></asp:Label>
                                 </div>
                                 <p>
                                     <i class="fa fa-user"></i>
