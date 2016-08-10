@@ -4712,7 +4712,7 @@ $.extend(Datepicker.prototype, {
 		this._updateDatepicker(inst);
 	},
 
-	/* Action for current link. */
+	/* TableauBord for current link. */
 	_gotoToday: function(id) {
 		var date,
 			target = $(id),
@@ -4732,7 +4732,7 @@ $.extend(Datepicker.prototype, {
 		this._adjustDate(target);
 	},
 
-	/* Action for selecting a new month/year. */
+	/* TableauBord for selecting a new month/year. */
 	_selectMonthYear: function(id, select, period) {
 		var target = $(id),
 			inst = this._getInst(target[0]);
@@ -4745,7 +4745,7 @@ $.extend(Datepicker.prototype, {
 		this._adjustDate(target);
 	},
 
-	/* Action for selecting a day. */
+	/* TableauBord for selecting a day. */
 	_selectDay: function(id, month, year, td) {
 		var inst,
 			target = $(id);

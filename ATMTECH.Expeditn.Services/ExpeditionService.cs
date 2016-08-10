@@ -36,12 +36,7 @@ namespace ATMTECH.Expeditn.Services
         public IList<Expedition> ObtenirMesExpedition(int idUtilisateur)
         {
             IList<Participant> Participant = DAOParticipant.ObtenirParticipant().Where(x => x.Utilisateur.Id == idUtilisateur).ToList();
-            IList<Expedition> mesExpeditions = new List<Expedition>();
-            foreach (Participant participant in Participant)
-            {
-                mesExpeditions.Add(DAOExpedition.ObtenirExpedition(participant.Expedition.Id));
-            }
-            return mesExpeditions;
+            return Participant.Select(participant => DAOExpedition.ObtenirExpedition(participant.Expedition.Id)).ToList();
         }
     }
 }

@@ -9,8 +9,13 @@ using ATMTECH.Web;
 
 namespace ATMTECH.Expeditn.WebSite
 {
-    public partial class AjouterExpeditionEtape2 : PageBase<AjouterExpeditionEtape2Presenter, IAjouterExpeditionEtape2Presenter>, IAjouterExpeditionEtape2Presenter
+    public partial class GererParticipant : PageBase<GererParticipantPresenter, IGererParticipantPresenter>, IGererParticipantPresenter
     {
+        public Expedition Expedition
+        {
+            set { lblNomExpedition.Text = value.Nom; }
+        }
+
         public string IdExpedition
         {
             get { return QueryString.GetQueryStringValue(BaseEntity.ID); }
@@ -45,7 +50,7 @@ namespace ATMTECH.Expeditn.WebSite
 
         protected void lnkPasserEtape3CreationExpeditionClick(object sender, EventArgs e)
         {
-            Presenter.RedirigerEtape3();
+            Presenter.RedirigerPageGererEtape();
         }
 
         protected void lnkTerminerCreationExpedition(object sender, EventArgs e)

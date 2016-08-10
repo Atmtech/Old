@@ -14,7 +14,7 @@
         <ul class="actions">
             <li>
                 <asp:HyperLink runat="server" ID="lnkPlanifierExpedition" Text="Planifier une expédition"
-                    NavigateUrl="Default.aspx" CssClass="button big"></asp:HyperLink>
+                    NavigateUrl="Inscription.aspx" CssClass="button big"></asp:HyperLink>
             </li>
         </ul>
     </section>
@@ -94,7 +94,7 @@
                                 </div>
                                 <p>
                                     <i class="fa fa-user"></i>
-                                    <asp:Label runat="server" ID="lblChefListe" Text='<%# Eval("Chef.Utilisateur.FirstNameLastName","{0:yyyy-MM-dd}")  %>'></asp:Label>
+                                    <asp:Label runat="server" ID="lblChefListe" Text='<%# Eval("Administrateur.Utilisateur.FirstNameLastName","{0:yyyy-MM-dd}")  %>'></asp:Label>
                                 </p>
                             </section>
                         </ItemTemplate>

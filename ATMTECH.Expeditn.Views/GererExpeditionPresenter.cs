@@ -11,15 +11,14 @@ using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.Expeditn.Views
 {
-    public class AjouterExpeditionEtape1Presenter : BaseExpeditnPresenter<IAjouterExpeditionEtape1Presenter>
+    public class GererExpeditionPresenter : BaseExpeditnPresenter<IGererExpeditionPresenter>
     {
         public IExpeditionService ExpeditionService { get; set; }
         public IDAOGeoLocalisation DaoGeoLocalisation { get; set; }
         public IDAOPays DAOPays { get; set; }
         public IDAOParticipant DAOParticipant { get; set; }
-        public IAuthenticationService AuthenticationService { get; set; }
 
-        public AjouterExpeditionEtape1Presenter(IAjouterExpeditionEtape1Presenter view)
+        public GererExpeditionPresenter(IGererExpeditionPresenter view)
             : base(view)
         {
         }
@@ -28,8 +27,31 @@ namespace ATMTECH.Expeditn.Views
         {
             base.OnViewInitialized();
             View.ListePays = DAOPays.ObtenirPays();
+            AfficherExpedition();
+
         }
-        public int EnregistrerNouvelleExpedition()
+
+        private void AfficherExpedition()
+        {
+            if (!string.IsNullOrEmpty(View.IdExpedition))
+            {
+                Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+                View.Nom = expedition.Nom;
+                View.Debut = expedition.Debut;
+                View.Fin = expedition.Fin;
+                View.BudgetEstime = expedition.BudgetEstime;
+                View.EstExpeditionPrive = expedition.EstPrive;
+
+                View.Longitude = expedition.GeoLocalisation.Longitude;
+                View.Latitude = expedition.GeoLocalisation.Latitude;
+                View.Region = expedition.GeoLocalisation.Region;
+                View.Pays = expedition.GeoLocalisation.Pays.Id.ToString();
+                View.Ville = expedition.GeoLocalisation.Ville;
+            }
+        }
+
+
+        public int EnregistrerExpedition()
         {
             Expedition expedition = new Expedition
             {
@@ -40,6 +62,13 @@ namespace ATMTECH.Expeditn.Views
                 EstPrive = View.EstExpeditionPrive,
 
             };
+
+
+            if (!string.IsNullOrEmpty(View.IdExpedition))
+            {
+                expedition.Id = Convert.ToInt32(View.IdExpedition);
+            }
+
             if (!string.IsNullOrEmpty(View.Latitude) && !string.IsNullOrEmpty(View.Longitude))
             {
                 GeoLocalisation geoLocalisation = new GeoLocalisation
@@ -57,22 +86,25 @@ namespace ATMTECH.Expeditn.Views
             }
 
             int idExpedition = ExpeditionService.Enregistrer(expedition);
-            expedition.Id = idExpedition;
-            Participant participant = new Participant
+            expedition = ExpeditionService.ObtenirExpedition(idExpedition);
+            if (expedition.Participant.Count == 0)
             {
-                Utilisateur = AuthenticationService.AuthenticateUser,
-                Expedition = expedition,
-                EstAdministrateur = true,
-            };
-            DAOParticipant.Enregistrer(participant);
+                Participant participant = new Participant
+                {
+                    Utilisateur = AuthenticationService.AuthenticateUser,
+                    Expedition = expedition,
+                    EstAdministrateur = true,
+                };
+                DAOParticipant.Enregistrer(participant);
+            }
 
             return idExpedition;
         }
-        public void RedirigerEtape2(int idExpedition)
+        public void RedirigerPageGererParticipant(int idExpedition)
         {
             IList<QueryString> queryStrings = new List<QueryString>();
             queryStrings.Add(new QueryString { Name = BaseEntity.ID, Value = idExpedition.ToString() });
-            NavigationService.Redirect("AjouterExpeditionEtape2.aspx", queryStrings);
+            NavigationService.Redirect(Pages.GERER_PARTICIPANT, queryStrings);
         }
     }
 }

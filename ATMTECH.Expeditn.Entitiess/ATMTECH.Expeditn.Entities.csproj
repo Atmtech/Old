@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BudgetParticipant.cs" />
+    <Compile Include="DTO\AffichageParticipantNourriture.cs" />
     <Compile Include="DTO\AffichageParticipantEtape.cs" />
     <Compile Include="Pays.cs" />
     <Compile Include="Categorie.cs" />
@@ -46,7 +48,7 @@
     <Compile Include="GeoLocalisation.cs" />
     <Compile Include="Media.cs" />
     <Compile Include="Nourriture.cs" />
-    <Compile Include="NourritureExpedition.cs" />
+    <Compile Include="NourritureParticipant.cs" />
     <Compile Include="VehiculeExpedition.cs" />
     <Compile Include="Vehicule.cs" />
     <Compile Include="Etape.cs" />

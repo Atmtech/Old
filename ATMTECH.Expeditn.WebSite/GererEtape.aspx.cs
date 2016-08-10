@@ -11,8 +11,13 @@ using ATMTECH.Web;
 
 namespace ATMTECH.Expeditn.WebSite
 {
-    public partial class AjouterExpeditionEtape3 : PageBase<AjouterExpeditionEtape3Presenter, IAjouterExpeditionEtape3Presenter>, IAjouterExpeditionEtape3Presenter
+    public partial class GererEtape : PageBase<GererEtapePresenter, IGererEtapePresenter>, IGererEtapePresenter
     {
+        public Expedition Expedition
+        {
+            set { lblNomExpedition.Text = value.Nom; }
+        }
+
         public string IdExpedition
         {
             get { return QueryString.GetQueryStringValue(BaseEntity.ID); }
@@ -36,12 +41,12 @@ namespace ATMTECH.Expeditn.WebSite
 
         protected void lnkPasserEtape4CreationExpeditionClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Presenter.RedirigerPageGererNourriture();
         }
 
         protected void lnkAjouterActiviteExpeditionClick(object sender, EventArgs e)
         {
-            Presenter.AjouterActivite();
+            Presenter.AjouterEtape();
             txtNomEtape.Text = "";
             txtDebutEtape.Text = "";
             txtDistance.Text = "";
@@ -50,23 +55,12 @@ namespace ATMTECH.Expeditn.WebSite
 
         protected void listeActiviteItemCommand(object source, DataListCommandEventArgs e)
         {
-
             if (e.CommandName == "retirer")
             {
                 string idEtape = e.CommandArgument.ToString();
                 Presenter.RetirerEtape(idEtape);
-
-
-
             }
 
-            if (e.CommandName == "ajouterparticipant")
-            {
-
-                // pnlAjouterParticipant.Visible = true;
-                //string idEtape = e.CommandArgument.ToString();
-                //Presenter.RetirerEtape(idEtape);
-            }
         }
 
         protected void listeActiviteItemDataBound(object sender, DataListItemEventArgs e)
@@ -81,7 +75,7 @@ namespace ATMTECH.Expeditn.WebSite
                 AffichageParticipantEtape affichageParticipantEtape = new AffichageParticipantEtape
                 {
                     IdParticipant = participant.Id,
-                    Nom = participant.Utilisateur.FirstNameLastName,
+                    Utilisateur = participant.Utilisateur,
                     Etape = etape,
                     Expedition = etape.Expedition
                 };
@@ -103,26 +97,21 @@ namespace ATMTECH.Expeditn.WebSite
             dataList.DataBind();
         }
 
-        protected void listeParticipantItemCommand(object source, RepeaterCommandEventArgs repeaterCommandEventArgs)
+        protected void listeParticipantItemCommand(object source, RepeaterCommandEventArgs e)
         {
-        
+            int idEtape = Convert.ToInt32(((Label) e.Item.FindControl("lblIdEtape")).Text);
+            int idEtapeParticipant = Convert.ToInt32(((Label)e.Item.FindControl("lblIdEtapeParticipant")).Text);
+            int idParticipant = Convert.ToInt32(((Label)e.Item.FindControl("lblIdParticipant")).Text);
 
-            AffichageParticipantEtape affichageParticipantEtape = (AffichageParticipantEtape)repeaterCommandEventArgs.Item.DataItem;
-            //TextBox txtMontant = (TextBox)dataListCommandEventArgs.Item.FindControl("txtMontant");
+            if (e.CommandName == "retirer")
+            {
+                Presenter.RetirerEtapeParticipant(idEtape, idEtapeParticipant);
+            }
 
-            //DataGridItem dgi = (DataGridItem)(((Control)sender).NamingContainer);
-            //string TextValue = ((TextBox)dgi.Cells[0].Controls[1]).Text;
-
-
-            //if (e.CommandName == "retirer")
-            //{
-            //    Presenter.RetirerEtapeParticipant(e.CommandArgument.ToString());
-            //}
-
-            //if (e.CommandName == "ajouter")
-            //{
-            //    Presenter.AjouterEtapeParticipant(affichageParticipantEtape.IdParticipant, affichageParticipantEtape.IdEtapeParticipant, txtMontant.Text.Replace(",", "."));
-            //}
+            if (e.CommandName == "ajouter")
+            {
+                Presenter.AjouterEtapeParticipant(idParticipant, idEtape, "0");
+            }
         }
 
 

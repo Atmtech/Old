@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.Entities;
@@ -9,24 +10,29 @@ namespace ATMTECH.Expeditn.DAO
 {
     public class DAONourriture : BaseDao<Nourriture, int>, IDAONourriture
     {
-        public Nourriture ObtenirNourriture(int id)
+        public IDAOParticipant DAOParticipant { get; set; }
+        public IDAONourritureParticipant DAONourritureParticipant { get; set; }
+      
+        public IList<Nourriture> ObtenirNourriture(Expedition expedition)
         {
             IList<Criteria> criterias = new List<Criteria>();
-            Criteria criteriaUser = new Criteria { Column = BaseEntity.ID, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = id.ToString() };
+            Criteria criteriaUser = new Criteria { Column = Nourriture.EXPEDITION, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = expedition.Id.ToString() };
             criterias.Add(criteriaUser);
             criterias.Add(IsActive());
             IList<Nourriture> rtn = GetByCriteria(criterias);
-            return rtn.Count > 0 ? rtn[0] : null;
-        }
-
-        public IList<Nourriture> ObtenirNourriture()
-        {
-            IList<Criteria> criterias = new List<Criteria>();
-            criterias.Add(IsActive());
-            IList<Nourriture> rtn = GetByCriteria(criterias);
+            foreach (Nourriture nourriture in rtn)
+            {
+                nourriture.Expedition = expedition;
+                nourriture.Cuisinier = DAOParticipant.ObtenirParticipant(expedition).FirstOrDefault(x=>x.Id == nourriture.Cuisinier.Id);
+                nourriture.NourritureParticipant = DAONourritureParticipant.ObtenirNourritureParticipant(nourriture);
+            }
+            
             return rtn.Count > 0 ? rtn : null;
         }
 
-     
+        public int Enregistrer(Nourriture nourriture)
+        {
+            return Save(nourriture);
+        }
     }
 }

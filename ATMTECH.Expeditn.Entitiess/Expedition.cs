@@ -15,13 +15,15 @@ namespace ATMTECH.Expeditn.Entities
         public decimal BudgetEstime { get; set; }
         public decimal BudgetReel { get { return 0; } }
         public GeoLocalisation GeoLocalisation { get; set; }
-        public Participant ChefDeGroupe { get { return Participant != null ? Participant.FirstOrDefault(x => x.EstAdministrateur) : null; }}
+        public Participant Administrateur { get { return Participant != null ? Participant.FirstOrDefault(x => x.EstAdministrateur) : null; }}
         public string FichierPrincipal { get { return Media != null ? Media.FirstOrDefault(x => x.EstFichierPrincipal).Fichier.FileName : "AucuneImage.png";}}
         public IList<Participant> Participant { get; set; }
         public IList<Media> Media { get; set; }
         public IList<Etape> Etape { get; set; }
+        public IList<Nourriture> Nourriture { get; set; }
         public IList<Materiel> Materiel { get; set; }
-        public IList<NourritureExpedition> Nourriture { get; set; }
+        
+        
         public Categorie Categorie { get; set; }
         public bool EstPrive { get; set; }
 

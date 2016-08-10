@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ATMTECH.Entities;
 
 namespace ATMTECH.Expeditn.Entities.DTO
 {
@@ -12,7 +8,7 @@ namespace ATMTECH.Expeditn.Entities.DTO
         public int IdParticipant { get; set; }
         public Etape Etape { get; set; }
         public Expedition Expedition { get; set; }
-        public string Nom { get; set; }
+        public User Utilisateur { get; set; }
         public bool EstParticipantEtape { get; set; }
     }
 }

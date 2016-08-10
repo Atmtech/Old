@@ -10,114 +10,114 @@
 namespace ATMTECH.Expeditn.WebSite {
     
     
-    public partial class AjouterExpeditionEtape1 {
+    public partial class GererEtape {
         
         /// <summary>
-        /// Contrôle lblEtape1CreationNouvelleExpedition.
+        /// Contrôle lblEtape3CreationNouvelleEtape.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEtape1CreationNouvelleExpedition;
+        protected global::System.Web.UI.WebControls.Label lblEtape3CreationNouvelleEtape;
         
         /// <summary>
-        /// Contrôle txtNomExpedition.
+        /// Contrôle lblNomExpedition.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomExpedition;
+        protected global::System.Web.UI.WebControls.Label lblNomExpedition;
         
         /// <summary>
-        /// Contrôle txtDebutExpedition.
+        /// Contrôle txtNomEtape.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDebutExpedition;
+        protected global::System.Web.UI.WebControls.TextBox txtNomEtape;
         
         /// <summary>
-        /// Contrôle txtFinExpedition.
+        /// Contrôle txtDebutEtape.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFinExpedition;
+        protected global::System.Web.UI.WebControls.TextBox txtDebutEtape;
         
         /// <summary>
-        /// Contrôle txtBudgetEstimeExpedition.
+        /// Contrôle txtFinEtape.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBudgetEstimeExpedition;
+        protected global::System.Web.UI.WebControls.TextBox txtFinEtape;
         
         /// <summary>
-        /// Contrôle ddlEstPrive.
+        /// Contrôle lblMoyenTransport.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEstPrive;
+        protected global::System.Web.UI.WebControls.Label lblMoyenTransport;
         
         /// <summary>
-        /// Contrôle txtLatitude.
+        /// Contrôle ddlVehicule.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLatitude;
+        protected global::System.Web.UI.WebControls.DropDownList ddlVehicule;
         
         /// <summary>
-        /// Contrôle txtLongitude.
+        /// Contrôle txtDistance.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLongitude;
+        protected global::System.Web.UI.WebControls.TextBox txtDistance;
         
         /// <summary>
-        /// Contrôle txtRegionExpedition.
+        /// Contrôle lnkAjouterActiviteExpedition.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRegionExpedition;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAjouterActiviteExpedition;
         
         /// <summary>
-        /// Contrôle ddlPays.
+        /// Contrôle lblListeActivite.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPays;
+        protected global::System.Web.UI.WebControls.Label lblListeActivite;
         
         /// <summary>
-        /// Contrôle txtVilleExpedition.
+        /// Contrôle listeActivite.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtVilleExpedition;
+        protected global::System.Web.UI.WebControls.DataList listeActivite;
         
         /// <summary>
-        /// Contrôle lnkPasserEtape2CreationExpedition.
+        /// Contrôle lnkPasserEtape4CreationEtape.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPasserEtape2CreationExpedition;
+        protected global::System.Web.UI.WebControls.LinkButton lnkPasserEtape4CreationEtape;
     }
 }

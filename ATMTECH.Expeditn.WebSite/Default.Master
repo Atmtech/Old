@@ -49,14 +49,13 @@
 
         <!-- Header -->
         <header id="header">
-            <h1><i class="fa fa-map-marker" style="font-size: 50px;"></i><a href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;">Expedit'n&nbsp;</a></h1>
-
+          
             <asp:Panel ID="pnlDeconnecte" runat="server" Visible="True">
+                  <h1><i class="fa fa-map-marker" style="font-size: 50px;"></i><a href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;">Expedit'n&nbsp;</a></h1>
+
                 <nav id="nav">
                     <ul>
-                        <li>
-                            <asp:HyperLink runat="server" ID="lnkAccueilMenu" Text="Accueil" NavigateUrl="Default.aspx"></asp:HyperLink>
-                        </li>
+                       
                         <li>
                             <asp:HyperLink runat="server" ID="lnkRechercherMenu" Text="Rechercher une expédition" NavigateUrl="Default.aspx"></asp:HyperLink>
                         </li>
@@ -70,13 +69,12 @@
                 </nav>
             </asp:Panel>
             <asp:Panel ID="pnlConnecte" runat="server" Visible="False">
+                  <h1><i class="fa fa-map-marker" style="font-size: 50px;"></i><a href="TableauBord.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;">Expedit'n&nbsp;</a></h1>
+
                 <nav id="nav">
                     <ul>
                         <li>
                             <asp:Label runat="server" ID="lblBonjour" Text="Bonjour, "></asp:Label><asp:Label runat="server" ID="lblNomPrenomUtilisateur"></asp:Label></li>
-                        <li>
-                            <asp:HyperLink runat="server" ID="lnkAccueilMenuConnecte" Text="Accueil" NavigateUrl="Default.aspx"></asp:HyperLink>
-                        </li>
                         <li>
                             <asp:HyperLink runat="server" ID="lnkRechercherMenuConnecte" Text="Rechercher une expédition" NavigateUrl="Default.aspx"></asp:HyperLink>
                         </li>

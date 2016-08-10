@@ -5,8 +5,9 @@ using ATMTECH.Views.Interface;
 
 namespace ATMTECH.Expeditn.Views.Interface
 {
-    public interface IAjouterExpeditionEtape3Presenter : IViewBase
+    public interface IGererEtapePresenter : IViewBase
     {
+        Expedition Expedition { set; }
         string IdExpedition { get;}
         IList<Etape> ListeEtape {set; }
 
@@ -16,14 +17,5 @@ namespace ATMTECH.Expeditn.Views.Interface
         DateTime Debut { get; set; }
         DateTime Fin { get; set; }
         string Distance { get; set; }
-        
-        //decimal BudgetEstime { get; set; }
-        //string Longitude { get; set; }
-        //string Latitude { get; set; }
-        //string Region { get; set; }
-        //string Pays { get; set; }
-        //string Ville { get; set; }
-        //bool EstExpeditionPrive { get; set; }
-        //IList<Pays> ListePays { set; }
     }
 }

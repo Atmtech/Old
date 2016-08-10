@@ -5,8 +5,9 @@ using ATMTECH.Views.Interface;
 
 namespace ATMTECH.Expeditn.Views.Interface
 {
-    public interface IAjouterExpeditionEtape2Presenter : IViewBase
+    public interface IGererParticipantPresenter : IViewBase
     {
+        Expedition Expedition { set; }
         string IdExpedition { get;}
         string Recherche { get; set; }
         IList<User> ListeUtilisateurPourAjouter {set; }

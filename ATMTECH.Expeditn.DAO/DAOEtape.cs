@@ -10,6 +10,7 @@ namespace ATMTECH.Expeditn.DAO
     {
         public IDAOEtapeParticipant DAOEtapeParticipant { get; set; }
         public IDAOVehicule DAOVehicule { get; set; }
+
         public IList<Etape> ObtenirEtape(Expedition expedition)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -26,10 +27,6 @@ namespace ATMTECH.Expeditn.DAO
             return rtn.Count > 0 ? rtn : null;
         }
 
-        public Etape ObtenirEtape(int id)
-        {
-            return GetById(id);
-        }
 
         public int Enregistrer(Etape etape)
         {

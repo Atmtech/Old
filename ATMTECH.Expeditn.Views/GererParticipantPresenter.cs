@@ -14,16 +14,13 @@ using ATMTECH.Web.Services.Interface;
 
 namespace ATMTECH.Expeditn.Views
 {
-    public class AjouterExpeditionEtape2Presenter : BaseExpeditnPresenter<IAjouterExpeditionEtape2Presenter>
+    public class GererParticipantPresenter : BaseExpeditnPresenter<IGererParticipantPresenter>
     {
         public IExpeditionService ExpeditionService { get; set; }
 
         public IDAOParticipant DAOParticipant { get; set; }
         public IDAOUser DAOUser { get; set; }
-
-        public IAuthenticationService AuthenticationService { get; set; }
-
-        public AjouterExpeditionEtape2Presenter(IAjouterExpeditionEtape2Presenter view)
+        public GererParticipantPresenter(IGererParticipantPresenter view)
             : base(view)
         {
         }
@@ -33,6 +30,7 @@ namespace ATMTECH.Expeditn.Views
         {
             base.OnViewLoaded();
             Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            View.Expedition = expedition;
             AfficherListeParticipant(expedition);
 
         }
@@ -88,11 +86,11 @@ namespace ATMTECH.Expeditn.Views
             }
         }
 
-        public void RedirigerEtape3()
+        public void RedirigerPageGererEtape()
         {
             IList<QueryString> queryStrings = new List<QueryString>();
             queryStrings.Add(new QueryString { Name = BaseEntity.ID, Value = View.IdExpedition });
-            NavigationService.Redirect("AjouterExpeditionEtape3.aspx", queryStrings);
+            NavigationService.Redirect(Pages.GERER_ETAPE, queryStrings);
         }
     }
 }

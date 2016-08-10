@@ -40,15 +40,6 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.Panel pnlDeconnecte;
         
         /// <summary>
-        /// Contrôle lnkAccueilMenu.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkAccueilMenu;
-        
-        /// <summary>
         /// Contrôle lnkRechercherMenu.
         /// </summary>
         /// <remarks>
@@ -110,15 +101,6 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNomPrenomUtilisateur;
-        
-        /// <summary>
-        /// Contrôle lnkAccueilMenuConnecte.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkAccueilMenuConnecte;
         
         /// <summary>
         /// Contrôle lnkRechercherMenuConnecte.

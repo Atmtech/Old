@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AjouterExpeditionEtape1.aspx.cs" Inherits="ATMTECH.Expeditn.WebSite.AjouterExpeditionEtape1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="GererExpedition.aspx.cs" Inherits="ATMTECH.Expeditn.WebSite.GererExpedition" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -33,7 +33,7 @@
                     </td>
                 </tr>
             </table>
-            <asp:LinkButton runat="server" ID="lnkPasserEtape2CreationExpedition" Text="Ajouter des participants" CssClass="button icon fa-save" OnClick="lnkPasserEtape2CreationExpeditionClick"></asp:LinkButton>
+            <asp:LinkButton runat="server" ID="lnkPasserEtape2CreationExpedition" Text="Enregistrer cette expédition" CssClass="button icon fa-save" OnClick="lnkPasserEtape2CreationExpeditionClick"></asp:LinkButton>
         </div>
     </section>
 </asp:Content>

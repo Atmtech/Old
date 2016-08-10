@@ -13,7 +13,7 @@ namespace ATMTECH.Expeditn.WebSite
             set
             {
                 lblNom.Text = value.Nom;
-                lblChefListe.Text = value.ChefDeGroupe.Utilisateur.FirstNameLastName;
+                lblChefListe.Text = value.Administrateur.Utilisateur.FirstNameLastName;
                 lblDateDebutListe.Text = value.Debut.ToString();
                 lblDateFinListe.Text = value.Fin.ToString();
             }

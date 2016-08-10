@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.DAO.Interface;
@@ -10,6 +11,9 @@ namespace ATMTECH.Expeditn.DAO
     public class DAOEtapeParticipant : BaseDao<EtapeParticipant, int>, IDAOEtapeParticipant
     {
         public IDAOUser DAOUser { get; set; }
+        public IDAOParticipant DAOParticipant { get; set; }
+        
+
         public IList<EtapeParticipant> ObtenirEtapeParticipant(Etape etape)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -21,16 +25,14 @@ namespace ATMTECH.Expeditn.DAO
             {
                 if (etapeParticipant.Participant != null)
                 {
-                    etapeParticipant.Participant.Utilisateur = DAOUser.GetUser(etapeParticipant.Participant.Utilisateur.Id);
+                    etapeParticipant.Participant = DAOParticipant.ObtenirParticipant(etape.Expedition).FirstOrDefault(x => x.Id == etapeParticipant.Participant.Id);
                 }
+                etapeParticipant.Etape = etape;
+                
             }
             return rtn.Count > 0 ? rtn : null;
         }
 
-        public EtapeParticipant ObtenirEtapeParticipant(int id)
-        {
-            return GetById(id);
-        }
 
         public int Enregistrer(EtapeParticipant etapeParticipant)
         {

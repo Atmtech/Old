@@ -21,7 +21,7 @@ namespace ATMTECH.Expeditn.Views
             User user = AuthenticationService.SignIn(View.NomUtilisateurIdentification, View.MotPasseIdentification);
             if (user != null)
             {
-                NavigationService.Redirect(Pages.ACTION);
+                NavigationService.Redirect(Pages.TABLEAU_BORD);
             }
         }
        

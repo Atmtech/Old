@@ -5,8 +5,9 @@ using ATMTECH.Views.Interface;
 
 namespace ATMTECH.Expeditn.Views.Interface
 {
-    public interface IAjouterExpeditionEtape1Presenter : IViewBase
+    public interface IGererExpeditionPresenter : IViewBase
     {
+        string IdExpedition { get; }
         string Nom { get; set; }
         DateTime Debut { get; set; }
         DateTime Fin { get; set; }

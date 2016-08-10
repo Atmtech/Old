@@ -5,10 +5,11 @@ using ATMTECH.Expeditn.Entities;
 using ATMTECH.Expeditn.Views;
 using ATMTECH.Expeditn.Views.Interface;
 using ATMTECH.Web;
+using ATMTECH.Web.Services.GoogleMap;
 
 namespace ATMTECH.Expeditn.WebSite
 {
-    public partial class AjouterExpeditionEtape1 : PageBase<AjouterExpeditionEtape1Presenter, IAjouterExpeditionEtape1Presenter>, IAjouterExpeditionEtape1Presenter
+    public partial class GererExpedition : PageBase<GererExpeditionPresenter, IGererExpeditionPresenter>, IGererExpeditionPresenter
     {
 
 
@@ -30,7 +31,24 @@ namespace ATMTECH.Expeditn.WebSite
         public string Region { get { return txtRegionExpedition.Text; } set { txtRegionExpedition.Text = value; } }
         public string Pays { get { return ddlPays.SelectedValue; } set { ddlPays.SelectedValue = value; } }
         public string Ville { get { return txtVilleExpedition.Text; } set { txtVilleExpedition.Text = value; } }
-        public bool EstExpeditionPrive { get { return ddlEstPrive.SelectedValue == "1"; } set { ddlEstPrive.SelectedValue = value.ToString(); } }
+
+        public bool EstExpeditionPrive
+        {
+            get
+            {
+                return ddlEstPrive.SelectedValue == "1";
+            }
+            set
+            {
+                if (value)
+                    ddlEstPrive.SelectedValue = "1";
+                else
+                {
+                    ddlEstPrive.SelectedValue = "0";
+                }
+            }
+        }
+
         public IList<Pays> ListePays
         {
             set
@@ -41,13 +59,9 @@ namespace ATMTECH.Expeditn.WebSite
 
         protected void lnkPasserEtape2CreationExpeditionClick(object sender, EventArgs e)
         {
-            int idExpedition = Presenter.EnregistrerNouvelleExpedition();
-            Presenter.RedirigerEtape2(idExpedition);
+            int idExpedition = Presenter.EnregistrerExpedition();
+            Presenter.RedirigerPageGererParticipant(idExpedition);
         }
 
-        protected void lnkTerminerCreation2Expedition(object sender, EventArgs e)
-        {
-            Presenter.EnregistrerNouvelleExpedition();
-        }
     }
 }

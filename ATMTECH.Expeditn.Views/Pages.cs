@@ -3,9 +3,15 @@
     public class Pages
     {
         public const string IDENTIFICATION = "Identification.aspx";
+        public const string INSCRIPTION = "Inscription.aspx";
         public const string DEFAULT = "Default.aspx";
         public const string MOT_PASSE_OUBLIE = "MotPasseOublie.aspx";
-        public const string ACTION = "Action.aspx";
+        public const string TABLEAU_BORD = "TableauBord.aspx";
+        public const string GERER_EXPEDITION = "GererExpedition.aspx";
+        public const string GERER_PARTICIPANT = "GererParticipant.aspx";
+        public const string GERER_ETAPE = "GererEtape.aspx";
+        public const string GERER_NOURRITURE = "GererNourriture.aspx";
+        public const string VOIR_EXPEDITION = "VoirExpedition.aspx";
     }
 
     public class PagesId

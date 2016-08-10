@@ -30,13 +30,6 @@ namespace ATMTECH.Expeditn.DAO
             return null;
         }
 
-        public Participant ObtenirParticipant(int id)
-        {
-            Participant participant = GetById(id);
-            participant.Utilisateur = DAOUser.GetUser(participant.Utilisateur.Id);
-            return participant;
-        }
-
         public IList<Participant> ObtenirParticipant()
         {
             return GetAllActive();

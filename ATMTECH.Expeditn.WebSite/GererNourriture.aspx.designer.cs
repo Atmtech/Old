@@ -10,78 +10,105 @@
 namespace ATMTECH.Expeditn.WebSite {
     
     
-    public partial class AjouterExpeditionEtape2 {
+    public partial class GererNourriture {
         
         /// <summary>
-        /// Contrôle lblEtape2CreationNouvelleExpedition.
+        /// Contrôle lblEtape4CreationNouvelleEtape.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEtape2CreationNouvelleExpedition;
+        protected global::System.Web.UI.WebControls.Label lblEtape4CreationNouvelleEtape;
         
         /// <summary>
-        /// Contrôle txtRechercheUtilisateur.
+        /// Contrôle lblNomExpedition.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRechercheUtilisateur;
+        protected global::System.Web.UI.WebControls.Label lblNomExpedition;
         
         /// <summary>
-        /// Contrôle lnkRechercherUtilisateur.
+        /// Contrôle txtNomMenu.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkRechercherUtilisateur;
+        protected global::System.Web.UI.WebControls.TextBox txtNomMenu;
         
         /// <summary>
-        /// Contrôle listeUtilisateur.
+        /// Contrôle txtDateMenu.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList listeUtilisateur;
+        protected global::System.Web.UI.WebControls.TextBox txtDateMenu;
         
         /// <summary>
-        /// Contrôle lblAucuneRechercheUtilisateurEffectue.
+        /// Contrôle lblMenuDetaille.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAucuneRechercheUtilisateurEffectue;
+        protected global::System.Web.UI.WebControls.Label lblMenuDetaille;
         
         /// <summary>
-        /// Contrôle lblListeDesParticipant.
+        /// Contrôle txtMenu.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblListeDesParticipant;
+        protected global::ATMTECH.WebControls.Editor txtMenu;
         
         /// <summary>
-        /// Contrôle listeParticipant.
+        /// Contrôle lblCuisinier.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList listeParticipant;
+        protected global::System.Web.UI.WebControls.Label lblCuisinier;
         
         /// <summary>
-        /// Contrôle lnkPasserEtape3CreationExpedition.
+        /// Contrôle ddlParticipant.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPasserEtape3CreationExpedition;
+        protected global::System.Web.UI.WebControls.DropDownList ddlParticipant;
+        
+        /// <summary>
+        /// Contrôle lnkAjouterMenu.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkAjouterMenu;
+        
+        /// <summary>
+        /// Contrôle lblListeMenu.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblListeMenu;
+        
+        /// <summary>
+        /// Contrôle listeNourriture.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList listeNourriture;
     }
 }

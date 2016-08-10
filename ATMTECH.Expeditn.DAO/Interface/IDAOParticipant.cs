@@ -8,6 +8,5 @@ namespace ATMTECH.Expeditn.DAO.Interface
         IList<Participant> ObtenirParticipant(Expedition expedition);
         IList<Participant> ObtenirParticipant();
         int Enregistrer(Participant participant);
-        Participant ObtenirParticipant(int id);
     }
 }

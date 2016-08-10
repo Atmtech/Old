@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="AjouterExpeditionEtape2.aspx.cs" Inherits="ATMTECH.Expeditn.WebSite.AjouterExpeditionEtape2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="GererParticipant.aspx.cs" Inherits="ATMTECH.Expeditn.WebSite.GererParticipant" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -19,10 +19,25 @@
             cursor: Pointer;
         }
 
-        .boutonEnlever {
-            background-color: rgb(180, 99, 99);
+         .boutonEnlever {
+            background-color: rgb(255, 0, 0);
             color: white;
-            font-size: 14px;
+            font-size: 12px;
+            border-radius: 20px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 10px;
+            padding-right: 10px;
+            text-decoration: none;
+            display: inline-block;
+            white-space: nowrap;
+            cursor: Pointer;
+        }
+
+        .boutonModifier {
+            background-color: rgb(0, 160, 196);
+            color: white;
+            font-size: 12px;
             border-radius: 20px;
             padding-top: 2px;
             padding-bottom: 2px;
@@ -38,7 +53,9 @@
         <div class="container">
 
             <h2>
-                <asp:Label ID="lblEtape2CreationNouvelleExpedition" runat="server" Text="Ajouter des participants sur la nouvelle expédition"></asp:Label>
+                <asp:Label ID="lblEtape2CreationNouvelleExpedition" runat="server" Text="Ajouter des participants"></asp:Label>
+                ::
+                <asp:Label ID="lblNomExpedition" runat="server" Text=""></asp:Label>
             </h2>
             <table>
                 <tr>
@@ -66,7 +83,7 @@
                                         <asp:Label runat="server" ID="lblInscriptDepuis" Text="Inscrit depuis: "></asp:Label>
                                         <asp:Label runat="server" ID="Label1" Text='<%# Eval("DateCreated")  %>'></asp:Label>
                                     </div>
-                                    <asp:LinkButton runat="server" ID="lnkAjouterUtilisateur" Text="Ajouter" CssClass="boutonAjout" CommandArgument='<%# Eval("Id")  %>' CommandName="ajouter"></asp:LinkButton>
+                                    <asp:LinkButton runat="server" ID="lnkAjouterUtilisateur" Text="Ajouter ce participant" CssClass="boutonAjout" CommandArgument='<%# Eval("Id")  %>' CommandName="ajouter"></asp:LinkButton>
                                 </div>
                             </ItemTemplate>
                         </asp:DataList>
@@ -95,6 +112,7 @@
                             <asp:Label runat="server" ID="lblEstAdministrateur" Font-Bold="True" Text='<%# Eval("EstAdministrateur").ToString() == "False" ? "Non" : "Oui" %>'></asp:Label>
                         </div>
                         <asp:LinkButton runat="server" ID="lnkRetirerUtilisateur" Text="Retirer" CssClass="boutonEnlever" CommandArgument='<%# Eval("Utilisateur.Id")  %>' CommandName="retirer"></asp:LinkButton>
+                        <asp:LinkButton runat="server" ID="lnkModifierUtilisateur" Text="Modifier" CssClass="boutonModifier" CommandArgument='<%# Eval("Id")  %>' CommandName="modifier"></asp:LinkButton>
                     </div>
                 </ItemTemplate>
             </asp:DataList>

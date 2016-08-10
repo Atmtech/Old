@@ -27,7 +27,7 @@ namespace ATMTECH.Expeditn.Views
             Expedition expedition = ExpeditionService.ObtenirExpedition(View.IdExpedition);
             View.Expedition = expedition;
             View.EstAdministrateur = AuthenticationService.AuthenticateUser != null &&
-                                     expedition.ChefDeGroupe.Utilisateur.Id == AuthenticationService.AuthenticateUser.Id;
+                                     expedition.Administrateur.Utilisateur.Id == AuthenticationService.AuthenticateUser.Id;
         }
     }
 }

@@ -65,10 +65,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Action.aspx" />
-    <Content Include="AjouterExpeditionEtape3.aspx" />
-    <Content Include="AjouterExpeditionEtape2.aspx" />
-    <Content Include="AjouterExpeditionEtape1.aspx" />
+    <Content Include="GererNourriture.aspx" />
+    <Content Include="GererEtape.aspx" />
+    <Content Include="GererParticipant.aspx" />
+    <Content Include="GererExpedition.aspx" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\CHANGES.html" />
     <Content Include="ckeditor\ckeditor.js" />
@@ -368,6 +368,7 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
     <Content Include="Pourquoi.aspx" />
     <Content Include="Site.css" />
+    <Content Include="TableauBord.aspx" />
     <Content Include="Template\css\font-awesome.min.css" />
     <Content Include="Template\css\skel.css" />
     <Content Include="Template\css\style-large.css" />
@@ -405,33 +406,33 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Action.aspx.cs">
-      <DependentUpon>Action.aspx</DependentUpon>
+    <Compile Include="GererNourriture.aspx.cs">
+      <DependentUpon>GererNourriture.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Action.aspx.designer.cs">
-      <DependentUpon>Action.aspx</DependentUpon>
+    <Compile Include="GererNourriture.aspx.designer.cs">
+      <DependentUpon>GererNourriture.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AjouterExpeditionEtape3.aspx.cs">
-      <DependentUpon>AjouterExpeditionEtape3.aspx</DependentUpon>
+    <Compile Include="GererEtape.aspx.cs">
+      <DependentUpon>GererEtape.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AjouterExpeditionEtape3.aspx.designer.cs">
-      <DependentUpon>AjouterExpeditionEtape3.aspx</DependentUpon>
+    <Compile Include="GererEtape.aspx.designer.cs">
+      <DependentUpon>GererEtape.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AjouterExpeditionEtape2.aspx.cs">
-      <DependentUpon>AjouterExpeditionEtape2.aspx</DependentUpon>
+    <Compile Include="GererParticipant.aspx.cs">
+      <DependentUpon>GererParticipant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AjouterExpeditionEtape2.aspx.designer.cs">
-      <DependentUpon>AjouterExpeditionEtape2.aspx</DependentUpon>
+    <Compile Include="GererParticipant.aspx.designer.cs">
+      <DependentUpon>GererParticipant.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AjouterExpeditionEtape1.aspx.cs">
-      <DependentUpon>AjouterExpeditionEtape1.aspx</DependentUpon>
+    <Compile Include="GererExpedition.aspx.cs">
+      <DependentUpon>GererExpedition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AjouterExpeditionEtape1.aspx.designer.cs">
-      <DependentUpon>AjouterExpeditionEtape1.aspx</DependentUpon>
+    <Compile Include="GererExpedition.aspx.designer.cs">
+      <DependentUpon>GererExpedition.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -478,6 +479,13 @@
       <DependentUpon>Pourquoi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TableauBord.aspx.cs">
+      <DependentUpon>TableauBord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TableauBord.aspx.designer.cs">
+      <DependentUpon>TableauBord.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
