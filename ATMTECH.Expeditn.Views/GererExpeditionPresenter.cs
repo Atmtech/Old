@@ -100,11 +100,5 @@ namespace ATMTECH.Expeditn.Views
 
             return idExpedition;
         }
-        public void RedirigerPageGererParticipant(int idExpedition)
-        {
-            IList<QueryString> queryStrings = new List<QueryString>();
-            queryStrings.Add(new QueryString { Name = BaseEntity.ID, Value = idExpedition.ToString() });
-            NavigationService.Redirect(Pages.GERER_PARTICIPANT, queryStrings);
-        }
     }
 }

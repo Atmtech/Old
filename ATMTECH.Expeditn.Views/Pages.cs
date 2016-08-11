@@ -11,6 +11,7 @@
         public const string GERER_PARTICIPANT = "GererParticipant.aspx";
         public const string GERER_ETAPE = "GererEtape.aspx";
         public const string GERER_NOURRITURE = "GererNourriture.aspx";
+        public const string GERER_BUDGET = "GererBudget.aspx";
         public const string VOIR_EXPEDITION = "VoirExpedition.aspx";
     }
 

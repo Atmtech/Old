@@ -49,6 +49,12 @@ namespace ATMTECH.Expeditn.WebSite
                 Presenter.ModifierMenu(idExpedition);
             }
 
+            if (e.CommandName == "modifierRepartitionBudget")
+            {
+                Presenter.ModifierRepartitionBudget(idExpedition);
+            }
+
+            
         }
     }
 }

@@ -33,7 +33,7 @@
                     </td>
                 </tr>
             </table>
-            <asp:LinkButton runat="server" ID="lnkPasserEtape2CreationExpedition" Text="Enregistrer cette expédition" CssClass="button icon fa-save" OnClick="lnkPasserEtape2CreationExpeditionClick"></asp:LinkButton>
+            <asp:LinkButton runat="server" ID="lnkEnregistrerExpedition" Text="Enregistrer cette expédition" CssClass="button icon fa-save" OnClick="lnkEnregistrerExpeditionClick"></asp:LinkButton>
         </div>
     </section>
 </asp:Content>

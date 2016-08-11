@@ -110,14 +110,8 @@ namespace ATMTECH.Expeditn.WebSite
 
             if (e.CommandName == "ajouter")
             {
-                Presenter.AjouterEtapeParticipant(idParticipant, idEtape, "0");
+                Presenter.AjouterEtapeParticipant(idParticipant, idEtape);
             }
-        }
-
-
-        protected void txtMontantChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
     }
 }

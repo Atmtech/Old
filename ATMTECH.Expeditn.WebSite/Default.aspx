@@ -13,7 +13,7 @@
         </p>
         <ul class="actions">
             <li>
-                <asp:HyperLink runat="server" ID="lnkPlanifierExpedition" Text="Planifier une expédition"
+                <asp:HyperLink runat="server" ID="lnkPlanifierExpedition" Text="M'inscrire pour planifier une expédition"
                     NavigateUrl="Inscription.aspx" CssClass="button big"></asp:HyperLink>
             </li>
         </ul>

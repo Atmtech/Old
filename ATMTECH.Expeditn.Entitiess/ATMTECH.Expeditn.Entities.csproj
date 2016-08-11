@@ -40,8 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BudgetParticipant.cs" />
+    <Compile Include="DTO\AffichageMontantDu.cs" />
     <Compile Include="DTO\AffichageParticipantNourriture.cs" />
     <Compile Include="DTO\AffichageParticipantEtape.cs" />
+    <Compile Include="DTO\AffichageSommeInvesti.cs" />
+    <Compile Include="DTO\AffichageRepartitionMontant.cs" />
     <Compile Include="Pays.cs" />
     <Compile Include="Categorie.cs" />
     <Compile Include="EtapeParticipant.cs" />

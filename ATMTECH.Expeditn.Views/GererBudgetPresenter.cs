@@ -1,24 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using ATMTECH.Entities;
-using ATMTECH.Expeditn.DAO.Interface;
 using ATMTECH.Expeditn.Entities;
 using ATMTECH.Expeditn.Services.Interface;
 using ATMTECH.Expeditn.Views.Base;
 using ATMTECH.Expeditn.Views.Interface;
-using ATMTECH.Web;
 
 namespace ATMTECH.Expeditn.Views
 {
     public class GererBudgetPresenter : BaseExpeditnPresenter<IGererBudgetPresenter>
     {
         public IExpeditionService ExpeditionService { get; set; }
-
-        //public IDAOEtape DAOEtape { get; set; }
-        public IDAOEtapeParticipant DAOEtapeParticipant { get; set; }
-        //public IDAOVehicule DAOVehicule { get; set; }
-        //public IDAOParticipant DAOParticipant { get; set; }
 
         public GererBudgetPresenter(IGererBudgetPresenter view)
             : base(view)
@@ -29,24 +19,40 @@ namespace ATMTECH.Expeditn.Views
         {
             base.OnViewInitialized();
             Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
-            //View.Expedition = expedition;
-            //View.ListeVehicule = DAOVehicule.ObtenirVehicule();
-            
-            AfficherBudget(expedition);
+            View.Expedition = expedition;
+            View.ListeAffichageSommeInvestis = ExpeditionService.ObtenirSommeInvesti(expedition);
+            View.ListeParticipant = expedition.Participant;
+            View.ListeRepartitionMontants = ExpeditionService.ObtenirRepartitionMontant(expedition);
+            View.ListeMontantDu = ExpeditionService.ObtenirMontantDu(expedition);
         }
 
-        private void AfficherBudget(Expedition expedition)
+
+        public void RepartirNourriture(string idParticipant, decimal montant)
         {
-            foreach (Etape etape in expedition.Etape)
-            {
-                IList<EtapeParticipant> obtenirEtapeParticipant = DAOEtapeParticipant.ObtenirEtapeParticipant(etape);
-            }
-
-            //View.ListeEtapeParticipant = expedition.Etape.
-            //View.ListeEtape = DAOEtape.ObtenirEtape(expedition);
-            //View.ListeEtape = DAOEtape.ObtenirEtape(expedition);
+            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            ExpeditionService.RepartirNourriture(expedition, idParticipant, montant);
+            NavigationService.Refresh();
         }
 
-   
+        public void RepartirAutomobile(string idParticipant, decimal montant)
+        {
+            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            ExpeditionService.RepartirAutomobile(expedition, idParticipant, montant);
+            NavigationService.Refresh();
+        }
+
+        public void RepartirBateau(string idParticipant, decimal montant)
+        {
+            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            ExpeditionService.RepartirBateau(expedition, idParticipant, montant);
+            NavigationService.Refresh();
+        }
+
+        public void RepartirAutre(string idParticipant, decimal montant)
+        {
+            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            ExpeditionService.RepartirAutre(expedition, idParticipant, montant);
+            NavigationService.Refresh();
+        }
     }
 }

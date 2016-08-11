@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.Entities;
 using ATMTECH.Expeditn.Entities;
+using ATMTECH.Expeditn.Entities.DTO;
 
 namespace ATMTECH.Expeditn.Services.Interface
 {
@@ -11,5 +12,12 @@ namespace ATMTECH.Expeditn.Services.Interface
         IList<Expedition> ObtenirMesExpedition(int idUtilisateur);
         IList<Expedition> ObtenirExpeditionTop(int nombreExpeditionPrise);
         int Enregistrer(Expedition expedition);
+        IList<AffichageSommeInvesti> ObtenirSommeInvesti(Expedition expedition);
+        void RepartirNourriture(Expedition expedition, string idParticipant, decimal montant);
+        void RepartirAutomobile(Expedition expedition, string idParticipant, decimal montant);
+        void RepartirBateau(Expedition expedition, string idParticipant, decimal montant);
+        void RepartirAutre(Expedition expedition, string idParticipant, decimal montant);
+        IList<AffichageRepartitionMontant> ObtenirRepartitionMontant(Expedition expedition);
+        IList<AffichageMontantDu> ObtenirMontantDu(Expedition expedition);
     }
 }

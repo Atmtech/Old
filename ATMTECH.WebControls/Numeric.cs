@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Drawing;
+using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -8,6 +9,14 @@ namespace ATMTECH.WebControls
 {
     public class Numeric : CompositeControl
     {
+        public decimal ValeurDecimal
+        {
+            get
+            {
+                return Convert.ToDecimal(_textBox.Text.Replace(".", ","));
+            }
+        }
+
         public string Text { get { return _textBox.Text; } set { _textBox.Text = value; } }
         public string ValidationGroup { get { return _textBox.ValidationGroup; } set { _textBox.ValidationGroup = value; } }
         public new Unit Width { get { return _textBox.Width; } set { _textBox.Width = value; } }
@@ -21,6 +30,8 @@ namespace ATMTECH.WebControls
         {
             _textBox = new TextBox();
         }
+
+
 
         protected override void CreateChildControls()
         {

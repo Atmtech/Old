@@ -86,7 +86,7 @@ namespace ATMTECH.Expeditn.Views
             AfficherEtape(expedition);
         }
 
-        public void AjouterEtapeParticipant(int idParticipant, int idEtape, string montant)
+        public void AjouterEtapeParticipant(int idParticipant, int idEtape)
         {
             Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
             Participant participant = DAOParticipant.ObtenirParticipant(expedition).FirstOrDefault(x => x.Id == idParticipant);
@@ -95,7 +95,8 @@ namespace ATMTECH.Expeditn.Views
             {
                 Participant = participant,
                 Etape = etape,
-                Montant = Convert.ToDecimal(montant)
+                MontantVehicule = 0,
+                MontantAutre = 0
             };
             DAOEtapeParticipant.Enregistrer(etapeParticipant);
             AfficherEtape(expedition);

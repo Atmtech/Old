@@ -59,5 +59,12 @@ namespace ATMTECH.Expeditn.Views
             queryStrings.Add(new QueryString { Name = BaseEntity.ID, Value = idExpedition.ToString() });
             NavigationService.Redirect(Pages.GERER_EXPEDITION, queryStrings);
         }
+
+        public void ModifierRepartitionBudget(int idExpedition)
+        {
+            IList<QueryString> queryStrings = new List<QueryString>();
+            queryStrings.Add(new QueryString { Name = BaseEntity.ID, Value = idExpedition.ToString() });
+            NavigationService.Redirect(Pages.GERER_BUDGET, queryStrings);
+        }
     }
 }

@@ -57,10 +57,9 @@ namespace ATMTECH.Expeditn.WebSite
             }
         }
 
-        protected void lnkPasserEtape2CreationExpeditionClick(object sender, EventArgs e)
+        protected void lnkEnregistrerExpeditionClick(object sender, EventArgs e)
         {
-            int idExpedition = Presenter.EnregistrerExpedition();
-            Presenter.RedirigerPageGererParticipant(idExpedition);
+            Presenter.EnregistrerExpedition();
         }
 
     }
