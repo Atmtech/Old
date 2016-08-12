@@ -76,16 +76,16 @@
                                 <asp:DataList ID="listeUtilisateur" runat="server" OnItemCommand="listeUtilisateurItemCommand" RepeatDirection="Horizontal">
                                     <ItemTemplate>
                                         <div style="float: Left;">
-                                            <img src="Images/profile_placeholder.gif" alt="" style="border-radius: 50%;" />
+                                            <asp:Image runat="server" ID="imgParticipant1" ImageUrl='<%# Eval("Image")  %>' Style="border-radius: 50%;width: 100px; height: 100px;" />
                                         </div>
                                         <div style="padding-left: 10px; float: Left;">
                                             <b>
-                                                <asp:Label runat="server" ID="lblNomUtilisateur" Text='<%# Eval("FirstNameLastName")  %>'></asp:Label></b>
+                                                <asp:Label runat="server" ID="lblNomUtilisateur" Text='<%# Eval("Utilisateur.FirstNameLastName")  %>'></asp:Label></b>
                                             <div style="font-size: 13px;">
                                                 <asp:Label runat="server" ID="lblInscriptDepuis" Text="Inscrit depuis: "></asp:Label>
-                                                <asp:Label runat="server" ID="Label1" Text='<%# Eval("DateCreated")  %>'></asp:Label>
+                                                <asp:Label runat="server" ID="Label1" Text='<%# Eval("Utilisateur.DateCreated")  %>'></asp:Label>
                                             </div>
-                                            <asp:LinkButton runat="server" ID="lnkAjouterUtilisateur" Text="Ajouter ce participant" CssClass="boutonAjout" CommandArgument='<%# Eval("Id")  %>' CommandName="ajouter"></asp:LinkButton>
+                                            <asp:LinkButton runat="server" ID="lnkAjouterUtilisateur" Text="Ajouter ce participant" CssClass="boutonAjout" CommandArgument='<%# Eval("Utilisateur.Id")  %>' CommandName="ajouter"></asp:LinkButton>
                                         </div>
                                     </ItemTemplate>
                                 </asp:DataList>
@@ -103,7 +103,7 @@
                         <ItemTemplate>
 
                             <div style="float: Left;">
-                                <img src="Images/profile_placeholder.gif" alt="" style="border-radius: 50%;" />
+                                  <asp:Image runat="server" ID="imgParticipant1" ImageUrl='<%#  Eval("Image") %>' Style="border-radius: 50%;width: 100px; height: 100px;" />
                             </div>
                             <div style="padding-left: 10px; float: Left;">
 

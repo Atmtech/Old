@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.Entities;
 using ATMTECH.Expeditn.Entities;
+using ATMTECH.Expeditn.Entities.DTO;
 using ATMTECH.Views.Interface;
 
 namespace ATMTECH.Expeditn.Views.Interface
@@ -10,7 +11,7 @@ namespace ATMTECH.Expeditn.Views.Interface
         Expedition Expedition { set; }
         string IdExpedition { get;}
         string Recherche { get; set; }
-        IList<User> ListeUtilisateurPourAjouter {set; }
+        IList<AffichageUtilisateurRecherche> ListeUtilisateurPourAjouter {set; }
         IList<Participant> ListeParticipant { set; }
         
         //string Nom { get; set; }

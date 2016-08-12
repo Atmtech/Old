@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using ATMTECH.Entities;
 using ATMTECH.Expeditn.DAO.Interface;
 using ATMTECH.Expeditn.Entities;
@@ -37,7 +38,18 @@ namespace ATMTECH.Expeditn.Services
         public IList<Expedition> ObtenirMesExpedition(int idUtilisateur)
         {
             IList<Participant> Participant = DAOParticipant.ObtenirParticipant().Where(x => x.Utilisateur.Id == idUtilisateur).ToList();
-            return Participant.Select(participant => DAOExpedition.ObtenirExpedition(participant.Expedition.Id)).ToList();
+            IList<Expedition> expeditions = new List<Expedition>();
+            foreach (Participant participant in Participant)
+            {
+                if (participant.Utilisateur.Id == idUtilisateur)
+                {
+                    Expedition expedition = DAOExpedition.ObtenirExpedition(participant.Expedition.Id);
+                    if (expedition.IsActive)
+                        expeditions.Add(expedition);
+                }
+            }
+
+            return expeditions;
         }
         public IList<AffichageSommeInvesti> ObtenirSommeInvesti(Expedition expedition)
         {
@@ -141,26 +153,6 @@ namespace ATMTECH.Expeditn.Services
 
         public IList<AffichageMontantDu> ObtenirMontantDu(Expedition expedition)
         {
-            //IList<AffichageRepartitionMontant> obtenirRepartition = ObtenirRepartitionMontant(expedition);
-            //IList<Participant> obtenirParticipantExpedition = expedition.Participant;
-            //IList<AffichageMontantDu> montantDus = new List<AffichageMontantDu>();
-            //Participant participantAyantLePlusDepense = obtenirParticipantExpedition.FirstOrDefault(x => x.Total == obtenirParticipantExpedition.Max(z => z.Total)).Participant;
-            //foreach (Repartition repartition in obtenirRepartition)
-            //{
-            //    MontantDu montantDu = new MontantDu
-            //    {
-            //        ParticipantPaye = participantAyantLePlusDepense,
-            //        ParticipantPayeur = obtenirParticipantExpedition.FirstOrDefault(x => x.Participant.Nom == repartition.Nom).Participant,
-            //        Montant = repartition.GrandTotal - obtenirParticipantExpedition.FirstOrDefault(x => x.Participant.Nom == repartition.Nom).Total
-            //    };
-
-            //    if (montantDu.ParticipantPaye.Nom != montantDu.ParticipantPayeur.Nom)
-            //    {
-            //        montantDus.Add(montantDu);
-            //    }
-            //}
-            //return montantDus.OrderByDescending(x => x.Montant).ToList();
-
             IList<AffichageMontantDu> affichageMontantDus = new List<AffichageMontantDu>();
             IList<AffichageSommeInvesti> affichageSommeInvestis = ObtenirSommeInvesti(expedition).OrderByDescending(x => x.MontantTotal).ToList();
             IList<AffichageRepartitionMontant> affichageRepartitionMontants = ObtenirRepartitionMontant(expedition);

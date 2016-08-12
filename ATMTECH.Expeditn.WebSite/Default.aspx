@@ -83,7 +83,7 @@
                     <asp:Repeater ID="listeExpedition" runat="server">
                         <ItemTemplate>
                             <section class="4u 6u(medium) 12u$(xsmall) profile">
-                                <img src="http://lostabarnacos.smugmug.com/photos/77283318-M.jpg" alt="" />
+                                <asp:Image runat="server" ID="imgExpedition" ImageUrl='<%# Eval("FichierImage") %>' style="border-radius: 50%; width: 100px; height: 100px;"/>
                                 <h4>
                                     <asp:HyperLink runat="server" ID="lblNomExpedition" Text='<%# Eval("Nom").ToString().Length > 25 ? Eval("Nom").ToString().Substring(0,25) + "[...]" : Eval("Nom").ToString()  %>' NavigateUrl='<%# "VoirExpedition.aspx?Id=" + Eval("Id") %>'></asp:HyperLink>
                                 </h4>

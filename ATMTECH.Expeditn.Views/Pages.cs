@@ -13,6 +13,7 @@
         public const string GERER_NOURRITURE = "GererNourriture.aspx";
         public const string GERER_BUDGET = "GererBudget.aspx";
         public const string VOIR_EXPEDITION = "VoirExpedition.aspx";
+        public const string PROFILE = "Profile.aspx";
     }
 
     public class PagesId

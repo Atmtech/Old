@@ -14,8 +14,12 @@ namespace ATMTECH.Expeditn.WebSite
         {
             set
             {
-                listeMesExpeditions.DataSource = value;
-                listeMesExpeditions.DataBind();
+                if (value.Count > 0)
+                {
+                    listeMesExpeditions.DataSource = value;
+                    listeMesExpeditions.DataBind();
+                }
+
             }
         }
 
@@ -54,7 +58,12 @@ namespace ATMTECH.Expeditn.WebSite
                 Presenter.ModifierRepartitionBudget(idExpedition);
             }
 
-            
+
+        }
+
+        protected void lnkModifierMesInformationsClick(object sender, EventArgs e)
+        {
+            Presenter.RedirigerProfile();
         }
     }
 }

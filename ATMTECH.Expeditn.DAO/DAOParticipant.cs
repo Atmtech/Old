@@ -10,7 +10,8 @@ namespace ATMTECH.Expeditn.DAO
     public class DAOParticipant : BaseDao<Participant, int>, IDAOParticipant
     {
         public IDAOUser DAOUser { get; set; }
-       
+        public IDAOFile DAOFile { get; set; }
+
         public IList<Participant> ObtenirParticipant(Expedition expedition)
         {
             IList<Criteria> criterias = new List<Criteria>();
@@ -23,6 +24,7 @@ namespace ATMTECH.Expeditn.DAO
                 foreach (Participant participant in rtn)
                 {
                     participant.Utilisateur = DAOUser.GetUser(participant.Utilisateur.Id);
+                    participant.Utilisateur.Image = DAOFile.GetFile(participant.Utilisateur.Image.Id);
                 }
 
                 return rtn;

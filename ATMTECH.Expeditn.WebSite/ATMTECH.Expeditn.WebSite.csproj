@@ -304,7 +304,8 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Identification.aspx" />
-    <Content Include="Images\profile_placeholder.gif" />
+    <Content Include="Images\Medias\AucuneImage.gif" />
+    <Content Include="Images\Medias\AucuneImageParticipant.gif" />
     <Content Include="Images\Website\dark_tint.png" />
     <Content Include="Images\Website\profile_placeholder.gif" />
     <Content Include="Images\Medias\trip1.jpg" />
@@ -368,6 +369,7 @@
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.js" />
     <Content Include="Pourquoi.aspx" />
+    <Content Include="Profile.aspx" />
     <Content Include="Site.css" />
     <Content Include="TableauBord.aspx" />
     <Content Include="Template\css\font-awesome.min.css" />
@@ -485,6 +487,13 @@
     </Compile>
     <Compile Include="Pourquoi.aspx.designer.cs">
       <DependentUpon>Pourquoi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableauBord.aspx.cs">

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.DAO;
+using ATMTECH.DAO.Interface;
 using ATMTECH.Expeditn.DAO.Interface;
 using ATMTECH.Expeditn.Entities;
 
@@ -12,16 +13,19 @@ namespace ATMTECH.Expeditn.DAO
         public IDAOMateriel DAOMateriel { get; set; }
         public IDAOMedia DAOMedia { get; set; }
         public IDAOEtape DAOEtape { get; set; }
+        public IDAOFile DAOFile { get; set; }
         public IDAONourriture DAONourriture { get; set; }
         public IDAOGeoLocalisation DAOGeoLocalisation { get; set; }
 
         public Expedition ObtenirExpedition(int id)
         {
             Expedition rtn = GetById(id);
+
             rtn.Participant = DAOParticipant.ObtenirParticipant(rtn);
             rtn.Materiel = DAOMateriel.ObtenirMateriel(rtn);
             rtn.Media = DAOMedia.ObtenirMedia(rtn);
             rtn.GeoLocalisation = DAOGeoLocalisation.ObtenirGeoLocalisation(rtn.GeoLocalisation.Id);
+            rtn.Image = DAOFile.GetFile(rtn.Image.Id);
             IList<Etape> etapes = DAOEtape.ObtenirEtape(rtn);
             if (etapes != null)
             {
@@ -33,9 +37,10 @@ namespace ATMTECH.Expeditn.DAO
             {
                 rtn.Nourriture = nourritures.OrderBy(x => x.OrderId).ToList();
             }
-
             return rtn;
+
         }
+
         public IList<Expedition> ObtenirExpeditionTop(int nombreExpeditionPrise)
         {
             List<Expedition> expeditions = GetAllActive().Where(x => x.EstPrive == false).OrderByDescending(x => x.DateCreated).Take(nombreExpeditionPrise).ToList();
@@ -66,6 +71,7 @@ namespace ATMTECH.Expeditn.DAO
             {
                 expedition.Participant = DAOParticipant.ObtenirParticipant(expedition);
                 expedition.Media = DAOMedia.ObtenirMedia(expedition);
+                expedition.Image = DAOFile.GetFile(expedition.Image.Id);
             }
             return expeditions;
         }

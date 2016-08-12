@@ -55,10 +55,7 @@
 
                 <nav id="nav">
                     <ul>
-                       
-                        <li>
-                            <asp:HyperLink runat="server" ID="lnkRechercherMenu" Text="Rechercher une expédition" NavigateUrl="Default.aspx"></asp:HyperLink>
-                        </li>
+                     
                         <li>
                             <asp:HyperLink runat="server" ID="lnkPourquoiMenu" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
                         <li>
@@ -75,9 +72,6 @@
                     <ul>
                         <li>
                             <asp:Label runat="server" ID="lblBonjour" Text="Bonjour, "></asp:Label><asp:Label runat="server" ID="lblNomPrenomUtilisateur"></asp:Label></li>
-                        <li>
-                            <asp:HyperLink runat="server" ID="lnkRechercherMenuConnecte" Text="Rechercher une expédition" NavigateUrl="Default.aspx"></asp:HyperLink>
-                        </li>
                         <li>
                             <asp:HyperLink runat="server" ID="lnkPourquoiMenuConnecte" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
                         <li>

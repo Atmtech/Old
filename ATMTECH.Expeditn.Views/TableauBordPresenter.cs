@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.Entities;
+using ATMTECH.Expeditn.Entities;
 using ATMTECH.Expeditn.Services.Interface;
 using ATMTECH.Expeditn.Views.Base;
 using ATMTECH.Expeditn.Views.Interface;
@@ -65,6 +66,11 @@ namespace ATMTECH.Expeditn.Views
             IList<QueryString> queryStrings = new List<QueryString>();
             queryStrings.Add(new QueryString { Name = BaseEntity.ID, Value = idExpedition.ToString() });
             NavigationService.Redirect(Pages.GERER_BUDGET, queryStrings);
+        }
+
+        public void RedirigerProfile()
+        {
+            NavigationService.Redirect(Pages.PROFILE);
         }
     }
 }

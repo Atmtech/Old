@@ -6,6 +6,7 @@ using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
 using ATMTECH.Expeditn.DAO.Interface;
 using ATMTECH.Expeditn.Entities;
+using ATMTECH.Expeditn.Entities.DTO;
 using ATMTECH.Expeditn.Services.Interface;
 using ATMTECH.Expeditn.Views.Base;
 using ATMTECH.Expeditn.Views.Interface;
@@ -20,6 +21,7 @@ namespace ATMTECH.Expeditn.Views
 
         public IDAOParticipant DAOParticipant { get; set; }
         public IDAOUser DAOUser { get; set; }
+        public IDAOFile DAOFile { get; set; }
         public GererParticipantPresenter(IGererParticipantPresenter view)
             : base(view)
         {
@@ -45,14 +47,22 @@ namespace ATMTECH.Expeditn.Views
             IList<User> users = DAOUser.SearchUser(View.Recherche);
             Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
 
-            IList<User> rtn = new List<User>();
+            IList<AffichageUtilisateurRecherche> rtn = new List<AffichageUtilisateurRecherche>();
             foreach (User user in users)
             {
                 if (expedition.Participant.Count(x => x.Utilisateur.Id == user.Id) == 0)
                 {
-                    rtn.Add(user);
+                    user.Image = DAOFile.GetFile(user.Image.Id);
+                    AffichageUtilisateurRecherche affichageUtilisateurRecherche = new AffichageUtilisateurRecherche
+                    {
+                        Utilisateur = user
+                    };
+
+                    rtn.Add(affichageUtilisateurRecherche);
                 }
             }
+
+
             View.ListeUtilisateurPourAjouter = rtn;
             return rtn.Count();
         }

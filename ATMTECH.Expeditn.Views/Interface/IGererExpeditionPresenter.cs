@@ -19,5 +19,7 @@ namespace ATMTECH.Expeditn.Views.Interface
         string Ville { get; set; }
         bool EstExpeditionPrive { get; set; }
         IList<Pays> ListePays { set; }
+        string RootPath { get; }
+        string Image { set; }
     }
 }

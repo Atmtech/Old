@@ -55,13 +55,16 @@
             <h2>
                 <asp:Label runat="server" ID="lblMesExpedition" Text="Mes expéditions"></asp:Label></h2>
             <asp:LinkButton runat="server" ID="lnkAjouterUneExpedition" Text="Ajouter une expédition" CssClass="special button icon fa-map-marker" OnClick="lnkAjouterUneExpeditionClick"></asp:LinkButton>
+            <asp:LinkButton runat="server" ID="lnkModifierMesInformations" Text="Modifier mes informations" CssClass="special button icon fa-map-marker" OnClick="lnkModifierMesInformationsClick"></asp:LinkButton>
             <br />
             <br />
 
             <asp:DataList ID="listeMesExpeditions" runat="server" RepeatDirection="Vertical" OnItemCommand="listeMesExpeditionsItemCommand">
                 <ItemTemplate>
                     <div style="float: Left;">
-                        <img src="Images/profile_placeholder.gif" alt="" style="border-radius: 50%;" />
+                         <asp:Image runat="server" ID="imgExpedition" ImageUrl='<%# Eval("FichierImage") %>' style="border-radius: 50%; width: 100px; height: 100px;"/>
+
+                        
                     </div>
                     <div style="padding-left: 10px; float: Left;">
                         <b>

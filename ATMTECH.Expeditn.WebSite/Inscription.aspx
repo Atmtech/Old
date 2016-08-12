@@ -41,7 +41,7 @@
                             </li>
                         </ul>
                         <strong>
-                            <asp:Label runat="server" ID="lblNousVousEnverronsUnCourriel" Text="N.B.: Nous vous enverrons un courriel pour confirmer votre inscription."></asp:Label>
+                            <asp:Label runat="server" ID="lblNousVousEnverronsUnCourriel" Text="N.B.: Nous vous enverrons un Courriel pour confirmer votre inscription."></asp:Label>
                         </strong>
                     </div>
 

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Web;
 using ATMTECH.Entities;
 using ATMTECH.Expeditn.DAO.Interface;
 using ATMTECH.Expeditn.Entities;
 using ATMTECH.Expeditn.Services.Interface;
 using ATMTECH.Expeditn.Views.Base;
 using ATMTECH.Expeditn.Views.Interface;
-using ATMTECH.Web;
-using ATMTECH.Web.Services.Interface;
+using ATMTECH.Services.Interface;
 
 namespace ATMTECH.Expeditn.Views
 {
@@ -17,6 +16,7 @@ namespace ATMTECH.Expeditn.Views
         public IDAOGeoLocalisation DaoGeoLocalisation { get; set; }
         public IDAOPays DAOPays { get; set; }
         public IDAOParticipant DAOParticipant { get; set; }
+        public IFileService FileService { get; set; }
 
         public GererExpeditionPresenter(IGererExpeditionPresenter view)
             : base(view)
@@ -47,6 +47,7 @@ namespace ATMTECH.Expeditn.Views
                 View.Region = expedition.GeoLocalisation.Region;
                 View.Pays = expedition.GeoLocalisation.Pays.Id.ToString();
                 View.Ville = expedition.GeoLocalisation.Ville;
+                View.Image = expedition.FichierImage;
             }
         }
 
@@ -87,7 +88,8 @@ namespace ATMTECH.Expeditn.Views
 
             int idExpedition = ExpeditionService.Enregistrer(expedition);
             expedition = ExpeditionService.ObtenirExpedition(idExpedition);
-            if (expedition.Participant.Count == 0)
+            
+            if (expedition.Participant == null)
             {
                 Participant participant = new Participant
                 {
@@ -99,6 +101,16 @@ namespace ATMTECH.Expeditn.Views
             }
 
             return idExpedition;
+        }
+
+        public void EnregistrerImage(HttpPostedFile httpPostedFile)
+        {
+            int idFichier = FileService.SaveFile(httpPostedFile, @"\Images\Medias", View.RootPath);
+            File file = FileService.GetFile(idFichier);
+            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            expedition.Image = file;
+            ExpeditionService.Enregistrer(expedition);
+            NavigationService.Refresh();
         }
     }
 }

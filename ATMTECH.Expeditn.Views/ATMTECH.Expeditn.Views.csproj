@@ -44,7 +44,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProfilePresenter.cs" />
     <Compile Include="GererBudgetPresenter.cs" />
+    <Compile Include="Interface\IProfilePresenter.cs" />
     <Compile Include="Interface\IGererBudgetPresenter.cs" />
     <Compile Include="TableauBordPresenter.cs" />
     <Compile Include="GererNourriturePresenter.cs" />
@@ -102,6 +104,10 @@
     <ProjectReference Include="..\ATMTECH.Expeditn.Services\ATMTECH.Expeditn.Services.csproj">
       <Project>{4CFEEC1E-0129-489B-B273-888A2339F479}</Project>
       <Name>ATMTECH.Expeditn.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Services\ATMTECH.Services.csproj">
+      <Project>{C9D4E476-745E-4FF4-AD7B-43B223B29F39}</Project>
+      <Name>ATMTECH.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Views\ATMTECH.Views.csproj">
       <Project>{2607E726-5B08-43A8-8D69-ED5C612B4A24}</Project>
