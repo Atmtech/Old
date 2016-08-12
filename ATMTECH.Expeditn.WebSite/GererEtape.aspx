@@ -92,7 +92,7 @@
                         <ItemTemplate>
 
                             <div style="float: Left;">
-                                <img src="Images/profile_placeholder.gif" alt="" style="border-radius: 50%;" />
+                                <img src="Images/Medias/AucuneImage.gif" alt="" style="border-radius: 50%;" />
                             </div>
                             <div style="padding-left: 10px; float: Left; padding-right: 15px; margin-bottom: 10px;">
 

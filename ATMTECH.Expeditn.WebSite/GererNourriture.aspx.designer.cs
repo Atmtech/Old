@@ -73,7 +73,7 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.WebControls.Editor txtMenu;
+        protected global::System.Web.UI.WebControls.TextBox txtMenu;
         
         /// <summary>
         /// Contrôle lblCuisinier.
@@ -101,6 +101,15 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkAjouterMenu;
+        
+        /// <summary>
+        /// Contrôle lnkImprimerMenu.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkImprimerMenu;
         
         /// <summary>
         /// Contrôle lblListeMenu.

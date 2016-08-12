@@ -16,10 +16,10 @@
 
             <div class="container 50%">
                 <div class="form-group">
-                    <asp:TextBox runat="server" ID="txtNomUtilisateur" placeholder="Courriel" TextMode="Email" class="form-control" Text="sagaan@hotmail.com"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtNomUtilisateur" placeholder="Courriel" TextMode="Email" class="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <asp:TextBox runat="server" ID="txtMotPasse" placeholder="Mot de passe" class="form-control" Text="10crevette01"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtMotPasse" placeholder="Mot de passe" class="form-control"></asp:TextBox>
                 </div>
                 <br/><br/>
                 <div class="12u$">

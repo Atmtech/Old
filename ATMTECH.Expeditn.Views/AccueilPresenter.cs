@@ -31,5 +31,9 @@ namespace ATMTECH.Expeditn.Views
             View.Expeditions = ExpeditionService.ObtenirExpeditionTop(20);
         }
 
+        public void Test()
+        {
+            ExpeditionService.ObtenirMenuPdf(ExpeditionService.ObtenirExpedition(1));
+        }
     }
 }

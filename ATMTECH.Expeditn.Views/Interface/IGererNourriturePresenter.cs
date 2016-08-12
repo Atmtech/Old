@@ -9,7 +9,8 @@ namespace ATMTECH.Expeditn.Views.Interface
     {
         Expedition Expedition { set; }
         string IdExpedition { get;}
-        string IdParticipantCuisinier { get; }
+        string IdParticipantCuisinier { get; set; }
+        string IdNourriture { get; }
         string Nom { get; set; }
         string Menu { get; set; }
         DateTime Date { get; set; }

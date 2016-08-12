@@ -6,14 +6,11 @@ using ATMTECH.Expeditn.Entities;
 using ATMTECH.Expeditn.Views;
 using ATMTECH.Expeditn.Views.Interface;
 using ATMTECH.Web;
-using ATMTECH.Web.Services.GoogleMap;
 
 namespace ATMTECH.Expeditn.WebSite
 {
     public partial class GererExpedition : PageBase<GererExpeditionPresenter, IGererExpeditionPresenter>, IGererExpeditionPresenter
     {
-
-
         public string IdExpedition { get { return QueryString.GetQueryStringValue(BaseEntity.ID); } }
         public string Nom { get { return txtNomExpedition.Text; } set { txtNomExpedition.Text = value; } }
         public DateTime Debut

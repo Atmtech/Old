@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix3">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>16.86983cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>3.88148cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="Rectangle1">
+                      <ReportItems>
+                        <Textbox Name="Nom">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Nom.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe ui</FontFamily>
+                                    <FontSize>16pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Nom</rd:DefaultName>
+                          <Top>0.15021cm</Top>
+                          <Height>1.05304cm</Height>
+                          <Width>16.86983cm</Width>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Date">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>="Le " &amp; Fields!Date.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>d MMMM yyyy</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Date</rd:DefaultName>
+                          <Top>1.22089cm</Top>
+                          <Height>0.6cm</Height>
+                          <Width>16.86983cm</Width>
+                          <ZIndex>1</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Menu">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Menu.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe ui</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Menu</rd:DefaultName>
+                          <Top>2.12075cm</Top>
+                          <Height>0.85224cm</Height>
+                          <Width>16.86983cm</Width>
+                          <ZIndex>2</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line1">
+                          <Top>1.92672cm</Top>
+                          <Height>0cm</Height>
+                          <Width>16.86983cm</Width>
+                          <ZIndex>3</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Line Name="Line2">
+                          <Top>0.09525cm</Top>
+                          <Height>0cm</Height>
+                          <Width>16.86983cm</Width>
+                          <ZIndex>4</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Détails" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>dsMenu</DataSetName>
+        <Top>0.10583cm</Top>
+        <Height>3.88148cm</Height>
+        <Width>16.86983cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>1.63925in</Height>
+    <Style />
+  </Body>
+  <Width>6.64167in</Width>
+  <Page>
+    <PageHeader>
+      <Height>2.27542cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>Logo</Value>
+          <Top>0.02646cm</Top>
+          <Height>2.2225cm</Height>
+          <Width>7.83167cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="NomExpedition">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!NomExpedition.Value, "dsMenu")</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>14pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>NomExpedition</rd:DefaultName>
+          <Top>1.22626cm</Top>
+          <Left>9.31629cm</Left>
+          <Height>0.85866cm</Height>
+          <Width>7.55354cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="NomExpedition2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Menu</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>14pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>NomExpedition</rd:DefaultName>
+          <Top>0.29704cm</Top>
+          <Left>9.22104cm</Left>
+          <Height>0.85866cm</Height>
+          <Width>7.64879cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+        <BackgroundColor>#383b43</BackgroundColor>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>0.90459cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+        <BackgroundColor>#383b43</BackgroundColor>
+      </Style>
+    </PageFooter>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ATMTECHExpeditnEntities">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>56cd460d-3929-469a-b1b1-c57cd26d1903</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="ATMTECHExpeditnEntities1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>b3c62985-0c9b-43ff-b897-f16e56663093</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="dsMenu">
+      <Query>
+        <DataSourceName>ATMTECHExpeditnEntities1</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ComboboxDescription">
+          <DataField>ComboboxDescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ComboboxDescriptionUpdate">
+          <DataField>ComboboxDescriptionUpdate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Cuisinier">
+          <DataField>Cuisinier</DataField>
+          <rd:TypeName>ATMTECH.Expeditn.Entities.Participant</rd:TypeName>
+        </Field>
+        <Field Name="NomExpedition">
+          <DataField>NomExpedition</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Date">
+          <DataField>Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DateCreated">
+          <DataField>DateCreated</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DateModified">
+          <DataField>DateModified</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Expedition">
+          <DataField>Expedition</DataField>
+          <rd:TypeName>ATMTECH.Expeditn.Entities.Expedition</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="IsActive">
+          <DataField>IsActive</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Language">
+          <DataField>Language</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Menu">
+          <DataField>Menu</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Nom">
+          <DataField>Nom</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreParticipant">
+          <DataField>NombreParticipant</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OrderId">
+          <DataField>OrderId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Search">
+          <DataField>Search</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserLoginModified">
+          <DataField>UserLoginModified</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ATMTECH.Expeditn.Entities</rd:DataSetName>
+        <rd:TableName>Nourriture</rd:TableName>
+        <rd:ObjectDataSourceType>ATMTECH.Expeditn.Entities.Nourriture, ATMTECH.Expeditn.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="Logo">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>14f9cc0a-d7d6-4029-976e-f5ab71d0182e</rd:ReportID>
+</Report>

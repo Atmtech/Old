@@ -39,7 +39,15 @@ namespace ATMTECH.Expeditn.Entities.DTO
         public decimal MontantTotalBateau { get; set; }
         public decimal MontantAvecPourcentageDuTotalBateau
         {
-            get { return Math.Round(MontantTotalBateau * (NombrePresenceEtapeBateau / NombreTotalEtapeBateau), 2); }
+
+            get
+            {
+                if (NombreTotalEtapeBateau != 0)
+                {
+                    return Math.Round(MontantTotalBateau*(NombrePresenceEtapeBateau/NombreTotalEtapeBateau), 2);
+                }
+                return 0;
+            }
         }
 
         public decimal NombreTotalRepas { get; set; }
@@ -57,7 +65,15 @@ namespace ATMTECH.Expeditn.Entities.DTO
         public decimal MontantTotalNourriture { get; set; }
         public decimal MontantAvecPourcentageDesRepas
         {
-            get { return Math.Round(MontantTotalNourriture * (NombreRepas / NombreTotalRepas), 2); }
+            get
+            {
+                if (NombreTotalRepas != 0)
+                {
+                    return Math.Round(MontantTotalNourriture * (NombreRepas / NombreTotalRepas), 2);    
+                }
+                return 0;
+
+            }
         }
 
         public int NombreTotalParticipant { get; set; }

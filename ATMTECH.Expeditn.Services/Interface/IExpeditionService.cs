@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using ATMTECH.Entities;
 using ATMTECH.Expeditn.Entities;
 using ATMTECH.Expeditn.Entities.DTO;
@@ -19,5 +20,6 @@ namespace ATMTECH.Expeditn.Services.Interface
         void RepartirAutre(Expedition expedition, string idParticipant, decimal montant);
         IList<AffichageRepartitionMontant> ObtenirRepartitionMontant(Expedition expedition);
         IList<AffichageMontantDu> ObtenirMontantDu(Expedition expedition);
+        void ObtenirMenuPdf(Expedition expedition);
     }
 }

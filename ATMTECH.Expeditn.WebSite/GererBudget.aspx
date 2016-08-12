@@ -181,7 +181,7 @@
                     </div>
                     <div style="float: left; padding-left: 10px;">
                         <div style="border-bottom: solid 1px gray">
-                            <asp:Label ID="lblMontant" runat="server" Text="MontantVehicule"></asp:Label>
+                            <asp:Label ID="lblMontantRepartition" runat="server" Text="Montant"></asp:Label>
                             $
                         </div>
                         <atmtech:Numeric runat="server" ID="txtMontant" />
@@ -189,13 +189,10 @@
 
                     <div style="clear: both"></div>
                     <br />
-                    <asp:LinkButton runat="server" ID="lnkRepartitionDepenseNourriture" Text="Répartition dépense nourritures" CssClass="button icon fa-money" OnClick="lnkRepartitionDepenseNourritureClick"></asp:LinkButton>
-                    <asp:LinkButton runat="server" ID="lnkRepartitionDepenseAutomobile" Text="Répartition dépense activités par automobile" CssClass="button icon fa-money" OnClick="lnkRepartitionDepenseAutomobileClick"></asp:LinkButton>
-                    <asp:LinkButton runat="server" ID="lnkRepartitionDepenseBateau" Text="Répartition dépense activités par bateau" CssClass="button icon fa-money" OnClick="lnkRepartitionDepenseBateauClick"></asp:LinkButton>
-                    <asp:LinkButton runat="server" ID="lnkRepartitionDepenseAutre" Text="Répartition dépense autre" CssClass="button icon fa-money" OnClick="lnkRepartitionDepenseAutreClick"></asp:LinkButton>
-
-
-
+                    <asp:LinkButton runat="server" ID="lnkRepartitionDepenseNourriture" Text="Répartir dépenses de nourritures" CssClass="button icon fa-money" OnClick="lnkRepartitionDepenseNourritureClick"></asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="lnkRepartitionDepenseAutomobile" Text="Répartir dépenses automobile" CssClass="button icon fa-money" OnClick="lnkRepartitionDepenseAutomobileClick"></asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="lnkRepartitionDepenseBateau" Text="Répartir dépenses bateau" CssClass="button icon fa-money" OnClick="lnkRepartitionDepenseBateauClick"></asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="lnkRepartitionDepenseAutre" Text="Répartir dépenses autres" CssClass="button icon fa-money" OnClick="lnkRepartitionDepenseAutreClick"></asp:LinkButton>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>

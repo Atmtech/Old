@@ -71,7 +71,7 @@
                 <nav id="nav">
                     <ul>
                         <li>
-                            <asp:Label runat="server" ID="lblBonjour" Text="Bonjour, "></asp:Label><asp:Label runat="server" ID="lblNomPrenomUtilisateur"></asp:Label></li>
+                            <a href ="Profile.aspx"><asp:Label runat="server" ID="lblBonjour" Text="Bonjour, "></asp:Label><asp:Label runat="server" ID="lblNomPrenomUtilisateur"></asp:Label></a></li>
                         <li>
                             <asp:HyperLink runat="server" ID="lnkPourquoiMenuConnecte" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
                         <li>

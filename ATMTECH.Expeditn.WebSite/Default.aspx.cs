@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ATMTECH.Expeditn.Entities;
 using ATMTECH.Expeditn.Views;
 using ATMTECH.Expeditn.Views.Interface;
@@ -17,6 +18,11 @@ namespace ATMTECH.Expeditn.WebSite
                     listeExpedition.DataBind();
                 }
             }
+        }
+
+        protected void btnTestClick(object sender, EventArgs e)
+        {
+            Presenter.Test();
         }
     }
 }

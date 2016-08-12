@@ -74,6 +74,10 @@
       <Project>{9B32691F-85B3-44B6-BDD8-921F0AAD3F99}</Project>
       <Name>ATMTECH.Expeditn.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.Services\ATMTECH.Services.csproj">
+      <Project>{C9D4E476-745E-4FF4-AD7B-43B223B29F39}</Project>
+      <Name>ATMTECH.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.Shell\ATMTECH.BaseModule.csproj">
       <Project>{3EB5628F-B1C8-4EE4-8376-2AF463BDD782}</Project>
       <Name>ATMTECH.BaseModule</Name>
@@ -82,6 +86,15 @@
       <Project>{6CB13C83-A099-4133-910F-B640965EB91E}</Project>
       <Name>ATMTECH.Web.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Rapports\Menu.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\ATMTECH.Expeditn.Entities.Nourriture.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

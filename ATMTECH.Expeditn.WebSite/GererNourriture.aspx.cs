@@ -22,7 +22,16 @@ namespace ATMTECH.Expeditn.WebSite
             get { return QueryString.GetQueryStringValue(BaseEntity.ID); }
         }
 
-        public string IdParticipantCuisinier { get { return ddlParticipant.SelectedValue; } }
+        public string IdParticipantCuisinier { get { return ddlParticipant.SelectedValue; } set
+        {
+            ddlParticipant.SelectedValue = value;
+        } }
+
+        public string IdNourriture
+        {
+            get { return QueryString.GetQueryStringValue("IdNourriture"); } 
+            
+        }
 
         public string Nom { get { return txtNomMenu.Text; } set { txtNomMenu.Text = value; } }
         public string Menu { get { return txtMenu.Text; } set { txtMenu.Text = value; } }
@@ -40,7 +49,7 @@ namespace ATMTECH.Expeditn.WebSite
 
         protected void lnkAjouterMenuClick(object sender, EventArgs e)
         {
-            Presenter.AjouterMenu();
+            Presenter.Enregistrer();
         }
 
         protected void listeNourritureItemCommand(object source, DataListCommandEventArgs e)
@@ -50,6 +59,13 @@ namespace ATMTECH.Expeditn.WebSite
                 string idNourriture = e.CommandArgument.ToString();
                 Presenter.RetirerNourriture(idNourriture);
             }
+
+            if (e.CommandName == "modifier")
+            {
+                string idNourriture = e.CommandArgument.ToString();
+                Presenter.ModifierNourriture(idNourriture);
+            }
+
         }
 
         protected void listeNourritureItemDataBound(object sender, DataListItemEventArgs e)
@@ -104,6 +120,11 @@ namespace ATMTECH.Expeditn.WebSite
             {
                 Presenter.AjouterNourritureParticipant(idParticipant, idNourriture, "0");
             }
+        }
+
+        protected void lnkImprimerMenuClick(object sender, EventArgs e)
+        {
+            Presenter.ImprimerMenu();
         }
     }
 }

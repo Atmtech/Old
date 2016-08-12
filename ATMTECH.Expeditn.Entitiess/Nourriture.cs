@@ -12,10 +12,10 @@ namespace ATMTECH.Expeditn.Entities
         public string Menu { get; set; }
         public DateTime Date { get; set; }
         public Participant Cuisinier { get; set; }
-
+        public string NomExpedition { get { return Expedition.Nom; } }
         public IList<NourritureParticipant> NourritureParticipant { get; set; }
 
-        
+
 
         public string NombreParticipant
         {

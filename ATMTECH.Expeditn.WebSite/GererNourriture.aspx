@@ -70,10 +70,12 @@
 
                                     <asp:TextBox runat="server" ID="txtDateMenu" placeholder="Date"></asp:TextBox>
                                     <div style="border-bottom: solid 1px gray">
-                                        <asp:Label ID="lblMenuDetaille" runat="server" Text="Menu"></asp:Label></div>
-                                    <atmtech:Editor runat="server" ID="txtMenu" Toolbar="Basic" />
+                                        <asp:Label ID="lblMenuDetaille" runat="server" Text="Menu"></asp:Label>
+                                    </div>
+                                    <asp:TextBox runat="server" ID="txtMenu" TextMode="MultiLine" Rows="5"></asp:TextBox>
                                     <div style="border-bottom: solid 1px gray">
-                                        <asp:Label ID="lblCuisinier" runat="server" Text="Cuisinier"></asp:Label></div>
+                                        <asp:Label ID="lblCuisinier" runat="server" Text="Cuisinier"></asp:Label>
+                                    </div>
                                     <asp:DropDownList runat="server" ID="ddlParticipant"></asp:DropDownList>
 
                                 </div>
@@ -81,6 +83,9 @@
                         </tr>
                     </table>
                     <asp:LinkButton runat="server" ID="lnkAjouterMenu" Text="Enregistrer ce menu" CssClass="button icon fa-plus" OnClick="lnkAjouterMenuClick"></asp:LinkButton>
+
+                    <asp:LinkButton runat="server" ID="lnkImprimerMenu" Text="Imprimer le menu de l'expédition" CssClass="button icon fa-print" OnClick="lnkImprimerMenuClick"></asp:LinkButton>
+
                     <br />
                     <hr />
                     <h2>
@@ -92,7 +97,7 @@
                         <ItemTemplate>
 
                             <div style="float: Left;">
-                                <img src="Images/profile_placeholder.gif" alt="" style="border-radius: 50%;" />
+                                <img src="Images/Medias/AucuneImage.gif" alt="" style="border-radius: 50%;" />
                             </div>
                             <div style="padding-left: 10px; float: Left; padding-right: 15px; margin-bottom: 10px;">
 
@@ -139,6 +144,11 @@
                     </asp:DataList>
                     <br />
                 </ContentTemplate>
+
+                <Triggers>
+                    <asp:PostBackTrigger ControlID="lnkImprimerMenu" />
+                </Triggers>
+
             </asp:UpdatePanel>
         </div>
     </section>

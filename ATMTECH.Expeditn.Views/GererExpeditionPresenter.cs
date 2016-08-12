@@ -54,21 +54,12 @@ namespace ATMTECH.Expeditn.Views
 
         public int EnregistrerExpedition()
         {
-            Expedition expedition = new Expedition
-            {
-                Nom = View.Nom,
-                Debut = View.Debut,
-                Fin = View.Fin,
-                BudgetEstime = View.BudgetEstime,
-                EstPrive = View.EstExpeditionPrive,
-
-            };
-
-
-            if (!string.IsNullOrEmpty(View.IdExpedition))
-            {
-                expedition.Id = Convert.ToInt32(View.IdExpedition);
-            }
+            Expedition expedition = !string.IsNullOrEmpty(View.IdExpedition) ? ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition)) : new Expedition();
+            expedition.Nom = View.Nom;
+            expedition.Debut = View.Debut;
+            expedition.Fin = View.Fin;
+            expedition.BudgetEstime = View.BudgetEstime;
+            expedition.EstPrive = View.EstExpeditionPrive;
 
             if (!string.IsNullOrEmpty(View.Latitude) && !string.IsNullOrEmpty(View.Longitude))
             {
@@ -88,7 +79,7 @@ namespace ATMTECH.Expeditn.Views
 
             int idExpedition = ExpeditionService.Enregistrer(expedition);
             expedition = ExpeditionService.ObtenirExpedition(idExpedition);
-            
+
             if (expedition.Participant == null)
             {
                 Participant participant = new Participant

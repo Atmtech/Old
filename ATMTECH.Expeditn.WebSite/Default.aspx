@@ -5,7 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Banner -->
     <section id="banner">
-
         <h2>
             <asp:Label runat="server" ID="lblMessageBienvenueEntete" Text="Bonjour. Voici expedit'n."></asp:Label></h2>
         <p>

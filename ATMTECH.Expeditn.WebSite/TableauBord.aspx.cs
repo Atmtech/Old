@@ -61,9 +61,5 @@ namespace ATMTECH.Expeditn.WebSite
 
         }
 
-        protected void lnkModifierMesInformationsClick(object sender, EventArgs e)
-        {
-            Presenter.RedirigerProfile();
-        }
     }
 }

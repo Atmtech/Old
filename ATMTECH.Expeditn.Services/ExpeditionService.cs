@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using ATMTECH.Entities;
@@ -8,6 +9,9 @@ using ATMTECH.Expeditn.DAO.Interface;
 using ATMTECH.Expeditn.Entities;
 using ATMTECH.Expeditn.Entities.DTO;
 using ATMTECH.Expeditn.Services.Interface;
+using ATMTECH.Services;
+using ATMTECH.Services.Interface;
+using ATMTECH.Web.Services;
 using ATMTECH.Web.Services.Base;
 
 namespace ATMTECH.Expeditn.Services
@@ -19,6 +23,8 @@ namespace ATMTECH.Expeditn.Services
         public IDAONourritureParticipant DAONourritureParticipant { get; set; }
         public IDAOEtapeParticipant DAOEtapeParticipant { get; set; }
         public IDAOEtape DAOEtape { get; set; }
+        public IReportService ReportService { get; set; }
+
         public Expedition ObtenirExpedition(int id)
         {
             return DAOExpedition.ObtenirExpedition(id);
@@ -150,7 +156,6 @@ namespace ATMTECH.Expeditn.Services
 
             return affichageRepartitionMontants;
         }
-
         public IList<AffichageMontantDu> ObtenirMontantDu(Expedition expedition)
         {
             IList<AffichageMontantDu> affichageMontantDus = new List<AffichageMontantDu>();
@@ -175,12 +180,33 @@ namespace ATMTECH.Expeditn.Services
             return affichageMontantDus;
         }
 
+
+        public void ObtenirMenuPdf(Expedition expedition)
+        {
+            Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
+            ReportParameter reportParameter = new ReportParameter
+            {
+                Assembly = "ATMTECH.Expeditn.Services",
+                PathToReportAssembly = "ATMTECH.Expeditn.Services.Rapports.Menu.rdlc",
+                ReportFormat = ReportFormat.PDF,
+                Parameters = dictionnaire
+            };
+
+            reportParameter.AddDatasource("dsMenu", expedition.Nourriture.OrderBy(x => x.Date));
+            ReportService.SaveReport("menu.pdf", ReportService.GetReport(reportParameter));
+        }
+
+
+
         private int CalculerNombreRepas(Expedition expedition, int idParticipant)
         {
             int compte = 0;
-            foreach (Nourriture nourriture in expedition.Nourriture)
+            if (expedition.Nourriture != null)
             {
-                compte += nourriture.NourritureParticipant.Count(x => x.Participant.Id == idParticipant);
+                foreach (Nourriture nourriture in expedition.Nourriture)
+                {
+                    compte += nourriture.NourritureParticipant.Count(x => x.Participant.Id == idParticipant);
+                }
             }
             return compte;
         }

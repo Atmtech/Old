@@ -55,7 +55,7 @@
             <h2>
                 <asp:Label runat="server" ID="lblMesExpedition" Text="Mes expéditions"></asp:Label></h2>
             <asp:LinkButton runat="server" ID="lnkAjouterUneExpedition" Text="Ajouter une expédition" CssClass="special button icon fa-map-marker" OnClick="lnkAjouterUneExpeditionClick"></asp:LinkButton>
-            <asp:LinkButton runat="server" ID="lnkModifierMesInformations" Text="Modifier mes informations" CssClass="special button icon fa-map-marker" OnClick="lnkModifierMesInformationsClick"></asp:LinkButton>
+            
             <br />
             <br />
 
@@ -80,11 +80,11 @@
                         <div>
                             <asp:Label runat="server" ID="lblIdExpedition" Text='<%# Eval("Id")  %>' Visible="False"></asp:Label>
                             
-                            <asp:LinkButton runat="server" ID="lnkModifierExpedition" Text="&nbsp;Modifier expédition" CssClass="icon fa-map-marker boutonModifier" CommandName="modifierExpedition"></asp:LinkButton>
-                            <asp:LinkButton runat="server" ID="lnkModifierParticipant" Text="&nbsp;Modifier participant " CssClass="icon fa-user boutonModifier" CommandName="modifierParticipant"></asp:LinkButton>
-                            <asp:LinkButton runat="server" ID="lnkModifierEtape" Text="&nbsp;Modifier activités " CssClass="icon fa-automobile boutonModifier" CommandName="modifierEtape"></asp:LinkButton>
-                            <asp:LinkButton runat="server" ID="lnkModifierMenu" Text="&nbsp;Modifier menu " CssClass="icon fa-delicious boutonModifier" CommandName="modifierMenu"></asp:LinkButton>
-                            <asp:LinkButton runat="server" ID="lnkModifierRepartitionPaieme" Text="&nbsp;Modifier répartition budget" CssClass="icon fa-calculator boutonModifier" CommandName="modifierRepartitionBudget"></asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lnkModifierExpedition" Text="&nbsp;Expédition" CssClass="icon fa-map-marker boutonModifier" CommandName="modifierExpedition"></asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lnkModifierParticipant" Text="&nbsp;Participants" CssClass="icon fa-user boutonModifier" CommandName="modifierParticipant"></asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lnkModifierEtape" Text="&nbsp;Activités " CssClass="icon fa-automobile boutonModifier" CommandName="modifierEtape"></asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lnkModifierMenu" Text="&nbsp;Nourriture " CssClass="icon fa-delicious boutonModifier" CommandName="modifierMenu"></asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lnkModifierRepartitionPaieme" Text="&nbsp;Répartition du budget" CssClass="icon fa-calculator boutonModifier" CommandName="modifierRepartitionBudget"></asp:LinkButton>
 
                         </div>
                     </div>
