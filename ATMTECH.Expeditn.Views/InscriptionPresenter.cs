@@ -14,7 +14,7 @@ namespace ATMTECH.Expeditn.Views
         {
         }
 
-        public IAuthenticationService AuthenticationService { get; set; }
+        
         public IUtilisateurService UtilisateurService { get; set; }
 
 

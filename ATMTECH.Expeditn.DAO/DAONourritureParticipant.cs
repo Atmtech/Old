@@ -18,11 +18,12 @@ namespace ATMTECH.Expeditn.DAO
             criterias.Add(criteria);
             criterias.Add(IsActive());
             IList<NourritureParticipant> nourritureParticipants = GetByCriteria(criterias);
+
             foreach (NourritureParticipant nourritureParticipant in nourritureParticipants)
             {
                 if (nourritureParticipant.Participant != null)
                 {
-                    nourritureParticipant.Participant = DAOParticipant.ObtenirParticipant(nourriture.Expedition) .FirstOrDefault(x => x.Id == nourritureParticipant.Participant.Id);
+                    nourritureParticipant.Participant = nourriture.Expedition.Participant.FirstOrDefault(x => x.Id == nourritureParticipant.Participant.Id);
                 }
                 nourritureParticipant.Nourriture = nourriture;
             }

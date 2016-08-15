@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.DAO.Interface;
+using ATMTECH.Entities;
 using ATMTECH.Expeditn.DAO.Interface;
 using ATMTECH.Expeditn.Entities;
 
@@ -21,10 +23,12 @@ namespace ATMTECH.Expeditn.DAO
             IList<Participant> rtn = GetByCriteria(criterias);
             if (rtn.Count > 0)
             {
+                IList<User> users = DAOUser.GetAllActive();
+                IList<File> files = DAOFile.GetAllFile();
                 foreach (Participant participant in rtn)
                 {
-                    participant.Utilisateur = DAOUser.GetUser(participant.Utilisateur.Id);
-                    participant.Utilisateur.Image = DAOFile.GetFile(participant.Utilisateur.Image.Id);
+                    participant.Utilisateur = users.FirstOrDefault(x => x.Id == participant.Utilisateur.Id);
+                    participant.Utilisateur.Image = files.FirstOrDefault(x => x.Id == participant.Utilisateur.Image.Id);
                 }
 
                 return rtn;
@@ -35,6 +39,15 @@ namespace ATMTECH.Expeditn.DAO
         public IList<Participant> ObtenirParticipant()
         {
             return GetAllActive();
+        }
+
+        public IList<Participant> ObtenirParticipant(User utilisateur)
+        {
+            IList<Criteria> criterias = new List<Criteria>();
+            Criteria criteriaUser = new Criteria { Column = Participant.UTILISATEUR, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = utilisateur.Id.ToString() };
+            criterias.Add(criteriaUser);
+            criterias.Add(IsActive());
+            return GetByCriteria(criterias);
         }
 
         public int Enregistrer(Participant participant)

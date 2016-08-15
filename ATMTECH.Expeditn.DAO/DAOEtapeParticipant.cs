@@ -21,6 +21,7 @@ namespace ATMTECH.Expeditn.DAO
             criterias.Add(criteriaUser);
             criterias.Add(IsActive());
             IList<EtapeParticipant> rtn = GetByCriteria(criterias);
+            
             foreach (EtapeParticipant etapeParticipant in rtn)
             {
                 if (etapeParticipant.Participant != null)

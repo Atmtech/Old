@@ -12,8 +12,6 @@ namespace ATMTECH.Expeditn.Views
         {
         }
 
-        public IAuthenticationService AuthenticationService { get; set; }
-        public IGoogleMapService GoogleMapService { get; set; }
 
         public override void OnViewInitialized()
         {

@@ -7,6 +7,6 @@ namespace ATMTECH.Expeditn.DAO.Interface
     {
         IList<EtapeParticipant> ObtenirEtapeParticipant(Etape etape);
         int Enregistrer(EtapeParticipant etapeParticipant);
-      
+        IList<EtapeParticipant> GetAllActive();
     }
 }

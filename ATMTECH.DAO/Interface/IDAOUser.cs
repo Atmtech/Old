@@ -13,6 +13,7 @@ namespace ATMTECH.DAO.Interface
         User GetUserByEmail(string email);
         IList<User> GetAllUser();
         IList<User> SearchUser(string search);
+        IList<User> GetAllActive();
         
     }
 }

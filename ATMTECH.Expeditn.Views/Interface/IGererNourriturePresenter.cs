@@ -7,7 +7,7 @@ namespace ATMTECH.Expeditn.Views.Interface
 {
     public interface IGererNourriturePresenter : IViewBase
     {
-        Expedition Expedition { set; }
+        Expedition Expedition { get; set; }
         string IdExpedition { get;}
         string IdParticipantCuisinier { get; set; }
         string IdNourriture { get; }

@@ -25,27 +25,42 @@ namespace ATMTECH.Expeditn.Views
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
-            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
-            View.ListeParticipant = DAOParticipant.ObtenirParticipant(expedition);
-            View.Expedition = expedition;
-            AfficherNourriture(expedition);
+            AfficherInformation();
         }
+
+        private void AfficherInformation()
+        {
+            if (View.Expedition == null) View.Expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            View.ListeParticipant = View.Expedition.Participant;
+            View.Expedition = View.Expedition;
+            View.ListeNourriture = View.Expedition.Nourriture;
+
+            if (!string.IsNullOrEmpty(View.IdNourriture))
+            {
+                Nourriture nourriture = DAONourriture.ObtenirNourriture(View.Expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(View.IdNourriture));
+                View.Nom = nourriture.Nom;
+                View.Menu = nourriture.Menu;
+                View.Date = nourriture.Date;
+                View.IdParticipantCuisinier = nourriture.Cuisinier.Id.ToString();
+            }
+        }
+
         public void Enregistrer()
         {
-            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
-            Nourriture nourriture = !string.IsNullOrEmpty(View.IdNourriture) ? DAONourriture.ObtenirNourriture(expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(View.IdNourriture)) : new Nourriture();
-            nourriture.Expedition = expedition;
+            Nourriture nourriture = !string.IsNullOrEmpty(View.IdNourriture) ? DAONourriture.ObtenirNourriture(View.Expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(View.IdNourriture)) : new Nourriture();
+            nourriture.Expedition = View.Expedition;
             nourriture.Nom = View.Nom;
-            nourriture.Cuisinier = DAOParticipant.ObtenirParticipant(expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(View.IdParticipantCuisinier));
+            nourriture.Cuisinier = View.Expedition.Participant.FirstOrDefault(x => x.Id == Convert.ToInt32(View.IdParticipantCuisinier));
             nourriture.Menu = View.Menu;
             nourriture.Date = View.Date;
             DAONourriture.Enregistrer(nourriture);
-            AfficherNourriture(expedition);
+            View.Expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+           AfficherInformation();
         }
         public void RetirerNourriture(string idNourriture)
         {
-            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
-            Nourriture nourriture = DAONourriture.ObtenirNourriture(expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(idNourriture));
+           
+            Nourriture nourriture = DAONourriture.ObtenirNourriture(View.Expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(idNourriture));
             nourriture.IsActive = false;
             DAONourriture.Enregistrer(nourriture);
             IList<NourritureParticipant> nourritureParticipants = DAONourritureParticipant.ObtenirNourritureParticipant(nourriture);
@@ -55,22 +70,22 @@ namespace ATMTECH.Expeditn.Views
                 DAONourritureParticipant.Enregistrer(nourritureParticipant);
             }
 
-            AfficherNourriture(expedition);
+            View.Expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            AfficherInformation();
         }
         public void RetirerNourritureParticipant(int idNourriture, int idNourritureParticipant)
         {
-            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
-            Nourriture nourriture = DAONourriture.ObtenirNourriture(expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(idNourriture));
+            Nourriture nourriture = View.Expedition.Nourriture.FirstOrDefault(x => x.Id == Convert.ToInt32(idNourriture));
             NourritureParticipant nourritureParticipant = DAONourritureParticipant.ObtenirNourritureParticipant(nourriture).FirstOrDefault(x => x.Id == idNourritureParticipant);
             nourritureParticipant.IsActive = false;
             DAONourritureParticipant.Enregistrer(nourritureParticipant);
-            AfficherNourriture(expedition);
+            View.Expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            AfficherInformation();
         }
         public void AjouterNourritureParticipant(int idParticipant, int idNourriture, string montant)
         {
-            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
-            Participant participant = DAOParticipant.ObtenirParticipant(expedition).FirstOrDefault(x => x.Id == idParticipant);
-            Nourriture nourriture = DAONourriture.ObtenirNourriture(expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(idNourriture));
+            Participant participant = View.Expedition.Participant.FirstOrDefault(x => x.Id == idParticipant);
+            Nourriture nourriture = View.Expedition.Nourriture.FirstOrDefault(x => x.Id == Convert.ToInt32(idNourriture));
             NourritureParticipant nourritureParticipant = new NourritureParticipant
             {
                 Participant = participant,
@@ -78,7 +93,10 @@ namespace ATMTECH.Expeditn.Views
                 Montant = Convert.ToDecimal(montant)
             };
             DAONourritureParticipant.Enregistrer(nourritureParticipant);
-            AfficherNourriture(expedition);
+
+            View.Expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
+            AfficherInformation();
+
         }
         public void ModifierNourriture(string idNourriture)
         {
@@ -87,25 +105,11 @@ namespace ATMTECH.Expeditn.Views
             queryStrings.Add(new QueryString { Name = "IdNourriture", Value = idNourriture });
             NavigationService.Redirect(Pages.GERER_NOURRITURE, queryStrings);
         }
-        private void AfficherNourriture(Expedition expedition)
-        {
 
-            if (!string.IsNullOrEmpty(View.IdNourriture))
-            {
-                Nourriture nourriture = DAONourriture.ObtenirNourriture(expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(View.IdNourriture));
-                View.Nom = nourriture.Nom;
-                View.Menu = nourriture.Menu;
-                View.Date = nourriture.Date;
-                View.IdParticipantCuisinier = nourriture.Cuisinier.Id.ToString();
-            }
-
-            View.ListeNourriture = DAONourriture.ObtenirNourriture(expedition);
-        }
 
         public void ImprimerMenu()
         {
-            Expedition expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
-            ExpeditionService.ObtenirMenuPdf(expedition);
+            ExpeditionService.ObtenirMenuPdf(View.Expedition);
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Web;
 using ATMTECH.DAO.Interface;
 using ATMTECH.Entities;
+using ATMTECH.Expeditn.DAO;
+using ATMTECH.Expeditn.Services.Interface;
 using ATMTECH.Expeditn.Views.Base;
 using ATMTECH.Expeditn.Views.Interface;
 using ATMTECH.Services.Interface;
@@ -11,7 +13,10 @@ namespace ATMTECH.Expeditn.Views
     {
 
         public IFileService FileService { get; set; }
-        public IDAOUser DAOUser { get; set; }
+        public IUtilisateurService UtilisateurService { get; set; }
+
+        //public IDAOUser DAOUser { get; set; }
+        
 
         public ProfilePresenter(IProfilePresenter view)
             : base(view)
@@ -55,7 +60,8 @@ namespace ATMTECH.Expeditn.Views
             user.LastName = View.Nom;
             user.Email = View.Courriel;
             user.Password = View.MotPasse;
-            DAOUser.UpdateUser(user);
+            
+            UtilisateurService.Enregistrer(user);
         }
 
         public void EnregistrerImage(HttpPostedFile httpPostedFile)
@@ -64,7 +70,9 @@ namespace ATMTECH.Expeditn.Views
             File file = FileService.GetFile(idFichier);
             User user = AuthenticationService.AuthenticateUser;
             user.Image = file;
-            DAOUser.UpdateUser(user);
+
+            UtilisateurService.Enregistrer(user);
+
             NavigationService.Refresh();
         }
     }

@@ -22,7 +22,7 @@ namespace ATMTECH.Expeditn.DAO
             Expedition rtn = GetById(id);
 
             rtn.Participant = DAOParticipant.ObtenirParticipant(rtn);
-            rtn.Materiel = DAOMateriel.ObtenirMateriel(rtn);
+           // rtn.Materiel = DAOMateriel.ObtenirMateriel(rtn);
             rtn.Media = DAOMedia.ObtenirMedia(rtn);
             rtn.GeoLocalisation = DAOGeoLocalisation.ObtenirGeoLocalisation(rtn.GeoLocalisation.Id);
             rtn.Image = DAOFile.GetFile(rtn.Image.Id);

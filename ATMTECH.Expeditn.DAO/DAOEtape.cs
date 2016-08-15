@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.Expeditn.DAO.Interface;
@@ -18,11 +19,12 @@ namespace ATMTECH.Expeditn.DAO
             criterias.Add(criteriaUser);
             criterias.Add(IsActive());
             IList<Etape> rtn = GetByCriteria(criterias);
+            IList<Vehicule> obtenirVehicule = DAOVehicule.ObtenirVehicule();
             foreach (Etape etape in rtn)
             {
                 etape.Expedition = expedition;
                 etape.EtapeParticipant = DAOEtapeParticipant.ObtenirEtapeParticipant(etape);
-                etape.Vehicule = DAOVehicule.ObtenirVehicule(etape.Vehicule.Id);
+                etape.Vehicule = obtenirVehicule.FirstOrDefault(x => x.Id == etape.Vehicule.Id);
             }
             return rtn.Count > 0 ? rtn : null;
         }

@@ -2,7 +2,6 @@
 using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
-using ATMTECH.Entities;
 using ATMTECH.Expeditn.DAO.Interface;
 using ATMTECH.Expeditn.Entities;
 
@@ -23,7 +22,7 @@ namespace ATMTECH.Expeditn.DAO
             foreach (Nourriture nourriture in rtn)
             {
                 nourriture.Expedition = expedition;
-                nourriture.Cuisinier = DAOParticipant.ObtenirParticipant(expedition).FirstOrDefault(x=>x.Id == nourriture.Cuisinier.Id);
+                nourriture.Cuisinier = expedition.Participant.FirstOrDefault(x => x.Id == nourriture.Cuisinier.Id);
                 nourriture.NourritureParticipant = DAONourritureParticipant.ObtenirNourritureParticipant(nourriture);
             }
             

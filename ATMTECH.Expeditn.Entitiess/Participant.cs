@@ -6,6 +6,7 @@ namespace ATMTECH.Expeditn.Entities
     {
         public const string EXPEDITION = "Expedition";
         public const string EST_ADMINISTRATEUR = "EstAdministrateurExpedition";
+        public const string UTILISATEUR = "Utilisateur";
 
         public Expedition Expedition { get; set; }
         public User Utilisateur { get; set; }

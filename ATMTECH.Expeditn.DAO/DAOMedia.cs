@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.DAO.Interface;
@@ -21,9 +22,11 @@ namespace ATMTECH.Expeditn.DAO
             IList<Media> rtn = GetByCriteria(criterias);
             if (rtn.Count > 0)
             {
+                IList<File> files = DAOFile.GetAllFile();
+
                 foreach (Media media in rtn)
                 {
-                    media.Fichier = DAOFile.GetFile(media.Fichier.Id);
+                    media.Fichier = files.FirstOrDefault(x => x.Id == media.Fichier.Id);
                 }
 
                 return rtn;

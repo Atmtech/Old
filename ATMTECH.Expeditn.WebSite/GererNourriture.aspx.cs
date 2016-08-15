@@ -15,22 +15,32 @@ namespace ATMTECH.Expeditn.WebSite
     {
         public Expedition Expedition
         {
-            set { lblNomExpedition.Text = value.Nom; }
+            get { return (Expedition)Session["Expedition"]; }
+            set
+            {
+                if (Session["Expedition"] == null) Session["Expedition"] = new Expedition();
+                Session["Expedition"] = value;
+                lblNomExpedition.Text = value.Nom;
+            }
         }
         public string IdExpedition
         {
             get { return QueryString.GetQueryStringValue(BaseEntity.ID); }
         }
 
-        public string IdParticipantCuisinier { get { return ddlParticipant.SelectedValue; } set
+        public string IdParticipantCuisinier
         {
-            ddlParticipant.SelectedValue = value;
-        } }
+            get { return ddlParticipant.SelectedValue; }
+            set
+            {
+                ddlParticipant.SelectedValue = value;
+            }
+        }
 
         public string IdNourriture
         {
-            get { return QueryString.GetQueryStringValue("IdNourriture"); } 
-            
+            get { return QueryString.GetQueryStringValue("IdNourriture"); }
+
         }
 
         public string Nom { get { return txtNomMenu.Text; } set { txtNomMenu.Text = value; } }
