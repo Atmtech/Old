@@ -14,130 +14,191 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
-    <script src="Javascript/skel.min.js"></script>
-    <script src="Javascript/skel-layers.min.js"></script>
-    <script src="Javascript/init.js"></script>
-    <noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
-        <link rel="stylesheet" href="Css/Site.css"/>
-		</noscript>
+
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="assets/animate.css/animate.min.css">
+    <link rel="stylesheet" href="assets/mobirise/css/style.css">
+    <link rel="stylesheet" href="assets/dropdown-menu-plugin/style.css">
+    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
 
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 
-    <link href="JQuery/jquery-ui-1.11.2/css/lightbox.css" rel="stylesheet" />
-    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
-    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.custom.css" rel="stylesheet" />
-    <link href="JQuery/jquery-ui-1.11.2/ComboBox.css" rel="stylesheet" />
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.js"></script>
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/autoNumeric.js"></script>
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/lightbox.min.js"></script>
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.js"></script>
-    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.slider.js"></script>
-    <link href="Site.css" rel="stylesheet" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
 </head>
 <body>
     <form id="form1" runat="server">
+        <style>
+            @import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
+            @import url(http://fonts.googleapis.com/css?family=Pacifico);
 
-        <!-- Header -->
-        <header id="header">
-          
-            <asp:Panel ID="pnlDeconnecte" runat="server" Visible="True">
-                  <h1><i class="fa fa-map-marker" style="font-size: 50px;"></i><a href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;">Expedit'n&nbsp;</a></h1>
+            .mbr-header__text {
+                font-size: 45px;
+                font-family: Raleway;
+                font-weight: bold;
+                letter-spacing: 1px;
+                color: #474747;
+            }
 
-                <nav id="nav">
-                    <ul>
-                     
-                        <li>
-                            <asp:HyperLink runat="server" ID="lnkPourquoiMenu" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
-                        <li>
-                            <asp:HyperLink runat="server" ID="lnkConnecterMenu" Text="Se connecter" NavigateUrl="Identification.aspx"></asp:HyperLink></li>
-                        <li>
-                            <asp:HyperLink runat="server" ID="lnkInscrireMenu" Text="M'inscrire" NavigateUrl="Inscription.aspx" CssClass="button icon fa-check-circle"></asp:HyperLink></li>
-                    </ul>
-                </nav>
-            </asp:Panel>
-            <asp:Panel ID="pnlConnecte" runat="server" Visible="False">
-                  <h1><i class="fa fa-map-marker" style="font-size: 50px;"></i><a href="TableauBord.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;">Expedit'n&nbsp;</a></h1>
+            .mbr-buttons__btn {
+                border-radius: 50px;
+            }
 
-                <nav id="nav">
-                    <ul>
-                        <li>
-                            <a href ="Profile.aspx"><asp:Label runat="server" ID="lblBonjour" Text="Bonjour, "></asp:Label><asp:Label runat="server" ID="lblNomPrenomUtilisateur"></asp:Label></a></li>
-                        <li>
-                            <asp:HyperLink runat="server" ID="lnkPourquoiMenuConnecte" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
-                        <li>
-                            <asp:LinkButton runat="server" ID="lnkDeconnecter" Text="Déconnecter" OnClick="lnkDeconnecterClick"></asp:LinkButton></li>
-                    </ul>
-            </asp:Panel>
-        </header>
+            .btn-success {
+                background-color: rgb(54, 180, 54);
+                border: 1px solid rgb(54, 180, 54);
+            }
 
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-        <!-- Footer -->
-        <footer id="footer">
-            <div class="container">
-                <section class="links">
-                    <div class="row">
-                        <section class="3u 6u(medium) 12u$(small)">
-                            <h3>Navigation</h3>
-                            <ul class="unstyled">
-                                <li>
-                                    <asp:HyperLink runat="server" ID="lnkAccueilNavigation" Text="Accueil" NavigateUrl="Default.aspx"></asp:HyperLink>
-                                </li>
-                                <li>
-                                    <asp:HyperLink runat="server" ID="lnkPourquoiNavigation" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
+            .btn-inscrire {
+                background-color: white;
+                color: rgb(0, 0, 0);
+                padding-bottom: 10px;
+            }
 
-                                <li>
-                                    <asp:HyperLink runat="server" ID="lnkConnecterNavigation" Text="Se connecter" NavigateUrl="Connection.aspx"></asp:HyperLink></li>
-                                <li>
-                                    <asp:HyperLink runat="server" ID="lnkInscrireNavigation" Text="M'inscrire" NavigateUrl="Inscription.aspx"></asp:HyperLink></li>
-                            </ul>
-                        </section>
-                        <section class="3u 6u$(medium) 12u$(small)">
-                            <h3>Partenaire</h3>
-                            <ul class="unstyled">
-                                <li>
-                                    <asp:HyperLink runat="server" ID="lnkPartenaire1" Text="www.checkleprix.com" NavigateUrl="http:\\www.checkleprix.com" Target="_new"></asp:HyperLink>
-                                </li>
-                            </ul>
-                        </section>
-                    </div>
-                </section>
-                <div class="row">
-                    <div class="8u 12u$(medium)">
-                        <ul class="copyright">
-                            <li>&copy; Expedit'n Tous droits réservé. v<asp:Label runat="server" ID="lblVersion"></asp:Label></li>
+            .btn-standard {
+                letter-spacing: 1px;
+                font-weight: normal;
+                font-family: Raleway;
+                font-size: 1.35em;
+                background-color: #383b43;
+                color: white;
+            }
 
-                        </ul>
-                    </div>
-                    <div class="4u$ 12u$(medium)">
-                        <ul class="icons">
-                            <li>
-                                <a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
-                            </li>
-                            <li>
-                                <a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
-                            </li>
-                            <li>
-                                <a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
-                            </li>
-                            <li>
-                                <a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
-                            </li>
-                        </ul>
+            html, html a {
+                -webkit-font-smoothing: antialiased !important;
+                text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+            }
+
+            .controlEditable {
+                height: 45px;
+            }
+
+            .mbr-header__subtext {
+                font-style: normal;
+                font-size: 20px;
+            }
+        </style>
+
+
+        <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--sticky mbr-navbar--auto-collapse" id="ext_menu-0">
+            <div class="mbr-navbar__section mbr-section">
+                <div class="mbr-section__container container">
+                    <div class="mbr-navbar__container">
+                        <div class="mbr-navbar__column mbr-navbar__column--s mbr-navbar__brand">
+                            <span class="mbr-navbar__brand-link mbr-brand mbr-brand--inline">
+                                <span class="mbr-brand__name"><a class="mbr-brand__name text-white" href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;"><i class="fa fa-map-marker" style="color: white; font-size: 50px;"></i>Expedit'n</a></span>
+                            </span>
+                        </div>
+                        <div class="mbr-navbar__hamburger mbr-hamburger"><span class="mbr-hamburger__line"></span></div>
+                        <div class="mbr-navbar__column mbr-navbar__menu">
+                            <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
+                                <div class="mbr-navbar__column">
+                                    <asp:Panel ID="pnlDeconnecte" runat="server" Visible="True">
+                                        <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
+                                            <li class="mbr-navbar__item">
+                                                <asp:HyperLink runat="server" class="mbr-buttons__link btn text-white" ID="lnkAideMenu" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
+                                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="https://mobirise.com">LES 20 EXPÉDITIONS LES PLUS VUES</a></li>
+                                            <li class="mbr-navbar__item">
+                                                <asp:HyperLink runat="server" ID="lnkConnecterMenu" class="mbr-buttons__link btn text-white" Text="Se connecter" NavigateUrl="Identification.aspx"></asp:HyperLink>
+                                            </li>
+                                        </ul>
+                                        <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active">
+                                            <li class="mbr-navbar__item">
+                                                <div class="mbr-buttons__btn btn btn-inscrire"><i class="fa fa-check-circle" style="color: darkgray; font-size: 20px;"></i>
+                                                    <asp:HyperLink class="mbr-buttons__btn " runat="server" ID="lnkInscrireMenu" Text="M'inscrire" NavigateUrl="Inscription.aspx"></asp:HyperLink></div>
+                                            </li>
+                                        </ul>
+                                    </asp:Panel>
+
+                                    <asp:Panel ID="pnlConnecte" runat="server" Visible="True">
+                                        <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
+                                            <li class="mbr-navbar__item">
+                                                <a href="Profile.aspx" class="mbr-buttons__link btn text-white">
+                                                    <asp:Label runat="server" ID="lblBonjour" Text="Bonjour, "></asp:Label><asp:Label runat="server" ID="lblNomPrenomUtilisateur"></asp:Label></a>
+                                                <asp:LinkButton runat="server" class="mbr-buttons__link btn text-white" ID="lnkDeconnecter" Text="Déconnecter" OnClick="lnkDeconnecterClick"></asp:LinkButton>
+                                            </li>
+                                        </ul>
+                                        <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active">
+                                            <li class="mbr-navbar__item"><a class="mbr-buttons__btn btn btn-inscrire" href="https://mobirise.com"><i class="fa fa-check-circle" style="color: darkgray; font-size: 20px;"></i>M'INSCRIRE</a></li>
+                                        </ul>
+                                    </asp:Panel>
+
+                                </div>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
+        </section>
+
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+
+        <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="contacts3-8" style="background-color: rgb(60, 60, 60);">
+
+            <div class="mbr-section__container container">
+                <div class="mbr-contacts mbr-contacts--wysiwyg row" style="padding-top: 45px; padding-bottom: 45px;">
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p class="mbr-contacts__text">
+                                    <strong>NAVIGATION</strong><br>
+                                    Accueil<br>
+                                    Pourquoi<br>
+                                    Se connecter<br>
+                                    M'inscrire<br>
+                                    <strong>
+                                        <br>
+                                    </strong>© Expedit'n Tous droits réservé. vv<asp:Label runat="server" ID="lblVersion"></asp:Label><br>
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mbr-contacts__text"><strong>Partenaires</strong></p>
+                                <ul class="mbr-contacts__list">
+                                    <li><a class="mbr-contacts__link text-gray" href="https://mobirise.com/">w</a>ww.checkleprix.com</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mbr-contacts__column col-sm-4" data-form-type="formoid">
+                        <div data-form-alert="true">
+                            <div class="hide" data-form-alert-success="true">Thanks for filling out form!</div>
+                        </div>
+                        <form action="https://mobirise.com/" method="post" data-form-title="MESSAGE">
+                            <input type="hidden" value="AweUyO467kCExaU6qyGNWDAby/FrJg84wkptDDWt+tcsTiacuvC1pxWFnmfjG30+fAxopYmUV+YHv01+CHcMF6jJlQ/TC2ZIXrJTyDnK1t321pqRX7GHFbHxB3q3PlRg" data-form-email="true">
+
+                            <div class="form-group">
+                                <input type="email" class="form-control input-sm input-inverse" name="email" required="" placeholder="Email*" data-form-field="Email">
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-control input-sm input-inverse" name="message" rows="4" placeholder="Message" data-form-field="Message"></textarea>
+                            </div>
+                            <div class="mbr-buttons mbr-buttons--right btn-inverse">
+                                <button type="submit" class="mbr-buttons__btn btn btn-danger">CONTACTER-NOUS</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="assets/web/assets/jquery/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/smooth-scroll/SmoothScroll.js"></script>
+        <script src="assets/jarallax/jarallax.js"></script>
+        <!--[if lte IE 9]>
+      <script src="assets/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <![endif]-->
+        <script src="assets/mobirise/js/script.js"></script>
+        <script src="assets/dropdown-menu-plugin/script.js"></script>
+        <script src="assets/formoid/formoid.min.js"></script>
 
     </form>
 </body>
