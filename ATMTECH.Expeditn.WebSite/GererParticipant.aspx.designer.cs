@@ -94,12 +94,12 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.DataList listeParticipant;
         
         /// <summary>
-        /// Contrôle lnkPasserEtape3CreationExpedition.
+        /// Contrôle lnkRevenirTableauBord.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPasserEtape3CreationExpedition;
+        protected global::System.Web.UI.WebControls.HyperLink lnkRevenirTableauBord;
     }
 }

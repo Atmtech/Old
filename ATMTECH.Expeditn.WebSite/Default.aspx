@@ -94,7 +94,7 @@
     </section>
 
 
-    <asp:Repeater ID="listeExpedition" runat="server">
+    <asp:Repeater ID="listeExpedition" runat="server" Visible="False">
         <ItemTemplate>
             <section class="4u 6u(medium) 12u$(xsmall) profile">
                 <asp:Image runat="server" ID="imgExpedition" ImageUrl='<%# Eval("FichierImage") %>' Style="border-radius: 50%; width: 100px; height: 100px;" />

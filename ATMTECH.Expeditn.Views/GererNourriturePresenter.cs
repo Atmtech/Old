@@ -89,8 +89,7 @@ namespace ATMTECH.Expeditn.Views
             NourritureParticipant nourritureParticipant = new NourritureParticipant
             {
                 Participant = participant,
-                Nourriture = nourriture,
-                Montant = Convert.ToDecimal(montant)
+                Nourriture = nourriture
             };
             DAONourritureParticipant.Enregistrer(nourritureParticipant);
 

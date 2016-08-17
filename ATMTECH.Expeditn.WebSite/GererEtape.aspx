@@ -3,102 +3,67 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        .boutonAjout {
-            background-color: rgb(54, 180, 54);
-            color: white;
-            font-size: 12px;
-            border-radius: 20px;
-            padding-top: 2px;
-            padding-bottom: 2px;
-            padding-left: 10px;
-            padding-right: 10px;
-            text-decoration: none;
-            display: inline-block;
-            white-space: nowrap;
-            cursor: Pointer;
-        }
+    <br />
+    <br />
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="form1-11" style="background-color: rgb(239, 239, 239);">
+        <div class="mbr-section__container mbr-section__container--std-padding container">
 
-        .boutonEnlever {
-            background-color: rgb(255, 0, 0);
-            color: white;
-            font-size: 12px;
-            border-radius: 20px;
-            padding-top: 2px;
-            padding-bottom: 2px;
-            padding-left: 10px;
-            padding-right: 10px;
-            text-decoration: none;
-            display: inline-block;
-            white-space: nowrap;
-            cursor: Pointer;
-        }
-
-        .boutonModifier {
-            background-color: rgb(0, 160, 196);
-            color: white;
-            font-size: 12px;
-            border-radius: 20px;
-            padding-top: 2px;
-            padding-bottom: 2px;
-            padding-left: 10px;
-            padding-right: 10px;
-            text-decoration: none;
-            display: inline-block;
-            white-space: nowrap;
-            cursor: Pointer;
-        }
-    </style>
-    <section id="main" class="wrapper">
-        <div class="container">
             <asp:ScriptManager runat="server" ID="ScriptManager"></asp:ScriptManager>
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
 
-                    <h2>
+                    <h2 class="header2">
                         <asp:Label ID="lblEtape3CreationNouvelleEtape" runat="server" Text="Ajouter des activités"></asp:Label>
                         ::
                 <asp:Label ID="lblNomExpedition" runat="server" Text=""></asp:Label>
                     </h2>
 
-                    <table>
+                    <table style="width: 100%">
                         <tr>
                             <td>
-                                <div class="container 50%">
-                                    <asp:TextBox runat="server" ID="txtNomEtape" placeholder="Nom de l'étape" CssClass="TextBox"></asp:TextBox>
-                                    <asp:TextBox runat="server" ID="txtDebutEtape" placeholder="Date de début"></asp:TextBox>
-                                    <asp:TextBox runat="server" ID="txtFinEtape" placeholder="Date de fin"></asp:TextBox>
-                                    <div style="border-bottom: solid 1px gray">
-                                        <asp:Label ID="lblMoyenTransport" runat="server" Text="Moyen de transport"></asp:Label></div>
-                                    <asp:DropDownList runat="server" ID="ddlVehicule" placeholder="Vehicule"></asp:DropDownList>
+
+                                <div class="libelleChampsEditable">
+                                    <asp:Label ID="lblNomEtape" runat="server" Text="Nom de l'étape"></asp:Label>
                                 </div>
+                                <asp:TextBox runat="server" ID="txtNomEtape" placeholder="Nom de l'étape"  CssClass="controlEditable"></asp:TextBox>
+                                <div class="libelleChampsEditable">
+                                    <asp:Label ID="lblDateDebutEtape" runat="server" Text="Date de début"></asp:Label>
+                                </div>
+                                <asp:TextBox runat="server" ID="txtDebutEtape" placeholder="Date de début" CssClass="controlEditable"></asp:TextBox>
+                                <div class="libelleChampsEditable">
+                                    <asp:Label ID="lblDateFin" runat="server" Text="Date de fin"></asp:Label>
+                                </div>
+                                <asp:TextBox runat="server" ID="txtFinEtape" placeholder="Date de fin" CssClass="controlEditable"></asp:TextBox>
+                                <div style="border-bottom: solid 1px gray">
+                                    <asp:Label ID="lblMoyenTransport" runat="server" Text="Moyen de transport"></asp:Label>
+                                </div>
+                                <asp:DropDownList runat="server" ID="ddlVehicule" placeholder="Vehicule" CssClass="controlEditable"></asp:DropDownList>
+
                             </td>
-                            <td>
-                                <div class="container 50%">
-                                    <asp:TextBox runat="server" ID="txtDistance" placeholder="Distance"></asp:TextBox>
+                            <td style="vertical-align: top;">
+                                <div class="libelleChampsEditable">
+                                    <asp:Label ID="lblDistance" runat="server" Text="Distance"></asp:Label>
                                 </div>
+                                <asp:TextBox runat="server" ID="txtDistance" placeholder="Distance" CssClass="controlEditable"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
-                    <asp:LinkButton runat="server" ID="lnkAjouterActiviteExpedition" Text="Enregistrer cette activité" CssClass="button icon fa-plus" OnClick="lnkAjouterActiviteExpeditionClick"></asp:LinkButton>
+                    <br />
+                    <asp:LinkButton runat="server" ID="lnkAjouterActiviteExpedition" Text="Enregistrer cette activité" class="mbr-buttons__btn btn btn-standard" OnClick="lnkAjouterActiviteExpeditionClick"></asp:LinkButton>
                     <br />
                     <hr />
-                    <h2>
+                    <h2 class="header3">
                         <asp:Label ID="lblListeActivite" runat="server" Text="Liste des activités"></asp:Label>
                     </h2>
-
-
                     <asp:DataList ID="listeActivite" runat="server" OnItemCommand="listeActiviteItemCommand" OnItemDataBound="listeActiviteItemDataBound" RepeatDirection="Horizontal" RepeatColumns="3">
                         <ItemTemplate>
-
                             <div style="float: Left;">
                                 <img src="Images/Medias/AucuneImage.gif" alt="" style="border-radius: 50%;" />
                             </div>
                             <div style="padding-left: 10px; float: Left; padding-right: 15px; margin-bottom: 10px;">
-
                                 <b>
                                     <asp:Label runat="server" ID="lblNomActivite" Text='<%# Eval("Nom") + " (" + Eval("Distance") + " KM)"  %>'></asp:Label></b>
-                                <div style="font-size: 15px;">
+                                <div class="affichageListe" style="padding-bottom: 10px;">
                                     <asp:Label runat="server" ID="lblDateDebutListe" Text='<%# Eval("Debut","{0:yyyy-MM-dd}")  %>'></asp:Label>
                                     <i class="fa fa-hand-o-right"></i>
                                     <asp:Label runat="server" ID="lblDateFinListe" Text='<%# Eval("Fin","{0:yyyy-MM-dd}")  %>'></asp:Label><br />
@@ -108,43 +73,36 @@
                                 <asp:LinkButton runat="server" ID="lnkModifierActivite" Text="Modifier" CssClass="boutonModifier" CommandArgument='<%# Eval("Id")  %>' CommandName="modifier"></asp:LinkButton>
                             </div>
 
-                            <div style="clear: left;">
+                            <div style="clear: left;padding-bottom: 20px;">
                                 <b>
-                                    <asp:Label runat="server" ID="lblListeParticipant" Text="Liste participant"></asp:Label></b>
+                                    <asp:Label runat="server" ID="lblListeParticipant" Text="Liste des participants"></asp:Label></b>
                                 <br />
+                                <table>
+                                    <asp:Repeater ID="listeParticipant" runat="server" OnItemCommand="listeParticipantItemCommand">
+                                        <ItemTemplate>
+                                            <tr>
+                                                <td style="width: 25px;">
+                                                    <asp:Label runat="server" ID="lblIdEtapeParticipant" Text='<%# Eval("IdEtapeParticipant")  %>' Visible="False"></asp:Label>
+                                                    <asp:Label runat="server" ID="lblIdParticipant" Text='<%# Eval("IdParticipant")  %>' Visible="False"></asp:Label>
+                                                    <asp:Label runat="server" ID="lblIdEtape" Text='<%# Eval("Etape.Id")  %>' Visible="False"></asp:Label>
+                                                    <asp:LinkButton runat="server" ID="lnkRetirerParticipant" Text="Retirer" CssClass="boutonEnlever" Visible='<%# Convert.ToBoolean(Eval("EstParticipantEtape"))  %>' CommandName="retirer"></asp:LinkButton>
+                                                    <asp:LinkButton runat="server" ID="lnkAjouterParticipant" Text="Ajouter" CssClass="boutonAjout" Visible='<%# !Convert.ToBoolean(Eval("EstParticipantEtape"))  %>' CommandName="ajouter"></asp:LinkButton>
+                                                </td>
+                                                <td class="affichageSousListe" style="padding-left: 10px; padding-bottom: 10px;">
+                                                    <asp:Label runat="server" ID="lblParticipant" Text='<%# Eval("Utilisateur.FirstNameLastName")  %>'></asp:Label>
 
-                                <div style="font-size: 13px;">
-                                    <table>
-                                        <asp:Repeater ID="listeParticipant" runat="server" OnItemCommand="listeParticipantItemCommand">
-                                            <ItemTemplate>
-                                                <tr>
-                                                    <td style="width: 25px;">
-                                                        <asp:Label runat="server" ID="lblIdEtapeParticipant" Text='<%# Eval("IdEtapeParticipant")  %>' Visible="False"></asp:Label>
-                                                        <asp:Label runat="server" ID="lblIdParticipant" Text='<%# Eval("IdParticipant")  %>' Visible="False"></asp:Label>
-                                                        <asp:Label runat="server" ID="lblIdEtape" Text='<%# Eval("Etape.Id")  %>' Visible="False"></asp:Label>
-                                                        <asp:LinkButton runat="server" ID="lnkRetirerParticipant" Text="Retirer" CssClass="boutonEnlever" Visible='<%# Convert.ToBoolean(Eval("EstParticipantEtape"))  %>' CommandName="retirer"></asp:LinkButton>
-                                                        <asp:LinkButton runat="server" ID="lnkAjouterParticipant" Text="Ajouter" CssClass="boutonAjout" Visible='<%# !Convert.ToBoolean(Eval("EstParticipantEtape"))  %>' CommandName="ajouter"></asp:LinkButton>
-                                                    </td>
-                                                    <td>
-                                                        <asp:Label runat="server" ID="lblParticipant" Text='<%# Eval("Utilisateur.FirstNameLastName")  %>'></asp:Label>
-                                                        (<asp:Label runat="server" ID="lblMail" Text='<%# Eval("Utilisateur.Email")  %>'></asp:Label>)
-                                                <br />
-                                                    </td>
-
-                                                </tr>
-                                            </ItemTemplate>
-                                        </asp:Repeater>
-                                    </table>
-                                </div>
+                                                </td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </table>
                             </div>
                         </ItemTemplate>
                     </asp:DataList>
                     <br />
-                    <asp:LinkButton runat="server" ID="lnkPasserEtape4CreationEtape" Text="Création des menus" CssClass="button icon fa-save" OnClick="lnkPasserEtape4CreationExpeditionClick"></asp:LinkButton>
-
+                    <asp:HyperLink runat="server" ID="lnkRevenirTableauBord" class="mbr-buttons__btn btn btn-standard" Text="Revenir au tableau de bord" NavigateUrl="TableauBord.aspx"></asp:HyperLink>
                 </ContentTemplate>
             </asp:UpdatePanel>
-
         </div>
     </section>
 </asp:Content>

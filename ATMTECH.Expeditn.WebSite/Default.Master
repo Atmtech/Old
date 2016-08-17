@@ -1,121 +1,104 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ATMTECH.Expeditn.WebSite.Default" %>
 
-
-
-
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head runat="server">
-
-
     <meta charset="UTF-8">
     <title>Expedit'n</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
-    <link rel="stylesheet" href="site.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="assets/animate.css/animate.min.css">
     <link rel="stylesheet" href="assets/mobirise/css/style.css">
     <link rel="stylesheet" href="assets/dropdown-menu-plugin/style.css">
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-
-
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 
-
+    <link href="JQuery/jquery-ui-1.11.2/css/lightbox.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/jquery-ui.custom.css" rel="stylesheet" />
+    <link href="JQuery/jquery-ui-1.11.2/ComboBox.css" rel="stylesheet" />
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/external/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/ComboBox.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/autoNumeric.min.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.js"></script>
+    <script type="text/javascript" src="JQuery/jquery-ui-1.11.2/js/jssor.slider.js"></script>
+    <link rel="stylesheet" href="site.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-
 </head>
 <body>
+
+    <script type="text/javascript" src="<%= ResolveUrl("~/Javascript/Utilitaires.js") %>"></script>
+
+    <%-- Envoyer true à la fonction GererExpiration pour l'affichage du temps restant en bas de page. --%>
+    <script type="text/javascript">
+        $(function () {
+            InitialiserExpiration(20, '<%=ResolveUrl("~/Errors/SessionTimeout.html")%>', false);
+            $("#lnkImprimer").click(function () {
+                $('#impression').jqprint();
+                return false;
+            });
+        });
+
+    </script>
+
     <form id="form1" runat="server">
-        <style>
-            @import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
-            @import url(http://fonts.googleapis.com/css?family=Pacifico);
-
-            .mbr-header__text {
-                font-size: 45px;
-                font-family: Raleway;
-                font-weight: bold;
-                letter-spacing: 1px;
-                color: #474747;
-            }
-
-            .mbr-buttons__btn {
-                border-radius: 50px;
-            }
-
-            .btn-success {
-                background-color: rgb(54, 180, 54);
-                border: 1px solid rgb(54, 180, 54);
-            }
-
-            .btn-inscrire {
-                background-color: white;
-                color: rgb(0, 0, 0);
-                padding-bottom: 10px;
-            }
-
-            .btn-standard {
-                letter-spacing: 1px;
-                font-weight: normal;
-                font-family: Raleway;
-                font-size: 1.35em;
-                background-color: #383b43;
-                color: white;
-            }
-
-            html, html a {
-                -webkit-font-smoothing: antialiased !important;
-                text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-            }
-
-            .controlEditable {
-                height: 45px;
-            }
-
-            .mbr-header__subtext {
-                font-style: normal;
-                font-size: 20px;
-            }
-        </style>
-
-
         <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--sticky mbr-navbar--auto-collapse" id="ext_menu-0">
             <div class="mbr-navbar__section mbr-section">
                 <div class="mbr-section__container container">
                     <div class="mbr-navbar__container">
-                        <div class="mbr-navbar__column mbr-navbar__column--s mbr-navbar__brand">
-                            <span class="mbr-navbar__brand-link mbr-brand mbr-brand--inline">
-                                <span class="mbr-brand__name"><a class="mbr-brand__name text-white" href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;"><i class="fa fa-map-marker" style="color: white; font-size: 50px;"></i>Expedit'n</a></span>
-                            </span>
-                        </div>
-                        <div class="mbr-navbar__hamburger mbr-hamburger"><span class="mbr-hamburger__line"></span></div>
-                        <div class="mbr-navbar__column mbr-navbar__menu">
-                            <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
-                                <div class="mbr-navbar__column">
-                                    <asp:Panel ID="pnlDeconnecte" runat="server" Visible="True">
+
+
+                        <asp:Panel ID="pnlDeconnecte" runat="server" Visible="True">
+                            <div class="mbr-navbar__column mbr-navbar__column--s mbr-navbar__brand">
+                                <span class="mbr-navbar__brand-link mbr-brand mbr-brand--inline">
+                                    <span class="mbr-brand__name"><a class="mbr-brand__name text-white" href="Default.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;"><i class="fa fa-map-marker" style="color: white; font-size: 50px;"></i>Expedit'n</a></span>
+                                </span>
+                            </div>
+                            <div class="mbr-navbar__hamburger mbr-hamburger"><span class="mbr-hamburger__line"></span></div>
+                            <div class="mbr-navbar__column mbr-navbar__menu">
+                                <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
+                                    <div class="mbr-navbar__column">
+
                                         <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
                                             <li class="mbr-navbar__item">
                                                 <asp:HyperLink runat="server" class="mbr-buttons__link btn text-white" ID="lnkAideMenu" Text="Pourquoi" NavigateUrl="Pourquoi.aspx"></asp:HyperLink></li>
-                                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="https://mobirise.com">LES 20 EXPÉDITIONS LES PLUS VUES</a></li>
+                                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="https://mobirise.com">Top 20 expéditions</a></li>
                                             <li class="mbr-navbar__item">
                                                 <asp:HyperLink runat="server" ID="lnkConnecterMenu" class="mbr-buttons__link btn text-white" Text="Se connecter" NavigateUrl="Identification.aspx"></asp:HyperLink>
                                             </li>
                                         </ul>
                                         <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active">
                                             <li class="mbr-navbar__item">
-                                                <div class="mbr-buttons__btn btn btn-inscrire"><i class="fa fa-check-circle" style="color: darkgray; font-size: 20px;"></i>
-                                                    <asp:HyperLink class="mbr-buttons__btn " runat="server" ID="lnkInscrireMenu" Text="M'inscrire" NavigateUrl="Inscription.aspx"></asp:HyperLink></div>
+                                                <div class="mbr-buttons__btn btn btn-inscrire">
+                                                    <i class="fa fa-check-circle" style="color: darkgray; font-size: 20px;"></i>
+                                                    <asp:HyperLink class="mbr-buttons__btn " runat="server" ID="lnkInscrireMenu" Text="M'inscrire" NavigateUrl="Inscription.aspx"></asp:HyperLink>
+                                                </div>
                                             </li>
                                         </ul>
-                                    </asp:Panel>
+                                    </div>
+                                </nav>
+                            </div>
+                        </asp:Panel>
 
-                                    <asp:Panel ID="pnlConnecte" runat="server" Visible="True">
+
+
+
+                        <asp:Panel ID="pnlConnecte" runat="server" Visible="True">
+                            <div class="mbr-navbar__column mbr-navbar__column--s mbr-navbar__brand">
+                                <span class="mbr-navbar__brand-link mbr-brand mbr-brand--inline">
+                                    <span class="mbr-brand__name"><a class="mbr-brand__name text-white" href="TableauBord.aspx" style="font-family: Pacifico, sans-serif; font-size: 50px; text-decoration: none;"><i class="fa fa-map-marker" style="color: white; font-size: 50px;"></i>Expedit'n</a></span>
+                                </span>
+                            </div>
+                            <div class="mbr-navbar__hamburger mbr-hamburger"><span class="mbr-hamburger__line"></span></div>
+                            <div class="mbr-navbar__column mbr-navbar__menu">
+                                <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
+                                    <div class="mbr-navbar__column">
                                         <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
                                             <li class="mbr-navbar__item">
                                                 <a href="Profile.aspx" class="mbr-buttons__link btn text-white">
@@ -123,14 +106,11 @@
                                                 <asp:LinkButton runat="server" class="mbr-buttons__link btn text-white" ID="lnkDeconnecter" Text="Déconnecter" OnClick="lnkDeconnecterClick"></asp:LinkButton>
                                             </li>
                                         </ul>
-                                        <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active">
-                                            <li class="mbr-navbar__item"><a class="mbr-buttons__btn btn btn-inscrire" href="https://mobirise.com"><i class="fa fa-check-circle" style="color: darkgray; font-size: 20px;"></i>M'INSCRIRE</a></li>
-                                        </ul>
-                                    </asp:Panel>
+                                    </div>
+                                </nav>
+                            </div>
+                        </asp:Panel>
 
-                                </div>
-                            </nav>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -150,40 +130,34 @@
                             <div class="col-sm-6">
                                 <p class="mbr-contacts__text">
                                     <strong>NAVIGATION</strong><br>
-                                    Accueil<br>
-                                    Pourquoi<br>
-                                    Se connecter<br>
-                                    M'inscrire<br>
+
+                                    <asp:HyperLink runat="server" ID="lnkPourquoi" Text="Pourquoi" NavigateUrl="Pourquoi.aspx" CssClass="lienSansDecoration"></asp:HyperLink><br />
+                                    <asp:HyperLink runat="server" ID="lnkConnecter" Text="Se connecter" NavigateUrl="Identification.aspx" CssClass="lienSansDecoration"></asp:HyperLink><br />
+                                    <asp:HyperLink runat="server" ID="lnkMinscrire" Text="M'inscrire" NavigateUrl="Inscription.aspx" CssClass="lienSansDecoration"> </asp:HyperLink><br />
                                     <strong>
                                         <br>
-                                    </strong>© Expedit'n Tous droits réservé. vv<asp:Label runat="server" ID="lblVersion"></asp:Label><br>
+                                    </strong>© Expedit'n Tous droits réservé. v<asp:Label runat="server" ID="lblVersion"></asp:Label><br>
                                 </p>
                             </div>
                             <div class="col-sm-6">
                                 <p class="mbr-contacts__text"><strong>Partenaires</strong></p>
                                 <ul class="mbr-contacts__list">
-                                    <li><a class="mbr-contacts__link text-gray" href="https://mobirise.com/">w</a>ww.checkleprix.com</li>
+                                    
+                                    <li> <asp:HyperLink runat="server" ID="lnkPartenaire1" Text="www.checkleprix.com" NavigateUrl="http://www.checkleprix.com" CssClass="lienSansDecoration"></asp:HyperLink> </li>
+                                 
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="mbr-contacts__column col-sm-4" data-form-type="formoid">
-                        <div data-form-alert="true">
-                            <div class="hide" data-form-alert-success="true">Thanks for filling out form!</div>
+
+                    <div class="col-sm-4">
+                        <asp:TextBox runat="server" ID="txtEmail" placeholder="Email" CssClass="controlEditable" Style="background-color: black; margin-bottom: 4px;" TextMode="Email"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtMessage" placeholder="Message" TextMode="MultiLine" Rows="4" CssClass="controlEditable" Style="background-color: black; height: 100px"></asp:TextBox>
+                        <br />
+                        <div class="mbr-buttons mbr-buttons--right btn-inverse">
+                            <asp:Button runat="server" ID="btnContacterNous" Text="Contacter-nous" class="mbr-buttons__btn btn btn-success" />
                         </div>
-                        <form action="https://mobirise.com/" method="post" data-form-title="MESSAGE">
-                            <input type="hidden" value="AweUyO467kCExaU6qyGNWDAby/FrJg84wkptDDWt+tcsTiacuvC1pxWFnmfjG30+fAxopYmUV+YHv01+CHcMF6jJlQ/TC2ZIXrJTyDnK1t321pqRX7GHFbHxB3q3PlRg" data-form-email="true">
 
-                            <div class="form-group">
-                                <input type="email" class="form-control input-sm input-inverse" name="email" required="" placeholder="Email*" data-form-field="Email">
-                            </div>
-
-                            <div class="form-group">
-                                <textarea class="form-control input-sm input-inverse" name="message" rows="4" placeholder="Message" data-form-field="Message"></textarea>
-                            </div>
-                            <div class="mbr-buttons mbr-buttons--right btn-inverse">
-                                <button type="submit" class="mbr-buttons__btn btn btn-danger">CONTACTER-NOUS</button></div>
-                        </form>
                     </div>
                 </div>
             </div>

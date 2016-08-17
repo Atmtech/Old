@@ -46,6 +46,7 @@
     <Compile Include="DTO\AffichageSommeInvesti.cs" />
     <Compile Include="DTO\AffichageRepartitionMontant.cs" />
     <Compile Include="DTO\AffichageUtilisateurRecherche.cs" />
+    <Compile Include="NourritureMontant.cs" />
     <Compile Include="Pays.cs" />
     <Compile Include="Categorie.cs" />
     <Compile Include="EtapeParticipant.cs" />

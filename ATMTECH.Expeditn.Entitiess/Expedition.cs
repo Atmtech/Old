@@ -37,7 +37,7 @@ namespace ATMTECH.Expeditn.Entities
         public IList<Etape> Etape { get; set; }
         public IList<Nourriture> Nourriture { get; set; }
         public IList<Materiel> Materiel { get; set; }
-
+        public IList<NourritureMontant> NourritureMontant { get; set; }
 
         public Categorie Categorie { get; set; }
         public bool EstPrive { get; set; }

@@ -35,11 +35,11 @@ namespace ATMTECH.Expeditn.WebSite
                 listeDepenseParPersonne.DataSource = value;
                 listeDepenseParPersonne.DataBind();
 
-                lblGrandTotal.Text = value.Sum(x => x.MontantTotal).ToString();
-                lblTotalAutomobile.Text = value.Sum(x => x.MontantEtapeAutomobile).ToString();
-                lblTotalBateau.Text = value.Sum(x => x.MontantEtapeBateau).ToString();
-                lblTotalNourriture.Text = value.Sum(x => x.MontantNourriture).ToString();
-                lblTotalAutres.Text = value.Sum(x => x.MontantAutre).ToString();
+                lblGrandTotal.Text = value.Sum(x => x.MontantTotal).ToString("C");
+                lblTotalAutomobile.Text = value.Sum(x => x.MontantEtapeAutomobile).ToString("C");
+                lblTotalBateau.Text = value.Sum(x => x.MontantEtapeBateau).ToString("C");
+                lblTotalNourriture.Text = value.Sum(x => x.MontantNourriture).ToString("C");
+                lblTotalAutres.Text = value.Sum(x => x.MontantAutre).ToString("C");
             }
         }
 

@@ -112,6 +112,87 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.Label lblRepartitionDesDepenses;
         
         /// <summary>
+        /// Contrôle lblLibelleParticipant.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibelleParticipant;
+        
+        /// <summary>
+        /// Contrôle lblLibellePourcentageAutomobile.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibellePourcentageAutomobile;
+        
+        /// <summary>
+        /// Contrôle lblLibellePourcentageBateau.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibellePourcentageBateau;
+        
+        /// <summary>
+        /// Contrôle lblLibellePourcentageNourriture.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibellePourcentageNourriture;
+        
+        /// <summary>
+        /// Contrôle lblLibelleAutomobile.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibelleAutomobile;
+        
+        /// <summary>
+        /// Contrôle lblLibelleBateau.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibelleBateau;
+        
+        /// <summary>
+        /// Contrôle lblLibelleNourriture.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibelleNourriture;
+        
+        /// <summary>
+        /// Contrôle lblLibelleAutre.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibelleAutre;
+        
+        /// <summary>
+        /// Contrôle lblLibelleTotal.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibelleTotal;
+        
+        /// <summary>
         /// Contrôle listeRepartitionMontant.
         /// </summary>
         /// <remarks>
@@ -148,13 +229,13 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.Label lblRepartitionDepenseParParticipant;
         
         /// <summary>
-        /// Contrôle lblPourCeParticipant.
+        /// Contrôle lblSelectionnerParticipantRepartirDepense.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPourCeParticipant;
+        protected global::System.Web.UI.WebControls.Label lblSelectionnerParticipantRepartirDepense;
         
         /// <summary>
         /// Contrôle ddlParticipant.
@@ -218,5 +299,14 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkRepartitionDepenseAutre;
+        
+        /// <summary>
+        /// Contrôle lnkRevenirTableauBord.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkRevenirTableauBord;
     }
 }

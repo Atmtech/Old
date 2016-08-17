@@ -14,9 +14,7 @@ namespace ATMTECH.Expeditn.Entities
         public Participant Cuisinier { get; set; }
         public string NomExpedition { get { return Expedition.Nom; } }
         public IList<NourritureParticipant> NourritureParticipant { get; set; }
-
-
-
+        public int NombreNourritureParticipant { get { return NourritureParticipant.Count; } }
         public string NombreParticipant
         {
             get

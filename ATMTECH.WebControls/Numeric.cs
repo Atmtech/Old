@@ -17,6 +17,7 @@ namespace ATMTECH.WebControls
             }
         }
 
+        public new string CssClass { get { return _textBox.CssClass; } set { _textBox.CssClass = value; } }
         public string Text { get { return _textBox.Text; } set { _textBox.Text = value; } }
         public string ValidationGroup { get { return _textBox.ValidationGroup; } set { _textBox.ValidationGroup = value; } }
         public new Unit Width { get { return _textBox.Width; } set { _textBox.Width = value; } }
@@ -71,10 +72,7 @@ namespace ATMTECH.WebControls
             base.OnPreRender(e);
             string js = string.Empty;
 
-            js = "$(function () {  " +
-                       "$(\"input[name*='$" + _textBox.ID +
-                       "']\").autoNumeric('init')" +
-                       "});";
+            js = string.Format("$(function () {{$(\"input[name*='${0}']\").autoNumeric('init')" + "}});", _textBox.ID);
 
             Page.ClientScript.RegisterClientScriptBlock(typeof(Page), _textBox.ID, js, true);
         }

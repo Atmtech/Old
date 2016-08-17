@@ -16,6 +16,7 @@ namespace ATMTECH.Expeditn.DAO
         public IDAOFile DAOFile { get; set; }
         public IDAONourriture DAONourriture { get; set; }
         public IDAOGeoLocalisation DAOGeoLocalisation { get; set; }
+        public IDAONourritureMontant IdaoNourritureMontant { get;set;}
 
         public Expedition ObtenirExpedition(int id)
         {
@@ -37,6 +38,8 @@ namespace ATMTECH.Expeditn.DAO
             {
                 rtn.Nourriture = nourritures.OrderBy(x => x.OrderId).ToList();
             }
+
+            rtn.NourritureMontant = IdaoNourritureMontant.ObtenirNourritureMontant(rtn);
             return rtn;
 
         }

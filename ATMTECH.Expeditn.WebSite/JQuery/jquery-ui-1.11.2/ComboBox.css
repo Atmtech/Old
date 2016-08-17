@@ -3,7 +3,7 @@
     font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif";
     position: relative;
     display: inline-block;
-    font-size: 13px;
+    font-size: 10px;
 }
 
 
@@ -23,10 +23,10 @@
     height: 25px;
     margin: 0;
     padding: 3px 5px;
-    background-color: white;
+    color: white;
 }
 .ui-widget-content {
-    font-size: 13px;
+    font-size: 10px;
 }
 
 .ui-autocomplete {

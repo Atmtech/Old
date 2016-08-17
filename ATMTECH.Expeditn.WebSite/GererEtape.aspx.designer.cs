@@ -40,6 +40,15 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.Label lblNomExpedition;
         
         /// <summary>
+        /// Contrôle lblNomEtape.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNomEtape;
+        
+        /// <summary>
         /// Contrôle txtNomEtape.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.TextBox txtNomEtape;
         
         /// <summary>
+        /// Contrôle lblDateDebutEtape.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDateDebutEtape;
+        
+        /// <summary>
         /// Contrôle txtDebutEtape.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDebutEtape;
+        
+        /// <summary>
+        /// Contrôle lblDateFin.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDateFin;
         
         /// <summary>
         /// Contrôle txtFinEtape.
@@ -83,6 +110,15 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlVehicule;
+        
+        /// <summary>
+        /// Contrôle lblDistance.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDistance;
         
         /// <summary>
         /// Contrôle txtDistance.
@@ -121,12 +157,12 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.DataList listeActivite;
         
         /// <summary>
-        /// Contrôle lnkPasserEtape4CreationEtape.
+        /// Contrôle lnkRevenirTableauBord.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPasserEtape4CreationEtape;
+        protected global::System.Web.UI.WebControls.HyperLink lnkRevenirTableauBord;
     }
 }

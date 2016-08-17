@@ -49,6 +49,15 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.Label lblEstObligatoire;
         
         /// <summary>
+        /// Contrôle lblLibellePrenom.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibellePrenom;
+        
+        /// <summary>
         /// Contrôle txtPrenom.
         /// </summary>
         /// <remarks>
@@ -58,13 +67,31 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.TextBox txtPrenom;
         
         /// <summary>
-        /// Contrôle txtNomExpedition.
+        /// Contrôle lblLibelleNom.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibelleNom;
+        
+        /// <summary>
+        /// Contrôle txtNom.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNom;
+        
+        /// <summary>
+        /// Contrôle lblLibelleCourriel.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLibelleCourriel;
         
         /// <summary>
         /// Contrôle txtCourriel.
@@ -76,6 +103,15 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.TextBox txtCourriel;
         
         /// <summary>
+        /// Contrôle lblMotDePasse.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMotDePasse;
+        
+        /// <summary>
         /// Contrôle txtMotDePasse.
         /// </summary>
         /// <remarks>
@@ -83,6 +119,15 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMotDePasse;
+        
+        /// <summary>
+        /// Contrôle lblConfirmationMotDePasse.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConfirmationMotDePasse;
         
         /// <summary>
         /// Contrôle txtConfirmationMotDePasse.

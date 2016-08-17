@@ -341,11 +341,13 @@
     <Content Include="Javascript\Redirection.js" />
     <Content Include="Javascript\Utilitaires.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\autoNumeric.min.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\ComboBox.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\css\lightbox.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\css\screen.css" />
     <Content Include="JQuery\jquery-ui-1.11.2\external\jquery\jquery.js" />
+    <Content Include="JQuery\jquery-ui-1.11.2\external\jquery\jquery.min.js" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_glass_55_fbf9ee_1x400.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\images\ui-bg_glass_65_ffffff_1x400.png" />
@@ -368,6 +370,7 @@
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\a17.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\a21.png" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\b21.png" />
+    <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\black.jpg" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\blue.jpg" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\purple.jpg" />
     <Content Include="JQuery\jquery-ui-1.11.2\img\SlideShow\red.jpg" />
@@ -566,8 +569,6 @@
     <Content Include="fonts\iconFont.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
-    <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />
     <Content Include="Template\fonts\fontawesome-webfont.eot" />
     <Content Include="Template\fonts\fontawesome-webfont.ttf" />
     <Content Include="Template\fonts\fontawesome-webfont.woff" />
@@ -581,6 +582,8 @@
     <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="JQuery\jquery-ui-1.11.2\js\.DS_Store" />
+    <Content Include="JQuery\jquery-ui-1.11.2\js\lightbox.min.map" />
     <None Include="Properties\PublishProfiles\Expeditn.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

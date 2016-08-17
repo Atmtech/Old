@@ -30,7 +30,7 @@ namespace ATMTECH.Expeditn.Services
                 MessageService.ThrowMessage(CodeErreur.COURRIEL_EST_OBLIGATOIRE);
                 return;
             }
-            if (string.IsNullOrEmpty(utilisateur.Login))
+            if (string.IsNullOrEmpty(utilisateur.Password))
             {
                 MessageService.ThrowMessage(CodeErreur.MOT_PASSE_OBLIGATOIRE);
                 return;

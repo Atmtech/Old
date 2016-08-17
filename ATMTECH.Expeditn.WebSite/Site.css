@@ -1,4 +1,4 @@
-﻿input[type="text"],
+﻿/*input[type="text"],
 input[type="password"],
 input[type="email"],
 select,
@@ -21,11 +21,198 @@ textarea {
 }
 
 
-.estObligatoire
-{
+.estObligatoire {
     border: solid 4px green;
 }
 
 .noir {
     background-color: black;
+}*/
+
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+.mbr-header__text {
+    font-size: 45px;
+    font-family: Raleway;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #474747;
+}
+
+.header2 {
+    font-size: 35px;
+    font-family: Raleway;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #474747;
+}
+
+.header3 {
+    font-size: 20px;
+    font-family: Raleway;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #474747;
+}
+
+
+
+.mbr-buttons__btn {
+    border-radius: 50px;
+}
+
+.btn-success {
+    background-color: rgb(54, 180, 54);
+    border: 1px solid rgb(54, 180, 54);
+}
+
+.btn-inscrire {
+    background-color: white;
+    color: rgb(0, 0, 0);
+    padding-bottom: 10px;
+}
+
+.btn-standard {
+    letter-spacing: 1px;
+    font-weight: normal;
+    font-family: Raleway;
+    font-size: 15px;
+    background-color: #383b43;
+    color: white;
+}
+
+html, html a {
+    -webkit-font-smoothing: antialiased !important;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+.controlEditable {
+    background: rgb(230, 230, 230);
+    border: none;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    height: 35px;
+    font-family: Raleway;
+    margin: 0 0 0 0;
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.controlEditableMultiligne {
+    position: relative;
+    left: -5px;
+    font-family: Raleway;
+}
+
+
+
+.mbr-header__subtext {
+    font-style: normal;
+    font-size: 20px;
+}
+
+.libelleChampsEditable {
+    border-bottom: solid 1px rgb(190, 190, 190);
+    color: rgb(128, 128, 128);
+}
+
+.boutonAjout {
+    background-color: rgb(54, 180, 54);
+    color: white;
+    font-size: 12px;
+    border-radius: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: Pointer;
+    font-family: Raleway;
+}
+
+    .boutonAjout:hover {
+        text-decoration: none;
+        color: white;
+        background-color: rgb(66, 66, 66);
+    }
+
+
+.boutonEnlever {
+    font-family: Raleway;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    font-size: 12px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: Pointer;
+}
+
+    .boutonEnlever:hover {
+        text-decoration: none;
+        color: white;
+        background-color: rgb(66, 66, 66);
+    }
+
+.boutonModifier {
+    font-family: Raleway;
+    background-color: rgb(0, 160, 196);
+    color: white;
+    font-size: 12px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: Pointer;
+}
+
+    .boutonModifier:hover {
+        text-decoration: none;
+        color: white;
+        background-color: rgb(66, 66, 66);
+    }
+
+.affichageSousListe {
+    font-family: Raleway;
+    font-size: 12px;
+}
+
+.affichageListe {
+    font-family: Raleway;
+    font-size: 14px;
+}
+
+.lienSansDecoration {
+    text-decoration: none;
+    color: gray;
+}
+
+    .lienSansDecoration:hover {
+        text-decoration: none;
+        color: aliceblue;
+    }
+
+.ligneTableau {
+    border-bottom : solid 1px rgb(177, 177, 177);
+}
+.celluleTableau {
+    padding-right: 10px;
+    padding-left: 10px;
 }

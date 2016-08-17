@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAONourritureMontant.cs" />
     <Compile Include="DAOGeoLocalisation.cs" />
     <Compile Include="DAOPays.cs" />
     <Compile Include="DAOEtapeParticipant.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="DAOParticipant.cs" />
     <Compile Include="DAOExpedition.cs" />
     <Compile Include="Interface\IDAOGeoLocalisation.cs" />
+    <Compile Include="Interface\IDAONourritureMontant.cs" />
     <Compile Include="Interface\IDAOPays.cs" />
     <Compile Include="Interface\IDAOEtapeParticipant.cs" />
     <Compile Include="Interface\IDAONourritureParticipant.cs" />

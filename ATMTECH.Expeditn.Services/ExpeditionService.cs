@@ -24,6 +24,7 @@ namespace ATMTECH.Expeditn.Services
         public IDAOEtapeParticipant DAOEtapeParticipant { get; set; }
         public IDAOEtape DAOEtape { get; set; }
         public IReportService ReportService { get; set; }
+        public IDAONourritureMontant DAONourritureMontant { get; set; }
 
         public Expedition ObtenirExpedition(int id)
         {
@@ -67,12 +68,21 @@ namespace ATMTECH.Expeditn.Services
                 {
                     Expedition = participant.Expedition,
                     Utilisateur = participant.Utilisateur,
-                    MontantNourriture = CalculerTotalNourriture(expedition.Nourriture, participant),
+
                     MontantEtapeAutomobile = CalculerTotalEtapeParMoyenTransport(expedition.Etape, participant, TypeVehicule.Automobile),
                     MontantEtapeAvion = CalculerTotalEtapeParMoyenTransport(expedition.Etape, participant, TypeVehicule.Avion),
                     MontantEtapeBateau = CalculerTotalEtapeParMoyenTransport(expedition.Etape, participant, TypeVehicule.Bateau),
                     MontantAutre = CalculerTotalMontantAutre(expedition.Etape, participant),
                 };
+
+                if (expedition.NourritureMontant.Count > 0)
+                {
+                    NourritureMontant nourritureMontant = expedition.NourritureMontant.FirstOrDefault(x => x.Participant.Id == participant.Id);
+                    if (nourritureMontant != null)
+                    {
+                        affichageSommeInvesti.MontantNourriture = nourritureMontant.MontantInvesti;
+                    }
+                }
                 affichageSommeInvestis.Add(affichageSommeInvesti);
             }
 
@@ -80,20 +90,43 @@ namespace ATMTECH.Expeditn.Services
         }
         public void RepartirNourriture(Expedition expedition, string idParticipant, decimal montant)
         {
-            int compteNourriture = expedition.Nourriture.Count;
-            if (compteNourriture > 0)
+            foreach (Participant participant in expedition.Participant)
             {
-                decimal montantParRepas = montant / compteNourriture;
-                foreach (Nourriture nourriture in expedition.Nourriture)
+                NourritureMontant nourritureMontant = expedition.NourritureMontant.FirstOrDefault(x => x.Participant.Id == participant.Id);
+
+                if (nourritureMontant == null)
                 {
-                    foreach (NourritureParticipant nourritureParticipant in nourriture.NourritureParticipant.Where(x => x.Participant.Id == Convert.ToInt32(idParticipant)))
+                    nourritureMontant = new NourritureMontant
                     {
-                        nourritureParticipant.Montant = montantParRepas;
-                        DAONourritureParticipant.Enregistrer(nourritureParticipant);
-                    }
+                        Participant = participant,
+                        MontantInvesti = 0,
+                        MontantTotalAPayer = 0,
+                        Expedition = expedition
+                    };
+                    DAONourritureMontant.Enregistrer(nourritureMontant);
+                }
+            }
+
+            NourritureMontant nourritureMontantInvesti = DAONourritureMontant.ObtenirNourritureMontant(expedition).FirstOrDefault(x => x.Participant.Id == Convert.ToInt32(idParticipant));
+            nourritureMontantInvesti.Participant = DAOParticipant.ObtenirParticipant(expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(idParticipant));
+            nourritureMontantInvesti.MontantInvesti = montant;
+            DAONourritureMontant.Enregistrer(nourritureMontantInvesti);
+
+            IList<NourritureMontant> nourritureMontants = DAONourritureMontant.ObtenirNourritureMontant(expedition);
+            int nombreRepas = expedition.Nourriture.Sum(nourriture => nourriture.NourritureParticipant.Count);
+            if (nombreRepas > 0)
+            {
+                decimal montantParRepas = nourritureMontants.Sum(x => x.MontantInvesti) / nombreRepas;
+                foreach (NourritureMontant nourritureMontant1 in expedition.NourritureMontant)
+                {
+                    int nombreTotalRepasParticipant = expedition.Nourriture.Sum(nourriture => nourriture.NourritureParticipant.Count(x => x.Participant.Id == nourritureMontant1.Participant.Id));
+                    
+                    nourritureMontant1.MontantTotalAPayer = nombreTotalRepasParticipant * montantParRepas;
+                    DAONourritureMontant.Enregistrer(nourritureMontant1);
                 }
             }
         }
+
         public void RepartirAutomobile(Expedition expedition, string idParticipant, decimal montant)
         {
             RepartirMoyenTransport(expedition, idParticipant, montant, TypeVehicule.Automobile);
@@ -219,13 +252,7 @@ namespace ATMTECH.Expeditn.Services
             }
             return compte;
         }
-        private decimal CalculerTotalNourriture(IList<Nourriture> nourritures, Participant participant)
-        {
-            if (nourritures != null)
-                return Math.Round(nourritures.Sum(nourriture => nourriture.NourritureParticipant.Where(x => x.Participant.Id == participant.Id).Sum(x => x.Montant)), 2);
-            return 0;
 
-        }
         private decimal CalculerTotalEtapeParMoyenTransport(IList<Etape> etapes, Participant participant, TypeVehicule typeVehicule)
         {
             if (etapes != null)

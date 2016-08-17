@@ -5,10 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <br />
-
-
     <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="form1-11" style="background-color: rgb(239, 239, 239);">
-
         <div class="mbr-section__container mbr-section__container--std-padding container" style="padding-top: 93px; padding-bottom: 93px;">
             <div class="row">
                 <div class="col-sm-12">
@@ -22,18 +19,23 @@
                                 </p>
                             </div>
 
-                            <div class="form-group">
-                                <asp:TextBox runat="server" ID="txtNomUtilisateur" placeholder="Courriel" TextMode="Email" CssClass="controlEditable"></asp:TextBox>
+                            <div class="libelleChampsEditable">
+                                <asp:Label ID="lblCourriel" runat="server" Text="Entrer votre courriel"></asp:Label>
                             </div>
-                            
-                              <asp:TextBox runat="server" ID="txtMotPasse" placeholder="Mot de passe" class="controlEditable"></asp:TextBox>
+
+                            <asp:TextBox runat="server" ID="txtNomUtilisateur" placeholder="Courriel" TextMode="Email" CssClass="controlEditable"></asp:TextBox>
+
+                            <div class="libelleChampsEditable">
+                                <asp:Label ID="lblMotDePasse" runat="server" Text="Entrer votre mot de passe"></asp:Label>
+                            </div>
+                            <asp:TextBox runat="server" ID="txtMotPasse" placeholder="Mot de passe" class="controlEditable"></asp:TextBox>
                             <br />
                             <div class="mbr-buttons mbr-buttons--center btn-inverse">
                                 <asp:Button runat="server" ID="lnkIdentifiezVous" Text="Se connecter" class="mbr-buttons__btn btn btn-standard" OnClick="lnkIdentifiezVousClick"></asp:Button><br />
                             </div>
                             <br />
                             <div class="mbr-buttons mbr-buttons--center btn-inverse">
-                                <asp:Button runat="server" ID="lnkJAiOublieMonMotDePasse" Text="J'ai oublié mon mot de passe" class="mbr-buttons__btn btn btn-standard" OnClick="lnkIdentifiezVousClick"></asp:Button>
+                                <asp:Button runat="server" ID="lnkJAiOublieMonMotDePasse" Visible="False" Text="J'ai oublié mon mot de passe" class="mbr-buttons__btn btn btn-standard" OnClick="lnkIdentifiezVousClick"></asp:Button>
                             </div>
 
                         </div>
