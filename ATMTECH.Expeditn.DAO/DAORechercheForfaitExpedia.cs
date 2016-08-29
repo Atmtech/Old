@@ -19,5 +19,10 @@ namespace ATMTECH.Expeditn.DAO
 
             return GetById(id);
         }
+
+        public int Enregistrer(RechercheForfaitExpedia rechercheForfaitExpedia)
+        {
+            return Save(rechercheForfaitExpedia);
+        }
     }
 }

@@ -13,6 +13,15 @@ namespace ATMTECH.Expeditn.WebSite {
     public partial class VoirHistoriqueForfaitExpedia {
         
         /// <summary>
+        /// Contrôle lblHistoriqueForfaitExpedia.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHistoriqueForfaitExpedia;
+        
+        /// <summary>
         /// Contrôle lblNom.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,60 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNom;
+        
+        /// <summary>
+        /// Contrôle lblDateDepartLe.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDateDepartLe;
+        
+        /// <summary>
+        /// Contrôle lblDateDepart.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDateDepart;
+        
+        /// <summary>
+        /// Contrôle lblPourunedureeDe.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPourunedureeDe;
+        
+        /// <summary>
+        /// Contrôle lblNombreJour.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreJour;
+        
+        /// <summary>
+        /// Contrôle lblNombreJourVacance.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreJourVacance;
+        
+        /// <summary>
+        /// Contrôle btnVoirRechercheSurExpedia.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink btnVoirRechercheSurExpedia;
         
         /// <summary>
         /// Contrôle lblFiltrerPageAvecUnHotel.
@@ -47,15 +110,6 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnVoirTous;
-        
-        /// <summary>
-        /// Contrôle btnVoirRechercheSurExpedia.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink btnVoirRechercheSurExpedia;
         
         /// <summary>
         /// Contrôle lblStatistiqueHistoriquePrix.
@@ -155,5 +209,14 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater listeHistoriqueForfaitExpedia;
+        
+        /// <summary>
+        /// Contrôle lnkRevenirTableauBord.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkRevenirTableauBord;
     }
 }

@@ -329,6 +329,9 @@
     <Content Include="Images\LogoExpedia.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\LogoExpediaFull.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Medias\AucuneImage.gif" />
     <Content Include="Images\Medias\AucuneImageParticipant.gif" />
     <Content Include="Images\Website\dark_tint.png" />

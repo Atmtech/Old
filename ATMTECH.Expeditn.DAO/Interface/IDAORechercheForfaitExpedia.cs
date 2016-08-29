@@ -7,5 +7,6 @@ namespace ATMTECH.Expeditn.DAO.Interface
     {
         IList<RechercheForfaitExpedia> ObtenirRechercheForfaitExpedia();
         RechercheForfaitExpedia ObtenirRechercheForfaitExpedia(int id);
+        int Enregistrer(RechercheForfaitExpedia rechercheForfaitExpedia);
     }
 }

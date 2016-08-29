@@ -33,7 +33,10 @@ namespace ATMTECH.Expeditn.WebSite
         {
             set
             {
-             
+                btnVoirRechercheSurExpedia.NavigateUrl = value.First().RechercheForfaitExpedia.Url;
+                lblNom.Text = value.First().RechercheForfaitExpedia.Nom;
+                lblDateDepart.Text = value.First().DateDepart.ToString();
+                lblNombreJour.Text = value.First().NombreJour.ToString();
 
                 HistoriqueForfaitExpedia maximum = value.FirstOrDefault(x => x.Prix == value.Max(z => z.Prix));
                 HistoriqueForfaitExpedia minimum = value.FirstOrDefault(x => x.Prix == value.Min(z => z.Prix));
@@ -48,7 +51,7 @@ namespace ATMTECH.Expeditn.WebSite
                 lblForfaitPlusCherCompagnie.Text = maximum.CompagnieOrganisatrice;
                 lblForfaitPlusCherDate.Text = maximum.DateCreated.ToString();
 
-                lblNom.Text = value.First().RechercheForfaitExpedia.Nom;
+               
                 listeHistoriqueForfaitExpedia.DataSource = value;
                 listeHistoriqueForfaitExpedia.DataBind();
             }

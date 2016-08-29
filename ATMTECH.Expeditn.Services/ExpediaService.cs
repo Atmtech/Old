@@ -25,7 +25,6 @@ namespace ATMTECH.Expeditn.Services
         {
            return DAORechercheForfaitExpedia.ObtenirRechercheForfaitExpedia(id);
         }
-
         public void ObtenirPrixRechercheForfaitExpedia()
         {
             IList<RechercheForfaitExpedia> rechercheForfaitExpedias = new DAORechercheForfaitExpedia().ObtenirRechercheForfaitExpedia();
@@ -35,13 +34,10 @@ namespace ATMTECH.Expeditn.Services
             }
 
         }
-
-        
         public IList<RechercheForfaitExpedia> ObtenirRechercheForfaitExpedia(User utilisateur)
         {
             return DAORechercheForfaitExpedia.ObtenirRechercheForfaitExpedia().Where(x => x.Utilisateur.Id == utilisateur.Id).ToList();
         }
-
         public IList<HistoriqueForfaitExpedia> ObtenirHistoriqueForfaitExpedia(RechercheForfaitExpedia rechercheForfaitExpedia)
         {
             IList<HistoriqueForfaitExpedia> obtenirHistoriqueForfaitExpedia = DAOHistoriqueForfaitExpedia.ObtenirHistoriqueForfaitExpedia(rechercheForfaitExpedia);
@@ -50,6 +46,10 @@ namespace ATMTECH.Expeditn.Services
                 historiqueForfaitExpedia.RechercheForfaitExpedia = rechercheForfaitExpedia;
             }
             return obtenirHistoriqueForfaitExpedia;
+        }
+        public int EnregistrerRechercheForfaitExpedia(RechercheForfaitExpedia rechercheForfaitExpedia)
+        {
+            return DAORechercheForfaitExpedia.Enregistrer(rechercheForfaitExpedia);
         }
 
         private void ObtenirPrix(RechercheForfaitExpedia rechercheForfaitExpedia)

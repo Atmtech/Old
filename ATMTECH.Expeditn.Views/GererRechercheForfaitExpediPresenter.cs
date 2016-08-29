@@ -30,7 +30,12 @@ namespace ATMTECH.Expeditn.Views
 
         public void Enregistrer()
         {
-            throw new System.NotImplementedException();
+            RechercheForfaitExpedia rechercheForfaitExpedia = new RechercheForfaitExpedia
+            {
+                Nom = View.Nom,
+                Url = View.Url
+            };
+            ExpediaService.EnregistrerRechercheForfaitExpedia(rechercheForfaitExpedia);
         }
     }
 }
