@@ -47,6 +47,16 @@ namespace ATMTECH.Expeditn.WebSite
         {
             set
             {
+
+                lblTotalPourcentageAutomobile.Text = (value.Sum(x => x.NombrePresenceEtapeAutomobile) / value.Sum(x => x.NombreTotalEtapeAutomobile)).ToString("P");
+                lblTotalPourcentageBateau.Text = (value.Sum(x => x.NombrePresenceEtapeBateau) / value.Sum(x => x.NombreTotalEtapeBateau)).ToString("P");
+                lblTotalPourcentageNourriture.Text = (value.Sum(x => x.NombreRepas) / value.Sum(x => x.NombreTotalRepas)).ToString("P");
+                lblTotalAutomobileRepartition.Text = value.Sum(x => x.MontantAvecPourcentageDuTotalAutomobile).ToString("C");
+                lblTotalBateauRepartition.Text = value.Sum(x => x.MontantAvecPourcentageDuTotalBateau).ToString("C");
+                lblTotalNourritureRepartition.Text = value.Sum(x => x.MontantAvecPourcentageDesRepas).ToString("C");
+                lblTotalAutresRepartition.Text = value.Sum(x => x.MontantAvecPourcentageAutres).ToString("C");
+                lblGrandTotalRepartition.Text = value.Sum(x => x.MontantTotal).ToString("C");
+
                 listeRepartitionMontant.DataSource = value;
                 listeRepartitionMontant.DataBind();
             } 

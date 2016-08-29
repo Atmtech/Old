@@ -23,6 +23,18 @@ namespace ATMTECH.Expeditn.WebSite
             }
         }
 
+        public IList<RechercheForfaitExpedia> MesRechercheForfaitExpedias
+        {
+            set
+            {
+                if (value.Count > 0)
+                {
+                    listeMesSuiviPrix.DataSource = value;
+                    listeMesSuiviPrix.DataBind();
+                }
+            }
+        }
+
         public User Utilisateur { get; set; }
 
         protected void lnkAjouterUneExpeditionClick(object sender, EventArgs e)
@@ -61,5 +73,20 @@ namespace ATMTECH.Expeditn.WebSite
 
         }
 
+        protected void listeMesSuiviPrixItemCommand(object source, DataListCommandEventArgs e)
+        {
+            int idRechercheForfaitExpedia = Convert.ToInt32(((Label)e.Item.FindControl("lblIdRechercheForfaitExpedia")).Text);
+
+            if (e.CommandName == "voirListePrix")
+            {
+                Presenter.VoirListePrix(idRechercheForfaitExpedia);
+            }
+
+        }
+
+        protected void btnAjouterUnSuiviDePrixClick(object sender, EventArgs e)
+        {
+            Presenter.AjouterRechercheForfaitExpedia();
+        }
     }
 }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("ATMTECH.Administration")]
+[assembly: AssemblyTitle("ATMTECH.Expeditn.Sniper")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ATMTECH.Administration")]
+[assembly: AssemblyProduct("ATMTECH.Expeditn.Sniper")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("27edefe3-b7ac-4394-b349-6209f2e9c49f")]
+[assembly: Guid("6f0ba5be-4c2c-43bd-ac44-6e55ace215d6")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //
@@ -31,7 +31,6 @@ using System.Runtime.InteropServices;
 //
 // Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut 
 // en utilisant '*', comme indiqué ci-dessous :
-// [assembly: AssemblyVersion("1.0.86")]
-[assembly: AssemblyVersion("1.0.88.0")]
-[assembly: AssemblyFileVersion("1.0.88.0")]
-
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

@@ -7,5 +7,7 @@ namespace ATMTECH.Expeditn.DAO.Interface
     {
         IList<NourritureMontant> ObtenirNourritureMontant(Expedition expedition);
         int Enregistrer(NourritureMontant nourritureMontant);
+        void InitialiserNourritureMontant(Expedition expedition);
+        void InitialiserNourritureMontantParticipant(Expedition expedition, int idParticipant, decimal montant);
     }
 }

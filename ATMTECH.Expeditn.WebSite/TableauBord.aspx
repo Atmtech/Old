@@ -24,7 +24,7 @@
                         <div style="float: Left;">
                             <asp:Image runat="server" ID="imgExpedition" ImageUrl='<%# Eval("FichierImage") %>' Style="border-radius: 50%; width: 100px; height: 100px;" />
                         </div>
-                        <div style="padding-left: 10px; float: Left; ">
+                        <div style="padding-left: 10px; float: Left;">
                             <b>
                                 <asp:Label runat="server" ID="lblNomExpedition" Text='<%# Eval("Nom").ToString() %>'></asp:Label>
                             </b>
@@ -42,9 +42,44 @@
                                 <asp:LinkButton runat="server" ID="lnkModifierRepartitionPaieme" Text="&nbsp;Répartition du budget" CssClass="boutonModifier" CommandName="modifierRepartitionBudget"></asp:LinkButton>
                             </div>
                         </div>
-                      <div style="padding-top: 125px;"   ></div>
+                        <div style="padding-top: 125px;"></div>
                     </ItemTemplate>
                 </asp:DataList>
+
+                <h2 class="header2">
+                    <asp:Label runat="server" ID="lblSuiviForfaitExpedia" Text="Suivi des prix par"></asp:Label> <img src="Images/LogoExpediaFull.png"/></h2>
+                <asp:Button runat="server" ID="btnAjouterUnSuiviDePrix" Text="Ajouter un suivi de prix" class="mbr-buttons__btn btn btn-standard" OnClick="btnAjouterUnSuiviDePrixClick"></asp:Button>
+
+                <br />
+                <br />
+
+
+                <asp:DataList ID="listeMesSuiviPrix" runat="server" RepeatDirection="Vertical" OnItemCommand="listeMesSuiviPrixItemCommand">
+                    <ItemTemplate>
+                        <div style="float: Left;">
+                            <asp:Image runat="server" ID="imgExpedia" ImageUrl="Images/LogoExpedia.png" Style="border-radius: 50%; width: 100px; height: 100px;" />
+                        </div>
+                        <div style="padding-left: 10px; float: Left;">
+                            <b>
+                                <asp:Label runat="server" ID="lblNomSuivi" Text='<%# Eval("Nom").ToString() %>'></asp:Label>
+                            </b>
+                            <div style="font-size: 13px;">
+                                <asp:Label runat="server" ID="lblDateDepart" Text='<%# Eval("DateDepart","{0:yyyy-MM-dd}")  %>'></asp:Label>
+                                <i class="fa fa-hand-o-right"></i>
+                                <asp:Label runat="server" ID="lblNombreJour" Text='<%# Eval("NombreJour")  %>'></asp:Label>
+                                <asp:Label runat="server" ID="lblJour" Text="jours"></asp:Label>
+                            </div>
+                            <div>
+                                <asp:Label runat="server" ID="lblIdRechercheForfaitExpedia" Text='<%# Eval("Id")  %>' Visible="False"></asp:Label>
+                                 <asp:LinkButton runat="server" ID="lnkVoirListePrix" Text="Voir liste prix" Class="boutonModifier" CommandName="voirListePrix"></asp:LinkButton>
+                                 <asp:LinkButton runat="server" ID="lnkSupprimerRecherchePrix" Text="Supprimer ce suivi" Class="boutonEnlever" CommandName="supprimerSuiviPrix"></asp:LinkButton>
+                            </div>
+                        </div>
+                        <div style="padding-top: 125px;"></div>
+                    </ItemTemplate>
+                </asp:DataList>
+
+
             </div>
         </div>
     </section>

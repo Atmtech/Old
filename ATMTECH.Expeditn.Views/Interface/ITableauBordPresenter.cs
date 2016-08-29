@@ -8,6 +8,7 @@ namespace ATMTECH.Expeditn.Views.Interface
     public interface ITableauBordPresenter : IViewBase
     {
         IList<Expedition> MesExpeditions { set; }
-        User Utilisateur { get; set; }
+        IList<RechercheForfaitExpedia> MesRechercheForfaitExpedias { set; }
+            User Utilisateur { get; set; }
     }
 }

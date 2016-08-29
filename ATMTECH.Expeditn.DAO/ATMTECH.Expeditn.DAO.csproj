@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAORechercheForfaitExpedia.cs" />
+    <Compile Include="DAOHistoriqueForfaitExpedia.cs" />
     <Compile Include="DAONourritureMontant.cs" />
     <Compile Include="DAOGeoLocalisation.cs" />
     <Compile Include="DAOPays.cs" />
@@ -53,6 +55,8 @@
     <Compile Include="DAOMateriel.cs" />
     <Compile Include="DAOParticipant.cs" />
     <Compile Include="DAOExpedition.cs" />
+    <Compile Include="Interface\IDAOHistoriqueForfaitExpedia.cs" />
+    <Compile Include="Interface\IDAORechercheForfaitExpedia.cs" />
     <Compile Include="Interface\IDAOGeoLocalisation.cs" />
     <Compile Include="Interface\IDAONourritureMontant.cs" />
     <Compile Include="Interface\IDAOPays.cs" />

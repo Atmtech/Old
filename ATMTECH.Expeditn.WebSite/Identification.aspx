@@ -34,10 +34,11 @@
                                 <asp:Button runat="server" ID="lnkIdentifiezVous" Text="Se connecter" class="mbr-buttons__btn btn btn-standard" OnClick="lnkIdentifiezVousClick"></asp:Button><br />
                             </div>
                             <br />
-                            <div class="mbr-buttons mbr-buttons--center btn-inverse">
-                                <asp:Button runat="server" ID="lnkJAiOublieMonMotDePasse" Visible="False" Text="J'ai oublié mon mot de passe" class="mbr-buttons__btn btn btn-standard" OnClick="lnkIdentifiezVousClick"></asp:Button>
-                            </div>
-
+                            <asp:Panel runat="server" DefaultButton="lnkJAiOublieMonMotDePasse">
+                                <div class="mbr-buttons mbr-buttons--center btn-inverse">
+                                    <asp:Button runat="server" ID="lnkJAiOublieMonMotDePasse" Visible="False" Text="J'ai oublié mon mot de passe" class="mbr-buttons__btn btn btn-standard" OnClick="lnkIdentifiezVousClick"></asp:Button>
+                                </div>
+                            </asp:Panel>
                         </div>
                     </div>
                 </div>

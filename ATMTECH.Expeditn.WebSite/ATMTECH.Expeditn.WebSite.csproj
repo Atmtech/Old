@@ -325,6 +325,10 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Identification.aspx" />
+    <Content Include="Images\Logo.png" />
+    <Content Include="Images\LogoExpedia.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Medias\AucuneImage.gif" />
     <Content Include="Images\Medias\AucuneImageParticipant.gif" />
     <Content Include="Images\Website\dark_tint.png" />
@@ -427,6 +431,8 @@
     <Content Include="Test.html" />
     <Content Include="UserControls\MessageInformation.ascx" />
     <Content Include="UserControls\Utilisateur.ascx" />
+    <Content Include="GererRechercheForfaitExpedia.aspx" />
+    <Content Include="VoirHistoriqueForfaitExpedia.aspx" />
     <Content Include="VoirExpedition.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -547,6 +553,20 @@
     </Compile>
     <Compile Include="UserControls\Utilisateur.ascx.designer.cs">
       <DependentUpon>Utilisateur.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GererRechercheForfaitExpedia.aspx.cs">
+      <DependentUpon>GererRechercheForfaitExpedia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GererRechercheForfaitExpedia.aspx.designer.cs">
+      <DependentUpon>GererRechercheForfaitExpedia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VoirHistoriqueForfaitExpedia.aspx.cs">
+      <DependentUpon>VoirHistoriqueForfaitExpedia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VoirHistoriqueForfaitExpedia.aspx.designer.cs">
+      <DependentUpon>VoirHistoriqueForfaitExpedia.aspx</DependentUpon>
     </Compile>
     <Compile Include="VoirExpedition.aspx.cs">
       <DependentUpon>VoirExpedition.aspx</DependentUpon>

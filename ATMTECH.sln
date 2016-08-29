@@ -229,6 +229,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMTECH.CalculPeche.Service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMTECH.CalculPeche.Views", "ATMTECH.CalculPeche.Views\ATMTECH.CalculPeche.Views.csproj", "{C5913571-2CC8-4ABB-A186-5FEC6D529522}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMTECH.Expeditn.Sniper", "ATMTECH.Expeditn.Sniper\ATMTECH.Expeditn.Sniper.csproj", "{115F9719-9735-45C4-B2BE-35E175E0C5CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AvecTestSansAnalyse|Any CPU = AvecTestSansAnalyse|Any CPU
@@ -2061,6 +2063,31 @@ Global
 		{C5913571-2CC8-4ABB-A186-5FEC6D529522}.TFS_BUILD_Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{C5913571-2CC8-4ABB-A186-5FEC6D529522}.TFS_BUILD_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{C5913571-2CC8-4ABB-A186-5FEC6D529522}.TFS_BUILD_Debug|x86.ActiveCfg = Debug|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.AvecTestSansAnalyse|Any CPU.ActiveCfg = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.AvecTestSansAnalyse|Any CPU.Build.0 = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.AvecTestSansAnalyse|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.AvecTestSansAnalyse|Mixed Platforms.Build.0 = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.AvecTestSansAnalyse|x86.ActiveCfg = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.Release|x86.ActiveCfg = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.SansTestNiAnalyse|Any CPU.ActiveCfg = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.SansTestNiAnalyse|Any CPU.Build.0 = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.SansTestNiAnalyse|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.SansTestNiAnalyse|Mixed Platforms.Build.0 = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.SansTestNiAnalyse|x86.ActiveCfg = Release|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.TFS_BUILD_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.TFS_BUILD_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.TFS_BUILD_Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.TFS_BUILD_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC}.TFS_BUILD_Debug|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -2142,6 +2169,7 @@ Global
 		{0E1E6638-8A20-4CA2-AD74-49A10742E761} = {0439B933-15F6-4939-BCF6-869E4AECB40C}
 		{FB2BA5F6-7E1E-4E95-8602-37071D61E79A} = {0439B933-15F6-4939-BCF6-869E4AECB40C}
 		{C5913571-2CC8-4ABB-A186-5FEC6D529522} = {0439B933-15F6-4939-BCF6-869E4AECB40C}
+		{115F9719-9735-45C4-B2BE-35E175E0C5CC} = {50F1C2FF-30EA-4327-90C7-CBAF038E0BFB}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ATMTECH.vsmdi

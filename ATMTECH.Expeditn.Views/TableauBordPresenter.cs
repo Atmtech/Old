@@ -11,6 +11,7 @@ namespace ATMTECH.Expeditn.Views
     public class TableauBordPresenter : BaseExpeditnPresenter<ITableauBordPresenter>
     {
         public IExpeditionService ExpeditionService { get; set; }
+        public IExpediaService ExpediaService { get; set; }
 
         public TableauBordPresenter(ITableauBordPresenter view)
             : base(view)
@@ -21,6 +22,13 @@ namespace ATMTECH.Expeditn.Views
         {
             base.OnViewInitialized();
             AfficherListeExpedition();
+            AfficherListeRechercheForfaitExpedia();
+        }
+
+        private void AfficherListeRechercheForfaitExpedia()
+        {
+            View.MesRechercheForfaitExpedias =
+                ExpediaService.ObtenirRechercheForfaitExpedia(AuthenticationService.AuthenticateUser);
         }
 
         public void AfficherListeExpedition()
@@ -71,6 +79,18 @@ namespace ATMTECH.Expeditn.Views
         public void RedirigerProfile()
         {
             NavigationService.Redirect(Pages.PROFILE);
+        }
+
+        public void VoirListePrix(int idRechercheForfaitExpedia)
+        {
+            IList<QueryString> queryStrings = new List<QueryString>();
+            queryStrings.Add(new QueryString { Name = BaseEntity.ID, Value = idRechercheForfaitExpedia.ToString() });
+            NavigationService.Redirect(Pages.VOIR_HISTORIQUE_FORFAIT_EXPEDIA, queryStrings);
+        }
+
+        public void AjouterRechercheForfaitExpedia()
+        {
+            NavigationService.Redirect(Pages.GERER_RECHERCHE_FORFAIT_EXPEDIA);
         }
     }
 }

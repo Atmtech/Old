@@ -41,7 +41,7 @@
                                         <asp:Label runat="server" ID="Label4" Text='<%# Eval("MontantNourriture","{0:c}")  %>' Visible="True"></asp:Label></td>
                                     <td class="celluleTableau">
                                         <asp:Label runat="server" ID="Label5" Text='<%# Eval("MontantAutre","{0:c}")  %>' Visible="True"></asp:Label></td>
-                                    <td class="celluleTableau" style="background-color: rgb(213, 226, 228);text-align: right">
+                                    <td class="celluleTableau" style="background-color: rgb(213, 226, 228); text-align: right">
                                         <asp:Label runat="server" ID="Label3" Text='<%# Eval("MontantTotal","{0:c}")  %>' Visible="True"></asp:Label></td>
                                 </tr>
                             </ItemTemplate>
@@ -57,7 +57,7 @@
                                 <asp:Label runat="server" ID="lblTotalNourriture"></asp:Label></b></td>
                             <td class="celluleTableau"><b>
                                 <asp:Label runat="server" ID="lblTotalAutres"></asp:Label></b></td>
-                            <td class="celluleTableau" style="background-color: rgb(213, 226, 228);text-align: right"><b>
+                            <td class="celluleTableau" style="background-color: rgb(213, 226, 228); text-align: right"><b>
                                 <asp:Label runat="server" ID="lblGrandTotal"></asp:Label></b></td>
                         </tr>
                     </table>
@@ -66,20 +66,29 @@
                     </h3>
 
                     <table>
-                       <tr class="ligneTableau">
-                            <td  class="celluleTableau"><b><asp:label runat="server" id="lblLibelleParticipant" Text="Participant"></asp:label></b></td>
-                            <td class="celluleTableau"><b><asp:label runat="server" id="lblLibellePourcentageAutomobile" Text="% Automobile"></asp:label></b></td>
-                            <td class="celluleTableau"><b><asp:label runat="server" id="lblLibellePourcentageBateau" Text="% Bateau"></asp:label></b></td>
-                            <td class="celluleTableau"><b><asp:label runat="server" id="lblLibellePourcentageNourriture" Text="% Nourriture"></asp:label></b></td>
-                            <td class="celluleTableau"><b><asp:label runat="server" id="lblLibelleAutomobile" Text="Automobile"></asp:label></b></td>
-                            <td class="celluleTableau"><b><asp:label runat="server" id="lblLibelleBateau" Text="Bateau"></asp:label></b></td>
-                            <td class="celluleTableau"><b><asp:label runat="server" id="lblLibelleNourriture" Text="Nourriture"></asp:label></b></td>
-                            <td class="celluleTableau"><b><asp:label runat="server" id="lblLibelleAutre" Text="Autres"></asp:label></b></td>
-                            <td class="celluleTableau"><b><asp:label runat="server" id="lblLibelleTotal" Text="Total"></asp:label></b></td>
+                        <tr class="ligneTableau">
+                            <td class="celluleTableau"><b>
+                                <asp:Label runat="server" ID="lblLibelleParticipant" Text="Participant"></asp:Label></b></td>
+                            <td class="celluleTableau"><b>
+                                <asp:Label runat="server" ID="lblLibellePourcentageAutomobile" Text="% Automobile"></asp:Label></b></td>
+                            <td class="celluleTableau"><b>
+                                <asp:Label runat="server" ID="lblLibellePourcentageBateau" Text="% Bateau"></asp:Label></b></td>
+                            <td class="celluleTableau"><b>
+                                <asp:Label runat="server" ID="lblLibellePourcentageNourriture" Text="% Nourriture"></asp:Label></b></td>
+                            <td class="celluleTableau"><b>
+                                <asp:Label runat="server" ID="lblLibelleAutomobile" Text="Automobile"></asp:Label></b></td>
+                            <td class="celluleTableau"><b>
+                                <asp:Label runat="server" ID="lblLibelleBateau" Text="Bateau"></asp:Label></b></td>
+                            <td class="celluleTableau"><b>
+                                <asp:Label runat="server" ID="lblLibelleNourriture" Text="Nourriture"></asp:Label></b></td>
+                            <td class="celluleTableau"><b>
+                                <asp:Label runat="server" ID="lblLibelleAutre" Text="Autres"></asp:Label></b></td>
+                            <td class="celluleTableau"><b>
+                                <asp:Label runat="server" ID="lblLibelleTotal" Text="Total"></asp:Label></b></td>
                         </tr>
                         <asp:Repeater ID="listeRepartitionMontant" runat="server">
                             <ItemTemplate>
-                               <tr class="ligneTableau">
+                                <tr class="ligneTableau">
                                     <td class="celluleTableau">
                                         <asp:Label runat="server" ID="lblUtilisateur" Text='<%# Eval("Utilisateur.FirstNameLastName")  %>' Visible="True"></asp:Label></td>
                                     <td class="celluleTableau">
@@ -96,12 +105,34 @@
                                         <asp:Label runat="server" ID="Label9" Text='<%# Eval("MontantAvecPourcentageDesRepas","{0:c}") %>' Visible="True"></asp:Label></td>
                                     <td class="celluleTableau">
                                         <asp:Label runat="server" ID="Label12" Text='<%# Eval("MontantAvecPourcentageAutres","{0:c}") %>' Visible="True"></asp:Label></td>
-                                    <td class="celluleTableau" style="background-color: rgb(213, 226, 228);text-align: right">
+                                    <td class="celluleTableau" style="background-color: rgb(213, 226, 228); text-align: right">
                                         <asp:Label runat="server" ID="Label10" Text='<%# Eval("MontantTotal","{0:c}") %>' Visible="True"></asp:Label></td>
                                 </tr>
                             </ItemTemplate>
-                        </asp:Repeater>
 
+
+                        </asp:Repeater>
+                        <tr class="ligneTableau">
+                            <td class="celluleTableau">
+                                <b>
+                                    <asp:Label runat="server" ID="lblGrandTotal2" Text="Grand total:"></asp:Label></b></td>
+                            <td class="celluleTableau">
+                                <asp:Label runat="server" ID="lblTotalPourcentageAutomobile"></asp:Label></td>
+                            <td class="celluleTableau">
+                                <asp:Label runat="server" ID="lblTotalPourcentageBateau"></asp:Label></td>
+                            <td class="celluleTableau">
+                                <asp:Label runat="server" ID="lblTotalPourcentageNourriture"></asp:Label></td>
+                            <td class="celluleTableau">
+                                <asp:Label runat="server" ID="lblTotalAutomobileRepartition"></asp:Label></td>
+                            <td class="celluleTableau">
+                                <asp:Label runat="server" ID="lblTotalBateauRepartition"></asp:Label></td>
+                            <td class="celluleTableau">
+                                <asp:Label runat="server" ID="lblTotalNourritureRepartition"></asp:Label></td>
+                            <td class="celluleTableau">
+                                <asp:Label runat="server" ID="lblTotalAutresRepartition"></asp:Label></td>
+                            <td class="celluleTableau" style="background-color: rgb(213, 226, 228); text-align: right">
+                                <asp:Label runat="server" ID="lblGrandTotalRepartition" ></asp:Label></td>
+                        </tr>
                     </table>
 
                     <h3 class="header3">
@@ -111,7 +142,7 @@
 
                         <asp:Repeater ID="listeMontantDu" runat="server">
                             <ItemTemplate>
-                               <tr class="ligneTableau">
+                                <tr class="ligneTableau">
                                     <td class="celluleTableau">
                                         <asp:Label runat="server" ID="Label8" Text='<%# Eval("Payeur.FirstNameLastName") %>' Visible="True"></asp:Label></td>
                                     <td class="celluleTableau">Doit</td>

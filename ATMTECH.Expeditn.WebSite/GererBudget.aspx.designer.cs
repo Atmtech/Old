@@ -202,6 +202,87 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.Repeater listeRepartitionMontant;
         
         /// <summary>
+        /// Contrôle lblGrandTotal2.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGrandTotal2;
+        
+        /// <summary>
+        /// Contrôle lblTotalPourcentageAutomobile.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalPourcentageAutomobile;
+        
+        /// <summary>
+        /// Contrôle lblTotalPourcentageBateau.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalPourcentageBateau;
+        
+        /// <summary>
+        /// Contrôle lblTotalPourcentageNourriture.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalPourcentageNourriture;
+        
+        /// <summary>
+        /// Contrôle lblTotalAutomobileRepartition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalAutomobileRepartition;
+        
+        /// <summary>
+        /// Contrôle lblTotalBateauRepartition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalBateauRepartition;
+        
+        /// <summary>
+        /// Contrôle lblTotalNourritureRepartition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalNourritureRepartition;
+        
+        /// <summary>
+        /// Contrôle lblTotalAutresRepartition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalAutresRepartition;
+        
+        /// <summary>
+        /// Contrôle lblGrandTotalRepartition.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGrandTotalRepartition;
+        
+        /// <summary>
         /// Contrôle lblMontantDu.
         /// </summary>
         /// <remarks>

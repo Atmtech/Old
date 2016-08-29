@@ -33,5 +33,33 @@ namespace ATMTECH.Expeditn.DAO
         {
             return Save(nourritureMontant);
         }
+
+        public void InitialiserNourritureMontant(Expedition expedition)
+        {
+            foreach (Participant participant in expedition.Participant)
+            {
+                NourritureMontant nourritureMontant =
+                    expedition.NourritureMontant.FirstOrDefault(x => x.Participant.Id == participant.Id) ??
+                    new NourritureMontant
+                    {
+                        Participant = participant,
+                        MontantInvesti = 0,
+                        MontantTotalAPayer = 0,
+                        Expedition = expedition
+                    };
+
+                Enregistrer(nourritureMontant);
+            }
+        }
+
+        public void InitialiserNourritureMontantParticipant(Expedition expedition, int idParticipant, decimal montant)
+        {
+            ExecuteSql("UPDATE NourritureMontant SET MontantTotalAPayer = 0 WHERE Expedition = " + expedition.Id);
+
+            NourritureMontant nourritureMontant = ObtenirNourritureMontant(expedition).FirstOrDefault(x => x.Participant.Id == idParticipant);
+            nourritureMontant.MontantInvesti = montant;
+            Enregistrer(nourritureMontant);
+            
+        }
     }
 }

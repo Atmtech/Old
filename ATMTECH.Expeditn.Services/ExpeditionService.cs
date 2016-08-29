@@ -90,28 +90,10 @@ namespace ATMTECH.Expeditn.Services
         }
         public void RepartirNourriture(Expedition expedition, string idParticipant, decimal montant)
         {
-            foreach (Participant participant in expedition.Participant)
-            {
-                NourritureMontant nourritureMontant = expedition.NourritureMontant.FirstOrDefault(x => x.Participant.Id == participant.Id);
+            DAONourritureMontant.InitialiserNourritureMontant(expedition);
+            DAONourritureMontant.InitialiserNourritureMontantParticipant(expedition, Convert.ToInt32(idParticipant), montant);
 
-                if (nourritureMontant == null)
-                {
-                    nourritureMontant = new NourritureMontant
-                    {
-                        Participant = participant,
-                        MontantInvesti = 0,
-                        MontantTotalAPayer = 0,
-                        Expedition = expedition
-                    };
-                    DAONourritureMontant.Enregistrer(nourritureMontant);
-                }
-            }
-
-            NourritureMontant nourritureMontantInvesti = DAONourritureMontant.ObtenirNourritureMontant(expedition).FirstOrDefault(x => x.Participant.Id == Convert.ToInt32(idParticipant));
-            nourritureMontantInvesti.Participant = DAOParticipant.ObtenirParticipant(expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(idParticipant));
-            nourritureMontantInvesti.MontantInvesti = montant;
-            DAONourritureMontant.Enregistrer(nourritureMontantInvesti);
-
+            expedition = ObtenirExpedition(expedition.Id);
             IList<NourritureMontant> nourritureMontants = DAONourritureMontant.ObtenirNourritureMontant(expedition);
             int nombreRepas = expedition.Nourriture.Sum(nourriture => nourriture.NourritureParticipant.Count);
             if (nombreRepas > 0)
@@ -120,7 +102,7 @@ namespace ATMTECH.Expeditn.Services
                 foreach (NourritureMontant nourritureMontant1 in expedition.NourritureMontant)
                 {
                     int nombreTotalRepasParticipant = expedition.Nourriture.Sum(nourriture => nourriture.NourritureParticipant.Count(x => x.Participant.Id == nourritureMontant1.Participant.Id));
-                    
+
                     nourritureMontant1.MontantTotalAPayer = nombreTotalRepasParticipant * montantParRepas;
                     DAONourritureMontant.Enregistrer(nourritureMontant1);
                 }

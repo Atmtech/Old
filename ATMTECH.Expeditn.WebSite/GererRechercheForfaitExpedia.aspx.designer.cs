@@ -10,60 +10,60 @@
 namespace ATMTECH.Expeditn.WebSite {
     
     
-    public partial class TableauBord {
+    public partial class GererRechercheForfaitExpedi {
         
         /// <summary>
-        /// Contrôle lblMesExpedition.
+        /// Contrôle lblAjouterUneRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMesExpedition;
+        protected global::System.Web.UI.WebControls.Label lblAjouterUneRecherche;
         
         /// <summary>
-        /// Contrôle lnkAjouterUneExpedition.
+        /// Contrôle lblDescriptifDestination.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAjouterUneExpedition;
+        protected global::System.Web.UI.WebControls.Label lblDescriptifDestination;
         
         /// <summary>
-        /// Contrôle listeMesExpeditions.
+        /// Contrôle txtDescriptifDestination.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList listeMesExpeditions;
+        protected global::System.Web.UI.WebControls.TextBox txtDescriptifDestination;
         
         /// <summary>
-        /// Contrôle lblSuiviForfaitExpedia.
+        /// Contrôle lblUrl.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSuiviForfaitExpedia;
+        protected global::System.Web.UI.WebControls.Label lblUrl;
         
         /// <summary>
-        /// Contrôle btnAjouterUnSuiviDePrix.
+        /// Contrôle txtUrl.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjouterUnSuiviDePrix;
+        protected global::System.Web.UI.WebControls.TextBox txtUrl;
         
         /// <summary>
-        /// Contrôle listeMesSuiviPrix.
+        /// Contrôle lnkEnregistrerRechercheForfaitExpedia.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList listeMesSuiviPrix;
+        protected global::System.Web.UI.WebControls.LinkButton lnkEnregistrerRechercheForfaitExpedia;
     }
 }

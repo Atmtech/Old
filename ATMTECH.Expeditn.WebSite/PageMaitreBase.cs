@@ -56,6 +56,25 @@ namespace ATMTECH.Expeditn.WebSite
             if (id == "lblNombreKilometre") return true;
             if (id == "lblMessageInformationErreur") return true;
             if (id == "lblMessageInformationSucces") return true;
+            if (id == "lblIdParticipant") return true;
+            if (id == "lblIdNourriture") return true;
+            if (id == "lblIdNourritureParticipant") return true;
+            if (id == "lblDateNourriture") return true;
+            if (id == "Label1") return true;
+            if (id == "Label2") return true;
+            if (id == "Label3") return true;
+            if (id == "Label4") return true;
+            if (id == "Label5") return true;
+            if (id == "Label6") return true;
+            if (id == "Label7") return true;
+            if (id == "Label8") return true;
+            if (id == "Label9") return true;
+            if (id == "Label10") return true;
+            if (id == "Label11") return true;
+            if (id == "Label12") return true;
+            if (id == "Label13") return true;
+            if (id == "lblIdExpedition") return true;
+
             return false;
         }
         private void Localiser()

@@ -44,6 +44,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IGererRechercheForfaitExpediPresenter.cs" />
+    <Compile Include="GererRechercheForfaitExpediPresenter.cs" />
+    <Compile Include="VoirHistoriqueForfaitExpediaPresenter.cs" />
+    <Compile Include="Interface\IVoirHistoriqueForfaitExpediaPresenter.cs" />
     <Compile Include="ProfilePresenter.cs" />
     <Compile Include="GererBudgetPresenter.cs" />
     <Compile Include="Interface\IProfilePresenter.cs" />

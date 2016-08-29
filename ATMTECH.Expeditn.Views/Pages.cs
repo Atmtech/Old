@@ -13,6 +13,9 @@
         public const string GERER_NOURRITURE = "GererNourriture.aspx";
         public const string GERER_BUDGET = "GererBudget.aspx";
         public const string VOIR_EXPEDITION = "VoirExpedition.aspx";
+        public const string VOIR_HISTORIQUE_FORFAIT_EXPEDIA = "VoirHistoriqueForfaitExpedia.aspx";
+        public const string GERER_RECHERCHE_FORFAIT_EXPEDIA = "GererRechercheForfaitExpedia.aspx";
+        
         public const string PROFILE = "Profile.aspx";
     }
 
