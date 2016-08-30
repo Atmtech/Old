@@ -95,11 +95,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Rapports\HistoriqueForfaitExpedia.rdlc" />
     <EmbeddedResource Include="Rapports\Menu.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\ATMTECH.Expeditn.Entities.DTO.AffichageHistoriqueForfaitExpedia.datasource" />
     <None Include="Properties\DataSources\ATMTECH.Expeditn.Entities.Nourriture.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

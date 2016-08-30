@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using ATMTECH.Expeditn.Entities;
 using ATMTECH.Expeditn.Views;
 using ATMTECH.Expeditn.Views.Interface;
 using ATMTECH.Web;
+using Microsoft.Reporting.WebForms;
 
 namespace ATMTECH.Expeditn.WebSite
 {
@@ -54,6 +57,17 @@ namespace ATMTECH.Expeditn.WebSite
                
                 listeHistoriqueForfaitExpedia.DataSource = value;
                 listeHistoriqueForfaitExpedia.DataBind();
+
+
+                Assembly assembly = Assembly.LoadFrom(@"C:\dev\Atmtech\ATMTECH.Expeditn.WebSite\bin\ATMTECH.Expeditn.Services.dll");
+                Stream stream = assembly.GetManifestResourceStream("ATMTECH.Expeditn.Services.Rapports.HistoriqueForfaitExpedia.rdlc");
+                ReportViewer1.LocalReport.LoadReportDefinition(stream);
+                ReportViewer1.SizeToReportContent = true;
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportDataSource reportDataSource = new ReportDataSource("dsHistorique", Presenter.ObtenirAffichageHistoriqueForfaitExpedia());
+                ReportViewer1.LocalReport.DataSources.Add(reportDataSource);
+                ReportViewer1.LocalReport.Refresh();
+
             }
         }
 

@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BudgetParticipant.cs" />
+    <Compile Include="DTO\AffichageHistoriqueForfaitExpedia.cs" />
     <Compile Include="DTO\AffichageMontantDu.cs" />
     <Compile Include="DTO\AffichageParticipantNourriture.cs" />
     <Compile Include="DTO\AffichageParticipantEtape.cs" />

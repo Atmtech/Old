@@ -52,6 +52,30 @@ namespace ATMTECH.Expeditn.Services
             return DAORechercheForfaitExpedia.Enregistrer(rechercheForfaitExpedia);
         }
 
+        public IList<AffichageHistoriqueForfaitExpedia> ObtenirAffichageHistoriqueForfaitExpedia()
+        {
+            RechercheForfaitExpedia rechercheForfaitExpedia =
+                DAORechercheForfaitExpedia.ObtenirRechercheForfaitExpedia(1);
+            IList<HistoriqueForfaitExpedia> obtenirHistoriqueForfaitExpedia = DAOHistoriqueForfaitExpedia.ObtenirHistoriqueForfaitExpedia(rechercheForfaitExpedia);
+
+            IList<AffichageHistoriqueForfaitExpedia> historiqueHotelPrixDates = new List<AffichageHistoriqueForfaitExpedia>();
+            foreach (HistoriqueForfaitExpedia historiqueForfaitExpedia in obtenirHistoriqueForfaitExpedia)
+            {
+                if (!historiqueHotelPrixDates.Any(x => x.NomHotel == historiqueForfaitExpedia.NomHotel && x.Prix == historiqueForfaitExpedia.Prix))
+                {
+                    AffichageHistoriqueForfaitExpedia historiqueHotelPrixDate = new AffichageHistoriqueForfaitExpedia
+                    {
+                        NomHotel = historiqueForfaitExpedia.NomHotel,
+                        Prix = historiqueForfaitExpedia.Prix,
+                        Date = historiqueForfaitExpedia.DateCreated
+                    };
+                    historiqueHotelPrixDates.Add(historiqueHotelPrixDate);
+                }
+            }
+            return historiqueHotelPrixDates.OrderBy(x => x.Prix).ToList();
+        }
+
+
         private void ObtenirPrix(RechercheForfaitExpedia rechercheForfaitExpedia)
         {
             string url = rechercheForfaitExpedia.Url;

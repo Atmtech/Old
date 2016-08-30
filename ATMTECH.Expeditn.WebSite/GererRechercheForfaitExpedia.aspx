@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="form1-11" style="background-color: rgb(239, 239, 239);">
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="form1-11" style="background-color: white;">
         <div class="mbr-section__container mbr-section__container--std-padding container">
 
             <h2 class="header2">

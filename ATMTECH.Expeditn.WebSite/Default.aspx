@@ -1,13 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ATMTECH.Expeditn.WebSite.Default1" %>
+<%@ Register TagPrefix="rsweb" Namespace="Microsoft.Reporting.WebForms" Assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <section class="engine"><a rel="external" href="https://mobirise.com">mobile website software</a></section>
     <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header1-4" style="background-image: url(assets/images/trip1-4032x3024-40.jpg);">
         <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
             <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(34, 34, 34);"></div>
+            
+          
             <div class="mbr-box__container mbr-section__container container">
                 <div class="mbr-box mbr-box--stretched">
                     <div class="mbr-box__magnet mbr-box__magnet--center-center">

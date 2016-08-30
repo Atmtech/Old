@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.Entities;
 using ATMTECH.Expeditn.Entities;
+using ATMTECH.Expeditn.Entities.DTO;
 
 namespace ATMTECH.Expeditn.Services.Interface
 {
@@ -11,5 +12,6 @@ namespace ATMTECH.Expeditn.Services.Interface
         IList<RechercheForfaitExpedia> ObtenirRechercheForfaitExpedia(User utilisateur);
         IList<HistoriqueForfaitExpedia> ObtenirHistoriqueForfaitExpedia(RechercheForfaitExpedia rechercheForfaitExpedia);
         int EnregistrerRechercheForfaitExpedia(RechercheForfaitExpedia rechercheForfaitExpedia);
+        IList<AffichageHistoriqueForfaitExpedia> ObtenirAffichageHistoriqueForfaitExpedia();
     }
 }

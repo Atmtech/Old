@@ -13,6 +13,15 @@ namespace ATMTECH.Expeditn.WebSite {
     public partial class VoirHistoriqueForfaitExpedia {
         
         /// <summary>
+        /// Contrôle test.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager test;
+        
+        /// <summary>
         /// Contrôle lblHistoriqueForfaitExpedia.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace ATMTECH.Expeditn.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHistoriqueForfaitExpedia;
+        
+        /// <summary>
+        /// Contrôle ReportViewer1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
         
         /// <summary>
         /// Contrôle lblNom.
