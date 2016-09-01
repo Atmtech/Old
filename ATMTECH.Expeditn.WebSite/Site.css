@@ -181,12 +181,16 @@ html, html a {
     display: inline-block;
     white-space: nowrap;
     cursor: Pointer;
+    
 }
 
     .boutonModifier:hover {
         text-decoration: none;
         color: white;
         background-color: rgb(66, 66, 66);
+    }
+    .boutonModifier:after {
+          text-decoration: none;
     }
 
 .affichageSousListe {

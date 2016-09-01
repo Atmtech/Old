@@ -8,5 +8,6 @@ namespace ATMTECH.Expeditn.Views.Interface
     {
         string Nom { get; set; }
         string Url { get; set; }
+        string Date { get; set; }
     }
 }

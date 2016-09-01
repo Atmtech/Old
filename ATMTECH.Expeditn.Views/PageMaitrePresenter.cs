@@ -12,7 +12,7 @@ namespace ATMTECH.Expeditn.Views
         {
         }
 
-
+        public IMailService MailService { get; set; }
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
@@ -39,5 +39,10 @@ namespace ATMTECH.Expeditn.Views
         //{
         //   // GoogleMapService.AfficherImage("1318 rue des frênes Canada Lévis", TypeCarteAffiche.Satellite);
         //}
+        public void EnvoyerCourrielCommentaire()
+        {
+            MailService.SendEmail("atmtech.vincent@gmail.com", "contact@expeditn.com", "Question sur le site web",
+                string.Format("Courriel:<br>{0}<br>" + "Message:<br>{1}", View.Courriel, View.Message));
+        }
     }
 }

@@ -37,9 +37,17 @@ namespace ATMTECH.Expeditn.WebSite
             }
         }
 
+        public string Courriel { get { return txtEmail.Text; } }
+        public string Message { get { return txtMessage.Text; } }
+
         protected void lnkDeconnecterClick(object sender, EventArgs e)
         {
             Presenter.Deconnecter();
+        }
+
+        protected void btnContacterNousClick(object sender, EventArgs e)
+        {
+            Presenter.EnvoyerCourrielCommentaire();
         }
     }
 }

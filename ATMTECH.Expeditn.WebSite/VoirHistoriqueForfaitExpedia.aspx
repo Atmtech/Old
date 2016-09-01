@@ -18,7 +18,7 @@
                         <asp:Label runat="server" ID="lblHistoriqueForfaitExpedia" Text="Historique des forfaits "></asp:Label>
                         <img src="Images/LogoExpediaFull.png" />
                     </h2>
-                    <rsweb:ReportViewer ID="ReportViewer1" runat="server" ShowBackButton="False" ShowFindControls="False" ShowPageNavigationControls="False" Width="100%" BackColor="white"></rsweb:ReportViewer>
+
 
 
                     <table style="width: 50%;">
@@ -94,35 +94,44 @@
                     <h3 class="header3">
                         <asp:Label runat="server" ID="lblListePrix" Text="Historique des prix"></asp:Label>
                     </h3>
+                    
+                       
 
 
-                    <table>
-                        <tr class="ligneTableau">
-                            <td class="celluleTableau"><b>Hotel</b></td>
-                            <td class="celluleTableau"><b>Compagnie</b></td>
-                            <td class="celluleTableau"><b>Prix ($)</b></td>
-                            <td class="celluleTableau"><b>Étoile</b></td>
-                            <td class="celluleTableau"><b>Date</b></td>
-                        </tr>
-                        <asp:Repeater ID="listeHistoriqueForfaitExpedia" runat="server">
-                            <ItemTemplate>
-                                <tr class="ligneTableau">
+                    <asp:Panel runat="server" ID="pnlHistorique" Visible="False">
+                        <asp:Button runat="server" ID="btnVoirGraphiqueHistorique" Text="Voir le graphique de l'historique" class="mbr-buttons__btn btn btn-standard" OnClick="btnVoirGraphiqueHistoriqueClick"></asp:Button>
+                        <table>
+                            <tr class="ligneTableau">
+                                <td class="celluleTableau"><b>Hotel</b></td>
+                                <td class="celluleTableau"><b>Compagnie</b></td>
+                                <td class="celluleTableau"><b>Prix ($)</b></td>
+                                <td class="celluleTableau"><b>Étoile</b></td>
+                                <td class="celluleTableau"><b>Date</b></td>
+                            </tr>
+                            <asp:Repeater ID="listeHistoriqueForfaitExpedia" runat="server">
+                                <ItemTemplate>
+                                    <tr class="ligneTableau">
 
-                                    <td class="celluleTableau">
-                                        <asp:Label runat="server" ID="Label3" Text='<%# Eval("NomHotel").ToString() %>'></asp:Label></td>
-                                    <td class="celluleTableau">
-                                        <asp:Label runat="server" ID="Label1" Text='<%# Eval("CompagnieOrganisatrice").ToString() %>'></asp:Label></td>
-                                    <td class="celluleTableau">
-                                        <asp:Label runat="server" ID="Label2" Text='<%# Eval("Prix").ToString() %>'></asp:Label></td>
-                                    <td class="celluleTableau">
-                                        <asp:Label runat="server" ID="Label5" Text='<%# Eval("NombreEtoile").ToString() %>'></asp:Label></td>
-                                    <td class="celluleTableau">
-                                        <asp:Label runat="server" ID="Label4" Text='<%# Eval("DateCreated").ToString() %>'></asp:Label></td>
-                                </tr>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </table>
+                                        <td class="celluleTableau">
+                                            <asp:Label runat="server" ID="Label3" Text='<%# Eval("NomHotel").ToString() %>'></asp:Label></td>
+                                        <td class="celluleTableau">
+                                            <asp:Label runat="server" ID="Label1" Text='<%# Eval("CompagnieOrganisatrice").ToString() %>'></asp:Label></td>
+                                        <td class="celluleTableau">
+                                            <asp:Label runat="server" ID="Label2" Text='<%# Eval("Prix").ToString() %>'></asp:Label></td>
+                                        <td class="celluleTableau">
+                                            <asp:Label runat="server" ID="Label5" Text='<%# Eval("NombreEtoile").ToString() %>'></asp:Label></td>
+                                        <td class="celluleTableau">
+                                            <asp:Label runat="server" ID="Label4" Text='<%# Eval("DateCreated").ToString() %>'></asp:Label></td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </table>
+                    </asp:Panel>
 
+                    <asp:Panel runat="server" ID="pnlGraphique" Visible="True">
+                        <asp:Button runat="server" ID="btnVoirGrilleHistorique" Text="Voir la grille de l'historique" class="mbr-buttons__btn btn btn-standard" OnClick="btnVoirGrilleHistoriqueClick"></asp:Button>
+                        <rsweb:ReportViewer ID="ReportViewer1" runat="server" ShowBackButton="False" ShowFindControls="False" ShowPageNavigationControls="False" Width="100%" BackColor="white"></rsweb:ReportViewer>
+                    </asp:Panel>
 
 
                     <br />

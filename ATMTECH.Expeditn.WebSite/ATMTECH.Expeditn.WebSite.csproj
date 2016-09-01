@@ -87,6 +87,7 @@
     <Content Include="assets\mobirise\js\script.js" />
     <Content Include="assets\smooth-scroll\SmoothScroll.js" />
     <Content Include="assets\web\assets\jquery\jquery.min.js" />
+    <Content Include="Admin.aspx" />
     <Content Include="GererBudget.aspx" />
     <Content Include="GererNourriture.aspx" />
     <Content Include="GererEtape.aspx" />
@@ -431,8 +432,6 @@
     <Content Include="Template\js\skel-layers.min.js" />
     <Content Include="Template\js\skel.min.js" />
     <Content Include="Template\license.txt" />
-    <Content Include="Test.aspx" />
-    <Content Include="Test.html" />
     <Content Include="UserControls\MessageInformation.ascx" />
     <Content Include="UserControls\Utilisateur.ascx" />
     <Content Include="GererRechercheForfaitExpedia.aspx" />
@@ -443,6 +442,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GererBudget.aspx.cs">
       <DependentUpon>GererBudget.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -536,13 +542,6 @@
     </Compile>
     <Compile Include="TableauBord.aspx.designer.cs">
       <DependentUpon>TableauBord.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MessageInformation.ascx.cs">
       <DependentUpon>MessageInformation.ascx</DependentUpon>

@@ -12,6 +12,7 @@ namespace ATMTECH.Expeditn.Services.Interface
         IList<RechercheForfaitExpedia> ObtenirRechercheForfaitExpedia(User utilisateur);
         IList<HistoriqueForfaitExpedia> ObtenirHistoriqueForfaitExpedia(RechercheForfaitExpedia rechercheForfaitExpedia);
         int EnregistrerRechercheForfaitExpedia(RechercheForfaitExpedia rechercheForfaitExpedia);
-        IList<AffichageHistoriqueForfaitExpedia> ObtenirAffichageHistoriqueForfaitExpedia();
+        IList<AffichageHistoriqueForfaitExpedia> ObtenirAffichageHistoriqueForfaitExpedia(int id);
+        void SupprimerSuiviPrix(int idRechercheForfaitExpedia);
     }
 }

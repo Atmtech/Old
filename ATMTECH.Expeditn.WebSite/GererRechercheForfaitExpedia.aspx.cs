@@ -20,6 +20,7 @@ namespace ATMTECH.Expeditn.WebSite
             }
         }
         public string Url { get { return txtUrl.Text; } set { txtUrl.Text = value; } }
+        public string Date { get { return txtDate.Text;  } set { txtDate.Text = value; } }
     }
 
 

@@ -69,6 +69,8 @@ namespace ATMTECH.Expeditn.Services
                 participant.Utilisateur = users.FirstOrDefault(x => x.Id == participant.Utilisateur.Id);
                 DAOParticipant.Enregistrer(participant);
             }
+
+            
         }
 
         private bool EstUtilisateurExistant(User utilisateur)

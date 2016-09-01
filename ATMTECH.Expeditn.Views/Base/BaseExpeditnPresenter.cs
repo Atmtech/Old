@@ -26,6 +26,7 @@ namespace ATMTECH.Expeditn.Views.Base
             if (currentPage == Pages.IDENTIFICATION.ToLower()) return;
             if (currentPage == Pages.INSCRIPTION.ToLower()) return;
             if (currentPage == Pages.VOIR_EXPEDITION.ToLower()) return;
+            if (currentPage == Pages.POURQUOI.ToLower()) return;
 
             if (AuthenticationService != null)
             {

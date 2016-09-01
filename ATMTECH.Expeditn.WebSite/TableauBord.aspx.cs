@@ -81,6 +81,10 @@ namespace ATMTECH.Expeditn.WebSite
             {
                 Presenter.VoirListePrix(idRechercheForfaitExpedia);
             }
+            if (e.CommandName == "supprimerSuiviPrix")
+            {
+                Presenter.SupprimerSuiviPrix(idRechercheForfaitExpedia);
+            }
 
         }
 

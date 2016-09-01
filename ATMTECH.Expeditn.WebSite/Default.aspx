@@ -21,7 +21,7 @@
                                         La planification d'expédition simple, efficace et connecté sur votre monde.<br>
                                     </p>
                                 </div>
-                                <div class="mbr-buttons btn-inverse mbr-buttons--center"><a class="mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-success" href="https://mobirise.com">M'inscrire pour planifier une expédition</a> </div>
+                                <div class="mbr-buttons btn-inverse mbr-buttons--center"><a class="mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-success" href="Inscription.aspx">M'inscrire pour planifier une expédition</a> </div>
                             </div>
                         </div>
                     </div>

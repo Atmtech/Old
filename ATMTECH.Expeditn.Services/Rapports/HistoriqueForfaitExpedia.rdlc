@@ -16,6 +16,21 @@
                   <Value>=Fields!NomHotel.Value</Value>
                 </SortExpression>
               </SortExpressions>
+              <ChartMembers>
+                <ChartMember>
+                  <Group Name="DataBar1_CategoryGroup1">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Prix.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!Prix.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <Label>=Fields!Prix.Value</Label>
+                </ChartMember>
+              </ChartMembers>
               <Label>=Fields!NomHotel.Value</Label>
             </ChartMember>
           </ChartMembers>
@@ -46,7 +61,10 @@
                     <Y>=Sum(Fields!Prix.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
-                    <Style />
+                    <Style>
+                      <Format>0.00'$';(0.00'$')</Format>
+                      <rd:FormatSymbolCulture>fr-CA</rd:FormatSymbolCulture>
+                    </Style>
                     <UseValueAsLabel>true</UseValueAsLabel>
                     <Visible>true</Visible>
                   </ChartDataLabel>
@@ -82,9 +100,10 @@
           <ChartArea Name="Default">
             <ChartCategoryAxes>
               <ChartAxis Name="Primary">
+                <Visible>False</Visible>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>8pt</FontSize>
+                  <FontSize>6pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
                   <Caption />
@@ -92,6 +111,7 @@
                     <FontSize>8pt</FontSize>
                   </Style>
                 </ChartAxisTitle>
+                <Interval>1</Interval>
                 <ChartMajorGridLines>
                   <Enabled>False</Enabled>
                   <Style>
@@ -161,10 +181,11 @@
             <ChartValueAxes>
               <ChartAxis Name="Primary">
                 <Style>
+                  <FontFamily>Segoe UI</FontFamily>
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Prix du forfait</Caption>
+                  <Caption />
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -245,9 +266,11 @@
           <ChartLegend Name="Default">
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
+              <FontFamily>Segoe UI</FontFamily>
               <FontSize>8pt</FontSize>
             </Style>
-            <Position>TopCenter</Position>
+            <Position>LeftCenter</Position>
+            <Layout>TallTable</Layout>
             <DockOutsideChartArea>true</DockOutsideChartArea>
             <ChartLegendTitle>
               <Caption />
@@ -261,17 +284,6 @@
             <ColumnSeparatorColor>Black</ColumnSeparatorColor>
           </ChartLegend>
         </ChartLegends>
-        <ChartTitles>
-          <ChartTitle Name="Default">
-            <Caption />
-            <Style>
-              <BackgroundGradientType>None</BackgroundGradientType>
-              <FontWeight>Bold</FontWeight>
-              <TextAlign>General</TextAlign>
-              <VerticalAlign>Top</VerticalAlign>
-            </Style>
-          </ChartTitle>
-        </ChartTitles>
         <Palette>Pastel</Palette>
         <ChartBorderSkin>
           <Style>
@@ -292,7 +304,7 @@
         <Top>0.47307cm</Top>
         <Left>0.3937cm</Left>
         <Height>14.37333cm</Height>
-        <Width>25.10187cm</Width>
+        <Width>27.98583cm</Width>
         <Style>
           <Border>
             <Color>White</Color>
@@ -306,7 +318,7 @@
     <Height>5.98046in</Height>
     <Style />
   </Body>
-  <Width>10.22917in</Width>
+  <Width>11.58334in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

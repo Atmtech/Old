@@ -19,21 +19,35 @@
                         <asp:TextBox runat="server" ID="txtDescriptifDestination" placeholder="Descriptif de la destination" class="controlEditable"></asp:TextBox>
                     </td>
                 </tr>
+                <tr>
+                    <td style="padding-right: 10px;">
+                        <div class="libelleChampsEditable">
+                            <asp:Label ID="lblDateForfait" runat="server" Text="Date"></asp:Label>
+                        </div>
+                        <asp:TextBox runat="server" ID="txtDate" placeholder="Date" class="controlEditable"></asp:TextBox>
+                    </td>
+                </tr>
 
                 <tr>
                     <td style="padding-right: 10px;">
                         <div class="libelleChampsEditable">
-                            <asp:Label ID="lblUrl" runat="server" Text="Liens à utiliser pour expedia"></asp:Label>
+                            <asp:Label ID="lblUrl" runat="server" Text="URL de recherche sur Expedia"></asp:Label>
                         </div>
-                        <asp:TextBox runat="server" ID="txtUrl" placeholder="Liens à utiliser pour expedia" class="controlEditable"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtUrl" placeholder="URL de recherche sur Expedia" class="controlEditable"></asp:TextBox>
                     </td>
                 </tr>
 
 
             </table>
-            
-                 <asp:LinkButton runat="server" ID="lnkEnregistrerRechercheForfaitExpedia" class="mbr-buttons__btn btn btn-standard" Text="Enregistrer" OnClick="lnkEnregistrerRechercheForfaitExpediaClick"></asp:LinkButton>
-      
+            <br />
+            <div style="padding: 10px 10px 10px 10px; background-color: rgb(231, 231, 231); border: 1px solid gray; color:rgb(15, 57, 180)">
+                <asp:Label runat="server" ID="lblExempleLienExpedia" Text="N.B. Le url doit être valide sur expedia, vous devez d'abord l'essayer sur le site avant. <br>Pour ce faire faite une recherche sur expedia avec vos critères une fois le résultat sortie vous pouvez copier et coller le URL."></asp:Label>
+            </div>
+            <br />
+            <br />
+
+            <asp:LinkButton runat="server" ID="lnkEnregistrerRechercheForfaitExpedia" class="mbr-buttons__btn btn btn-standard" Text="Enregistrer" OnClick="lnkEnregistrerRechercheForfaitExpediaClick"></asp:LinkButton>
+
 
         </div>
     </section>

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.Entities;
+using ATMTECH.Expeditn.DAO;
 using ATMTECH.Expeditn.Entities;
 using ATMTECH.Expeditn.Services.Interface;
 using ATMTECH.Expeditn.Views.Base;
@@ -91,6 +92,12 @@ namespace ATMTECH.Expeditn.Views
         public void AjouterRechercheForfaitExpedia()
         {
             NavigationService.Redirect(Pages.GERER_RECHERCHE_FORFAIT_EXPEDIA);
+        }
+
+        public void SupprimerSuiviPrix(int idRechercheForfaitExpedia)
+        {
+            ExpediaService.SupprimerSuiviPrix(idRechercheForfaitExpedia);
+            NavigationService.Refresh();
         }
     }
 }

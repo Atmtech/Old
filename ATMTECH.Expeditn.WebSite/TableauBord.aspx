@@ -35,11 +35,11 @@
                             </div>
                             <div>
                                 <asp:Label runat="server" ID="lblIdExpedition" Text='<%# Eval("Id")  %>' Visible="False"></asp:Label>
-                                <asp:LinkButton runat="server" ID="lnkModifierExpedition" Text="&nbsp;Expédition" Class="boutonModifier" CommandName="modifierExpedition"></asp:LinkButton>
-                                <asp:LinkButton runat="server" ID="lnkModifierParticipant" Text="&nbsp;Participants" CssClass="boutonModifier" CommandName="modifierParticipant"></asp:LinkButton>
-                                <asp:LinkButton runat="server" ID="lnkModifierEtape" Text="&nbsp;Activités " CssClass="boutonModifier" CommandName="modifierEtape"></asp:LinkButton>
-                                <asp:LinkButton runat="server" ID="lnkModifierMenu" Text="&nbsp;Nourriture " CssClass="boutonModifier" CommandName="modifierMenu"></asp:LinkButton>
-                                <asp:LinkButton runat="server" ID="lnkModifierRepartitionPaieme" Text="&nbsp;Répartition du budget" CssClass="boutonModifier" CommandName="modifierRepartitionBudget"></asp:LinkButton>
+                                <asp:Button runat="server" ID="lnkModifierExpedition" Text="&nbsp;Expédition" Class="boutonModifier" CommandName="modifierExpedition"></asp:Button>
+                                <asp:Button runat="server" ID="lnkModifierParticipant" Text="&nbsp;Participants" CssClass="boutonModifier" CommandName="modifierParticipant"></asp:Button>
+                                <asp:Button runat="server" ID="lnkModifierEtape" Text="&nbsp;Activités " CssClass="boutonModifier" CommandName="modifierEtape"></asp:Button>
+                                <asp:Button runat="server" ID="lnkModifierMenu" Text="&nbsp;Nourriture " CssClass="boutonModifier" CommandName="modifierMenu"></asp:Button>
+                                <asp:Button runat="server" ID="lnkModifierRepartitionPaieme" Text="&nbsp;Répartition du budget" CssClass="boutonModifier" CommandName="modifierRepartitionBudget"></asp:Button>
                             </div>
                         </div>
                         <div style="padding-top: 125px;"></div>

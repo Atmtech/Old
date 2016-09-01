@@ -28,7 +28,7 @@
                             <div class="libelleChampsEditable">
                                 <asp:Label ID="lblMotDePasse" runat="server" Text="Entrer votre mot de passe"></asp:Label>
                             </div>
-                            <asp:TextBox runat="server" ID="txtMotPasse" placeholder="Mot de passe" class="controlEditable"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtMotPasse" placeholder="Mot de passe" class="controlEditable" TextMode="Password"></asp:TextBox>
                             <br />
                             <div class="mbr-buttons mbr-buttons--center btn-inverse">
                                 <asp:Button runat="server" ID="lnkIdentifiezVous" Text="Se connecter" class="mbr-buttons__btn btn btn-standard" OnClick="lnkIdentifiezVousClick"></asp:Button><br />

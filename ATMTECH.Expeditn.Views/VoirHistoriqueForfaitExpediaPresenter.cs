@@ -20,10 +20,9 @@ namespace ATMTECH.Expeditn.Views
         {
         }
 
-        public override void OnViewInitialized()
+        public override void OnViewLoaded()
         {
-            base.OnViewInitialized();
-
+            base.OnViewLoaded();
             List<HistoriqueForfaitExpedia> historiqueForfaitExpedias = ExpediaService.ObtenirHistoriqueForfaitExpedia(
                 ExpediaService.ObtenirRechercheForfaitExpedia(View.IdRechercheForfaitExpedia))
                 .OrderBy(x => x.Prix)
@@ -34,11 +33,20 @@ namespace ATMTECH.Expeditn.Views
             List<string> list = historiqueForfaitExpedias.Select(x => x.NomHotel).Distinct().ToList();
             View.ListeHotel = list;
 
+
             View.HistoriqueForfaitExpedia = string.IsNullOrEmpty(View.FiltreHotel) ?
-                historiqueForfaitExpedias :
-                historiqueForfaitExpedias.Where(x => x.NomHotel == View.FiltreHotel).ToList();
+               historiqueForfaitExpedias :
+               historiqueForfaitExpedias.Where(x => x.NomHotel == View.FiltreHotel).ToList();
+
+        }
+
+        public override void OnViewInitialized()
+        {
+            base.OnViewInitialized();
 
 
+            View.RechercheForfaitExpedia = ExpediaService.ObtenirRechercheForfaitExpedia(View.IdRechercheForfaitExpedia);
+            View.AffichageGraphique = ObtenirAffichageHistoriqueForfaitExpedia();
         }
 
         public void Filtrer(string filtre)
@@ -52,7 +60,7 @@ namespace ATMTECH.Expeditn.Views
 
         public IList<AffichageHistoriqueForfaitExpedia> ObtenirAffichageHistoriqueForfaitExpedia()
         {
-            return ExpediaService.ObtenirAffichageHistoriqueForfaitExpedia();
+            return ExpediaService.ObtenirAffichageHistoriqueForfaitExpedia(View.IdRechercheForfaitExpedia);
         }
     }
 }
