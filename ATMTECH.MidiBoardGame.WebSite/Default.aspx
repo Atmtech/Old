@@ -43,16 +43,19 @@
                     
                     <asp:Button runat="server" ID="btnVoter" Text="Voter" CommandName="Vote" CssClass="btn btn-black" />
                     <asp:Button runat="server" ID="btnRetirerVote" Text="Retirer mon vote" CommandName="Retirer" CssClass="btn btn-black" />
-                    <%--<asp:Button runat="server" ID="btnSupprimer" Text="Supprimer" CommandName="Supprimer" CssClass="btn btn-danger" />--%>
                     <b>
                         <asp:HyperLink runat="server" id="lnkBoardgameGeek" NavigateUrl='<%# Eval("Jeu.UrlBoardGameGeek")  %>' Text='<%# Eval("Jeu.Nom")  %>' Target="_blank" Font-Bold="True"  ForeColor="black" Font-Names="Arial" Font-Italic="False"></asp:HyperLink>
-
-                        
                     <asp:Label runat="server" ID="lblIdMidi" Text='<%# Eval("Id")  %>' Visible="False"></asp:Label> |
                     <asp:Label runat="server" ID="lblNombreVote" Visible="True"></asp:Label> vote(s) <img src="Images/thumb.png" style="width: 25px; height: 25px;" />
                     </b>
                 </ItemTemplate>
             </asp:DataList>
+            
+           <b>Participant(s):</b> <asp:dataList runat="server" ID="datalisteParticipant" RepeatDirection="Horizontal">
+                <ItemTemplate>
+                    <img src="Images/user.png" style="width: 25px; height: 25px;" /> <asp:Label runat="server" ID="lblParticipant" Text='<%# Eval("Nom")  %>' Visible="true" style="font-weight: bold;color:rgb(66, 66, 66)"></asp:Label> &nbsp; 
+                </ItemTemplate>
+            </asp:dataList>
             <br />
             <br />
 

@@ -23,6 +23,8 @@ namespace ATMTECH.MidiBoardGame.WebSite
                 RemplirListeDeroulante(ddlJeu, new DAOJeu().ObtenirListeJeu(), "Nom");
                 datalisteVote.DataSource = new DAOMidi().ObtenirListeMidi();
                 datalisteVote.DataBind();
+                datalisteParticipant.DataSource = new DAOMidiVote().ObtenirVoteur();
+                datalisteParticipant.DataBind();
             }
 
             if (Session["Utilisateur"] != null)

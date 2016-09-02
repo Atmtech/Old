@@ -2,7 +2,7 @@
 
 namespace ATMTECH.MidiBoardGame.Entites
 {
-    public class MidiVode
+    public class MidiVote
     {
         public int Id { get; set; }
         public Midi Midi { get; set; }
