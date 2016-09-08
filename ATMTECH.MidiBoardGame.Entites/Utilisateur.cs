@@ -6,5 +6,6 @@
         public string Nom { get; set; }
         public string Courriel { get; set; }
         public string MotDePasse { get; set; }
+        public string BoardGameGeekNickName { get; set; }
     }
 }

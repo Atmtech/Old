@@ -103,7 +103,6 @@
     <Content Include="assets\viewportChecker\jquery.viewportchecker.js" />
     <Content Include="assets\web\assets\jquery\jquery.min.js" />
     <Content Include="Default.aspx" />
-    <Content Include="Identification.aspx" />
     <Content Include="Images\thumb.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -113,11 +112,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseDAO.cs" />
-    <Compile Include="DAOMidiVote.cs" />
-    <Compile Include="DAOMidi.cs" />
-    <Compile Include="DAOUtilisateur.cs" />
-    <Compile Include="DAOJeu.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,16 +126,14 @@
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
     </Compile>
-    <Compile Include="Identification.aspx.cs">
-      <DependentUpon>Identification.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Identification.aspx.designer.cs">
-      <DependentUpon>Identification.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilitaires.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ATMTECH.MidiBoardGame.DAO\ATMTECH.MidiBoardGame.DAO.csproj">
+      <Project>{E9640719-ACAB-42F9-87E8-171ECF28D946}</Project>
+      <Name>ATMTECH.MidiBoardGame.DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ATMTECH.MidiBoardGame.Entites\ATMTECH.MidiBoardGame.Entites.csproj">
       <Project>{9C4D955D-CB2E-4D76-8427-F6917CD8D87F}</Project>
       <Name>ATMTECH.MidiBoardGame.Entites</Name>

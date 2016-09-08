@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 
-namespace ATMTECH.MidiBoardGame.WebSite
+namespace ATMTECH.MidiBoardGame.DAO
 {
     public class BaseDao
     {

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ATMTECH.MidiBoardGame.DAO;
 using ATMTECH.MidiBoardGame.Entites;
 
 namespace ATMTECH.MidiBoardGame.WebSite
 {
     public partial class Default1 : Page
     {
+
         public Utilisateur Utilisateur
         {
             get
@@ -14,27 +16,6 @@ namespace ATMTECH.MidiBoardGame.WebSite
                 return (Utilisateur)Session["Utilisateur"];
             }
             set { Session["Utilisateur"] = value; }
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!Page.IsPostBack)
-            {
-                RemplirListeDeroulante(ddlJeu, new DAOJeu().ObtenirListeJeu(), "Nom");
-                datalisteVote.DataSource = new DAOMidi().ObtenirListeMidi();
-                datalisteVote.DataBind();
-                datalisteParticipant.DataSource = new DAOMidiVote().ObtenirVoteur();
-                datalisteParticipant.DataBind();
-            }
-
-            if (Session["Utilisateur"] != null)
-            {
-                lblNomUtilisateur.Text = Utilisateur.Nom;
-                pnlConnecte.Visible = true;
-                pnlDeConnecte.Visible = false;
-            }
-
-
         }
 
         public void RemplirListeDeroulante(DropDownList dropDownList, object Source, string colonneAffichage)
@@ -45,13 +26,26 @@ namespace ATMTECH.MidiBoardGame.WebSite
             dropDownList.DataBind();
         }
 
-
-        protected void btnAjouterJeuClick(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            new DAOJeu().Ajouter(txtNomJeu.Text);
-            RemplirListeDeroulante(ddlJeu, new DAOJeu().ObtenirListeJeu(), "Nom");
-            txtNomJeu.Text = "";
+            if (!Page.IsPostBack)
+            {
+                RemplirListeDeroulante(ddlJeu, new DAOJeu().ObtenirListeJeuAvecPresence(), "Nom");
+                datalisteVote.DataSource = new DAOProposition().ObtenirListeProposition();
+                datalisteVote.DataBind();
+              
+                datalistePresence.DataSource = new DAOPresence().ObtenirListePresenceAujourdhui();
+                datalistePresence.DataBind();
+            }
+
+            if (Session["Utilisateur"] != null)
+            {
+                lblNomUtilisateur.Text = Utilisateur.Nom;
+                pnlConnecte.Visible = true;
+                pnlDeConnecte.Visible = false;
+            }
         }
+
 
         protected void btnConnecteClick(object sender, EventArgs e)
         {
@@ -64,21 +58,56 @@ namespace ATMTECH.MidiBoardGame.WebSite
             }
         }
 
+        protected void btnDeconnecterClick(object sender, EventArgs e)
+        {
+            Utilisateur = null;
+            Response.Redirect("Default.aspx");
+        }
+
+
         protected void btnCreerClick(object sender, EventArgs e)
         {
-            new DAOUtilisateur().Ajouter(txtNomCreer.Text, txtCourrielCreer.Text, txtMotDePasseCreer.Text);
+            new DAOUtilisateur().Ajouter(txtNomCreer.Text, txtNickNameBoardGameGeek.Text, txtCourrielCreer.Text, txtMotDePasseCreer.Text);
             Utilisateur = new DAOUtilisateur().ObtenirUtilisateur(txtCourrielCreer.Text, txtMotDePasseCreer.Text);
             txtCourrielCreer.Text = string.Empty;
             txtNomCreer.Text = String.Empty;
             txtMotDePasseCreer.Text = String.Empty;
+            txtNickNameBoardGameGeek.Text = String.Empty;
 
             Response.Redirect("Default.aspx");
         }
 
-        protected void btnAjouterJeuMidiClick(object sender, EventArgs e)
+        protected void btnPresenceClick(object sender, EventArgs e)
         {
-            new DAOMidi().Ajouter(ddlJeu.SelectedValue, Utilisateur.Id.ToString());
+            new DAOPresence().Ajouter(Utilisateur, Utilitaires.Aujourdhui());
             Response.Redirect("Default.aspx");
+        }
+
+        protected void btnImporterMaListeJeuClick(object sender, EventArgs e)
+        {
+            datalistListeJeuBoardGameGeek.DataSource = new DAOJeu().ObtenirListeJeuBoardGameGeek(Utilisateur);
+            datalistListeJeuBoardGameGeek.DataBind();
+
+            pnlImporterListeJeu.Visible = true;
+        }
+
+        protected void datalistListeJeuBoardGameGeekItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "Ajouter")
+            {
+                new DAOJeu().Ajouter(e.CommandArgument.ToString(),"1",Utilisateur);
+                datalistListeJeuBoardGameGeek.DataSource = new DAOJeu().ObtenirListeJeuBoardGameGeek(Utilisateur);
+                datalistListeJeuBoardGameGeek.DataBind();
+            }
+           
+        }
+
+
+        protected void datalisteVoteItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            Proposition proposition = (Proposition)e.Item.DataItem;
+            Label lblNombreVote = (Label)e.Item.FindControl("lblNombreVote");
+            lblNombreVote.Text = new DAOPropositionVote().ObtenirNombreVote(proposition.Id.ToString()).ToString();
         }
 
         protected void datalisteVoteItemCommand(object source, DataListCommandEventArgs e)
@@ -86,28 +115,23 @@ namespace ATMTECH.MidiBoardGame.WebSite
             if (e.CommandName == "Vote")
             {
                 string idMidi = ((Label)e.Item.FindControl("lblIdMidi")).Text;
-                new DAOMidiVote().Ajouter(idMidi, Utilisateur.Id.ToString());
+                new DAOPropositionVote().Ajouter(idMidi, Utilisateur.Id.ToString());
                 Response.Redirect("Default.aspx");
             }
             if (e.CommandName == "Retirer")
             {
                 string idMidi = ((Label)e.Item.FindControl("lblIdMidi")).Text;
-                new DAOMidiVote().Retirer(idMidi, Utilisateur.Id.ToString());
+                new DAOPropositionVote().Retirer(idMidi, Utilisateur.Id.ToString());
                 Response.Redirect("Default.aspx");
             }
         }
 
-        protected void datalisteVoteItemDataBound(object sender, DataListItemEventArgs e)
+        protected void btnAjouterJeuMidiClick(object sender, EventArgs e)
         {
-            Midi midi = (Midi)e.Item.DataItem;
-            Label lblNombreVote = (Label)e.Item.FindControl("lblNombreVote");
-            lblNombreVote.Text = new DAOMidiVote().ObtenirNombreVote(midi.Id.ToString()).ToString();
-        }
-
-        protected void btnDeconnecterClick(object sender, EventArgs e)
-        {
-            Utilisateur = null;
+            new DAOProposition().Ajouter(ddlJeu.SelectedValue, Utilisateur.Id.ToString());
             Response.Redirect("Default.aspx");
         }
+
+      
     }
 }

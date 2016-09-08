@@ -203,6 +203,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMTECH.MidiBoardGame.WebSi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMTECH.MidiBoardGame.Entites", "ATMTECH.MidiBoardGame.Entites\ATMTECH.MidiBoardGame.Entites.csproj", "{9C4D955D-CB2E-4D76-8427-F6917CD8D87F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMTECH.MidiBoardGame.DAO", "ATMTECH.MidiBoardGame.DAO\ATMTECH.MidiBoardGame.DAO.csproj", "{E9640719-ACAB-42F9-87E8-171ECF28D946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMTECH.MidiBoardGame.Utilitaires", "ATMTECH.MidiBoardGame.Utilitaires\ATMTECH.MidiBoardGame.Utilitaires.csproj", "{9B9F7416-58CA-46BF-8779-4448B51D2968}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AvecTestSansAnalyse|Any CPU = AvecTestSansAnalyse|Any CPU
@@ -1760,6 +1764,56 @@ Global
 		{9C4D955D-CB2E-4D76-8427-F6917CD8D87F}.TFS_BUILD_Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{9C4D955D-CB2E-4D76-8427-F6917CD8D87F}.TFS_BUILD_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{9C4D955D-CB2E-4D76-8427-F6917CD8D87F}.TFS_BUILD_Debug|x86.ActiveCfg = Debug|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.AvecTestSansAnalyse|Any CPU.ActiveCfg = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.AvecTestSansAnalyse|Any CPU.Build.0 = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.AvecTestSansAnalyse|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.AvecTestSansAnalyse|Mixed Platforms.Build.0 = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.AvecTestSansAnalyse|x86.ActiveCfg = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.Release|x86.ActiveCfg = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.SansTestNiAnalyse|Any CPU.ActiveCfg = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.SansTestNiAnalyse|Any CPU.Build.0 = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.SansTestNiAnalyse|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.SansTestNiAnalyse|Mixed Platforms.Build.0 = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.SansTestNiAnalyse|x86.ActiveCfg = Release|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.TFS_BUILD_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.TFS_BUILD_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.TFS_BUILD_Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.TFS_BUILD_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E9640719-ACAB-42F9-87E8-171ECF28D946}.TFS_BUILD_Debug|x86.ActiveCfg = Debug|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.AvecTestSansAnalyse|Any CPU.ActiveCfg = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.AvecTestSansAnalyse|Any CPU.Build.0 = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.AvecTestSansAnalyse|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.AvecTestSansAnalyse|Mixed Platforms.Build.0 = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.AvecTestSansAnalyse|x86.ActiveCfg = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.Release|x86.ActiveCfg = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.SansTestNiAnalyse|Any CPU.ActiveCfg = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.SansTestNiAnalyse|Any CPU.Build.0 = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.SansTestNiAnalyse|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.SansTestNiAnalyse|Mixed Platforms.Build.0 = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.SansTestNiAnalyse|x86.ActiveCfg = Release|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.TFS_BUILD_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.TFS_BUILD_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.TFS_BUILD_Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.TFS_BUILD_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9B9F7416-58CA-46BF-8779-4448B51D2968}.TFS_BUILD_Debug|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1830,6 +1884,8 @@ Global
 		{115F9719-9735-45C4-B2BE-35E175E0C5CC} = {50F1C2FF-30EA-4327-90C7-CBAF038E0BFB}
 		{FFA2933C-DCFE-42D2-87CC-23CF9D7FD7CB} = {0422EB95-8719-4182-B040-00E9A925226C}
 		{9C4D955D-CB2E-4D76-8427-F6917CD8D87F} = {0422EB95-8719-4182-B040-00E9A925226C}
+		{E9640719-ACAB-42F9-87E8-171ECF28D946} = {0422EB95-8719-4182-B040-00E9A925226C}
+		{9B9F7416-58CA-46BF-8779-4448B51D2968} = {0422EB95-8719-4182-B040-00E9A925226C}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ATMTECH.vsmdi

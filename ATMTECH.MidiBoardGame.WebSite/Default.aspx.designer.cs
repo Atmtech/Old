@@ -85,6 +85,24 @@ namespace ATMTECH.MidiBoardGame.WebSite {
         protected global::System.Web.UI.WebControls.TextBox txtNomCreer;
         
         /// <summary>
+        /// Contrôle Label5.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
+        /// Contrôle txtNickNameBoardGameGeek.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNickNameBoardGameGeek;
+        
+        /// <summary>
         /// Contrôle Label2.
         /// </summary>
         /// <remarks>
@@ -157,22 +175,49 @@ namespace ATMTECH.MidiBoardGame.WebSite {
         protected global::System.Web.UI.WebControls.Button btnDeconnecter;
         
         /// <summary>
-        /// Contrôle datalisteVote.
+        /// Contrôle btnImporterMaListeJeu.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList datalisteVote;
+        protected global::System.Web.UI.WebControls.Button btnImporterMaListeJeu;
         
         /// <summary>
-        /// Contrôle datalisteParticipant.
+        /// Contrôle pnlImporterListeJeu.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList datalisteParticipant;
+        protected global::System.Web.UI.WebControls.Panel pnlImporterListeJeu;
+        
+        /// <summary>
+        /// Contrôle datalistListeJeuBoardGameGeek.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList datalistListeJeuBoardGameGeek;
+        
+        /// <summary>
+        /// Contrôle datalistePresence.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList datalistePresence;
+        
+        /// <summary>
+        /// Contrôle btnPresence.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPresence;
         
         /// <summary>
         /// Contrôle lblJeu.
@@ -202,48 +247,12 @@ namespace ATMTECH.MidiBoardGame.WebSite {
         protected global::System.Web.UI.WebControls.Button btnAjouterJeuMidi;
         
         /// <summary>
-        /// Contrôle lblNom.
+        /// Contrôle datalisteVote.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNom;
-        
-        /// <summary>
-        /// Contrôle txtNomJeu.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomJeu;
-        
-        /// <summary>
-        /// Contrôle Label4.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// Contrôle txtUrl.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUrl;
-        
-        /// <summary>
-        /// Contrôle btnAjouterJeu.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjouterJeu;
+        protected global::System.Web.UI.WebControls.DataList datalisteVote;
     }
 }
