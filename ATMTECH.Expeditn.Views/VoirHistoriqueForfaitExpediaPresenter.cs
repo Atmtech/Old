@@ -23,28 +23,27 @@ namespace ATMTECH.Expeditn.Views
         public override void OnViewLoaded()
         {
             base.OnViewLoaded();
-            List<HistoriqueForfaitExpedia> historiqueForfaitExpedias = ExpediaService.ObtenirHistoriqueForfaitExpedia(
-                ExpediaService.ObtenirRechercheForfaitExpedia(View.IdRechercheForfaitExpedia))
-                .OrderBy(x => x.Prix)
-                .ThenBy(x => x.NomHotel)
-                .ThenBy(x => x.DateCreated)
-                .ToList();
-
-            List<string> list = historiqueForfaitExpedias.Select(x => x.NomHotel).Distinct().ToList();
-            View.ListeHotel = list;
-
-
+            List<HistoriqueForfaitExpedia> historiqueForfaitExpedias = AfficherHistorique();
             View.HistoriqueForfaitExpedia = string.IsNullOrEmpty(View.FiltreHotel) ?
                historiqueForfaitExpedias :
                historiqueForfaitExpedias.Where(x => x.NomHotel == View.FiltreHotel).ToList();
+        }
 
+        private List<HistoriqueForfaitExpedia> AfficherHistorique()
+        {
+            return  ExpediaService.ObtenirHistoriqueForfaitExpedia(
+           ExpediaService.ObtenirRechercheForfaitExpedia(View.IdRechercheForfaitExpedia))
+           .OrderBy(x => x.Prix)
+           .ThenBy(x => x.NomHotel)
+           .ThenBy(x => x.DateCreated)
+           .ToList();
         }
 
         public override void OnViewInitialized()
         {
             base.OnViewInitialized();
-
-
+            List<string> list = AfficherHistorique().OrderBy(x => x.NomHotel).Select(x => x.NomHotel).Distinct().ToList();
+            View.ListeHotel = list;
             View.RechercheForfaitExpedia = ExpediaService.ObtenirRechercheForfaitExpedia(View.IdRechercheForfaitExpedia);
             View.AffichageGraphique = ObtenirAffichageHistoriqueForfaitExpedia();
         }

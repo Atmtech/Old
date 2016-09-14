@@ -202,67 +202,13 @@ namespace ATMTECH.Expeditn.WebSite {
         protected global::System.Web.UI.WebControls.Label lblForfaitPlusCherDate;
         
         /// <summary>
-        /// Contrôle lblListePrix.
+        /// Contrôle placeHolderGraphique.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblListePrix;
-        
-        /// <summary>
-        /// Contrôle pnlHistorique.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlHistorique;
-        
-        /// <summary>
-        /// Contrôle btnVoirGraphiqueHistorique.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoirGraphiqueHistorique;
-        
-        /// <summary>
-        /// Contrôle listeHistoriqueForfaitExpedia.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater listeHistoriqueForfaitExpedia;
-        
-        /// <summary>
-        /// Contrôle pnlGraphique.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlGraphique;
-        
-        /// <summary>
-        /// Contrôle btnVoirGrilleHistorique.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoirGrilleHistorique;
-        
-        /// <summary>
-        /// Contrôle ReportViewer1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
+        protected global::System.Web.UI.WebControls.PlaceHolder placeHolderGraphique;
         
         /// <summary>
         /// Contrôle lnkRevenirTableauBord.

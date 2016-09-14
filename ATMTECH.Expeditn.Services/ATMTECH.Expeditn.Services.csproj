@@ -95,7 +95,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Rapports\HistoriqueForfaitExpedia.rdlc" />
     <EmbeddedResource Include="Rapports\Menu.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>

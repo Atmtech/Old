@@ -66,7 +66,8 @@ namespace ATMTECH.Expeditn.Services
                     {
                         NomHotel = historiqueForfaitExpedia.NomHotel,
                         Prix = historiqueForfaitExpedia.Prix,
-                        Date = historiqueForfaitExpedia.DateCreated
+                        Date = historiqueForfaitExpedia.DateCreated,
+                        NombreEtoile = historiqueForfaitExpedia.NombreEtoile
                     };
                     historiqueHotelPrixDates.Add(historiqueHotelPrixDate);
                 }

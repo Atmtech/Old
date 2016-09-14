@@ -327,6 +327,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Identification.aspx" />
+    <Content Include="Images\etoile.png" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\LogoExpedia.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

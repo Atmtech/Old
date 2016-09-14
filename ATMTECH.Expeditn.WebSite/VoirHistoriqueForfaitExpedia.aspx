@@ -49,14 +49,14 @@
                     <div class="libelleChampsEditable">
                         <asp:Label runat="server" ID="lblFiltrerPageAvecUnHotel" Text="Filtrer la page pour un seul hotel en particulier"></asp:Label>
                     </div>
-                    <asp:DropDownList runat="server" ID="ddlListeHotel" OnSelectedIndexChanged="ddlListeHotelChanged" class="controlEditable" AutoPostBack="True" />
-                    <br />
-                    <asp:Button runat="server" ID="btnVoirTous" Text="Voir tous l'historique" class="mbr-buttons__btn btn btn-standard" OnClick="btnVoirTousClick"></asp:Button>
-
-
-
-                    <br />
-
+                    <table>
+                        <tr>
+                            <td>
+                                <asp:DropDownList runat="server" ID="ddlListeHotel" OnSelectedIndexChanged="ddlListeHotelChanged" class="controlEditable" AutoPostBack="True" /></td>
+                            <td style="padding-top: 5px; padding-left: 10px;">
+                                <asp:Button runat="server" ID="btnVoirTous" Visible="True" Text="Voir tous l'historique" class="mbr-buttons__btn btn btn-standard" OnClick="btnVoirTousClick"></asp:Button></td>
+                        </tr>
+                    </table>
 
                     <h3 class="header3">
                         <asp:Label runat="server" ID="lblStatistiqueHistoriquePrix" Text="Faits marquants"></asp:Label>
@@ -91,50 +91,10 @@
                     </table>
 
 
-                    <h3 class="header3">
+                   <%-- <h3 class="header3">
                         <asp:Label runat="server" ID="lblListePrix" Text="Historique des prix"></asp:Label>
-                    </h3>
-                    
-                       
-
-
-                    <asp:Panel runat="server" ID="pnlHistorique" Visible="False">
-                        <asp:Button runat="server" ID="btnVoirGraphiqueHistorique" Text="Voir le graphique de l'historique" class="mbr-buttons__btn btn btn-standard" OnClick="btnVoirGraphiqueHistoriqueClick"></asp:Button>
-                        <table>
-                            <tr class="ligneTableau">
-                                <td class="celluleTableau"><b>Hotel</b></td>
-                                <td class="celluleTableau"><b>Compagnie</b></td>
-                                <td class="celluleTableau"><b>Prix ($)</b></td>
-                                <td class="celluleTableau"><b>Étoile</b></td>
-                                <td class="celluleTableau"><b>Date</b></td>
-                            </tr>
-                            <asp:Repeater ID="listeHistoriqueForfaitExpedia" runat="server">
-                                <ItemTemplate>
-                                    <tr class="ligneTableau">
-
-                                        <td class="celluleTableau">
-                                            <asp:Label runat="server" ID="Label3" Text='<%# Eval("NomHotel").ToString() %>'></asp:Label></td>
-                                        <td class="celluleTableau">
-                                            <asp:Label runat="server" ID="Label1" Text='<%# Eval("CompagnieOrganisatrice").ToString() %>'></asp:Label></td>
-                                        <td class="celluleTableau">
-                                            <asp:Label runat="server" ID="Label2" Text='<%# Eval("Prix").ToString() %>'></asp:Label></td>
-                                        <td class="celluleTableau">
-                                            <asp:Label runat="server" ID="Label5" Text='<%# Eval("NombreEtoile").ToString() %>'></asp:Label></td>
-                                        <td class="celluleTableau">
-                                            <asp:Label runat="server" ID="Label4" Text='<%# Eval("DateCreated").ToString() %>'></asp:Label></td>
-                                    </tr>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </table>
-                    </asp:Panel>
-
-                    <asp:Panel runat="server" ID="pnlGraphique" Visible="True">
-                        <asp:Button runat="server" ID="btnVoirGrilleHistorique" Text="Voir la grille de l'historique" class="mbr-buttons__btn btn btn-standard" OnClick="btnVoirGrilleHistoriqueClick"></asp:Button>
-                        <rsweb:ReportViewer ID="ReportViewer1" runat="server" ShowBackButton="False" ShowFindControls="False" ShowPageNavigationControls="False" Width="100%" BackColor="white"></rsweb:ReportViewer>
-                    </asp:Panel>
-
-
-                    <br />
+                    </h3>--%>
+                    <asp:PlaceHolder runat="server" ID="placeHolderGraphique"></asp:PlaceHolder>
                     <asp:HyperLink runat="server" ID="lnkRevenirTableauBord" class="mbr-buttons__btn btn btn-standard" Text="Revenir au tableau de bord" NavigateUrl="TableauBord.aspx"></asp:HyperLink>
                 </ContentTemplate>
             </asp:UpdatePanel>
