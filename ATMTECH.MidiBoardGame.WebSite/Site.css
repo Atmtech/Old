@@ -1,0 +1,62 @@
+﻿body {
+}
+.boutonAction {
+     font-size: 12px;
+    font-weight: bold;
+    background-color: rgb(99, 99, 99);
+    letter-spacing: 2px;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding-top: 5px;
+    padding-bottom:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: Pointer;
+    font-family: Raleway;
+    margin-bottom: 10px;
+}
+.boutonVert {
+    font-size: 12px;
+    font-weight: bold;
+     letter-spacing: 2px;
+    background-color: rgb(54, 180, 54);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding-top: 5px;
+    padding-bottom:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: Pointer;
+    font-family: Raleway;
+    width: 100px;
+    margin-bottom: 5px;
+}
+
+.boutonRouge {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius:  3px;
+   padding-top: 5px;
+    padding-bottom:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: Pointer;
+    font-family: Raleway;
+    width: 100px;
+    margin-bottom: 5px;
+}

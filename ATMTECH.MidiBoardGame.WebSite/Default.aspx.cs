@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ATMTECH.MidiBoardGame.DAO;
@@ -30,10 +31,9 @@ namespace ATMTECH.MidiBoardGame.WebSite
         {
             if (!Page.IsPostBack)
             {
-                RemplirListeDeroulante(ddlJeu, new DAOJeu().ObtenirListeJeuAvecPresence(), "Nom");
+                RemplirListeDeroulante(ddlJeu, new DAOJeu().ObtenirListeJeuAvecPresence().OrderBy(x=>x.Nom), "Nom");
                 datalisteVote.DataSource = new DAOProposition().ObtenirListeProposition();
                 datalisteVote.DataBind();
-              
                 datalistePresence.DataSource = new DAOPresence().ObtenirListePresenceAujourdhui();
                 datalistePresence.DataBind();
             }
@@ -41,22 +41,15 @@ namespace ATMTECH.MidiBoardGame.WebSite
             if (Session["Utilisateur"] != null)
             {
                 lblNomUtilisateur.Text = Utilisateur.Nom;
-                pnlConnecte.Visible = true;
-                pnlDeConnecte.Visible = false;
             }
-        }
-
-
-        protected void btnConnecteClick(object sender, EventArgs e)
-        {
-            if (new DAOUtilisateur().EstIdentifie(txtCourriel.Text, txtMotPasse.Text))
+            else
             {
-                Utilisateur = new DAOUtilisateur().ObtenirUtilisateur(txtCourriel.Text, txtMotPasse.Text);
-                lblNomUtilisateur.Text = Utilisateur.Nom;
-                pnlConnecte.Visible = true;
-                pnlDeConnecte.Visible = false;
+                Response.Redirect("Identification.aspx");
             }
         }
+
+
+
 
         protected void btnDeconnecterClick(object sender, EventArgs e)
         {
@@ -65,52 +58,28 @@ namespace ATMTECH.MidiBoardGame.WebSite
         }
 
 
-        protected void btnCreerClick(object sender, EventArgs e)
-        {
-            new DAOUtilisateur().Ajouter(txtNomCreer.Text, txtNickNameBoardGameGeek.Text, txtCourrielCreer.Text, txtMotDePasseCreer.Text);
-            Utilisateur = new DAOUtilisateur().ObtenirUtilisateur(txtCourrielCreer.Text, txtMotDePasseCreer.Text);
-            txtCourrielCreer.Text = string.Empty;
-            txtNomCreer.Text = String.Empty;
-            txtMotDePasseCreer.Text = String.Empty;
-            txtNickNameBoardGameGeek.Text = String.Empty;
 
-            Response.Redirect("Default.aspx");
-        }
 
         protected void btnPresenceClick(object sender, EventArgs e)
         {
             new DAOPresence().Ajouter(Utilisateur, Utilitaires.Aujourdhui());
             Response.Redirect("Default.aspx");
+
         }
 
-        protected void btnImporterMaListeJeuClick(object sender, EventArgs e)
+        protected void btnAjouterJeuMidiClick(object sender, EventArgs e)
         {
-            datalistListeJeuBoardGameGeek.DataSource = new DAOJeu().ObtenirListeJeuBoardGameGeek(Utilisateur);
-            datalistListeJeuBoardGameGeek.DataBind();
-
-            pnlImporterListeJeu.Visible = true;
+            new DAOProposition().Ajouter(ddlJeu.SelectedValue, Utilisateur.Id.ToString());
+            Response.Redirect("Default.aspx");
         }
 
-        protected void datalistListeJeuBoardGameGeekItemCommand(object source, DataListCommandEventArgs e)
+
+        protected void btnMonProfileClick(object sender, EventArgs e)
         {
-            if (e.CommandName == "Ajouter")
-            {
-                new DAOJeu().Ajouter(e.CommandArgument.ToString(),"1",Utilisateur);
-                datalistListeJeuBoardGameGeek.DataSource = new DAOJeu().ObtenirListeJeuBoardGameGeek(Utilisateur);
-                datalistListeJeuBoardGameGeek.DataBind();
-            }
-           
+            Response.Redirect("Profile.aspx");
         }
 
-
-        protected void datalisteVoteItemDataBound(object sender, DataListItemEventArgs e)
-        {
-            Proposition proposition = (Proposition)e.Item.DataItem;
-            Label lblNombreVote = (Label)e.Item.FindControl("lblNombreVote");
-            lblNombreVote.Text = new DAOPropositionVote().ObtenirNombreVote(proposition.Id.ToString()).ToString();
-        }
-
-        protected void datalisteVoteItemCommand(object source, DataListCommandEventArgs e)
+        protected void datalisteVoteItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "Vote")
             {
@@ -126,12 +95,20 @@ namespace ATMTECH.MidiBoardGame.WebSite
             }
         }
 
-        protected void btnAjouterJeuMidiClick(object sender, EventArgs e)
+        protected void datalisteVoteItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            new DAOProposition().Ajouter(ddlJeu.SelectedValue, Utilisateur.Id.ToString());
-            Response.Redirect("Default.aspx");
+            Proposition proposition = (Proposition)e.Item.DataItem;
+            Label lblNombreVote = (Label)e.Item.FindControl("lblNombreVote");
+            lblNombreVote.Text = new DAOPropositionVote().ObtenirNombreVote(proposition.Id.ToString()).ToString();
         }
 
-      
+        protected void datalistePresenceItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Retirer")
+            {
+                new DAOPresence().Retirer(Convert.ToInt32(e.CommandArgument), Utilitaires.Aujourdhui(), Utilisateur);
+                Response.Redirect("Default.aspx");
+            }
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace ATMTECH.MidiBoardGame.DAO
         }
         public IList<Utilisateur> ObtenirUtilisateur()
         {
-            DataSet dataSet = ObtenirDonneesMssql("SELECT Id, Nom, Courriel, MotDePasse FROM Utilisateur");
+            DataSet dataSet = ObtenirDonneesMssql("SELECT Id, Nom, Courriel, MotDePasse,BoardGameGeekNickName FROM Utilisateur");
             return (from DataRow dataRow in dataSet.Tables[0].Rows
                     select
                         new Utilisateur
@@ -78,5 +78,9 @@ namespace ATMTECH.MidiBoardGame.DAO
         }
 
 
+        public void Enregistrer(Utilisateur utilisateur)
+        {
+            ExecuterSql(string.Format("UPDATE Utilisateur SET Nom ='{0}', BoardGameGeekNickName ='{1}'", utilisateur.Nom, utilisateur.BoardGameGeekNickName));
+        }
     }
 }

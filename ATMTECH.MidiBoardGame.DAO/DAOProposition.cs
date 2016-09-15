@@ -46,7 +46,7 @@ namespace ATMTECH.MidiBoardGame.DAO
 
         public void Ajouter(string idJeu, string idUtilisateur)
         {
-            ExecuterSql(string.Format("INSERT INTO Proposition (Jeu, Date, Utilisateur) VALUES ({0}, DATEADD(dd, DATEDIFF(dd, 0, getdate()), 0), {1})", idJeu, idUtilisateur));
+            ExecuterSql(string.Format("IF NOT EXISTS(SELECT 1 FROM Proposition WHERE Jeu = {0}) INSERT INTO Proposition (Jeu, Date, Utilisateur) VALUES ({0}, DATEADD(dd, DATEDIFF(dd, 0, getdate()), 0), {1})", idJeu, idUtilisateur));
         }
 
     }

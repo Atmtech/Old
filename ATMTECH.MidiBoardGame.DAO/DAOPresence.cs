@@ -14,13 +14,13 @@ namespace ATMTECH.MidiBoardGame.DAO
 
             DataSet dataSet = ObtenirDonneesMssql("SELECT Id, Utilisateur, Date FROM Presence");
             List<Presence> presences = (from DataRow dataRow in dataSet.Tables[0].Rows
-                select
-                    new Presence
-                    {
-                        Id = Convert.ToInt32(dataRow["Id"].ToString()),
-                        Utilisateur = new Utilisateur { Id = Convert.ToInt32(dataRow["Utilisateur"].ToString()) },
-                        Date = Convert.ToDateTime(dataRow["Date"].ToString())
-                    }).ToList();
+                                        select
+                                            new Presence
+                                            {
+                                                Id = Convert.ToInt32(dataRow["Id"].ToString()),
+                                                Utilisateur = new Utilisateur { Id = Convert.ToInt32(dataRow["Utilisateur"].ToString()) },
+                                                Date = Convert.ToDateTime(dataRow["Date"].ToString())
+                                            }).ToList();
 
             foreach (Presence presence in presences)
             {
@@ -39,5 +39,16 @@ namespace ATMTECH.MidiBoardGame.DAO
             ExecuterSql(string.Format("IF NOT EXISTS(SELECT 1 FROM PRESENCE WHERE Utilisateur = {0} and Date ='{1}') INSERT INTO Presence (Utilisateur,Date) VALUES ({0}, '{1}')", utilisateur.Id, Utilitaires.Aujourdhui()));
         }
 
+        public void Retirer(int utilisateurId, DateTime aujourdhui, Utilisateur moi)
+        {
+
+            if (moi.Id == utilisateurId)
+            {
+                ExecuterSql(string.Format("IF EXISTS(SELECT 1 FROM PRESENCE WHERE Utilisateur = {0} and Date ='{1}') DELETE FROM Presence WHERE Utilisateur = {0} and Date = '{1}'",utilisateurId, Utilitaires.Aujourdhui()));
+                ExecuterSql(string.Format("DELETE FROM Proposition WHERE Utilisateur = {0} and Date = '{1}'",utilisateurId, Utilitaires.Aujourdhui()));
+                ExecuterSql("DELETE FROM PropositionVote WHERE Proposition not in (SELECT Proposition FROM Proposition)");
+            }
+
+        }
     }
 }

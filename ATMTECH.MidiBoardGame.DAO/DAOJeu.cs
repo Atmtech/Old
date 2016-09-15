@@ -4,8 +4,6 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Runtime.Serialization;
-using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using ATMTECH.MidiBoardGame.Entites;
@@ -74,7 +72,7 @@ namespace ATMTECH.MidiBoardGame.DAO
                 {
                     if (!item.Name.Text.ToLower().Contains("expansion"))
                     {
-                        string nomJeu = item.Name.Text.Replace("â€“", "-").Replace("Ã¯", "ï").Replace("Ã±", "ñ");
+                        string nomJeu = item.Name.Text.Replace("â€“", "-").Replace("Ã¯", "ï").Replace("Ã±", "ñ").Replace("Ã©","é");
                         jeux.Add(new Jeu
                         {
                             Nom = nomJeu,
@@ -94,6 +92,10 @@ namespace ATMTECH.MidiBoardGame.DAO
 
         }
 
+        public void Retirer(string nom, Utilisateur utilisateur)
+        {
+            ExecuterSql(string.Format("DELETE FROM Jeu WHERE Nom = '{0}' and Utilisateur = '{1}'", nom.Replace("'", "''"), utilisateur.Id));
+        }
     }
 }
 

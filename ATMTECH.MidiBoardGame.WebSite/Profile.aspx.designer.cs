@@ -10,78 +10,87 @@
 namespace ATMTECH.MidiBoardGame.WebSite {
     
     
-    public partial class Default1 {
+    public partial class Profile {
         
         /// <summary>
-        /// Contrôle lblNomUtilisateur.
+        /// Contrôle Label1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNomUtilisateur;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Contrôle btnDeconnecter.
+        /// Contrôle txtNom.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeconnecter;
+        protected global::System.Web.UI.WebControls.TextBox txtNom;
         
         /// <summary>
-        /// Contrôle btnMonProfile.
+        /// Contrôle Label5.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMonProfile;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Contrôle datalistePresence.
+        /// Contrôle txtNickNameBoardGameGeek.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater datalistePresence;
+        protected global::System.Web.UI.WebControls.TextBox txtNickNameBoardGameGeek;
         
         /// <summary>
-        /// Contrôle btnPresence.
+        /// Contrôle Label2.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPresence;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Contrôle ddlJeu.
+        /// Contrôle txtCourriel.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlJeu;
+        protected global::System.Web.UI.WebControls.TextBox txtCourriel;
         
         /// <summary>
-        /// Contrôle btnAjouterJeuMidi.
+        /// Contrôle btnEnregistrer.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjouterJeuMidi;
+        protected global::System.Web.UI.WebControls.Button btnEnregistrer;
         
         /// <summary>
-        /// Contrôle datalisteVote.
+        /// Contrôle datalistListeJeuBoardGameGeek.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater datalisteVote;
+        protected global::System.Web.UI.WebControls.DataList datalistListeJeuBoardGameGeek;
+        
+        /// <summary>
+        /// Contrôle btnRevenirAccueil.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRevenirAccueil;
     }
 }
