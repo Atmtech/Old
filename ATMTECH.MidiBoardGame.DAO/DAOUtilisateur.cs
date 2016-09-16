@@ -80,7 +80,7 @@ namespace ATMTECH.MidiBoardGame.DAO
 
         public void Enregistrer(Utilisateur utilisateur)
         {
-            ExecuterSql(string.Format("UPDATE Utilisateur SET Nom ='{0}', BoardGameGeekNickName ='{1}'", utilisateur.Nom, utilisateur.BoardGameGeekNickName));
+            ExecuterSql(string.Format("UPDATE Utilisateur SET Nom ='{0}', BoardGameGeekNickName ='{1}' WHERE Id = {2}", utilisateur.Nom, utilisateur.BoardGameGeekNickName, utilisateur.Id));
         }
     }
 }
