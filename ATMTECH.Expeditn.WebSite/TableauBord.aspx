@@ -7,7 +7,7 @@
      
     </style>
 
-    <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="form1-11" style="background-color: rgb(239, 239, 239);">
+    <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="form1-11" style="background-color: white;">
 
         <div class="mbr-section__container mbr-section__container--std-padding container" style="padding-top: 93px; padding-bottom: 93px;">
             <div class="row">
