@@ -31,7 +31,7 @@ namespace ATMTECH.MidiBoardGame.WebSite
         {
             if (!Page.IsPostBack)
             {
-                RemplirListeDeroulante(ddlJeu, new DAOJeu().ObtenirListeJeuAvecPresence().OrderBy(x=>x.Nom), "Nom");
+                RemplirListeDeroulante(ddlJeu, new DAOJeu().ObtenirListeJeuAvecPresence().OrderBy(x => x.Nom), "Nom");
                 datalisteVote.DataSource = new DAOProposition().ObtenirListeProposition();
                 datalisteVote.DataBind();
                 datalistePresence.DataSource = new DAOPresence().ObtenirListePresenceAujourdhui();
@@ -81,18 +81,22 @@ namespace ATMTECH.MidiBoardGame.WebSite
 
         protected void datalisteVoteItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            string id = ((Label)e.Item.FindControl("lblId")).Text;
+
             if (e.CommandName == "Vote")
             {
-                string idMidi = ((Label)e.Item.FindControl("lblIdMidi")).Text;
-                new DAOPropositionVote().Ajouter(idMidi, Utilisateur.Id.ToString());
-                Response.Redirect("Default.aspx");
+                new DAOPropositionVote().Ajouter(id, Utilisateur.Id.ToString());
             }
             if (e.CommandName == "Retirer")
             {
-                string idMidi = ((Label)e.Item.FindControl("lblIdMidi")).Text;
-                new DAOPropositionVote().Retirer(idMidi, Utilisateur.Id.ToString());
-                Response.Redirect("Default.aspx");
+                new DAOPropositionVote().Retirer(id, Utilisateur.Id.ToString());
             }
+
+            if (e.CommandName == "Supprimer")
+            {
+                new DAOPropositionVote().Supprimer(id, Utilisateur.Id.ToString());
+            }
+            Response.Redirect("Default.aspx");
         }
 
         protected void datalisteVoteItemDataBound(object sender, RepeaterItemEventArgs e)

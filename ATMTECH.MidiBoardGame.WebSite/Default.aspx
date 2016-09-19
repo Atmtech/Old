@@ -59,12 +59,15 @@
                                     <td style="padding-right: 15px;">
                                         <asp:Button runat="server" ID="btnRetirerVote" Text="Retirer mon vote" CommandName="Retirer" CssClass="boutonAction" />
                                     </td>
+                                      <td style="padding-right: 15px;">
+                                        <asp:Button runat="server" ID="btnEnlever" Text="Supprimer" CommandName="Supprimer" CssClass="boutonAction" />
+                                    </td>
                                     <td style="padding-right: 15px; text-align: left;">
                                         <asp:HyperLink runat="server" ID="lnkBoardgameGeek" NavigateUrl='<%# Eval("Jeu.UrlBoardGameGeek")  %>' Text='<%# Eval("Jeu.Nom")  %>' Target="_blank" Font-Bold="True" ForeColor="black" Font-Names="Arial" Font-Italic="False"></asp:HyperLink></td>
                                     <td style="padding-right: 15px; text-align: right;">
                                         <asp:Label runat="server" ID="lblNombreVote" Visible="True"></asp:Label>&nbsp;vote(s)<img src="Images/thumb.png" style="width: 25px; height: 25px;" />
 
-                                        <asp:Label runat="server" ID="lblIdMidi" Text='<%# Eval("Id")  %>' Visible="False"></asp:Label>
+                                        <asp:Label runat="server" ID="lblId" Text='<%# Eval("Id")  %>' Visible="False"></asp:Label>
 
                                     </td>
                                 </tr>

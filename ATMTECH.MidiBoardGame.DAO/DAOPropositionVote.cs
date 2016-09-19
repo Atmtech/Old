@@ -50,5 +50,10 @@ namespace ATMTECH.MidiBoardGame.DAO
         {
             ExecuterSql(string.Format("DELETE FROM PropositionVote WHERE Proposition = {0} and Utilisateur = {1}", idMidi, idUtilisateur));
         }
+
+        public void Supprimer(string id, string idUtilisateur)
+        {
+            ExecuterSql(string.Format("DELETE FROM Proposition WHERE Id = {0} and Utilisateur = {1}", id, idUtilisateur));
+        }
     }
 }
