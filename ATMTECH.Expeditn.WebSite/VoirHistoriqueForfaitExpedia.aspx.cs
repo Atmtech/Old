@@ -30,14 +30,11 @@ namespace ATMTECH.Expeditn.WebSite
 
             }
         }
-
         public int IdRechercheForfaitExpedia
         {
             get { return Convert.ToInt32(QueryString.GetQueryStringValue("ID")); }
         }
-
         public string FiltreHotel { get { return QueryString.GetQueryStringValue("Filtre"); } }
-
         public RechercheForfaitExpedia RechercheForfaitExpedia
         {
             set
@@ -48,7 +45,6 @@ namespace ATMTECH.Expeditn.WebSite
                 btnVoirRechercheSurExpedia.NavigateUrl = value.Url;
             }
         }
-
         public IList<AffichageHistoriqueForfaitExpedia> AffichageGraphique
         {
             set
@@ -64,17 +60,13 @@ namespace ATMTECH.Expeditn.WebSite
                 decimal minimumForfait = 0;
                 foreach (AffichageHistoriqueForfaitExpedia affichageHistoriqueForfaitExpedia in affichageHistoriqueForfaitExpedias)
                 {
-
-
                     if (titre != affichageHistoriqueForfaitExpedia.NomHotel)
                     {
                         titre = affichageHistoriqueForfaitExpedia.NomHotel;
-
                         maximumForfait = affichageHistoriqueForfaitExpedias.Where(x => x.NomHotel == titre).Max(x => x.Prix);
                         minimumForfait = affichageHistoriqueForfaitExpedias.Where(x => x.NomHotel == titre).Min(x => x.Prix);
-
                         html += string.Format(@"<h3 class='header3'><table style='width:700px'><tr style='border-bottom: solid 2px gray'><td>{0}</td><td style='text-align:right;font-weight:bold;'>{1}<img src='/images/etoile.png' style='width:20px;height:20px;'></td></tr></table> </h3>", titre, affichageHistoriqueForfaitExpedia.NombreEtoile);
-                        html += string.Format(@"(Plus bas prix <b>{0}</b> :: Plus haut prix <b>{1}</b>)  ", minimumForfait.ToString("C"), maximumForfait.ToString("C"));
+                        html += string.Format(@"<table style='width:700px'><tr><td>Plus bas prix: <b>{0}</b></td><td> Plus haut prix: <b>{1}</b></td> <td>Appréciation:  <b>{2}</b></td><td>Nombre d'évaluations: <b>{3}</b> </td></tr></table>", minimumForfait.ToString("C"), maximumForfait.ToString("C"), affichageHistoriqueForfaitExpedia.Appreciation, affichageHistoriqueForfaitExpedia.NombreEvaluation);
                     }
 
                     string style = "padding-right:4px;padding-left:4px;padding-bottom:4px;padding-top:4px;margin-top:4px;margin-bottom:4px;font-size:12px; border:solid 1px gray;";
@@ -100,8 +92,6 @@ namespace ATMTECH.Expeditn.WebSite
 
             }
         }
-
-
         public IList<HistoriqueForfaitExpedia> HistoriqueForfaitExpedia
         {
             set
@@ -122,6 +112,9 @@ namespace ATMTECH.Expeditn.WebSite
                     lblForfaitPlusCherCompagnie.Text = maximum.CompagnieOrganisatrice;
                     lblForfaitPlusCherDate.Text = maximum.DateCreated.ToString();
 
+                    lblDerniereDateImportation.Text = value.Max(x => x.DateCreated).ToString();
+                    lblNombreImportation.Text = value.Count.ToString();
+
                 }
                 else
                 {
@@ -139,20 +132,14 @@ namespace ATMTECH.Expeditn.WebSite
             }
         }
 
-
-
-
         protected void ddlListeHotelChanged(object sender, EventArgs e)
         {
             Presenter.Filtrer(ddlListeHotel.SelectedValue);
         }
-
         protected void btnVoirTousClick(object sender, EventArgs e)
         {
             Presenter.Filtrer("");
         }
-
-
     }
 
 

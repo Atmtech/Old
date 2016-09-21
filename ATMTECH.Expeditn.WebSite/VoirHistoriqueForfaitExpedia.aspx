@@ -88,10 +88,18 @@
                                 <asp:Label runat="server" ID="lblForfaitPlusCherDate"></asp:Label></td>
 
                         </tr>
+                        <tr class="ligneTableau">
+                             <td class="celluleTableau"><asp:Label runat="server" ID="lblDerniereDateImportationLibelle" Text="Dernière date d'importation"></asp:Label></td>
+                            <td class="celluleTableau"><asp:Label runat="server" ID="lblDerniereDateImportation" ></asp:Label></td>
+                            
+                             <td class="celluleTableau"><asp:Label runat="server" ID="lblNombreImportationLibelle" Text="Nombre d'importation"></asp:Label></td>
+                            <td class="celluleTableau"><asp:Label runat="server" ID="lblNombreImportation" ></asp:Label></td>
+
+                        </tr>
                     </table>
 
 
-                   <%-- <h3 class="header3">
+                    <%-- <h3 class="header3">
                         <asp:Label runat="server" ID="lblListePrix" Text="Historique des prix"></asp:Label>
                     </h3>--%>
                     <asp:PlaceHolder runat="server" ID="placeHolderGraphique"></asp:PlaceHolder>

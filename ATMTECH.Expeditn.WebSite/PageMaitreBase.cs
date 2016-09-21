@@ -74,6 +74,9 @@ namespace ATMTECH.Expeditn.WebSite
             if (id == "Label12") return true;
             if (id == "Label13") return true;
             if (id == "lblIdExpedition") return true;
+            if (id == "lblNombreImportation") return true;
+            if (id == "lblDerniereDateImportation") return true;
+            
 
             return false;
         }

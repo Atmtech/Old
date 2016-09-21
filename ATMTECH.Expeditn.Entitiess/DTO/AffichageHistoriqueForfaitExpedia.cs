@@ -8,5 +8,7 @@ namespace ATMTECH.Expeditn.Entities.DTO
         public decimal Prix { get; set; }
         public DateTime Date { get; set; }
         public string NombreEtoile { get; set; }
+        public string Appreciation { get; set; }
+        public string NombreEvaluation { get; set; }
     }
 }
