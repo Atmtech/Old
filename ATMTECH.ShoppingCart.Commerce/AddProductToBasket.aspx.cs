@@ -52,15 +52,18 @@ namespace ATMTECH.ShoppingCart.Commerce
 
                 AfficherInformationReseauSociaux(value);
                 AfficherLogoMarque(value);
+
+                imgProduit.ImageUrl = value.PrincipalFileUrl;
             }
         }
 
-        public IList<Couleur> Couleurs
+        public IList<ImageTechnoSport> ImageTechnoSports
         {
-            get { return ListeCouleur.Couleurs; }
             set
             {
-                ListeCouleur.Couleurs = value;
+                Session["ListeImageTechnoSport"] = value;
+                dataListListeImagesCouleur.DataSource = value;
+                dataListListeImagesCouleur.DataBind();
             }
         }
 
@@ -145,7 +148,7 @@ namespace ATMTECH.ShoppingCart.Commerce
         }
         public void AfficherListeFichier()
         {
-            ListeFichier.AfficherListeFichier(((Product)Session["ProduitCourant"]).ProductFiles);
+            //  ListeFichier.AfficherListeFichier(((Product)Session["ProduitCourant"]).ProductFiles);
         }
 
         protected void btnAjouterLigneCommandeClick(object sender, EventArgs e)
@@ -215,6 +218,16 @@ namespace ATMTECH.ShoppingCart.Commerce
             {
                 imgMarque.Visible = true;
                 imgMarque.ImageUrl = "~/images/WebSite/Logo" + produit.Brand + ".jpg";
+            }
+        }
+
+        protected void dataListListeImagesCouleurItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "ChangerImage")
+            {
+                imgProduit.ImageUrl = e.CommandArgument.ToString();
+                dataListListeImagesCouleur.DataSource =  Session["ListeImageTechnoSport"];
+                dataListListeImagesCouleur.DataBind();
             }
         }
     }

@@ -37,7 +37,7 @@
             EnableScriptLocalization="true">
         </asp:ScriptManager>
         <div>
-
+            <asp:Button runat="server" id="btnTest" OnClick="btnTestclick" Text="test"/>
             <div class="boiteEntete">
                 <div class="titreSite">
                     Administration

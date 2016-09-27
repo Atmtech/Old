@@ -8,7 +8,7 @@
     <asp:TextBox runat="server" ID="txtNom" CssClass="form-control" />
     <asp:Label runat="server" ID="Label5" CssClass="form-control-label" Text="Surnom sur BoardGameGeek"></asp:Label>
     <asp:TextBox runat="server" ID="txtNickNameBoardGameGeek" CssClass="form-control" />
-
+    <asp:Label runat="server" ID="lblAffichageNickName"></asp:Label>
     <asp:Label runat="server" ID="Label2" CssClass="form-control-label" Text="Courriel"></asp:Label>
     <asp:TextBox runat="server" ID="txtCourriel" CssClass="form-control" TextMode="Email" Enabled="False"/>
     

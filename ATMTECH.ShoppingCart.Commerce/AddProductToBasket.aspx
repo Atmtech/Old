@@ -5,12 +5,13 @@
 <%@ Register Src="UserControls/SlideShowFile.ascx" TagName="SlideShowFile" TagPrefix="uc3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <asp:PlaceHolder id="MetaPlaceHolder" runat="server" />
+    <asp:PlaceHolder ID="MetaPlaceHolder" runat="server" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div id="fb-root"></div>
-    <script>(function (d, s, id) {
+    <asp:UpdatePanel runat="server" ID="updatePannel">
+        <ContentTemplate>
+            <div id="fb-root"></div>
+            <script>(function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
@@ -19,7 +20,8 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
             <div class="imageProduit">
-                <uc3:SlideShowFile ID="ListeFichier" runat="server" />
+                <asp:Image runat="server" ID="imgProduit" Style="width: 190px; height: 300px;" />
+                <%--<uc3:SlideShowFile ID="ListeFichier" runat="server" />--%>
             </div>
             <div class="descriptionProduit">
                 <div class="titreDescriptionProduit">
@@ -65,15 +67,23 @@
                             </div>
                         </div>
                         <br />
-                        <uc2:ListeCouleur ID="ListeCouleur" runat="server" />
+
+                        <asp:DataList runat="server" ID="dataListListeImagesCouleur" RepeatDirection="Horizontal" RepeatColumns="10" OnItemCommand="dataListListeImagesCouleurItemCommand">
+                            <ItemTemplate>
+                                <asp:ImageButton runat="server" ID="imageCouleur" ImageUrl='<%# Eval("ImageCouleur") %>' AlternateText='<%# Eval("NomCouleurFr") %>' ToolTip='<%# Eval("NomCouleurFr") %>' CommandArgument='<%# Eval("Image") %>' CssClass="thumbnailCouleur" on CommandName="ChangerImage" />
+                            </ItemTemplate>
+                        </asp:DataList>
+
+                        <%--<uc2:ListeCouleur ID="ListeCouleur" runat="server" />--%>
                         <br />
-                        
-                        <asp:image runat="server" ID="imgMarque" Visible="false" CssClass="imageMarqueDansAjoutPanier" />
-                        <br/>
+
+                        <asp:Image runat="server" ID="imgMarque" Visible="false" CssClass="imageMarqueDansAjoutPanier" />
+                        <br />
 
                         <asp:Button runat="server" ID="btnConsulterLaCharte" OnClick="btnConsulterLaCharteClick" CssClass="boutonActionRond"
                             Text="Consulter la charte des grandeurs"></asp:Button>
-                        <br/><br/>
+                        <br />
+                        <br />
                         <asp:Button runat="server" ID="btnAjouterLigneCommande" OnClick="btnAjouterLigneCommandeClick" CssClass="boutonActionRond"
                             Text="Ajouter au panier"></asp:Button>
                     </div>
@@ -81,11 +91,11 @@
                 </div>
                 <div class="detailDescriptionProduit">
                     <div style="float: left; padding-right: 10px;">
-                        <asp:placeholder runat="server" ID="placeHolderTwitter"></asp:placeholder>
+                        <asp:PlaceHolder runat="server" ID="placeHolderTwitter"></asp:PlaceHolder>
                         <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
                     </div>
                     <div style="float: left;">
-                         <asp:placeholder runat="server" ID="placeHolderFacebook"></asp:placeholder>
+                        <asp:PlaceHolder runat="server" ID="placeHolderFacebook"></asp:PlaceHolder>
                     </div>
                     <div style="clear: both;"></div>
                     <div style="padding-bottom: 10px;">
@@ -97,6 +107,6 @@
                 </div>
             </div>
             <div style="clear: both;"></div>
-
-
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

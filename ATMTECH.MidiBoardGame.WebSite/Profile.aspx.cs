@@ -9,7 +9,7 @@ using ATMTECH.MidiBoardGame.Entites;
 
 namespace ATMTECH.MidiBoardGame.WebSite
 {
-    public partial class Profile : System.Web.UI.Page
+    public partial class Profile : Page
     {
 
 
@@ -33,6 +33,7 @@ namespace ATMTECH.MidiBoardGame.WebSite
                     txtNom.Text = Utilisateur.Nom;
                     txtCourriel.Text = Utilisateur.Courriel;
                     txtNickNameBoardGameGeek.Text = Utilisateur.BoardGameGeekNickName;
+                    lblAffichageNickName.Text = string.Format("https://boardgamegeek.com/xmlapi/collection/{0}?own=1", Utilisateur.BoardGameGeekNickName);
                 }
                 else
                 {

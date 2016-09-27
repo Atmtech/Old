@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using ATMTECH.Administration.Services.Interface;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface.Francais;
@@ -290,5 +291,11 @@ namespace ATMTECH.Administration.Views.Francais
         //    }
 
         //}
+
+        public IImageTechnoSportService ImageTechnoSportService { get; set; }
+        public void Test()
+        {
+            IList<ImageTechnoSport> obtenirImageTechnoSport = ImageTechnoSportService.ObtenirImageTechnoSport("12000");
+        }
     }
 }

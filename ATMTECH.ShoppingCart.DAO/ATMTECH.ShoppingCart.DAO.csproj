@@ -37,6 +37,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAOImageTechnoSport.cs" />
     <Compile Include="DAOFileType.cs" />
     <Compile Include="DAOEnterpriseAccess.cs" />
     <Compile Include="DAOEnumOrderInformation.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Francais\DAOCommande.cs" />
     <Compile Include="Francais\DAOProduitFichier.cs" />
     <Compile Include="Francais\DAOProduit.cs" />
+    <Compile Include="Interface\Francais\IDAOImageTechnoSport.cs" />
     <Compile Include="Interface\Francais\IDAOAdresseEntreprise.cs" />
     <Compile Include="Interface\Francais\IDAOTransactionInventaire.cs" />
     <Compile Include="Interface\Francais\IDAOCourriel.cs" />

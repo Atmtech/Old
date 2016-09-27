@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
-using ATMTECH.Common.Context;
+using System.Linq;
 using ATMTECH.DAO;
 using ATMTECH.DAO.Database;
 using ATMTECH.Entities;
@@ -79,6 +79,18 @@ namespace ATMTECH.ShoppingCart.DAO.Francais
             product.Stocks = DAOInventaire.ObtenirInventaire(product);
             return product;
         }
+
+        public Product ObtenirProduitParIdentification(string ident)
+        {
+            IList<Criteria> criterias = new List<Criteria>();
+            Criteria criteriaRecherche = new Criteria { Column = Product.IDENT, Operator = DatabaseOperator.OPERATOR_EQUAL, Value = ident };
+            criterias.Add(criteriaRecherche);
+            criterias.Add(IsActive());
+            OrderOperation orderOperation = new OrderOperation { OrderByColumn = BaseEntity.ORDER_ID, OrderByType = OrderBy.Type.Descending };
+            PagingOperation pagingOperation = new PagingOperation { PageIndex = DatabaseOperator.NO_PAGING, PageSize = DatabaseOperator.NO_PAGING };
+            return GetByCriteria(criterias, pagingOperation, orderOperation).First();
+        }
+
         public IList<Product> ObtenirProduit(string recherche)
         {
             IList<Criteria> criterias = new List<Criteria>();

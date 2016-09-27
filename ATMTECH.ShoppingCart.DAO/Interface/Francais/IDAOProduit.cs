@@ -7,6 +7,7 @@ namespace ATMTECH.ShoppingCart.DAO.Interface.Francais
     {
         IList<Product> ObtenirListeProduitEnVente(int id);
         Product ObtenirProduit(int id);
+        Product ObtenirProduitParIdentification(string ident);
         IList<Product> ObtenirProduit(string recherche);
         IList<Product> ObtenirProduitParMarque(string marque);
         IList<Product> ObtenirProduit();

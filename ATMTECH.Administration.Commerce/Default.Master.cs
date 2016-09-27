@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Text;
 using ATMTECH.Administration.Views.Francais;
 using ATMTECH.Administration.Views.Interface.Francais;
 using ATMTECH.Entities;
@@ -127,7 +130,12 @@ namespace ATMTECH.Administration.Commerce
             Presenter.SynchroniseProductFile();
             ShowMessage(new Message { Description = "Images synchronisé", MessageType = Message.MESSAGE_TYPE_SUCCESS });
         }
+
+        protected void btnTestclick(object sender, EventArgs e)
+        {
+            Presenter.Test();
+        }
     }
 
-
+  
 }

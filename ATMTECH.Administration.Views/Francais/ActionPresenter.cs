@@ -261,7 +261,7 @@ namespace ATMTECH.Administration.Views.Francais
 
         private string ImporterImageSecondaire(string repertoireImageSecondaire, string repertoireImageSiteWeb)
         {
-            return ""
+            return "";
         }
         private string ImporterImagePrincipale(string repertoireImagePrincipal, string repertoireImageSiteWeb)
         {

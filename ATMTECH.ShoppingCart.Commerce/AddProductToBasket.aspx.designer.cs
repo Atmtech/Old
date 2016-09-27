@@ -22,13 +22,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::System.Web.UI.WebControls.PlaceHolder MetaPlaceHolder;
         
         /// <summary>
-        /// Contrôle ListeFichier.
+        /// Contrôle imgProduit.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.ShoppingCart.Commerce.UserControls.SlideShowFile ListeFichier;
+        protected global::System.Web.UI.WebControls.Image imgProduit;
         
         /// <summary>
         /// Contrôle lblIdentProduit.
@@ -166,13 +166,13 @@ namespace ATMTECH.ShoppingCart.Commerce {
         protected global::ATMTECH.WebControls.Numeric txtQuantite;
         
         /// <summary>
-        /// Contrôle ListeCouleur.
+        /// Contrôle dataListListeImagesCouleur.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::ATMTECH.ShoppingCart.Commerce.UserControls.ListeCouleur ListeCouleur;
+        protected global::System.Web.UI.WebControls.DataList dataListListeImagesCouleur;
         
         /// <summary>
         /// Contrôle imgMarque.
