@@ -40,6 +40,15 @@ namespace ATMTECH.MidiBoardGame.WebSite {
         protected global::System.Web.UI.WebControls.Button btnMonProfile;
         
         /// <summary>
+        /// Contrôle pnlBloque1145message.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlBloque1145message;
+        
+        /// <summary>
         /// Contrôle datalistePresence.
         /// </summary>
         /// <remarks>
@@ -83,5 +92,14 @@ namespace ATMTECH.MidiBoardGame.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater datalisteVote;
+        
+        /// <summary>
+        /// Contrôle datalisteVoteSansVote.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater datalisteVoteSansVote;
     }
 }

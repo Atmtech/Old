@@ -34,8 +34,28 @@ namespace ATMTECH.MidiBoardGame.WebSite
                 RemplirListeDeroulante(ddlJeu, new DAOJeu().ObtenirListeJeuAvecPresence().OrderBy(x => x.Nom), "Nom");
                 datalisteVote.DataSource = new DAOProposition().ObtenirListeProposition();
                 datalisteVote.DataBind();
+
+                datalisteVoteSansVote.DataSource = new DAOProposition().ObtenirListeProposition();
+                datalisteVoteSansVote.DataBind();
+
                 datalistePresence.DataSource = new DAOPresence().ObtenirListePresenceAujourdhui();
                 datalistePresence.DataBind();
+
+
+                TimeSpan heure = new TimeSpan(11, 45, 0); 
+                
+                TimeSpan maintenant = DateTime.Now.TimeOfDay;
+
+
+
+                if (maintenant >= heure)
+                {
+                    pnlBloque1145message.Visible = true;
+                    btnPresence.Visible = false;
+                    btnAjouterJeuMidi.Visible = false;
+                    datalisteVote.Visible = false;
+                    datalisteVoteSansVote.Visible = true;
+                }
             }
 
             if (Session["Utilisateur"] != null)

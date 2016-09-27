@@ -12,6 +12,11 @@
 
     <br />
     <br />
+
+
+    <asp:Panel runat="server" ID="pnlBloque1145message" Visible="False" Style="background-color: white; padding: 10px 10px 10px 10px; color: red">
+        Vous ne pouvez plus rien faire à partir de 11h45 ! 
+    </asp:Panel>
     <table style="width: 100%;">
         <tr>
             <td style="vertical-align: top; padding: 10px 10px 10px 10px;">
@@ -59,7 +64,7 @@
                                     <td style="padding-right: 15px;">
                                         <asp:Button runat="server" ID="btnRetirerVote" Text="Retirer mon vote" CommandName="Retirer" CssClass="boutonAction" />
                                     </td>
-                                      <td style="padding-right: 15px;">
+                                    <td style="padding-right: 15px;">
                                         <asp:Button runat="server" ID="btnEnlever" Text="Supprimer" CommandName="Supprimer" CssClass="boutonAction" />
                                     </td>
                                     <td style="padding-right: 15px; text-align: left;">
@@ -73,6 +78,27 @@
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
+
+
+                        <asp:Repeater runat="server" ID="datalisteVoteSansVote" OnItemCommand="datalisteVoteItemCommand" OnItemDataBound="datalisteVoteItemDataBound" Visible="false">
+                            <ItemTemplate>
+                                <tr>
+                                    <td style="padding-right: 5px;"></td>
+                                    <td style="padding-right: 15px;"></td>
+                                    <td style="padding-right: 15px;"></td>
+                                    <td style="padding-right: 15px; text-align: left;">
+                                        <asp:HyperLink runat="server" ID="lnkBoardgameGeek" NavigateUrl='<%# Eval("Jeu.UrlBoardGameGeek")  %>' Text='<%# Eval("Jeu.Nom")  %>' Target="_blank" Font-Bold="True" ForeColor="black" Font-Names="Arial" Font-Italic="False"></asp:HyperLink></td>
+                                    <td style="padding-right: 15px; text-align: right;">
+                                        <asp:Label runat="server" ID="lblNombreVote" Visible="True"></asp:Label>&nbsp;vote(s)<img src="Images/thumb.png" style="width: 25px; height: 25px;" />
+
+                                        <asp:Label runat="server" ID="lblId" Text='<%# Eval("Id")  %>' Visible="False"></asp:Label>
+
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
+
+
                     </table>
                 </div>
             </td>
