@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using ATMTECH.MidiBoardGame.Entites;
-using ATMTECH.MidiBoardGame.WebSite;
 
 namespace ATMTECH.MidiBoardGame.DAO
 {
@@ -47,7 +46,7 @@ namespace ATMTECH.MidiBoardGame.DAO
 
         public void Ajouter(string idJeu, string idUtilisateur)
         {
-            ExecuterSql(string.Format("IF NOT EXISTS(SELECT 1 FROM Proposition WHERE Jeu = {0} and Date ='{2}') INSERT INTO Proposition (Jeu, Date, Utilisateur) VALUES ({0}, DATEADD(dd, DATEDIFF(dd, 0, getdate()), 0), {1})", idJeu, idUtilisateur, Utilitaires.Aujourdhui()));
+            ExecuterSql(string.Format("IF NOT EXISTS(SELECT 1 FROM Proposition WHERE Jeu = {0} and Date ='{2}') INSERT INTO Proposition (Jeu, Date, Utilisateur) VALUES ({0}, DATEADD(dd, DATEDIFF(dd, 0, getdate()), 0), {1})", idJeu, idUtilisateur, Utilitaires.Utilitaires.Aujourdhui()));
         }
 
     }

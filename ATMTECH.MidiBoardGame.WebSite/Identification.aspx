@@ -3,7 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <h3><strong>Identifiez-vous</strong></h3>
-
+    
+    
+ 
         <asp:Label runat="server" ID="lblCourriel" CssClass="form-control-label" Text="Courriel"></asp:Label>
         <asp:TextBox runat="server" ID="txtCourriel" CssClass="form-control" />
         <asp:Label runat="server" ID="lblMotDePasse" CssClass="form-control-label" Text="Mot de passe"></asp:Label>

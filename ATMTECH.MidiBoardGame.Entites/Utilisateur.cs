@@ -7,5 +7,6 @@
         public string Courriel { get; set; }
         public string MotDePasse { get; set; }
         public string BoardGameGeekNickName { get; set; }
+        public string Gravatar { get; set; }
     }
 }

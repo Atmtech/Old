@@ -144,7 +144,6 @@
       <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilitaires.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMTECH.MidiBoardGame.DAO\ATMTECH.MidiBoardGame.DAO.csproj">
@@ -154,6 +153,10 @@
     <ProjectReference Include="..\ATMTECH.MidiBoardGame.Entites\ATMTECH.MidiBoardGame.Entites.csproj">
       <Project>{9C4D955D-CB2E-4D76-8427-F6917CD8D87F}</Project>
       <Name>ATMTECH.MidiBoardGame.Entites</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMTECH.MidiBoardGame.Utilitaires\ATMTECH.MidiBoardGame.Utilitaires.csproj">
+      <Project>{9b9f7416-58ca-46bf-8779-4448b51d2968}</Project>
+      <Name>ATMTECH.MidiBoardGame.Utilitaires</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

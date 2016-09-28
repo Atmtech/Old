@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using ATMTECH.MidiBoardGame.Entites;
 
 namespace ATMTECH.MidiBoardGame.DAO
@@ -12,31 +13,28 @@ namespace ATMTECH.MidiBoardGame.DAO
         {
             DataSet dataSet = ObtenirDonneesMssql("SELECT PropositionVote.Id as Id,Proposition,PropositionVote.Utilisateur as IdUtilisateur FROM PropositionVote INNER JOIN Proposition on Proposition.Id = PropositionVote.Proposition and Proposition.Date = DATEADD(dd, DATEDIFF(dd, 0, getdate()), 0)");
             return (from DataRow dataRow in dataSet.Tables[0].Rows
-                                select
-                                    new PropositionVote
-                                    {
-                                        Id = Convert.ToInt32(dataRow["Id"].ToString()),
-                                        Proposition = new Proposition { Id = Convert.ToInt32(dataRow["Proposition"].ToString()) },
-                                        Utilisateur = new Utilisateur { Id = Convert.ToInt32(dataRow["IdUtilisateur"].ToString()) }
-                                    }).ToList();
+                    select
+                        new PropositionVote
+                        {
+                            Id = Convert.ToInt32(dataRow["Id"].ToString()),
+                            Proposition = new Proposition { Id = Convert.ToInt32(dataRow["Proposition"].ToString()) },
+                            Utilisateur = new Utilisateur { Id = Convert.ToInt32(dataRow["IdUtilisateur"].ToString()) }
+                        }).ToList();
         }
-        public int ObtenirNombreVote(string idMidi)
+        public int ObtenirNombreVote(string id)
         {
-            DataSet dataSet = ObtenirDonneesMssql("SELECT count(Utilisateur) as compte FROM PropositionVote WHERE Proposition = " + idMidi);
+            DataSet dataSet = ObtenirDonneesMssql("SELECT count(Utilisateur) as compte FROM PropositionVote WHERE Proposition = " + id);
             return (int)dataSet.Tables[0].Rows[0]["compte"];
         }
 
-        public IList<Utilisateur> ObtenirVoteur()
+        public IList<Utilisateur> ObtenirVoteur(string id)
         {
-            IList<PropositionVote> obtenirMidiVote = ObtenirPropositionVote();
+            DataSet dataSet = ObtenirDonneesMssql("SELECT Utilisateur FROM PropositionVote WHERE Proposition = " + id);
             IList<Utilisateur> utilisateurs = new List<Utilisateur>();
-            foreach (PropositionVote midiVote in obtenirMidiVote)
+            foreach (DataRow row in dataSet.Tables[0].Rows)
             {
-                if (utilisateurs.Count(x => x.Id == midiVote.Utilisateur.Id) == 0)
-                {
-                    midiVote.Utilisateur = new DAOUtilisateur().ObtenirUtilisateur().FirstOrDefault(x => x.Id == midiVote.Utilisateur.Id);
-                    utilisateurs.Add(midiVote.Utilisateur);
-                }
+                Utilisateur utilisateur = new DAOUtilisateur().ObtenirUtilisateur((int)row["Utilisateur"]);
+                utilisateurs.Add(utilisateur);
             }
             return utilisateurs;
         }

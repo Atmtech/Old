@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using ATMTECH.MidiBoardGame.Entites;
-using ATMTECH.MidiBoardGame.WebSite;
 
 namespace ATMTECH.MidiBoardGame.DAO
 {
@@ -36,7 +35,7 @@ namespace ATMTECH.MidiBoardGame.DAO
 
         public void Ajouter(Utilisateur utilisateur, DateTime date)
         {
-            ExecuterSql(string.Format("IF NOT EXISTS(SELECT 1 FROM PRESENCE WHERE Utilisateur = {0} and Date ='{1}') INSERT INTO Presence (Utilisateur,Date) VALUES ({0}, '{1}')", utilisateur.Id, Utilitaires.Aujourdhui()));
+            ExecuterSql(string.Format("IF NOT EXISTS(SELECT 1 FROM PRESENCE WHERE Utilisateur = {0} and Date ='{1}') INSERT INTO Presence (Utilisateur,Date) VALUES ({0}, '{1}')", utilisateur.Id, Utilitaires.Utilitaires.Aujourdhui()));
         }
 
         public void Retirer(int utilisateurId, DateTime aujourdhui, Utilisateur moi)
@@ -44,8 +43,8 @@ namespace ATMTECH.MidiBoardGame.DAO
 
             if (moi.Id == utilisateurId)
             {
-                ExecuterSql(string.Format("IF EXISTS(SELECT 1 FROM PRESENCE WHERE Utilisateur = {0} and Date ='{1}') DELETE FROM Presence WHERE Utilisateur = {0} and Date = '{1}'",utilisateurId, Utilitaires.Aujourdhui()));
-                ExecuterSql(string.Format("DELETE FROM Proposition WHERE Utilisateur = {0} and Date = '{1}'",utilisateurId, Utilitaires.Aujourdhui()));
+                ExecuterSql(string.Format("IF EXISTS(SELECT 1 FROM PRESENCE WHERE Utilisateur = {0} and Date ='{1}') DELETE FROM Presence WHERE Utilisateur = {0} and Date = '{1}'",utilisateurId, Utilitaires.Utilitaires.Aujourdhui()));
+                ExecuterSql(string.Format("DELETE FROM Proposition WHERE Utilisateur = {0} and Date = '{1}'",utilisateurId, Utilitaires.Utilitaires.Aujourdhui()));
                 ExecuterSql("DELETE FROM PropositionVote WHERE Proposition not in (SELECT Proposition FROM Proposition)");
             }
 

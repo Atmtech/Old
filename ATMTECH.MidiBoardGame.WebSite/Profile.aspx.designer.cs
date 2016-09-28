@@ -76,6 +76,24 @@ namespace ATMTECH.MidiBoardGame.WebSite {
         protected global::System.Web.UI.WebControls.TextBox txtCourriel;
         
         /// <summary>
+        /// Contrôle lblGravatar.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGravatar;
+        
+        /// <summary>
+        /// Contrôle txtGravatar.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGravatar;
+        
+        /// <summary>
         /// Contrôle btnEnregistrer.
         /// </summary>
         /// <remarks>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -42,8 +43,8 @@ namespace ATMTECH.MidiBoardGame.WebSite
                 datalistePresence.DataBind();
 
 
-                TimeSpan heure = new TimeSpan(11, 45, 0); 
-                
+                TimeSpan heure = new TimeSpan(11, 45, 0);
+
                 TimeSpan maintenant = DateTime.Now.TimeOfDay;
 
 
@@ -82,7 +83,8 @@ namespace ATMTECH.MidiBoardGame.WebSite
 
         protected void btnPresenceClick(object sender, EventArgs e)
         {
-            new DAOPresence().Ajouter(Utilisateur, Utilitaires.Aujourdhui());
+
+            new DAOPresence().Ajouter(Utilisateur, Utilitaires.Utilitaires.Aujourdhui());
             Response.Redirect("Default.aspx");
 
         }
@@ -124,13 +126,33 @@ namespace ATMTECH.MidiBoardGame.WebSite
             Proposition proposition = (Proposition)e.Item.DataItem;
             Label lblNombreVote = (Label)e.Item.FindControl("lblNombreVote");
             lblNombreVote.Text = new DAOPropositionVote().ObtenirNombreVote(proposition.Id.ToString()).ToString();
+            Label lblImageGravatar = (Label)e.Item.FindControl("lblImageGravatar");
+            if (lblImageGravatar != null)
+            {
+                IList<Utilisateur> obtenirVoteur = new DAOPropositionVote().ObtenirVoteur(proposition.Id.ToString());
+                foreach (Utilisateur utilisateur in obtenirVoteur)
+                {
+                    if (!string.IsNullOrEmpty(utilisateur.Gravatar))
+                    {
+                        lblImageGravatar.Text += "<img src='" + Utilitaires.Utilitaires.ObtenirImageGravatar(utilisateur.Gravatar) + "' Title='" + utilisateur.Nom + "' style='width:25px;height:25px;'> | ";
+                    }
+                    else
+                    {
+                        lblImageGravatar.Text += "<img src='/Images/user.png' Title='" + utilisateur.Nom + "' style='width:25px;height:25px;'> | ";
+                    }
+                }
+
+
+            }
+
+
         }
 
         protected void datalistePresenceItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "Retirer")
             {
-                new DAOPresence().Retirer(Convert.ToInt32(e.CommandArgument), Utilitaires.Aujourdhui(), Utilisateur);
+                new DAOPresence().Retirer(Convert.ToInt32(e.CommandArgument), Utilitaires.Utilitaires.Aujourdhui(), Utilisateur);
                 Response.Redirect("Default.aspx");
             }
         }

@@ -33,6 +33,7 @@ namespace ATMTECH.MidiBoardGame.WebSite
                     txtNom.Text = Utilisateur.Nom;
                     txtCourriel.Text = Utilisateur.Courriel;
                     txtNickNameBoardGameGeek.Text = Utilisateur.BoardGameGeekNickName;
+                    txtGravatar.Text = Utilisateur.Gravatar;
                     lblAffichageNickName.Text = string.Format("https://boardgamegeek.com/xmlapi/collection/{0}?own=1", Utilisateur.BoardGameGeekNickName);
                 }
                 else
@@ -48,6 +49,7 @@ namespace ATMTECH.MidiBoardGame.WebSite
         {
             Utilisateur.Nom = txtNom.Text;
             Utilisateur.BoardGameGeekNickName = txtNickNameBoardGameGeek.Text;
+            Utilisateur.Gravatar = txtGravatar.Text;
             new DAOUtilisateur().Enregistrer(Utilisateur);
             Response.Redirect("Profile.aspx");
         }

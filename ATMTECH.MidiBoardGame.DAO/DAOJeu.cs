@@ -7,7 +7,6 @@ using System.Net;
 using System.Xml;
 using System.Xml.Serialization;
 using ATMTECH.MidiBoardGame.Entites;
-using ATMTECH.MidiBoardGame.WebSite;
 
 namespace ATMTECH.MidiBoardGame.DAO
 {
@@ -32,7 +31,7 @@ namespace ATMTECH.MidiBoardGame.DAO
         public IList<Jeu> ObtenirListeJeuAvecPresence()
         {
 
-            DataSet dataSet = ObtenirDonneesMssql(string.Format("SELECT Jeu.Id as Id, Nom, UrlBoardGameGeek, Jeu.Utilisateur as Utilisateur FROM Jeu inner join Presence on Presence.Utilisateur = Jeu.Utilisateur and Presence.Date = '{0}'", Utilitaires.Aujourdhui()));
+            DataSet dataSet = ObtenirDonneesMssql(string.Format("SELECT Jeu.Id as Id, Nom, UrlBoardGameGeek, Jeu.Utilisateur as Utilisateur FROM Jeu inner join Presence on Presence.Utilisateur = Jeu.Utilisateur and Presence.Date = '{0}'", Utilitaires.Utilitaires.Aujourdhui()));
             return (from DataRow dataRow in dataSet.Tables[0].Rows
                     select
                         new Jeu

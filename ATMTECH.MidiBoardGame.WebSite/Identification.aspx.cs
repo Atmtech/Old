@@ -23,7 +23,7 @@ namespace ATMTECH.MidiBoardGame.WebSite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnConnecteClick(object sender, EventArgs e)
