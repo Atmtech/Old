@@ -19,7 +19,6 @@ namespace ATMTECH.MidiBoardGame.WebSite
             }
             set { Session["Utilisateur"] = value; }
         }
-
         public void RemplirListeDeroulante(DropDownList dropDownList, object Source, string colonneAffichage)
         {
             dropDownList.DataSource = Source;
@@ -68,19 +67,11 @@ namespace ATMTECH.MidiBoardGame.WebSite
                 Response.Redirect("Identification.aspx");
             }
         }
-
-
-
-
         protected void btnDeconnecterClick(object sender, EventArgs e)
         {
             Utilisateur = null;
             Response.Redirect("Default.aspx");
         }
-
-
-
-
         protected void btnPresenceClick(object sender, EventArgs e)
         {
 
@@ -88,19 +79,15 @@ namespace ATMTECH.MidiBoardGame.WebSite
             Response.Redirect("Default.aspx");
 
         }
-
         protected void btnAjouterJeuMidiClick(object sender, EventArgs e)
         {
             new DAOProposition().Ajouter(ddlJeu.SelectedValue, Utilisateur.Id.ToString());
             Response.Redirect("Default.aspx");
         }
-
-
         protected void btnMonProfileClick(object sender, EventArgs e)
         {
             Response.Redirect("Profile.aspx");
         }
-
         protected void datalisteVoteItemCommand(object source, RepeaterCommandEventArgs e)
         {
             string id = ((Label)e.Item.FindControl("lblId")).Text;
@@ -120,7 +107,6 @@ namespace ATMTECH.MidiBoardGame.WebSite
             }
             Response.Redirect("Default.aspx");
         }
-
         protected void datalisteVoteItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             Proposition proposition = (Proposition)e.Item.DataItem;
@@ -147,7 +133,6 @@ namespace ATMTECH.MidiBoardGame.WebSite
 
 
         }
-
         protected void datalistePresenceItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "Retirer")
@@ -155,6 +140,21 @@ namespace ATMTECH.MidiBoardGame.WebSite
                 new DAOPresence().Retirer(Convert.ToInt32(e.CommandArgument), Utilitaires.Utilitaires.Aujourdhui(), Utilisateur);
                 Response.Redirect("Default.aspx");
             }
+        }
+        protected void datalistePresenceDatabound(object sender, RepeaterItemEventArgs e)
+        {
+            Presence presence = (Presence)e.Item.DataItem;
+            Label lblImage = (Label)e.Item.FindControl("lblImage");
+
+            if (!string.IsNullOrEmpty(presence.Utilisateur.Gravatar))
+            {
+                lblImage.Text += "<img src='" + Utilitaires.Utilitaires.ObtenirImageGravatar(presence.Utilisateur.Gravatar) + "' Title='" + presence.Utilisateur.Nom + "' style='width:25px;height:25px;'> ";
+            }
+            else
+            {
+                lblImage.Text += "<img src='/Images/user.png' Title='" + presence.Utilisateur.Nom + "' style='width:25px;height:25px;'> ";
+            }
+
         }
     }
 }

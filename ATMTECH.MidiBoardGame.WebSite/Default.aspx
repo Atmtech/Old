@@ -23,9 +23,12 @@
                 <div style="background-color: white; padding: 10px 10px 10px 10px; height: auto;">
                     <h5 style="text-transform: uppercase"><strong>Présences ce midi</strong></h5>
                     <table style="width: 100%;">
-                        <asp:Repeater runat="server" ID="datalistePresence" OnItemCommand="datalistePresenceItemCommand">
+                        <asp:Repeater runat="server" ID="datalistePresence" OnItemCommand="datalistePresenceItemCommand" OnItemDataBound="datalistePresenceDatabound">
                             <ItemTemplate>
                                 <tr>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblImage" ></asp:Label>
+                                    </td>
                                     <td>
                                         <asp:Label runat="server" ID="label1" Text='<%# Eval("Utilisateur.Nom")  %>'></asp:Label></td>
                                     <td>
@@ -90,7 +93,7 @@
                                         <asp:HyperLink runat="server" ID="lnkBoardgameGeek" NavigateUrl='<%# Eval("Jeu.UrlBoardGameGeek")  %>' Text='<%# Eval("Jeu.Nom")  %>' Target="_blank" Font-Bold="True" ForeColor="black" Font-Names="Arial" Font-Italic="False"></asp:HyperLink></td>
                                     <td style="padding-right: 15px; text-align: right;">
                                         <asp:Label runat="server" ID="lblNombreVote" Visible="True"></asp:Label>&nbsp;vote(s)<img src="Images/thumb.png" style="width: 25px; height: 25px;" />
-
+                                        | <asp:Label runat="server" id="lblImageGravatar"></asp:Label>
                                         <asp:Label runat="server" ID="lblId" Text='<%# Eval("Id")  %>' Visible="False"></asp:Label>
 
                                     </td>
