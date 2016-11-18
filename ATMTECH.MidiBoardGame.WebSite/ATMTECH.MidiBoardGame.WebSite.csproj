@@ -103,6 +103,7 @@
     <Content Include="assets\viewportChecker\jquery.viewportchecker.js" />
     <Content Include="assets\web\assets\jquery\jquery.min.js" />
     <Content Include="Default.aspx" />
+    <Content Include="ExecuteSql.aspx" />
     <Content Include="Identification.aspx" />
     <Content Include="Images\thumb.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ExecuteSql.aspx.cs">
+      <DependentUpon>ExecuteSql.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExecuteSql.aspx.designer.cs">
+      <DependentUpon>ExecuteSql.aspx</DependentUpon>
     </Compile>
     <Compile Include="Identification.aspx.cs">
       <DependentUpon>Identification.aspx</DependentUpon>
