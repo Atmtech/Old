@@ -5,9 +5,11 @@ using System.IO;
 using System.Web;
 using ATMTECH.Administration.Views.Base;
 using ATMTECH.Administration.Views.Interface;
+using ATMTECH.Entities;
 using ATMTECH.Services.Interface;
 using ATMTECH.ShoppingCart.Entities;
 using ATMTECH.ShoppingCart.Services.Interface;
+using File = System.IO.File;
 
 namespace ATMTECH.Administration.Views
 {
@@ -27,10 +29,7 @@ namespace ATMTECH.Administration.Views
             string filename = Path.GetFileName(httpPostedFile.FileName);
             string serverPath = Server.MapPath(string.Format(@"{0}\{1}", "Files", filename));
             httpPostedFile.SaveAs(serverPath);
-
             ImportExcelfile(serverPath);
-
-
             File.Delete(serverPath);
         }
 
@@ -38,17 +37,25 @@ namespace ATMTECH.Administration.Views
         {
             using (OleDbConnection conn = new OleDbConnection(("provider=Microsoft.Jet.OLEDB.4.0; " + ("data source=" + file + "; " + "Extended Properties=Excel 8.0;"))))
             {
-                conn.Open();
-                ImportWorkSheet(conn, file);
+                try
+                {
+                    conn.Open();
+                   
+                        ImportWorkSheet(conn, file);
+                   
+                }
+                catch (Exception ex)
+                {
+                    LogService.LogException(new Message { Description = ex.Message });
+                    throw;
+                }
             }
         }
-
 
         private void ImportWorkSheet(OleDbConnection conn, string file)
         {
             OleDbDataAdapter ada = new OleDbDataAdapter("select * from [Import$]", conn);
             DataSet ds = new DataSet();
-
             try
             {
                 ada.Fill(ds, "result_name");
