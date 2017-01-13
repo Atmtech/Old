@@ -31,21 +31,25 @@ namespace ATMTECH.ShoppingCart.Services
         public Enterprise GetEnterprise(int id)
         {
             Enterprise enterprise = DAOEnterprise.GetEnterprise(id);
-            IList<City> cities = DAOCity.GetAll();
-            IList<Country> countries = DAOCountry.GetAllCountries();
-
-            foreach (Address address in enterprise.BillingAddress)
+            if (enterprise != null)
             {
-                address.City = cities.FirstOrDefault(x => x.Id == address.City.Id);
-                address.Country = countries.FirstOrDefault(x => x.Id == address.Country.Id);
-            }
 
-            foreach (Address address in enterprise.ShippingAddress.Where(address => address != null))
-            {
-                address.City = cities.FirstOrDefault(x => x.Id == address.City.Id);
-                address.Country = address.Country == null
-                                      ? null
-                                      : countries.FirstOrDefault(x => x.Id == address.Country.Id);
+                IList<City> cities = DAOCity.GetAll();
+                IList<Country> countries = DAOCountry.GetAllCountries();
+
+                foreach (Address address in enterprise.BillingAddress)
+                {
+                    address.City = cities.FirstOrDefault(x => x.Id == address.City.Id);
+                    address.Country = countries.FirstOrDefault(x => x.Id == address.Country.Id);
+                }
+
+                foreach (Address address in enterprise.ShippingAddress.Where(address => address != null))
+                {
+                    address.City = cities.FirstOrDefault(x => x.Id == address.City.Id);
+                    address.Country = address.Country == null
+                        ? null
+                        : countries.FirstOrDefault(x => x.Id == address.Country.Id);
+                }
             }
 
             return enterprise;

@@ -55,7 +55,9 @@ namespace ATMTECH.DAO.Database
                             pagingIndex = 1;
                         }
                         string from = sql.Substring(sql.IndexOf("FROM [") + 5, sql.Length - sql.IndexOf("FROM [") - 5);
-                        from = from.Substring(0, from.IndexOf("ORDER BY"));
+                        if (from.IndexOf("ORDER BY") != -1)
+                        { from = from.Substring(0, from.IndexOf("ORDER BY")); }
+
                         string colonne = sql.Substring(6, sql.IndexOf("FROM [") - 6);
                         rtn = string.Format(MsSql<TModel, TId>.SQL_PAGING, pagingOperation.PageSize, pagingIndex, colonne, from);
                         break;
