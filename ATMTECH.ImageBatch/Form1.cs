@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ATMTECH.ImageBatch
@@ -38,21 +32,23 @@ namespace ATMTECH.ImageBatch
                 string nomFichierCible = repertoireCible + @"\" + nomFichierSource.Replace(".jpg", ".png").Replace(".jpeg", ".png");
                 string nomFichierCibleTemp = repertoireCible + @"\Temp\" + nomFichierSource.Replace(".jpg", ".png").Replace(".jpeg", ".png");
 
-                if (File.Exists(nomFichierCible))
-                    File.Delete(nomFichierCible);
-
-                txtStatus.Text += nomFichierSource + Environment.NewLine;
-
-                using (Bitmap bitmap = (Bitmap)Image.FromFile(fileName))
+                if (!File.Exists(nomFichierCible))
                 {
-                    using (Bitmap newBitmap = new Bitmap(bitmap))
+                    txtStatus.Text += nomFichierSource + Environment.NewLine;
+
+                    using (Bitmap bitmap = (Bitmap)Image.FromFile(fileName))
                     {
-                        newBitmap.SetResolution(Convert.ToSingle(txtDPI.Text), Convert.ToSingle(txtDPI.Text));
-                        newBitmap.Save(nomFichierCibleTemp, ImageFormat.Png);
-                        using (var image = Image.FromFile(nomFichierCibleTemp))
-                        using (var newImage = ScaleImage(image, Convert.ToInt32(txtLargeur.Text), Convert.ToInt32(txtHauteur.Text)))
+                        using (Bitmap newBitmap = new Bitmap(bitmap))
                         {
-                            newImage.Save(nomFichierCible, ImageFormat.Png);
+                            newBitmap.SetResolution(Convert.ToSingle(txtDPI.Text), Convert.ToSingle(txtDPI.Text));
+                            newBitmap.Save(nomFichierCibleTemp, ImageFormat.Png);
+                            using (var image = Image.FromFile(nomFichierCibleTemp))
+                            using (
+                                var newImage = ScaleImage(image, Convert.ToInt32(txtLargeur.Text),
+                                    Convert.ToInt32(txtHauteur.Text)))
+                            {
+                                newImage.Save(nomFichierCible, ImageFormat.Png);
+                            }
                         }
                     }
                 }
