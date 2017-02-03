@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CV.pdf" />
-    <Content Include="recueil.pdf" />
     <None Include="Properties\PublishProfiles\Etouelle.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
