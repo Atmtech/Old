@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Etape1.aspx.cs" Inherits="ATMTECH.TransfertVideo.Etape1" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -90,8 +90,10 @@
                                   <div style="padding: 10px 10px 10px 10px;">  Group</div>
                                    <div style="padding: 10px 10px 10px 10px; font-size: 15px;font-weight: bold;">
                                        <asp:DropDownList runat="server" ID="ddlGroupe" AutoPostBack="True">
-                                           <asp:ListItem>100</asp:ListItem>
-                                           <asp:ListItem>101</asp:ListItem>
+                                           <asp:ListItem>02</asp:ListItem>
+                                           <asp:ListItem>04</asp:ListItem>
+                                           <asp:ListItem>05</asp:ListItem>
+                                           <asp:ListItem>74</asp:ListItem>
                                        </asp:DropDownList>
                                    </div>
                                 </div>
@@ -100,8 +102,10 @@
                                     <div style="padding: 10px 10px 10px 10px;">Movie style</div>
                                     <div style="padding: 10px 10px 10px 10px;font-size: 15px; font-weight: bold;">
                                         <asp:DropDownList runat="server" ID="ddlStyle" AutoPostBack="True">
-                                            <asp:ListItem>Drama</asp:ListItem>
-                                            <asp:ListItem>Sci-fi</asp:ListItem>
+                                            <asp:ListItem>Comedy - Drama</asp:ListItem>
+                                            <asp:ListItem>Detective Story</asp:ListItem>
+                                            <asp:ListItem>Horror</asp:ListItem>
+                                            <asp:ListItem>Thriller</asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                 </div>

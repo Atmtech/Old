@@ -62,7 +62,7 @@
                             <div class="circle"><a href="CV.pdf" target="_new">Curriculum</a></div>
                         </td>
                         <td>
-                            <div class="circle"><a href="http://www.blurb.ca/bookstore/invited/6828056/d334afd33ebad801045058dd7815f4ad710e4739" >Livres</a></div>
+                            <div class="circle"><a href="http://www.blurb.ca/bookstore/invited/6839481/515384e8ab1cbb5978aa766b7bc7fdb797ec9af8" >Livres</a></div>
                         </td>
                         <td>
                             <div class="circle"><a href="mailto:sagaan@hotmail.com" target="_new">Contact</a></div>

@@ -137,12 +137,12 @@
 
                                         <asp:TemplateField HeaderText="Students">
                                             <ItemTemplate>
-                                                <asp:Label runat="server" ID="lblEtudiant1" Text='<%# Eval("Etudiant1")  %>'></asp:Label><br />
-                                                <asp:Label runat="server" ID="lblEtudiant2" Text='<%# Eval("Etudiant2")  %>'></asp:Label><br />
-                                                <asp:Label runat="server" ID="lblEtudiant3" Text='<%# Eval("Etudiant3")  %>'></asp:Label><br />
-                                                <asp:Label runat="server" ID="lblEtudiant4" Text='<%# Eval("Etudiant4")  %>'></asp:Label><br />
-                                                <asp:Label runat="server" ID="lblEtudiant5" Text='<%# Eval("Etudiant5")  %>'></asp:Label><br />
-                                                <asp:Label runat="server" ID="lblEtudiant6" Text='<%# Eval("Etudiant6")  %>'></asp:Label>
+                                                <li><asp:Label runat="server" ID="lblEtudiant1" Text='<%# Eval("Etudiant1")  %>'></asp:Label></li>
+                                                <li><asp:Label runat="server" ID="lblEtudiant2" Text='<%# Eval("Etudiant2")  %>'></asp:Label></li>
+                                                <li><asp:Label runat="server" ID="lblEtudiant3" Text='<%# Eval("Etudiant3")  %>'></asp:Label></li>
+                                                <li><asp:Label runat="server" ID="lblEtudiant4" Text='<%# Eval("Etudiant4")  %>'></asp:Label></li>
+                                                <li><asp:Label runat="server" ID="lblEtudiant5" Text='<%# Eval("Etudiant5")  %>'></asp:Label></li>
+                                                <li><asp:Label runat="server" ID="lblEtudiant6" Text='<%# Eval("Etudiant6")  %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
@@ -175,7 +175,7 @@
 
                                         <asp:TemplateField HeaderText="">
                                             <ItemTemplate>
-                                                <asp:HyperLink runat="server" ID="btnDownload" Class="mbr-buttons__btn btn btn-lg btn-danger" NavigateUrl='<%# "download.aspx?file=" + Eval("FichierMp4")%>' Text="Download"></asp:HyperLink>
+                                                <asp:HyperLink runat="server" ID="btnDownload" Class="mbr-buttons__btn btn btn-lg btn-danger" NavigateUrl='<%# "download.aspx?file=" + Eval("Fichier")%>' Text="Download"></asp:HyperLink>
                                             </ItemTemplate>
                                         </asp:TemplateField>
 

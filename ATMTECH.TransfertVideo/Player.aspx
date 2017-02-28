@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Player.aspx.cs" Inherits="ATMTECH.TransfertVideo.Player" %>
 
+<%@ Register Assembly="Media-Player-ASP.NET-Control" Namespace="Media_Player_ASP.NET_Control" TagPrefix="cc1" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -78,6 +80,8 @@
                                     <h2 class="mbr-header__text">MOVIE PLAYER</h2>
                                     <br/><br/>
                                      <asp:PlaceHolder runat="server" ID="placeHolder"></asp:PlaceHolder>
+                                    
+                                  
                                     <br/><br/>
                                        <asp:Button runat="server" ID="btnRevenir" Text="RETURN TO ADMIN" Class="mbr-buttons__btn btn btn-lg btn-danger" OnClick="btnRevenirClick"/>
                                 </div>

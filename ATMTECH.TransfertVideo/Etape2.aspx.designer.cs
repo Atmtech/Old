@@ -22,22 +22,31 @@ namespace ATMTECH.TransfertVideo {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle scriptManager.
+        /// Contrôle Uploader1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager scriptManager;
+        protected global::CuteWebUI.Uploader Uploader1;
         
         /// <summary>
-        /// Contrôle AjaxFileUpload1.
+        /// Contrôle txtYoutube.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::AjaxControlToolkit.AjaxFileUpload AjaxFileUpload1;
+        protected global::System.Web.UI.WebControls.TextBox txtYoutube;
+        
+        /// <summary>
+        /// Contrôle btnSaveYoutube.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveYoutube;
         
         /// <summary>
         /// Contrôle btnRevenir.

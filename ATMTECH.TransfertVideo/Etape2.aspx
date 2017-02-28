@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Etape2.aspx.cs" Inherits="ATMTECH.TransfertVideo.Etape2" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register TagPrefix="CuteWebUI" Namespace="CuteWebUI" Assembly="CuteWebUI.AjaxUploader, Version=4.0.0.0, Culture=neutral, PublicKeyToken=bc00d4b0e43ec38d" %>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -16,38 +17,12 @@
     <link rel="stylesheet" href="assets/mobirise/css/style.css" />
     <link rel="stylesheet" href="assets/dropdown-menu-plugin/style.css" />
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css" />
-   
-    <script>
-        function ClientUploadComplete() {
-            window.location.replace("Etape3.aspx");
-        }
 
-    </script>
+    <link href="CSS/ThemeBlue.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
 
-        <style>
-            .ajax__fileupload_dropzone {
-                border: dotted 1px #B2D1E0 !important;
-                color: #B2D1E0 !important;
-            }
-
-            .ajax__fileupload_uploadbutton {
-                font-family: "Roboto", Helvetica, Arial, sans-serif;
-                margin: 0 10px 13px 0;
-                text-transform: uppercase;
-                background-color: #f97352;
-                width: 200px;
-                margin-right: 0px;
-                padding: 10px 10px 10px 10px;
-                letter-spacing: 2px;
-            }
-
-            .ajax__fileupload {
-                height: 175px;
-            }
-        </style>
 
         <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--sticky mbr-navbar--auto-collapse" id="ext_menu-4">
             <div class="mbr-navbar__section mbr-section">
@@ -78,21 +53,32 @@
                             <div class="col-sm-8 col-sm-offset-2" data-form-type="formoid">
 
                                 <div class="mbr-header mbr-header--center mbr-header--std-padding">
-                                    <h2 class="mbr-header__text">WRITE THE REQUIRED INFORMATION</h2>
+                                    <h2 class="mbr-header__text">PLEASE CHOOSE YOUR MOVIE FILE</h2>
                                 </div>
 
 
+                                <div class="contentFileUpload">
+                                      <h4>The maximum file size for a file is 300 mo</h4>
+                                    <h4>Only file with these format: mp4,wmv,mpg</h4>
+                                    <CuteWebUI:Uploader runat="server" ID="Uploader1" InsertText="UPLOAD YOUR MOVIE FILE" OnFileUploaded="Uploader_FileUploaded">
+                                        <ValidateOption AllowedFileExtensions="mp4,wmv,mpg" MaxSizeKB="300000" />
+                                    </CuteWebUI:Uploader>
+                                </div>
                                 <div class="mbr-header mbr-header--center mbr-header--std-padding">
-                                    <h3>Please write clearly your information !</h3>
+                                    <h2>OR WRITE YOUR <img src="Images/Youtube.png" width="160px" height="80px"/> URL</h2>
                                 </div>
-
-                                    <asp:ScriptManager runat="server" ID="scriptManager"></asp:ScriptManager>
-                                    <ajaxToolkit:AjaxFileUpload ID="AjaxFileUpload1" runat="server" AllowedFileTypes="mp4,avi,wmv,mpg" OnClientUploadComplete="ClientUploadComplete" OnUploadComplete="AjaxFileUpload1_OnUploadComplete" />
-
-
-                                    <div class="mbr-buttons mbr-buttons--right">
-                                        <asp:Button runat="server" ID="btnRevenir" Text="PREVIOUS STEP" Class="mbr-buttons__btn btn btn-lg btn-danger" OnClick="btnRevenirClick" />
-                                    </div>
+                                
+                                <div class="contentFileUpload">
+                                    <b>ENTER YOUR YOUTUBE URL:</b><asp:TextBox runat="server" Width="100%" id="txtYoutube"></asp:TextBox>
+                                    <br/><br/>
+                                   <asp:Button runat="server" id="btnSaveYoutube" OnClick="btnSaveYoutubeClick" Text="SAVE URL" Class="mbr-buttons__btn btn btn-lg btn-danger"/>
+                                </div>
+                                <%-- <ajaxToolkit:AjaxFileUpload ID="AjaxFileUpload1" runat="server" AllowedFileTypes="mp4,wmv,mpg"  OnUploadComplete="AjaxFileUpload1_OnUploadComplete" MaximumNumberOfFiles="1"/>
+                                <b>Only these files format are supported : mp4,wmv,mpg</b>
+                                --%>
+                                <div class="mbr-buttons mbr-buttons--right">
+                                    <asp:Button runat="server" ID="btnRevenir" Text="PREVIOUS STEP" Class="mbr-buttons__btn btn btn-lg btn-danger" OnClick="btnRevenirClick" />
+                                </div>
                             </div>
                         </div>
                     </div>
