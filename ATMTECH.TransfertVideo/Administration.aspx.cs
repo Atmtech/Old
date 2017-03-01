@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI;
+using System.Web.UI.WebControls;
 using ATMTECH.TransfertVideo.DAO;
 using ATMTECH.TransfertVideo.Entites;
-using ATMTECH.Web;
 
 namespace ATMTECH.TransfertVideo
 {
-    public partial class Admin : Page
+    public partial class Administration : PageMaster
     {
         public string MotPasse
         {
@@ -20,58 +19,49 @@ namespace ATMTECH.TransfertVideo
                 }
                 return Session["MotPAsse"].ToString();
             }
-            set
-            {
-                Session["MotPAsse"] = value;
-            }
+            set { Session["MotPAsse"] = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                Refresh("all");
+                Refresh();
                 if (string.IsNullOrEmpty(MotPasse))
                 {
                     pnlOk.Visible = false;
                     pnlPasOk.Visible = true;
                 }
                 else
-
                 {
                     pnlOk.Visible = true;
-                    pnlPasOk.Visible = false; 
+                    pnlPasOk.Visible = false;
                 }
 
             }
         }
 
-        protected void GridViewMovie_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+        private void Refresh()
         {
-            if (e.CommandName == "Visionnee")
-            {
-                Film film = new DAOFilm().ObtenirListeFilm().FirstOrDefault(x => x.Guid == e.CommandArgument.ToString());
-                film.Visionnee = true;
-                new DAOFilm().Save(film);
-                Refresh("all");
-            }
 
-            if (e.CommandName == "Voir")
-            {
-                Session["IdentifiantUnique"] = e.CommandArgument.ToString();
-                Response.Redirect("Player.aspx");
-            }
-
-        }
-
-        private void Refresh(string groupe)
-        {
-            var films = groupe == "all" ? new DAOFilm().ObtenirListeFilm() : new DAOFilm().ObtenirListeFilm().Where(x => x.Groupe == groupe).ToList();
-
+            IList<Film> films = new DAOFilm().ObtenirListeFilm().Where(x=>!string.IsNullOrEmpty(x.Fichier)).OrderBy(x => x.Groupe).ToList();
             lblTotal.Text = films.Count.ToString();
-
             GridViewMovie.DataSource = films;
             GridViewMovie.DataBind();
+        }
+
+
+        protected void GridViewMovieRowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName.ToLower() == "player")
+            {
+                Session["IdentifiantUnique"] = e.CommandArgument.ToString();
+                Response.Redirect("MoviePlayer.aspx");
+            }
+            if (e.CommandName.ToLower() == "download")
+            {
+                Response.Redirect("Download.aspx?guid=" + e.CommandArgument);
+            }
         }
 
         protected void btnValiderPasswordClick(object sender, EventArgs e)
@@ -87,11 +77,6 @@ namespace ATMTECH.TransfertVideo
                 pnlOk.Visible = false;
                 pnlPasOk.Visible = true;
             }
-        }
-
-        protected void ddlGroupeChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ATMTECH.Entities;
+﻿using System.IO;
+using ATMTECH.Entities;
 
 namespace ATMTECH.TransfertVideo.Entites
 {
@@ -21,6 +22,22 @@ namespace ATMTECH.TransfertVideo.Entites
             get
             {
                 return !string.IsNullOrEmpty(Fichier) ? Fichier.Replace(Guid, "") : string.Empty;
+            }
+        }
+
+        public bool EstVisionnable
+        {
+            get
+            {
+                return Fichier.ToLower().IndexOf(".mp4") > 0;
+            }
+        }
+
+        public string FileType
+        {
+            get
+            {
+                return Path.GetExtension(Fichier);
             }
         }
     }

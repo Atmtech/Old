@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ATMTECH.TransfertVideo.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="site.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <div class="header">
+                <table style="width: 100%;">
+                    <tr>
+                        <td>English :: MOVIE  PROJECT</td>
+                        <td style="text-align: right; padding-right: 45px;">
+                            <asp:Button runat="server" ID="btnUpload" Text="UPLOAD YOUR MOVIE" CssClass="bouton" OnClick="btnUploadClick" />
+                            <asp:Button runat="server" ID="btnTeacher" Text="TEACHER" CssClass="bouton" OnClick="btnTeacherClick" />
+
+                        </td>
+                        
+                    </tr>
+                </table>
+
+
+
+            </div>
+            <br />
+            <br />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+          
+        </div>
+    </form>
+</body>
+</html>

@@ -64,13 +64,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Download.aspx" />
-    <Content Include="Player.aspx" />
-    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Images\photomain.jpg" />
+    <Content Include="Images\YouTube.png" />
+    <Content Include="InformationGenerale.aspx" />
+    <Content Include="MoviePlayer.aspx" />
+    <Content Include="bin\ajaxuploader4.lic" />
     <None Include="Properties\PublishProfiles\Twiggy.Etouelle.pubxml" />
+    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -79,62 +82,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\animate.css\animate.min.css" />
-    <Content Include="assets\bootstrap\css\bootstrap.min.css" />
-    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="assets\bootstrap\js\bootstrap.min.js" />
-    <Content Include="assets\dropdown-menu-plugin\script.js" />
-    <Content Include="assets\dropdown-menu-plugin\style.css" />
-    <Content Include="assets\formoid\formoid.min.js" />
-    <Content Include="assets\images\logo.png" />
-    <Content Include="assets\images\video-tv2-ss-1920-1920x1080-36.jpg" />
-    <Content Include="assets\jarallax\jarallax.js" />
-    <Content Include="assets\jquery-placeholder\jquery.placeholder.min.js" />
-    <Content Include="assets\mobirise\css\mbr-additional.css" />
-    <Content Include="assets\mobirise\css\style.css" />
-    <Content Include="assets\mobirise\js\script.js" />
-    <Content Include="assets\smooth-scroll\SmoothScroll.js" />
-    <Content Include="assets\web\assets\jquery\jquery.min.js" />
-    <Content Include="CSS\ThemeBlue.css" />
-    <Content Include="Data\Film.xml" />
-    <Content Include="Default.aspx" />
-    <Content Include="Etape1.aspx" />
     <Content Include="Admin.aspx" />
-    <Content Include="Etape3.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Images\Container_Header.gif" />
-    <Content Include="Images\Grid_ActionDelete.gif" />
-    <Content Include="Images\Grid_Footer.gif" />
-    <Content Include="Images\Grid_Header.gif" />
-    <Content Include="Images\Grid_RowAlternate.gif" />
-    <Content Include="Images\Grid_RowHover.gif" />
-    <Content Include="Images\Grid_RowNormal.gif" />
-    <Content Include="Images\Grid_RowNumber.gif" />
     <Content Include="Images\Message_Error.png" />
-    <Content Include="Images\Message_Information.png" />
-    <Content Include="Images\Message_Success.png" />
-    <Content Include="Images\Message_Warning.png" />
-    <Content Include="Images\Progressbar_Content.gif" />
-    <Content Include="Images\Progressbar_Wrapper.gif" />
-    <Content Include="Etape2.aspx" />
+    <Content Include="site.css" />
+    <Content Include="ThankYou.aspx" />
+    <Content Include="Upload.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Download.aspx.cs">
-      <DependentUpon>Download.aspx</DependentUpon>
+    <Compile Include="Administration.aspx.cs">
+      <DependentUpon>Administration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Download.aspx.designer.cs">
-      <DependentUpon>Download.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Player.aspx.cs">
-      <DependentUpon>Player.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Player.aspx.designer.cs">
-      <DependentUpon>Player.aspx</DependentUpon>
+    <Compile Include="Administration.aspx.designer.cs">
+      <DependentUpon>Administration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -143,12 +107,29 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Etape1.aspx.cs">
-      <DependentUpon>Etape1.aspx</DependentUpon>
+    <Compile Include="Download.aspx.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Etape1.aspx.designer.cs">
-      <DependentUpon>Etape1.aspx</DependentUpon>
+    <Compile Include="Download.aspx.designer.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InformationGenerale.aspx.cs">
+      <DependentUpon>InformationGenerale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InformationGenerale.aspx.designer.cs">
+      <DependentUpon>InformationGenerale.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoviePlayer.aspx.cs">
+      <DependentUpon>MoviePlayer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoviePlayer.aspx.designer.cs">
+      <DependentUpon>MoviePlayer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageMaster.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
@@ -157,23 +138,30 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Etape3.aspx.cs">
-      <DependentUpon>Etape3.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Etape3.aspx.designer.cs">
-      <DependentUpon>Etape3.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Etape2.aspx.cs">
-      <DependentUpon>Etape2.aspx</DependentUpon>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Etape2.aspx.designer.cs">
-      <DependentUpon>Etape2.aspx</DependentUpon>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ThankYou.aspx.cs">
+      <DependentUpon>ThankYou.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThankYou.aspx.designer.cs">
+      <DependentUpon>ThankYou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload.aspx.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload.aspx.designer.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

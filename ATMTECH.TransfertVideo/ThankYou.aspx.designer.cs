@@ -10,6 +10,6 @@
 namespace ATMTECH.TransfertVideo {
     
     
-    public partial class Default {
+    public partial class ThankYou {
     }
 }
