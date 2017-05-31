@@ -15,6 +15,8 @@ namespace ATMTECH.Expeditn.Views.Interface
         string Menu { get; set; }
         DateTime Date { get; set; }
         IList<Participant> ListeParticipant { set; }
-        IList<Nourriture> ListeNourriture { set; }
+        IList<Nourriture> ListeNourriture { set; 
+            }
+        IList<DateTime> ListeDate { set; }
     }
 }

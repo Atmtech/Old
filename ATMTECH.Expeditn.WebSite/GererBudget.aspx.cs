@@ -50,7 +50,9 @@ namespace ATMTECH.Expeditn.WebSite
 
                 lblTotalPourcentageAutomobile.Text = (value.Sum(x => x.NombrePresenceEtapeAutomobile) / value.Sum(x => x.NombreTotalEtapeAutomobile)).ToString("P");
                 lblTotalPourcentageBateau.Text = (value.Sum(x => x.NombrePresenceEtapeBateau) / value.Sum(x => x.NombreTotalEtapeBateau)).ToString("P");
-                lblTotalPourcentageNourriture.Text = (value.Sum(x => x.NombreRepas) / value.Sum(x => x.NombreTotalRepas)).ToString("P");
+                if (value.Sum(x => x.NombreTotalRepas) > 0)
+                    lblTotalPourcentageNourriture.Text = (value.Sum(x => x.NombreRepas) / value.Sum(x => x.NombreTotalRepas)).ToString("P");
+                lblTotalPourcentageNourriture.Text = "0 %";
                 lblTotalAutomobileRepartition.Text = value.Sum(x => x.MontantAvecPourcentageDuTotalAutomobile).ToString("C");
                 lblTotalBateauRepartition.Text = value.Sum(x => x.MontantAvecPourcentageDuTotalBateau).ToString("C");
                 lblTotalNourritureRepartition.Text = value.Sum(x => x.MontantAvecPourcentageDesRepas).ToString("C");

@@ -45,7 +45,8 @@ namespace ATMTECH.Expeditn.WebSite
 
         public string Nom { get { return txtNomMenu.Text; } set { txtNomMenu.Text = value; } }
         public string Menu { get { return txtMenu.Text; } set { txtMenu.Text = value; } }
-        public DateTime Date { get { return Convert.ToDateTime(txtDateMenu.Text); } set { txtDateMenu.Text = value.ToString(); } }
+
+        public DateTime Date { get { return Convert.ToDateTime(ddlDateMenu.Text); } set { ddlDateMenu.Text = value.ToString(); } }
         public IList<Participant> ListeParticipant { set { FillDropDown(ddlParticipant, value); } }
 
         public IList<Nourriture> ListeNourriture
@@ -57,9 +58,12 @@ namespace ATMTECH.Expeditn.WebSite
             }
         }
 
+        public IList<DateTime> ListeDate { set { FillDropDownWithoutEntity(ddlDateMenu, value); } }
+
         protected void lnkAjouterMenuClick(object sender, EventArgs e)
         {
             Presenter.Enregistrer();
+
         }
 
         protected void listeNourritureItemCommand(object source, DataListCommandEventArgs e)

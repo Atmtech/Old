@@ -31,13 +31,12 @@
                                     <div class="libelleChampsEditable">
                                         <asp:Label ID="lblDateMenu" runat="server" Text="Date"></asp:Label>
                                     </div>
+                                    <asp:DropDownList runat="server" ID="ddlDateMenu" placeholder="Date" CssClass="controlEditable"></asp:DropDownList>
 
-
-                                    <asp:TextBox runat="server" ID="txtDateMenu" placeholder="Date" CssClass="controlEditable"></asp:TextBox>
                                     <div class="libelleChampsEditable">
                                         <asp:Label ID="lblMenuDetaille" runat="server" Text="Menu"></asp:Label>
                                     </div>
-                                    <asp:TextBox runat="server" ID="txtMenu" TextMode="MultiLine" Rows="5" CssClass="controlEditableMultiligne"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtMenu" TextMode="MultiLine" Rows="5" CssClass="controlEditableMultiligne" Width="100%"></asp:TextBox>
                                     <div class="libelleChampsEditable">
                                         <asp:Label ID="lblCuisinier" runat="server" Text="Cuisinier"></asp:Label>
                                     </div>

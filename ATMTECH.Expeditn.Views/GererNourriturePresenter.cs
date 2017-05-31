@@ -35,6 +35,13 @@ namespace ATMTECH.Expeditn.Views
             View.Expedition = View.Expedition;
             View.ListeNourriture = View.Expedition.Nourriture;
 
+            IList<DateTime> dates = new List<DateTime>();
+            for (var dt = View.Expedition.Debut; dt <= View.Expedition.Fin; dt = dt.AddDays(1))
+            {
+                dates.Add(dt);
+            }
+
+            View.ListeDate = dates;
             if (!string.IsNullOrEmpty(View.IdNourriture))
             {
                 Nourriture nourriture = DAONourriture.ObtenirNourriture(View.Expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(View.IdNourriture));
@@ -42,6 +49,12 @@ namespace ATMTECH.Expeditn.Views
                 View.Menu = nourriture.Menu;
                 View.Date = nourriture.Date;
                 View.IdParticipantCuisinier = nourriture.Cuisinier.Id.ToString();
+            }
+            else
+            {
+                View.Nom = "";
+                View.Menu = "";
+                View.Date = View.Expedition.Debut;
             }
         }
 
@@ -55,11 +68,11 @@ namespace ATMTECH.Expeditn.Views
             nourriture.Date = View.Date;
             DAONourriture.Enregistrer(nourriture);
             View.Expedition = ExpeditionService.ObtenirExpedition(Convert.ToInt32(View.IdExpedition));
-           AfficherInformation();
+            AfficherInformation();
         }
         public void RetirerNourriture(string idNourriture)
         {
-           
+
             Nourriture nourriture = DAONourriture.ObtenirNourriture(View.Expedition).FirstOrDefault(x => x.Id == Convert.ToInt32(idNourriture));
             nourriture.IsActive = false;
             DAONourriture.Enregistrer(nourriture);

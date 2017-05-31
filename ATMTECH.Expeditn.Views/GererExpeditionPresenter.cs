@@ -42,11 +42,16 @@ namespace ATMTECH.Expeditn.Views
                 View.BudgetEstime = expedition.BudgetEstime;
                 View.EstExpeditionPrive = expedition.EstPrive;
 
-                View.Longitude = expedition.GeoLocalisation.Longitude;
-                View.Latitude = expedition.GeoLocalisation.Latitude;
-                View.Region = expedition.GeoLocalisation.Region;
-                View.Pays = expedition.GeoLocalisation.Pays.Id.ToString();
-                View.Ville = expedition.GeoLocalisation.Ville;
+                if (expedition.GeoLocalisation != null)
+                {
+
+
+                    View.Longitude = expedition.GeoLocalisation.Longitude;
+                    View.Latitude = expedition.GeoLocalisation.Latitude;
+                    View.Region = expedition.GeoLocalisation.Region;
+                    View.Pays = expedition.GeoLocalisation.Pays.Id.ToString();
+                    View.Ville = expedition.GeoLocalisation.Ville;
+                }
                 View.Image = expedition.FichierImage;
             }
         }
@@ -61,21 +66,23 @@ namespace ATMTECH.Expeditn.Views
             expedition.BudgetEstime = View.BudgetEstime;
             expedition.EstPrive = View.EstExpeditionPrive;
 
+
+            GeoLocalisation geoLocalisation = new GeoLocalisation
+            {
+                Region = View.Region,
+                Pays = new Pays { Id = Convert.ToInt32(View.Pays) },
+                Ville = View.Ville
+            };
             if (!string.IsNullOrEmpty(View.Latitude) && !string.IsNullOrEmpty(View.Longitude))
             {
-                GeoLocalisation geoLocalisation = new GeoLocalisation
-                {
-                    Longitude = View.Longitude,
-                    Latitude = View.Latitude,
-                    Region = View.Region,
-                    Pays = new Pays { Id = Convert.ToInt32(View.Pays) },
-                    Ville = View.Ville
-                };
-
-                int idGeoLocalization = DaoGeoLocalisation.Enregistrer(geoLocalisation);
-                geoLocalisation.Id = idGeoLocalization;
-                expedition.GeoLocalisation = geoLocalisation;
+                geoLocalisation.Longitude = View.Longitude;
+                geoLocalisation.Latitude = View.Latitude;
             }
+
+            int idGeoLocalization = DaoGeoLocalisation.Enregistrer(geoLocalisation);
+            geoLocalisation.Id = idGeoLocalization;
+            expedition.GeoLocalisation = geoLocalisation;
+
 
             int idExpedition = ExpeditionService.Enregistrer(expedition);
             expedition = ExpeditionService.ObtenirExpedition(idExpedition);

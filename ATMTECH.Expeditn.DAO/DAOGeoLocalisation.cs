@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using ATMTECH.DAO;
-using ATMTECH.DAO.Database;
-using ATMTECH.Entities;
 using ATMTECH.Expeditn.DAO.Interface;
 using ATMTECH.Expeditn.Entities;
 
@@ -13,7 +11,10 @@ namespace ATMTECH.Expeditn.DAO
         public GeoLocalisation ObtenirGeoLocalisation(int id)
         {
             GeoLocalisation geoLocalisation = GetById(id);
-            geoLocalisation.Pays = DaoPays.ObtenirPays(geoLocalisation.Pays.Id);
+            if (geoLocalisation != null)
+            {
+                geoLocalisation.Pays = DaoPays.ObtenirPays(geoLocalisation.Pays.Id);    
+            }
             return geoLocalisation;
         }
 
