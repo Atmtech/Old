@@ -6,6 +6,9 @@ namespace ATMTECH.TransfertVideo.Entites
     public class Film : BaseEntity
     {
         public string Youtube { get; set; }
+        public string Vimeo { get; set; }
+        public string Dailymotion { get; set; }
+
         public string Guid { get; set; }
         public string Groupe { get; set; }
         public string Etudiant1 { get; set; }
@@ -29,7 +32,10 @@ namespace ATMTECH.TransfertVideo.Entites
         {
             get
             {
-                return Fichier.ToLower().IndexOf(".mp4") > 0;
+                if (Youtube != null) return true;
+                if (Vimeo != null) return true;
+                if (Dailymotion != null) return true;
+                return false;
             }
         }
 

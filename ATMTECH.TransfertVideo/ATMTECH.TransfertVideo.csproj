@@ -67,8 +67,18 @@
     <Content Include="Administration.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Download.aspx" />
-    <Content Include="Images\photomain.jpg" />
-    <Content Include="Images\YouTube.png" />
+    <Content Include="Images\dailymotion.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\photomain.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\vimeo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\YouTube.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="InformationGenerale.aspx" />
     <Content Include="MoviePlayer.aspx" />
     <Content Include="bin\ajaxuploader4.lic" />
@@ -84,7 +94,9 @@
   <ItemGroup>
     <Content Include="Admin.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Images\Message_Error.png" />
+    <Content Include="Images\Message_Error.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="site.css" />
     <Content Include="ThankYou.aspx" />
     <Content Include="Upload.aspx" />

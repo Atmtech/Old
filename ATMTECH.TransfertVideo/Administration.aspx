@@ -21,7 +21,7 @@
                 <asp:Label Text="text" runat="server" ID="lblTotal" /></b>
             <br />
             <br />
-
+               <asp:Button runat="server" ID="btnRefresh" Class="bouton" OnClick="btnRefreshClick" Text="Refresh list" />
             <asp:GridView ID="GridViewMovie" runat="server" AutoGenerateColumns="False" GridLines="None" Width="100%"
                 OnRowCommand="GridViewMovieRowCommand">
                 <Columns>
@@ -70,7 +70,7 @@
                     <asp:TemplateField HeaderText="">
                         <ItemTemplate>
                             <asp:Button runat="server" ID="btnPlayer" Class="bouton" Text='View' CommandName="Player" CommandArgument='<%#Eval("Guid")%>' Visible='<%#Eval("EstVisionnable") %>'></asp:Button>
-                            <asp:Button runat="server" ID="btnDownload" Class="bouton" CommandName="Download" CommandArgument='<%#Eval("Guid")%>' Text="Download"></asp:Button>
+                            <%--<asp:Button runat="server" ID="btnDownload" Class="bouton" CommandName="Download" CommandArgument='<%#Eval("Guid")%>' Text="Download"></asp:Button>--%>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

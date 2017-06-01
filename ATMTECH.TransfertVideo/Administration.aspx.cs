@@ -27,6 +27,7 @@ namespace ATMTECH.TransfertVideo
             if (!Page.IsPostBack)
             {
                 Refresh();
+              
                 if (string.IsNullOrEmpty(MotPasse))
                 {
                     pnlOk.Visible = false;
@@ -39,12 +40,14 @@ namespace ATMTECH.TransfertVideo
                 }
 
             }
+
+          
         }
 
         private void Refresh()
         {
 
-            IList<Film> films = new DAOFilm().ObtenirListeFilm().Where(x=>!string.IsNullOrEmpty(x.Fichier)).OrderBy(x => x.Groupe).ToList();
+            IList<Film> films = new DAOFilm().ObtenirListeFilm().Where(x => !string.IsNullOrEmpty(x.Fichier) || !string.IsNullOrEmpty(x.Youtube) || !string.IsNullOrEmpty(x.Vimeo) || !string.IsNullOrEmpty(x.Dailymotion)).OrderBy(x => x.Groupe).ToList();
             lblTotal.Text = films.Count.ToString();
             GridViewMovie.DataSource = films;
             GridViewMovie.DataBind();
@@ -77,6 +80,11 @@ namespace ATMTECH.TransfertVideo
                 pnlOk.Visible = false;
                 pnlPasOk.Visible = true;
             }
+        }
+
+        protected void btnRefreshClick(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }

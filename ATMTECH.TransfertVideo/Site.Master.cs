@@ -25,6 +25,7 @@ namespace ATMTECH.TransfertVideo
 
         protected void btnUploadClick(object sender, EventArgs e)
         {
+           Session["IdentifiantUnique"] = string.Empty;
           Response.Redirect("InformationGenerale.aspx");
         }
 
