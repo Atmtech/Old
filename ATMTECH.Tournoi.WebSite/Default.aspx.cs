@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
 using System.Reflection;
 using System.Web.UI.WebControls;
 using ATMTECH.Tournoi.DAO;
 using ATMTECH.Tournoi.Entites;
-using TheArtOfDev.HtmlRenderer;
 
 namespace ATMTECH.Tournoi.WebSite
 {
@@ -35,13 +33,18 @@ namespace ATMTECH.Tournoi.WebSite
             }
         }
 
-        public IList<MatchSaison> Horaire
+        public IList<MatchSaison> HoraireSaison
         {
             get
             {
                 Saison saison = new DAOTournoi().ObtenirSaison().FirstOrDefault();
                 return new DAOTournoi().ObtenirMatchSaisonReguliere(saison);
             }
+        }
+
+        public IList<MatchSerie> MatchSeries
+        {
+            get { return new DAOTournoi().ObtenirMatchSerie(new Serie { Id = 1 }); }
         }
 
         public Saison SaisonCourante
@@ -74,40 +77,29 @@ namespace ATMTECH.Tournoi.WebSite
 
             if (!string.IsNullOrEmpty(Filtre))
             {
-                IList<MatchSaison> matchSaisons = Horaire.Where(x =>
+                IList<MatchSaison> matchSaisons = HoraireSaison.Where(x =>
                         x.Local.Id.ToString() == Filtre || x.Visiteur.Id.ToString() == Filtre)
                     .ToList();
                 GridViewHoraire.DataSource = matchSaisons;
             }
             else
             {
-                GridViewHoraire.DataSource = Horaire;
+                GridViewHoraire.DataSource = HoraireSaison;
             }
-
             GridViewHoraire.DataBind();
+            lblPartieTotalAJouer.Text = "Partie à jouer: " + (HoraireSaison.Count() - HoraireSaison.Count(x => x.Gagnant.Id != 0)) + " sur " + HoraireSaison.Count();
 
-         
+            GridViewSerieRonde1.DataSource = MatchSeries.Where(x=>x.Ronde == 1);
+            GridViewSerieRonde1.DataBind();
 
+            GridViewSerieRonde2.DataSource = MatchSeries.Where(x => x.Ronde == 2);
+            GridViewSerieRonde2.DataBind();
 
-            lblPartieTotalAJouer.Text = "Partie à jouer: " + (Horaire.Count() - Horaire.Count(x => x.Gagnant.Id != 0)) + " sur " + Horaire.Count();
-            //GridViewHelper helper = new GridViewHelper(this.GridViewHoraire);
-            //helper.RegisterGroup("Date", true, true);
-            //helper.GroupHeader += helper_GroupHeader;
+            GridViewSerieRonde3.DataSource = MatchSeries.Where(x => x.Ronde == 3);
+            GridViewSerieRonde3.DataBind();
 
-            //helper.ApplyGroupSort();
         }
 
-        private void helper_GroupHeader(string groupname, object[] values, GridViewRow row)
-        {
-            if (groupname == "Date")
-            {
-                row.BackColor = Color.LightGray;
-
-                DateTime test = Convert.ToDateTime(row.Cells[0].Text);
-
-                row.Cells[0].Text = string.Format("<div style='padding:5px 5px 5px 5px;font-weight:bold;'>Parties du {0}</div>", test.ToString("dddd dd MMMM , yyyy"));
-            }
-        }
 
 
         protected void SetSortDirection(string sortDirection)
@@ -140,9 +132,9 @@ namespace ATMTECH.Tournoi.WebSite
 
         protected void TrierGrilleHoraire(object sender, GridViewSortEventArgs e)
         {
-            if (Horaire != null)
+            if (HoraireSaison != null)
             {
-                GridViewHoraire.DataSource = Horaire.OrderBy(x => x.Date);// SortDirection.ToLower() == "desc" ? TrierPar(Horaire, e.SortExpression + " desc") : TrierPar(Horaire, e.SortExpression + " asc");
+                GridViewHoraire.DataSource = HoraireSaison.OrderBy(x => x.Date);// SortDirection.ToLower() == "desc" ? TrierPar(HoraireSaison, e.SortExpression + " desc") : TrierPar(HoraireSaison, e.SortExpression + " asc");
                 GridViewHoraire.DataBind();
             }
         }

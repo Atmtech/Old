@@ -18,12 +18,14 @@
     </style>
 
 
-    <div style="width: 100%; text-align: center; text-transform: uppercase; background-color: gray;color:white;">
-        <h1>
-           SQI:  <asp:Label runat="server" ID="lblNomSaison"></asp:Label></h1>
-    </div>
+
     <div style="width: 48%; padding: 10px 10px 10px 10px; float: left; border-right: solid 1px gray;">
-        <h2>Saison régulière - <asp:Label runat="server" ID="lblPartieTotalAJouer"></asp:Label></h2>
+
+    <div style="font-weight: bold; font-size:18px; text-transform: uppercase; border-bottom: solid 1px gray;">Saison régulière -
+            <asp:Label runat="server" ID="lblNomSaison"></asp:Label>
+            -
+            <asp:Label runat="server" ID="lblPartieTotalAJouer" ForeColor="Gray"></asp:Label></div>
+        <br />
         <asp:GridView ID="GridViewPosition" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" Width="100%" AllowSorting="True" OnSorting="TrierGrillePosition" OnRowCommand="GridViewPositionOnRowCommand">
 
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -71,8 +73,8 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-        <hr  />
-       
+        <hr />
+
         <div>
             Filtrer:
             <asp:DropDownList runat="server" ID="ddlEquipe" />
@@ -85,7 +87,6 @@
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
-
                         <table>
 
                             <tr>
@@ -98,7 +99,7 @@
                                 <th rowspan="2" style="text-align: left;">
                                     <asp:Label runat="server" Text='<%# (Eval("Gagnant.Id").ToString() != "0") ? (Eval("PerteEnSurtemps").ToString() == "1" ? "FINAL / PROLONGATION" : "FINAL") : "<div style=color:gray;font-size:12px;>Entre 12:00 et 13:00 RC.05</div>" %>'></asp:Label>
                                     <asp:Label runat="server" ID="Label4" Text='<%# Eval("Message")%>'></asp:Label>
-                                    
+
                                     <div style="font-size: 10px; font-weight: bold;">
                                         Match #<asp:Label runat="server" ID="Label5" Text='<%# Eval("Id")%>'></asp:Label>
                                         <asp:Label runat="server" ID="Label6" Text='<%# Eval("Date","{0:dddd dd MMMM , yyyy}")%>'></asp:Label>
@@ -119,7 +120,7 @@
                         </table>
 
 
-                      
+
                         <div style="font-size: 12px; font-weight: bold;">
                         </div>
 
@@ -145,8 +146,145 @@
 
     </div>
     <div style="width: 48%; padding: 10px 10px 10px 10px; float: left;">
-        <h2>Série éliminatoire</h2>
-     
+        <div style="font-weight: bold; font-size:18px; text-transform: uppercase; border-bottom: solid 1px gray;">Série éliminatoire</div>
+        <br/>
+        <div style="font-weight: bold; font-size:18px; text-transform: uppercase; ">Quart de finale</div>
+        <asp:GridView ID="GridViewSerieRonde1" runat="server" ForeColor="#333333" GridLines="None" Width="100%" AutoGenerateColumns="False" AllowSorting="True">
+            <Columns>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                         <table>
+                            <tr>
+                                <td style="padding-right: 15px;">
+                                    <asp:Image runat="server" ID="imgLocal" ImageUrl='<%#"logo/" + Eval("Local.Id") + ".png"%>' Width="35px" Height="30px" /></td>
+                                <td style="width: 400px;">
+                                    <asp:Label runat="server" ID="lblLocal" Text='<%#Eval("Local.Nom")%>'></asp:Label></td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label7" Text='<%#Eval("NombreButLocalMatch1")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label8" Text='<%#Eval("NombreButLocalMatch2")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label9" Text='<%#Eval("NombreButLocalMatch3")%>'></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 15px;">
+                                    <asp:Image runat="server" ID="Image1" ImageUrl='<%#"logo/" + Eval("Visiteur.Id") + ".png"%>' Width="35px" Height="30px" /></td>
+                                <td style="width: 400px;">
+                                    <asp:Label runat="server" ID="Label2" Text='<%#Eval("Visiteur.Nom")%>'></asp:Label></td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label10" Text='<%#Eval("NombreButVisiteurMatch1")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label11" Text='<%#Eval("NombreButVisiteurMatch2")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label12" Text='<%#Eval("NombreButVisiteurMatch3")%>'></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                        <hr/>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+        
+        <div style="font-weight: bold; font-size:18px; text-transform: uppercase; ">Demi-finale</div>
+        <asp:GridView ID="GridViewSerieRonde2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" AutoGenerateColumns="False" AllowSorting="True" EmptyDataText="Aucune pour l'instant">
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <Columns>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                         <table>
+
+                            <tr>
+                               
+                                <td style="padding-right: 15px;">
+                                    <asp:Image runat="server" ID="imgLocal" ImageUrl='<%#"logo/" + Eval("Local.Id") + ".png"%>' Width="35px" Height="30px" /></td>
+                                <td style="width: 400px;">
+                                    <asp:Label runat="server" ID="lblLocal" Text='<%#Eval("Local.Nom")%>'></asp:Label></td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label7" Text='<%#Eval("NombreButLocalMatch1")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label8" Text='<%#Eval("NombreButLocalMatch2")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label9" Text='<%#Eval("NombreButLocalMatch3")%>'></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 15px;">
+                                    <asp:Image runat="server" ID="Image1" ImageUrl='<%#"logo/" + Eval("Visiteur.Id") + ".png"%>' Width="35px" Height="30px" /></td>
+                                <td style="width: 400px;">
+                                    <asp:Label runat="server" ID="Label2" Text='<%#Eval("Visiteur.Nom")%>'></asp:Label></td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label10" Text='<%#Eval("NombreButVisiteurMatch1")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label11" Text='<%#Eval("NombreButVisiteurMatch2")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label12" Text='<%#Eval("NombreButVisiteurMatch3")%>'></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                        <hr/>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+
+        
+        <div style="font-weight: bold; font-size:18px; text-transform: uppercase; ">Finale</div>
+        <asp:GridView ID="GridViewSerieRonde3" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" AutoGenerateColumns="False" AllowSorting="True" EmptyDataText="Aucune pour l'instant">
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <Columns>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                         <table>
+
+                            <tr>
+                               
+                                <td style="padding-right: 15px;">
+                                    <asp:Image runat="server" ID="imgLocal" ImageUrl='<%#"logo/" + Eval("Local.Id") + ".png"%>' Width="35px" Height="30px" /></td>
+                                <td style="width: 400px;">
+                                    <asp:Label runat="server" ID="lblLocal" Text='<%#Eval("Local.Nom")%>'></asp:Label></td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label7" Text='<%#Eval("NombreButLocalMatch1")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label8" Text='<%#Eval("NombreButLocalMatch2")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label9" Text='<%#Eval("NombreButLocalMatch3")%>'></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 15px;">
+                                    <asp:Image runat="server" ID="Image1" ImageUrl='<%#"logo/" + Eval("Visiteur.Id") + ".png"%>' Width="35px" Height="30px" /></td>
+                                <td style="width: 400px;">
+                                    <asp:Label runat="server" ID="Label2" Text='<%#Eval("Visiteur.Nom")%>'></asp:Label></td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label10" Text='<%#Eval("NombreButVisiteurMatch1")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label11" Text='<%#Eval("NombreButVisiteurMatch2")%>'></asp:Label>
+                                </td>
+                                <td style="font-size: 25px; font-weight: bold; padding-left: 15px; padding-right: 15px;border:solid 1px gray">
+                                    <asp:Label runat="server" ID="Label12" Text='<%#Eval("NombreButVisiteurMatch3")%>'></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                        <hr/>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+
+
     </div>
     <div style="clear: left;"></div>
 </asp:Content>

@@ -12,12 +12,39 @@ namespace ATMTECH.Tournoi.DAO
     {
         private static Random rng = new Random();
 
+        public IList<MatchSerie> ObtenirMatchSerie(Serie serie)
+        {
+            DataSet matchSerie = ObtenirDonneesMssql("SELECT * FROM MatchSerie WHERE Serie = " + serie.Id + " order by ronde");
+            IList<MatchSerie> matchSeries = new List<MatchSerie>();
+            IList<Equipe> equipes = ObtenirEquipe();
+            
+            foreach (DataRow dataRow in matchSerie.Tables[0].Rows)
+            {
+                MatchSerie match = new MatchSerie
+                {
+                    Serie = serie,
+                    Id = (int)dataRow["Id"],
+                    Local = equipes.FirstOrDefault(x => x.Id == (int)dataRow["Local"]),
+                    Visiteur = equipes.FirstOrDefault(x => x.Id == (int)dataRow["Visiteur"]),
+                    NombreButLocalMatch1 = (int)dataRow["NombreButLocalMatch1"],
+                    NombreButLocalMatch2 = (int)dataRow["NombreButLocalMatch2"],
+                    NombreButLocalMatch3 = (int)dataRow["NombreButLocalMatch3"],
+                    NombreButVisiteurMatch1 = (int)dataRow["NombreButVisiteurMatch1"],
+                    NombreButVisiteurMatch2 = (int)dataRow["NombreButVisiteurMatch2"],
+                    NombreButVisiteurMatch3 = (int)dataRow["NombreButVisiteurMatch3"],
+                    Message = dataRow["Message"].ToString(),
+                    Ronde = Convert.ToInt32(dataRow["Ronde"].ToString())
+                };
+                matchSeries.Add(match);
+            }
+            return matchSeries;
+        }
         public IList<MatchSaison> ObtenirMatchSaisonReguliere(Saison saison)
         {
             DataSet matchSaison = ObtenirDonneesMssql("SELECT * FROM MatchSaison WHERE Saison = " + saison.Id);
             IList<MatchSaison> matchSaisons = new List<MatchSaison>();
             IList<Equipe> equipes = ObtenirEquipe();
-            Equipe equipeNull = new Equipe {Id = 0, Nom = "Aucun"};
+            Equipe equipeNull = new Equipe { Id = 0, Nom = "Aucun" };
             foreach (DataRow dataRow in matchSaison.Tables[0].Rows)
             {
                 MatchSaison match = new MatchSaison
@@ -111,36 +138,36 @@ namespace ATMTECH.Tournoi.DAO
                     NombreVictoire = obtenirMatchSaison.Count(x => { return x.Gagnant != null && x.Gagnant.Id == equipe.Id; }),
                     NombrePartieJoue = obtenirMatchSaison.Count(x => { return x.Gagnant != null && x.Gagnant.Id == equipe.Id; }) + obtenirMatchSaison.Count(x => { return x.Perdant != null && x.Perdant.Id == equipe.Id; }),
                     Saison = saison,
-                    NombreDefaiteEnSurTemps = obtenirMatchSaison.Count(x=>x.Perdant.Id == equipe.Id && x.PerteEnSurtemps == 1),
+                    NombreDefaiteEnSurTemps = obtenirMatchSaison.Count(x => x.Perdant.Id == equipe.Id && x.PerteEnSurtemps == 1),
                 };
 
                 equipeSaison.EstPresentAujourdhui = EstPresentAujourdhui(equipe);
 
-                equipeSaison.NombrePoint = obtenirMatchSaison.Where(x => x.Gagnant.Id == equipe.Id).Sum(x => x.NombrePointGagnant) +obtenirMatchSaison.Where(x => x.Perdant.Id == equipe.Id).Sum(x => x.NombrePointPerdant);
+                equipeSaison.NombrePoint = obtenirMatchSaison.Where(x => x.Gagnant.Id == equipe.Id).Sum(x => x.NombrePointGagnant) + obtenirMatchSaison.Where(x => x.Perdant.Id == equipe.Id).Sum(x => x.NombrePointPerdant);
                 equipeSaison.NombreButPour = obtenirMatchSaison.Where(x => x.Gagnant.Id == equipe.Id).Sum(x => x.NombreButGagnant) + obtenirMatchSaison.Where(x => x.Perdant.Id == equipe.Id).Sum(x => x.NombreButPerdant);
                 equipeSaison.NombreButContre = obtenirMatchSaison.Where(x => x.Gagnant.Id == equipe.Id).Sum(x => x.NombreButPerdant) + obtenirMatchSaison.Where(x => x.Perdant.Id == equipe.Id).Sum(x => x.NombreButGagnant);
-                
-                if ((decimal) equipeSaison.NombrePartieJoue > 0)
+
+                if ((decimal)equipeSaison.NombrePartieJoue > 0)
                 {
-                    decimal round = Decimal.Round((decimal) equipeSaison.NombreVictoire / (decimal) equipeSaison.NombrePartieJoue, 3);
+                    decimal round = Decimal.Round((decimal)equipeSaison.NombreVictoire / (decimal)equipeSaison.NombrePartieJoue, 3);
                     if (round == 1)
                     {
-                        equipeSaison.PourcentageVictoire ="1.000";
+                        equipeSaison.PourcentageVictoire = "1.000";
                     }
                     else
                     {
                         equipeSaison.PourcentageVictoire = round == 0 ? "0.000" : round.ToString();
                     }
-                    
+
                 }
-                    
+
                 else
                 {
                     equipeSaison.PourcentageVictoire = "0.000";
                 }
                 retour.Add(equipeSaison);
             }
-            return retour.OrderByDescending(x=>x.NombrePoint).ToList();
+            return retour.OrderByDescending(x => x.NombrePoint).ToList();
         }
         public static DateTime GetNextWeekday(DateTime start, DayOfWeek day)
         {

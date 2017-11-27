@@ -66,7 +66,7 @@ namespace ATMTECH.Tournoi.WebSite
         {
             if (Horaire != null)
             {
-                GridViewHoraire.DataSource = Horaire.OrderBy(x => x.Date);// SortDirection.ToLower() == "desc" ? TrierPar(Horaire, e.SortExpression + " desc") : TrierPar(Horaire, e.SortExpression + " asc");
+                GridViewHoraire.DataSource = Horaire.OrderBy(x => x.Date);// SortDirection.ToLower() == "desc" ? TrierPar(HoraireSaison, e.SortExpression + " desc") : TrierPar(HoraireSaison, e.SortExpression + " asc");
                 GridViewHoraire.DataBind();
             }
         }
