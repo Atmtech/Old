@@ -53,6 +53,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuthorizeNet.1.9.3\lib\AuthorizeNet.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac">
       <HintPath>..\Library\Autofac.dll</HintPath>
     </Reference>
@@ -139,6 +142,9 @@
       <Project>{8FB02184-36DE-4C31-836F-B6712B7A22C8}</Project>
       <Name>ATMTECH.Exception</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
