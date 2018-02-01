@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2A374D9B-EF29-49DE-914F-1B4978008E8B}"
 	ProjectSection(SolutionItems) = preProject
@@ -222,10 +222,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMTECH.Tournoi.Entites", "ATMTECH.Tournoi.Entites\ATMTECH.Tournoi.Entites.csproj", "{AF97C732-0C21-4395-AE01-377DC5827474}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMTECH.Tournoi.DAO", "ATMTECH.Tournoi.DAO\ATMTECH.Tournoi.DAO.csproj", "{17EADA6D-5AC7-47E6-9946-B87B9EC74F77}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestAuthorize.net", "TestAuthorize.net", "{BA91AAE4-8A81-487E-8EB9-408134439651}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleAutorizeNet", "TestConsoleAutorizeNet\TestConsoleAutorizeNet.csproj", "{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -2739,56 +2735,6 @@ Global
 		{17EADA6D-5AC7-47E6-9946-B87B9EC74F77}.TFS_BUILD_Debug|x64.Build.0 = Debug|Any CPU
 		{17EADA6D-5AC7-47E6-9946-B87B9EC74F77}.TFS_BUILD_Debug|x86.ActiveCfg = Debug|Any CPU
 		{17EADA6D-5AC7-47E6-9946-B87B9EC74F77}.TFS_BUILD_Debug|x86.Build.0 = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.AvecTestSansAnalyse|Any CPU.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.AvecTestSansAnalyse|Any CPU.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.AvecTestSansAnalyse|ARM.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.AvecTestSansAnalyse|ARM.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.AvecTestSansAnalyse|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.AvecTestSansAnalyse|Mixed Platforms.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.AvecTestSansAnalyse|x64.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.AvecTestSansAnalyse|x64.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.AvecTestSansAnalyse|x86.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.AvecTestSansAnalyse|x86.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Debug|ARM.Build.0 = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Debug|x64.Build.0 = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Debug|x86.Build.0 = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Release|ARM.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Release|ARM.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Release|x64.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Release|x64.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Release|x86.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.Release|x86.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.SansTestNiAnalyse|Any CPU.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.SansTestNiAnalyse|Any CPU.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.SansTestNiAnalyse|ARM.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.SansTestNiAnalyse|ARM.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.SansTestNiAnalyse|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.SansTestNiAnalyse|Mixed Platforms.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.SansTestNiAnalyse|x64.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.SansTestNiAnalyse|x64.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.SansTestNiAnalyse|x86.ActiveCfg = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.SansTestNiAnalyse|x86.Build.0 = Release|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.TFS_BUILD_Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.TFS_BUILD_Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.TFS_BUILD_Debug|ARM.ActiveCfg = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.TFS_BUILD_Debug|ARM.Build.0 = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.TFS_BUILD_Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.TFS_BUILD_Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.TFS_BUILD_Debug|x64.ActiveCfg = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.TFS_BUILD_Debug|x64.Build.0 = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.TFS_BUILD_Debug|x86.ActiveCfg = Debug|Any CPU
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F}.TFS_BUILD_Debug|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -2867,7 +2813,6 @@ Global
 		{568AD9D1-A3E6-4531-9333-DAE520DF8E34} = {56EE7C81-A76E-4E9D-8210-27B675A54A9B}
 		{AF97C732-0C21-4395-AE01-377DC5827474} = {56EE7C81-A76E-4E9D-8210-27B675A54A9B}
 		{17EADA6D-5AC7-47E6-9946-B87B9EC74F77} = {56EE7C81-A76E-4E9D-8210-27B675A54A9B}
-		{D7C50FF7-47FA-49A0-BBEE-DF59740DD28F} = {BA91AAE4-8A81-487E-8EB9-408134439651}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC642643-E3BA-413E-AD2B-ACF20A931AC4}
