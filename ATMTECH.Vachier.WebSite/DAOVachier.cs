@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Runtime.Caching;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.SessionState;
-using System.Web.UI;
 using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
-using System.Web.UI.WebControls;
 
 namespace ATMTECH.Vachier.WebSite
 {

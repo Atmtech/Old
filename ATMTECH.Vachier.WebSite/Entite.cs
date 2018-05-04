@@ -9,11 +9,12 @@ namespace ATMTECH.Vachier.WebSite
 {
     public class Entite
     {
+        public ObjectId Id { get; set; }
     }
     
-    public class Localisation
+    public class Localisation : Entite
     {
-        public ObjectId Id { get; set; }
+      
         [BsonElement("Ip")]
         public string Ip { get; set; }
         [BsonElement("DateCreation")]
@@ -28,9 +29,9 @@ namespace ATMTECH.Vachier.WebSite
         public string CodePostal { get; set; }
     }
 
-    public class Insulte
+    public class Insulte : Entite
     {
-        public ObjectId Id { get; set; }
+      
         [BsonElement("DateCreation")]
         public DateTime DateCreation { get; set; }
         [BsonElement("Titre")]
