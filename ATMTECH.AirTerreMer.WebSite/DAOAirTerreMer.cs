@@ -112,7 +112,7 @@ namespace ATMTECH.AirTerreMer.WebSite
                 for (DateTime date = new DateTime(DateTime.Now.Year, mois, 1); date.Month == mois; date = date.AddDays(1))
                 {
                     if (date > DateTime.Now)
-                        if (date.DayOfWeek == DayOfWeek.Monday || date.DayOfWeek == DayOfWeek.Sunday)
+                        if (/*date.DayOfWeek == DayOfWeek.Monday ||*/ date.DayOfWeek == DayOfWeek.Sunday)
                             retour.Add(new DateReservation { Date = date });
                 }
             }
@@ -131,9 +131,17 @@ namespace ATMTECH.AirTerreMer.WebSite
                 localisation = new DAOLogger().ObtenirInformationLocalisation(ip);
             }
 
+            if (reservation.PreferenceCulinaire1 == null) reservation.PreferenceCulinaire1  = string.Empty;
+            if (reservation.PreferenceCulinaire2 == null) reservation.PreferenceCulinaire2 = string.Empty;
+            if (reservation.PreferenceCulinaire3 == null) reservation.PreferenceCulinaire3 = string.Empty;
+            if (reservation.PreferenceCulinaire4 == null) reservation.PreferenceCulinaire4 = string.Empty;
+            if (reservation.PreferenceCulinaire5 == null) reservation.PreferenceCulinaire5 = string.Empty;
+            if (reservation.PreferenceCulinaire6 == null) reservation.PreferenceCulinaire6 = string.Empty;
+
             reservation.DateCreation = DateTime.Now;
             reservation.Localisation = localisation;
             mongoCollection.InsertOneAsync(reservation);
         }
+
     }
 }

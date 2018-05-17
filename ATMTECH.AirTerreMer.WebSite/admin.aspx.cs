@@ -31,5 +31,21 @@ namespace ATMTECH.AirTerreMer.WebSite
                 new DAOAirTerreMer().AjouterMenu(e.CommandArgument.ToString(), textBox.Text);
             }
         }
+
+        protected void btnAjouterMenuClick(object sender, EventArgs e)
+        {
+            Reservation reservation = new Reservation
+            {
+                DateReservation = Convert.ToDateTime(txtDateReservation.Text),
+                Prenom = txtPrenom.Text,
+                Nom = txtNom.Text,
+                NomMenu = txtNomMenu.Text
+            };
+            new DAOAirTerreMer().AjouterReservation(reservation);
+
+            rptReserve.DataSource = new DAOAirTerreMer().ObtenirReservation();
+            rptReserve.DataBind();
+
+        }
     }
 }

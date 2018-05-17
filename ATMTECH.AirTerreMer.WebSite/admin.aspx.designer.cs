@@ -67,6 +67,51 @@ namespace ATMTECH.AirTerreMer.WebSite {
         protected global::System.Web.UI.WebControls.Panel pnlAuthentifie;
         
         /// <summary>
+        /// Contrôle txtDateReservation.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDateReservation;
+        
+        /// <summary>
+        /// Contrôle txtPrenom.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPrenom;
+        
+        /// <summary>
+        /// Contrôle txtNom.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNom;
+        
+        /// <summary>
+        /// Contrôle txtNomMenu.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNomMenu;
+        
+        /// <summary>
+        /// Contrôle btnAjouterMenu.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAjouterMenu;
+        
+        /// <summary>
         /// Contrôle rptReserve.
         /// </summary>
         /// <remarks>

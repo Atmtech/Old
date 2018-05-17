@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="col-md-1 mb-2">
                         <label>Mot de passe</label>
-                        <asp:TextBox runat="server" ID="txtMotPasse" class="formulaire"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtMotPasse" class="formulaire" TextMode="Password"></asp:TextBox>
 
                     </div>
                 </div>
@@ -53,7 +53,32 @@
                 </div>
             </asp:Panel>
             <asp:Panel runat="server" ID="pnlAuthentifie" Visible="false">
-                <asp:DataList ID="rptReserve" runat="server" OnItemCommand="rptReserveCommand" RepeatColumns="4">
+                <h2>Ajouter une réservation</h2>
+                <table>
+                    <tr>
+                        <td>Date reservation:</td>
+                        <td><asp:TextBox runat="server" ID="txtDateReservation"></asp:TextBox></td>
+                    </tr>
+                    <tr><td>Prénom:</td>
+                        <td><asp:TextBox runat="server" ID="txtPrenom"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td>Nom:</td>
+                        <td><asp:TextBox runat="server" ID="txtNom"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td>Nom menu</td>
+                        <td><asp:TextBox runat="server" ID="txtNomMenu"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><br /><asp:Button runat="server" ID="btnAjouterMenu" Text="Ajouter une réservation" Style="background-color: rgb(83, 127, 74); color: white; font-weight: bold;" OnClick="btnAjouterMenuClick" /></td>
+                    </tr>
+
+                </table>
+                
+
+                <asp:DataList ID="rptReserve" runat="server" OnItemCommand="rptReserveCommand" RepeatColumns="3">
                     <ItemTemplate>
                         <div style="margin-top: 10px; background-color: rgb(86, 86, 86); margin-left: 10px; padding: 10px 10px 10px 10px">
                             <table>
@@ -81,9 +106,6 @@
                                         <%#  string.IsNullOrEmpty( Eval("PreferenceCulinaire4").ToString()) ? "" : Eval("PreferenceCulinaire4") + "<br>"  %>
                                         <%#  string.IsNullOrEmpty( Eval("PreferenceCulinaire5").ToString()) ? "" : Eval("PreferenceCulinaire5") + "<br>"  %>
                                         <%#  string.IsNullOrEmpty( Eval("PreferenceCulinaire6").ToString()) ? "" : Eval("PreferenceCulinaire6") + "<br>"  %>
-
-                                        
-
                                     </td>
                                 </tr>
 
@@ -104,7 +126,7 @@
                                     <td><b>Nom menu:</b></td>
                                     <td>
                                         <asp:TextBox runat="server" ID="txtNomMenu" Text='<%#  Eval("NomMenu") %>'></asp:TextBox>
-                                        <asp:Button runat="server" ID="btnReserver" Text="Sauvegarder"  Style="background-color: rgb(83, 127, 74); color: white; font-weight: bold;" CommandArgument='<%#Eval("Id") %>' CommandName="Menu"  />
+                                        <asp:Button runat="server" ID="btnReserver" Text="Sauvegarder" Style="background-color: rgb(83, 127, 74); color: white; font-weight: bold;" CommandArgument='<%#Eval("Id") %>' CommandName="Menu" />
                                     </td>
                                 </tr>
 
@@ -117,6 +139,9 @@
 
                     </ItemTemplate>
                 </asp:DataList>
+
+               
+
             </asp:Panel>
         </div>
 

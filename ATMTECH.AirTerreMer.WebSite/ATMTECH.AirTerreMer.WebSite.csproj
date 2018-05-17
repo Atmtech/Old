@@ -94,7 +94,6 @@
     <Content Include="assets\web\assets\mobirise-icons\mobirise-icons.ttf" />
     <Content Include="assets\web\assets\mobirise-icons\mobirise-icons.woff" />
     <Content Include="menu.png" />
-    <Content Include="Menu\2018-05-12.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
@@ -152,6 +151,9 @@
     </Compile>
     <Compile Include="Entite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Menu\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -199,12 +199,13 @@
                     </div>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                   
+                    <div class="navbar-buttons mbr-section-btn">
+                        <a class="btn btn-lg btn-info display-4" href="https://www.facebook.com/airterremertraiteur/" target="_blank"><span class="btn-facebook"></span>
+                            CONTACT</a>
+                    </div>
 
                     <div class="navbar-buttons mbr-section-btn">
                         <a class="btn btn-sm btn-primary display-4" data-toggle="modal" data-target="#reservation"><span class="mbrib-calendar mbr-iconfont mbr-iconfont-btn"></span>
-
                             POUR RÉSERVER</a>
                     </div>
                 </div>
@@ -223,17 +224,33 @@
                             <div style="font-size: 20px;"><strong>Merci!</strong> de votre confiance, nous allons vous régalez.</div>
                         </div>
                     </asp:Panel>
-                    <h1 class="mbr-section-title align-right mbr-bold pb-3 mbr-fonts-style display-1">AIR-TERRE-MER</h1>
-                    <h4 class="mbr-section-subtitle align-right mbr-light pb-3 mbr-fonts-style display-6"><b>Service de traiteur à domicile</b></h4>
+                    <h1 class="mbr-section-title align-right mbr-bold pb-3 mbr-fonts-style display-1">CHEF À DOMICILE</h1>
+                    
                     <p class="mbr-text align-right pb-3 mbr-fonts-style display-5">
-                        Le fonctionnement est très simple.
-                        <br>
-                        <br>
-                        Vous choississez le montant maximal pour la facture d'épicerie.<br>
-                        Vous indiquez le nombre de convives.<br>
-                        Vous sélectionnez vos préférences culinaires.<br>
-                        Vous payez la facture d'épicerie et les honoraires du chef.<br>
-                        <br>
+                        Comment la magie s'opère ?
+                    </p>
+                    <div style="text-align: right; font-weight: bold; font-size: 20px;">
+                        <table style="width: 100%">
+                            <tr>
+                                <td>Étape 1</td>
+                                <td>Vous choississez le montant maximal pour la facture d'épicerie.</td>
+                            </tr>
+                            <tr>
+                                <td>Étape 2</td>
+                                <td>Vous indiquez le nombre de convives.</td>
+                            </tr>
+                            <tr>
+                                <td>Étape 3</td>
+                                <td>Vous sélectionnez vos préférences culinaires.</td>
+                            </tr>
+                            <tr>
+                                <td>Étape 4</td>
+                                <td>Vous payez la facture d'épicerie et les honoraires du chef.</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br/>
+                    <p class="mbr-text align-right pb-3 mbr-fonts-style display-5">
                         C'est si simple.
                     </p>
                     <div class="mbr-section-btn align-right">
@@ -261,7 +278,7 @@
             <div class="container">
                 <div class="media-container-row">
                     <div class="title col-12 align-center">
-                        <h2 class="pb-3 mbr-fonts-style display-2">CE QUE PENSENT NOS CLIENTS</h2>
+                        <h2 class="pb-3 mbr-fonts-style display-2">CE QUE PENSENT LES CONVIVES</h2>
 
                     </div>
                 </div>
@@ -325,8 +342,7 @@
 
         <section class="countdown1 cid-qRF4g2McYq" id="countdown1-b">
             <div class="container ">
-                <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">NOTRE PROCHAIN RENDEZ-VOUS</h2>
-                <h3 class="mbr-section-subtitle align-center mbr-fonts-style display-5">Notre prochain festin aura lieu dans ...</h3>
+                <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">LE PROCHAIN RENDEZ-VOUS DANS ...</h2>
             </div>
             <div class="container countdown-cont align-center">
                 <div class="daysCountdown" title="Jours"></div>
@@ -339,7 +355,7 @@
 
         <section class="" id="testimonials1-9" style="padding-top: 100px; display: block; color: white; background-color: rgb(50, 50, 50);">
             <div class="container">
-                <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">NOS DERNIERS MENUS</h2>
+                <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">LES DERNIERS MENUS</h2>
             </div>
 
             <div class="container">
@@ -352,8 +368,8 @@
                         <div class="card p-3 col-12 col-md-6 col-lg-2" style="margin-right: 5px; padding: 10px 10px 10px 10px">
                             <div class="card-wrapper">
                                 <div class="card-box" style="text-align: center;">
-                                   <a href='menu/<%#Eval("NomMenu") %>' style="color: white" target="_blank"> <%#Eval("DateReservation", "{0:d}") %>
-                                    <img src="menu.png" style="padding-top: 5px;" /></a>
+                                    <a href='menu/<%#Eval("NomMenu") %>' style="color: white" target="_blank"><%#Eval("DateReservation", "{0:d}") %>
+                                        <img src="menu.png" style="padding-top: 5px;" /></a>
                                 </div>
                             </div>
                         </div>

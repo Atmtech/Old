@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
 
@@ -10,7 +11,10 @@ namespace ATMTECH.AirTerreMer.WebSite
         {
             if (!Page.IsPostBack)
             {
-                placeholderCompteRebour.Controls.Add(new Literal { Text = " <div class=\"countdown pt-5 mt-2\" data-due-date=\"2018/05/18\" ></ div > " });
+                IList<Reservation> obtenirReservation = new DAOAirTerreMer().ObtenirReservation();
+
+                DateTime dateTime = obtenirReservation.Where(x => x.DateReservation > DateTime.Now).Min(x => x.DateReservation);
+                placeholderCompteRebour.Controls.Add(new Literal { Text = " <div class=\"countdown pt-5 mt-2\" data-due-date=\"" + dateTime.ToShortDateString() + "\" ></ div > " });
                 ddlBudget.DataSource = new DAOAirTerreMer().ObtenirListeBudget();
                 ddlBudget.DataBind();
                 ddlNombreConvive.DataSource = new DAOAirTerreMer().ObtenirListeConvive();
@@ -20,8 +24,7 @@ namespace ATMTECH.AirTerreMer.WebSite
                 ddlDate.DataTextField = "Affichage";
                 ddlDate.DataBind();
 
-                rptMenu.DataSource = new DAOAirTerreMer().ObtenirReservation()
-                    .Where(x => string.IsNullOrEmpty(x.NomMenu) == false).OrderByDescending(x => x.DateReservation).Take(12).ToList();
+                rptMenu.DataSource = obtenirReservation.Where(x => string.IsNullOrEmpty(x.NomMenu) == false).OrderByDescending(x => x.DateReservation).Take(12).ToList();
                 rptMenu.DataBind();
 
                 ddlPreferenceCulinaire1.DataSource = new DAOAirTerreMer().ObtenirListePreferenceCulinaire();
