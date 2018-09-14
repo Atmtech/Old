@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ATMTECH.Expeditn.Site.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="Content/bootstrap-datepicker.css" />
+    <style>
+        .jumboTronPecheur .jumbotron {
+            text-align: center;
+            color: white;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("http://www.theleader.info/wp-content/uploads/2018/01/Freshwater-fishing.jpg")no-repeat no-repeat;
+            background-size: 100%;
+            height: 100vh;
+        }
+
+        .nounderline {
+            text-decoration: none !important
+        }
+    </style>
+
+
+</head>
+<body class="bg-dark">
+    <form id="form1" runat="server">
+
+        <div class="form-group row">
+            <div class="col">
+                <div class="text-white pt-3 pl-5 font-weight-bold text-uppercase fa-text-height " style="font-size: 20px;"><a href="Default.aspx" class="text-white nounderline">EXPEDIT'N </a></div>
+            </div>
+            <div class="col">
+                <div class="pt-3 pl-5 align-right" style="text-align: right">
+                    <asp:Button runat="server" class="btn btn-success font-weight-bold" Text="OUVRIR UNE SESSION" ID="btnOuvrirUneSession" formnovalidate OnClick="btnOuvrirUneSessionOnclick"></asp:Button>
+                    <asp:Button runat="server" ID="btnUtilisateurAuthentifie" class="btn btn-dark font-weight-bold" formnovalidate Visible="False"></asp:Button>
+                    <asp:Button runat="server" class="btn btn-dark font-weight-bold" Text="CREER UN COMPTE" ID="btnCreerCompte" formnovalidate OnClick="btnCreerCompte_OnClick"></asp:Button>
+                    <asp:Button runat="server" class="btn btn-dark font-weight-bold" Text="FERMER SESSION" ID="btnFermerSession" formnovalidate Visible="False" OnClick="btnFermerSessionOnclick"></asp:Button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ml-4 mr-4" style="">
+            <asp:Panel runat="server" class="alert alert-danger" role="alert" Visible="False" ID="pnlMessageErreur">
+                <asp:Label runat="server" ID="lblMessageErreur"></asp:Label>
+            </asp:Panel>
+            <asp:Panel runat="server" class="alert alert-danger" role="alert" Visible="False" ID="pnlMessageSucces">
+                <asp:Label runat="server" ID="lblMessageSucces"></asp:Label>
+            </asp:Panel>
+            <asp:ScriptManager runat="server" ID="script"></asp:ScriptManager>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+
+
+        <div class="text-center py-3 text-white" style="background-color: black; margin-top: 10px;">
+            © 2018 Copyright Expeditn.com 
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <script src="Scripts/bootstrap-datepicker.min.js"></script>
+
+    <script>
+        var jumboHeight = $('.jumbotron').outerHeight();
+        function parallax() {
+            var scrolled = $(window).scrollTop();
+            $('.bg').css('height', (jumboHeight - scrolled) + 'px');
+        }
+
+        $(window).scroll(function (e) {
+            parallax();
+        });
+    </script>
+
+
+</body>
+</html>

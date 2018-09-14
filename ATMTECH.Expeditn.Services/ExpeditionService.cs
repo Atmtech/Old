@@ -1,273 +1,236 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using ATMTECH.Entities;
-using ATMTECH.Expeditn.DAO.Interface;
-using ATMTECH.Expeditn.Entities;
-using ATMTECH.Expeditn.Entities.DTO;
-using ATMTECH.Expeditn.Services.Interface;
-using ATMTECH.Services;
-using ATMTECH.Services.Interface;
-using ATMTECH.Web.Services;
-using ATMTECH.Web.Services.Base;
+using ATMTECH.Expeditn.Entites;
 
 namespace ATMTECH.Expeditn.Services
 {
-    public class ExpeditionService : BaseService, IExpeditionService
+    public class ExpeditionService : BaseService
     {
-        public IDAOExpedition DAOExpedition { get; set; }
-        public IDAOParticipant DAOParticipant { get; set; }
-        public IDAONourritureParticipant DAONourritureParticipant { get; set; }
-        public IDAOEtapeParticipant DAOEtapeParticipant { get; set; }
-        public IDAOEtape DAOEtape { get; set; }
-        public IReportService ReportService { get; set; }
-        public IDAONourritureMontant DAONourritureMontant { get; set; }
-
-        public Expedition ObtenirExpedition(int id)
+        public void Enregistrer(Expedition expedition)
         {
-            return DAOExpedition.ObtenirExpedition(id);
+            if (EstValideExpedition(expedition))
+                DAOExpedition.Enregistrer(expedition);
         }
-        public IList<Expedition> ObtenirExpedition()
+        public IList<Expedition> Obtenir()
         {
-            return DAOExpedition.ObtenirExpedition();
-        }
-        public IList<Expedition> ObtenirExpeditionTop(int nombreExpeditionPrise)
-        {
-            return DAOExpedition.ObtenirExpeditionTop(nombreExpeditionPrise);
-        }
-        public int Enregistrer(Expedition expedition)
-        {
-            return DAOExpedition.Enregistrer(expedition);
-        }
-        public IList<Expedition> ObtenirMesExpedition(int idUtilisateur)
-        {
-            IList<Participant> Participant = DAOParticipant.ObtenirParticipant().Where(x => x.Utilisateur.Id == idUtilisateur).ToList();
-            IList<Expedition> expeditions = new List<Expedition>();
-            foreach (Participant participant in Participant)
-            {
-                if (participant.Utilisateur.Id == idUtilisateur)
-                {
-                    Expedition expedition = DAOExpedition.ObtenirExpedition(participant.Expedition.Id);
-                    if (expedition.IsActive)
-                        expeditions.Add(expedition);
-                }
-            }
-
-            return expeditions;
-        }
-        public IList<AffichageSommeInvesti> ObtenirSommeInvesti(Expedition expedition)
-        {
-            IList<AffichageSommeInvesti> affichageSommeInvestis = new List<AffichageSommeInvesti>();
-
-            foreach (Participant participant in expedition.Participant)
-            {
-                AffichageSommeInvesti affichageSommeInvesti = new AffichageSommeInvesti
-                {
-                    Expedition = participant.Expedition,
-                    Utilisateur = participant.Utilisateur,
-
-                    MontantEtapeAutomobile = CalculerTotalEtapeParMoyenTransport(expedition.Etape, participant, TypeVehicule.Automobile),
-                    MontantEtapeAvion = CalculerTotalEtapeParMoyenTransport(expedition.Etape, participant, TypeVehicule.Avion),
-                    MontantEtapeBateau = CalculerTotalEtapeParMoyenTransport(expedition.Etape, participant, TypeVehicule.Bateau),
-                    MontantAutre = CalculerTotalMontantAutre(expedition.Etape, participant),
-                };
-
-                if (expedition.NourritureMontant.Count > 0)
-                {
-                    NourritureMontant nourritureMontant = expedition.NourritureMontant.FirstOrDefault(x => x.Participant.Id == participant.Id);
-                    if (nourritureMontant != null)
-                    {
-                        affichageSommeInvesti.MontantNourriture = nourritureMontant.MontantInvesti;
-                    }
-                }
-                affichageSommeInvestis.Add(affichageSommeInvesti);
-            }
-
-            return affichageSommeInvestis;
-        }
-        public void RepartirNourriture(Expedition expedition, string idParticipant, decimal montant)
-        {
-            DAONourritureMontant.InitialiserNourritureMontant(expedition);
-            DAONourritureMontant.InitialiserNourritureMontantParticipant(expedition, Convert.ToInt32(idParticipant), montant);
-
-            expedition = ObtenirExpedition(expedition.Id);
-            IList<NourritureMontant> nourritureMontants = DAONourritureMontant.ObtenirNourritureMontant(expedition);
-            int nombreRepas = expedition.Nourriture.Sum(nourriture => nourriture.NourritureParticipant.Count);
-            if (nombreRepas > 0)
-            {
-                decimal montantParRepas = nourritureMontants.Sum(x => x.MontantInvesti) / nombreRepas;
-                foreach (NourritureMontant nourritureMontant1 in expedition.NourritureMontant)
-                {
-                    int nombreTotalRepasParticipant = expedition.Nourriture.Sum(nourriture => nourriture.NourritureParticipant.Count(x => x.Participant.Id == nourritureMontant1.Participant.Id));
-
-                    nourritureMontant1.MontantTotalAPayer = nombreTotalRepasParticipant * montantParRepas;
-                    DAONourritureMontant.Enregistrer(nourritureMontant1);
-                }
-            }
+            return DAOExpedition.Obtenir();
         }
 
-        public void RepartirAutomobile(Expedition expedition, string idParticipant, decimal montant)
+        public Expedition Obtenir(string id)
         {
-            RepartirMoyenTransport(expedition, idParticipant, montant, TypeVehicule.Automobile);
-        }
-        public void RepartirBateau(Expedition expedition, string idParticipant, decimal montant)
-        {
-            RepartirMoyenTransport(expedition, idParticipant, montant, TypeVehicule.Bateau);
-        }
-        public void RepartirAutre(Expedition expedition, string idParticipant, decimal montant)
-        {
-
-            int compte = 0;
-            foreach (Etape etape in expedition.Etape)
-            {
-                compte += etape.EtapeParticipant.Count(x => x.Participant.Id == Convert.ToInt32(idParticipant));
-            }
-            if (compte > 0)
-            {
-                decimal montantAutreParEtape = montant / compte;
-                foreach (Etape etape in expedition.Etape)
-                {
-                    foreach (EtapeParticipant etapeParticipant in etape.EtapeParticipant.Where(x => x.Participant.Id == Convert.ToInt32(idParticipant)))
-                    {
-                        etapeParticipant.MontantAutre = montantAutreParEtape;
-                        DAOEtapeParticipant.Enregistrer(etapeParticipant);
-                    }
-                }
-            }
-        }
-        public IList<AffichageRepartitionMontant> ObtenirRepartitionMontant(Expedition expedition)
-        {
-            IList<AffichageRepartitionMontant> affichageRepartitionMontants = new List<AffichageRepartitionMontant>();
-
-            IList<AffichageSommeInvesti> affichageSommeInvestis = ObtenirSommeInvesti(expedition);
-
-            foreach (Participant participant in expedition.Participant)
-            {
-                AffichageRepartitionMontant affichageRepartitionMontant = new AffichageRepartitionMontant
-                {
-                    Utilisateur = participant.Utilisateur,
-                    NombrePresenceEtapeAutomobile = CalculerTotalPresenceEtapeVehicule(expedition, participant.Id, TypeVehicule.Automobile),
-                    NombrePresenceEtapeBateau = CalculerTotalPresenceEtapeVehicule(expedition, participant.Id, TypeVehicule.Bateau),
-                    NombreRepas = CalculerNombreRepas(expedition, participant.Id),
-                    MontantTotalAutomobile = affichageSommeInvestis.Sum(x => x.MontantEtapeAutomobile),
-                    MontantTotalBateau = affichageSommeInvestis.Sum(x => x.MontantEtapeBateau),
-                    MontantTotalNourriture = affichageSommeInvestis.Sum(x => x.MontantNourriture),
-                    MontantTotalAutre = affichageSommeInvestis.Sum(x => x.MontantAutre),
-                    NombreTotalParticipant = expedition.Participant.Count(),
-                };
-
-                affichageRepartitionMontants.Add(affichageRepartitionMontant);
-            }
-
-            foreach (AffichageRepartitionMontant affichageRepartitionMontant in affichageRepartitionMontants)
-            {
-                affichageRepartitionMontant.NombreTotalRepas = affichageRepartitionMontants.Sum(x => x.NombreRepas);
-                affichageRepartitionMontant.NombreTotalEtapeAutomobile = affichageRepartitionMontants.Sum(x => x.NombrePresenceEtapeAutomobile);
-                affichageRepartitionMontant.NombreTotalEtapeBateau = affichageRepartitionMontants.Sum(x => x.NombrePresenceEtapeBateau);
-            }
-
-            return affichageRepartitionMontants;
-        }
-        public IList<AffichageMontantDu> ObtenirMontantDu(Expedition expedition)
-        {
-            IList<AffichageMontantDu> affichageMontantDus = new List<AffichageMontantDu>();
-            IList<AffichageSommeInvesti> affichageSommeInvestis = ObtenirSommeInvesti(expedition).OrderByDescending(x => x.MontantTotal).ToList();
-            IList<AffichageRepartitionMontant> affichageRepartitionMontants = ObtenirRepartitionMontant(expedition);
-            User participantAyantLePlusDepense = affichageSommeInvestis.FirstOrDefault(x => x.MontantTotal == affichageSommeInvestis.Max(z => z.MontantTotal)).Utilisateur;
-            foreach (AffichageRepartitionMontant affichageRepartitionMontant in affichageRepartitionMontants)
-            {
-                AffichageMontantDu montantDu = new AffichageMontantDu
-                {
-                    Paye = participantAyantLePlusDepense,
-                    Payeur = expedition.Participant.FirstOrDefault(x => x.Utilisateur.Id == affichageRepartitionMontant.Utilisateur.Id).Utilisateur,
-                    Montant = affichageRepartitionMontant.MontantTotal - affichageSommeInvestis.FirstOrDefault(x => x.Utilisateur.Id == affichageRepartitionMontant.Utilisateur.Id).MontantTotal
-                };
-
-                if (montantDu.Paye.Id != montantDu.Payeur.Id)
-                {
-                    affichageMontantDus.Add(montantDu);
-                }
-            }
-
-            return affichageMontantDus;
+            return DAOExpedition.Obtenir(id);
         }
 
-
-        public void ObtenirMenuPdf(Expedition expedition)
+        public IList<Expedition> ObtenirMesExpedition(Utilisateur utilisateur)
         {
-            Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
-            ReportParameter reportParameter = new ReportParameter
-            {
-                Assembly = "ATMTECH.Expeditn.Services",
-                PathToReportAssembly = "ATMTECH.Expeditn.Services.Rapports.Menu.rdlc",
-                ReportFormat = ReportFormat.PDF,
-                Parameters = dictionnaire
-            };
-
-            reportParameter.AddDatasource("dsMenu", expedition.Nourriture.OrderBy(x => x.Date));
-            ReportService.SaveReport("menu.pdf", ReportService.GetReport(reportParameter));
+            IList<Expedition> expeditions = DAOExpedition.Obtenir();
+            return expeditions.Where(x => x.ListeUtilisateur.Any(z => z.Id == utilisateur.Id)).ToList();
         }
 
-
-
-        private int CalculerNombreRepas(Expedition expedition, int idParticipant)
+        public void Enregistrer(Activite activite)
         {
-            int compte = 0;
-            if (expedition.Nourriture != null)
-            {
-                foreach (Nourriture nourriture in expedition.Nourriture)
-                {
-                    compte += nourriture.NourritureParticipant.Count(x => x.Participant.Id == idParticipant);
-                }
-            }
-            return compte;
-        }
-        private int CalculerTotalPresenceEtapeVehicule(Expedition expedition, int idParticipant, TypeVehicule typeVehicule)
-        {
-            int compte = 0;
-            foreach (Etape etape in expedition.Etape.Where(x => x.Vehicule.EnumTypeVehicule == typeVehicule))
-            {
-                compte += etape.EtapeParticipant.Count(x => x.Participant.Id == idParticipant);
-            }
-            return compte;
+            DAOActivite.Enregistrer(activite);
         }
 
-        private decimal CalculerTotalEtapeParMoyenTransport(IList<Etape> etapes, Participant participant, TypeVehicule typeVehicule)
+        public void Enregistrer(Depense depense)
         {
-            if (etapes != null)
-                return Math.Round(etapes.Where(x => x.Vehicule.EnumTypeVehicule == typeVehicule).Sum(etape => etape.EtapeParticipant.Where(x => x.Participant.Id == participant.Id).Sum(x => x.MontantVehicule)), 2);
+            DAODepense.Enregistrer(depense);
+        }
+
+        private decimal ObtenirMontant(Expedition expedition, Utilisateur utilisateur, string typeActivite)
+        {
+            Depense depense = expedition.ListeDepense.FirstOrDefault(x =>
+                x.Utilisateur.Id == utilisateur.Id && x.TypeActivite == typeActivite);
+            return depense == null ? 0 : Convert.ToDecimal(depense.Montant);
+        }
+
+        private decimal ObtenirSommeMontant(Expedition expedition, Utilisateur utilisateur)
+        {
+            if (expedition.ListeDepense != null)
+                return Convert.ToDecimal(expedition.ListeDepense.Where(x => x.Utilisateur.Id == utilisateur.Id).Sum(x => Convert.ToDecimal(x.Montant)));
             return 0;
         }
-        private decimal CalculerTotalMontantAutre(IList<Etape> etapes, Participant participant)
+
+        private decimal ObtenirSommeMontant(Expedition expedition, string typeActivite)
         {
-            if (etapes != null)
-                return Math.Round(etapes.Sum(etape => etape.EtapeParticipant.Where(x => x.Participant.Id == participant.Id).Sum(x => x.MontantAutre)), 2);
+            if (expedition.ListeDepense != null)
+                return expedition.ListeDepense.Where(x => x.TypeActivite == typeActivite).Sum(x => Convert.ToDecimal(x.Montant));
             return 0;
         }
-        private void RepartirMoyenTransport(Expedition expedition, string idParticipant, decimal montant, TypeVehicule typeVehicule)
+        private decimal ObtenirSommeMontant(Expedition expedition)
         {
-            int compte = 0;
-            foreach (Etape etape in expedition.Etape.Where(x => x.Vehicule.EnumTypeVehicule == typeVehicule))
-            {
-                compte += etape.EtapeParticipant.Count(x => x.Participant.Id == Convert.ToInt32(idParticipant));
-            }
+            if (expedition.ListeDepense != null)
+                return Convert.ToDecimal(expedition.ListeDepense.Sum(x => Convert.ToDecimal(x.Montant)));
+            return 0;
+        }
 
-            if (compte > 0)
+        private string ObtenirHeaderTypeDepense(Expedition expedition, string suffixeEntete)
+        {
+            string html = string.Empty;
+
+            foreach (string depense in ObtenirListeTypeActiviteDepense(expedition))
             {
-                decimal montantParVoyagement = montant / compte;
-                foreach (Etape etape in expedition.Etape.Where(x => x.Vehicule.EnumTypeVehicule == typeVehicule))
+                html += "<th> " + suffixeEntete + depense + "</th>" + Environment.NewLine;
+            }
+            return html;
+        }
+
+        private List<string> ObtenirListeTypeActiviteDepense(Expedition expedition)
+        {
+            if (expedition.ListeDepense != null)
+                return expedition.ListeDepense.GroupBy(x => x.TypeActivite).ToList().Select(activiteGroupe => activiteGroupe.Key).ToList();
+            return new List<string>();
+        }
+
+        private int ObtenirNombreTotalPresenceActivite(Expedition expedition, string typeActivite)
+        {
+            int i = 0;
+            foreach (Activite activite in expedition.ListeActivite)
+            {
+                if (activite.TypeActivite == typeActivite)
                 {
-                    foreach (EtapeParticipant etapeParticipant in etape.EtapeParticipant.Where(x => x.Participant.Id == Convert.ToInt32(idParticipant)))
+                    if (activite.ListeUtilisateur != null)
                     {
-                        etapeParticipant.MontantVehicule = montantParVoyagement;
-                        DAOEtapeParticipant.Enregistrer(etapeParticipant);
+                        i += activite.ListeUtilisateur.Count();
                     }
                 }
-
             }
+            return i;
+        }
+
+        public string GenererAffichageDepense(Expedition expedition)
+        {
+            if (expedition.ListeDepense == null) return string.Empty;
+            string html = "<h2> Dépenses par participants</h2>";
+
+            string htmlDepenseParParticipant = "<TABLE class='table table-dark table-hover table-striped'>";
+            htmlDepenseParParticipant += "<thead>" + Environment.NewLine;
+            htmlDepenseParParticipant += "<th>Participants</th>" + Environment.NewLine;
+            htmlDepenseParParticipant += "{0}";
+            htmlDepenseParParticipant += "<th>($) Total</th>" + Environment.NewLine;
+            htmlDepenseParParticipant += "</thead>" + Environment.NewLine;
+            htmlDepenseParParticipant += "<tbody>" + Environment.NewLine;
+            htmlDepenseParParticipant += "{1}";
+            htmlDepenseParParticipant += "<tr><td>Grand Total:</td>{2}";
+            htmlDepenseParParticipant += "<td>{3}</td>";
+            htmlDepenseParParticipant += "</tr>";
+            htmlDepenseParParticipant += "</tbody>" + Environment.NewLine;
+            htmlDepenseParParticipant += "</TABLE>";
+
+
+            string htmlListeDepense = string.Empty;
+            foreach (Utilisateur utilisateur in expedition.ListeUtilisateur)
+            {
+                htmlListeDepense += "<tr><td>" + utilisateur.Affichage + "</td>" + Environment.NewLine;
+                foreach (string typeActivite in ObtenirListeTypeActiviteDepense(expedition))
+                {
+                    htmlListeDepense += "<td>" + string.Format("{0:C}", ObtenirMontant(expedition, utilisateur, typeActivite)) + "</td>" + Environment.NewLine;
+                }
+                htmlListeDepense += "<td>" + string.Format("{0:C}", ObtenirSommeMontant(expedition, utilisateur)) + "</td>" + Environment.NewLine;
+                htmlListeDepense += "</tr>" + Environment.NewLine;
+            }
+
+            string htmlSommeTotalTypeDepense = string.Empty;
+            foreach (string s in ObtenirListeTypeActiviteDepense(expedition))
+            {
+                htmlSommeTotalTypeDepense += "<td>" + string.Format("{0:C}", ObtenirSommeMontant(expedition, s)) + "</td>";
+            }
+            html += string.Format(htmlDepenseParParticipant, ObtenirHeaderTypeDepense(expedition, "($) "), htmlListeDepense, htmlSommeTotalTypeDepense, string.Format("{0:C}", ObtenirSommeMontant(expedition)));
+
+            html += "<h2> Répartitions des dépenses</h2>";
+
+            string htmlRepartitionDepenseParParticipant = "<TABLE class='table table-dark table-hover table-striped'>";
+            htmlRepartitionDepenseParParticipant += "<thead>" + Environment.NewLine;
+            htmlRepartitionDepenseParParticipant += "<th>Participants</th>" + Environment.NewLine;
+            htmlRepartitionDepenseParParticipant += "{0}";
+            htmlRepartitionDepenseParParticipant += "<th>($) Total</th>" + Environment.NewLine;
+            htmlRepartitionDepenseParParticipant += "</thead>" + Environment.NewLine;
+            htmlRepartitionDepenseParParticipant += "<tbody>" + Environment.NewLine;
+            htmlRepartitionDepenseParParticipant += "{1}";
+            htmlRepartitionDepenseParParticipant += "<tr>";
+            htmlRepartitionDepenseParParticipant += "<td>Grand Total:</td>{2}";
+            htmlRepartitionDepenseParParticipant += "<td>{3}</td>";
+            htmlRepartitionDepenseParParticipant += "</tr>";
+            htmlRepartitionDepenseParParticipant += "</tbody>" + Environment.NewLine;
+            htmlRepartitionDepenseParParticipant += "</TABLE>";
+
+            string htmlListeRepartitionDepense = string.Empty;
+            decimal montantTotalRepartitionDepense = 0;
+
+            Dictionary<Utilisateur, decimal> montantUtiliseActivite = new Dictionary<Utilisateur, decimal>();
+            foreach (Utilisateur utilisateur in expedition.ListeUtilisateur)
+            {
+                decimal montantTotalDuUtilisateur = 0;
+                htmlListeRepartitionDepense += "<tr><td>" + utilisateur.Affichage + "</td>" + Environment.NewLine;
+                foreach (string typeActivite in ObtenirListeTypeActiviteDepense(expedition))
+                {
+                    int nombreTotalPresenceActivite = ObtenirNombreTotalPresenceActivite(expedition, typeActivite);
+                    int nombrePresenceUtilisateurActivite = 0;
+                    foreach (Activite activite in expedition.ListeActivite.Where(x => x.TypeActivite == typeActivite))
+                    {
+                        if (activite.ListeUtilisateur != null)
+                        {
+                            if (activite.ListeUtilisateur.Any(x => x.Id == utilisateur.Id))
+                            {
+                                nombrePresenceUtilisateurActivite++;
+                            }
+                        }
+                    }
+                    decimal pourcentage = Math.Round((Convert.ToDecimal(nombrePresenceUtilisateurActivite) /
+                                    Convert.ToDecimal(nombreTotalPresenceActivite)), 2);
+                    decimal montantDu = ObtenirSommeMontant(expedition, typeActivite) * pourcentage;
+                    htmlListeRepartitionDepense += "<td>" + nombrePresenceUtilisateurActivite + "/" + nombreTotalPresenceActivite + " :: " + pourcentage * 100 + " % :: " + string.Format("{0:C}", montantDu) + "</td>" + Environment.NewLine;
+                    montantTotalDuUtilisateur += montantDu;
+                }
+                montantTotalRepartitionDepense += montantTotalDuUtilisateur;
+                montantUtiliseActivite.Add(utilisateur, montantTotalDuUtilisateur);
+                htmlListeRepartitionDepense += "<td>" + string.Format("{0:C}", montantTotalDuUtilisateur) + "</td>" + Environment.NewLine;
+                htmlListeRepartitionDepense += "</tr>" + Environment.NewLine;
+            }
+
+            string htmlSommeTotalTypeDepenseRepartition = string.Empty;
+            foreach (string s in ObtenirListeTypeActiviteDepense(expedition))
+            {
+                htmlSommeTotalTypeDepenseRepartition += "<td></td>";
+            }
+
+            html += string.Format(htmlRepartitionDepenseParParticipant, ObtenirHeaderTypeDepense(expedition, "(% / $) "), htmlListeRepartitionDepense, htmlSommeTotalTypeDepenseRepartition, string.Format("{0:C}", montantTotalRepartitionDepense));
+
+
+            html += "<h2> Montant dû entre les participants</h2> ";
+
+            string htmlMontantDu = "<TABLE class='table table-dark table-hover table-striped'>";
+            htmlMontantDu += "<thead>" + Environment.NewLine;
+            htmlMontantDu += "<th>Participants</th>" + Environment.NewLine;
+            htmlMontantDu += "</thead>" + Environment.NewLine;
+            htmlMontantDu += "<tbody>" + Environment.NewLine;
+            htmlMontantDu += "{0}";
+            htmlMontantDu += "</tbody>" + Environment.NewLine;
+            htmlMontantDu += "</TABLE>";
+
+            Utilisateur utilisateurQuiALePlusDepenser = expedition.ListeDepense
+                .FirstOrDefault(x => Convert.ToDecimal(x.Montant) == expedition.ListeDepense.Max(z => Convert.ToDecimal(z.Montant))).Utilisateur;
+            string htmlMontantDuTd = string.Empty;
+            foreach (KeyValuePair<Utilisateur, decimal> keyValuePair in montantUtiliseActivite)
+            {
+                if (keyValuePair.Key.Id != utilisateurQuiALePlusDepenser.Id)
+                {
+                    decimal devoir = keyValuePair.Value - ObtenirSommeMontant(expedition, keyValuePair.Key);
+                    htmlMontantDuTd += "<tr><td>" + keyValuePair.Key.Affichage + "</td><td>Doit</td><td>" + string.Format("{0:C}", devoir) + "</td><td>" + utilisateurQuiALePlusDepenser.Affichage + "</td></tr>";
+                }
+            }
+            html += string.Format(htmlMontantDu, htmlMontantDuTd);
+
+
+
+            return html;
+        }
+
+        private bool EstValideExpedition(Expedition expedition)
+        {
+            return true;
         }
     }
+
 }

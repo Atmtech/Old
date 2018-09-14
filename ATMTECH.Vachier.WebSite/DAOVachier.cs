@@ -14,7 +14,7 @@ namespace ATMTECH.Vachier.WebSite
     {
 
 
-        public void AjouterInsulte(string titre, string description)
+        public void AjouterInsulte(string titre, string description, string insultetexte)
         {
             IMongoCollection<Insulte> mongoCollection = Database.GetCollection<Insulte>("Insulte");
 
@@ -28,7 +28,7 @@ namespace ATMTECH.Vachier.WebSite
             Insulte insulte = new Insulte
             {
                 DateCreation = DateTime.Now,
-                Description = description,
+                Description = description + " " + insultetexte,
                 Localisation = localisation,
                 Titre = titre
             };

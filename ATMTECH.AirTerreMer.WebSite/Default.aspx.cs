@@ -12,9 +12,17 @@ namespace ATMTECH.AirTerreMer.WebSite
             if (!Page.IsPostBack)
             {
                 IList<Reservation> obtenirReservation = new DAOAirTerreMer().ObtenirReservation();
-
-                DateTime dateTime = obtenirReservation.Where(x => x.DateReservation > DateTime.Now).Min(x => x.DateReservation);
-                placeholderCompteRebour.Controls.Add(new Literal { Text = " <div class=\"countdown pt-5 mt-2\" data-due-date=\"" + dateTime.ToShortDateString() + "\" ></ div > " });
+                if (obtenirReservation.Count > 0)
+                {
+                    IEnumerable<Reservation> reservations = obtenirReservation.Where(x => x.DateReservation > DateTime.Now);
+                    if (reservations.Any())
+                    {
+                        DateTime dateTime = obtenirReservation.Where(x => x.DateReservation > DateTime.Now).Min(x => x.DateReservation);
+                        placeholderCompteRebour.Controls.Add(new Literal { Text = " <div class=\"countdown pt-5 mt-2\" data-due-date=\"" + dateTime.ToShortDateString() + "\" ></ div > " });
+                    }
+                    
+                }
+                
                 ddlBudget.DataSource = new DAOAirTerreMer().ObtenirListeBudget();
                 ddlBudget.DataBind();
                 ddlNombreConvive.DataSource = new DAOAirTerreMer().ObtenirListeConvive();

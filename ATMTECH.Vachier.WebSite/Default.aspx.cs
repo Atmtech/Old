@@ -57,7 +57,7 @@ namespace ATMTECH.Vachier.WebSite
 
         protected void btnAjouterMerdeOnClick(object sender, EventArgs e)
         {
-            new DAOVachier().AjouterInsulte(txtTitre.Text, txtDescription.Text);
+            new DAOVachier().AjouterInsulte(txtTitre.Text, txtDescription.Text, ddlInsulte.Text);
             Response.Redirect("Default.aspx");
             ;
         }
@@ -87,9 +87,5 @@ namespace ATMTECH.Vachier.WebSite
             rptVachier.DataBind();
         }
 
-        protected void btnTestOnclick(object sender, EventArgs e)
-        {
-            new DAOVachier().AjouterInsulte("test","crevette");
-        }
     }
 }

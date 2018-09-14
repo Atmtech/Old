@@ -29,7 +29,7 @@ namespace ATMTECH.Vachier.WebSite
             //    Localisation = DAOLogger.ObtenirInformationLocalisation("31.13.71.36"),
             //    Titre = "Titre"
             //};
-            new DAOVachier().AjouterInsulte("Le titre","Description");
+            new DAOVachier().AjouterInsulte("Le titre","Description","Tamere");
         }
 
         protected void btnAfficherInsulteOnClick(object sender, EventArgs e)
