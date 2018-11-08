@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using ATMTECH.Expeditn.Entites;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -38,16 +39,18 @@ namespace ATMTECH.Expeditn.DAO
             ObtenirCollection().DeleteOne(x => (x as Entite).Id == ObjectId.Parse(id));
         }
 
-        public void Enregistrer(T objet)
+        public ObjectId Enregistrer(T objet)
         {
             if ((objet as Entite).Id.Pid == 0)
             {
-                ObtenirCollection().InsertOneAsync(objet);
+                 ObtenirCollection().InsertOneAsync(objet);
             }
             else
             {
                 ObtenirCollection().ReplaceOneAsync(x => (x as Entite).Id == (objet as Entite).Id, objet);
             }
+
+            return (objet as Entite).Id;
         }
     }
 }

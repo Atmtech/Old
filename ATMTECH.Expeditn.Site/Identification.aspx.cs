@@ -25,35 +25,20 @@ namespace ATMTECH.Expeditn.Site
 
         protected void btnConnecterOnClick(object sender, EventArgs e)
         {
-            if (UtilisateurVue.Authentification(txtCourriel.Text, txtMotPasse.Text))
+            Utilisateur utilisateur = UtilisateurService.ObtenirUtilisateur(txtCourriel.Text, txtMotPasse.Text);
+            if (utilisateur != null)
             {
-                PageMaitre.UtilisateurAuthentifie =
-                    UtilisateurVue.ObtenirUtilisateur(txtCourriel.Text, txtMotPasse.Text);
+                PageMaitre.UtilisateurAuthentifie = utilisateur;
                 Response.Redirect("TableauBord.aspx");
             }
             else
             {
-                PageMaitre.AfficherMessage("L'adresse courriel saisie n'est pas valide ou votre mot de passe est invalide", TypeMessage.Erreur);
+                PageMaitre.AfficherMessage(
+                    "L'adresse courriel saisie n'est pas valide ou votre mot de passe est invalide",
+                    TypeMessage.Erreur);
             }
         }
 
-        protected void btnCreer_OnClick(object sender, EventArgs e)
-        {
-            Utilisateur utilisateur = new Utilisateur
-            {
-                Courriel = txtCourrielCreation.Text,
-                MotPasse = txtPasswordCreation.Text,
-                Nom = txtNom.Text,
-                Prenom = txtPrenom.Text,
-                EstAdministrateur = "0"
-            };
-            UtilisateurVue.Enregistrer(utilisateur);
-            if (UtilisateurVue.Authentification(utilisateur.Courriel, utilisateur.MotPasse))
-            {
-                PageMaitre.UtilisateurAuthentifie = UtilisateurVue.ObtenirUtilisateur(utilisateur.Courriel, utilisateur.MotPasse);
-                Response.Redirect("TableauBord.aspx");
-            }
-        }
 
         protected void btnCreerCompte_OnClick(object sender, EventArgs e)
         {

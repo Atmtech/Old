@@ -65,8 +65,8 @@
     <Compile Include="DAODepense.cs" />
     <Compile Include="DAOExpedition.cs" />
     <Compile Include="DAOLogger.cs" />
-    <Compile Include="DAOHistoriqueScan.cs" />
-    <Compile Include="DAOPlanificationScan.cs" />
+    <Compile Include="DAOHistoriqueSuiviPrix.cs" />
+    <Compile Include="DAOSuiviPrix.cs" />
     <Compile Include="DAOUtilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

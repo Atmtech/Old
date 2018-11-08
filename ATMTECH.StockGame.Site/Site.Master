@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ATMTECH.StockGame.Site.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>JEU BOURSE</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="site.css" rel="stylesheet" />
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(window).keydown(function (event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+        });
+    </script>
+
+
+
+
+</head>
+<body class="bg-dark">
+    <form id="form1" runat="server" onkeypress="CancelReturnKey">
+
+
+        <div class="form-group row">
+            <div class="col">
+                <div class="text-white pt-3 pl-5 font-weight-bold text-uppercase fa-text-height " style="font-size: 20px;">
+                    <table>
+                        <tr>
+
+                            <td>
+                                <asp:HyperLink runat="server" ID="hyperLinkHome" NavigateUrl="Default.aspx" Text="JEU BOURSE" class="text-white display-4" Style="text-decoration: none;"></asp:HyperLink></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="pt-3 pl-5 align-right" style="text-align: right">
+                    <asp:Button runat="server" class="btn btn-success font-weight-bold" Text="OUVRIR UNE SESSION" ID="btnOuvrirUneSession" formnovalidate OnClick="btnOuvrirUneSessionOnclick"></asp:Button>
+                    <asp:Button runat="server" ID="btnUtilisateurAuthentifie" class="btn btn-dark font-weight-bold" formnovalidate Visible="False" OnClick="btnUtilisateurAuthentifie_OnClick"></asp:Button>
+                    <asp:Button runat="server" class="btn btn-dark font-weight-bold" Text="CREER UN COMPTE" ID="btnCreerCompte" formnovalidate OnClick="btnCreerCompte_OnClick"></asp:Button>
+                    <asp:Button runat="server" class="btn btn-dark font-weight-bold" Text="FERMER SESSION" ID="btnFermerSession" formnovalidate Visible="False" OnClick="btnFermerSessionOnclick"></asp:Button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ml-4 mr-4" style="">
+            <asp:Panel runat="server" class="alert alert-danger" role="alert" Visible="False" ID="pnlMessageErreur">
+                <asp:Label runat="server" ID="lblMessageErreur"></asp:Label>
+            </asp:Panel>
+            <asp:Panel runat="server" class="alert alert-danger" role="alert" Visible="False" ID="pnlMessageSucces">
+                <asp:Label runat="server" ID="lblMessageSucces"></asp:Label>
+            </asp:Panel>
+            <asp:ScriptManager runat="server" ID="script"></asp:ScriptManager>
+
+            <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick"></asp:Timer>
+
+            <div style="background-color: black; width: 100%; padding: 5px 5px 5px 5px;">
+                <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <asp:Repeater runat="server" ID="repeaterTitreActif">
+                            <ItemTemplate>
+                                <div style="background-color: black; color: white; float: left; font-size: 12px;">
+                                    <asp:Image runat="server" ID="imgUpDown" ImageUrl='<%# Convert.ToDecimal( Eval("PourcentageVariationEntreFermetureEtActuel")) > 0 ? "images/up.png":"images/down.png" %>' />
+                                    (<asp:Label runat="server" ID="Label6" Text='<%# Eval("Code").ToString() %>'></asp:Label>)&nbsp;
+                            <asp:Label runat="server" ID="Label1" Text='<%# Convert.ToDecimal( Eval("PourcentageVariationEntreFermetureEtActuel")).ToString("P")%>'></asp:Label>
+                                    &nbsp;
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
+                    </Triggers>
+                </asp:UpdatePanel>
+                <div style="clear: both;"></div>
+            </div>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <div class="text-center py-3 text-white" style="background-color: black;">
+                © 2018 Copyright etouelle.com 
+            </div>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_beginRequest(beginRequest);
+
+        function beginRequest() {
+            prm._scrollPosition = null;
+        }
+    </script>
+
+</body>
+</html>

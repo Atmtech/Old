@@ -67,48 +67,12 @@ namespace ATMTECH.Expeditn.Site {
         protected global::System.Web.UI.WebControls.Panel pnlCreerUtilisateur;
         
         /// <summary>
-        /// Contrôle txtPrenom.
+        /// Contrôle UtilisateurSaisie1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrenom;
-        
-        /// <summary>
-        /// Contrôle txtNom.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNom;
-        
-        /// <summary>
-        /// Contrôle txtCourrielCreation.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCourrielCreation;
-        
-        /// <summary>
-        /// Contrôle txtPasswordCreation.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPasswordCreation;
-        
-        /// <summary>
-        /// Contrôle btnCreer.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreer;
+        protected global::ATMTECH.Expeditn.Site.UserControl.UtilisateurSaisie UtilisateurSaisie1;
     }
 }

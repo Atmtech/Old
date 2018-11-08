@@ -21,19 +21,19 @@ namespace ATMTECH.Expeditn.Scanner
 
         public void Scan()
         {
-            IList<PlanificationScan> obtenirPlanificationScan = new ScanService().ObtenirPlanificationScan();
-            foreach (PlanificationScan planificationScan in obtenirPlanificationScan)
+            IList<SuiviPrix> obtenirPlanificationScan = new SuiviPrixService().ObtenirsuiviPrix();
+            foreach (SuiviPrix planificationScan in obtenirPlanificationScan)
             {
-                if (planificationScan.TypeScan.ToLower() == "expedia")
+                if (planificationScan.TypeSuiviPrix.ToLower() == "expedia")
                 {
                     DateTime dateAvantDateTime = DateTime.Now;
-                    new ScanService().ScanExpedia(planificationScan);
+                    new SuiviPrixService().ScanExpedia(planificationScan);
                     ListViewItem listViewItem = new ListViewItem();
                     listViewItem.Text = dateAvantDateTime.ToString();
                     listViewItem.SubItems.Add(DateTime.Now.ToString());
                     listViewItem.SubItems.Add(planificationScan.Utilisateur.Affichage);
-                    listViewItem.SubItems.Add(planificationScan.TypeScan);
-                    listViewItem.SubItems.Add(planificationScan.UrlScan);
+                    listViewItem.SubItems.Add(planificationScan.TypeSuiviPrix);
+                    listViewItem.SubItems.Add(planificationScan.UrlSuiviPrix);
                     lsvScan.Items.Add(listViewItem);
                 }
             }

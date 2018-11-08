@@ -48,9 +48,9 @@
     <Compile Include="DTO\ModeleExpedia.cs" />
     <Compile Include="Entite.cs" />
     <Compile Include="Expedition.cs" />
-    <Compile Include="HistoriqueScan.cs" />
+    <Compile Include="HistoriqueSuiviPrix.cs" />
     <Compile Include="Localisation.cs" />
-    <Compile Include="PlanificationScan.cs" />
+    <Compile Include="SuiviPrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilisateur.cs" />
   </ItemGroup>

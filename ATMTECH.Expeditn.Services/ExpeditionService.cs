@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using ATMTECH.Expeditn.Entites;
+using MongoDB.Bson;
 
 namespace ATMTECH.Expeditn.Services
 {
     public class ExpeditionService : BaseService
     {
-        public void Enregistrer(Expedition expedition)
+        public ObjectId Enregistrer(Expedition expedition)
         {
-            if (EstValideExpedition(expedition))
-                DAOExpedition.Enregistrer(expedition);
+            return DAOExpedition.Enregistrer(expedition);
         }
         public IList<Expedition> Obtenir()
         {
@@ -25,18 +25,51 @@ namespace ATMTECH.Expeditn.Services
         public IList<Expedition> ObtenirMesExpedition(Utilisateur utilisateur)
         {
             IList<Expedition> expeditions = DAOExpedition.Obtenir();
-            return expeditions.Where(x => x.ListeUtilisateur.Any(z => z.Id == utilisateur.Id)).ToList();
+            if (utilisateur != null)
+                return expeditions.Where(x => x.ListeUtilisateur.Any(z => z.Id == utilisateur.Id)).ToList();
+            return null;
         }
 
-        public void Enregistrer(Activite activite)
+        public ObjectId Enregistrer(Activite activite)
         {
-            DAOActivite.Enregistrer(activite);
+            return DAOActivite.Enregistrer(activite);
         }
 
-        public void Enregistrer(Depense depense)
+        public ObjectId Enregistrer(Depense depense)
         {
-            DAODepense.Enregistrer(depense);
+            return DAODepense.Enregistrer(depense);
         }
+
+        public void Supprimer(Activite activite)
+        {
+            DAOActivite.Supprimer(activite.Id.ToString());
+        }
+
+        public void Supprimer(Depense depense)
+        {
+            DAODepense.Supprimer(depense.Id.ToString());
+        }
+
+
+        public void Supprimer(Expedition expedition)
+        {
+            if (expedition.ListeDepense != null)
+            {
+                foreach (Depense depense in expedition.ListeDepense)
+                {
+                    Supprimer(depense);
+                }
+            }
+            if (expedition.ListeActivite != null)
+            {
+                foreach (Activite activite in expedition.ListeActivite)
+                {
+                    Supprimer(activite);
+                }
+            }
+            DAOExpedition.Supprimer(expedition.Id.ToString());
+        }
+
 
         private decimal ObtenirMontant(Expedition expedition, Utilisateur utilisateur, string typeActivite)
         {
@@ -101,7 +134,7 @@ namespace ATMTECH.Expeditn.Services
 
         public string GenererAffichageDepense(Expedition expedition)
         {
-            if (expedition.ListeDepense == null) return string.Empty;
+            if (expedition.ListeDepense == null || expedition.ListeDepense.Count == 0) return string.Empty;
             string html = "<h2> Dépenses par participants</h2>";
 
             string htmlDepenseParParticipant = "<TABLE class='table table-dark table-hover table-striped'>";
@@ -177,11 +210,17 @@ namespace ATMTECH.Expeditn.Services
                             }
                         }
                     }
-                    decimal pourcentage = Math.Round((Convert.ToDecimal(nombrePresenceUtilisateurActivite) /
-                                    Convert.ToDecimal(nombreTotalPresenceActivite)), 2);
-                    decimal montantDu = ObtenirSommeMontant(expedition, typeActivite) * pourcentage;
-                    htmlListeRepartitionDepense += "<td>" + nombrePresenceUtilisateurActivite + "/" + nombreTotalPresenceActivite + " :: " + pourcentage * 100 + " % :: " + string.Format("{0:C}", montantDu) + "</td>" + Environment.NewLine;
-                    montantTotalDuUtilisateur += montantDu;
+
+                    if (nombreTotalPresenceActivite > 0)
+                    {
+                        decimal pourcentage = Math.Round((Convert.ToDecimal(nombrePresenceUtilisateurActivite) /
+                                        Convert.ToDecimal(nombreTotalPresenceActivite)), 2);
+                        decimal montantDu = ObtenirSommeMontant(expedition, typeActivite) * pourcentage;
+
+
+                        htmlListeRepartitionDepense += "<td>" + nombrePresenceUtilisateurActivite + "/" + nombreTotalPresenceActivite + " :: " + pourcentage * 100 + " % :: " + string.Format("{0:C}", montantDu) + "</td>" + Environment.NewLine;
+                        montantTotalDuUtilisateur += montantDu;
+                    }
                 }
                 montantTotalRepartitionDepense += montantTotalDuUtilisateur;
                 montantUtiliseActivite.Add(utilisateur, montantTotalDuUtilisateur);
@@ -209,6 +248,7 @@ namespace ATMTECH.Expeditn.Services
             htmlMontantDu += "</tbody>" + Environment.NewLine;
             htmlMontantDu += "</TABLE>";
 
+
             Utilisateur utilisateurQuiALePlusDepenser = expedition.ListeDepense
                 .FirstOrDefault(x => Convert.ToDecimal(x.Montant) == expedition.ListeDepense.Max(z => Convert.ToDecimal(z.Montant))).Utilisateur;
             string htmlMontantDuTd = string.Empty;
@@ -221,8 +261,6 @@ namespace ATMTECH.Expeditn.Services
                 }
             }
             html += string.Format(htmlMontantDu, htmlMontantDuTd);
-
-
 
             return html;
         }

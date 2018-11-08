@@ -1,13 +1,13 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SelectionnerUtilisateur.ascx.cs" Inherits="ATMTECH.Expeditn.Site.UserControl.SelectionnerUtilisateur" %>
-
-<asp:UpdatePanel runat="server">
+caca
+<%--<asp:UpdatePanel runat="server">
     <ContentTemplate>
         <div class="form-group row">
             <div class="col">
                 <asp:TextBox runat="server" class="form-control  bg-dark text-white" ID="txtRechercherUtilisateur" PlaceHolder="Rechercher utilisateur" />
             </div>
             <div class="col">
-                <asp:Button runat="server" ID="btnRechercher" Text="Rechercher" class="btn btn-default btn-group btn-success font-weight-bold" OnClick="btnRechercherClick" />
+                <asp:Button runat="server" ID="btnRechercher" Text="Rechercher" class="btn btn-default btn-group btn-success font-weight-bold" OnClick="btnRechercherClick" formnovalidate />
             </div>
         </div>
         <div class="form-group row">
@@ -40,6 +40,5 @@
                 </tbody>
             </table>
         </div>
-        </div>
     </ContentTemplate>
-</asp:UpdatePanel>
+</asp:UpdatePanel>--%>

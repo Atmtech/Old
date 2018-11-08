@@ -22,12 +22,14 @@ namespace ATMTECH.Expeditn.Site
                 btnCreerCompte.Visible = false;
                 btnOuvrirUneSession.Visible = false;
                 btnFermerSession.Visible = true;
+                hyperLinkHome.NavigateUrl = "TableauBord.aspx";
             }
             else
             {
                 string url = HttpContext.Current.Request.Url.AbsoluteUri;
                 if (!url.Contains("Default.aspx") && !url.Contains("Identification.aspx"))
                     Response.Redirect("Default.aspx");
+                hyperLinkHome.NavigateUrl = "Default.aspx";
             }
         }
 
@@ -65,6 +67,15 @@ namespace ATMTECH.Expeditn.Site
             Response.Redirect("Identification.aspx?Creer=1");
         }
 
+        protected void btnTableauDeBord_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("TableauBord.aspx");
+        }
+
+        protected void btnUtilisateurAuthentifie_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("Compte.aspx");
+        }
     }
 
     public enum TypeMessage

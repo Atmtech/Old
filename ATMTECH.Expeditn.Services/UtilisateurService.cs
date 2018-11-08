@@ -21,6 +21,8 @@ namespace ATMTECH.Expeditn.Services
             return DAOUtilisateur.Obtenir(id).FirstOrDefault();
         }
 
+        
+
 
         public Utilisateur ObtenirUtilisateur(string courriel, string motPasse)
         {

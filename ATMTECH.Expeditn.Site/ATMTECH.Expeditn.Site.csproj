@@ -88,126 +88,23 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-datepicker.css" />
-    <Content Include="Content\bootstrap-datepicker.min.css" />
-    <Content Include="Content\bootstrap-datepicker.standalone.css" />
-    <Content Include="Content\bootstrap-datepicker.standalone.min.css" />
-    <Content Include="Content\bootstrap-datepicker3.css" />
-    <Content Include="Content\bootstrap-datepicker3.min.css" />
-    <Content Include="Content\bootstrap-datepicker3.standalone.css" />
-    <Content Include="Content\bootstrap-datepicker3.standalone.min.css" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap\wells.less" />
-    <Content Include="Content\bootstrap\variables.less" />
-    <Content Include="Content\bootstrap\utilities.less" />
-    <Content Include="Content\bootstrap\type.less" />
-    <Content Include="Content\bootstrap\tooltip.less" />
-    <Content Include="Content\bootstrap\thumbnails.less" />
-    <Content Include="Content\bootstrap\theme.less" />
-    <Content Include="Content\bootstrap\tables.less" />
-    <Content Include="Content\bootstrap\scaffolding.less" />
-    <Content Include="Content\bootstrap\responsive-utilities.less" />
-    <Content Include="Content\bootstrap\responsive-embed.less" />
-    <Content Include="Content\bootstrap\progress-bars.less" />
-    <Content Include="Content\bootstrap\print.less" />
-    <Content Include="Content\bootstrap\popovers.less" />
-    <Content Include="Content\bootstrap\panels.less" />
-    <Content Include="Content\bootstrap\pagination.less" />
-    <Content Include="Content\bootstrap\pager.less" />
-    <Content Include="Content\bootstrap\normalize.less" />
-    <Content Include="Content\bootstrap\navs.less" />
-    <Content Include="Content\bootstrap\navbar.less" />
-    <Content Include="Content\bootstrap\modals.less" />
-    <Content Include="Content\bootstrap\mixins\vendor-prefixes.less" />
-    <Content Include="Content\bootstrap\mixins\text-overflow.less" />
-    <Content Include="Content\bootstrap\mixins\text-emphasis.less" />
-    <Content Include="Content\bootstrap\mixins\table-row.less" />
-    <Content Include="Content\bootstrap\mixins\tab-focus.less" />
-    <Content Include="Content\bootstrap\mixins\size.less" />
-    <Content Include="Content\bootstrap\mixins\responsive-visibility.less" />
-    <Content Include="Content\bootstrap\mixins\resize.less" />
-    <Content Include="Content\bootstrap\mixins\reset-text.less" />
-    <Content Include="Content\bootstrap\mixins\reset-filter.less" />
-    <Content Include="Content\bootstrap\mixins\progress-bar.less" />
-    <Content Include="Content\bootstrap\mixins\panels.less" />
-    <Content Include="Content\bootstrap\mixins\pagination.less" />
-    <Content Include="Content\bootstrap\mixins\opacity.less" />
-    <Content Include="Content\bootstrap\mixins\nav-vertical-align.less" />
-    <Content Include="Content\bootstrap\mixins\nav-divider.less" />
-    <Content Include="Content\bootstrap\mixins\list-group.less" />
-    <Content Include="Content\bootstrap\mixins\labels.less" />
-    <Content Include="Content\bootstrap\mixins\image.less" />
-    <Content Include="Content\bootstrap\mixins\hide-text.less" />
-    <Content Include="Content\bootstrap\mixins\grid.less" />
-    <Content Include="Content\bootstrap\mixins\grid-framework.less" />
-    <Content Include="Content\bootstrap\mixins\gradients.less" />
-    <Content Include="Content\bootstrap\mixins\forms.less" />
-    <Content Include="Content\bootstrap\mixins\clearfix.less" />
-    <Content Include="Content\bootstrap\mixins\center-block.less" />
-    <Content Include="Content\bootstrap\mixins\buttons.less" />
-    <Content Include="Content\bootstrap\mixins\border-radius.less" />
-    <Content Include="Content\bootstrap\mixins\background-variant.less" />
-    <Content Include="Content\bootstrap\mixins\alerts.less" />
-    <Content Include="Content\bootstrap\mixins.less" />
-    <Content Include="Content\bootstrap\media.less" />
-    <Content Include="Content\bootstrap\list-group.less" />
-    <Content Include="Content\bootstrap\labels.less" />
-    <Content Include="Content\bootstrap\jumbotron.less" />
-    <Content Include="Content\bootstrap\input-groups.less" />
-    <Content Include="Content\bootstrap\grid.less" />
-    <Content Include="Content\bootstrap\glyphicons.less" />
-    <Content Include="Content\bootstrap\forms.less" />
-    <Content Include="Content\bootstrap\dropdowns.less" />
-    <Content Include="Content\bootstrap\component-animations.less" />
-    <Content Include="Content\bootstrap\code.less" />
-    <Content Include="Content\bootstrap\close.less" />
-    <Content Include="Content\bootstrap\carousel.less" />
-    <Content Include="Content\bootstrap\buttons.less" />
-    <Content Include="Content\bootstrap\button-groups.less" />
-    <Content Include="Content\bootstrap\breadcrumbs.less" />
-    <Content Include="Content\bootstrap\bootstrap.less" />
-    <Content Include="Content\bootstrap\badges.less" />
-    <Content Include="Content\bootstrap\alerts.less" />
-    <Content Include="Content\bootstrap-datepicker.css.map" />
-    <Content Include="Content\bootstrap-datepicker.min.css.map" />
-    <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
-    <Content Include="Content\bootstrap-datepicker.standalone.min.css.map" />
-    <Content Include="Content\bootstrap-datepicker3.css.map" />
-    <Content Include="Content\bootstrap-datepicker3.min.css.map" />
-    <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
-    <Content Include="Content\bootstrap-datepicker3.standalone.min.css.map" />
+    <Content Include="AjouterExpedition.aspx" />
+    <Content Include="AjouterSuiviPrix.aspx" />
+    <Content Include="Compte.aspx" />
     <None Include="packages.config" />
     <Content Include="Default.aspx" />
-    <Content Include="HistoriquePrix.aspx" />
+    <Content Include="Images\Button-Next-icon.png" />
+    <Content Include="Images\compass-icon.png" />
+    <Content Include="Images\green-cute-icon.png" />
+    <Content Include="Images\star-icon-demi.png" />
+    <Content Include="Images\star-icon.png" />
+    <Content Include="ModifierExpedition.aspx" />
+    <Content Include="ModifierSuiviPrix.aspx" />
     <Content Include="TableauBord.aspx" />
     <Content Include="Identification.aspx" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\edit-icon.png" />
     <Content Include="Images\Expedition\missing.png" />
-    <Content Include="Scripts\bootstrap-datepicker.fr-CH.min.js" />
-    <Content Include="Scripts\bootstrap-datepicker.js" />
-    <Content Include="Scripts\bootstrap-datepicker.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\moment-with-locales.js" />
-    <Content Include="Scripts\moment-with-locales.min.js" />
-    <Content Include="Scripts\moment.js" />
-    <Content Include="Scripts\moment.min.js" />
-    <Content Include="Scripts\npm.js" />
     <Content Include="site.css" />
     <Content Include="Site.Master" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -219,11 +116,37 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Test.aspx" />
+    <Content Include="UserControl\Activites.ascx" />
+    <Content Include="UserControl\CoutActivites.ascx" />
+    <Content Include="UserControl\InformationGeneralesExpedition.ascx" />
+    <Content Include="UserControl\Participant.ascx" />
     <Content Include="UserControl\SelectionnerUtilisateur.ascx" />
+    <Content Include="UserControl\SuiviPrix.ascx" />
+    <Content Include="UserControl\UtilisateurSaisie.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjouterExpedition.aspx.cs">
+      <DependentUpon>AjouterExpedition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjouterExpedition.aspx.designer.cs">
+      <DependentUpon>AjouterExpedition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterSuiviPrix.aspx.cs">
+      <DependentUpon>AjouterSuiviPrix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjouterSuiviPrix.aspx.designer.cs">
+      <DependentUpon>AjouterSuiviPrix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compte.aspx.cs">
+      <DependentUpon>Compte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compte.aspx.designer.cs">
+      <DependentUpon>Compte.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -231,12 +154,19 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="HistoriquePrix.aspx.cs">
-      <DependentUpon>HistoriquePrix.aspx</DependentUpon>
+    <Compile Include="ModifierExpedition.aspx.cs">
+      <DependentUpon>ModifierExpedition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HistoriquePrix.aspx.designer.cs">
-      <DependentUpon>HistoriquePrix.aspx</DependentUpon>
+    <Compile Include="ModifierExpedition.aspx.designer.cs">
+      <DependentUpon>ModifierExpedition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierSuiviPrix.aspx.cs">
+      <DependentUpon>ModifierSuiviPrix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifierSuiviPrix.aspx.designer.cs">
+      <DependentUpon>ModifierSuiviPrix.aspx</DependentUpon>
     </Compile>
     <Compile Include="TableauBord.aspx.cs">
       <DependentUpon>TableauBord.aspx</DependentUpon>
@@ -263,12 +193,43 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
+    <Compile Include="UserControl\Activites.ascx.cs">
+      <DependentUpon>Activites.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
+    <Compile Include="UserControl\Activites.ascx.designer.cs">
+      <DependentUpon>Activites.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SuiviPrix.ascx.cs">
+      <DependentUpon>SuiviPrix.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\SuiviPrix.ascx.designer.cs">
+      <DependentUpon>SuiviPrix.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\CoutActivites.ascx.cs">
+      <DependentUpon>CoutActivites.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\CoutActivites.ascx.designer.cs">
+      <DependentUpon>CoutActivites.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\InformationGeneralesExpedition.ascx.cs">
+      <DependentUpon>InformationGeneralesExpedition.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\InformationGeneralesExpedition.ascx.designer.cs">
+      <DependentUpon>InformationGeneralesExpedition.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Participant.ascx.cs">
+      <DependentUpon>Participant.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Participant.ascx.designer.cs">
+      <DependentUpon>Participant.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\SelectionnerUtilisateur.ascx.cs">
       <DependentUpon>SelectionnerUtilisateur.ascx</DependentUpon>
@@ -277,10 +238,13 @@
     <Compile Include="UserControl\SelectionnerUtilisateur.ascx.designer.cs">
       <DependentUpon>SelectionnerUtilisateur.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Vues\BaseVue.cs" />
-    <Compile Include="Vues\ExpeditionVue.cs" />
-    <Compile Include="Vues\RecherchePrixVue.cs" />
-    <Compile Include="Vues\UtilisateurVue.cs" />
+    <Compile Include="UserControl\UtilisateurSaisie.ascx.cs">
+      <DependentUpon>UtilisateurSaisie.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\UtilisateurSaisie.ascx.designer.cs">
+      <DependentUpon>UtilisateurSaisie.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
