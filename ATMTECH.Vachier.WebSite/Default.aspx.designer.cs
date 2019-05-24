@@ -67,31 +67,22 @@ namespace ATMTECH.Vachier.WebSite {
         protected global::System.Web.UI.WebControls.Button btnAjouterMerde;
         
         /// <summary>
-        /// Contrôle Label1.
+        /// Contrôle ScriptManager.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.ScriptManager ScriptManager;
         
         /// <summary>
-        /// Contrôle TextBox1.
+        /// Contrôle updatePanel.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
-        /// <summary>
-        /// Contrôle Button1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.UpdatePanel updatePanel;
         
         /// <summary>
         /// Contrôle btnPrecedent.
@@ -112,22 +103,31 @@ namespace ATMTECH.Vachier.WebSite {
         protected global::System.Web.UI.WebControls.Button btnSuivant;
         
         /// <summary>
-        /// Contrôle ScriptManager.
+        /// Contrôle txtRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager;
+        protected global::System.Web.UI.WebControls.TextBox txtRecherche;
         
         /// <summary>
-        /// Contrôle updatePanel.
+        /// Contrôle btnRechercherMerde.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatePanel;
+        protected global::System.Web.UI.WebControls.Button btnRechercherMerde;
+        
+        /// <summary>
+        /// Contrôle lblNombreMerdeTrouve.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreMerdeTrouve;
         
         /// <summary>
         /// Contrôle rptVachier.

@@ -23,7 +23,12 @@ namespace ATMTECH.Vachier.WebSite
             if (ip != "127.0.0.1" && ip != "::1")
             {
                 localisation = new DAOLogger().ObtenirInformationLocalisation(ip);
+                if (localisation.Ip.IndexOf("5.188.211", StringComparison.Ordinal) >= 0)
+                {
+                    return;
+                }
             }
+
 
             Insulte insulte = new Insulte
             {
@@ -33,9 +38,9 @@ namespace ATMTECH.Vachier.WebSite
                 Titre = titre
             };
 
-
             mongoCollection.InsertOneAsync(insulte);
             ViderCache();
+
         }
 
         public List<Insulte> ObtenirTop10Merdeux()
@@ -62,7 +67,7 @@ namespace ATMTECH.Vachier.WebSite
 
         public IList<Insulte> ObtenirInsulte(int depart)
         {
-            return ObtenirInsulte().OrderByDescending(x => x.DateCreation).Skip(depart).Take(18).ToList();
+            return ObtenirInsulte().OrderByDescending(x => x.DateCreation).Skip(depart).Take(10).ToList();
         }
 
         public void SupprimerCollectionInsulte()

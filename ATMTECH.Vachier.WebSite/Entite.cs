@@ -11,10 +11,10 @@ namespace ATMTECH.Vachier.WebSite
     {
         public ObjectId Id { get; set; }
     }
-    
+
     public class Localisation : Entite
     {
-      
+
         [BsonElement("Ip")]
         public string Ip { get; set; }
         [BsonElement("DateCreation")]
@@ -31,7 +31,7 @@ namespace ATMTECH.Vachier.WebSite
 
     public class Insulte : Entite
     {
-      
+
         [BsonElement("DateCreation")]
         public DateTime DateCreation { get; set; }
         [BsonElement("Titre")]
@@ -43,18 +43,14 @@ namespace ATMTECH.Vachier.WebSite
         [BsonElement("NombreJaime")]
         public int NombreJaime { get; set; }
 
-        public string AffichagePaysRegionVille
-        {
-            get
-            {
-                return Localisation.Pays + ", " + Localisation.Region + " " + Localisation.Ville;
-            }
-        }
+        public string AffichagePaysRegionVille => Localisation.Pays + ", " + Localisation.Region + " " + Localisation.Ville;
+
+        public string PourGoogle => Localisation.Pays + "+" + Localisation.Region + "+" + Localisation.Ville;
     }
 
     public class LocalisationTopGroupe
     {
-       public string Localisation { get; set; }
+        public string Localisation { get; set; }
         public int Compte { get; set; }
     }
 
