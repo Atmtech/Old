@@ -32,11 +32,11 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <asp:Label for="usrname" ID="lblTitre" runat="server">Titre</asp:Label>
-                            <asp:TextBox runat="server" class="form-control" ID="txtTitre" MaxLength="20" placeholder="Titre"></asp:TextBox>
+                            <asp:TextBox runat="server" class="form-control" ID="txtTitre" MaxLength="20" placeholder="Titre" required="true"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label for="psw">Ton petit mot de marde</label>
-                            <asp:TextBox runat="server" class="form-control" ID="txtDescription" placeholder="Ton petit mot de marde" MaxLength="280"></asp:TextBox>
+                            <asp:TextBox runat="server" class="form-control" ID="txtDescription" placeholder="Ton petit mot de marde" MaxLength="280" required="true"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label for="psw">Ton insulte</label>

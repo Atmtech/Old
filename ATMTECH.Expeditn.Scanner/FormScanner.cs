@@ -41,7 +41,19 @@ namespace ATMTECH.Expeditn.Scanner
 
         private void FormScanner_Load(object sender, EventArgs e)
         {
-            CeduleurService.Instance.CeduleTache(9,38, 24, Scan);
+            Scan();
+            Timer test = new Timer();
+            test.Interval = 18000000;
+            test.Tick += new EventHandler(tm_Tick);
+            test.Start();
+
+            //CeduleurService.Instance.CeduleTache(8,34, 24, Scan);
         }
+
+        private void tm_Tick(object sender, EventArgs e)
+        {
+            Scan();
+        }
+
     }
 }

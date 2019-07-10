@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace ATMTECH.Expeditn.Entites.DTO
 {
-
     public class Currency
     {
         public string code { get; set; }
@@ -15,6 +14,8 @@ namespace ATMTECH.Expeditn.Entites.DTO
         public string type { get; set; }
         public object age { get; set; }
         public int price { get; set; }
+        public int taxesAndFees { get; set; }
+        public int totalPrice { get; set; }
     }
 
     public class Price
@@ -22,7 +23,7 @@ namespace ATMTECH.Expeditn.Entites.DTO
         public Currency currency { get; set; }
         public int basePrice { get; set; }
         public int pricePerPassenger { get; set; }
-        public int? highestPricePerPassenger { get; set; }
+        public object highestPricePerPassenger { get; set; }
         public int taxesAndFees { get; set; }
         public object changeType { get; set; }
         public List<PricesPerPassenger> pricesPerPassengers { get; set; }
@@ -75,6 +76,7 @@ namespace ATMTECH.Expeditn.Entites.DTO
         public FareCategory fareCategory { get; set; }
         public Departure departure { get; set; }
         public Arrival arrival { get; set; }
+        public object viaAirportCode { get; set; }
         public bool overnight { get; set; }
         public int durationInMilliseconds { get; set; }
     }
@@ -130,6 +132,7 @@ namespace ATMTECH.Expeditn.Entites.DTO
         public FareCategory2 fareCategory { get; set; }
         public Departure2 departure { get; set; }
         public Arrival2 arrival { get; set; }
+        public object viaAirportCode { get; set; }
         public bool overnight { get; set; }
         public int durationInMilliseconds { get; set; }
     }
@@ -158,6 +161,7 @@ namespace ATMTECH.Expeditn.Entites.DTO
     public class Room
     {
         public string type { get; set; }
+        public object code { get; set; }
     }
 
     public class Occupancy
@@ -201,8 +205,8 @@ namespace ATMTECH.Expeditn.Entites.DTO
         public MealPlan mealPlan { get; set; }
         public ReviewSummary reviewSummary { get; set; }
         public object hotelCode { get; set; }
-        public object latitude { get; set; }
-        public object longitude { get; set; }
+        public int latitude { get; set; }
+        public int longitude { get; set; }
         public string link { get; set; }
         public object hotelAttributes { get; set; }
         public int roomCount { get; set; }
@@ -236,8 +240,14 @@ namespace ATMTECH.Expeditn.Entites.DTO
         public bool available { get; set; }
     }
 
+    public class Bd4Context
+    {
+    }
+
     public class ModeleExpedia
     {
         public List<Offer> offers { get; set; }
+        public List<object> nextAvailableDepartures { get; set; }
+        public Bd4Context bd4Context { get; set; }
     }
 }

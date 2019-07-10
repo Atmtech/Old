@@ -58,6 +58,7 @@ namespace ATMTECH.Expeditn.Services
 
         private void Expedia_DocumentCompleted1(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
+            // creer classe http://json2csharp.com/
             WebBrowser webBrowser = (WebBrowser)sender;
             if (webBrowser.ReadyState == WebBrowserReadyState.Complete)
             {
@@ -65,6 +66,7 @@ namespace ATMTECH.Expeditn.Services
                 html = html.Substring(html.IndexOf("window.__INITIAL_STATE__"), html.Length - html.IndexOf("window.__INITIAL_STATE__") - 1);
                 html = html.Substring(0, html.IndexOf("\"searchParams\":") - 1);
                 html = "{" + html.Substring(html.IndexOf("\"offers\":"), html.Length - html.IndexOf("\"offers\":") - 1) + "}";
+                html = html.Substring(0, html.IndexOf("uisPrimeAnalyticsPayload") - 2);
                 ModeleExpedia modeleExpedia = new JavaScriptSerializer().Deserialize<ModeleExpedia>(html);
                 foreach (Offer modeleExpediaOffer in modeleExpedia.offers)
                 {
