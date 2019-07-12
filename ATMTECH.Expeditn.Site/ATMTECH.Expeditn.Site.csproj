@@ -93,11 +93,26 @@
     <Content Include="Compte.aspx" />
     <None Include="packages.config" />
     <Content Include="Default.aspx" />
+    <Content Include="Images\AC.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Button-Next-icon.png" />
     <Content Include="Images\compass-icon.png" />
     <Content Include="Images\green-cute-icon.png" />
+    <Content Include="Images\logo-airtransat-header-desktop.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\star-icon-demi.png" />
     <Content Include="Images\star-icon.png" />
+    <Content Include="Images\TS.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WG.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\WS.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ModifierExpedition.aspx" />
     <Content Include="ModifierSuiviPrix.aspx" />
     <Content Include="TableauBord.aspx" />

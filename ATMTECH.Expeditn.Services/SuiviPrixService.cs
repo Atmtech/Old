@@ -75,6 +75,7 @@ namespace ATMTECH.Expeditn.Services
                     historique.DateSuiviPrix = DateTime.Now;
                     historique.TypeSuiviPrix = "Expedia";
                     historique.Hotel = modeleExpediaOffer.hotel.name;
+                    historique.IdHotel = modeleExpediaOffer.hotel.expediaId;
                     historique.CompagnieAviation = modeleExpediaOffer.trip.departureFlight.flightSegments[0].airline.name;
                     if (modeleExpediaOffer.hotel.reviewSummary != null)
                         historique.CoteTotalAppreciation = modeleExpediaOffer.hotel.reviewSummary.averageOverallRating.ToString();

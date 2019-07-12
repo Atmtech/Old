@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using ATMTECH.Expeditn.Entites;
 using ATMTECH.Expeditn.Services;
 using MongoDB.Bson;
@@ -40,89 +41,73 @@ namespace ATMTECH.Expeditn.Site.UserControl
         public void AffichageGraphique()
         {
             placeholderHistorique.Controls.Clear();
-            IList<HistoriqueSuiviPrix> historiqueScans = new SuiviPrixService().Obtenir(new UtilisateurService().Obtenir().FirstOrDefault()).OrderBy(x => x.SuiviPrix.Nom).ThenBy(x => x.Prix).ToList();
+            IList<HistoriqueSuiviPrix> historiqueSuiviPrixes = new SuiviPrixService().Obtenir(new UtilisateurService().Obtenir().FirstOrDefault());
+            List<ListeHotel> listeHotels = (from test in historiqueSuiviPrixes
+                                            group test by new { test.Hotel, test.DateDepart }
+                                            into chatte
+                                            select new ListeHotel() { Hotel = chatte.First().Hotel, DateDepart = chatte.First().DateDepart }).ToList();
 
-            string html = string.Empty;
-            html += "<div class='row'>";
-            html += "<div class='col-sm-6'>";
-            html += "{0}";
-            html += "</div>";
-            html += "<div class='col-sm-6'>";
 
-            html += "<div class='progress' style='margin-bottom: 4px;'> ";
-            html += "<div class='progress-bar ' style ='width: {1}%'>{2}</div>";
-            html += "</div>";
-            html += "</div>";
-            html += "</div>";
+            string entete = "<div class='row' style='font-size: 16px; font-weight: bold;'>{0}&nbsp;&nbsp;{1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{2}</div>";
+            entete += "<div class='row' style='font-size: 14px;margin-bottom: 10px;'>";
+            entete += "Départ de {4} à {5}";
+            entete += "&nbsp;Arrivée à {6} à {7}&nbsp;&nbsp;&nbsp;&nbsp;{3}";
+            entete += "</div>";
 
-            IList<HistoriqueDejaAjoute> historiqueDejaAjoutes = new List<HistoriqueDejaAjoute>();
-            foreach (HistoriqueSuiviPrix historiqueScan in historiqueScans)
+            string appreciation = "{0} / {1} appréciations";
+
+
+
+            string meilleurPrix = "<img src = 'Images/green-cute-icon.png' style='width:25px;height: 25px;'><b style = 'color:green' > Meilleur prix !</b>";
+            foreach (ListeHotel listeHotel in listeHotels)
             {
-                if (!historiqueDejaAjoutes.Any(x => x.Id == historiqueScan.SuiviPrix.Id.ToString() && x.Prix == historiqueScan.Prix.ToString()))
+
+
+                HistoriqueSuiviPrix hotel = historiqueSuiviPrixes.FirstOrDefault(x => x.Hotel == listeHotel.Hotel);
+                string etoile = TrouverNombreEtoile(hotel);
+
+                string detailHotel = string.Format(entete,
+                hotel.Hotel,
+                etoile,
+                    !string.IsNullOrEmpty(hotel.NombreTotalAppreciation) ? string.Format(appreciation, hotel.CoteTotalAppreciation.Substring(0, 4), hotel.NombreTotalAppreciation) : "",
+
+                    ImageCompagnieAerienne(hotel.CompagnieAviation),
+                hotel.VilleDepart,
+                hotel.DateDepart,
+                hotel.VilleArrive,
+                hotel.DateDepart);
+
+                IList<HistoriqueSuiviPrix> listePrix = historiqueSuiviPrixes.Where(x => x.Hotel == listeHotel.Hotel).OrderBy(x => x.Prix).ToList();
+                decimal valeurMaximum = listePrix.Where(x => x.Hotel == listeHotel.Hotel).Max(x => x.Prix);
+                string progressBar = string.Empty;
+                IList<ListeHotel> listeInHotelsInserer = new List<ListeHotel>();
+                int i = 0;
+                foreach (var historiqueSuiviPrix in listePrix)
                 {
-                    decimal valeurMaximum = historiqueScans.Where(x => x.Hotel == historiqueScan.Hotel).Max(x => x.Prix);
-                    decimal valeurPourcentage = (100 * historiqueScan.Prix) / valeurMaximum;
-                    string pourcentage = Math.Truncate(valeurPourcentage).ToString();
-                    string nom = historiqueScan.Hotel;
-                    string prix = string.Format("{0:C}", historiqueScan.Prix);
-                    string date = historiqueScan.DateSuiviPrix.ToShortDateString();
-                    string transporteur = historiqueScan.OperateurEnChargeDuVoyage;
-                    string depart = historiqueScan.VilleDepart + " à " + historiqueScan.DateDepart;
-                    string arrive = historiqueScan.VilleArrive + " à " + historiqueScan.DateRetour;
-                    string note = historiqueScan.CoteTotalAppreciation + " pour " + historiqueScan.NombreTotalAppreciation + " appréciation";
-                    string etoile = string.Empty;
-
-                    string estMeilleurAchat = string.Empty;
-                    if (historiqueScan.Prix == historiqueScans.Where(x => x.Hotel == historiqueScan.Hotel).Min(x => x.Prix))
+                    if (listeInHotelsInserer.Count(x => x.Prix == historiqueSuiviPrix.Prix) == 0)
                     {
-                        estMeilleurAchat = "<img src='Images/green-cute-icon.png' style='width:45px;'><b style='color:green'> Meilleur prix !</b>";
+                        decimal valeurPourcentage = (100 * historiqueSuiviPrix.Prix) / valeurMaximum;
+                        string pourcentage = Math.Truncate(valeurPourcentage).ToString();
+                        if (i == 0)
+                        {
+                            progressBar += string.Format("<div style = 'font-size: 12px;'>{0}{3}</div><div class='progress' style='margin-bottom:5px;'><div class='progress-bar' style='width: {1}%'>{2}</div></div>",
+                                historiqueSuiviPrix.DateSuiviPrix, pourcentage, string.Format("{0:C}", historiqueSuiviPrix.Prix), meilleurPrix);
+                        }
+                        else
+                        {
+                            progressBar += string.Format("<div style = 'font-size: 12px;'>{0}</div><div class='progress' style='margin-bottom:5px;'><div class='progress-bar' style='width: {1}%'>{2}</div></div>",
+                                historiqueSuiviPrix.DateSuiviPrix, pourcentage, string.Format("{0:C}", historiqueSuiviPrix.Prix));
+                        }
+                        i++;
+                        listeInHotelsInserer.Add(new ListeHotel { Prix = historiqueSuiviPrix.Prix });
                     }
-
-                    switch (historiqueScan.NombreEtoile)
-                    {
-                        case "1":
-                            etoile += "<img src='Images/star-icon.png' style='width:15px;'>";
-                            break;
-                        case "1,5":
-                            etoile += "<img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon-demi.png' style='width:15px;'>";
-                            break;
-                        case "2":
-                            etoile += "<img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'>";
-                            break;
-                        case "2,5":
-                            etoile += "<img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon-demi.png' style='width:15px;'>";
-                            break;
-                        case "3":
-                            etoile += "<img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'>";
-                            break;
-                        case "3,5":
-                            etoile += "<img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon-demi.png' style='width:15px;'>";
-                            break;
-                        case "4":
-                            etoile += "<img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'>";
-                            break;
-                        case "4,5":
-                            etoile += "<img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon-demi.png' style='width:15px;'>";
-                            break;
-                        case "5":
-                            etoile += "<img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'><img src='Images/star-icon.png' style='width:15px;'>";
-                            break;
-                        default:
-                            etoile = "Inconnu";
-                            break;
-                    }
-
-
-                    string descriptionTotal = string.Format("<b>{0} (Date du suivi: {1}) {6}</b>{7}<table style='width:90%'><td>Transporteur</td><td>{2}</td></tr><td>Départ</td><td>{3}</td></tr><td>Arrivée</td><td>{4}</td></tr><tr><td>Note: </td><td>{5}</td></tr>  </table>", nom, date, transporteur, depart, arrive, note, etoile, estMeilleurAchat);
-
-                    LiteralControl literalControl = new LiteralControl
-                    {
-                        Text = string.Format(html, descriptionTotal, pourcentage, prix)
-                    };
-                    historiqueDejaAjoutes.Add(new HistoriqueDejaAjoute { Id = historiqueScan.SuiviPrix.Id.ToString(), Prix = historiqueScan.Prix.ToString() });
-                    placeholderHistorique.Controls.Add(literalControl);
-
                 }
+
+                Literal lit = new Literal
+                {
+                    Text = "<div style='margin-bottom:25px;'>" + detailHotel + progressBar + "</div>"
+                };
+                placeholderHistorique.Controls.Add(lit);
             }
         }
 
@@ -156,11 +141,64 @@ namespace ATMTECH.Expeditn.Site.UserControl
             SuiviPrixService.Supprimer(new SuiviPrixService().ObtenirsuiviPrix(IdSuiviPrix));
             Response.Redirect("Tableaubord.aspx");
         }
+
+
+        private string ImageCompagnieAerienne(string compagnie)
+        {
+            string taille = "";
+            string image = "<img src='images/{0}' style='width:60px;height:30px;' >";
+
+            if (compagnie == "Air Transat") return string.Format(image, "logo-airtransat-header-desktop.svg");
+            if (compagnie == "WestJet") return string.Format(image, "ws.gif");
+            if (compagnie == "Sunwing Airlines") return string.Format(image, "wg.gif");
+            if (compagnie.ToLower().IndexOf("canada") >= 0) return string.Format(image, "ac.gif");
+            return compagnie;
+        }
+
+        private string TrouverNombreEtoile(HistoriqueSuiviPrix historique)
+        {
+            string etoilePleine = "<img src='Images/star-icon.png' style='width:15px;height:15px;'>";
+            string etoileDemi = "<img src='Images/star-icon-demi.png' style='width:15px;height:15px;'>";
+
+            switch (historique.NombreEtoile)
+            {
+                case "1":
+                    return etoilePleine;
+                case "1,5":
+                    return etoilePleine + etoileDemi;
+                case "2":
+                    return etoilePleine + etoilePleine;
+                case "2,5":
+                    return etoilePleine + etoilePleine + etoileDemi;
+                case "3":
+                    return etoilePleine + etoilePleine + etoilePleine;
+                case "3,5":
+                    return etoilePleine + etoilePleine + etoilePleine + etoileDemi;
+                case "4":
+                    return etoilePleine + etoilePleine + etoilePleine + etoilePleine;
+                case "4,5":
+                    return etoilePleine + etoilePleine + etoilePleine + etoilePleine + etoileDemi;
+                case "5":
+                    return etoilePleine + etoilePleine + etoilePleine + etoilePleine + etoilePleine;
+                default:
+                    return "Inconnu";
+            }
+        }
+
     }
 
-    public class HistoriqueDejaAjoute
+    //public class HistoriqueDejaAjoute
+    //{
+    //    public string Id { get; set; }
+    //    public string Prix { get; set; }
+    //}
+
+    public class ListeHotel
     {
-        public string Id { get; set; }
-        public string Prix { get; set; }
+        public string Hotel { get; set; }
+        public DateTime DateDepart { get; set; }
+        public decimal Prix { get; set; }
+        public DateTime DateSuivi { get; set; }
     }
+
 }

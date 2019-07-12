@@ -5,6 +5,9 @@ namespace ATMTECH.Expeditn.Entites
 {
   public  class HistoriqueSuiviPrix : Entite
     {
+        [BsonElement("Id")]
+        public string IdHotel { get; set; }
+
         [BsonElement("DateSuiviPrix")]
         public DateTime DateSuiviPrix { get; set; }
 
