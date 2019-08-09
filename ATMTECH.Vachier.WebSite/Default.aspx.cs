@@ -70,7 +70,7 @@ namespace ATMTECH.Vachier.WebSite
 
             if (isValidCaptcha)
             {
-                new DAOVachier().AjouterInsulte(txtTitre.Text, txtDescription.Text, ddlInsulte.Text);
+                new DAOVachier().AjouterInsulte(txtTitre.Text, txtDescription.Text, ddlInsulte.Text, Server.MapPath("/"));
                 Response.Redirect("Default.aspx");
             }
         }

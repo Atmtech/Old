@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Script.Serialization;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -13,34 +14,46 @@ namespace ATMTECH.Vachier.WebSite
     public class DAOVachier : BaseDAO
     {
 
-
-        public void AjouterInsulte(string titre, string description, string insultetexte)
+        public void SupprimerInsulte(Insulte insulte)
         {
             IMongoCollection<Insulte> mongoCollection = Database.GetCollection<Insulte>("Insulte");
+            mongoCollection.DeleteOneAsync(a => a.Id == insulte.Id);
+        }
 
-            string ip = HttpContext.Current.Request.UserHostName;
-            Localisation localisation = new Localisation();
-            if (ip != "127.0.0.1" && ip != "::1")
+        public void AjouterInsulte(string titre, string description, string insultetexte, string repertoire)
+        {
+            if (!string.IsNullOrEmpty(description))
             {
-                localisation = new DAOLogger().ObtenirInformationLocalisation(ip);
-                if (localisation.Ip.IndexOf("5.188.211", StringComparison.Ordinal) >= 0)
+                IMongoCollection<Insulte> mongoCollection = Database.GetCollection<Insulte>("Insulte");
+
+                string ip = HttpContext.Current.Request.UserHostName;
+                Localisation localisation = new Localisation();
+                if (ip != "127.0.0.1" && ip != "::1")
                 {
-                    return;
+                    localisation = new DAOLogger().ObtenirInformationLocalisation(ip);
+                    if (localisation.Ip.IndexOf("5.188.211", StringComparison.Ordinal) >= 0)
+                    {
+                        return;
+                    }
                 }
+                Insulte insulte = new Insulte
+                {
+                    DateCreation = DateTime.Now,
+                    Description = description + " " + insultetexte,
+                    Localisation = localisation,
+                    Titre = titre
+                };
+                mongoCollection.InsertOneAsync(insulte);
+                ViderCache();
             }
+        }
 
-
-            Insulte insulte = new Insulte
-            {
-                DateCreation = DateTime.Now,
-                Description = description + " " + insultetexte,
-                Localisation = localisation,
-                Titre = titre
-            };
-
-            mongoCollection.InsertOneAsync(insulte);
-            ViderCache();
-
+        public bool EstExclus(string description, string repertoire)
+        {
+            string jsonInput = System.IO.File.ReadAllText(repertoire + @"\exclusion.json");
+            JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
+            List<Exclusion> exclusion = jsonSerializer.Deserialize<List<Exclusion>>(jsonInput);
+            return exclusion.Any(exclusion1 => description.Contains(exclusion1.Url));
         }
 
         public List<Insulte> ObtenirTop10Merdeux()

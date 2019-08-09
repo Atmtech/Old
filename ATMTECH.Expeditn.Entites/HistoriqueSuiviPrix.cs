@@ -55,5 +55,9 @@ namespace ATMTECH.Expeditn.Entites
         [BsonElement("NombreEtoile")]
         public string NombreEtoile { get; set; }
 
+        [BsonElement("LienHotel")]
+        public string LienHotel { get; set; }
+
+
     }
 }

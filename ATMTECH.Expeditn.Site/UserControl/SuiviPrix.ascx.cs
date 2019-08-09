@@ -61,8 +61,6 @@ namespace ATMTECH.Expeditn.Site.UserControl
             string meilleurPrix = "<img src = 'Images/green-cute-icon.png' style='width:25px;height: 25px;'><b style = 'color:green' > Meilleur prix !</b>";
             foreach (ListeHotel listeHotel in listeHotels)
             {
-
-
                 HistoriqueSuiviPrix hotel = historiqueSuiviPrixes.FirstOrDefault(x => x.Hotel == listeHotel.Hotel);
                 string etoile = TrouverNombreEtoile(hotel);
 

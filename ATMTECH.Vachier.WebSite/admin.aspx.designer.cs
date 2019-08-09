@@ -40,6 +40,24 @@ namespace ATMTECH.Vachier.WebSite {
         protected global::System.Web.UI.WebControls.Button btnTest2;
         
         /// <summary>
+        /// Contrôle txtExclus.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExclus;
+        
+        /// <summary>
+        /// Contrôle btnTest3.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTest3;
+        
+        /// <summary>
         /// Contrôle lblHttp.
         /// </summary>
         /// <remarks>
@@ -47,5 +65,14 @@ namespace ATMTECH.Vachier.WebSite {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHttp;
+        
+        /// <summary>
+        /// Contrôle lblCompte.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCompte;
     }
 }

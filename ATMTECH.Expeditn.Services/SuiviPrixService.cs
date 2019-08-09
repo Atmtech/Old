@@ -87,6 +87,7 @@ namespace ATMTECH.Expeditn.Services
                     historique.Prix = modeleExpediaOffer.price.pricePerPassenger;
                     historique.VilleDepart = modeleExpediaOffer.trip.departureFlight.flightSegments[0].departure.airport.city;
                     historique.VilleArrive = modeleExpediaOffer.trip.departureFlight.flightSegments[0].arrival.airport.city;
+                    historique.LienHotel = modeleExpediaOffer.hotel.link;
 
                     if (modeleExpediaOffer.hotel.reviewSummary != null)
                         historique.NombreTotalAppreciation = modeleExpediaOffer.hotel.reviewSummary.total.ToString();
