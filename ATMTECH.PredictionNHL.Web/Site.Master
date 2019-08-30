@@ -1,0 +1,186 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ATMTECH.PredictionNHL.Web.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>EXPEDITN</title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.malot.fr/bootstrap-datetimepicker/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <style>
+        .card-header {
+            background-color: rgb(82, 99, 123);
+            color: white;
+            border: none;
+            text-transform: uppercase
+        }
+
+            .card-header::before {
+                background-image: url('/images/edit-icon.png');
+                background-size: 20px 20px;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                content: "";
+            }
+
+            .card-header::after {
+                content: "";
+            }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+            .btn:focus,
+            .btn:active:focus,
+            .btn.active:focus,
+            .btn.focus,
+            .btn:active.focus,
+            .btn.active.focus {
+                outline: thin dotted;
+                outline: 5px auto -webkit-focus-ring-color;
+                outline-offset: -2px;
+            }
+
+            .btn:hover,
+            .btn:focus,
+            .btn.focus {
+                color: white;
+                text-decoration: none;
+            }
+
+            .btn:active,
+            .btn.active {
+                background-image: none;
+                outline: 0;
+                -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+                box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+            }
+
+            .btn.disabled,
+            .btn[disabled],
+            fieldset[disabled] .btn {
+                pointer-events: none;
+                cursor: not-allowed;
+                filter: alpha(opacity=65);
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                opacity: .65;
+            }
+    </style>
+
+
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+    </script>
+</head>
+<body class="bg-dark">
+    <form id="form1" runat="server">
+      
+
+        <div class="form-group row">
+            <div class="col">
+                <div class="text-white pt-3 pl-5 font-weight-bold text-uppercase fa-text-height " style="font-size: 20px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <asp:HyperLink runat="server" ID="hyperLinkHome" NavigateUrl="Default.aspx" Text="PREDICTION NHL" class="text-white display-4" Style="text-decoration: none;"></asp:HyperLink></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="pt-3 pl-5 align-right" style="text-align: right">
+                    <asp:Button runat="server" class="btn btn-success font-weight-bold" Text="OUVRIR UNE SESSION" ID="btnOuvrirUneSession" formnovalidate OnClick="btnOuvrirUneSessionOnclick"></asp:Button>
+                    <asp:Button runat="server" ID="btnUtilisateurAuthentifie" class="btn btn-dark font-weight-bold" formnovalidate Visible="False" OnClick="btnUtilisateurAuthentifie_OnClick"></asp:Button>
+                    <asp:Button runat="server" class="btn btn-dark font-weight-bold" Text="CREER UN COMPTE" ID="btnCreerCompte" formnovalidate OnClick="btnCreerCompte_OnClick"></asp:Button>
+                    <asp:Button runat="server" class="btn btn-dark font-weight-bold" Text="FERMER SESSION" ID="btnFermerSession" formnovalidate Visible="False" OnClick="btnFermerSessionOnclick"></asp:Button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ml-4 mr-4" style="">
+            <asp:Panel runat="server" class="alert alert-danger" role="alert" Visible="False" ID="pnlMessageErreur">
+                <asp:Label runat="server" ID="lblMessageErreur"></asp:Label>
+            </asp:Panel>
+            <asp:Panel runat="server" class="alert alert-danger" role="alert" Visible="False" ID="pnlMessageSucces">
+                <asp:Label runat="server" ID="lblMessageSucces"></asp:Label>
+            </asp:Panel>
+            <asp:ScriptManager runat="server" ID="script"></asp:ScriptManager>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+
+
+        <div class="text-center py-3 text-white" style="background-color: black; margin-top: 10px;">
+            © 2018 Copyright predictionnhl.etouelle.com 
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <script src="https://www.malot.fr/bootstrap-datetimepicker/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js?t=20130302"></script>
+
+    <script type="text/javascript">
+        $(".form_datetime").datetimepicker({ format: 'yyyy-mm-dd', forceParse: true, todayBtn: true, minView:'month'});
+    </script>
+    
+    
+
+    <script>
+        var jumboHeight = $('.jumbotron').outerHeight();
+        function parallax() {
+            var scrolled = $(window).scrollTop();
+            $('.bg').css('height', (jumboHeight - scrolled) + 'px');
+        }
+
+        $(window).scroll(function (e) {
+            parallax();
+        });
+    </script>
+
+
+</body>
+</html>
