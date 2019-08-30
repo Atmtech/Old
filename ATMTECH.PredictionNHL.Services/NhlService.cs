@@ -13,14 +13,14 @@ namespace ATMTECH.PredictionNHL.Services
       
         public string ObtenirDateDebutSaison()
         {
-            //return "2019-10-02";
-            return "2018-10-04";
+            return "2019-10-02";
+            //return "2018-10-04";
         }
 
         public string ObtenirDateFinSaison()
         {
-            //return "2020-04-04";
-            return "2019-04-04";
+            return "2020-04-04";
+            //return "2019-04-04";
         }
 
 

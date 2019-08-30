@@ -65,24 +65,18 @@
             background: linear-gradient(to 45deg, rgba(0, 0, 0, 0.7), rgba(126, 126, 126, 0.7) 100%);
         }
     </style>
+    
 
-
-     <div class="view" style=" background-repeat: no-repeat; background-size: cover; background-position: center center;">
+     <div class="view" style="background-image: url('https://rdsimages.cookieless.ca/polopoly_fs/1.6600055.1549595521!/img/httpImage/image.jpg_gen/derivatives/main-xxxhdpi/image.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
         <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 white-text text-center text-md-left mt-xl-5 mb-5 wow fadeInLeft" data-wow-delay="0.3s">
-                        <h1 class="h1-responsive font-weight-bold mt-sm-5 text-white">Prediction NHL</h1>
+                        <h1 class="h1-responsive font-weight-bold mt-sm-5 text-white">Bonjour</h1>
                         <hr class="hr-light">
-                        <h6 class="mb-4 text-white"> </h6>
+                        <h6 class="mb-4 text-white">Le site permet de faire des prédictions de pointages en utilisant les données de la NHL. <br /><br />Assez simple, tu t'enregistre tu pointe tu grandis. </h6>
                         <a class="btn btn-success font-weight-bold" href="Identification.aspx" role="button">OUVRIR UNE SESSION</a>
                         <a class="btn btn-dark font-weight-bold" href="Identification.aspx?Creer=1" role="button">CRÉER UN COMPTE</a>
-                        
-                          <asp:button class="btn btn-dark font-weight-bold" runat="server" ID="btnGet" Text="tamere" OnClick="btnGet_Click" />
-
-
-                        <%--<input size="16" type="text" value="2012-06-15" readonly class="form_datetime form-control  bg-dark text-white">--%>
-      
                     </div>
                     <div class="col-md-6 col-xl-5 mt-xl-5 wow fadeInRight" data-wow-delay="0.3s">
                         <img src="Images/compass-icon.png" alt="" class="img-fluid w-50">

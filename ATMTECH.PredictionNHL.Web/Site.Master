@@ -30,11 +30,11 @@
         }
 
             .card-header::before {
-                background-image: url('/images/edit-icon.png');
-                background-size: 20px 20px;
+                background-image: url('/images/nhl.png');
+                background-size: 30px 30px;
                 display: inline-block;
-                width: 20px;
-                height: 20px;
+                width: 30px;
+                height: 30px;
                 content: "";
             }
 
@@ -123,8 +123,10 @@
                 <div class="text-white pt-3 pl-5 font-weight-bold text-uppercase fa-text-height " style="font-size: 20px;">
                     <table>
                         <tr>
+                             <td>
+                                <img src="Images/nhl.png" alt="" class="img-fluid" style="width: 100px"></td>
                             <td>
-                                <asp:HyperLink runat="server" ID="hyperLinkHome" NavigateUrl="Default.aspx" Text="PREDICTION NHL" class="text-white display-4" Style="text-decoration: none;"></asp:HyperLink></td>
+                                <asp:HyperLink runat="server" ID="hyperLinkHome" NavigateUrl="Default.aspx" Text="PREDICTION NHL 2019-2020" class="text-white display-4" Style="text-decoration: none;"></asp:HyperLink></td>
                         </tr>
                     </table>
                 </div>

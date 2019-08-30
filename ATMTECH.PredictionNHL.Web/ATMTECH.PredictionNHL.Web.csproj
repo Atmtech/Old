@@ -73,6 +73,11 @@
     <Content Include="Compte.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Identification.aspx" />
+    <Content Include="Images\edit-icon.png" />
+    <Content Include="Images\nhl.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\star-icon.png" />
     <Content Include="TableauBord.aspx" />
     <Content Include="UserControl\UtilisateurSaisie.ascx" />
     <Content Include="Web.config" />
@@ -131,6 +136,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Site.Master" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

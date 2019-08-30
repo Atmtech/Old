@@ -33,7 +33,7 @@
             }
 
             .card-header::after {
-                content: "________________ ";
+                content: "";
             }
 
         .btn {
